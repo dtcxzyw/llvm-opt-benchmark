@@ -963,7 +963,7 @@ abc/wlcUif.c.ll 397206922
 abc/wlcWin.c.ll 214646015
 abc/wlcWriteVer.c.ll 710365882
 abc/wlnBlast.c.ll 362701632
-abc/wlnCom.c.ll 139851327
+abc/wlnCom.c.ll 139711473
 abc/wlnNdr.c.ll 2058364929
 abc/wlnNtk.c.ll 635842028
 abc/wlnObj.c.ll 325494475
