@@ -13884,7 +13884,7 @@ llvm/BitwiseShiftChecker.cpp.ll 1946659165
 llvm/BlockCounter.cpp.ll 1023585876
 llvm/BlockCoverageInference.cpp.ll 3164551600
 llvm/BlockExtractor.cpp.ll 1516652204
-llvm/BlockFrequency.cpp.ll 160123269
+llvm/BlockFrequency.cpp.ll 160283396
 llvm/BlockFrequencyInfo.cpp.ll 6329020304
 llvm/BlockFrequencyInfoImpl.cpp.ll 3969555436
 llvm/BlockInCriticalSectionChecker.cpp.ll 2859328183
@@ -16999,7 +16999,7 @@ minetest/clientpackethandler.cpp.ll 2459802034
 minetest/clouds.cpp.ll 1077448362
 minetest/collector.cpp.ll 165575742
 minetest/collision.cpp.ll 590550086
-minetest/colorize.cpp.ll 201280283
+minetest/colorize.cpp.ll 201078805
 minetest/connection.cpp.ll 2197116365
 minetest/connectionthreads.cpp.ll 2190586907
 minetest/content.cpp.ll 495612660
@@ -24368,7 +24368,7 @@ openmpi/ompi_info.ll 103084901
 openmpi/ompi_mpi_abort.ll 94996362
 openmpi/ompi_mpi_finalize.ll 70590863
 openmpi/ompi_mpi_init.ll 87977069
-openmpi/ompi_mpi_params.ll 91989937
+openmpi/ompi_mpi_params.ll 92082040
 openmpi/ompi_mpi_preconnect.ll 46629846
 openmpi/ompi_rte.ll 414119842
 openmpi/ompi_seq_tracker.ll 140254725
