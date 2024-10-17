@@ -16552,7 +16552,7 @@ GC_enough_large_bytes_left.exit:                  ; preds = %45
 51:                                               ; preds = %GC_enough_large_bytes_left.exit, %37, %22, %27, %35
   %.034 = phi i32 [ 1, %35 ], [ 1, %27 ], [ 1, %22 ], [ 1, %37 ], [ %spec.select, %GC_enough_large_bytes_left.exit ]
   %.0 = phi i32 [ 60, %35 ], [ 60, %27 ], [ 60, %22 ], [ 0, %37 ], [ %.0710.i, %GC_enough_large_bytes_left.exit ]
-  %52 = icmp ult i32 %.0.i, 32
+  %52 = icmp samesign ult i32 %.0.i, 32
   %53 = icmp eq i64 %3, 0
   %or.cond5 = and i1 %53, %52
   %54 = zext i1 %or.cond5 to i32
@@ -32571,7 +32571,7 @@ GC_add_roots_inner.exit.i.i:                      ; preds = %165, %158, %155, %1
   %189 = getelementptr inbounds i8, ptr %.01730.i.i, i64 56
   %190 = load i16, ptr %109, align 8
   %191 = zext i16 %190 to i32
-  %192 = icmp ult i32 %188, %191
+  %192 = icmp samesign ult i32 %188, %191
   br i1 %192, label %.lr.ph.i5.i, label %._crit_edge.i6.i, !llvm.loop !159
 
 ._crit_edge.i6.i:                                 ; preds = %GC_add_roots_inner.exit.i.i, %.lr.ph40.i.i
@@ -38260,7 +38260,7 @@ define internal range(i32 -1, 1) i32 @GC_register_dynlib_callback(ptr nocapture 
   %49 = getelementptr inbounds i8, ptr %.04961, i64 56
   %50 = load i16, ptr %7, align 8
   %51 = zext i16 %50 to i32
-  %52 = icmp ult i32 %48, %51
+  %52 = icmp samesign ult i32 %48, %51
   br i1 %52, label %10, label %._crit_edge, !llvm.loop !209
 
 ._crit_edge:                                      ; preds = %47
@@ -38349,7 +38349,7 @@ define internal range(i32 -1, 1) i32 @GC_register_dynlib_callback(ptr nocapture 
   %90 = getelementptr inbounds i8, ptr %.15066, i64 56
   %91 = load i16, ptr %7, align 8
   %92 = zext i16 %91 to i32
-  %93 = icmp ult i32 %89, %92
+  %93 = icmp samesign ult i32 %89, %92
   br i1 %93, label %.lr.ph69, label %._crit_edge70, !llvm.loop !211
 
 ._crit_edge70:                                    ; preds = %.loopexit, %5, %._crit_edge
@@ -39141,7 +39141,7 @@ GC_find_header.exit:                              ; preds = %10
   %29 = trunc i64 %26 to i16
   %30 = sub i16 %29, %28
   %31 = zext i16 %30 to i32
-  %.not12 = icmp ugt i32 %2, %31
+  %.not12 = icmp samesign ugt i32 %2, %31
   br i1 %.not12, label %62, label %32
 
 32:                                               ; preds = %25

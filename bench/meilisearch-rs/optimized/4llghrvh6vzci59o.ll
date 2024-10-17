@@ -16372,7 +16372,7 @@ define hidden { i64, ptr } @_ZN4time10formatting22format_number_pad_zero17h010c6
 33:                                               ; preds = %24, %._crit_edge.i
   %.sroa.012.1.i = phi i64 [ %29, %24 ], [ %.sroa.012.0.lcssa.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi i64 [ %.zext30.i, %24 ], [ %7, %._crit_edge.i ]
-  %34 = icmp ult i64 %.sroa.06.0.i, 10
+  %34 = icmp samesign ult i64 %.sroa.06.0.i, 10
   br i1 %34, label %41, label %35
 
 35:                                               ; preds = %33
@@ -16517,7 +16517,7 @@ define hidden { i64, ptr } @_ZN4time10formatting22format_number_pad_zero17h210e5
 35:                                               ; preds = %26, %._crit_edge.i
   %.sroa.012.1.i = phi i64 [ %31, %26 ], [ %.sroa.012.0.lcssa.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi i64 [ %.zext30.i, %26 ], [ %9, %._crit_edge.i ]
-  %36 = icmp ult i64 %.sroa.06.0.i, 10
+  %36 = icmp samesign ult i64 %.sroa.06.0.i, 10
   br i1 %36, label %43, label %37
 
 37:                                               ; preds = %35
@@ -16664,7 +16664,7 @@ define hidden { i64, ptr } @_ZN4time10formatting22format_number_pad_zero17h28567
 35:                                               ; preds = %26, %._crit_edge.i
   %.sroa.012.1.i = phi i64 [ %31, %26 ], [ %.sroa.012.0.lcssa.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi i64 [ %.zext30.i, %26 ], [ %9, %._crit_edge.i ]
-  %36 = icmp ult i64 %.sroa.06.0.i, 10
+  %36 = icmp samesign ult i64 %.sroa.06.0.i, 10
   br i1 %36, label %43, label %37
 
 37:                                               ; preds = %35
@@ -16811,7 +16811,7 @@ define hidden { i64, ptr } @_ZN4time10formatting22format_number_pad_zero17h425c0
 35:                                               ; preds = %26, %._crit_edge.i
   %.sroa.012.1.i = phi i64 [ %31, %26 ], [ %.sroa.012.0.lcssa.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi i64 [ %.zext30.i, %26 ], [ %9, %._crit_edge.i ]
-  %36 = icmp ult i64 %.sroa.06.0.i, 10
+  %36 = icmp samesign ult i64 %.sroa.06.0.i, 10
   br i1 %36, label %43, label %37
 
 37:                                               ; preds = %35
@@ -16958,7 +16958,7 @@ define hidden { i64, ptr } @_ZN4time10formatting22format_number_pad_zero17h46dc7
 35:                                               ; preds = %26, %._crit_edge.i
   %.sroa.012.1.i = phi i64 [ %31, %26 ], [ %.sroa.012.0.lcssa.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi i64 [ %.zext30.i, %26 ], [ %9, %._crit_edge.i ]
-  %36 = icmp ult i64 %.sroa.06.0.i, 10
+  %36 = icmp samesign ult i64 %.sroa.06.0.i, 10
   br i1 %36, label %43, label %37
 
 37:                                               ; preds = %35
@@ -17105,7 +17105,7 @@ define hidden { i64, ptr } @_ZN4time10formatting22format_number_pad_zero17h4d8eb
 35:                                               ; preds = %26, %._crit_edge.i
   %.sroa.012.1.i = phi i64 [ %31, %26 ], [ %.sroa.012.0.lcssa.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi i64 [ %.zext30.i, %26 ], [ %9, %._crit_edge.i ]
-  %36 = icmp ult i64 %.sroa.06.0.i, 10
+  %36 = icmp samesign ult i64 %.sroa.06.0.i, 10
   br i1 %36, label %43, label %37
 
 37:                                               ; preds = %35
@@ -17252,7 +17252,7 @@ define hidden { i64, ptr } @_ZN4time10formatting22format_number_pad_zero17ha695b
 35:                                               ; preds = %26, %._crit_edge.i
   %.sroa.012.1.i = phi i64 [ %31, %26 ], [ %.sroa.012.0.lcssa.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi i64 [ %.zext30.i, %26 ], [ %9, %._crit_edge.i ]
-  %36 = icmp ult i64 %.sroa.06.0.i, 10
+  %36 = icmp samesign ult i64 %.sroa.06.0.i, 10
   br i1 %36, label %43, label %37
 
 37:                                               ; preds = %35
@@ -17399,7 +17399,7 @@ define hidden { i64, ptr } @_ZN4time10formatting22format_number_pad_zero17hbd69e
 35:                                               ; preds = %26, %._crit_edge.i
   %.sroa.012.1.i = phi i64 [ %31, %26 ], [ %.sroa.012.0.lcssa.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi i64 [ %.zext30.i, %26 ], [ %9, %._crit_edge.i ]
-  %36 = icmp ult i64 %.sroa.06.0.i, 10
+  %36 = icmp samesign ult i64 %.sroa.06.0.i, 10
   br i1 %36, label %43, label %37
 
 37:                                               ; preds = %35
@@ -17883,7 +17883,7 @@ define hidden { i64, ptr } @_ZN4time10formatting22format_number_pad_zero17hee7db
 35:                                               ; preds = %26, %._crit_edge.i
   %.sroa.012.1.i = phi i64 [ %31, %26 ], [ %.sroa.012.0.lcssa.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi i64 [ %.zext30.i, %26 ], [ %9, %._crit_edge.i ]
-  %36 = icmp ult i64 %.sroa.06.0.i, 10
+  %36 = icmp samesign ult i64 %.sroa.06.0.i, 10
   br i1 %36, label %43, label %37
 
 37:                                               ; preds = %35
@@ -53476,7 +53476,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h9e8a2e8c5b189ecaE.exit: ; pr
 59:                                               ; preds = %50, %._crit_edge.i.i.i.i.i.i
   %.sroa.012.1.i.i.i.i.i.i = phi i64 [ %55, %50 ], [ %.sroa.012.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.sroa.06.0.i.i.i.i.i.i = phi i64 [ %.zext30.i.i.i.i.i.i, %50 ], [ %33, %._crit_edge.i.i.i.i.i.i ]
-  %60 = icmp ult i64 %.sroa.06.0.i.i.i.i.i.i, 10
+  %60 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i.i.i, 10
   br i1 %60, label %67, label %61
 
 61:                                               ; preds = %59
@@ -55371,7 +55371,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h9e8a2e8c5b189ecaE.exit: ; pr
 43:                                               ; preds = %34, %._crit_edge.i.i.i.i
   %.sroa.012.1.i.i.i.i = phi i64 [ %39, %34 ], [ %.sroa.012.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.06.0.i.i.i.i = phi i64 [ %.zext30.i.i.i.i, %34 ], [ %17, %._crit_edge.i.i.i.i ]
-  %44 = icmp ult i64 %.sroa.06.0.i.i.i.i, 10
+  %44 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i, 10
   br i1 %44, label %51, label %45
 
 45:                                               ; preds = %43
@@ -57549,7 +57549,7 @@ define hidden noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F
 35:                                               ; preds = %26, %._crit_edge.i.i.i.i
   %.sroa.012.1.i.i.i.i = phi i64 [ %31, %26 ], [ %.sroa.012.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.06.0.i.i.i.i = phi i64 [ %.zext30.i.i.i.i, %26 ], [ %9, %._crit_edge.i.i.i.i ]
-  %36 = icmp ult i64 %.sroa.06.0.i.i.i.i, 10
+  %36 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i, 10
   br i1 %36, label %43, label %37
 
 37:                                               ; preds = %35

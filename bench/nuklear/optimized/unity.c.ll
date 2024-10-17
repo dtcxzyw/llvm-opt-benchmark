@@ -1521,14 +1521,14 @@ entry:
   %col.sroa.19.0.extract.shift = lshr i32 %col.coerce, 24
   %and = lshr i32 %col.coerce, 4
   %shr = and i32 %and, 15
-  %cmp = icmp ult i32 %shr, 10
+  %cmp = icmp samesign ult i32 %shr, 10
   %add = or disjoint i32 %shr, 48
   %add10 = add nuw nsw i32 %shr, 55
   %cond = select i1 %cmp, i32 %add, i32 %add10
   %conv11 = trunc nuw nsw i32 %cond to i8
   store i8 %conv11, ptr %output, align 1
   %and14 = and i32 %col.coerce, 15
-  %cmp15 = icmp ult i32 %and14, 10
+  %cmp15 = icmp samesign ult i32 %and14, 10
   %add21 = or disjoint i32 %and14, 48
   %add26 = add nuw nsw i32 %and14, 55
   %cond28 = select i1 %cmp15, i32 %add21, i32 %add26
@@ -1537,7 +1537,7 @@ entry:
   store i8 %conv29, ptr %arrayidx30, align 1
   %and32 = lshr i32 %col.coerce, 12
   %shr33 = and i32 %and32, 15
-  %cmp34 = icmp ult i32 %shr33, 10
+  %cmp34 = icmp samesign ult i32 %shr33, 10
   %add41 = or disjoint i32 %shr33, 48
   %add47 = add nuw nsw i32 %shr33, 55
   %cond49 = select i1 %cmp34, i32 %add41, i32 %add47
@@ -1545,7 +1545,7 @@ entry:
   %arrayidx51 = getelementptr inbounds i8, ptr %output, i64 2
   store i8 %conv50, ptr %arrayidx51, align 1
   %and54 = and i32 %col.sroa.7.0.extract.shift, 15
-  %cmp55 = icmp ult i32 %and54, 10
+  %cmp55 = icmp samesign ult i32 %and54, 10
   %add61 = or disjoint i32 %and54, 48
   %add66 = add nuw nsw i32 %and54, 55
   %cond68 = select i1 %cmp55, i32 %add61, i32 %add66
@@ -1554,7 +1554,7 @@ entry:
   store i8 %conv69, ptr %arrayidx70, align 1
   %and72 = lshr i32 %col.coerce, 20
   %shr73 = and i32 %and72, 15
-  %cmp74 = icmp ult i32 %shr73, 10
+  %cmp74 = icmp samesign ult i32 %shr73, 10
   %add81 = or disjoint i32 %shr73, 48
   %add87 = add nuw nsw i32 %shr73, 55
   %cond89 = select i1 %cmp74, i32 %add81, i32 %add87
@@ -1562,7 +1562,7 @@ entry:
   %arrayidx91 = getelementptr inbounds i8, ptr %output, i64 4
   store i8 %conv90, ptr %arrayidx91, align 1
   %and94 = and i32 %col.sroa.13.0.extract.shift, 15
-  %cmp95 = icmp ult i32 %and94, 10
+  %cmp95 = icmp samesign ult i32 %and94, 10
   %add101 = or disjoint i32 %and94, 48
   %add106 = add nuw nsw i32 %and94, 55
   %cond108 = select i1 %cmp95, i32 %add101, i32 %add106
@@ -1578,7 +1578,7 @@ entry:
   %arrayidx131 = getelementptr inbounds i8, ptr %output, i64 6
   store i8 %conv130, ptr %arrayidx131, align 1
   %and134 = and i32 %col.sroa.19.0.extract.shift, 15
-  %cmp135 = icmp ult i32 %and134, 10
+  %cmp135 = icmp samesign ult i32 %and134, 10
   %add141 = or disjoint i32 %and134, 48
   %add146 = add nuw nsw i32 %and134, 55
   %cond148 = select i1 %cmp135, i32 %add141, i32 %add146
@@ -1597,14 +1597,14 @@ entry:
   %col.sroa.13.0.extract.shift = lshr i32 %col.coerce, 16
   %and = lshr i32 %col.coerce, 4
   %shr = and i32 %and, 15
-  %cmp = icmp ult i32 %shr, 10
+  %cmp = icmp samesign ult i32 %shr, 10
   %add = or disjoint i32 %shr, 48
   %add10 = add nuw nsw i32 %shr, 55
   %cond = select i1 %cmp, i32 %add, i32 %add10
   %conv11 = trunc nuw nsw i32 %cond to i8
   store i8 %conv11, ptr %output, align 1
   %and14 = and i32 %col.coerce, 15
-  %cmp15 = icmp ult i32 %and14, 10
+  %cmp15 = icmp samesign ult i32 %and14, 10
   %add21 = or disjoint i32 %and14, 48
   %add26 = add nuw nsw i32 %and14, 55
   %cond28 = select i1 %cmp15, i32 %add21, i32 %add26
@@ -1613,7 +1613,7 @@ entry:
   store i8 %conv29, ptr %arrayidx30, align 1
   %and32 = lshr i32 %col.coerce, 12
   %shr33 = and i32 %and32, 15
-  %cmp34 = icmp ult i32 %shr33, 10
+  %cmp34 = icmp samesign ult i32 %shr33, 10
   %add41 = or disjoint i32 %shr33, 48
   %add47 = add nuw nsw i32 %shr33, 55
   %cond49 = select i1 %cmp34, i32 %add41, i32 %add47
@@ -1621,7 +1621,7 @@ entry:
   %arrayidx51 = getelementptr inbounds i8, ptr %output, i64 2
   store i8 %conv50, ptr %arrayidx51, align 1
   %and54 = and i32 %col.sroa.7.0.extract.shift, 15
-  %cmp55 = icmp ult i32 %and54, 10
+  %cmp55 = icmp samesign ult i32 %and54, 10
   %add61 = or disjoint i32 %and54, 48
   %add66 = add nuw nsw i32 %and54, 55
   %cond68 = select i1 %cmp55, i32 %add61, i32 %add66
@@ -1630,7 +1630,7 @@ entry:
   store i8 %conv69, ptr %arrayidx70, align 1
   %and72 = lshr i32 %col.coerce, 20
   %shr73 = and i32 %and72, 15
-  %cmp74 = icmp ult i32 %shr73, 10
+  %cmp74 = icmp samesign ult i32 %shr73, 10
   %add81 = or disjoint i32 %shr73, 48
   %add87 = add nuw nsw i32 %shr73, 55
   %cond89 = select i1 %cmp74, i32 %add81, i32 %add87
@@ -1638,7 +1638,7 @@ entry:
   %arrayidx91 = getelementptr inbounds i8, ptr %output, i64 4
   store i8 %conv90, ptr %arrayidx91, align 1
   %and94 = and i32 %col.sroa.13.0.extract.shift, 15
-  %cmp95 = icmp ult i32 %and94, 10
+  %cmp95 = icmp samesign ult i32 %and94, 10
   %add101 = or disjoint i32 %and94, 48
   %add106 = add nuw nsw i32 %and94, 55
   %cond108 = select i1 %cmp95, i32 %add101, i32 %add106
@@ -4202,8 +4202,8 @@ for.cond.preheader:                               ; preds = %nk_utf_decode_byte.
   %and12.i = and i8 %0, %not.i
   %conv14.i = zext i8 %and12.i to i32
   %cmp859 = icmp sgt i32 %clen, 1
-  %cmp960 = icmp ugt i64 %indvars.iv.i, 1
-  %5 = and i1 %cmp859, %cmp960
+  %cmp960 = icmp samesign ugt i64 %indvars.iv.i, 1
+  %5 = select i1 %cmp859, i1 %cmp960, i1 false
   br i1 %5, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %for.cond.preheader
@@ -4315,7 +4315,7 @@ for.cond.i:                                       ; preds = %for.cond.i, %entry
 nk_utf_validate.exit:                             ; preds = %for.cond.i
   %2 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp = icmp slt i32 %clen, %2
-  %cmp2 = icmp ugt i64 %indvars.iv.i, 4
+  %cmp2 = icmp samesign ugt i64 %indvars.iv.i, 4
   %or.cond1 = or i1 %cmp2, %cmp
   br i1 %or.cond1, label %return, label %for.cond.preheader
 
@@ -4396,8 +4396,8 @@ nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
 
 for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.exit.i
   %cmp859.i = icmp sgt i32 %len, 1
-  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %5 = and i1 %cmp859.i, %cmp960.i
+  %cmp960.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
+  %5 = select i1 %cmp859.i, i1 %cmp960.i, i1 false
   br i1 %5, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -4500,8 +4500,8 @@ nk_utf_decode_byte.exit.i27:                      ; preds = %for.body.i.i15
 
 for.cond.preheader.i29:                           ; preds = %nk_utf_decode_byte.exit.i27
   %cmp859.i33 = icmp sgt i32 %sub, 1
-  %cmp960.i34 = icmp ugt i64 %indvars.iv.i.i17, 1
-  %17 = and i1 %cmp859.i33, %cmp960.i34
+  %cmp960.i34 = icmp samesign ugt i64 %indvars.iv.i.i17, 1
+  %17 = select i1 %cmp859.i33, i1 %cmp960.i34, i1 false
   br i1 %17, label %for.body.preheader.i47, label %for.end.i35
 
 for.body.preheader.i47:                           ; preds = %for.cond.preheader.i29
@@ -5716,7 +5716,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
 
 for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.exit.i
-  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp960.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp960.i, label %for.body.preheader.i, label %if.end18.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -5842,7 +5842,7 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %1, -1
   %and12.i.i = and i8 %0, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp960.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp960.i, label %for.body.preheader.i, label %if.end18.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -5964,7 +5964,7 @@ for.cond.preheader.i26:                           ; preds = %nk_utf_decode_byte.
   %not.i.i27 = xor i8 %15, -1
   %and12.i.i28 = and i8 %14, %not.i.i27
   %conv14.i.i29 = zext i8 %and12.i.i28 to i32
-  %cmp960.i30 = icmp ugt i64 %indvars.iv.i.i14, 1
+  %cmp960.i30 = icmp samesign ugt i64 %indvars.iv.i.i14, 1
   br i1 %cmp960.i30, label %for.body.preheader.i43, label %if.end18.i32
 
 for.body.preheader.i43:                           ; preds = %for.cond.preheader.i26
@@ -6126,7 +6126,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %for.
 
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
   %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %cmp2.i = icmp ugt i64 %indvars.iv.i.i, 4
+  %cmp2.i = icmp samesign ugt i64 %indvars.iv.i.i, 4
   br i1 %cmp2.i, label %return, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %nk_utf_validate.exit.i
@@ -6224,7 +6224,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %whil
 
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
   %4 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %cmp2.i = icmp ugt i64 %indvars.iv.i.i, 4
+  %cmp2.i = icmp samesign ugt i64 %indvars.iv.i.i, 4
   br i1 %cmp2.i, label %nk_str_append_text_char.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %nk_utf_validate.exit.i
@@ -6642,7 +6642,7 @@ nk_utf_decode_byte.exit.i.i:                      ; preds = %for.body.i.i.i
   br i1 %or.cond1.i.i, label %for.cond.preheader.i.i, label %nk_utf_decode.exit.i
 
 for.cond.preheader.i.i:                           ; preds = %nk_utf_decode_byte.exit.i.i
-  %cmp960.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp960.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp960.i.i, label %for.body.preheader.i.i, label %if.end18.i.i
 
 for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i.i
@@ -6759,7 +6759,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
 
 for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.exit.i
-  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp960.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp960.i, label %for.body.preheader.i, label %if.end18.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -6888,7 +6888,7 @@ nk_utf_decode_byte.exit.i.i:                      ; preds = %for.body.i.i.i
   br i1 %or.cond1.i.i, label %for.cond.preheader.i.i, label %nk_utf_decode.exit.i
 
 for.cond.preheader.i.i:                           ; preds = %nk_utf_decode_byte.exit.i.i
-  %cmp960.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp960.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp960.i.i, label %for.body.preheader.i.i, label %if.end18.i.i
 
 for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i.i
@@ -6997,7 +6997,7 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %1, -1
   %and12.i.i = and i8 %0, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp960.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp960.i, label %for.body.preheader.i, label %if.end18.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -7119,7 +7119,7 @@ for.cond.preheader.i26:                           ; preds = %nk_utf_decode_byte.
   %not.i.i27 = xor i8 %15, -1
   %and12.i.i28 = and i8 %14, %not.i.i27
   %conv14.i.i29 = zext i8 %and12.i.i28 to i32
-  %cmp960.i30 = icmp ugt i64 %indvars.iv.i.i14, 1
+  %cmp960.i30 = icmp samesign ugt i64 %indvars.iv.i.i14, 1
   br i1 %cmp960.i30, label %for.body.preheader.i43, label %if.end18.i32
 
 for.body.preheader.i43:                           ; preds = %for.cond.preheader.i26
@@ -7265,7 +7265,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %for.
 
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
   %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %cmp2.i = icmp ugt i64 %indvars.iv.i.i, 4
+  %cmp2.i = icmp samesign ugt i64 %indvars.iv.i.i, 4
   br i1 %cmp2.i, label %return, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %nk_utf_validate.exit.i
@@ -7349,7 +7349,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %whil
 
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
   %4 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %cmp2.i = icmp ugt i64 %indvars.iv.i.i, 4
+  %cmp2.i = icmp samesign ugt i64 %indvars.iv.i.i, 4
   br i1 %cmp2.i, label %nk_utf_encode.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %nk_utf_validate.exit.i
@@ -13833,8 +13833,8 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %and12.i.i = and i8 %7, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
   %cmp859.i = icmp sgt i32 %len, 1
-  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %12 = and i1 %cmp859.i, %cmp960.i
+  %cmp960.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
+  %12 = select i1 %cmp859.i, i1 %cmp960.i, i1 false
   br i1 %12, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -13987,8 +13987,8 @@ for.cond.preheader.i55:                           ; preds = %nk_utf_decode_byte.
   %and12.i.i57 = and i8 %22, %not.i.i56
   %conv14.i.i58 = zext i8 %and12.i.i57 to i32
   %cmp859.i59 = icmp sgt i32 %sub, 1
-  %cmp960.i60 = icmp ugt i64 %indvars.iv.i.i43, 1
-  %27 = and i1 %cmp859.i59, %cmp960.i60
+  %cmp960.i60 = icmp samesign ugt i64 %indvars.iv.i.i43, 1
+  %27 = select i1 %cmp859.i59, i1 %cmp960.i60, i1 false
   br i1 %27, label %for.body.preheader.i73, label %for.end.i61
 
 for.body.preheader.i73:                           ; preds = %for.cond.preheader.i55
@@ -15113,7 +15113,7 @@ for.body268:                                      ; preds = %for.body268.lr.ph, 
   %indvars.iv.next542 = add nuw nsw i64 %indvars.iv541, 1
   %249 = load i16, ptr %point_count, align 2
   %250 = zext i16 %249 to i64
-  %cmp266 = icmp ult i64 %indvars.iv.next542, %250
+  %cmp266 = icmp samesign ult i64 %indvars.iv.next542, %250
   br i1 %cmp266, label %for.body268, label %for.end, !llvm.loop !64
 
 for.end:                                          ; preds = %for.body268, %for.cond264.preheader
@@ -15176,7 +15176,7 @@ for.body291:                                      ; preds = %for.body291.lr.ph, 
   %indvars.iv.next539 = add nuw nsw i64 %indvars.iv538, 1
   %264 = load i16, ptr %point_count287, align 4
   %265 = zext i16 %264 to i64
-  %cmp289 = icmp ult i64 %indvars.iv.next539, %265
+  %cmp289 = icmp samesign ult i64 %indvars.iv.next539, %265
   br i1 %cmp289, label %for.body291, label %for.end307, !llvm.loop !65
 
 for.end307:                                       ; preds = %for.body291, %for.cond286.preheader
@@ -15236,7 +15236,7 @@ for.body318:                                      ; preds = %for.body318.lr.ph, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %278 = load i16, ptr %point_count314, align 2
   %279 = zext i16 %278 to i64
-  %cmp316 = icmp ult i64 %indvars.iv.next, %279
+  %cmp316 = icmp samesign ult i64 %indvars.iv.next, %279
   br i1 %cmp316, label %for.body318, label %for.end334, !llvm.loop !66
 
 for.end334:                                       ; preds = %for.body318, %for.cond313.preheader
@@ -32348,7 +32348,7 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %1, -1
   %and12.i.i = and i8 %0, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp960.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp960.i, label %for.body.preheader.i, label %if.end18.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -32464,7 +32464,7 @@ nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
   %sub = sub nsw i32 16, %13
   %15 = trunc nuw nsw i64 %indvars.iv.i.i12 to i32
   %cmp.i = icmp slt i32 %sub, %15
-  %cmp2.i = icmp ugt i64 %indvars.iv.i.i12, 4
+  %cmp2.i = icmp samesign ugt i64 %indvars.iv.i.i12, 4
   %or.cond1.i15 = or i1 %cmp2.i, %cmp.i
   br i1 %or.cond1.i15, label %nk_utf_encode.exit, label %for.cond.preheader.i16
 
@@ -32556,7 +32556,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %if.e
   br i1 %cmp11.i.i, label %for.cond.i.i, label %nk_utf_validate.exit.i, !llvm.loop !21
 
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
-  %cmp2.i = icmp ugt i64 %indvars.iv.i.i, 4
+  %cmp2.i = icmp samesign ugt i64 %indvars.iv.i.i, 4
   br i1 %cmp2.i, label %nk_utf_encode.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %nk_utf_validate.exit.i
@@ -47050,7 +47050,7 @@ for.body57.us:                                    ; preds = %for.body57.us.prehe
   %cond76.us = select i1 %cmp63.us, float %div, float %11
   store float %cond76.us, ptr %arrayidx62.us, align 4
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %cmp55.us = icmp ult i64 %indvars.iv.next69, %10
+  %cmp55.us = icmp samesign ult i64 %indvars.iv.next69, %10
   br i1 %cmp55.us, label %for.body57.us, label %if.end80, !llvm.loop !205
 
 for.body57:                                       ; preds = %if.end51.thread, %cond.end75
@@ -47072,7 +47072,7 @@ cond.end75:                                       ; preds = %cond.false66, %for.
   %cond76 = phi float [ %fneg71, %cond.true70 ], [ %12, %for.body57 ], [ %div50, %cond.false66 ]
   store float %cond76, ptr %arrayidx62, align 4
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %cmp55 = icmp ult i64 %indvars.iv.next66, %9
+  %cmp55 = icmp samesign ult i64 %indvars.iv.next66, %9
   br i1 %cmp55, label %for.body57, label %if.end80, !llvm.loop !205
 
 if.end80:                                         ; preds = %for.body57.us, %cond.end75, %for.cond.preheader, %if.end, %entry, %lor.lhs.false, %lor.lhs.false2, %for.end
@@ -52444,8 +52444,8 @@ for.cond.preheader.i.i:                           ; preds = %nk_utf_decode_byte.
   %and12.i.i.i = and i8 %34, %not.i.i.i
   %conv14.i.i.i = zext i8 %and12.i.i.i to i32
   %cmp859.i.i = icmp sgt i32 %sub.i111.i, 1
-  %cmp960.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
-  %39 = and i1 %cmp859.i.i, %cmp960.i.i
+  %cmp960.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
+  %39 = select i1 %cmp859.i.i, i1 %cmp960.i.i, i1 false
   br i1 %39, label %for.body.preheader.i.i, label %for.end.i124.i
 
 for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i.i
@@ -58262,8 +58262,8 @@ for.cond.preheader.i.i:                           ; preds = %nk_utf_decode_byte.
   %and12.i.i.i = and i8 %10, %not.i.i.i
   %conv14.i.i.i = zext i8 %and12.i.i.i to i32
   %cmp859.i.i = icmp sgt i32 %sub.i.i.i, 1
-  %cmp960.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
-  %15 = and i1 %cmp859.i.i, %cmp960.i.i
+  %cmp960.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
+  %15 = select i1 %cmp859.i.i, i1 %cmp960.i.i, i1 false
   br i1 %15, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i.i
@@ -58776,7 +58776,7 @@ nk_utf_decode_byte.exit.i.i.i:                    ; preds = %for.body.i.i.i.i
   br i1 %or.cond1.i.i.i, label %for.cond.preheader.i.i.i, label %nk_utf_decode.exit.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %nk_utf_decode_byte.exit.i.i.i
-  %cmp960.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %cmp960.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp960.i.i.i, label %for.body.preheader.i.i.i, label %if.end18.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %for.cond.preheader.i.i.i
@@ -58951,8 +58951,8 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %and12.i.i = and i8 %1, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
   %cmp859.i = icmp sgt i32 %total_len, 1
-  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %6 = and i1 %cmp859.i, %cmp960.i
+  %cmp960.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
+  %6 = select i1 %cmp859.i, i1 %cmp960.i, i1 false
   br i1 %6, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -59211,7 +59211,7 @@ nk_utf_decode_byte.exit.i.i:                      ; preds = %for.body.i.i.i
   br i1 %or.cond1.i.i, label %for.cond.preheader.i.i, label %nk_utf_decode.exit.i
 
 for.cond.preheader.i.i:                           ; preds = %nk_utf_decode_byte.exit.i.i
-  %cmp960.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp960.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp960.i.i, label %for.body.preheader.i.i, label %if.end18.i.i
 
 for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i.i
@@ -59375,7 +59375,7 @@ nk_utf_decode_byte.exit.i.i89:                    ; preds = %for.body.i.i.i71
   br i1 %or.cond1.i.i90, label %for.cond.preheader.i.i91, label %nk_utf_decode.exit.i82
 
 for.cond.preheader.i.i91:                         ; preds = %nk_utf_decode_byte.exit.i.i89
-  %cmp960.i.i92 = icmp ugt i64 %indvars.iv.i.i.i73, 1
+  %cmp960.i.i92 = icmp samesign ugt i64 %indvars.iv.i.i.i73, 1
   br i1 %cmp960.i.i92, label %for.body.preheader.i.i94, label %if.end18.i.i93
 
 for.body.preheader.i.i94:                         ; preds = %for.cond.preheader.i.i91
@@ -59519,8 +59519,8 @@ for.cond.preheader.i157:                          ; preds = %nk_utf_decode_byte.
   %and12.i.i159 = and i8 %70, %not.i.i158
   %conv14.i.i160 = zext i8 %and12.i.i159 to i32
   %cmp859.i161 = icmp sgt i32 %sub, 1
-  %cmp960.i162 = icmp ugt i64 %indvars.iv.i.i145, 1
-  %75 = and i1 %cmp859.i161, %cmp960.i162
+  %cmp960.i162 = icmp samesign ugt i64 %indvars.iv.i.i145, 1
+  %75 = select i1 %cmp859.i161, i1 %cmp960.i162, i1 false
   br i1 %75, label %for.body.preheader.i175, label %for.end.i163
 
 for.body.preheader.i175:                          ; preds = %for.cond.preheader.i157
@@ -59856,7 +59856,7 @@ for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
 
 nk_utf_validate.exit.i.i:                         ; preds = %for.cond.i.i.i
   %22 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %cmp2.i.i = icmp ugt i64 %indvars.iv.i.i.i, 4
+  %cmp2.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 4
   br i1 %cmp2.i.i, label %nk_str_insert_text_runes.exit, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %nk_utf_validate.exit.i.i
@@ -60085,7 +60085,7 @@ for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
 
 nk_utf_validate.exit.i.i:                         ; preds = %for.cond.i.i.i
   %14 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %cmp2.i.i = icmp ugt i64 %indvars.iv.i.i.i, 4
+  %cmp2.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 4
   br i1 %cmp2.i.i, label %nk_str_insert_text_runes.exit, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %nk_utf_validate.exit.i.i
@@ -61928,8 +61928,8 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %and12.i.i = and i8 %95, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
   %cmp859.i = icmp sgt i32 %retval.0.i714, 1
-  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %100 = and i1 %cmp859.i, %cmp960.i
+  %cmp960.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
+  %100 = select i1 %cmp859.i, i1 %cmp960.i, i1 false
   br i1 %100, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -62180,8 +62180,8 @@ for.cond.preheader.i810:                          ; preds = %nk_utf_decode_byte.
   %and12.i.i812 = and i8 %118, %not.i.i811
   %conv14.i.i813 = zext i8 %and12.i.i812 to i32
   %cmp859.i814 = icmp sgt i32 %sub543, 1
-  %cmp960.i815 = icmp ugt i64 %indvars.iv.i.i798, 1
-  %123 = and i1 %cmp859.i814, %cmp960.i815
+  %cmp960.i815 = icmp samesign ugt i64 %indvars.iv.i.i798, 1
+  %123 = select i1 %cmp859.i814, i1 %cmp960.i815, i1 false
   br i1 %123, label %for.body.preheader.i828, label %for.end.i816
 
 for.body.preheader.i828:                          ; preds = %for.cond.preheader.i810
@@ -62316,8 +62316,8 @@ for.cond.preheader.i880:                          ; preds = %nk_utf_decode_byte.
   %and12.i.i882 = and i8 %136, %not.i.i881
   %conv14.i.i883 = zext i8 %and12.i.i882 to i32
   %cmp859.i884 = icmp sgt i32 %sub558, 1
-  %cmp960.i885 = icmp ugt i64 %indvars.iv.i.i868, 1
-  %141 = and i1 %cmp859.i884, %cmp960.i885
+  %cmp960.i885 = icmp samesign ugt i64 %indvars.iv.i.i868, 1
+  %141 = select i1 %cmp859.i884, i1 %cmp960.i885, i1 false
   br i1 %141, label %for.body.preheader.i898, label %for.end.i886
 
 for.body.preheader.i898:                          ; preds = %for.cond.preheader.i880
@@ -62969,7 +62969,7 @@ nk_utf_decode_byte.exit.i1146:                    ; preds = %for.body.i.i1134
   br i1 %or.cond1.i1147, label %for.cond.preheader.i1148, label %if.else890
 
 for.cond.preheader.i1148:                         ; preds = %nk_utf_decode_byte.exit.i1146
-  %cmp960.i1152 = icmp ugt i64 %indvars.iv.i.i1136, 1
+  %cmp960.i1152 = icmp samesign ugt i64 %indvars.iv.i.i1136, 1
   br i1 %cmp960.i1152, label %for.body.preheader.i1165, label %if.end18.i1154
 
 for.body.preheader.i1165:                         ; preds = %for.cond.preheader.i1148
@@ -72442,7 +72442,7 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call fastcc void @stbtt__csctx_rline_to(ptr noundef %c, float noundef %16, float noundef %17)
   %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 2
   %18 = or disjoint i64 %indvars.iv.next421, 1
-  %cmp38 = icmp ult i64 %18, %14
+  %cmp38 = icmp samesign ult i64 %18, %14
   br i1 %cmp38, label %for.body, label %sw.epilog447, !llvm.loop !237
 
 sw.bb46:                                          ; preds = %stbtt__buf_get8.exit
@@ -72660,7 +72660,7 @@ for.body214:                                      ; preds = %for.body214.prehead
   tail call fastcc void @stbtt__csctx_rline_to(ptr noundef %c, float noundef %60, float noundef %61)
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 2
   %62 = or disjoint i64 %indvars.iv.next395, 1
-  %cmp212 = icmp ult i64 %62, %58
+  %cmp212 = icmp samesign ult i64 %62, %58
   br i1 %cmp212, label %for.body214, label %for.end222, !llvm.loop !240
 
 for.end222:                                       ; preds = %for.body214
@@ -74595,7 +74595,7 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
   %arrayidx = getelementptr inbounds i32, ptr %out, i64 %indvars.iv
   store i32 %retval.0.i, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv.next, %16
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %16
   %cmp1 = icmp slt i32 %operands.sroa.2.7, %sub.i
   %31 = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %31, label %stbtt__buf_get8.exit.i6, label %for.end, !llvm.loop !247
@@ -75380,7 +75380,7 @@ if.then44:                                        ; preds = %lor.lhs.false, %if.
 
 if.then62:                                        ; preds = %if.then44
   %12 = add nuw nsw i64 %indvars.iv, 1
-  %cmp64 = icmp ult i64 %12, %2
+  %cmp64 = icmp samesign ult i64 %12, %2
   br i1 %cmp64, label %land.lhs.true66, label %if.else138
 
 land.lhs.true66:                                  ; preds = %if.then62
@@ -75508,7 +75508,7 @@ while.body:                                       ; preds = %entry, %if.end165
   %1 = load i8, ptr %arrayidx1, align 1
   %conv2 = zext i8 %1 to i32
   %add = or disjoint i32 %mul, %conv2
-  %cmp = icmp ult i32 %add, 128
+  %cmp = icmp samesign ult i32 %add, 128
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
@@ -75730,8 +75730,8 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %and12.i.i = and i8 %1, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
   %cmp859.i = icmp sgt i32 %len, 1
-  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %6 = and i1 %cmp859.i, %cmp960.i
+  %cmp960.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
+  %6 = select i1 %cmp859.i, i1 %cmp960.i, i1 false
   br i1 %6, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -75947,8 +75947,8 @@ for.cond.preheader.i43:                           ; preds = %nk_utf_decode_byte.
   %and12.i.i45 = and i8 %27, %not.i.i44
   %conv14.i.i46 = zext i8 %and12.i.i45 to i32
   %cmp859.i47 = icmp sgt i32 %sub, 1
-  %cmp960.i48 = icmp ugt i64 %indvars.iv.i.i31, 1
-  %32 = and i1 %cmp859.i47, %cmp960.i48
+  %cmp960.i48 = icmp samesign ugt i64 %indvars.iv.i.i31, 1
+  %32 = select i1 %cmp859.i47, i1 %cmp960.i48, i1 false
   br i1 %32, label %for.body.preheader.i61, label %for.end.i49
 
 for.body.preheader.i61:                           ; preds = %for.cond.preheader.i43
@@ -79197,8 +79197,8 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %and12.i.i = and i8 %0, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
   %cmp859.i = icmp sgt i32 %byte_len, 1
-  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %5 = and i1 %cmp859.i, %cmp960.i
+  %cmp960.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
+  %5 = select i1 %cmp859.i, i1 %cmp960.i, i1 false
   br i1 %5, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -79377,8 +79377,8 @@ for.cond.preheader.i87:                           ; preds = %nk_utf_decode_byte.
   %and12.i.i89 = and i8 %28, %not.i.i88
   %conv14.i.i90 = zext i8 %and12.i.i89 to i32
   %cmp859.i91 = icmp sgt i64 %26, 1
-  %cmp960.i92 = icmp ugt i64 %indvars.iv.i.i75, 1
-  %33 = and i1 %cmp859.i91, %cmp960.i92
+  %cmp960.i92 = icmp samesign ugt i64 %indvars.iv.i.i75, 1
+  %33 = select i1 %cmp859.i91, i1 %cmp960.i92, i1 false
   br i1 %33, label %for.body.preheader.i105, label %for.end.i93
 
 for.body.preheader.i105:                          ; preds = %for.cond.preheader.i87
@@ -79517,8 +79517,8 @@ for.cond.preheader.i157:                          ; preds = %nk_utf_decode_byte.
   %and12.i.i159 = and i8 %47, %not.i.i158
   %conv14.i.i160 = zext i8 %and12.i.i159 to i32
   %cmp859.i161 = icmp sgt i32 %sub36, 1
-  %cmp960.i162 = icmp ugt i64 %indvars.iv.i.i145, 1
-  %52 = and i1 %cmp859.i161, %cmp960.i162
+  %cmp960.i162 = icmp samesign ugt i64 %indvars.iv.i.i145, 1
+  %52 = select i1 %cmp859.i161, i1 %cmp960.i162, i1 false
   br i1 %52, label %for.body.preheader.i175, label %for.end.i163
 
 for.body.preheader.i175:                          ; preds = %for.cond.preheader.i157
@@ -79724,8 +79724,8 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %and12.i.i = and i8 %1, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
   %cmp859.i = icmp sgt i32 %byte_len, 1
-  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %6 = and i1 %cmp859.i, %cmp960.i
+  %cmp960.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
+  %6 = select i1 %cmp859.i, i1 %cmp960.i, i1 false
   br i1 %6, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
@@ -79962,8 +79962,8 @@ for.cond.preheader.i127:                          ; preds = %nk_utf_decode_byte.
   %and12.i.i129 = and i8 %31, %not.i.i128
   %conv14.i.i130 = zext i8 %and12.i.i129 to i32
   %cmp859.i131 = icmp sgt i32 %sub36, 1
-  %cmp960.i132 = icmp ugt i64 %indvars.iv.i.i115, 1
-  %36 = and i1 %cmp859.i131, %cmp960.i132
+  %cmp960.i132 = icmp samesign ugt i64 %indvars.iv.i.i115, 1
+  %36 = select i1 %cmp859.i131, i1 %cmp960.i132, i1 false
   br i1 %36, label %for.body.preheader.i145, label %for.end.i133
 
 for.body.preheader.i145:                          ; preds = %for.cond.preheader.i127
@@ -80094,8 +80094,8 @@ for.cond.preheader.i197:                          ; preds = %nk_utf_decode_byte.
   %and12.i.i199 = and i8 %49, %not.i.i198
   %conv14.i.i200 = zext i8 %and12.i.i199 to i32
   %cmp859.i201 = icmp sgt i64 %47, 1
-  %cmp960.i202 = icmp ugt i64 %indvars.iv.i.i185, 1
-  %54 = and i1 %cmp859.i201, %cmp960.i202
+  %cmp960.i202 = icmp samesign ugt i64 %indvars.iv.i.i185, 1
+  %54 = select i1 %cmp859.i201, i1 %cmp960.i202, i1 false
   br i1 %54, label %for.body.preheader.i215, label %for.end.i203
 
 for.body.preheader.i215:                          ; preds = %for.cond.preheader.i197
@@ -80238,8 +80238,8 @@ for.cond.preheader.i267:                          ; preds = %nk_utf_decode_byte.
   %and12.i.i269 = and i8 %70, %not.i.i268
   %conv14.i.i270 = zext i8 %and12.i.i269 to i32
   %cmp859.i271 = icmp sgt i32 %sub55, 1
-  %cmp960.i272 = icmp ugt i64 %indvars.iv.i.i255, 1
-  %75 = and i1 %cmp859.i271, %cmp960.i272
+  %cmp960.i272 = icmp samesign ugt i64 %indvars.iv.i.i255, 1
+  %75 = select i1 %cmp859.i271, i1 %cmp960.i272, i1 false
   br i1 %75, label %for.body.preheader.i285, label %for.end.i273
 
 for.body.preheader.i285:                          ; preds = %for.cond.preheader.i267
@@ -80967,8 +80967,8 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %and12.i.i = and i8 %16, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
   %cmp859.i = icmp sgt i32 %sub.i.i43, 1
-  %cmp960.i = icmp ugt i64 %indvars.iv.i.i, 1
-  %21 = and i1 %cmp859.i, %cmp960.i
+  %cmp960.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
+  %21 = select i1 %cmp859.i, i1 %cmp960.i, i1 false
   br i1 %21, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i

@@ -12956,7 +12956,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @detect_early_fail(ptr noca
   %16 = icmp eq i8 %15, 120
   %17 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   %spec.store.select17 = select i1 %16, i32 %17, i32 %4
-  %18 = icmp ugt i32 %3, 3
+  %18 = icmp samesign ugt i32 %3, 3
   %19 = getelementptr inbounds i8, ptr %0, i64 40
   %20 = add nuw nsw i32 %3, 1
   %21 = getelementptr inbounds i8, ptr %0, i64 24
@@ -13412,7 +13412,7 @@ bracketend.exit:                                  ; preds = %167
   br label %207
 
 207:                                              ; preds = %204, %195
-  %208 = icmp ult i32 %spec.select201, 6
+  %208 = icmp samesign ult i32 %spec.select201, 6
   br i1 %208, label %thread-pre-split.backedge, label %.thread.loopexit292
 
 thread-pre-split.backedge:                        ; preds = %207, %258, %210, %.loopexit214, %147, %.loopexit210, %62, %61, %41, %39, %37, %35, %50, %46, %43, %89, %85, %82, %104, %100, %.loopexit212, %.thread208
@@ -13981,7 +13981,7 @@ define internal fastcc i32 @sljit_emit_op2(ptr nocapture noundef %0, i32 noundef
   br label %emit_mul.exit
 
 38:                                               ; preds = %33, %31
-  %39 = icmp ult i32 %2, 127
+  %39 = icmp samesign ult i32 %2, 127
   %40 = icmp eq i32 %6, %2
   %or.cond171 = and i1 %39, %40
   br i1 %or.cond171, label %41, label %47
@@ -14008,7 +14008,7 @@ define internal fastcc i32 @sljit_emit_op2(ptr nocapture noundef %0, i32 noundef
   br label %emit_mul.exit
 
 51:                                               ; preds = %10
-  %52 = icmp ult i32 %2, 127
+  %52 = icmp samesign ult i32 %2, 127
   %53 = select i1 %52, i32 %2, i32 15
   %54 = icmp eq i32 %53, %4
   %55 = icmp ne i32 %6, 127
@@ -14881,7 +14881,7 @@ check_fast_forward_char_pair_simd.exit:           ; preds = %._crit_edge.i
 131:                                              ; preds = %126, %122, %.lr.ph
   %.1155 = phi i32 [ %.0154482, %122 ], [ %.0154482, %.lr.ph ], [ %spec.select, %126 ]
   %.1153 = phi i32 [ %.0152483, %122 ], [ %.0152483, %.lr.ph ], [ %spec.select179, %126 ]
-  %132 = icmp ult i64 %indvars.iv500, %120
+  %132 = icmp samesign ult i64 %indvars.iv500, %120
   br i1 %132, label %133, label %138
 
 133:                                              ; preds = %131
@@ -14964,7 +14964,7 @@ check_fast_forward_char_pair_simd.exit:           ; preds = %._crit_edge.i
   %169 = getelementptr inbounds i8, ptr %155, i64 %168
   %170 = load i8, ptr %169, align 1
   %171 = zext i8 %170 to i64
-  %172 = icmp ult i64 %indvars.iv505, %171
+  %172 = icmp samesign ult i64 %indvars.iv505, %171
   br i1 %172, label %173, label %174
 
 173:                                              ; preds = %166
@@ -27749,7 +27749,7 @@ define internal fastcc noundef ptr @sljit_emit_jump(ptr nocapture noundef %0, i3
 
 set_jump.exit:                                    ; preds = %30, %31
   store ptr %.0.i.ph, ptr %28, align 8
-  %33 = icmp ugt i32 %1, 35
+  %33 = icmp samesign ugt i32 %1, 35
   %34 = select i1 %33, i64 13, i64 15
   %35 = getelementptr inbounds i8, ptr %0, i64 128
   %36 = load i64, ptr %35, align 8
@@ -34939,7 +34939,7 @@ emit_do_imm32.exit.thread.i:                      ; preds = %50, %44
   br label %emit_cmp_binary.exit
 
 114:                                              ; preds = %55
-  %115 = icmp ult i32 %4, 127
+  %115 = icmp samesign ult i32 %4, 127
   %116 = icmp ne i32 %2, 127
   %or.cond9.i = and i1 %116, %115
   br i1 %or.cond9.i, label %117, label %122
@@ -35355,7 +35355,7 @@ emit_do_imm32.exit160.thread.i:                   ; preds = %230, %224
   br label %emit_cmp_binary.exit
 
 298:                                              ; preds = %275
-  %299 = icmp ult i32 %4, 127
+  %299 = icmp samesign ult i32 %4, 127
   br i1 %299, label %300, label %.thread185.i
 
 300:                                              ; preds = %298
@@ -35513,7 +35513,7 @@ define internal fastcc void @sljit_emit_op_dst(ptr nocapture noundef %0, i32 nou
   br i1 %.not, label %4, label %emit_fast_enter.exit
 
 4:                                                ; preds = %2
-  %5 = icmp ult i32 %1, 127
+  %5 = icmp samesign ult i32 %1, 127
   br i1 %5, label %6, label %67
 
 6:                                                ; preds = %4
@@ -42411,7 +42411,7 @@ sljit_emit_op_src.exit:                           ; preds = %emit_mov.exit183, %
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @do_reset_match(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 2, 131073) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = icmp ugt i32 %1, 2
+  %4 = icmp samesign ugt i32 %1, 2
   br i1 %4, label %5, label %sljit_set_label.exit94
 
 5:                                                ; preds = %2
@@ -42435,7 +42435,7 @@ emit_mov.exit.thread:                             ; preds = %7
   br label %sljit_emit_op1.exit
 
 sljit_emit_op1.exit:                              ; preds = %7, %5, %emit_mov.exit.thread
-  %14 = icmp ult i32 %1, 8
+  %14 = icmp samesign ult i32 %1, 8
   %15 = getelementptr inbounds i8, ptr %0, i64 68
   br i1 %14, label %.lr.ph, label %27
 
@@ -54814,10 +54814,10 @@ define internal fastcc i32 @emit_lea_binary(ptr nocapture noundef %0, i32 nounde
   br i1 %or.cond64, label %emit_mov.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = icmp ult i32 %1, 127
+  %14 = icmp samesign ult i32 %1, 127
   %15 = select i1 %14, i32 %1, i32 15
   %16 = icmp slt i32 %3, 127
-  %17 = icmp ult i32 %5, 127
+  %17 = icmp samesign ult i32 %5, 127
   br i1 %16, label %18, label %38
 
 18:                                               ; preds = %13
@@ -55462,7 +55462,7 @@ emit_do_imm32.exit.thread:                        ; preds = %47, %53
   br label %297
 
 110:                                              ; preds = %17
-  %111 = icmp ult i32 %2, 127
+  %111 = icmp samesign ult i32 %2, 127
   br i1 %111, label %112, label %117
 
 112:                                              ; preds = %110
@@ -55479,7 +55479,7 @@ emit_do_imm32.exit.thread:                        ; preds = %47, %53
   br label %297
 
 117:                                              ; preds = %110
-  %118 = icmp ult i32 %6, 127
+  %118 = icmp samesign ult i32 %6, 127
   br i1 %118, label %119, label %124
 
 119:                                              ; preds = %117
@@ -55661,7 +55661,7 @@ emit_do_imm32.exit285.thread:                     ; preds = %166, %172
   br label %297
 
 199:                                              ; preds = %136
-  %200 = icmp ult i32 %2, 127
+  %200 = icmp samesign ult i32 %2, 127
   br i1 %200, label %201, label %206
 
 201:                                              ; preds = %199
@@ -55717,7 +55717,7 @@ emit_do_imm32.exit285.thread:                     ; preds = %166, %172
   br label %297
 
 222:                                              ; preds = %133
-  %223 = icmp ult i32 %2, 127
+  %223 = icmp samesign ult i32 %2, 127
   br i1 %223, label %224, label %260
 
 224:                                              ; preds = %222
@@ -55917,7 +55917,7 @@ define internal fastcc i32 @emit_unary(ptr nocapture noundef %0, i8 noundef zero
   br label %71
 
 17:                                               ; preds = %6
-  %18 = icmp ult i32 %2, 127
+  %18 = icmp samesign ult i32 %2, 127
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %17
@@ -56237,7 +56237,7 @@ emit_do_imm32.exit.thread:                        ; preds = %47, %53
   br label %208
 
 110:                                              ; preds = %17
-  %111 = icmp ult i32 %2, 127
+  %111 = icmp samesign ult i32 %2, 127
   br i1 %111, label %112, label %117
 
 112:                                              ; preds = %110
@@ -56509,7 +56509,7 @@ define internal fastcc i32 @emit_shift_with_flags(ptr nocapture noundef %0, i8 n
   br label %emit_cmp_binary.exit64
 
 26:                                               ; preds = %23
-  %27 = icmp ult i32 %3, 127
+  %27 = icmp samesign ult i32 %3, 127
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %26
@@ -56813,7 +56813,7 @@ emit_mov.exit:                                    ; preds = %71
   br label %emit_mov.exit188
 
 88:                                               ; preds = %21
-  %89 = icmp ult i32 %2, 127
+  %89 = icmp samesign ult i32 %2, 127
   br i1 %89, label %90, label %102
 
 90:                                               ; preds = %88
@@ -56976,7 +56976,7 @@ emit_mov.exit174:                                 ; preds = %110
   br label %emit_mov.exit188
 
 164:                                              ; preds = %116
-  %165 = icmp ult i32 %2, 127
+  %165 = icmp samesign ult i32 %2, 127
   br i1 %165, label %166, label %197
 
 166:                                              ; preds = %164
@@ -66793,7 +66793,7 @@ define internal fastcc range(i32 0, 2) i32 @optimize_class(ptr nocapture noundef
   %.1125.i = phi i8 [ %.01248.i, %12 ], [ %33, %28 ], [ %.01248.i, %._crit_edge.i ]
   %.1.i = phi i32 [ %.010.i, %12 ], [ %31, %28 ], [ %.010.i, %._crit_edge.i ]
   %35 = add nuw nsw i32 %.sink.i, %.01219.i
-  %36 = icmp ult i32 %35, 256
+  %36 = icmp samesign ult i32 %35, 256
   br i1 %36, label %12, label %37
 
 37:                                               ; preds = %34
@@ -78636,7 +78636,7 @@ emit_mov.exit.thread:                             ; preds = %29
   br label %sljit_emit_op1.exit
 
 sljit_emit_op1.exit:                              ; preds = %29, %emit_mov.exit.thread, %3
-  %35 = icmp ugt i32 %12, 1
+  %35 = icmp samesign ugt i32 %12, 1
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %sljit_emit_op1.exit
@@ -84337,7 +84337,7 @@ sljit_emit_op2.exit932thread-pre-split:           ; preds = %sljit_emit_op1.exit
 sljit_emit_op2.exit932:                           ; preds = %sljit_emit_op2.exit932thread-pre-split, %emit_mov.exit1297, %sljit_emit_op1.exit928
   %.pre1686 = phi i32 [ %.pre1686.pr, %sljit_emit_op2.exit932thread-pre-split ], [ %679, %emit_mov.exit1297 ], [ %.pr1734, %sljit_emit_op1.exit928 ]
   %683 = phi ptr [ %.ph1738, %sljit_emit_op2.exit932thread-pre-split ], [ %659, %emit_mov.exit1297 ], [ %659, %sljit_emit_op1.exit928 ]
-  %684 = icmp ugt i32 %614, 1
+  %684 = icmp samesign ugt i32 %614, 1
   br i1 %684, label %.lr.ph1661, label %._crit_edge
 
 .lr.ph1661:                                       ; preds = %sljit_emit_op2.exit932
@@ -106550,7 +106550,7 @@ sljit_set_label.exit:                             ; preds = %267, %271
   br label %free_stack.exit587.thread1569
 
 282:                                              ; preds = %sljit_emit_op1.exit584
-  %283 = icmp ugt i32 %.0475, 139
+  %283 = icmp samesign ugt i32 %.0475, 139
   %or.cond5 = or i1 %283, %105
   br i1 %or.cond5, label %284, label %320
 

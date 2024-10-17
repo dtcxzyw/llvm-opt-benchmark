@@ -10176,7 +10176,7 @@ land.lhs.true2:                                   ; preds = %if.end
   %conv3 = zext i16 %curr_id to i32
   %conv4 = zext i16 %.fr to i32
   %mul = mul nuw nsw i32 %conv4, 3
-  %cmp5 = icmp ugt i32 %mul, %conv3
+  %cmp5 = icmp samesign ugt i32 %mul, %conv3
   br i1 %cmp5, label %cleanup.cont, label %if.end7
 
 if.end7:                                          ; preds = %if.end, %land.lhs.true2
@@ -10196,7 +10196,7 @@ land.lhs.true17:                                  ; preds = %if.end7
   %conv22 = zext i16 %.fr to i32
   %mul23 = mul nuw nsw i32 %conv22, 3
   %add = add nuw nsw i32 %mul23, %conv9
-  %cmp24 = icmp ugt i32 %add, %conv12
+  %cmp24 = icmp samesign ugt i32 %add, %conv12
   br i1 %cmp24, label %cleanup.cont, label %if.end28
 
 if.end28:                                         ; preds = %if.end7.if.end28_crit_edge, %land.lhs.true17
@@ -10675,7 +10675,7 @@ for.end85:                                        ; preds = %for.inc82.us, %if.t
 if.end93:                                         ; preds = %for.end85
   %conv94 = zext i16 %best_score.1 to i32
   %add96 = add nuw nsw i32 %cond, %conv94
-  %cmp98 = icmp ult i32 %add96, %conv29.pre-phi
+  %cmp98 = icmp samesign ult i32 %add96, %conv29.pre-phi
   br i1 %cmp98, label %cleanup, label %if.end100
 
 if.end100:                                        ; preds = %if.end93

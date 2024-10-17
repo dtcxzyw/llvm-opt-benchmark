@@ -5904,9 +5904,9 @@ nsvg__flattenShapeStroke.exit:                    ; preds = %669
   %indvars.iv157.i = phi i64 [ 0, %.lr.ph.us150.preheader.i ], [ %indvars.iv.next158.i, %._crit_edge.us151.i ]
   %738 = mul nsw i64 %indvars.iv157.i, %699
   %739 = getelementptr inbounds i8, ptr %5, i64 %738
-  %740 = icmp ugt i64 %indvars.iv157.i, 1
+  %740 = icmp samesign ugt i64 %indvars.iv157.i, 1
   %indvars.iv.next158.i = add nuw nsw i64 %indvars.iv157.i, 1
-  %741 = icmp ult i64 %indvars.iv.next158.i, %737
+  %741 = icmp samesign ult i64 %indvars.iv.next158.i, %737
   br label %742
 
 742:                                              ; preds = %826, %.lr.ph.us150.i
@@ -5922,7 +5922,7 @@ nsvg__flattenShapeStroke.exit:                    ; preds = %669
   br label %826
 
 746:                                              ; preds = %742
-  %747 = icmp ugt i32 %.192146.us.i, 1
+  %747 = icmp samesign ugt i32 %.192146.us.i, 1
   br i1 %747, label %748, label %761
 
 748:                                              ; preds = %746
@@ -6813,7 +6813,7 @@ nsvg__roundf.exit31.i:                            ; preds = %125, %122, %nsvg__r
   %227 = add i8 %226, 51
   store i8 %227, ptr %225, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %228 = icmp ult i64 %indvars.iv.next.i.i, %224
+  %228 = icmp samesign ult i64 %indvars.iv.next.i.i, %224
   br i1 %228, label %.lr.ph.i.i, label %nsvg__fillScanline.exit.i, !llvm.loop !61
 
 nsvg__fillScanline.exit.i:                        ; preds = %.lr.ph.i.i, %221, %188, %180, %175, %171
@@ -6914,7 +6914,7 @@ nsvg__fillScanline.exit.i:                        ; preds = %.lr.ph.i.i, %221, %
   %279 = add i8 %278, 51
   store i8 %279, ptr %277, align 1
   %indvars.iv.next.i48.i = add nuw nsw i64 %indvars.iv.i47.i, 1
-  %280 = icmp ult i64 %indvars.iv.next.i48.i, %276
+  %280 = icmp samesign ult i64 %indvars.iv.next.i48.i, %276
   br i1 %280, label %.lr.ph.i46.i, label %nsvg__fillScanline.exit49.i, !llvm.loop !61
 
 nsvg__fillScanline.exit49.i:                      ; preds = %.lr.ph.i46.i, %273, %240, %233, %.preheader50.i
@@ -11878,7 +11878,7 @@ define internal fastcc void @nsvg__addPath(ptr nocapture noundef %0, i8 noundef 
   %61 = fadd float %.pre73, %60
   store float %61, ptr %51, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %62 = icmp ult i64 %indvars.iv.next, %38
+  %62 = icmp samesign ult i64 %indvars.iv.next, %38
   br i1 %62, label %47, label %.preheader, !llvm.loop !106
 
 63:                                               ; preds = %.lr.ph62, %87

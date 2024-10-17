@@ -1439,7 +1439,7 @@ for.end.i1272:                                    ; preds = %for.body.i1289
   %26 = zext i16 %25 to i32
   %not.i1276 = xor i32 %26, -1
   %27 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i1276, i1 true)
-  %cmp39.i1280 = icmp ult i32 %27, 16
+  %cmp39.i1280 = icmp samesign ult i32 %27, 16
   br i1 %cmp39.i1280, label %if.end124.i1213.thread, label %if.end42.i1281
 
 if.end42.i1281:                                   ; preds = %for.end.i1272
@@ -1907,7 +1907,7 @@ for.end.i1091:                                    ; preds = %for.body.i1096
   %88 = zext i16 %87 to i32
   %not.i = xor i32 %88, -1
   %89 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i, i1 true)
-  %cmp39.i = icmp ult i32 %89, 16
+  %cmp39.i = icmp samesign ult i32 %89, 16
   br i1 %cmp39.i, label %if.end124.i.thread, label %if.end42.i1094
 
 if.end42.i1094:                                   ; preds = %for.end.i1091
@@ -2427,7 +2427,7 @@ for.end.i1672:                                    ; preds = %for.body.i1689
   %156 = zext i16 %155 to i32
   %not.i1676 = xor i32 %156, -1
   %157 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i1676, i1 true)
-  %cmp39.i1680 = icmp ult i32 %157, 16
+  %cmp39.i1680 = icmp samesign ult i32 %157, 16
   br i1 %cmp39.i1680, label %if.end124.i1613.thread, label %if.end42.i1681
 
 if.end42.i1681:                                   ; preds = %for.end.i1672
@@ -2945,7 +2945,7 @@ for.end.i1472:                                    ; preds = %for.body.i1489
   %222 = zext i16 %221 to i32
   %not.i1476 = xor i32 %222, -1
   %223 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i1476, i1 true)
-  %cmp39.i1480 = icmp ult i32 %223, 16
+  %cmp39.i1480 = icmp samesign ult i32 %223, 16
   br i1 %cmp39.i1480, label %if.end124.i1413.thread, label %if.end42.i1481
 
 if.end42.i1481:                                   ; preds = %for.end.i1472
@@ -3698,7 +3698,7 @@ for.end.i452.i:                                   ; preds = %for.body.i469.i
   %51 = zext i16 %50 to i32
   %not.i456.i = xor i32 %51, -1
   %52 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i456.i, i1 true)
-  %cmp39.i460.i = icmp ult i32 %52, 16
+  %cmp39.i460.i = icmp samesign ult i32 %52, 16
   br i1 %cmp39.i460.i, label %normal.i391.i, label %if.end42.i461.i
 
 if.end42.i461.i:                                  ; preds = %for.end.i452.i
@@ -4239,7 +4239,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   %119 = zext i16 %118 to i32
   %not.i.i = xor i32 %119, -1
   %120 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i.i, i1 true)
-  %cmp39.i.i = icmp ult i32 %120, 16
+  %cmp39.i.i = icmp samesign ult i32 %120, 16
   br i1 %cmp39.i.i, label %normal.i.i, label %if.end42.i277.i
 
 if.end42.i277.i:                                  ; preds = %for.end.i.i
@@ -5806,7 +5806,7 @@ for.end.i452.i:                                   ; preds = %for.body.i469.i
   %51 = zext i16 %50 to i32
   %not.i456.i = xor i32 %51, -1
   %52 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i456.i, i1 true)
-  %cmp39.i460.i = icmp ult i32 %52, 16
+  %cmp39.i460.i = icmp samesign ult i32 %52, 16
   br i1 %cmp39.i460.i, label %normal.i391.i, label %if.end42.i461.i
 
 if.end42.i461.i:                                  ; preds = %for.end.i452.i
@@ -6263,7 +6263,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   %113 = zext i16 %112 to i32
   %not.i.i = xor i32 %113, -1
   %114 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i.i, i1 true)
-  %cmp39.i.i = icmp ult i32 %114, 16
+  %cmp39.i.i = icmp samesign ult i32 %114, 16
   br i1 %cmp39.i.i, label %normal.i.i, label %if.end42.i277.i
 
 if.end42.i277.i:                                  ; preds = %for.end.i.i
@@ -7402,7 +7402,7 @@ for.end.i452.i:                                   ; preds = %for.body.i469.i
   %49 = zext i16 %48 to i32
   %not.i456.i = xor i32 %49, -1
   %50 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i456.i, i1 true)
-  %cmp39.i460.i = icmp ult i32 %50, 16
+  %cmp39.i460.i = icmp samesign ult i32 %50, 16
   br i1 %cmp39.i460.i, label %normal.i391.i, label %if.end42.i461.i
 
 if.end42.i461.i:                                  ; preds = %for.end.i452.i
@@ -7863,7 +7863,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   %114 = zext i16 %113 to i32
   %not.i.i = xor i32 %114, -1
   %115 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i.i, i1 true)
-  %cmp39.i.i = icmp ult i32 %115, 16
+  %cmp39.i.i = icmp samesign ult i32 %115, 16
   br i1 %cmp39.i.i, label %normal.i.i, label %if.end42.i277.i
 
 if.end42.i277.i:                                  ; preds = %for.end.i.i
@@ -9070,7 +9070,7 @@ for.end.i1502:                                    ; preds = %for.body.i1519
   %29 = zext i16 %28 to i32
   %not.i1506 = xor i32 %29, -1
   %30 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i1506, i1 true)
-  %cmp39.i1510 = icmp ult i32 %30, 16
+  %cmp39.i1510 = icmp samesign ult i32 %30, 16
   br i1 %cmp39.i1510, label %normal.i1441, label %if.end42.i1511
 
 if.end42.i1511:                                   ; preds = %for.end.i1502
@@ -9560,7 +9560,7 @@ for.end.i1302:                                    ; preds = %for.body.i1319
   %92 = zext i16 %91 to i32
   %not.i1306 = xor i32 %92, -1
   %93 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i1306, i1 true)
-  %cmp39.i1310 = icmp ult i32 %93, 16
+  %cmp39.i1310 = icmp samesign ult i32 %93, 16
   br i1 %cmp39.i1310, label %normal.i1241, label %if.end42.i1311
 
 if.end42.i1311:                                   ; preds = %for.end.i1302
@@ -10049,7 +10049,7 @@ for.end.i1102:                                    ; preds = %for.body.i1119
   %155 = zext i16 %154 to i32
   %not.i1106 = xor i32 %155, -1
   %156 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i1106, i1 true)
-  %cmp39.i1110 = icmp ult i32 %156, 16
+  %cmp39.i1110 = icmp samesign ult i32 %156, 16
   br i1 %cmp39.i1110, label %normal.i1041, label %if.end42.i1111
 
 if.end42.i1111:                                   ; preds = %for.end.i1102
@@ -10589,7 +10589,7 @@ for.end.i:                                        ; preds = %for.body.i
   %222 = zext i16 %221 to i32
   %not.i = xor i32 %222, -1
   %223 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i, i1 true)
-  %cmp39.i = icmp ult i32 %223, 16
+  %cmp39.i = icmp samesign ult i32 %223, 16
   br i1 %cmp39.i, label %normal.i, label %if.end42.i927
 
 if.end42.i927:                                    ; preds = %for.end.i

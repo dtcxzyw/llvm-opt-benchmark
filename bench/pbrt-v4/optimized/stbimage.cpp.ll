@@ -2548,7 +2548,7 @@ if.end13.i.i:                                     ; preds = %if.then4.i.i49, %if
 
 _ZL10stbi__skipP13stbi__contexti.exit.i:          ; preds = %if.end13.i.i, %if.then8.i.i
   %call13.i = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %s)
-  %cmp15.i = icmp ugt i32 %call13.i, 16
+  %cmp15.i = icmp samesign ugt i32 %call13.i, 16
   br i1 %cmp15.i, label %if.end12, label %if.end17.i
 
 if.end17.i:                                       ; preds = %_ZL10stbi__skipP13stbi__contexti.exit.i
@@ -2810,7 +2810,7 @@ if.end13.i.i:                                     ; preds = %if.then4.i.i, %if.e
 
 _ZL10stbi__skipP13stbi__contexti.exit.i:          ; preds = %if.end13.i.i, %if.then8.i.i
   %call5.i = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %s)
-  %cmp7.i = icmp ugt i32 %call5.i, 16
+  %cmp7.i = icmp samesign ugt i32 %call5.i, 16
   br i1 %cmp7.i, label %if.end, label %if.end9.i
 
 if.end9.i:                                        ; preds = %_ZL10stbi__skipP13stbi__contexti.exit.i
@@ -4368,13 +4368,13 @@ if.end337.i:                                      ; preds = %if.then327.i
   %call347.i = tail call fastcc noundef i32 @_ZL14stbi__high_bitj(i32 noundef %36)
   %sub348.i = add nsw i32 %call347.i, -7
   %call349.i = tail call fastcc noundef i32 @_ZL14stbi__bitcountj(i32 noundef %36)
-  %cmp350.i = icmp ugt i32 %call340.i, 8
-  %cmp352.i = icmp ugt i32 %call343.i, 8
-  %or.cond8.i = or i1 %cmp350.i, %cmp352.i
-  %cmp354.i = icmp ugt i32 %call346.i, 8
-  %or.cond9.i = or i1 %or.cond8.i, %cmp354.i
-  %cmp356.i = icmp ugt i32 %call349.i, 8
-  %or.cond10.i = or i1 %or.cond9.i, %cmp356.i
+  %cmp350.i = icmp samesign ugt i32 %call340.i, 8
+  %cmp352.i = icmp samesign ugt i32 %call343.i, 8
+  %or.cond8.i = select i1 %cmp350.i, i1 true, i1 %cmp352.i
+  %cmp354.i = icmp samesign ugt i32 %call346.i, 8
+  %or.cond9.i = select i1 %or.cond8.i, i1 true, i1 %cmp354.i
+  %cmp356.i = icmp samesign ugt i32 %call349.i, 8
+  %or.cond10.i = select i1 %or.cond9.i, i1 true, i1 %cmp356.i
   br i1 %or.cond10.i, label %if.then357.i, label %if.end362.i
 
 if.then357.i:                                     ; preds = %if.end337.i
@@ -5118,7 +5118,7 @@ if.end13.i.i81:                                   ; preds = %if.then4.i.i76, %if
 
 _ZL10stbi__skipP13stbi__contexti.exit.i83:        ; preds = %if.end13.i.i81, %if.then8.i.i139
   %call9.i = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %s)
-  %cmp11.i = icmp ugt i32 %call9.i, 16
+  %cmp11.i = icmp samesign ugt i32 %call9.i, 16
   br i1 %cmp11.i, label %if.then12.i, label %if.end16.i
 
 if.then12.i:                                      ; preds = %_ZL10stbi__skipP13stbi__contexti.exit.i83
@@ -5183,7 +5183,7 @@ if.end45.i:                                       ; preds = %if.end38.i
   %call48.i = tail call fastcc noundef i32 @_ZL13stbi__get32beP13stbi__context(ptr noundef %s)
   tail call fastcc void @_ZL10stbi__skipP13stbi__contexti(ptr noundef nonnull %s, i32 noundef %call48.i)
   %call49.i = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %s)
-  %cmp50.i84 = icmp ugt i32 %call49.i, 1
+  %cmp50.i84 = icmp samesign ugt i32 %call49.i, 1
   br i1 %cmp50.i84, label %if.then51.i, label %if.end55.i
 
 if.then51.i:                                      ; preds = %if.end45.i
@@ -5259,7 +5259,7 @@ if.then81.i:                                      ; preds = %if.end78.i
 for.body.us.i:                                    ; preds = %if.then81.i, %for.inc103.us.i
   %indvars.iv198.i = phi i64 [ %indvars.iv.next199.i, %for.inc103.us.i ], [ 0, %if.then81.i ]
   %add.ptr.us.i104 = getelementptr inbounds i8, ptr %out.0.i89, i64 %indvars.iv198.i
-  %cmp85.not.us.i = icmp ult i64 %indvars.iv198.i, %334
+  %cmp85.not.us.i = icmp samesign ult i64 %indvars.iv198.i, %334
   br i1 %cmp85.not.us.i, label %if.else94.us.i, label %for.cond87.preheader.us.i
 
 for.body89.us.i:                                  ; preds = %for.cond87.preheader.us.i, %for.body89.us.i
@@ -5288,7 +5288,7 @@ for.cond87.preheader.us.i:                        ; preds = %for.body.us.i
 
 for.body.i90:                                     ; preds = %if.then81.i, %for.inc103.i
   %indvars.iv.i91 = phi i64 [ %indvars.iv.next.i92, %for.inc103.i ], [ 0, %if.then81.i ]
-  %cmp85.not.i = icmp ult i64 %indvars.iv.i91, %334
+  %cmp85.not.i = icmp samesign ult i64 %indvars.iv.i91, %334
   br i1 %cmp85.not.i, label %if.else94.i, label %for.inc103.i
 
 if.else94.i:                                      ; preds = %for.body.i90
@@ -5310,7 +5310,7 @@ for.inc103.i:                                     ; preds = %if.else94.i, %for.b
 
 for.body109.i:                                    ; preds = %for.inc187.i, %for.cond107.preheader.i
   %indvars.iv207.i = phi i64 [ 0, %for.cond107.preheader.i ], [ %indvars.iv.next208.i, %for.inc187.i ]
-  %cmp110.not.i = icmp ult i64 %indvars.iv207.i, %333
+  %cmp110.not.i = icmp samesign ult i64 %indvars.iv207.i, %333
   br i1 %cmp110.not.i, label %if.else144.i, label %if.then111.i
 
 if.then111.i:                                     ; preds = %for.body109.i
@@ -5471,7 +5471,7 @@ for.inc187.i:                                     ; preds = %for.body138.i, %for
   br i1 %exitcond210.not.i, label %if.end190.i94, label %for.body109.i, !llvm.loop !33
 
 if.end190.i94:                                    ; preds = %for.inc103.i, %for.inc103.us.i, %for.inc187.i
-  %cmp191.i95 = icmp ugt i32 %call9.i, 3
+  %cmp191.i95 = icmp samesign ugt i32 %call9.i, 3
   br i1 %cmp191.i95, label %if.then192.i96, label %if.end292.i
 
 if.then192.i96:                                   ; preds = %if.end190.i94
@@ -6031,7 +6031,7 @@ if.end48.i.i.i.i:                                 ; preds = %if.end37.i.i.i.i
   %and.i.i.i.i = and i32 %conv23.i.i.i.i, 15
   %ha.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx40.i.i.i.i, i64 20
   store i32 %and.i.i.i.i, ptr %ha.i.i.i.i, align 4
-  %cmp56.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 3
+  %cmp56.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 3
   br i1 %cmp56.i.i.i.i, label %if.then57.i.i.i.i, label %if.end59.i.i.i.i
 
 if.then57.i.i.i.i:                                ; preds = %if.end48.i.i.i.i
@@ -6270,8 +6270,8 @@ lor.lhs.false79.i.i.i.i:                          ; preds = %if.then76.i.i.i.i
 
 lor.lhs.false86.i.i.i.i:                          ; preds = %lor.lhs.false79.i.i.i.i
   %cmp88.i.i.i.i = icmp ugt i8 %retval.0.i212.i.i.i.i, -33
-  %cmp91.i.i.i.i = icmp ugt i32 %and75.i.i.i.i, 13
-  %or.cond51.i.i.i.i = or i1 %cmp88.i.i.i.i, %cmp91.i.i.i.i
+  %cmp91.i.i.i.i = icmp samesign ugt i32 %and75.i.i.i.i, 13
+  %or.cond51.i.i.i.i = select i1 %cmp88.i.i.i.i, i1 true, i1 %cmp91.i.i.i.i
   br i1 %or.cond51.i.i.i.i, label %if.then92.i.i.i.i, label %if.end11.i.i.i
 
 if.then92.i.i.i.i:                                ; preds = %lor.lhs.false86.i.i.i.i, %lor.lhs.false79.i.i.i.i, %if.then76.i.i.i.i
@@ -11723,7 +11723,7 @@ cond.false136:                                    ; preds = %if.then131
 
 cond.end138:                                      ; preds = %cond.false136, %_ZL10stbi__get8P13stbi__context.exit454
   %cond139 = phi i32 [ %conv135, %_ZL10stbi__get8P13stbi__context.exit454 ], [ %call137, %cond.false136 ]
-  %cmp140.not = icmp ult i32 %cond139, %call6
+  %cmp140.not = icmp samesign ult i32 %cond139, %call6
   %spec.store.select = select i1 %cmp140.not, i32 %cond139, i32 0
   %134 = zext nneg i32 %spec.store.select to i64
   %135 = mul nuw nsw i64 %108, %134
@@ -13898,7 +13898,7 @@ if.end.i8.i:                                      ; preds = %land.lhs.true.i
 
 _ZL21stbi__mul2sizes_validii.exit14.i:            ; preds = %if.end.i8.i
   %div.i11.i = udiv i32 2147483647, %2
-  %cmp5.i12.not.i = icmp ugt i32 %mul.i, %div.i11.i
+  %cmp5.i12.not.i = icmp samesign ugt i32 %mul.i, %div.i11.i
   br i1 %cmp5.i12.not.i, label %return.sink.split, label %if.end7
 
 if.end7:                                          ; preds = %_ZL21stbi__mul2sizes_validii.exit14.i, %if.end.i8.i
@@ -17235,7 +17235,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr42 = getelementptr inbounds i8, ptr %out.addr.1113, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %24 = or disjoint i64 %indvars.iv.next, 7
-  %cmp7 = icmp ult i64 %24, %0
+  %cmp7 = icmp samesign ult i64 %24, %0
   br i1 %cmp7, label %for.body, label %if.end.loopexit, !llvm.loop !131
 
 if.end.loopexit:                                  ; preds = %for.body
@@ -17397,7 +17397,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %23 = load i8, ptr %arrayidx59, align 1
   %conv60 = zext i8 %23 to i32
   %add61 = add nuw nsw i32 %mul56, %conv60
-  %cmp13 = icmp ult i64 %indvars.iv.next, %2
+  %cmp13 = icmp samesign ult i64 %indvars.iv.next, %2
   br i1 %cmp13, label %for.body, label %for.end.loopexit, !llvm.loop !133
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -17688,7 +17688,7 @@ sw.bb6:                                           ; preds = %entry
   %4 = load ptr, ptr %z, align 8
   %call8 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %4)
   %sub = add nsw i32 %call8, -2
-  %cmp9310 = icmp ugt i32 %call8, 2
+  %cmp9310 = icmp samesign ugt i32 %call8, 2
   br i1 %cmp9310, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %sw.bb6
@@ -17776,7 +17776,7 @@ if.then16:                                        ; preds = %_ZL10stbi__get8P13s
   br label %return
 
 if.end18:                                         ; preds = %_ZL10stbi__get8P13stbi__context.exit
-  %cmp19 = icmp ugt i32 %and, 3
+  %cmp19 = icmp samesign ugt i32 %and, 3
   br i1 %cmp19, label %if.then20, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end18
@@ -17898,7 +17898,7 @@ sw.bb39:                                          ; preds = %entry
   %34 = load ptr, ptr %z, align 8
   %call41 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %34)
   %sub42 = add nsw i32 %call41, -2
-  %cmp44307 = icmp ugt i32 %call41, 2
+  %cmp44307 = icmp samesign ugt i32 %call41, 2
   br i1 %cmp44307, label %while.body45.lr.ph, label %while.end118
 
 while.body45.lr.ph:                               ; preds = %sw.bb39
@@ -18200,7 +18200,7 @@ if.then.i214:                                     ; preds = %for.body.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i214
   %add.i = add nuw nsw i32 %and8.i, %conv11.i
-  %cmp12.i = icmp ult i32 %add.i, 10
+  %cmp12.i = icmp samesign ult i32 %add.i, 10
   br i1 %cmp12.i, label %if.then13.i, label %for.inc.i
 
 if.then13.i:                                      ; preds = %land.lhs.true.i
@@ -18251,7 +18251,7 @@ sw.epilog:                                        ; preds = %entry
 if.then126:                                       ; preds = %sw.epilog
   %82 = load ptr, ptr %z, align 8
   %call128 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %82)
-  %cmp129 = icmp ult i32 %call128, 2
+  %cmp129 = icmp samesign ult i32 %call128, 2
   br i1 %cmp129, label %if.then130, label %if.end136
 
 if.then130:                                       ; preds = %if.then126
@@ -18268,8 +18268,8 @@ if.else134:                                       ; preds = %if.then130
 
 if.end136:                                        ; preds = %if.then126
   %cmp138 = icmp eq i32 %m, 224
-  %cmp140 = icmp ugt i32 %call128, 6
-  %or.cond4 = and i1 %cmp138, %cmp140
+  %cmp140 = icmp samesign ugt i32 %call128, 6
+  %or.cond4 = select i1 %cmp138, i1 %cmp140, i1 false
   br i1 %or.cond4, label %for.body145, label %if.else162
 
 for.body145:                                      ; preds = %if.end136, %_ZL10stbi__get8P13stbi__context.exit248
@@ -18361,8 +18361,8 @@ if.then160:                                       ; preds = %for.end157
 if.else162:                                       ; preds = %if.end136
   %sub137 = add nsw i32 %call128, -2
   %cmp163 = icmp eq i32 %m, 238
-  %cmp165 = icmp ugt i32 %call128, 13
-  %or.cond5 = and i1 %cmp163, %cmp165
+  %cmp165 = icmp samesign ugt i32 %call128, 13
+  %or.cond5 = select i1 %cmp163, i1 %cmp165, i1 false
   br i1 %or.cond5, label %for.body171, label %if.end199
 
 for.body171:                                      ; preds = %if.else162, %_ZL10stbi__get8P13stbi__context.exit281
@@ -18535,7 +18535,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL26stbi__process_frame_hea
 entry:
   %0 = load ptr, ptr %z, align 8
   %call = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %0)
-  %cmp = icmp ult i32 %call, 11
+  %cmp = icmp samesign ult i32 %call, 11
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

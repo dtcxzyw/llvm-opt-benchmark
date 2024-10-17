@@ -113171,7 +113171,7 @@ for.cond3.preheader.us:                           ; preds = %entry, %for.inc10.s
 for.body5.us.us:                                  ; preds = %for.body5.us.us, %for.cond3.preheader.us
   %6 = phi i32 [ %add.us.us, %for.body5.us.us ], [ 0, %for.cond3.preheader.us ]
   %add.us.us = add nuw nsw i32 %6, 8
-  %cmp4.us.us = icmp ult i32 %6, 4088
+  %cmp4.us.us = icmp samesign ult i32 %6, 4088
   br i1 %cmp4.us.us, label %for.body5.us.us, label %for.inc10.split.us.us, !llvm.loop !1328
 
 for.inc10.split.us.us:                            ; preds = %for.body5.us.us
@@ -113211,7 +113211,7 @@ for.body5.us:                                     ; preds = %for.body5.us, %for.
   %18 = load i32, ptr %arrayinit.element2.i, align 4
   %add.us = add nuw nsw i32 %15, 8
   store i32 %add.us, ptr %arrayidx.i.i.i16, align 4
-  %cmp4.us = icmp ult i32 %15, 4088
+  %cmp4.us = icmp samesign ult i32 %15, 4088
   br i1 %cmp4.us, label %for.body5.us, label %for.inc10.split.us, !llvm.loop !1328
 
 for.inc10.split.us:                               ; preds = %for.body5.us
@@ -114561,7 +114561,7 @@ for.body19.us.us:                                 ; preds = %for.body19.us.us, %
   %184 = load i32, ptr %arrayinit.element2.i, align 4
   %add31.us.us = add nuw nsw i32 %183, 8
   store i32 %add31.us.us, ptr %arrayidx.i.i.i16, align 4
-  %cmp18.us.us = icmp ult i32 %183, 4088
+  %cmp18.us.us = icmp samesign ult i32 %183, 4088
   br i1 %cmp18.us.us, label %for.body19.us.us, label %for.inc33.split.us.us, !llvm.loop !1332
 
 for.inc33.split.us.us:                            ; preds = %for.body19.us.us
@@ -114597,7 +114597,7 @@ for.body19.us:                                    ; preds = %for.body19.us, %for
   %196 = load i32, ptr %arrayinit.element2.i, align 4
   %add31.us = add nuw nsw i32 %193, 8
   store i32 %add31.us, ptr %arrayidx.i.i.i16, align 4
-  %cmp18.us = icmp ult i32 %193, 4088
+  %cmp18.us = icmp samesign ult i32 %193, 4088
   br i1 %cmp18.us, label %for.body19.us, label %for.inc33.split.us, !llvm.loop !1332
 
 for.inc33.split.us:                               ; preds = %for.body19.us
@@ -149593,7 +149593,7 @@ for.cond3.preheader.us:                           ; preds = %entry, %for.inc10.s
 for.body5.us.us:                                  ; preds = %for.body5.us.us, %for.cond3.preheader.us
   %6 = phi i32 [ %add.us.us, %for.body5.us.us ], [ 0, %for.cond3.preheader.us ]
   %add.us.us = add nuw nsw i32 %6, 8
-  %cmp4.us.us = icmp ult i32 %6, 4088
+  %cmp4.us.us = icmp samesign ult i32 %6, 4088
   br i1 %cmp4.us.us, label %for.body5.us.us, label %for.inc10.split.us.us, !llvm.loop !1639
 
 for.inc10.split.us.us:                            ; preds = %for.body5.us.us
@@ -149633,7 +149633,7 @@ for.body5.us:                                     ; preds = %for.body5.us, %for.
   %18 = load i32, ptr %arrayinit.element2.i, align 4
   %add.us = add nuw nsw i32 %15, 8
   store i32 %add.us, ptr %arrayidx.i.i.i16, align 4
-  %cmp4.us = icmp ult i32 %15, 4088
+  %cmp4.us = icmp samesign ult i32 %15, 4088
   br i1 %cmp4.us, label %for.body5.us, label %for.inc10.split.us, !llvm.loop !1639
 
 for.inc10.split.us:                               ; preds = %for.body5.us
@@ -150983,7 +150983,7 @@ for.body19.us.us:                                 ; preds = %for.body19.us.us, %
   %184 = load i32, ptr %arrayinit.element2.i, align 4
   %add31.us.us = add nuw nsw i32 %183, 8
   store i32 %add31.us.us, ptr %arrayidx.i.i.i16, align 4
-  %cmp18.us.us = icmp ult i32 %183, 4088
+  %cmp18.us.us = icmp samesign ult i32 %183, 4088
   br i1 %cmp18.us.us, label %for.body19.us.us, label %for.inc33.split.us.us, !llvm.loop !1643
 
 for.inc33.split.us.us:                            ; preds = %for.body19.us.us
@@ -151019,7 +151019,7 @@ for.body19.us:                                    ; preds = %for.body19.us, %for
   %196 = load i32, ptr %arrayinit.element2.i, align 4
   %add31.us = add nuw nsw i32 %193, 8
   store i32 %add31.us, ptr %arrayidx.i.i.i16, align 4
-  %cmp18.us = icmp ult i32 %193, 4088
+  %cmp18.us = icmp samesign ult i32 %193, 4088
   br i1 %cmp18.us, label %for.body19.us, label %for.inc33.split.us, !llvm.loop !1643
 
 for.inc33.split.us:                               ; preds = %for.body19.us

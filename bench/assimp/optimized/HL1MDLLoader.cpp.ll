@@ -8161,7 +8161,7 @@ _ZN10aiVector3tIfEixEj.exit:                      ; preds = %if.then131, %sw.bb2
   %total13.i = getelementptr inbounds i8, ptr %add.ptr138, i64 1
   %61 = load i8, ptr %total13.i, align 1
   %62 = zext i8 %61 to i64
-  %cmp.not15.i = icmp ult i64 %indvars.iv182, %62
+  %cmp.not15.i = icmp samesign ult i64 %indvars.iv182, %62
   br i1 %cmp.not15.i, label %_ZN6Assimp3MDL8HalfLife12HL1MDLLoader18extract_anim_valueEPKNS1_13AnimValue_HL1EifRf.exit, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %_ZN10aiVector3tIfEixEj.exit
@@ -8246,7 +8246,7 @@ _ZN10aiVector3tIfEixEj.exit102:                   ; preds = %if.then154, %sw.bb2
   %total13.i103 = getelementptr inbounds i8, ptr %add.ptr160, i64 1
   %70 = load i8, ptr %total13.i103, align 1
   %71 = zext i8 %70 to i64
-  %cmp.not15.i105 = icmp ult i64 %indvars.iv182, %71
+  %cmp.not15.i105 = icmp samesign ult i64 %indvars.iv182, %71
   br i1 %cmp.not15.i105, label %_ZN6Assimp3MDL8HalfLife12HL1MDLLoader18extract_anim_valueEPKNS1_13AnimValue_HL1EifRf.exit129, label %while.body.i106.preheader
 
 while.body.i106.preheader:                        ; preds = %_ZN10aiVector3tIfEixEj.exit102

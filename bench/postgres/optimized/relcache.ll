@@ -2743,7 +2743,7 @@ AttrDefaultFetch.exit.i:                          ; preds = %382, %380
 
 .outer.i.i.outer:                                 ; preds = %453, %400
   %.0.ph.i.i.ph = phi i32 [ %459, %453 ], [ 0, %400 ]
-  %.not45.i.i = icmp ult i32 %.0.ph.i.i.ph, %401
+  %.not45.i.i = icmp samesign ult i32 %.0.ph.i.i.ph, %401
   %411 = zext nneg i32 %.0.ph.i.i.ph to i64
   %412 = getelementptr %struct.ConstrCheck, ptr %405, i64 %411
   %413 = getelementptr inbounds i8, ptr %412, i64 16
@@ -2847,7 +2847,7 @@ AttrDefaultFetch.exit.i:                          ; preds = %382, %380
   br label %467
 
 467:                                              ; preds = %462, %460, %.loopexit.i91.i
-  %468 = icmp ugt i32 %.0.ph.i.i.ph, 1
+  %468 = icmp samesign ugt i32 %.0.ph.i.i.ph, 1
   br i1 %468, label %469, label %CheckConstraintFetch.exit.i
 
 469:                                              ; preds = %467
@@ -8864,53 +8864,46 @@ define dso_local void @RelationCacheInitFilePreInvalidate() local_unnamed_addr #
   %10 = call zeroext i1 @LWLockAcquire(ptr noundef %9, i32 noundef 0) #12
   %11 = load ptr, ptr @DatabasePath, align 8
   %.not1 = icmp eq ptr %11, null
-  br i1 %.not1, label %unlink_initfile.exit, label %12
+  br i1 %.not1, label %13, label %12
 
 12:                                               ; preds = %6
-  %13 = call i32 @unlink(ptr noundef nonnull %1) #12
-  %14 = icmp slt i32 %13, 0
-  br i1 %14, label %15, label %unlink_initfile.exit
+  call fastcc void @unlink_initfile(ptr noundef %1, i32 noundef 21)
+  br label %13
 
-15:                                               ; preds = %12
-  %16 = tail call ptr @__errno_location() #15
-  %17 = load i32, ptr %16, align 4
-  %.not.i = icmp eq i32 %17, 2
-  br i1 %.not.i, label %unlink_initfile.exit, label %18
-
-18:                                               ; preds = %15
-  %19 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %19)
-  %20 = call i32 @errcode_for_file_access() #12
-  %21 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.76, ptr noundef nonnull %1) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 6834, ptr noundef nonnull @__func__.unlink_initfile) #12
-  unreachable
-
-unlink_initfile.exit:                             ; preds = %15, %12, %6
-  %22 = call i32 @unlink(ptr noundef nonnull %2) #12
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %24, label %unlink_initfile.exit3
-
-24:                                               ; preds = %unlink_initfile.exit
-  %25 = tail call ptr @__errno_location() #15
-  %26 = load i32, ptr %25, align 4
-  %.not.i2 = icmp eq i32 %26, 2
-  br i1 %.not.i2, label %unlink_initfile.exit3, label %27
-
-27:                                               ; preds = %24
-  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %28)
-  %29 = call i32 @errcode_for_file_access() #12
-  %30 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.76, ptr noundef nonnull %2) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 6834, ptr noundef nonnull @__func__.unlink_initfile) #12
-  unreachable
-
-unlink_initfile.exit3:                            ; preds = %unlink_initfile.exit, %24
+13:                                               ; preds = %12, %6
+  call fastcc void @unlink_initfile(ptr noundef %2, i32 noundef 21)
   ret void
 }
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @unlink_initfile(ptr noundef nonnull %0, i32 noundef range(i32 15, 22) %1) unnamed_addr #0 {
+  %3 = tail call i32 @unlink(ptr noundef nonnull %0) #12
+  %4 = icmp slt i32 %3, 0
+  br i1 %4, label %5, label %13
+
+5:                                                ; preds = %2
+  %6 = tail call ptr @__errno_location() #15
+  %7 = load i32, ptr %6, align 4
+  %.not = icmp eq i32 %7, 2
+  br i1 %.not, label %13, label %8
+
+8:                                                ; preds = %5
+  %9 = tail call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #12
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %8
+  %11 = tail call i32 @errcode_for_file_access() #12
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.76, ptr noundef nonnull %0) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 6834, ptr noundef nonnull @__func__.unlink_initfile) #12
+  br label %13
+
+13:                                               ; preds = %8, %10, %5, %2
+  ret void
+}
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RelationCacheInitFilePostInvalidate() local_unnamed_addr #0 {
@@ -8926,53 +8919,33 @@ declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 define dso_local void @RelationCacheInitFileRemove() local_unnamed_addr #0 {
   %1 = alloca [1050 x i8], align 16
   %2 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1050, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.35) #12
-  %3 = call i32 @unlink(ptr noundef nonnull %1) #12
-  %4 = icmp slt i32 %3, 0
-  br i1 %4, label %5, label %unlink_initfile.exit
-
-5:                                                ; preds = %0
-  %6 = tail call ptr @__errno_location() #15
-  %7 = load i32, ptr %6, align 4
-  %.not.i = icmp eq i32 %7, 2
-  br i1 %.not.i, label %unlink_initfile.exit, label %8
-
-8:                                                ; preds = %5
-  %9 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #12
-  br i1 %9, label %10, label %unlink_initfile.exit
-
-10:                                               ; preds = %8
-  %11 = call i32 @errcode_for_file_access() #12
-  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.76, ptr noundef nonnull %1) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 6834, ptr noundef nonnull @__func__.unlink_initfile) #12
-  br label %unlink_initfile.exit
-
-unlink_initfile.exit:                             ; preds = %8, %10, %0, %5
+  call fastcc void @unlink_initfile(ptr noundef %1, i32 noundef 15)
   call fastcc void @RelationCacheInitFileRemoveInDir(ptr noundef nonnull @.str.38)
-  %13 = call ptr @AllocateDir(ptr noundef nonnull @.str.37) #12
-  %14 = call ptr @ReadDirExtended(ptr noundef %13, ptr noundef nonnull @.str.37, i32 noundef 15) #12
-  %.not8 = icmp eq ptr %14, null
+  %3 = call ptr @AllocateDir(ptr noundef nonnull @.str.37) #12
+  %4 = call ptr @ReadDirExtended(ptr noundef %3, ptr noundef nonnull @.str.37, i32 noundef 15) #12
+  %.not8 = icmp eq ptr %4, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %unlink_initfile.exit, %22
-  %15 = phi ptr [ %23, %22 ], [ %14, %unlink_initfile.exit ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 19
-  %17 = call i64 @strspn(ptr noundef nonnull %16, ptr noundef nonnull @.str.39) #14
-  %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #14
-  %19 = icmp eq i64 %17, %18
-  br i1 %19, label %20, label %22
+.lr.ph:                                           ; preds = %0, %12
+  %5 = phi ptr [ %13, %12 ], [ %4, %0 ]
+  %6 = getelementptr inbounds i8, ptr %5, i64 19
+  %7 = call i64 @strspn(ptr noundef nonnull %6, ptr noundef nonnull @.str.39) #14
+  %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #14
+  %9 = icmp eq i64 %7, %8
+  br i1 %9, label %10, label %12
 
-20:                                               ; preds = %.lr.ph
-  %21 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1050, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.37, ptr noundef nonnull %16, ptr noundef nonnull @.str.41) #12
+10:                                               ; preds = %.lr.ph
+  %11 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1050, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.37, ptr noundef nonnull %6, ptr noundef nonnull @.str.41) #12
   call fastcc void @RelationCacheInitFileRemoveInDir(ptr noundef nonnull %1)
-  br label %22
+  br label %12
 
-22:                                               ; preds = %20, %.lr.ph
-  %23 = call ptr @ReadDirExtended(ptr noundef %13, ptr noundef nonnull @.str.37, i32 noundef 15) #12
-  %.not = icmp eq ptr %23, null
+12:                                               ; preds = %10, %.lr.ph
+  %13 = call ptr @ReadDirExtended(ptr noundef %3, ptr noundef nonnull @.str.37, i32 noundef 15) #12
+  %.not = icmp eq ptr %13, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
-._crit_edge:                                      ; preds = %22, %unlink_initfile.exit
-  %24 = call i32 @FreeDir(ptr noundef %13) #12
+._crit_edge:                                      ; preds = %12, %0
+  %14 = call i32 @FreeDir(ptr noundef %3) #12
   ret void
 }
 
@@ -8984,43 +8957,26 @@ define internal fastcc void @RelationCacheInitFileRemoveInDir(ptr noundef %0) un
   %.not8 = icmp eq ptr %4, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %unlink_initfile.exit
-  %5 = phi ptr [ %22, %unlink_initfile.exit ], [ %4, %1 ]
+.lr.ph:                                           ; preds = %1, %12
+  %5 = phi ptr [ %13, %12 ], [ %4, %1 ]
   %6 = getelementptr inbounds i8, ptr %5, i64 19
   %7 = call i64 @strspn(ptr noundef nonnull %6, ptr noundef nonnull @.str.39) #14
   %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #14
   %9 = icmp eq i64 %7, %8
-  br i1 %9, label %10, label %unlink_initfile.exit
+  br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph
   %11 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 2048, ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.35) #12
-  %12 = call i32 @unlink(ptr noundef nonnull %2) #12
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %unlink_initfile.exit
+  call fastcc void @unlink_initfile(ptr noundef %2, i32 noundef 15)
+  br label %12
 
-14:                                               ; preds = %10
-  %15 = tail call ptr @__errno_location() #15
-  %16 = load i32, ptr %15, align 4
-  %.not.i = icmp eq i32 %16, 2
-  br i1 %.not.i, label %unlink_initfile.exit, label %17
-
-17:                                               ; preds = %14
-  %18 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #12
-  br i1 %18, label %19, label %unlink_initfile.exit
-
-19:                                               ; preds = %17
-  %20 = call i32 @errcode_for_file_access() #12
-  %21 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.76, ptr noundef nonnull %2) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 6834, ptr noundef nonnull @__func__.unlink_initfile) #12
-  br label %unlink_initfile.exit
-
-unlink_initfile.exit:                             ; preds = %14, %10, %19, %17, %.lr.ph
-  %22 = call ptr @ReadDirExtended(ptr noundef %3, ptr noundef %0, i32 noundef 15) #12
-  %.not = icmp eq ptr %22, null
+12:                                               ; preds = %10, %.lr.ph
+  %13 = call ptr @ReadDirExtended(ptr noundef %3, ptr noundef %0, i32 noundef 15) #12
+  %.not = icmp eq ptr %13, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %unlink_initfile.exit, %1
-  %23 = call i32 @FreeDir(ptr noundef %3) #12
+._crit_edge:                                      ; preds = %12, %1
+  %14 = call i32 @FreeDir(ptr noundef %3) #12
   ret void
 }
 

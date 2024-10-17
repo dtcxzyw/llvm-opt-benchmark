@@ -4336,7 +4336,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h28483e5d6d70d
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -4490,7 +4490,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h3eac427fd2cf1
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -4644,7 +4644,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h529b20ab51804
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -4798,7 +4798,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6689c0f1dafd5
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -4945,7 +4945,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6b328a6fab8ef
 34:                                               ; preds = %25, %._crit_edge.i
   %.129.i = phi i64 [ %30, %25 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %25 ], [ %8, %._crit_edge.i ]
-  %35 = icmp ult i64 %.027.i, 10
+  %35 = icmp samesign ult i64 %.027.i, 10
   br i1 %35, label %42, label %36
 
 36:                                               ; preds = %34
@@ -5097,7 +5097,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h948f3b9226bdc
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -5251,7 +5251,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17ha7cd3af073c0d
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -5523,7 +5523,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hd32f90a7eda97
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -5677,7 +5677,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17he5277f3937805
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36

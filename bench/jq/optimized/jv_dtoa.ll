@@ -156,7 +156,7 @@ define double @jvp_strtod(ptr nocapture noundef %0, ptr noundef %1, ptr noundef 
   %.0416931 = phi i32 [ %.1417, %37 ], [ 0, %.loopexit791 ]
   %.0460930 = phi i32 [ %38, %37 ], [ 0, %.loopexit791 ]
   %.4744929 = phi ptr [ %39, %37 ], [ %.1741, %.loopexit791 ]
-  %26 = icmp ult i32 %.0460930, 9
+  %26 = icmp samesign ult i32 %.0460930, 9
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.lr.ph
@@ -166,7 +166,7 @@ define double @jvp_strtod(ptr nocapture noundef %0, ptr noundef %1, ptr noundef 
   br label %37
 
 31:                                               ; preds = %.lr.ph
-  %32 = icmp ult i32 %.0460930, 16
+  %32 = icmp samesign ult i32 %.0460930, 16
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %31
@@ -704,7 +704,7 @@ match.exit599:                                    ; preds = %162, %.preheader
   br i1 %.not548, label %412, label %262
 
 262:                                              ; preds = %259
-  %263 = icmp ugt i32 %261, 308
+  %263 = icmp samesign ugt i32 %261, 308
   br i1 %263, label %.loopexit, label %311
 
 .loopexit:                                        ; preds = %773, %bigcomp.exit, %662, %._crit_edge987, %262
@@ -987,20 +987,20 @@ Bfree.exit614:                                    ; preds = %297, %298
   %390 = lshr i32 %385, 20
   %391 = and i32 %390, 2047
   %392 = sub nsw i32 107, %391
-  %393 = icmp ult i32 %391, 107
+  %393 = icmp samesign ult i32 %391, 107
   br i1 %393, label %394, label %408
 
 394:                                              ; preds = %388
-  %395 = icmp ult i32 %391, 76
+  %395 = icmp samesign ult i32 %391, 76
   br i1 %395, label %396, label %405
 
 396:                                              ; preds = %394
-  %397 = icmp ult i32 %391, 53
+  %397 = icmp samesign ult i32 %391, 53
   br i1 %397, label %411, label %398
 
 398:                                              ; preds = %396
   store i32 0, ptr %10, align 8
-  %399 = icmp ult i32 %391, 55
+  %399 = icmp samesign ult i32 %391, 55
   br i1 %399, label %400, label %401
 
 400:                                              ; preds = %398
@@ -1592,11 +1592,11 @@ cmp.exit636.thread764:                            ; preds = %641, %668, %cmp.exi
   %.4 = phi ptr [ %629, %cmp.exit636 ], [ %592, %668 ], [ %629, %641 ]
   %.pre1154 = and i32 %672, 2146435072
   %673 = icmp ugt i32 %.pre1154, 112197632
-  %or.cond1337.not = or i1 %673, %504
+  %or.cond1337.not = or i1 %504, %673
   br i1 %or.cond1337.not, label %cmp.exit636.thread764._crit_edge, label %674
 
 674:                                              ; preds = %cmp.exit636.thread764
-  %675 = icmp ugt i32 %.pre1154, 57671680
+  %675 = icmp samesign ugt i32 %.pre1154, 57671680
   %brmerge = or i1 %500, %675
   br i1 %brmerge, label %cmp.exit636.thread, label %411
 
@@ -1635,7 +1635,7 @@ cmp.exit636.thread764._crit_edge:                 ; preds = %cmp.exit636.thread7
 687:                                              ; preds = %686
   %688 = lshr i32 %646, 20
   %689 = and i32 %688, 2047
-  %690 = icmp ugt i32 %689, 106
+  %690 = icmp samesign ugt i32 %689, 106
   br i1 %690, label %sulp.exit, label %691
 
 691:                                              ; preds = %687
@@ -1660,7 +1660,7 @@ sulp.exit:                                        ; preds = %686, %687, %691
 699:                                              ; preds = %698
   %700 = lshr i32 %646, 20
   %701 = and i32 %700, 2047
-  %702 = icmp ugt i32 %701, 106
+  %702 = icmp samesign ugt i32 %701, 106
   br i1 %702, label %sulp.exit645, label %703
 
 703:                                              ; preds = %699
@@ -2488,7 +2488,7 @@ Bfree.exit167.i:                                  ; preds = %1047, %1046, %Bfree
 1059:                                             ; preds = %._crit_edge255.i
   %1060 = lshr i32 %.val160.i, 20
   %1061 = and i32 %1060, 2047
-  %1062 = icmp ugt i32 %1061, 106
+  %1062 = icmp samesign ugt i32 %1061, 106
   br i1 %1062, label %sulp.exit.i, label %1063
 
 1063:                                             ; preds = %1059
@@ -2525,7 +2525,7 @@ sulp.exit.i:                                      ; preds = %1063, %1059, %._cri
 1076:                                             ; preds = %._crit_edge251.i
   %1077 = lshr i32 %1071, 20
   %1078 = and i32 %1077, 2047
-  %1079 = icmp ugt i32 %1078, 106
+  %1079 = icmp samesign ugt i32 %1078, 106
   br i1 %1079, label %sulp.exit175.i, label %1080
 
 1080:                                             ; preds = %1076
@@ -5666,7 +5666,7 @@ define noundef ptr @jvp_dtoa_fmt(ptr nocapture noundef %0, ptr noundef returned 
   %52 = add i8 %51, 48
   %53 = getelementptr inbounds i8, ptr %.2, i64 3
   store i8 %52, ptr %.4, align 1
-  %54 = icmp ult i32 %.042, 2
+  %54 = icmp samesign ult i32 %.042, 2
   br i1 %54, label %.loopexit.sink.split, label %.lr.ph80
 
 .lr.ph80:                                         ; preds = %.preheader59, %.lr.ph80
@@ -5852,7 +5852,7 @@ define internal fastcc double @b2d(ptr noundef readonly %0, ptr nocapture nounde
   %.020.i = select i1 %.not241.i, i32 %.3.i, i32 %spec.select27.i
   %16 = sub nuw nsw i32 32, %.020.i
   store i32 %16, ptr %1, align 4
-  %17 = icmp ult i32 %.020.i, 11
+  %17 = icmp samesign ult i32 %.020.i, 11
   br i1 %17, label %18, label %31
 
 18:                                               ; preds = %2

@@ -4371,7 +4371,7 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr nound
   %.1211 = phi i32 [ %90, %87 ], [ %.0210227, %83 ], [ %117, %115 ], [ %139, %131 ], [ %157, %150 ], [ %161, %158 ], [ %165, %162 ]
   %.1 = phi i32 [ 0, %87 ], [ %84, %83 ], [ %.2, %115 ], [ %.2, %131 ], [ %.2, %150 ], [ %.2, %158 ], [ %.2, %162 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %65
-  %167 = icmp ult i64 %indvars.iv.next, %67
+  %167 = icmp samesign ult i64 %indvars.iv.next, %67
   br i1 %167, label %71, label %.preheader.loopexit
 
 168:                                              ; preds = %25, %3, %8, %11, %15, %19, %23, %.preheader
@@ -8103,10 +8103,10 @@ define internal fastcc void @stbiw__encode_png_line(ptr nocapture noundef readon
   %130 = tail call i32 @llvm.abs.i32(i32 %129, i1 true)
   %131 = sub nsw i32 %126, %124
   %132 = tail call i32 @llvm.abs.i32(i32 %131, i1 true)
-  %.not.i138 = icmp ugt i32 %128, %130
-  %.not20.i139 = icmp ugt i32 %128, %132
+  %.not.i138 = icmp samesign ugt i32 %128, %130
+  %.not20.i139 = icmp samesign ugt i32 %128, %132
   %or.cond.i140 = select i1 %.not.i138, i1 true, i1 %.not20.i139
-  %.not21.i = icmp ugt i32 %130, %132
+  %.not21.i = icmp samesign ugt i32 %130, %132
   %..i = select i1 %.not21.i, i8 %123, i8 %119
   %.0.in.i141 = select i1 %or.cond.i140, i8 %..i, i8 %115
   %133 = sub i8 %112, %.0.in.i141
@@ -16638,7 +16638,7 @@ switch.lookup159:                                 ; preds = %GetPixelDataSize.ex
 GetPixelDataSize.exit88:                          ; preds = %110, %116, %118
   %.016.i84 = phi i32 [ %113, %110 ], [ 8, %116 ], [ %spec.select.i87, %118 ]
   call void @ImageCopy(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %2, ptr noundef nonnull byval(%struct.Image) align 8 %0)
-  %120 = icmp ugt i32 %.058.lcssa, 1
+  %120 = icmp samesign ugt i32 %.058.lcssa, 1
   br i1 %120, label %.lr.ph119, label %._crit_edge120
 
 .lr.ph119:                                        ; preds = %GetPixelDataSize.exit88, %GetPixelDataSize.exit95
@@ -22650,7 +22650,7 @@ define void @ImageDrawLine(ptr nocapture noundef readonly %0, i32 noundef %1, i3
   %8 = tail call i32 @llvm.abs.i32(i32 %7, i1 true)
   %9 = sub nsw i32 %4, %2
   %10 = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
-  %11 = icmp ult i32 %10, %8
+  %11 = icmp samesign ult i32 %10, %8
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %6
@@ -27815,7 +27815,7 @@ stbi__getn.exit.thread:                           ; preds = %517, %stbi__getn.ex
 583:                                              ; preds = %582
   %584 = zext nneg i8 %.0200 to i32
   store i32 %584, ptr %57, align 8
-  %585 = icmp ugt i32 %2, 2
+  %585 = icmp samesign ugt i32 %2, 2
   %spec.select = select i1 %585, i32 %2, i32 %584
   store i32 %spec.select, ptr %562, align 4
   %586 = call fastcc i32 @stbi__expand_png_palette(ptr noundef %0, ptr noundef %4, i32 noundef %spec.select)
@@ -28617,12 +28617,12 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %86 = getelementptr inbounds i8, ptr %68, i64 %85
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %83, ptr align 1 %86, i64 %31, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %87 = icmp ult i64 %indvars.iv.next, %71
+  %87 = icmp samesign ult i64 %indvars.iv.next, %71
   br i1 %87, label %79, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %79
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %88 = icmp ult i64 %indvars.iv.next98, %72
+  %88 = icmp samesign ult i64 %indvars.iv.next98, %72
   br i1 %88, label %.preheader.us, label %._crit_edge91
 
 89:                                               ; preds = %55
@@ -29442,10 +29442,10 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %183 = tail call i32 @llvm.abs.i32(i32 %182, i1 true)
   %184 = sub nsw i32 %179, %177
   %185 = tail call i32 @llvm.abs.i32(i32 %184, i1 true)
-  %.not.i638 = icmp ugt i32 %181, %183
-  %.not20.i639 = icmp ugt i32 %181, %185
+  %.not.i638 = icmp samesign ugt i32 %181, %183
+  %.not20.i639 = icmp samesign ugt i32 %181, %185
   %or.cond.i640 = select i1 %.not.i638, i1 true, i1 %.not20.i639
-  %.not21.i = icmp ugt i32 %183, %185
+  %.not21.i = icmp samesign ugt i32 %183, %185
   %..i = select i1 %.not21.i, i8 %176, i8 %173
   %.0.i641 = select i1 %or.cond.i640, i8 %..i, i8 %170
   %.narrow623 = add i8 %.0.i641, %167
@@ -29707,10 +29707,10 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %267 = tail call i32 @llvm.abs.i32(i32 %266, i1 true)
   %268 = sub nsw i32 %263, %261
   %269 = tail call i32 @llvm.abs.i32(i32 %268, i1 true)
-  %.not.i648 = icmp ugt i32 %265, %267
-  %.not20.i649 = icmp ugt i32 %265, %269
+  %.not.i648 = icmp samesign ugt i32 %265, %267
+  %.not20.i649 = icmp samesign ugt i32 %265, %269
   %or.cond.i650 = select i1 %.not.i648, i1 true, i1 %.not20.i649
-  %.not21.i651 = icmp ugt i32 %267, %269
+  %.not21.i651 = icmp samesign ugt i32 %267, %269
   %..i652 = select i1 %.not21.i651, i8 %260, i8 %257
   %.0.i653 = select i1 %or.cond.i650, i8 %..i652, i8 %254
   %.narrow607 = add i8 %.0.i653, %251
@@ -30246,7 +30246,7 @@ stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %9
 
 stbi__mul2sizes_valid.exit12.i:                   ; preds = %14
   %16 = udiv i32 2147483647, %12
-  %.not.i = icmp ugt i32 %13, %16
+  %.not.i = icmp samesign ugt i32 %13, %16
   br i1 %.not.i, label %stbi__process_gif_raster.exit.thread.sink.split, label %stbi__mad3sizes_valid.exit
 
 stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_valid.exit12.i, %14
@@ -32787,7 +32787,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr nocapture n
   %70 = zext i16 %rev.i.i to i32
   %71 = sub nuw nsw i32 16, %47
   %72 = lshr i32 %70, %71
-  %73 = icmp ult i32 %72, 512
+  %73 = icmp samesign ult i32 %72, 512
   br i1 %73, label %.lr.ph78, label %.loopexit
 
 .lr.ph78:                                         ; preds = %69
@@ -32801,7 +32801,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr nocapture n
   %78 = getelementptr inbounds [512 x i16], ptr %0, i64 0, i64 %indvars.iv91
   store i16 %63, ptr %78, align 2
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, %76
-  %79 = icmp ult i64 %indvars.iv.next92, 512
+  %79 = icmp samesign ult i64 %indvars.iv.next92, 512
   br i1 %79, label %77, label %.loopexit
 
 .loopexit:                                        ; preds = %77, %69, %48
@@ -33528,7 +33528,7 @@ define internal fastcc i32 @stbiw__jpg_processDU(ptr nocapture noundef nonnull r
   store float %66, ptr %41, align 4
   store float %70, ptr %43, align 4
   %indvars.iv.next.lver.orig = add nuw nsw i64 %indvars.iv.lver.orig, %34
-  %85 = icmp ult i64 %indvars.iv.next.lver.orig, %35
+  %85 = icmp samesign ult i64 %indvars.iv.next.lver.orig, %35
   br i1 %85, label %36, label %.preheader237
 
 .preheader237:                                    ; preds = %36

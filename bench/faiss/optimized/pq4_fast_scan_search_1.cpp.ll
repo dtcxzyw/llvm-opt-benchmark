@@ -5759,7 +5759,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %74
 
 .sink.split.i:                                    ; preds = %81
   %84 = and i8 %83, 15
-  %85 = icmp ult i64 %indvars.iv.i, 16
+  %85 = icmp samesign ult i64 %indvars.iv.i, 16
   %86 = or disjoint i8 %84, 16
   %.sink17.i = select i1 %85, i8 %84, i8 %86
   %87 = zext nneg i8 %.sink17.i to i64
@@ -5788,7 +5788,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %90
 
 .sink.split.i120:                                 ; preds = %92
   %95 = and i8 %94, 15
-  %96 = icmp ult i64 %indvars.iv.i115, 16
+  %96 = icmp samesign ult i64 %indvars.iv.i115, 16
   %97 = or disjoint i8 %95, 16
   %.sink17.i121 = select i1 %96, i8 %95, i8 %97
   %98 = zext nneg i8 %.sink17.i121 to i64
@@ -5999,7 +5999,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit154: ; preds = %156
 
 .sink.split.i.i:                                  ; preds = %163
   %166 = and i8 %165, 15
-  %167 = icmp ult i64 %indvars.iv.i.i155, 16
+  %167 = icmp samesign ult i64 %indvars.iv.i.i155, 16
   %168 = or disjoint i8 %166, 16
   %.sink17.i.i = select i1 %167, i8 %166, i8 %168
   %169 = zext nneg i8 %.sink17.i.i to i64
@@ -6134,7 +6134,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit171:          ; preds = %201
 
 .sink.split.i.i177:                               ; preds = %208
   %211 = and i8 %210, 15
-  %212 = icmp ult i64 %indvars.iv.i.i172, 16
+  %212 = icmp samesign ult i64 %indvars.iv.i.i172, 16
   %213 = or disjoint i8 %211, 16
   %.sink17.i.i178 = select i1 %212, i8 %211, i8 %213
   %214 = zext nneg i8 %.sink17.i.i178 to i64
@@ -6591,7 +6591,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %75
 
 .sink.split.i:                                    ; preds = %82
   %85 = and i8 %84, 15
-  %86 = icmp ult i64 %indvars.iv.i, 16
+  %86 = icmp samesign ult i64 %indvars.iv.i, 16
   %87 = or disjoint i8 %85, 16
   %.sink17.i = select i1 %86, i8 %85, i8 %87
   %88 = zext nneg i8 %.sink17.i to i64
@@ -6620,7 +6620,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %91
 
 .sink.split.i120:                                 ; preds = %93
   %96 = and i8 %95, 15
-  %97 = icmp ult i64 %indvars.iv.i115, 16
+  %97 = icmp samesign ult i64 %indvars.iv.i115, 16
   %98 = or disjoint i8 %96, 16
   %.sink17.i121 = select i1 %97, i8 %96, i8 %98
   %99 = zext nneg i8 %.sink17.i121 to i64
@@ -6853,7 +6853,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit154: ; preds = %164
 
 .sink.split.i.i:                                  ; preds = %171
   %174 = and i8 %173, 15
-  %175 = icmp ult i64 %indvars.iv.i.i155, 16
+  %175 = icmp samesign ult i64 %indvars.iv.i.i155, 16
   %176 = or disjoint i8 %174, 16
   %.sink17.i.i = select i1 %175, i8 %174, i8 %176
   %177 = zext nneg i8 %.sink17.i.i to i64
@@ -6988,7 +6988,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit171:          ; preds = %209
 
 .sink.split.i.i177:                               ; preds = %216
   %219 = and i8 %218, 15
-  %220 = icmp ult i64 %indvars.iv.i.i172, 16
+  %220 = icmp samesign ult i64 %indvars.iv.i.i172, 16
   %221 = or disjoint i8 %219, 16
   %.sink17.i.i178 = select i1 %220, i8 %219, i8 %221
   %222 = zext nneg i8 %.sink17.i.i178 to i64
@@ -7460,7 +7460,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %74
 
 .sink.split.i:                                    ; preds = %81
   %84 = and i8 %83, 15
-  %85 = icmp ult i64 %indvars.iv.i, 16
+  %85 = icmp samesign ult i64 %indvars.iv.i, 16
   %86 = or disjoint i8 %84, 16
   %.sink17.i = select i1 %85, i8 %84, i8 %86
   %87 = zext nneg i8 %.sink17.i to i64
@@ -7489,7 +7489,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %90
 
 .sink.split.i120:                                 ; preds = %92
   %95 = and i8 %94, 15
-  %96 = icmp ult i64 %indvars.iv.i115, 16
+  %96 = icmp samesign ult i64 %indvars.iv.i115, 16
   %97 = or disjoint i8 %95, 16
   %.sink17.i121 = select i1 %96, i8 %95, i8 %97
   %98 = zext nneg i8 %.sink17.i121 to i64
@@ -7724,7 +7724,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit154: ; preds = %163
 
 .sink.split.i.i:                                  ; preds = %170
   %173 = and i8 %172, 15
-  %174 = icmp ult i64 %indvars.iv.i.i155, 16
+  %174 = icmp samesign ult i64 %indvars.iv.i.i155, 16
   %175 = or disjoint i8 %173, 16
   %.sink17.i.i = select i1 %174, i8 %173, i8 %175
   %176 = zext nneg i8 %.sink17.i.i to i64
@@ -7860,7 +7860,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit171:          ; preds = %209
 
 .sink.split.i.i177:                               ; preds = %216
   %219 = and i8 %218, 15
-  %220 = icmp ult i64 %indvars.iv.i.i172, 16
+  %220 = icmp samesign ult i64 %indvars.iv.i.i172, 16
   %221 = or disjoint i8 %219, 16
   %.sink17.i.i178 = select i1 %220, i8 %219, i8 %221
   %222 = zext nneg i8 %.sink17.i.i178 to i64
@@ -8336,7 +8336,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %74
 
 .sink.split.i:                                    ; preds = %81
   %84 = and i8 %83, 15
-  %85 = icmp ult i64 %indvars.iv.i, 16
+  %85 = icmp samesign ult i64 %indvars.iv.i, 16
   %86 = or disjoint i8 %84, 16
   %.sink17.i = select i1 %85, i8 %84, i8 %86
   %87 = zext nneg i8 %.sink17.i to i64
@@ -8365,7 +8365,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %90
 
 .sink.split.i120:                                 ; preds = %92
   %95 = and i8 %94, 15
-  %96 = icmp ult i64 %indvars.iv.i115, 16
+  %96 = icmp samesign ult i64 %indvars.iv.i115, 16
   %97 = or disjoint i8 %95, 16
   %.sink17.i121 = select i1 %96, i8 %95, i8 %97
   %98 = zext nneg i8 %.sink17.i121 to i64
@@ -8600,7 +8600,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit154: ; preds = %163
 
 .sink.split.i.i:                                  ; preds = %170
   %173 = and i8 %172, 15
-  %174 = icmp ult i64 %indvars.iv.i.i155, 16
+  %174 = icmp samesign ult i64 %indvars.iv.i.i155, 16
   %175 = or disjoint i8 %173, 16
   %.sink17.i.i = select i1 %174, i8 %173, i8 %175
   %176 = zext nneg i8 %.sink17.i.i to i64
@@ -8736,7 +8736,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit171:          ; preds = %209
 
 .sink.split.i.i177:                               ; preds = %216
   %219 = and i8 %218, 15
-  %220 = icmp ult i64 %indvars.iv.i.i172, 16
+  %220 = icmp samesign ult i64 %indvars.iv.i.i172, 16
   %221 = or disjoint i8 %219, 16
   %.sink17.i.i178 = select i1 %220, i8 %219, i8 %221
   %222 = zext nneg i8 %.sink17.i.i178 to i64
@@ -9212,7 +9212,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %74
 
 .sink.split.i:                                    ; preds = %81
   %84 = and i8 %83, 15
-  %85 = icmp ult i64 %indvars.iv.i, 16
+  %85 = icmp samesign ult i64 %indvars.iv.i, 16
   %86 = or disjoint i8 %84, 16
   %.sink17.i = select i1 %85, i8 %84, i8 %86
   %87 = zext nneg i8 %.sink17.i to i64
@@ -9241,7 +9241,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %90
 
 .sink.split.i120:                                 ; preds = %92
   %95 = and i8 %94, 15
-  %96 = icmp ult i64 %indvars.iv.i115, 16
+  %96 = icmp samesign ult i64 %indvars.iv.i115, 16
   %97 = or disjoint i8 %95, 16
   %.sink17.i121 = select i1 %96, i8 %95, i8 %97
   %98 = zext nneg i8 %.sink17.i121 to i64
@@ -9476,7 +9476,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit154: ; preds = %163
 
 .sink.split.i.i:                                  ; preds = %170
   %173 = and i8 %172, 15
-  %174 = icmp ult i64 %indvars.iv.i.i155, 16
+  %174 = icmp samesign ult i64 %indvars.iv.i.i155, 16
   %175 = or disjoint i8 %173, 16
   %.sink17.i.i = select i1 %174, i8 %173, i8 %175
   %176 = zext nneg i8 %.sink17.i.i to i64
@@ -9612,7 +9612,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit171:          ; preds = %209
 
 .sink.split.i.i177:                               ; preds = %216
   %219 = and i8 %218, 15
-  %220 = icmp ult i64 %indvars.iv.i.i172, 16
+  %220 = icmp samesign ult i64 %indvars.iv.i.i172, 16
   %221 = or disjoint i8 %219, 16
   %.sink17.i.i178 = select i1 %220, i8 %219, i8 %221
   %222 = zext nneg i8 %.sink17.i.i178 to i64
@@ -10104,7 +10104,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit118: ; preds = %80
 
 .sink.split.i:                                    ; preds = %89
   %92 = and i8 %91, 15
-  %93 = icmp ult i64 %indvars.iv.i, 16
+  %93 = icmp samesign ult i64 %indvars.iv.i, 16
   %94 = or disjoint i8 %92, 16
   %.sink17.i = select i1 %93, i8 %92, i8 %94
   %95 = zext nneg i8 %.sink17.i to i64
@@ -10133,7 +10133,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %98
 
 .sink.split.i124:                                 ; preds = %100
   %103 = and i8 %102, 15
-  %104 = icmp ult i64 %indvars.iv.i119, 16
+  %104 = icmp samesign ult i64 %indvars.iv.i119, 16
   %105 = or disjoint i8 %103, 16
   %.sink17.i125 = select i1 %104, i8 %103, i8 %105
   %106 = zext nneg i8 %.sink17.i125 to i64
@@ -10371,7 +10371,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit158: ; preds = %168
 
 .sink.split.i.i:                                  ; preds = %178
   %181 = and i8 %180, 15
-  %182 = icmp ult i64 %indvars.iv.i.i159, 16
+  %182 = icmp samesign ult i64 %indvars.iv.i.i159, 16
   %183 = or disjoint i8 %181, 16
   %.sink17.i.i = select i1 %182, i8 %181, i8 %183
   %184 = zext nneg i8 %.sink17.i.i to i64
@@ -10506,7 +10506,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit175:          ; preds = %216
 
 .sink.split.i.i181:                               ; preds = %223
   %226 = and i8 %225, 15
-  %227 = icmp ult i64 %indvars.iv.i.i176, 16
+  %227 = icmp samesign ult i64 %indvars.iv.i.i176, 16
   %228 = or disjoint i8 %226, 16
   %.sink17.i.i182 = select i1 %227, i8 %226, i8 %228
   %229 = zext nneg i8 %.sink17.i.i182 to i64
@@ -10994,7 +10994,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit116: ; preds = %80
 
 .sink.split.i:                                    ; preds = %89
   %92 = and i8 %91, 15
-  %93 = icmp ult i64 %indvars.iv.i, 16
+  %93 = icmp samesign ult i64 %indvars.iv.i, 16
   %94 = or disjoint i8 %92, 16
   %.sink17.i = select i1 %93, i8 %92, i8 %94
   %95 = zext nneg i8 %.sink17.i to i64
@@ -11023,7 +11023,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %98
 
 .sink.split.i122:                                 ; preds = %100
   %103 = and i8 %102, 15
-  %104 = icmp ult i64 %indvars.iv.i117, 16
+  %104 = icmp samesign ult i64 %indvars.iv.i117, 16
   %105 = or disjoint i8 %103, 16
   %.sink17.i123 = select i1 %104, i8 %103, i8 %105
   %106 = zext nneg i8 %.sink17.i123 to i64
@@ -11277,7 +11277,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit156: ; preds = %176
 
 .sink.split.i.i:                                  ; preds = %185
   %188 = and i8 %187, 15
-  %189 = icmp ult i64 %indvars.iv.i.i157, 16
+  %189 = icmp samesign ult i64 %indvars.iv.i.i157, 16
   %190 = or disjoint i8 %188, 16
   %.sink17.i.i = select i1 %189, i8 %188, i8 %190
   %191 = zext nneg i8 %.sink17.i.i to i64
@@ -11413,7 +11413,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit173:          ; preds = %224
 
 .sink.split.i.i179:                               ; preds = %231
   %234 = and i8 %233, 15
-  %235 = icmp ult i64 %indvars.iv.i.i174, 16
+  %235 = icmp samesign ult i64 %indvars.iv.i.i174, 16
   %236 = or disjoint i8 %234, 16
   %.sink17.i.i180 = select i1 %235, i8 %234, i8 %236
   %237 = zext nneg i8 %.sink17.i.i180 to i64
@@ -11917,7 +11917,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit118: ; preds = %80
 
 .sink.split.i:                                    ; preds = %89
   %92 = and i8 %91, 15
-  %93 = icmp ult i64 %indvars.iv.i, 16
+  %93 = icmp samesign ult i64 %indvars.iv.i, 16
   %94 = or disjoint i8 %92, 16
   %.sink17.i = select i1 %93, i8 %92, i8 %94
   %95 = zext nneg i8 %.sink17.i to i64
@@ -11946,7 +11946,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %98
 
 .sink.split.i124:                                 ; preds = %100
   %103 = and i8 %102, 15
-  %104 = icmp ult i64 %indvars.iv.i119, 16
+  %104 = icmp samesign ult i64 %indvars.iv.i119, 16
   %105 = or disjoint i8 %103, 16
   %.sink17.i125 = select i1 %104, i8 %103, i8 %105
   %106 = zext nneg i8 %.sink17.i125 to i64
@@ -12188,7 +12188,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit158: ; preds = %169
 
 .sink.split.i.i:                                  ; preds = %179
   %182 = and i8 %181, 15
-  %183 = icmp ult i64 %indvars.iv.i.i159, 16
+  %183 = icmp samesign ult i64 %indvars.iv.i.i159, 16
   %184 = or disjoint i8 %182, 16
   %.sink17.i.i = select i1 %183, i8 %182, i8 %184
   %185 = zext nneg i8 %.sink17.i.i to i64
@@ -12324,7 +12324,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit175:          ; preds = %218
 
 .sink.split.i.i181:                               ; preds = %225
   %228 = and i8 %227, 15
-  %229 = icmp ult i64 %indvars.iv.i.i176, 16
+  %229 = icmp samesign ult i64 %indvars.iv.i.i176, 16
   %230 = or disjoint i8 %228, 16
   %.sink17.i.i182 = select i1 %229, i8 %228, i8 %230
   %231 = zext nneg i8 %.sink17.i.i182 to i64
@@ -12819,7 +12819,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit118: ; preds = %80
 
 .sink.split.i:                                    ; preds = %89
   %92 = and i8 %91, 15
-  %93 = icmp ult i64 %indvars.iv.i, 16
+  %93 = icmp samesign ult i64 %indvars.iv.i, 16
   %94 = or disjoint i8 %92, 16
   %.sink17.i = select i1 %93, i8 %92, i8 %94
   %95 = zext nneg i8 %.sink17.i to i64
@@ -12848,7 +12848,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %98
 
 .sink.split.i124:                                 ; preds = %100
   %103 = and i8 %102, 15
-  %104 = icmp ult i64 %indvars.iv.i119, 16
+  %104 = icmp samesign ult i64 %indvars.iv.i119, 16
   %105 = or disjoint i8 %103, 16
   %.sink17.i125 = select i1 %104, i8 %103, i8 %105
   %106 = zext nneg i8 %.sink17.i125 to i64
@@ -13090,7 +13090,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit158: ; preds = %169
 
 .sink.split.i.i:                                  ; preds = %179
   %182 = and i8 %181, 15
-  %183 = icmp ult i64 %indvars.iv.i.i159, 16
+  %183 = icmp samesign ult i64 %indvars.iv.i.i159, 16
   %184 = or disjoint i8 %182, 16
   %.sink17.i.i = select i1 %183, i8 %182, i8 %184
   %185 = zext nneg i8 %.sink17.i.i to i64
@@ -13226,7 +13226,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit175:          ; preds = %218
 
 .sink.split.i.i181:                               ; preds = %225
   %228 = and i8 %227, 15
-  %229 = icmp ult i64 %indvars.iv.i.i176, 16
+  %229 = icmp samesign ult i64 %indvars.iv.i.i176, 16
   %230 = or disjoint i8 %228, 16
   %.sink17.i.i182 = select i1 %229, i8 %228, i8 %230
   %231 = zext nneg i8 %.sink17.i.i182 to i64
@@ -13658,7 +13658,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %49
 
 .sink.split.i:                                    ; preds = %56
   %59 = and i8 %58, 15
-  %60 = icmp ult i64 %indvars.iv.i, 16
+  %60 = icmp samesign ult i64 %indvars.iv.i, 16
   %61 = or disjoint i8 %59, 16
   %.sink17.i = select i1 %60, i8 %59, i8 %61
   %62 = zext nneg i8 %.sink17.i to i64
@@ -13687,7 +13687,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %65
 
 .sink.split.i118:                                 ; preds = %67
   %70 = and i8 %69, 15
-  %71 = icmp ult i64 %indvars.iv.i113, 16
+  %71 = icmp samesign ult i64 %indvars.iv.i113, 16
   %72 = or disjoint i8 %70, 16
   %.sink17.i119 = select i1 %71, i8 %70, i8 %72
   %73 = zext nneg i8 %.sink17.i119 to i64
@@ -14097,7 +14097,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %49
 
 .sink.split.i:                                    ; preds = %56
   %59 = and i8 %58, 15
-  %60 = icmp ult i64 %indvars.iv.i, 16
+  %60 = icmp samesign ult i64 %indvars.iv.i, 16
   %61 = or disjoint i8 %59, 16
   %.sink17.i = select i1 %60, i8 %59, i8 %61
   %62 = zext nneg i8 %.sink17.i to i64
@@ -14126,7 +14126,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %65
 
 .sink.split.i118:                                 ; preds = %67
   %70 = and i8 %69, 15
-  %71 = icmp ult i64 %indvars.iv.i113, 16
+  %71 = icmp samesign ult i64 %indvars.iv.i113, 16
   %72 = or disjoint i8 %70, 16
   %.sink17.i119 = select i1 %71, i8 %70, i8 %72
   %73 = zext nneg i8 %.sink17.i119 to i64
@@ -14554,7 +14554,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %48
 
 .sink.split.i:                                    ; preds = %55
   %58 = and i8 %57, 15
-  %59 = icmp ult i64 %indvars.iv.i, 16
+  %59 = icmp samesign ult i64 %indvars.iv.i, 16
   %60 = or disjoint i8 %58, 16
   %.sink17.i = select i1 %59, i8 %58, i8 %60
   %61 = zext nneg i8 %.sink17.i to i64
@@ -14583,7 +14583,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %64
 
 .sink.split.i118:                                 ; preds = %66
   %69 = and i8 %68, 15
-  %70 = icmp ult i64 %indvars.iv.i113, 16
+  %70 = icmp samesign ult i64 %indvars.iv.i113, 16
   %71 = or disjoint i8 %69, 16
   %.sink17.i119 = select i1 %70, i8 %69, i8 %71
   %72 = zext nneg i8 %.sink17.i119 to i64
@@ -15016,7 +15016,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %48
 
 .sink.split.i:                                    ; preds = %55
   %58 = and i8 %57, 15
-  %59 = icmp ult i64 %indvars.iv.i, 16
+  %59 = icmp samesign ult i64 %indvars.iv.i, 16
   %60 = or disjoint i8 %58, 16
   %.sink17.i = select i1 %59, i8 %58, i8 %60
   %61 = zext nneg i8 %.sink17.i to i64
@@ -15045,7 +15045,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %64
 
 .sink.split.i118:                                 ; preds = %66
   %69 = and i8 %68, 15
-  %70 = icmp ult i64 %indvars.iv.i113, 16
+  %70 = icmp samesign ult i64 %indvars.iv.i113, 16
   %71 = or disjoint i8 %69, 16
   %.sink17.i119 = select i1 %70, i8 %69, i8 %71
   %72 = zext nneg i8 %.sink17.i119 to i64
@@ -15478,7 +15478,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %48
 
 .sink.split.i:                                    ; preds = %55
   %58 = and i8 %57, 15
-  %59 = icmp ult i64 %indvars.iv.i, 16
+  %59 = icmp samesign ult i64 %indvars.iv.i, 16
   %60 = or disjoint i8 %58, 16
   %.sink17.i = select i1 %59, i8 %58, i8 %60
   %61 = zext nneg i8 %.sink17.i to i64
@@ -15507,7 +15507,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %64
 
 .sink.split.i118:                                 ; preds = %66
   %69 = and i8 %68, 15
-  %70 = icmp ult i64 %indvars.iv.i113, 16
+  %70 = icmp samesign ult i64 %indvars.iv.i113, 16
   %71 = or disjoint i8 %69, 16
   %.sink17.i119 = select i1 %70, i8 %69, i8 %71
   %72 = zext nneg i8 %.sink17.i119 to i64
@@ -15955,7 +15955,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %54
 
 .sink.split.i:                                    ; preds = %63
   %66 = and i8 %65, 15
-  %67 = icmp ult i64 %indvars.iv.i, 16
+  %67 = icmp samesign ult i64 %indvars.iv.i, 16
   %68 = or disjoint i8 %66, 16
   %.sink17.i = select i1 %67, i8 %66, i8 %68
   %69 = zext nneg i8 %.sink17.i to i64
@@ -15984,7 +15984,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %72
 
 .sink.split.i120:                                 ; preds = %74
   %77 = and i8 %76, 15
-  %78 = icmp ult i64 %indvars.iv.i115, 16
+  %78 = icmp samesign ult i64 %indvars.iv.i115, 16
   %79 = or disjoint i8 %77, 16
   %.sink17.i121 = select i1 %78, i8 %77, i8 %79
   %80 = zext nneg i8 %.sink17.i121 to i64
@@ -16422,7 +16422,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %54
 
 .sink.split.i:                                    ; preds = %63
   %66 = and i8 %65, 15
-  %67 = icmp ult i64 %indvars.iv.i, 16
+  %67 = icmp samesign ult i64 %indvars.iv.i, 16
   %68 = or disjoint i8 %66, 16
   %.sink17.i = select i1 %67, i8 %66, i8 %68
   %69 = zext nneg i8 %.sink17.i to i64
@@ -16451,7 +16451,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %72
 
 .sink.split.i118:                                 ; preds = %74
   %77 = and i8 %76, 15
-  %78 = icmp ult i64 %indvars.iv.i113, 16
+  %78 = icmp samesign ult i64 %indvars.iv.i113, 16
   %79 = or disjoint i8 %77, 16
   %.sink17.i119 = select i1 %78, i8 %77, i8 %79
   %80 = zext nneg i8 %.sink17.i119 to i64
@@ -16913,7 +16913,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %54
 
 .sink.split.i:                                    ; preds = %63
   %66 = and i8 %65, 15
-  %67 = icmp ult i64 %indvars.iv.i, 16
+  %67 = icmp samesign ult i64 %indvars.iv.i, 16
   %68 = or disjoint i8 %66, 16
   %.sink17.i = select i1 %67, i8 %66, i8 %68
   %69 = zext nneg i8 %.sink17.i to i64
@@ -16942,7 +16942,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %72
 
 .sink.split.i120:                                 ; preds = %74
   %77 = and i8 %76, 15
-  %78 = icmp ult i64 %indvars.iv.i115, 16
+  %78 = icmp samesign ult i64 %indvars.iv.i115, 16
   %79 = or disjoint i8 %77, 16
   %.sink17.i121 = select i1 %78, i8 %77, i8 %79
   %80 = zext nneg i8 %.sink17.i121 to i64
@@ -17390,7 +17390,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %54
 
 .sink.split.i:                                    ; preds = %63
   %66 = and i8 %65, 15
-  %67 = icmp ult i64 %indvars.iv.i, 16
+  %67 = icmp samesign ult i64 %indvars.iv.i, 16
   %68 = or disjoint i8 %66, 16
   %.sink17.i = select i1 %67, i8 %66, i8 %68
   %69 = zext nneg i8 %.sink17.i to i64
@@ -17419,7 +17419,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %72
 
 .sink.split.i120:                                 ; preds = %74
   %77 = and i8 %76, 15
-  %78 = icmp ult i64 %indvars.iv.i115, 16
+  %78 = icmp samesign ult i64 %indvars.iv.i115, 16
   %79 = or disjoint i8 %77, 16
   %.sink17.i121 = select i1 %78, i8 %77, i8 %79
   %80 = zext nneg i8 %.sink17.i121 to i64

@@ -19715,7 +19715,7 @@ invoke.cont20:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont20, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
@@ -19971,7 +19971,7 @@ invoke.cont12:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont12, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
@@ -23220,7 +23220,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
@@ -23476,7 +23476,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
@@ -26237,7 +26237,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
@@ -26493,7 +26493,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
@@ -29421,7 +29421,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
@@ -29677,7 +29677,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
@@ -32604,7 +32604,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
@@ -32860,7 +32860,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
@@ -35897,7 +35897,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
@@ -36153,7 +36153,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
@@ -39203,7 +39203,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
@@ -39459,7 +39459,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
@@ -42236,7 +42236,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
@@ -42492,7 +42492,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  %cmp.i.not67 = icmp ugt i32 %shr.i, %shr.i14
+  %cmp.i.not67 = icmp samesign ugt i32 %shr.i, %shr.i14
   br i1 %cmp.i.not67, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit

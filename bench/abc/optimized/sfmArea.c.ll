@@ -669,104 +669,105 @@ define i32 @Abc_NtkPrecomputePrint(ptr noundef %0, i32 noundef %1, ptr nocapture
   %7 = getelementptr inbounds %struct.Mio_Cell2_t_, ptr %0, i64 %indvars.iv64
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
-  %10 = lshr i32 %9, 28
+  %.fr55 = freeze i32 %9
+  %10 = lshr i32 %.fr55, 28
   %11 = load ptr, ptr %7, align 8
   %12 = trunc nuw nsw i64 %indvars.iv64 to i32
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %12, ptr noundef %11, i32 noundef %10)
   %14 = getelementptr inbounds i8, ptr %7, i64 32
   tail call void @Dau_DsdPrintFromTruth(ptr noundef nonnull %14, i32 noundef %10) #12
-  %.not55 = icmp ult i32 %9, 268435456
+  %15 = icmp ugt i32 %.fr55, 268435455
   %sext = shl i64 %.03853, 32
-  %15 = ashr exact i64 %sext, 32
-  br i1 %.not55, label %.split, label %.split.us
+  %16 = ashr exact i64 %sext, 32
+  br i1 %15, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %6, %30
-  %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ %15, %6 ]
-  %.03648.us = phi i32 [ %31, %30 ], [ 0, %6 ]
-  %.14046.us = phi i32 [ %.2.us, %30 ], [ %.03952, %6 ]
+.split.us:                                        ; preds = %6, %31
+  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %31 ], [ %16, %6 ]
+  %.03648.us = phi i32 [ %32, %31 ], [ 0, %6 ]
+  %.14046.us = phi i32 [ %.2.us, %31 ], [ %.03952, %6 ]
   %.val.us = load ptr, ptr %5, align 8
-  %16 = getelementptr i32, ptr %.val.us, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 4
-  %18 = getelementptr i8, ptr %16, i64 4
-  %19 = load i32, ptr %18, align 4
-  %20 = getelementptr i8, ptr %16, i64 8
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %17, -1
-  br i1 %22, label %30, label %.lr.ph.us
+  %17 = getelementptr i32, ptr %.val.us, i64 %indvars.iv60
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr i8, ptr %17, i64 4
+  %20 = load i32, ptr %19, align 4
+  %21 = getelementptr i8, ptr %17, i64 8
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp eq i32 %18, -1
+  br i1 %23, label %31, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.split.us
-  %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.03648.us)
-  br label %24
+  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.03648.us)
+  br label %25
 
-24:                                               ; preds = %.lr.ph.us, %24
-  %.03745.us = phi i32 [ 0, %.lr.ph.us ], [ %29, %24 ]
-  %25 = shl i32 %.03745.us, 2
-  %26 = ashr i32 %19, %25
-  %27 = and i32 %26, 15
-  %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %27)
-  %29 = add nuw nsw i32 %.03745.us, 1
-  %exitcond.not = icmp eq i32 %29, %10
-  br i1 %exitcond.not, label %._crit_edge.us, label %24, !llvm.loop !15
+25:                                               ; preds = %.lr.ph.us, %25
+  %.03745.us = phi i32 [ 0, %.lr.ph.us ], [ %30, %25 ]
+  %26 = shl i32 %.03745.us, 2
+  %27 = ashr i32 %20, %26
+  %28 = and i32 %27, 15
+  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %28)
+  %30 = add nuw nsw i32 %.03745.us, 1
+  %exitcond59.not = icmp eq i32 %30, %10
+  br i1 %exitcond59.not, label %._crit_edge.us, label %25, !llvm.loop !15
 
-30:                                               ; preds = %._crit_edge.us, %.split.us
-  %.2.us = phi i32 [ %.14046.us, %.split.us ], [ %44, %._crit_edge.us ]
-  %31 = add nuw nsw i32 %.03648.us, 1
-  %indvars.iv.next = add nsw i64 %indvars.iv, 3
-  %exitcond59.not = icmp eq i32 %.03648.us, %10
-  br i1 %exitcond59.not, label %.split50.us, label %.split.us, !llvm.loop !16
+31:                                               ; preds = %._crit_edge.us, %.split.us
+  %.2.us = phi i32 [ %.14046.us, %.split.us ], [ %45, %._crit_edge.us ]
+  %32 = add nuw nsw i32 %.03648.us, 1
+  %indvars.iv.next61 = add nsw i64 %indvars.iv60, 3
+  %exitcond63.not = icmp eq i32 %.03648.us, %10
+  br i1 %exitcond63.not, label %.split50.us, label %.split.us, !llvm.loop !16
 
-._crit_edge.us:                                   ; preds = %24
-  %32 = trunc nsw i64 %indvars.iv to i32
-  %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %32)
-  %34 = sitofp i32 %21 to float
-  %35 = fdiv float %34, 1.000000e+03
-  %36 = fpext float %35 to double
-  %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %36)
-  %38 = sext i32 %17 to i64
-  %39 = getelementptr inbounds %struct.Mio_Cell2_t_, ptr %0, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 32
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
-  %42 = load i32, ptr %41, align 8
-  %43 = lshr i32 %42, 28
-  tail call void @Dau_DsdPrintFromTruth(ptr noundef nonnull %40, i32 noundef %43) #12
-  %44 = add nsw i32 %.14046.us, 1
-  br label %30
+._crit_edge.us:                                   ; preds = %25
+  %33 = trunc nsw i64 %indvars.iv60 to i32
+  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %33)
+  %35 = sitofp i32 %22 to float
+  %36 = fdiv float %35, 1.000000e+03
+  %37 = fpext float %36 to double
+  %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %37)
+  %39 = sext i32 %18 to i64
+  %40 = getelementptr inbounds %struct.Mio_Cell2_t_, ptr %0, i64 %39
+  %41 = getelementptr inbounds i8, ptr %40, i64 32
+  %42 = getelementptr inbounds i8, ptr %40, i64 16
+  %43 = load i32, ptr %42, align 8
+  %44 = lshr i32 %43, 28
+  tail call void @Dau_DsdPrintFromTruth(ptr noundef nonnull %41, i32 noundef %44) #12
+  %45 = add nsw i32 %.14046.us, 1
+  br label %31
 
 .split:                                           ; preds = %6
   %.val = load ptr, ptr %5, align 8
-  %45 = getelementptr i32, ptr %.val, i64 %15
-  %46 = load i32, ptr %45, align 4
-  %47 = icmp eq i32 %46, -1
-  br i1 %47, label %.split50.us.loopexit, label %48
+  %46 = getelementptr i32, ptr %.val, i64 %16
+  %47 = load i32, ptr %46, align 4
+  %48 = icmp eq i32 %47, -1
+  br i1 %48, label %.split50.us.loopexit69, label %49
 
-48:                                               ; preds = %.split
-  %49 = getelementptr i8, ptr %45, i64 8
-  %50 = load i32, ptr %49, align 4
-  %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 0)
-  %52 = trunc i64 %.03853 to i32
-  %53 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %52)
-  %54 = sitofp i32 %50 to float
-  %55 = fdiv float %54, 1.000000e+03
-  %56 = fpext float %55 to double
-  %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %56)
-  %58 = sext i32 %46 to i64
-  %59 = getelementptr inbounds %struct.Mio_Cell2_t_, ptr %0, i64 %58
-  %60 = getelementptr inbounds i8, ptr %59, i64 32
-  %61 = getelementptr inbounds i8, ptr %59, i64 16
-  %62 = load i32, ptr %61, align 8
-  %63 = lshr i32 %62, 28
-  tail call void @Dau_DsdPrintFromTruth(ptr noundef nonnull %60, i32 noundef %63) #12
-  %64 = add nsw i32 %.03952, 1
-  br label %.split50.us.loopexit
+49:                                               ; preds = %.split
+  %50 = getelementptr i8, ptr %46, i64 8
+  %51 = load i32, ptr %50, align 4
+  %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 0)
+  %53 = trunc i64 %.03853 to i32
+  %54 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %53)
+  %55 = sitofp i32 %51 to float
+  %56 = fdiv float %55, 1.000000e+03
+  %57 = fpext float %56 to double
+  %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %57)
+  %59 = sext i32 %47 to i64
+  %60 = getelementptr inbounds %struct.Mio_Cell2_t_, ptr %0, i64 %59
+  %61 = getelementptr inbounds i8, ptr %60, i64 32
+  %62 = getelementptr inbounds i8, ptr %60, i64 16
+  %63 = load i32, ptr %62, align 8
+  %64 = lshr i32 %63, 28
+  tail call void @Dau_DsdPrintFromTruth(ptr noundef nonnull %61, i32 noundef %64) #12
+  %65 = add nsw i32 %.03952, 1
+  br label %.split50.us.loopexit69
 
-.split50.us.loopexit:                             ; preds = %48, %.split
-  %.2 = phi i32 [ %.03952, %.split ], [ %64, %48 ]
-  %indvars.iv.next61 = add nsw i64 %15, 3
+.split50.us.loopexit69:                           ; preds = %49, %.split
+  %.2 = phi i32 [ %.03952, %.split ], [ %65, %49 ]
+  %indvars.iv.next = add nsw i64 %16, 3
   br label %.split50.us
 
-.split50.us:                                      ; preds = %30, %.split50.us.loopexit
-  %.us-phi = phi i32 [ %.2, %.split50.us.loopexit ], [ %.2.us, %30 ]
-  %.us-phi51.in = phi i64 [ %indvars.iv.next61, %.split50.us.loopexit ], [ %indvars.iv.next, %30 ]
+.split50.us:                                      ; preds = %31, %.split50.us.loopexit69
+  %.us-phi = phi i32 [ %.2, %.split50.us.loopexit69 ], [ %.2.us, %31 ]
+  %.us-phi51.in = phi i64 [ %indvars.iv.next, %.split50.us.loopexit69 ], [ %indvars.iv.next61, %31 ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
   br i1 %exitcond67.not, label %._crit_edge, label %6, !llvm.loop !17
@@ -897,7 +898,7 @@ define range(i32 0, 2) i32 @Abc_ObjHasDupFanins(ptr nocapture noundef readonly %
   %indvars.iv25 = phi i64 [ 0, %.lr.ph20.preheader ], [ %indvars.iv.next26, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph20.preheader ], [ %indvars.iv.next, %.loopexit ]
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
-  %7 = icmp ult i64 %indvars.iv.next26, %6
+  %7 = icmp samesign ult i64 %indvars.iv.next26, %6
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph20
@@ -945,7 +946,7 @@ define range(i32 0, 2) i32 @Abc_ObjHasDupFanouts(ptr nocapture noundef readonly 
   %indvars.iv25 = phi i64 [ 0, %.lr.ph20.preheader ], [ %indvars.iv.next26, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph20.preheader ], [ %indvars.iv.next, %.loopexit ]
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
-  %7 = icmp ult i64 %indvars.iv.next26, %6
+  %7 = icmp samesign ult i64 %indvars.iv.next26, %6
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph20
@@ -1064,7 +1065,7 @@ define i32 @Abc_ObjChangeEval(ptr noundef %0, ptr nocapture noundef readonly %1,
   %indvars.iv25.i = phi i64 [ 0, %.lr.ph20.preheader.i ], [ %indvars.iv.next26.i, %.loopexit.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph20.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
-  %52 = icmp ult i64 %indvars.iv.next26.i, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next26.i, %51
   br i1 %52, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph20.i
@@ -1677,7 +1678,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   %indvars.iv25.i = phi i64 [ 0, %.lr.ph20.preheader.i ], [ %indvars.iv.next26.i, %.loopexit.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph20.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
-  %55 = icmp ult i64 %indvars.iv.next26.i, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next26.i, %54
   br i1 %55, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph20.i

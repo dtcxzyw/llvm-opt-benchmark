@@ -769,7 +769,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store <8 x i16> %5, ptr %add.ptr2, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %6 = or disjoint i64 %indvars.iv.next, 7
-  %cmp = icmp ult i64 %6, %0
+  %cmp = icmp samesign ult i64 %6, %0
   br i1 %cmp, label %for.body, label %for.cond4.preheader.loopexit, !llvm.loop !6
 
 for.cond18.preheader.loopexit:                    ; preds = %for.body7
@@ -22803,7 +22803,7 @@ for.body3.i.i.i:                                  ; preds = %for.body3.i.i.i, %f
 
 for.inc24.i.i.i:                                  ; preds = %for.body3.i.i.i
   %indvars.iv.next53.i.i.i = add nuw nsw i64 %indvars.iv52.i.i.i, 32
-  %cmp.i.i.i62 = icmp ult i64 %indvars.iv.next53.i.i.i, %202
+  %cmp.i.i.i62 = icmp samesign ult i64 %indvars.iv.next53.i.i.i, %202
   br i1 %cmp.i.i.i62, label %for.cond1.preheader.i.i.i, label %for.cond27.preheader.i.loopexit.i.i, !llvm.loop !126
 
 for.body82.preheader.i.i.i:                       ; preds = %for.cond27.preheader.i.i.i
@@ -22877,7 +22877,7 @@ for.body3.i.i271.i:                               ; preds = %for.body3.i.i271.i,
 
 for.inc24.i.i278.i:                               ; preds = %for.body3.i.i271.i
   %indvars.iv.next53.i.i279.i = add nuw nsw i64 %indvars.iv52.i.i269.i, 32
-  %cmp.i.i280.i = icmp ult i64 %indvars.iv.next53.i.i279.i, %214
+  %cmp.i.i280.i = icmp samesign ult i64 %indvars.iv.next53.i.i279.i, %214
   br i1 %cmp.i.i280.i, label %for.cond1.preheader.i.i268.i, label %for.cond27.preheader.i.loopexit.i281.i, !llvm.loop !126
 
 for.body82.preheader.i.i258.i:                    ; preds = %for.cond27.preheader.i.i251.i
@@ -22977,7 +22977,7 @@ for.body3.i.i.i.i:                                ; preds = %for.body3.i.i.i.i, 
 
 for.inc24.i.i.i.i:                                ; preds = %for.body3.i.i.i.i
   %indvars.iv.next53.i.i.i.i = add nuw nsw i64 %indvars.iv52.i.i.i.i, 32
-  %cmp.i.i.i.i = icmp ult i64 %indvars.iv.next53.i.i.i.i, %228
+  %cmp.i.i.i.i = icmp samesign ult i64 %indvars.iv.next53.i.i.i.i, %228
   br i1 %cmp.i.i.i.i, label %for.cond1.preheader.i.i.i.i, label %for.cond27.preheader.i.loopexit.i.i.i, !llvm.loop !126
 
 for.body82.preheader.i.i.i.i:                     ; preds = %for.cond27.preheader.i.i.i.i
@@ -23149,7 +23149,7 @@ for.body3.i.i342.i:                               ; preds = %for.body3.i.i342.i,
 
 for.inc24.i.i348.i:                               ; preds = %for.body3.i.i342.i
   %indvars.iv.next53.i.i349.i = add nuw nsw i64 %indvars.iv52.i.i340.i, 32
-  %cmp.i.i350.i = icmp ult i64 %indvars.iv.next53.i.i349.i, %240
+  %cmp.i.i350.i = icmp samesign ult i64 %indvars.iv.next53.i.i349.i, %240
   br i1 %cmp.i.i350.i, label %for.cond1.preheader.i.i339.i, label %for.cond27.preheader.i.loopexit.i351.i, !llvm.loop !126
 
 for.body82.i.i321.i:                              ; preds = %for.cond27.preheader.i.i313.i, %for.body82.i.i321.i
@@ -23227,7 +23227,7 @@ for.body3.i54.i.i:                                ; preds = %for.body3.i54.i.i, 
 
 for.inc29.i.i.i:                                  ; preds = %for.body3.i54.i.i
   %indvars.iv.next39.i.i.i = add nuw nsw i64 %indvars.iv38.i.i.i, 32
-  %cmp.i60.i.i = icmp ult i64 %indvars.iv.next39.i.i.i, %240
+  %cmp.i60.i.i = icmp samesign ult i64 %indvars.iv.next39.i.i.i, %240
   br i1 %cmp.i60.i.i, label %for.cond1.preheader.i51.i.i, label %for.cond32.preheader.i.i.i, !llvm.loop !162
 
 for.body34.i.i.i:                                 ; preds = %for.cond32.preheader.i.i.i, %for.body34.i.i.i
@@ -23424,7 +23424,7 @@ for.body3.i125.i.i:                               ; preds = %for.body3.i125.i.i,
 
 for.inc24.i132.i.i:                               ; preds = %for.body3.i125.i.i
   %indvars.iv.next53.i133.i.i = add nuw nsw i64 %indvars.iv52.i122.i.i, 32
-  %cmp.i134.i.i = icmp ult i64 %indvars.iv.next53.i133.i.i, %240
+  %cmp.i134.i.i = icmp samesign ult i64 %indvars.iv.next53.i133.i.i, %240
   br i1 %cmp.i134.i.i, label %for.cond1.preheader.i121.i.i, label %for.cond27.preheader.i96.loopexit.i.i, !llvm.loop !126
 
 for.body82.i112.i.i:                              ; preds = %for.cond27.preheader.i96.i.i, %for.body82.i112.i.i
@@ -23555,7 +23555,7 @@ for.body3.i.i402.i:                               ; preds = %for.body3.i.i402.i,
 
 for.inc24.i.i409.i:                               ; preds = %for.body3.i.i402.i
   %indvars.iv.next53.i.i410.i = add nuw nsw i64 %indvars.iv52.i.i400.i, 32
-  %cmp.i.i411.i = icmp ult i64 %indvars.iv.next53.i.i410.i, %240
+  %cmp.i.i411.i = icmp samesign ult i64 %indvars.iv.next53.i.i410.i, %240
   br i1 %cmp.i.i411.i, label %for.cond1.preheader.i.i399.i, label %for.cond27.preheader.i.loopexit.i412.i, !llvm.loop !126
 
 for.body82.i.i389.i:                              ; preds = %for.cond27.preheader.i.i381.i, %for.body82.i.i389.i
@@ -23618,7 +23618,7 @@ for.body3.i.i445.i:                               ; preds = %for.body3.i.i445.i,
 
 for.inc24.i.i452.i:                               ; preds = %for.body3.i.i445.i
   %indvars.iv.next53.i.i453.i = add nuw nsw i64 %indvars.iv52.i.i443.i, 32
-  %cmp.i.i454.i = icmp ult i64 %indvars.iv.next53.i.i453.i, %240
+  %cmp.i.i454.i = icmp samesign ult i64 %indvars.iv.next53.i.i453.i, %240
   br i1 %cmp.i.i454.i, label %for.cond1.preheader.i.i442.i, label %for.cond27.preheader.i.loopexit.i455.i, !llvm.loop !126
 
 for.body82.i.i432.i:                              ; preds = %for.cond27.preheader.i.i424.i, %for.body82.i.i432.i
@@ -23790,7 +23790,7 @@ for.body3.i486.i:                                 ; preds = %for.body3.i486.i, %
 
 for.inc24.i.i:                                    ; preds = %for.body3.i486.i
   %indvars.iv.next53.i.i = add nuw nsw i64 %indvars.iv52.i.i, 32
-  %cmp.i.i51 = icmp ult i64 %indvars.iv.next53.i.i, %240
+  %cmp.i.i51 = icmp samesign ult i64 %indvars.iv.next53.i.i, %240
   br i1 %cmp.i.i51, label %for.cond1.preheader.i.i, label %for.cond27.preheader.i.loopexit.i, !llvm.loop !126
 
 for.body82.i.i:                                   ; preds = %for.cond27.preheader.i.i, %for.body82.i.i
@@ -23854,7 +23854,7 @@ for.body3.i522.i:                                 ; preds = %for.body3.i522.i, %
 
 for.inc24.i529.i:                                 ; preds = %for.body3.i522.i
   %indvars.iv.next53.i530.i = add nuw nsw i64 %indvars.iv52.i519.i, 32
-  %cmp.i531.i = icmp ult i64 %indvars.iv.next53.i530.i, %240
+  %cmp.i531.i = icmp samesign ult i64 %indvars.iv.next53.i530.i, %240
   br i1 %cmp.i531.i, label %for.cond1.preheader.i518.i, label %for.cond27.preheader.i493.loopexit.i, !llvm.loop !126
 
 for.body82.i509.i:                                ; preds = %for.cond27.preheader.i493.i, %for.body82.i509.i
@@ -23966,7 +23966,7 @@ for.body3.i577.i:                                 ; preds = %for.body3.i577.i, %
 
 for.inc24.i584.i:                                 ; preds = %for.body3.i577.i
   %indvars.iv.next53.i585.i = add nuw nsw i64 %indvars.iv52.i574.i, 32
-  %cmp.i586.i = icmp ult i64 %indvars.iv.next53.i585.i, %240
+  %cmp.i586.i = icmp samesign ult i64 %indvars.iv.next53.i585.i, %240
   br i1 %cmp.i586.i, label %for.cond1.preheader.i573.i, label %for.cond27.preheader.i548.loopexit.i, !llvm.loop !126
 
 for.body82.i564.i:                                ; preds = %for.cond27.preheader.i548.i, %for.body82.i564.i
@@ -24031,7 +24031,7 @@ for.body3.i594.i:                                 ; preds = %for.body3.i594.i, %
 
 for.inc29.i.i:                                    ; preds = %for.body3.i594.i
   %indvars.iv.next39.i.i = add nuw nsw i64 %indvars.iv38.i.i, 32
-  %cmp.i600.i = icmp ult i64 %indvars.iv.next39.i.i, %240
+  %cmp.i600.i = icmp samesign ult i64 %indvars.iv.next39.i.i, %240
   br i1 %cmp.i600.i, label %for.cond1.preheader.i591.i, label %for.cond32.preheader.i.i, !llvm.loop !162
 
 for.body34.i.i:                                   ; preds = %for.cond32.preheader.i.i, %for.body34.i.i
@@ -24078,7 +24078,7 @@ for.body3.i608.i:                                 ; preds = %for.body3.i608.i, %
 
 for.inc19.i.i:                                    ; preds = %for.body3.i608.i
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 32
-  %cmp.i614.i = icmp ult i64 %indvars.iv.next33.i.i, %240
+  %cmp.i614.i = icmp samesign ult i64 %indvars.iv.next33.i.i, %240
   br i1 %cmp.i614.i, label %for.cond1.preheader.i606.i, label %for.cond22.preheader.i.i, !llvm.loop !229
 
 for.body24.i.i:                                   ; preds = %for.cond22.preheader.i.i, %for.body24.i.i
@@ -24153,7 +24153,7 @@ for.body3.i647.i:                                 ; preds = %for.body3.i647.i, %
 
 for.inc24.i654.i:                                 ; preds = %for.body3.i647.i
   %indvars.iv.next53.i655.i = add nuw nsw i64 %indvars.iv52.i644.i, 32
-  %cmp.i656.i = icmp ult i64 %indvars.iv.next53.i655.i, %240
+  %cmp.i656.i = icmp samesign ult i64 %indvars.iv.next53.i655.i, %240
   br i1 %cmp.i656.i, label %for.cond1.preheader.i643.i, label %for.cond27.preheader.i618.loopexit.i, !llvm.loop !126
 
 for.body82.i634.i:                                ; preds = %for.cond27.preheader.i618.i, %for.body82.i634.i
@@ -24209,7 +24209,7 @@ for.body3.i676.i:                                 ; preds = %for.body3.i676.i, %
 
 for.inc29.i682.i:                                 ; preds = %for.body3.i676.i
   %indvars.iv.next39.i683.i = add nuw nsw i64 %indvars.iv38.i673.i, 32
-  %cmp.i684.i = icmp ult i64 %indvars.iv.next39.i683.i, %240
+  %cmp.i684.i = icmp samesign ult i64 %indvars.iv.next39.i683.i, %240
   br i1 %cmp.i684.i, label %for.cond1.preheader.i672.i, label %for.cond32.preheader.i662.i, !llvm.loop !162
 
 for.body34.i665.i:                                ; preds = %for.cond32.preheader.i662.i, %for.body34.i665.i
@@ -25209,7 +25209,7 @@ for.body.i161:                                    ; preds = %for.body.i161, %for
   store <8 x i16> %55, ptr %add.ptr2.i, align 1
   %indvars.iv.next.i164 = add nuw nsw i64 %indvars.iv.i162, 8
   %56 = or disjoint i64 %indvars.iv.next.i164, 7
-  %cmp.i165 = icmp ult i64 %56, %50
+  %cmp.i165 = icmp samesign ult i64 %56, %50
   br i1 %cmp.i165, label %for.body.i161, label %for.cond4.preheader.loopexit.i, !llvm.loop !6
 
 for.cond18.preheader.loopexit.i:                  ; preds = %for.body7.i
@@ -30714,7 +30714,7 @@ for.body3:                                        ; preds = %for.cond1.preheader
 
 for.inc24:                                        ; preds = %for.body3
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 32
-  %cmp = icmp ult i64 %indvars.iv.next53, %0
+  %cmp = icmp samesign ult i64 %indvars.iv.next53, %0
   br i1 %cmp, label %for.cond1.preheader, label %for.body29, !llvm.loop !126
 
 for.body29:                                       ; preds = %for.inc24, %entry
@@ -30801,7 +30801,7 @@ for.body3:                                        ; preds = %for.cond1.preheader
 
 for.inc26:                                        ; preds = %for.body3
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 32
-  %cmp = icmp ult i64 %indvars.iv.next55, %0
+  %cmp = icmp samesign ult i64 %indvars.iv.next55, %0
   br i1 %cmp, label %for.cond1.preheader, label %for.body31, !llvm.loop !294
 
 for.body31:                                       ; preds = %for.inc26, %entry
@@ -40280,7 +40280,7 @@ for.body3.i.us.us.us.i.us.us.us.us.us.us.us.us.us: ; preds = %for.body3.i.us.us.
 
 for.inc19.i.us.us.us.i.us.us.us.us.us.us.us.us.us: ; preds = %for.body3.i.us.us.us.i.us.us.us.us.us.us.us.us.us
   %indvars.iv.next33.i.us.us.us.i.us.us.us.us.us.us.us.us.us = add nuw nsw i64 %indvars.iv32.i.us.us.us.i.us.us.us.us.us.us.us.us.us, 32
-  %cmp.i49.us.us.us.i.us.us.us.us.us.us.us.us.us = icmp ult i64 %indvars.iv.next33.i.us.us.us.i.us.us.us.us.us.us.us.us.us, %23
+  %cmp.i49.us.us.us.i.us.us.us.us.us.us.us.us.us = icmp samesign ult i64 %indvars.iv.next33.i.us.us.us.i.us.us.us.us.us.us.us.us.us, %23
   br i1 %cmp.i49.us.us.us.i.us.us.us.us.us.us.us.us.us, label %for.cond1.preheader.i.us.us.us.i.us.us.us.us.us.us.us.us.us, label %for.cond22.preheader.i.us.us.us.i.loopexit.us.us.us.us.us.us.us.us.us, !llvm.loop !229
 
 for.cond22.preheader.i.us.us.us.i.loopexit.us.us.us.us.us.us.us.us.us: ; preds = %for.inc19.i.us.us.us.i.us.us.us.us.us.us.us.us.us
@@ -40383,7 +40383,7 @@ for.body3.i.us.us.us.i.us.us.us.us.us.us:         ; preds = %for.body3.i.us.us.u
 
 for.inc19.i.us.us.us.i.us.us.us.us.us.us:         ; preds = %for.body3.i.us.us.us.i.us.us.us.us.us.us
   %indvars.iv.next33.i.us.us.us.i.us.us.us.us.us.us = add nuw nsw i64 %indvars.iv32.i.us.us.us.i.us.us.us.us.us.us, 32
-  %cmp.i49.us.us.us.i.us.us.us.us.us.us = icmp ult i64 %indvars.iv.next33.i.us.us.us.i.us.us.us.us.us.us, %23
+  %cmp.i49.us.us.us.i.us.us.us.us.us.us = icmp samesign ult i64 %indvars.iv.next33.i.us.us.us.i.us.us.us.us.us.us, %23
   br i1 %cmp.i49.us.us.us.i.us.us.us.us.us.us, label %for.cond1.preheader.i.us.us.us.i.us.us.us.us.us.us, label %for.body24.i.us.us.us.i.us.us.us.us.us.us, !llvm.loop !229
 
 for.body24.i.us.us.us.i.us.us.us.us.us.us:        ; preds = %for.inc19.i.us.us.us.i.us.us.us.us.us.us, %for.body24.i.us.us.us.i.us.us.us.us.us.us
@@ -40637,7 +40637,7 @@ for.body3.i.us.us.us.i.us11.us.us.us.us.us:       ; preds = %for.body3.i.us.us.u
 
 for.inc19.i.us.us.us.i.us18.us.us.us.us.us:       ; preds = %for.body3.i.us.us.us.i.us11.us.us.us.us.us
   %indvars.iv.next33.i.us.us.us.i.us19.us.us.us.us.us = add nuw nsw i64 %indvars.iv32.i.us.us.us.i.us9.us.us.us.us.us, 32
-  %cmp.i49.us.us.us.i.us20.us.us.us.us.us = icmp ult i64 %indvars.iv.next33.i.us.us.us.i.us19.us.us.us.us.us, %23
+  %cmp.i49.us.us.us.i.us20.us.us.us.us.us = icmp samesign ult i64 %indvars.iv.next33.i.us.us.us.i.us19.us.us.us.us.us, %23
   br i1 %cmp.i49.us.us.us.i.us20.us.us.us.us.us, label %for.cond1.preheader.i.us.us.us.i.us8.us.us.us.us.us, label %for.cond22.preheader.i.us.us.us.i.loopexit.us34.us.us.us.us.us, !llvm.loop !229
 
 for.cond22.preheader.i.us.us.us.i.loopexit.us34.us.us.us.us.us: ; preds = %for.inc19.i.us.us.us.i.us18.us.us.us.us.us
@@ -40696,7 +40696,7 @@ for.body3.i.us.us.us.i.us11.us.us:                ; preds = %for.body3.i.us.us.u
 
 for.inc19.i.us.us.us.i.us18.us.us:                ; preds = %for.body3.i.us.us.us.i.us11.us.us
   %indvars.iv.next33.i.us.us.us.i.us19.us.us = add nuw nsw i64 %indvars.iv32.i.us.us.us.i.us9.us.us, 32
-  %cmp.i49.us.us.us.i.us20.us.us = icmp ult i64 %indvars.iv.next33.i.us.us.us.i.us19.us.us, %23
+  %cmp.i49.us.us.us.i.us20.us.us = icmp samesign ult i64 %indvars.iv.next33.i.us.us.us.i.us19.us.us, %23
   br i1 %cmp.i49.us.us.us.i.us20.us.us, label %for.cond1.preheader.i.us.us.us.i.us8.us.us, label %for.body24.i.us.us.us.i.us22.us.us, !llvm.loop !229
 
 for.body24.i.us.us.us.i.us22.us.us:               ; preds = %for.inc19.i.us.us.us.i.us18.us.us, %for.body24.i.us.us.us.i.us22.us.us
@@ -40975,7 +40975,7 @@ for.body3.i.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.body3.i.us.us.
 
 for.inc19.i.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.body3.i.us.us.us.us.us.us.us.us.us.us.us.us.i
   %indvars.iv.next33.i.us.us.us.us.us.us.us.us.us.us.us.us.i = add nuw nsw i64 %indvars.iv32.i.us.us.us.us.us.us.us.us.us.us.us.us.i, 32
-  %cmp.i44.us.us.us.us.us.us.us.us.us.us.us.us.i = icmp ult i64 %indvars.iv.next33.i.us.us.us.us.us.us.us.us.us.us.us.us.i, %23
+  %cmp.i44.us.us.us.us.us.us.us.us.us.us.us.us.i = icmp samesign ult i64 %indvars.iv.next33.i.us.us.us.us.us.us.us.us.us.us.us.us.i, %23
   br i1 %cmp.i44.us.us.us.us.us.us.us.us.us.us.us.us.i, label %for.cond1.preheader.i.us.us.us.us.us.us.us.us.us.us.us.us.i, label %for.cond22.preheader.i.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !229
 
 for.body62.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.body62.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.body54.us.us.us.us.us.us.us.us.us.us.us.us.i
@@ -41060,7 +41060,7 @@ for.body3.i.us.us.us.us.us.us.us.us.us.i:         ; preds = %for.body3.i.us.us.u
 
 for.inc19.i.us.us.us.us.us.us.us.us.us.i:         ; preds = %for.body3.i.us.us.us.us.us.us.us.us.us.i
   %indvars.iv.next33.i.us.us.us.us.us.us.us.us.us.i = add nuw nsw i64 %indvars.iv32.i.us.us.us.us.us.us.us.us.us.i, 32
-  %cmp.i44.us.us.us.us.us.us.us.us.us.i = icmp ult i64 %indvars.iv.next33.i.us.us.us.us.us.us.us.us.us.i, %23
+  %cmp.i44.us.us.us.us.us.us.us.us.us.i = icmp samesign ult i64 %indvars.iv.next33.i.us.us.us.us.us.us.us.us.us.i, %23
   br i1 %cmp.i44.us.us.us.us.us.us.us.us.us.i, label %for.cond1.preheader.i.us.us.us.us.us.us.us.us.us.i, label %for.body24.i.us.us.us.us.us.us.us.us.us.i, !llvm.loop !229
 
 for.body24.i.us.us.us.us.us.us.us.us.us.i:        ; preds = %for.inc19.i.us.us.us.us.us.us.us.us.us.i, %for.body24.i.us.us.us.us.us.us.us.us.us.i
@@ -41168,7 +41168,7 @@ for.body3.i.us.us.us.us.us.us235.us.us.us.i:      ; preds = %for.body3.i.us.us.u
 
 for.inc19.i.us.us.us.us.us.us242.us.us.us.i:      ; preds = %for.body3.i.us.us.us.us.us.us235.us.us.us.i
   %indvars.iv.next33.i.us.us.us.us.us.us243.us.us.us.i = add nuw nsw i64 %indvars.iv32.i.us.us.us.us.us.us233.us.us.us.i, 32
-  %cmp.i44.us.us.us.us.us.us244.us.us.us.i = icmp ult i64 %indvars.iv.next33.i.us.us.us.us.us.us243.us.us.us.i, %23
+  %cmp.i44.us.us.us.us.us.us244.us.us.us.i = icmp samesign ult i64 %indvars.iv.next33.i.us.us.us.us.us.us243.us.us.us.i, %23
   br i1 %cmp.i44.us.us.us.us.us.us244.us.us.us.i, label %for.cond1.preheader.i.us.us.us.us.us.us232.us.us.us.i, label %for.cond22.preheader.i.loopexit.us.us.us.us.us.us245.us.us.us.i, !llvm.loop !229
 
 for.cond22.preheader.i.loopexit.us.us.us.us.us.us245.us.us.us.i: ; preds = %for.inc19.i.us.us.us.us.us.us242.us.us.us.i
@@ -41235,7 +41235,7 @@ for.body3.i.us.us.us.us.us171.us.i:               ; preds = %for.body3.i.us.us.u
 
 for.inc19.i.us.us.us.us.us178.us.i:               ; preds = %for.body3.i.us.us.us.us.us171.us.i
   %indvars.iv.next33.i.us.us.us.us.us179.us.i = add nuw nsw i64 %indvars.iv32.i.us.us.us.us.us169.us.i, 32
-  %cmp.i44.us.us.us.us.us180.us.i = icmp ult i64 %indvars.iv.next33.i.us.us.us.us.us179.us.i, %23
+  %cmp.i44.us.us.us.us.us180.us.i = icmp samesign ult i64 %indvars.iv.next33.i.us.us.us.us.us179.us.i, %23
   br i1 %cmp.i44.us.us.us.us.us180.us.i, label %for.cond1.preheader.i.us.us.us.us.us168.us.i, label %for.body24.i.us.us.us.us.us.us.i, !llvm.loop !229
 
 for.body24.i.us.us.us.us.us.us.i:                 ; preds = %for.inc19.i.us.us.us.us.us178.us.i, %for.body24.i.us.us.us.us.us.us.i
@@ -41787,7 +41787,7 @@ for.body3.i.us.us.us.i:                           ; preds = %for.body3.i.us.us.u
 
 for.inc19.i.us.us.us.i:                           ; preds = %for.body3.i.us.us.us.i
   %indvars.iv.next33.i.us.us.us.i = add nuw nsw i64 %indvars.iv32.i.us.us.us.i, 32
-  %cmp.i88.us.us.us.i = icmp ult i64 %indvars.iv.next33.i.us.us.us.i, %30
+  %cmp.i88.us.us.us.i = icmp samesign ult i64 %indvars.iv.next33.i.us.us.us.i, %30
   br i1 %cmp.i88.us.us.us.i, label %for.cond1.preheader.i.us.us.us.i, label %for.cond22.preheader.i.us.us.us.i, !llvm.loop !229
 
 for.cond22.preheader.i.us.us.us.i:                ; preds = %for.inc19.i.us.us.us.i, %ggml_vec_cpy_f32.exit.us.us.us.i
@@ -41841,7 +41841,7 @@ for.body3.i115.us.us.us.i:                        ; preds = %for.body3.i115.us.u
 
 for.inc19.i122.us.us.us.i:                        ; preds = %for.body3.i115.us.us.us.i
   %indvars.iv.next33.i123.us.us.us.i = add nuw nsw i64 %indvars.iv32.i113.us.us.us.i, 32
-  %cmp.i124.us.us.us.i = icmp ult i64 %indvars.iv.next33.i123.us.us.us.i, %30
+  %cmp.i124.us.us.us.i = icmp samesign ult i64 %indvars.iv.next33.i123.us.us.us.i, %30
   br i1 %cmp.i124.us.us.us.i, label %for.cond1.preheader.i112.us.us.us.i, label %for.cond22.preheader.i102.us.us.us.i, !llvm.loop !229
 
 for.cond22.preheader.i102.us.us.us.i:             ; preds = %for.inc19.i122.us.us.us.i, %ggml_vec_acc_f32.exit.us.us.us.i
@@ -42196,7 +42196,7 @@ for.body3.i.us.us.us.us.us.i.us:                  ; preds = %for.body3.i.us.us.u
 
 for.inc19.i.us.us.us.us.us.i.us:                  ; preds = %for.body3.i.us.us.us.us.us.i.us
   %indvars.iv.next33.i.us.us.us.us.us.i.us = add nuw nsw i64 %indvars.iv32.i.us.us.us.us.us.i.us, 32
-  %cmp.i85.us.us.us.us.us.i.us = icmp ult i64 %indvars.iv.next33.i.us.us.us.us.us.i.us, %24
+  %cmp.i85.us.us.us.us.us.i.us = icmp samesign ult i64 %indvars.iv.next33.i.us.us.us.us.us.i.us, %24
   br i1 %cmp.i85.us.us.us.us.us.i.us, label %for.cond1.preheader.i.us.us.us.us.us.i.us, label %for.cond22.preheader.i.loopexit.us.us.us.us.us.i.us, !llvm.loop !229
 
 for.cond22.preheader.i.loopexit.us.us.us.us.us.i.us: ; preds = %for.inc19.i.us.us.us.us.us.i.us
@@ -42275,7 +42275,7 @@ for.body3.i.us.us.us.us212.i:                     ; preds = %for.body3.i.us.us.u
 
 for.inc19.i.us.us.us.us219.i:                     ; preds = %for.body3.i.us.us.us.us212.i
   %indvars.iv.next33.i.us.us.us.us220.i = add nuw nsw i64 %indvars.iv32.i.us.us.us.us210.i, 32
-  %cmp.i85.us.us.us.us221.i = icmp ult i64 %indvars.iv.next33.i.us.us.us.us220.i, %24
+  %cmp.i85.us.us.us.us221.i = icmp samesign ult i64 %indvars.iv.next33.i.us.us.us.us220.i, %24
   br i1 %cmp.i85.us.us.us.us221.i, label %for.cond1.preheader.i.us.us.us.us209.i, label %for.body24.i.us.us.us.us.i, !llvm.loop !229
 
 for.body24.i.us.us.us.us.i:                       ; preds = %for.inc19.i.us.us.us.us219.i, %for.body24.i.us.us.us.us.i
@@ -43648,7 +43648,7 @@ for.body3.i.us.us.us.us.i:                        ; preds = %for.body3.i.us.us.u
 
 for.inc29.i.us.us.us.us.i:                        ; preds = %for.body3.i.us.us.us.us.i
   %indvars.iv.next39.i.us.us.us.us.i = add nuw nsw i64 %indvars.iv38.i.us.us.us.us.i, 32
-  %cmp.i.us.us.us.us.i = icmp ult i64 %indvars.iv.next39.i.us.us.us.us.i, %46
+  %cmp.i.us.us.us.us.i = icmp samesign ult i64 %indvars.iv.next39.i.us.us.us.us.i, %46
   br i1 %cmp.i.us.us.us.us.i, label %for.cond1.preheader.i.us.us.us.us.i, label %for.cond32.preheader.i.loopexit.us.us.us.us.i, !llvm.loop !162
 
 for.cond32.preheader.i.loopexit.us.us.us.us.i:    ; preds = %for.inc29.i.us.us.us.us.i
@@ -43702,7 +43702,7 @@ for.body3.i.us.us.us.i:                           ; preds = %for.body3.i.us.us.u
 
 for.inc29.i.us.us.us.i:                           ; preds = %for.body3.i.us.us.us.i
   %indvars.iv.next39.i.us.us.us.i = add nuw nsw i64 %indvars.iv38.i.us.us.us.i, 32
-  %cmp.i.us.us.us.i = icmp ult i64 %indvars.iv.next39.i.us.us.us.i, %46
+  %cmp.i.us.us.us.i = icmp samesign ult i64 %indvars.iv.next39.i.us.us.us.i, %46
   br i1 %cmp.i.us.us.us.i, label %for.cond1.preheader.i.us.us.us.i, label %for.body34.i.us.us.us.i, !llvm.loop !162
 
 for.body34.i.us.us.us.i:                          ; preds = %for.inc29.i.us.us.us.i, %for.body34.i.us.us.us.i
@@ -44016,7 +44016,7 @@ for.body135.us.us.i:                              ; preds = %for.cond144.for.con
   %add136.us.us.i = add nuw nsw i64 %bi01.0151.us.us.i, 32
   %cond143.us.us.i = tail call i64 @llvm.smin.i64(i64 %add136.us.us.i, i64 %102)
   %sub159.us.us.i = and i64 %cond143.us.us.i, 9223372036854775776
-  %cmp161134.us.us.i = icmp ult i64 %bi01.0151.us.us.i, %sub159.us.us.i
+  %cmp161134.us.us.i = icmp samesign ult i64 %bi01.0151.us.us.i, %sub159.us.us.i
   %cmp192136.us.us.i = icmp slt i64 %sub159.us.us.i, %cond143.us.us.i
   br label %for.body147.us.us.i
 
@@ -44157,7 +44157,7 @@ for.end61.i.us.us.i:                              ; preds = %for.body35.i.us.us.
 
 for.inc72.i.us.us.i:                              ; preds = %for.end61.i.us.us.i
   %indvars.iv.next72.i.us.us.i = add nuw nsw i64 %indvars.iv71.i.us.us.i, 32
-  %cmp19.i.us.us.i = icmp ult i64 %indvars.iv.next72.i.us.us.i, %145
+  %cmp19.i.us.us.i = icmp samesign ult i64 %indvars.iv.next72.i.us.us.i, %145
   br i1 %cmp19.i.us.us.i, label %for.cond21.preheader.i.us.us.i, label %for.cond75.preheader.i.us.us.i, !llvm.loop !516
 
 for.cond75.preheader.i.us.us.i:                   ; preds = %for.inc72.i.us.us.i, %for.cond18.preheader.i.us.us.i
@@ -44194,7 +44194,7 @@ ggml_vec_mad_f32_unroll.exit.us.us.i:             ; preds = %for.cond79.for.inc9
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %v.i.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %vx.i.i)
   %add189.us.us.i = add nuw nsw i64 %i01.0135.us.us.i, 32
-  %cmp161.us.us.i = icmp ult i64 %add189.us.us.i, %sub159.us.us.i
+  %cmp161.us.us.i = icmp samesign ult i64 %add189.us.us.i, %sub159.us.us.i
   br i1 %cmp161.us.us.i, label %for.body163.us.us.i, label %for.cond191.preheader.us.us.i, !llvm.loop !519
 
 ggml_vec_mad_f32.exit.loopexit.us165.us.i:        ; preds = %for.body34.i.us159.us.i
@@ -44275,7 +44275,7 @@ for.body3.i.us.us.us.i49:                         ; preds = %for.body3.i.us.us.u
 
 for.inc29.i.us.us.us.i52:                         ; preds = %for.body3.i.us.us.us.i49
   %indvars.iv.next39.i.us.us.us.i53 = add nuw nsw i64 %indvars.iv38.i.us.us.us.i47, 32
-  %cmp.i.us.us.us.i54 = icmp ult i64 %indvars.iv.next39.i.us.us.us.i53, %145
+  %cmp.i.us.us.us.i54 = icmp samesign ult i64 %indvars.iv.next39.i.us.us.us.i53, %145
   br i1 %cmp.i.us.us.us.i54, label %for.cond1.preheader.i.us.us.us.i46, label %for.cond32.preheader.i.loopexit.us.us.us.i, !llvm.loop !162
 
 for.body34.i.us.us.us.i55:                        ; preds = %for.cond32.preheader.i.loopexit.us.us.us.i, %for.body34.i.us.us.us.i55
@@ -44568,7 +44568,7 @@ for.body3.i.us.i.us:                              ; preds = %for.body3.i.us.i.us
 
 for.inc19.i.us.i.us:                              ; preds = %for.body3.i.us.i.us
   %indvars.iv.next33.i.us.i.us = add nuw nsw i64 %indvars.iv32.i.us.i.us, 32
-  %cmp.i70.us.i.us = icmp ult i64 %indvars.iv.next33.i.us.i.us, %37
+  %cmp.i70.us.i.us = icmp samesign ult i64 %indvars.iv.next33.i.us.i.us, %37
   br i1 %cmp.i70.us.i.us, label %for.cond1.preheader.i.us.i.us, label %for.cond22.preheader.i.loopexit.us.i.us, !llvm.loop !229
 
 for.cond22.preheader.i.loopexit.us.i.us:          ; preds = %for.inc19.i.us.i.us
@@ -44615,7 +44615,7 @@ for.body3.i.us.i:                                 ; preds = %for.body3.i.us.i, %
 
 for.inc19.i.us.i:                                 ; preds = %for.body3.i.us.i
   %indvars.iv.next33.i.us.i = add nuw nsw i64 %indvars.iv32.i.us.i, 32
-  %cmp.i70.us.i = icmp ult i64 %indvars.iv.next33.i.us.i, %37
+  %cmp.i70.us.i = icmp samesign ult i64 %indvars.iv.next33.i.us.i, %37
   br i1 %cmp.i70.us.i, label %for.cond1.preheader.i.us.i, label %for.body24.i.us.i, !llvm.loop !229
 
 for.body24.i.us.i:                                ; preds = %for.inc19.i.us.i, %for.body24.i.us.i
@@ -46349,7 +46349,7 @@ for.body3.i.i:                                    ; preds = %for.body3.i.i, %for
 
 for.inc19.i.i:                                    ; preds = %for.body3.i.i
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 32
-  %cmp.i.i = icmp ult i64 %indvars.iv.next33.i.i, %10
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next33.i.i, %10
   br i1 %cmp.i.i, label %for.cond1.preheader.i.i, label %for.cond22.preheader.i.i, !llvm.loop !229
 
 for.body24.i.i:                                   ; preds = %for.cond22.preheader.i.i, %for.body24.i.i
@@ -46456,7 +46456,7 @@ for.body3.i88.i:                                  ; preds = %for.body3.i88.i, %f
 
 for.inc19.i95.i:                                  ; preds = %for.body3.i88.i
   %indvars.iv.next33.i96.i = add nuw nsw i64 %indvars.iv32.i86.i, 32
-  %cmp.i97.i = icmp ult i64 %indvars.iv.next33.i96.i, %10
+  %cmp.i97.i = icmp samesign ult i64 %indvars.iv.next33.i96.i, %10
   br i1 %cmp.i97.i, label %for.cond1.preheader.i85.i, label %for.cond22.preheader.i75.i, !llvm.loop !229
 
 for.body24.i78.i:                                 ; preds = %for.cond22.preheader.i75.i, %for.body24.i78.i
@@ -46793,7 +46793,7 @@ for.body3.i.i:                                    ; preds = %for.body3.i.i, %for
 
 for.inc24.i.i:                                    ; preds = %for.body3.i.i
   %indvars.iv.next53.i.i = add nuw nsw i64 %indvars.iv52.i.i, 32
-  %cmp.i106.i = icmp ult i64 %indvars.iv.next53.i.i, %44
+  %cmp.i106.i = icmp samesign ult i64 %indvars.iv.next53.i.i, %44
   br i1 %cmp.i106.i, label %for.cond1.preheader.i.i, label %for.cond27.preheader.i.loopexit.i, !llvm.loop !126
 
 for.body82.i.i:                                   ; preds = %for.cond27.preheader.i.i, %for.body82.i.i
@@ -47834,7 +47834,7 @@ for.body3.i.us.us.us.us.us.i:                     ; preds = %for.body3.i.us.us.u
 
 for.inc26.i.us.us.us.us.us.i:                     ; preds = %for.body3.i.us.us.us.us.us.i
   %indvars.iv.next55.i.us.us.us.us.us.i = add nuw nsw i64 %indvars.iv54.i.us.us.us.us.us.i, 32
-  %cmp.i94.us.us.us.us.us.i = icmp ult i64 %indvars.iv.next55.i.us.us.us.us.us.i, %50
+  %cmp.i94.us.us.us.us.us.i = icmp samesign ult i64 %indvars.iv.next55.i.us.us.us.us.us.i, %50
   br i1 %cmp.i94.us.us.us.us.us.i, label %for.cond1.preheader.i.us.us.us.us.us.i, label %for.cond29.preheader.i.loopexit.us.us.us.us.us.i, !llvm.loop !294
 
 for.body85.i.us.us.us.us.us.i:                    ; preds = %for.cond29.preheader.i.loopexit.us.us.us.us.us.i, %for.body85.i.us.us.us.us.us.i
@@ -47934,7 +47934,7 @@ for.body3.i.us.us.us.us.us.us.us.i:               ; preds = %for.body3.i.us.us.u
 
 for.inc26.i.us.us.us.us.us.us.us.i:               ; preds = %for.body3.i.us.us.us.us.us.us.us.i
   %indvars.iv.next55.i.us.us.us.us.us.us.us.i = add nuw nsw i64 %indvars.iv54.i.us.us.us.us.us.us.us.i, 32
-  %cmp.i94.us.us.us.us.us.us.us.i = icmp ult i64 %indvars.iv.next55.i.us.us.us.us.us.us.us.i, %50
+  %cmp.i94.us.us.us.us.us.us.us.i = icmp samesign ult i64 %indvars.iv.next55.i.us.us.us.us.us.us.us.i, %50
   br i1 %cmp.i94.us.us.us.us.us.us.us.i, label %for.cond1.preheader.i.us.us.us.us.us.us.us.i, label %for.cond29.preheader.i.loopexit.us.us.us.us.us.us.us.i, !llvm.loop !294
 
 for.cond29.preheader.i.loopexit.us.us.us.us.us.us.us.i: ; preds = %for.inc26.i.us.us.us.us.us.us.us.i
@@ -48329,7 +48329,7 @@ for.body3.i.us.us.us.us.us.i135.us:               ; preds = %for.body3.i.us.us.u
 
 for.inc24.i.us.us.us.us.us.i.us:                  ; preds = %for.body3.i.us.us.us.us.us.i135.us
   %indvars.iv.next53.i.us.us.us.us.us.i.us = add nuw nsw i64 %indvars.iv52.i.us.us.us.us.us.i.us, 32
-  %cmp.i93.us.us.us.us.us.i.us = icmp ult i64 %indvars.iv.next53.i.us.us.us.us.us.i.us, %149
+  %cmp.i93.us.us.us.us.us.i.us = icmp samesign ult i64 %indvars.iv.next53.i.us.us.us.us.us.i.us, %149
   br i1 %cmp.i93.us.us.us.us.us.i.us, label %for.cond1.preheader.i.us.us.us.us.us.i133.us, label %for.cond27.preheader.i.loopexit.us.us.us.us.us.i.us, !llvm.loop !126
 
 for.cond27.preheader.i.loopexit.us.us.us.us.us.i.us: ; preds = %for.inc24.i.us.us.us.us.us.i.us
@@ -48417,7 +48417,7 @@ for.body3.i.us.us.us.us.us.us.us.i142.us:         ; preds = %for.body3.i.us.us.u
 
 for.inc24.i.us.us.us.us.us.us.us.i.us:            ; preds = %for.body3.i.us.us.us.us.us.us.us.i142.us
   %indvars.iv.next53.i.us.us.us.us.us.us.us.i.us = add nuw nsw i64 %indvars.iv52.i.us.us.us.us.us.us.us.i.us, 32
-  %cmp.i93.us.us.us.us.us.us.us.i.us = icmp ult i64 %indvars.iv.next53.i.us.us.us.us.us.us.us.i.us, %149
+  %cmp.i93.us.us.us.us.us.us.us.i.us = icmp samesign ult i64 %indvars.iv.next53.i.us.us.us.us.us.us.us.i.us, %149
   br i1 %cmp.i93.us.us.us.us.us.us.us.i.us, label %for.cond1.preheader.i.us.us.us.us.us.us.us.i140.us, label %for.cond27.preheader.i.loopexit.us.us.us.us.us.us.us.i.us, !llvm.loop !126
 
 for.cond27.preheader.i.loopexit.us.us.us.us.us.us.us.i.us: ; preds = %for.inc24.i.us.us.us.us.us.us.us.i.us
@@ -49300,7 +49300,7 @@ for.body3.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %for.body3.i.us
 
 for.inc26.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %for.body3.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %indvars.iv.next55.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us = add nuw nsw i64 %indvars.iv54.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 32
-  %cmp.i127.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp ult i64 %indvars.iv.next55.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %57
+  %cmp.i127.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp samesign ult i64 %indvars.iv.next55.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %57
   br i1 %cmp.i127.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %for.cond1.preheader.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %for.cond29.preheader.i.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !294
 
 for.cond29.preheader.i.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %for.inc26.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us
@@ -49401,7 +49401,7 @@ for.body3.i.us.us.us.us.us.us.us.us.us.us:        ; preds = %for.body3.i.us.us.u
 
 for.inc26.i.us.us.us.us.us.us.us.us.us.us:        ; preds = %for.body3.i.us.us.us.us.us.us.us.us.us.us
   %indvars.iv.next55.i.us.us.us.us.us.us.us.us.us.us = add nuw nsw i64 %indvars.iv54.i.us.us.us.us.us.us.us.us.us.us, 32
-  %cmp.i127.us.us.us.us.us.us.us.us.us.us = icmp ult i64 %indvars.iv.next55.i.us.us.us.us.us.us.us.us.us.us, %57
+  %cmp.i127.us.us.us.us.us.us.us.us.us.us = icmp samesign ult i64 %indvars.iv.next55.i.us.us.us.us.us.us.us.us.us.us, %57
   br i1 %cmp.i127.us.us.us.us.us.us.us.us.us.us, label %for.cond1.preheader.i.us.us.us.us.us.us.us.us.us.us, label %for.cond29.preheader.i.loopexit.us.us.us.us.us.us.us.us.us.us, !llvm.loop !294
 
 for.body85.i.us.us.us.us.us.us.us.us.us.us:       ; preds = %for.cond29.preheader.i.loopexit.us.us.us.us.us.us.us.us.us.us, %for.body85.i.us.us.us.us.us.us.us.us.us.us
@@ -51469,7 +51469,7 @@ for.body3.i.i:                                    ; preds = %for.body3.i.i, %for
 
 for.inc26.i.i:                                    ; preds = %for.body3.i.i
   %indvars.iv.next55.i.i = add nuw nsw i64 %indvars.iv54.i.i, 32
-  %cmp.i.i = icmp ult i64 %indvars.iv.next55.i.i, %57
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next55.i.i, %57
   br i1 %cmp.i.i, label %for.cond1.preheader.i.i, label %for.cond29.preheader.i.loopexit.i, !llvm.loop !294
 
 for.body85.preheader.i.i:                         ; preds = %for.cond29.preheader.i.i
@@ -51566,7 +51566,7 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
 
 for.inc51.i.i:                                    ; preds = %for.body8.i.i
   %indvars.iv.next90.i.i = add nuw nsw i64 %indvars.iv89.i.i, 32
-  %cmp4.i.i = icmp ult i64 %indvars.iv.next90.i.i, %57
+  %cmp4.i.i = icmp samesign ult i64 %indvars.iv.next90.i.i, %57
   br i1 %cmp4.i.i, label %for.cond6.preheader.i.i, label %for.cond58.preheader.i.i.preheader, !llvm.loop !667
 
 for.cond58.preheader.i.i.preheader:               ; preds = %for.inc51.i.i, %for.body283.i
@@ -51673,7 +51673,7 @@ for.body3.i228.i:                                 ; preds = %for.body3.i228.i, %
 
 for.inc19.i.i:                                    ; preds = %for.body3.i228.i
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 32
-  %cmp.i233.i = icmp ult i64 %indvars.iv.next33.i.i, %61
+  %cmp.i233.i = icmp samesign ult i64 %indvars.iv.next33.i.i, %61
   br i1 %cmp.i233.i, label %for.cond1.preheader.i226.i, label %for.cond22.preheader.i.i, !llvm.loop !229
 
 for.body24.i.i:                                   ; preds = %for.cond22.preheader.i.i, %for.body24.i.i
@@ -51812,7 +51812,7 @@ for.body3.i258.i:                                 ; preds = %for.body3.i258.i, %
 
 for.inc19.i265.i:                                 ; preds = %for.body3.i258.i
   %indvars.iv.next33.i266.i = add nuw nsw i64 %indvars.iv32.i256.i, 32
-  %cmp.i267.i = icmp ult i64 %indvars.iv.next33.i266.i, %61
+  %cmp.i267.i = icmp samesign ult i64 %indvars.iv.next33.i266.i, %61
   br i1 %cmp.i267.i, label %for.cond1.preheader.i255.i, label %for.cond22.preheader.i245.i, !llvm.loop !229
 
 for.body24.i248.i:                                ; preds = %for.cond22.preheader.i245.i, %for.body24.i248.i
@@ -51940,7 +51940,7 @@ for.body3.i310.i:                                 ; preds = %for.body3.i310.i, %
 
 for.inc26.i319.i:                                 ; preds = %for.body3.i310.i
   %indvars.iv.next55.i320.i = add nuw nsw i64 %indvars.iv54.i307.i, 32
-  %cmp.i321.i = icmp ult i64 %indvars.iv.next55.i320.i, %65
+  %cmp.i321.i = icmp samesign ult i64 %indvars.iv.next55.i320.i, %65
   br i1 %cmp.i321.i, label %for.cond1.preheader.i306.i, label %for.cond29.preheader.i272.loopexit.i, !llvm.loop !294
 
 for.body85.preheader.i287.i:                      ; preds = %for.cond29.preheader.i272.i
@@ -52036,7 +52036,7 @@ for.body8.i387.i:                                 ; preds = %for.body8.i387.i, %
 
 for.inc51.i402.i:                                 ; preds = %for.body8.i387.i
   %indvars.iv.next90.i403.i = add nuw nsw i64 %indvars.iv89.i385.i, 32
-  %cmp4.i404.i = icmp ult i64 %indvars.iv.next90.i403.i, %65
+  %cmp4.i404.i = icmp samesign ult i64 %indvars.iv.next90.i403.i, %65
   br i1 %cmp4.i404.i, label %for.cond6.preheader.i384.i, label %for.cond58.preheader.i335.i.preheader, !llvm.loop !667
 
 for.cond58.preheader.i335.i.preheader:            ; preds = %for.inc51.i402.i, %for.body467.i
@@ -52511,7 +52511,7 @@ for.body3.i.i165:                                 ; preds = %for.body3.i.i165, %
 
 for.inc24.i.i:                                    ; preds = %for.body3.i.i165
   %indvars.iv.next53.i.i = add nuw nsw i64 %indvars.iv52.i.i, 32
-  %cmp.i.i170 = icmp ult i64 %indvars.iv.next53.i.i, %237
+  %cmp.i.i170 = icmp samesign ult i64 %indvars.iv.next53.i.i, %237
   br i1 %cmp.i.i170, label %for.cond1.preheader.i.i163, label %for.cond27.preheader.i.loopexit.i, !llvm.loop !126
 
 for.body82.i.i:                                   ; preds = %for.cond27.preheader.i.i, %for.body82.i.i
@@ -52572,7 +52572,7 @@ for.body3.i159.i:                                 ; preds = %for.body3.i159.i, %
 
 for.inc19.i.i154:                                 ; preds = %for.body3.i159.i
   %indvars.iv.next33.i.i155 = add nuw nsw i64 %indvars.iv32.i.i151, 32
-  %cmp.i164.i = icmp ult i64 %indvars.iv.next33.i.i155, %262
+  %cmp.i164.i = icmp samesign ult i64 %indvars.iv.next33.i.i155, %262
   br i1 %cmp.i164.i, label %for.cond1.preheader.i157.i, label %for.cond22.preheader.i.i130, !llvm.loop !229
 
 for.body24.i.i132:                                ; preds = %for.body24.i.i132, %for.body24.preheader.i.i
@@ -52713,7 +52713,7 @@ for.body3.i185.i:                                 ; preds = %for.body3.i185.i, %
 
 for.inc19.i192.i:                                 ; preds = %for.body3.i185.i
   %indvars.iv.next33.i193.i = add nuw nsw i64 %indvars.iv32.i183.i, 32
-  %cmp.i194.i = icmp ult i64 %indvars.iv.next33.i193.i, %272
+  %cmp.i194.i = icmp samesign ult i64 %indvars.iv.next33.i193.i, %272
   br i1 %cmp.i194.i, label %for.cond1.preheader.i182.i, label %for.cond22.preheader.i172.i, !llvm.loop !229
 
 for.body24.i175.i:                                ; preds = %for.body24.i175.i, %for.body24.preheader.i174.i
@@ -52805,7 +52805,7 @@ for.body3.i228.i142:                              ; preds = %for.body3.i228.i142
 
 for.inc24.i235.i:                                 ; preds = %for.body3.i228.i142
   %indvars.iv.next53.i236.i = add nuw nsw i64 %indvars.iv52.i225.i, 32
-  %cmp.i237.i = icmp ult i64 %indvars.iv.next53.i236.i, %277
+  %cmp.i237.i = icmp samesign ult i64 %indvars.iv.next53.i236.i, %277
   br i1 %cmp.i237.i, label %for.cond1.preheader.i224.i, label %for.cond27.preheader.i199.loopexit.i, !llvm.loop !126
 
 for.body82.i215.i:                                ; preds = %for.cond27.preheader.i199.i, %for.body82.i215.i
@@ -53334,7 +53334,7 @@ for.body3.i.i:                                    ; preds = %for.body3.i.i, %for
 
 for.inc26.i.i:                                    ; preds = %for.body3.i.i
   %indvars.iv.next55.i.i = add nuw nsw i64 %indvars.iv54.i.i, 32
-  %cmp.i.i = icmp ult i64 %indvars.iv.next55.i.i, %75
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next55.i.i, %75
   br i1 %cmp.i.i, label %for.cond1.preheader.i.i, label %for.cond29.preheader.i.loopexit.i, !llvm.loop !294
 
 for.body85.preheader.i.i:                         ; preds = %for.cond29.preheader.i.i
@@ -53501,7 +53501,7 @@ for.body3.i207.i:                                 ; preds = %for.body3.i207.i, %
 
 for.inc26.i216.i:                                 ; preds = %for.body3.i207.i
   %indvars.iv.next55.i217.i = add nuw nsw i64 %indvars.iv54.i204.i, 32
-  %cmp.i218.i = icmp ult i64 %indvars.iv.next55.i217.i, %78
+  %cmp.i218.i = icmp samesign ult i64 %indvars.iv.next55.i217.i, %78
   br i1 %cmp.i218.i, label %for.cond1.preheader.i203.i, label %for.cond29.preheader.i169.loopexit.i, !llvm.loop !294
 
 for.body85.preheader.i184.i:                      ; preds = %for.cond29.preheader.i169.i
@@ -54045,7 +54045,7 @@ for.body3.i270.us.us.us.i:                        ; preds = %for.body3.i270.us.u
 
 for.inc19.i.us.us.us.i:                           ; preds = %for.body3.i270.us.us.us.i
   %indvars.iv.next33.i.us.us.us.i = add nuw nsw i64 %indvars.iv32.i.us.us.us.i, 32
-  %cmp.i275.us.us.us.i = icmp ult i64 %indvars.iv.next33.i.us.us.us.i, %83
+  %cmp.i275.us.us.us.i = icmp samesign ult i64 %indvars.iv.next33.i.us.us.us.i, %83
   br i1 %cmp.i275.us.us.us.i, label %for.cond1.preheader.i268.us.us.us.i, label %for.cond22.preheader.i.us.us.us.i, !llvm.loop !229
 
 for.cond22.preheader.i.us.us.us.i:                ; preds = %for.inc19.i.us.us.us.i, %for.end377.us.us.us.i
@@ -54133,7 +54133,7 @@ for.body3.i296.us.us.us.i:                        ; preds = %for.body3.i296.us.u
 
 for.inc19.i303.us.us.us.i:                        ; preds = %for.body3.i296.us.us.us.i
   %indvars.iv.next33.i304.us.us.us.i = add nuw nsw i64 %indvars.iv32.i294.us.us.us.i, 32
-  %cmp.i305.us.us.us.i = icmp ult i64 %indvars.iv.next33.i304.us.us.us.i, %89
+  %cmp.i305.us.us.us.i = icmp samesign ult i64 %indvars.iv.next33.i304.us.us.us.i, %89
   br i1 %cmp.i305.us.us.us.i, label %for.cond1.preheader.i293.us.us.us.i, label %for.cond22.preheader.i283.us.us.us.i, !llvm.loop !229
 
 for.cond22.preheader.i283.us.us.us.i:             ; preds = %for.inc19.i303.us.us.us.i, %for.end448.us.us.us.i
@@ -54202,7 +54202,7 @@ for.body3.i360.us.us.us.i:                        ; preds = %for.body3.i360.us.u
 
 for.inc24.i367.us.us.us.i:                        ; preds = %for.body3.i360.us.us.us.i
   %indvars.iv.next53.i368.us.us.us.i = add nuw nsw i64 %indvars.iv52.i357.us.us.us.i, 32
-  %cmp.i369.us.us.us.i = icmp ult i64 %indvars.iv.next53.i368.us.us.us.i, %95
+  %cmp.i369.us.us.us.i = icmp samesign ult i64 %indvars.iv.next53.i368.us.us.us.i, %95
   br i1 %cmp.i369.us.us.us.i, label %for.cond1.preheader.i356.us.us.us.i, label %for.cond27.preheader.i331.us.us.us.loopexit.i, !llvm.loop !126
 
 for.cond27.preheader.i331.us.us.us.loopexit.i:    ; preds = %for.inc24.i367.us.us.us.i
@@ -54302,7 +54302,7 @@ for.body3.i406.us.us.us.i:                        ; preds = %for.body3.i406.us.u
 
 for.inc19.i413.us.us.us.i:                        ; preds = %for.body3.i406.us.us.us.i
   %indvars.iv.next33.i414.us.us.us.i = add nuw nsw i64 %indvars.iv32.i404.us.us.us.i, 32
-  %cmp.i415.us.us.us.i = icmp ult i64 %indvars.iv.next33.i414.us.us.us.i, %114
+  %cmp.i415.us.us.us.i = icmp samesign ult i64 %indvars.iv.next33.i414.us.us.us.i, %114
   br i1 %cmp.i415.us.us.us.i, label %for.cond1.preheader.i403.us.us.us.i, label %for.cond22.preheader.i393.us.us.us.i, !llvm.loop !229
 
 for.cond22.preheader.i393.us.us.us.i:             ; preds = %for.inc19.i413.us.us.us.i, %ggml_vec_mul_f32.exit.us.us.us.i
@@ -54370,7 +54370,7 @@ for.body3.i491.us.us.us.i:                        ; preds = %for.body3.i491.us.u
 
 for.inc29.i497.us.us.us.i:                        ; preds = %for.body3.i491.us.us.us.i
   %indvars.iv.next39.i498.us.us.us.i = add nuw nsw i64 %indvars.iv38.i488.us.us.us.i, 32
-  %cmp.i499.us.us.us.i = icmp ult i64 %indvars.iv.next39.i498.us.us.us.i, %195
+  %cmp.i499.us.us.us.i = icmp samesign ult i64 %indvars.iv.next39.i498.us.us.us.i, %195
   br i1 %cmp.i499.us.us.us.i, label %for.cond1.preheader.i487.us.us.us.i, label %for.cond32.preheader.i477.us.us.us.i, !llvm.loop !162
 
 for.cond32.preheader.i477.us.us.us.i:             ; preds = %for.inc29.i497.us.us.us.i, %for.body547.us.us.us.i
@@ -54430,7 +54430,7 @@ for.body3.i463.us.us.us.i:                        ; preds = %for.body3.i463.us.u
 
 for.inc29.i469.us.us.us.i:                        ; preds = %for.body3.i463.us.us.us.i
   %indvars.iv.next39.i470.us.us.us.i = add nuw nsw i64 %indvars.iv38.i460.us.us.us.i, 32
-  %cmp.i471.us.us.us.i = icmp ult i64 %indvars.iv.next39.i470.us.us.us.i, %72
+  %cmp.i471.us.us.us.i = icmp samesign ult i64 %indvars.iv.next39.i470.us.us.us.i, %72
   br i1 %cmp.i471.us.us.us.i, label %for.cond1.preheader.i459.us.us.us.i, label %for.cond32.preheader.i449.us.us.us.i, !llvm.loop !162
 
 for.cond32.preheader.i449.us.us.us.i:             ; preds = %for.inc29.i469.us.us.us.i, %for.body519.us.us.us.i
@@ -54489,7 +54489,7 @@ for.body3.i435.us.us.us.i:                        ; preds = %for.body3.i435.us.u
 
 for.inc29.i441.us.us.us.i:                        ; preds = %for.body3.i435.us.us.us.i
   %indvars.iv.next39.i442.us.us.us.i = add nuw nsw i64 %indvars.iv38.i432.us.us.us.i, 32
-  %cmp.i443.us.us.us.i = icmp ult i64 %indvars.iv.next39.i442.us.us.us.i, %72
+  %cmp.i443.us.us.us.i = icmp samesign ult i64 %indvars.iv.next39.i442.us.us.us.i, %72
   br i1 %cmp.i443.us.us.us.i, label %for.cond1.preheader.i431.us.us.us.i, label %for.cond32.preheader.i421.us.us.us.i, !llvm.loop !162
 
 for.cond32.preheader.i421.us.us.us.i:             ; preds = %for.inc29.i441.us.us.us.i, %for.body491.us.us.us.i
@@ -54553,7 +54553,7 @@ for.body3.i321.us.us.us.i:                        ; preds = %for.body3.i321.us.u
 
 for.inc29.i.us.us.us.i:                           ; preds = %for.body3.i321.us.us.us.i
   %indvars.iv.next39.i.us.us.us.i = add nuw nsw i64 %indvars.iv38.i.us.us.us.i, 32
-  %cmp.i327.us.us.us.i = icmp ult i64 %indvars.iv.next39.i.us.us.us.i, %192
+  %cmp.i327.us.us.us.i = icmp samesign ult i64 %indvars.iv.next39.i.us.us.us.i, %192
   br i1 %cmp.i327.us.us.us.i, label %for.cond1.preheader.i318.us.us.us.i, label %for.cond32.preheader.i.us.us.us.i, !llvm.loop !162
 
 for.cond32.preheader.i.us.us.us.i:                ; preds = %for.inc29.i.us.us.us.i, %for.body457.us.us.us.i
@@ -54676,7 +54676,7 @@ for.body3.i.us.us.us.i:                           ; preds = %for.body3.i.us.us.u
 
 for.inc24.i.us.us.us.i:                           ; preds = %for.body3.i.us.us.us.i
   %indvars.iv.next53.i.us.us.us.i = add nuw nsw i64 %indvars.iv52.i.us.us.us.i, 32
-  %cmp.i.us.us.us.i = icmp ult i64 %indvars.iv.next53.i.us.us.us.i, %72
+  %cmp.i.us.us.us.i = icmp samesign ult i64 %indvars.iv.next53.i.us.us.us.i, %72
   br i1 %cmp.i.us.us.us.i, label %for.cond1.preheader.i.us.us.us.i, label %for.cond27.preheader.i.us.us.us.loopexit.i, !llvm.loop !126
 
 for.cond27.preheader.i.us.us.us.loopexit.i:       ; preds = %for.inc24.i.us.us.us.i
@@ -57042,7 +57042,7 @@ for.body3.i.i:                                    ; preds = %for.body3.i.i, %for
 
 for.inc19.i.i:                                    ; preds = %for.body3.i.i
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 32
-  %cmp.i122.i = icmp ult i64 %indvars.iv.next33.i.i, %42
+  %cmp.i122.i = icmp samesign ult i64 %indvars.iv.next33.i.i, %42
   br i1 %cmp.i122.i, label %for.cond1.preheader.i.i, label %for.cond22.preheader.i.i, !llvm.loop !229
 
 for.body24.i.i:                                   ; preds = %for.cond22.preheader.i.i, %for.body24.i.i
@@ -57492,7 +57492,7 @@ for.body3.i.i:                                    ; preds = %for.body3.i.i, %for
 
 for.inc19.i.i:                                    ; preds = %for.body3.i.i
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 32
-  %cmp.i151.i = icmp ult i64 %indvars.iv.next33.i.i, %55
+  %cmp.i151.i = icmp samesign ult i64 %indvars.iv.next33.i.i, %55
   br i1 %cmp.i151.i, label %for.cond1.preheader.i.i, label %for.cond22.preheader.i.i, !llvm.loop !229
 
 for.body24.i.i:                                   ; preds = %for.cond22.preheader.i.i, %for.body24.i.i
@@ -57558,7 +57558,7 @@ for.body3.i186.i:                                 ; preds = %for.body3.i186.i, %
 
 for.inc19.i193.i:                                 ; preds = %for.body3.i186.i
   %indvars.iv.next33.i194.i = add nuw nsw i64 %indvars.iv32.i184.i, 32
-  %cmp.i195.i = icmp ult i64 %indvars.iv.next33.i194.i, %55
+  %cmp.i195.i = icmp samesign ult i64 %indvars.iv.next33.i194.i, %55
   br i1 %cmp.i195.i, label %for.cond1.preheader.i183.i, label %for.cond22.preheader.i173.i, !llvm.loop !229
 
 for.body24.i176.i:                                ; preds = %for.cond22.preheader.i173.i, %for.body24.i176.i

@@ -79632,7 +79632,7 @@ if.end210:                                        ; preds = %land.lhs.true198, %
   %tobool225.not = phi i1 [ true, %if.else209 ], [ false, %land.lhs.true198 ]
   %conv212 = zext i16 %67 to i32
   %conv214 = and i32 %74, 65535
-  %cmp215 = icmp ugt i32 %conv214, %conv212
+  %cmp215 = icmp samesign ugt i32 %conv214, %conv212
   br i1 %cmp215, label %if.then217, label %if.end224
 
 if.then217:                                       ; preds = %if.end210
@@ -103878,7 +103878,7 @@ if.end.i191.i:                                    ; preds = %ma_dr_mp3_bs_get_bi
   %conv38.i = trunc nuw i32 %or13.i207.i to i16
   %big_values.i = getelementptr inbounds i8, ptr %gr.addr.0.i, i64 10
   store i16 %conv38.i, ptr %big_values.i, align 2
-  %cmp41.i = icmp ugt i32 %or13.i207.i, 288
+  %cmp41.i = icmp samesign ugt i32 %or13.i207.i, 288
   br i1 %cmp41.i, label %if.then69, label %if.end44.i172
 
 if.end44.i172:                                    ; preds = %if.end.i191.i, %ma_dr_mp3_bs_get_bits.exit220.thread.i
@@ -104733,7 +104733,7 @@ if.end.i.i.i.i:                                   ; preds = %for.body19.i.i.i
   %conv.i.i.i.i258 = zext i8 %189 to i32
   %shr4.i.i.i.i = lshr i32 255, %and.i.i.i.i257
   %and5.i.i.i.i259 = and i32 %shr4.i.i.i.i, %conv.i.i.i.i258
-  %cmp612.i.i.i.i = icmp ugt i32 %add.i.i.i.i, 8
+  %cmp612.i.i.i.i = icmp samesign ugt i32 %add.i.i.i.i, 8
   br i1 %cmp612.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i, %while.body.i.i.i.i
@@ -104832,7 +104832,7 @@ for.body61.i.i:                                   ; preds = %for.body61.i.i, %if
   %conv110.i.i = add i8 %207, %199
   store i8 %conv110.i.i, ptr %arrayidx103.i.i, align 1
   %indvars.iv.next98.i.i = add nuw nsw i64 %indvars.iv97.i.i, 3
-  %cmp59.i.i = icmp ult i64 %indvars.iv.next98.i.i, %201
+  %cmp59.i.i = icmp samesign ult i64 %indvars.iv.next98.i.i, %201
   br i1 %cmp59.i.i, label %for.body61.i.i, label %if.end142.i.i, !llvm.loop !824
 
 if.else120.i.i:                                   ; preds = %ma_dr_mp3_L3_read_scalefactors.exit.i.i
@@ -104923,7 +104923,7 @@ ma_dr_mp3_L3_ldexp_q2.exit76.i.i:                 ; preds = %do.body.i62.i.i
   %222 = load i8, ptr %n_short_sfb.i.i, align 2
   %conv157.i.i = zext i8 %222 to i64
   %add158.i.i = add nuw nsw i64 %conv157.i.i, %conv155.i.i
-  %cmp159.i.i = icmp ult i64 %indvars.iv.next108.i.i, %add158.i.i
+  %cmp159.i.i = icmp samesign ult i64 %indvars.iv.next108.i.i, %add158.i.i
   br i1 %cmp159.i.i, label %for.body161.i.i, label %ma_dr_mp3_L3_decode_scalefactors.exit.i, !llvm.loop !827
 
 ma_dr_mp3_L3_decode_scalefactors.exit.i:          ; preds = %ma_dr_mp3_L3_ldexp_q2.exit76.i.i, %for.cond153.preheader.i.i
@@ -105624,7 +105624,7 @@ for.body7.preheader.i.i.i:                        ; preds = %for.cond3.preheader
 
 for.cond3.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   %indvars.iv.next.i.i79.i = add nuw nsw i64 %indvars.iv.i.i78.i, 2
-  %cmp5.i.i.i194 = icmp ult i64 %indvars.iv.next.i.i79.i, %290
+  %cmp5.i.i.i194 = icmp samesign ult i64 %indvars.iv.next.i.i79.i, %290
   br i1 %cmp5.i.i.i194, label %for.body7.i.i.i, label %for.end.i.i.i, !llvm.loop !842
 
 for.body7.i.i.i:                                  ; preds = %for.cond3.i.i.i, %for.body7.preheader.i.i.i
@@ -105837,7 +105837,7 @@ for.body.i30.i.i.i:                               ; preds = %for.body.i30.i.i.i,
   %sub.i.i.i.i.i = fsub <4 x float> %320, %321
   store <4 x float> %sub.i.i.i.i.i, ptr %add.ptr4.i.i.i.i, align 1
   %indvars.iv.next.i32.i.i.i = add nuw nsw i64 %indvars.iv.i31.i.i.i, 4
-  %cmp.i.i.i98.i = icmp ult i64 %indvars.iv.next.i32.i.i.i, %319
+  %cmp.i.i.i98.i = icmp samesign ult i64 %indvars.iv.next.i32.i.i.i, %319
   br i1 %cmp.i.i.i98.i, label %for.body.i30.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !846
 
 for.end.loopexit.i.i.i.i:                         ; preds = %for.body.i30.i.i.i
@@ -105846,7 +105846,7 @@ for.end.loopexit.i.i.i.i:                         ; preds = %for.body.i30.i.i.i
 
 for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.i.i.i, %if.then41.i.i.i
   %i.1.lcssa.i.i.i.i = phi i32 [ 0, %if.then41.i.i.i ], [ %322, %for.end.loopexit.i.i.i.i ]
-  %cmp1928.i.i.i.i.not = icmp ult i32 %i.1.lcssa.i.i.i.i, %conv44.i.i.i
+  %cmp1928.i.i.i.i.not = icmp samesign ult i32 %i.1.lcssa.i.i.i.i, %conv44.i.i.i
   br i1 %cmp1928.i.i.i.i.not, label %for.body21.preheader.i.i.i.i, label %if.end46.i.i.i
 
 for.body21.preheader.i.i.i.i:                     ; preds = %for.end.i.i.i.i
@@ -106609,7 +106609,7 @@ ma_dr_mp3_bs_get_bits.exit.i326:                  ; preds = %while.end.i.i322, %
   %435 = shl nuw nsw i64 %indvars.iv.i312, 1
   %arrayidx9.i = getelementptr inbounds [64 x i8], ptr %bitalloc.i, i64 0, i64 %435
   store i8 %434, ptr %arrayidx9.i, align 2
-  %cmp11.i329 = icmp ult i64 %indvars.iv.i312, %422
+  %cmp11.i329 = icmp samesign ult i64 %indvars.iv.i312, %422
   br i1 %cmp11.i329, label %if.then13.i, label %if.end17.i
 
 if.then13.i:                                      ; preds = %ma_dr_mp3_bs_get_bits.exit.i326
@@ -106928,7 +106928,7 @@ if.end.i.i394:                                    ; preds = %for.body16.i
   %conv.i.i400 = zext i8 %460 to i32
   %shr4.i.i401 = lshr i32 255, %and.i.i398
   %and5.i.i402 = and i32 %shr4.i.i401, %conv.i.i400
-  %cmp612.i.i403 = icmp ugt i32 %add.i.i399, 8
+  %cmp612.i.i403 = icmp samesign ugt i32 %add.i.i399, 8
   br i1 %cmp612.i.i403, label %while.body.i.i413, label %while.end.i.i404
 
 while.body.i.i413:                                ; preds = %if.end.i.i394, %while.body.i.i413
@@ -107417,7 +107417,7 @@ for.end233.i:                                     ; preds = %for.body196.i
 
 for.inc249.i:                                     ; preds = %for.end233.i, %for.end178.i
   %indvars.iv.next219.i = add nuw nsw i64 %indvars.iv218.i, 4
-  %cmp.i = icmp ult i64 %indvars.iv.next219.i, %1
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next219.i, %1
   br i1 %cmp.i, label %for.body.i, label %ma_dr_mp3d_DCT_II.exit, !llvm.loop !874
 
 ma_dr_mp3d_DCT_II.exit:                           ; preds = %for.inc249.i
@@ -107738,7 +107738,7 @@ for.body.i27:                                     ; preds = %for.body.i27, %for.
 
 ma_dr_mp3d_synth.exit:                            ; preds = %for.body.i27
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 2
-  %cmp2 = icmp ult i64 %indvars.iv.next46, %.pre-phi
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next46, %.pre-phi
   br i1 %cmp2, label %for.body3, label %for.end14, !llvm.loop !877
 
 for.end14:                                        ; preds = %ma_dr_mp3d_synth.exit
@@ -116502,7 +116502,7 @@ do.end.i.i:                                       ; preds = %do.body.i.i
 if.end40.i.i:                                     ; preds = %do.end.i.i
   %add.ptr.i74.ptr.le.i = getelementptr inbounds i8, ptr %hwid, i64 %dstEnd.0.i.add.i
   store i8 0, ptr %add.ptr.i74.ptr.le.i, align 1
-  %cmp4239.i.i = icmp ugt i64 %dstEnd.0.i.idx.i, 3
+  %cmp4239.i.i = icmp samesign ugt i64 %dstEnd.0.i.idx.i, 3
   br i1 %cmp4239.i.i, label %while.body.i77.i.preheader, label %land.rhs.i80.i.preheader
 
 land.rhs.i80.i.preheader:                         ; preds = %while.body.i77.i, %if.end40.i.i

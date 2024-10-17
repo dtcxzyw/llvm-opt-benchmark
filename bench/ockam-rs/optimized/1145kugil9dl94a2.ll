@@ -31729,7 +31729,7 @@ define hidden noundef ptr @_ZN10serde_json3ser9Formatter9write_u3217hfc08b6d7c7e
 32:                                               ; preds = %23, %._crit_edge.i
   %.129.i = phi i64 [ %28, %23 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %23 ], [ %6, %._crit_edge.i ]
-  %33 = icmp ult i64 %.027.i, 10
+  %33 = icmp samesign ult i64 %.027.i, 10
   br i1 %33, label %40, label %34
 
 34:                                               ; preds = %32
@@ -64997,7 +64997,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 30:                                               ; preds = %._crit_edge, %21
   %.129 = phi i64 [ %26, %21 ], [ %.028.lcssa, %._crit_edge ]
   %.027 = phi i64 [ %.zext37, %21 ], [ %4, %._crit_edge ]
-  %31 = icmp ult i64 %.027, 10
+  %31 = icmp samesign ult i64 %.027, 10
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %30
@@ -65741,7 +65741,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h3f5e822571814
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -65889,7 +65889,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6810cb30b0853
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -79072,7 +79072,7 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls55_$LT$impl$u20$serde..se
 32:                                               ; preds = %23, %._crit_edge.i.i.i
   %.129.i.i.i = phi i64 [ %28, %23 ], [ %.028.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.027.i.i.i = phi i64 [ %.zext37.i.i.i, %23 ], [ %6, %._crit_edge.i.i.i ]
-  %33 = icmp ult i64 %.027.i.i.i, 10
+  %33 = icmp samesign ult i64 %.027.i.i.i, 10
   br i1 %33, label %40, label %34
 
 34:                                               ; preds = %32
@@ -89496,7 +89496,7 @@ define hidden noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F
 41:                                               ; preds = %32, %._crit_edge.i.i.i.i
   %.129.i.i.i.i = phi i64 [ %37, %32 ], [ %.028.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.027.i.i.i.i = phi i64 [ %.zext37.i.i.i.i, %32 ], [ %15, %._crit_edge.i.i.i.i ]
-  %42 = icmp ult i64 %.027.i.i.i.i, 10
+  %42 = icmp samesign ult i64 %.027.i.i.i.i, 10
   br i1 %42, label %49, label %43
 
 43:                                               ; preds = %41
@@ -94670,7 +94670,7 @@ define hidden noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Seria
 31:                                               ; preds = %22, %._crit_edge.i.i
   %.129.i.i = phi i64 [ %27, %22 ], [ %.028.lcssa.i.i, %._crit_edge.i.i ]
   %.027.i.i = phi i64 [ %.zext37.i.i, %22 ], [ %5, %._crit_edge.i.i ]
-  %32 = icmp ult i64 %.027.i.i, 10
+  %32 = icmp samesign ult i64 %.027.i.i, 10
   br i1 %32, label %39, label %33
 
 33:                                               ; preds = %31

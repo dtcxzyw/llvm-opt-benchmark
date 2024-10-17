@@ -5661,7 +5661,7 @@ _ZL14stbi__png_is16P13stbi__context.exit:         ; preds = %1
 
 _ZL10stbi__skipP13stbi__contexti.exit.i:          ; preds = %39, %33
   %43 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %0)
-  %44 = icmp ugt i32 %43, 16
+  %44 = icmp samesign ugt i32 %43, 16
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %_ZL10stbi__skipP13stbi__contexti.exit.i
@@ -9147,10 +9147,10 @@ define internal fastcc void @_ZL22stbiw__encode_png_linePhiiiiiiPa(ptr nocapture
   %129 = tail call i32 @llvm.abs.i32(i32 %128, i1 true)
   %130 = sub nsw i32 %125, %123
   %131 = tail call i32 @llvm.abs.i32(i32 %130, i1 true)
-  %.not.i138 = icmp ugt i32 %127, %129
-  %.not20.i139 = icmp ugt i32 %127, %131
+  %.not.i138 = icmp samesign ugt i32 %127, %129
+  %.not20.i139 = icmp samesign ugt i32 %127, %131
   %or.cond.i140 = select i1 %.not.i138, i1 true, i1 %.not20.i139
-  %.not21.i = icmp ugt i32 %129, %131
+  %.not21.i = icmp samesign ugt i32 %129, %131
   %..i = select i1 %.not21.i, i8 %122, i8 %118
   %.0.in.i141 = select i1 %or.cond.i140, i8 %..i, i8 %114
   %132 = sub i8 %111, %.0.in.i141
@@ -64445,13 +64445,13 @@ _ZL10stbi__skipP13stbi__contexti.exit418.i:       ; preds = %714, %709, %697, %6
   %741 = tail call fastcc noundef i32 @_ZL14stbi__high_bitj(i32 noundef %201)
   %742 = add nsw i32 %741, -7
   %743 = tail call fastcc noundef i32 @_ZL14stbi__bitcountj(i32 noundef %201)
-  %744 = icmp ugt i32 %734, 8
-  %745 = icmp ugt i32 %737, 8
-  %or.cond17.i = or i1 %744, %745
-  %746 = icmp ugt i32 %740, 8
-  %or.cond19.i = or i1 %or.cond17.i, %746
-  %747 = icmp ugt i32 %743, 8
-  %or.cond21.i = or i1 %or.cond19.i, %747
+  %744 = icmp samesign ugt i32 %734, 8
+  %745 = icmp samesign ugt i32 %737, 8
+  %or.cond17.i = select i1 %744, i1 true, i1 %745
+  %746 = icmp samesign ugt i32 %740, 8
+  %or.cond19.i = select i1 %or.cond17.i, i1 true, i1 %746
+  %747 = icmp samesign ugt i32 %743, 8
+  %or.cond21.i = select i1 %or.cond19.i, i1 true, i1 %747
   br i1 %or.cond21.i, label %748, label %.thread18.i
 
 748:                                              ; preds = %731
@@ -65149,7 +65149,7 @@ _ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit: ; preds =
 
 _ZL10stbi__skipP13stbi__contexti.exit.i104:       ; preds = %1089, %1084
   %1092 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %0)
-  %1093 = icmp ugt i32 %1092, 16
+  %1093 = icmp samesign ugt i32 %1092, 16
   br i1 %1093, label %1094, label %1095
 
 1094:                                             ; preds = %_ZL10stbi__skipP13stbi__contexti.exit.i104
@@ -65209,7 +65209,7 @@ _ZL10stbi__skipP13stbi__contexti.exit.i104:       ; preds = %1089, %1084
   %1118 = tail call fastcc noundef i32 @_ZL13stbi__get32beP13stbi__context(ptr noundef nonnull %0)
   tail call fastcc void @_ZL10stbi__skipP13stbi__contexti(ptr noundef nonnull %0, i32 noundef %1118)
   %1119 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %0)
-  %1120 = icmp ugt i32 %1119, 1
+  %1120 = icmp samesign ugt i32 %1119, 1
   br i1 %1120, label %1121, label %1122
 
 1121:                                             ; preds = %1115
@@ -65276,7 +65276,7 @@ _ZL10stbi__skipP13stbi__contexti.exit.i104:       ; preds = %1089, %1084
 .split.us.i:                                      ; preds = %1142, %..loopexit229_crit_edge.us.i
   %indvars.iv267.i = phi i64 [ %indvars.iv.next268.i, %..loopexit229_crit_edge.us.i ], [ 0, %1142 ]
   %1147 = getelementptr inbounds i8, ptr %.0185.i, i64 %indvars.iv267.i
-  %.not213.us.i = icmp ult i64 %indvars.iv267.i, %1146
+  %.not213.us.i = icmp samesign ult i64 %indvars.iv267.i, %1146
   br i1 %.not213.us.i, label %1151, label %.preheader228.us.i
 
 1148:                                             ; preds = %.preheader228.us.i, %1148
@@ -65305,7 +65305,7 @@ _ZL10stbi__skipP13stbi__contexti.exit.i104:       ; preds = %1089, %1084
 
 .split.i:                                         ; preds = %1142, %.preheader228.i
   %indvars.iv.i107 = phi i64 [ %indvars.iv.next.i108, %.preheader228.i ], [ 0, %1142 ]
-  %.not213.i = icmp ult i64 %indvars.iv.i107, %1146
+  %.not213.i = icmp samesign ult i64 %indvars.iv.i107, %1146
   br i1 %.not213.i, label %1155, label %.preheader228.i
 
 1155:                                             ; preds = %.split.i
@@ -65326,7 +65326,7 @@ _ZL10stbi__skipP13stbi__contexti.exit.i104:       ; preds = %1089, %1084
 
 1158:                                             ; preds = %.loopexit219.i, %.preheader226.i
   %indvars.iv276.i = phi i64 [ 0, %.preheader226.i ], [ %indvars.iv.next277.i, %.loopexit219.i ]
-  %.not207.i = icmp ult i64 %indvars.iv276.i, %1141
+  %.not207.i = icmp samesign ult i64 %indvars.iv276.i, %1141
   br i1 %.not207.i, label %1171, label %1159
 
 1159:                                             ; preds = %1158
@@ -65487,7 +65487,7 @@ _ZL10stbi__get8P13stbi__context.exit.i119:        ; preds = %_ZL19stbi__refill_b
   br i1 %exitcond279.not.i, label %.loopexit227.i, label %1158, !llvm.loop !1748
 
 .loopexit227.i:                                   ; preds = %.preheader228.i, %..loopexit229_crit_edge.us.i, %.loopexit219.i
-  %1218 = icmp ugt i32 %1092, 3
+  %1218 = icmp samesign ugt i32 %1092, 3
   br i1 %1218, label %1219, label %.loopexit.i110
 
 1219:                                             ; preds = %.loopexit227.i
@@ -68017,7 +68017,7 @@ _ZL10stbi__get8P13stbi__context.exit78.i.i.i:     ; preds = %_ZL19stbi__refill_b
   %205 = and i32 %185, 15
   %206 = getelementptr inbounds i8, ptr %199, i64 20
   store i32 %205, ptr %206, align 4
-  %207 = icmp ugt i32 %205, 3
+  %207 = icmp samesign ugt i32 %205, 3
   br i1 %207, label %208, label %210
 
 208:                                              ; preds = %204
@@ -68256,8 +68256,8 @@ _ZL10stbi__get8P13stbi__context.exit96.i.i.i:     ; preds = %_ZL19stbi__refill_b
 
 344:                                              ; preds = %340
   %345 = icmp ugt i8 %.0.i95.i.i.i, -33
-  %346 = icmp ugt i32 %335, 13
-  %or.cond65.i.i.i = or i1 %345, %346
+  %346 = icmp samesign ugt i32 %335, 13
+  %or.cond65.i.i.i = select i1 %345, i1 true, i1 %346
   br i1 %or.cond65.i.i.i, label %347, label %_ZL25stbi__process_scan_headerP10stbi__jpeg.exit.i.i
 
 347:                                              ; preds = %344, %340, %338
@@ -73459,7 +73459,7 @@ _ZL10stbi__get8P13stbi__context.exit284:          ; preds = %454, %457, %_ZL19st
 
 .loopexit27.loopexit:                             ; preds = %479, %_ZL10stbi__get8P13stbi__context.exit284
   %481 = phi i32 [ %478, %_ZL10stbi__get8P13stbi__context.exit284 ], [ %480, %479 ]
-  %.not218 = icmp ult i32 %481, %120
+  %.not218 = icmp samesign ult i32 %481, %120
   %spec.store.select = select i1 %.not218, i32 %481, i32 0
   %482 = zext nneg i32 %spec.store.select to i64
   %483 = mul nuw nsw i64 %409, %482
@@ -75042,7 +75042,7 @@ _ZL10stbi__getnP13stbi__contextPhi.exit.thread:   ; preds = %545, %_ZL10stbi__ge
 617:                                              ; preds = %616
   %618 = zext nneg i8 %.0197 to i32
   store i32 %618, ptr %58, align 8
-  %619 = icmp ugt i32 %2, 2
+  %619 = icmp samesign ugt i32 %2, 2
   %spec.select = select i1 %619, i32 %2, i32 %618
   store i32 %spec.select, ptr %591, align 4
   %620 = call fastcc noundef i32 @_ZL24stbi__expand_png_paletteP9stbi__pngPhii(ptr noundef %0, ptr noundef %4, i32 noundef %spec.select)
@@ -76356,12 +76356,12 @@ _ZL17stbi__malloc_mad3iiii.exit.thread:           ; preds = %_ZL21stbi__mul2size
   %87 = getelementptr inbounds i8, ptr %69, i64 %86
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr align 1 %87, i64 %31, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = icmp ult i64 %indvars.iv.next, %72
+  %88 = icmp samesign ult i64 %indvars.iv.next, %72
   br i1 %88, label %80, label %._crit_edge.us, !llvm.loop !1860
 
 ._crit_edge.us:                                   ; preds = %80
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %89 = icmp ult i64 %indvars.iv.next98, %73
+  %89 = icmp samesign ult i64 %indvars.iv.next98, %73
   br i1 %89, label %.preheader.us, label %._crit_edge91, !llvm.loop !1861
 
 90:                                               ; preds = %56
@@ -77188,10 +77188,10 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   %183 = tail call i32 @llvm.abs.i32(i32 %182, i1 true)
   %184 = sub nsw i32 %179, %177
   %185 = tail call i32 @llvm.abs.i32(i32 %184, i1 true)
-  %.not.i638 = icmp ugt i32 %181, %183
-  %.not20.i639 = icmp ugt i32 %181, %185
+  %.not.i638 = icmp samesign ugt i32 %181, %183
+  %.not20.i639 = icmp samesign ugt i32 %181, %185
   %or.cond.i640 = select i1 %.not.i638, i1 true, i1 %.not20.i639
-  %.not21.i = icmp ugt i32 %183, %185
+  %.not21.i = icmp samesign ugt i32 %183, %185
   %..i = select i1 %.not21.i, i8 %176, i8 %173
   %.0.i641 = select i1 %or.cond.i640, i8 %..i, i8 %170
   %.narrow623 = add i8 %.0.i641, %167
@@ -77453,10 +77453,10 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   %267 = tail call i32 @llvm.abs.i32(i32 %266, i1 true)
   %268 = sub nsw i32 %263, %261
   %269 = tail call i32 @llvm.abs.i32(i32 %268, i1 true)
-  %.not.i648 = icmp ugt i32 %265, %267
-  %.not20.i649 = icmp ugt i32 %265, %269
+  %.not.i648 = icmp samesign ugt i32 %265, %267
+  %.not20.i649 = icmp samesign ugt i32 %265, %269
   %or.cond.i650 = select i1 %.not.i648, i1 true, i1 %.not20.i649
-  %.not21.i651 = icmp ugt i32 %267, %269
+  %.not21.i651 = icmp samesign ugt i32 %267, %269
   %..i652 = select i1 %.not21.i651, i8 %260, i8 %257
   %.0.i653 = select i1 %or.cond.i650, i8 %..i652, i8 %254
   %.narrow607 = add i8 %.0.i653, %251
@@ -78751,7 +78751,7 @@ _ZL21stbi__mul2sizes_validii.exit.thread15.i:     ; preds = %9
 
 _ZL21stbi__mul2sizes_validii.exit12.i:            ; preds = %14
   %16 = udiv i32 2147483647, %12
-  %.not.i = icmp ugt i32 %13, %16
+  %.not.i = icmp samesign ugt i32 %13, %16
   br i1 %.not.i, label %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split, label %_ZL21stbi__mad3sizes_validiiii.exit
 
 _ZL21stbi__mad3sizes_validiiii.exit:              ; preds = %_ZL21stbi__mul2sizes_validii.exit12.i, %14
@@ -81737,7 +81737,7 @@ define internal void @_ZL23stbi__YCbCr_to_RGB_simdPhPKhS1_S1_ii(ptr nocapture no
   %51 = getelementptr inbounds i8, ptr %.1312, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %52 = or disjoint i64 %indvars.iv.next, 7
-  %53 = icmp ult i64 %52, %9
+  %53 = icmp samesign ult i64 %52, %9
   br i1 %53, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !1918
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
@@ -81898,7 +81898,7 @@ define internal noundef ptr @_ZL28stbi__resample_row_hv_2_simdPhS_S_ii(ptr nound
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = add nuw nsw i32 %72, %75
-  %77 = icmp ult i64 %indvars.iv.next, %26
+  %77 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %77, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !1920
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -82187,7 +82187,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__process_markerP10
   %16 = load ptr, ptr %0, align 8
   %17 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %16)
   %18 = add nsw i32 %17, -2
-  %19 = icmp ugt i32 %17, 2
+  %19 = icmp samesign ugt i32 %17, 2
   br i1 %19, label %.lr.ph192, label %._crit_edge193
 
 .lr.ph192:                                        ; preds = %15
@@ -82275,7 +82275,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %28, %_ZL19stbi__ref
   br label %_ZL10stbi__skipP13stbi__contexti.exit
 
 _ZL10stbi__get8P13stbi__context.exit.thread:      ; preds = %_ZL10stbi__get8P13stbi__context.exit
-  %67 = icmp ugt i32 %63, 3
+  %67 = icmp samesign ugt i32 %63, 3
   br i1 %67, label %77, label %.preheader175
 
 .preheader175:                                    ; preds = %_ZL10stbi__get8P13stbi__context.exit.thread
@@ -82397,7 +82397,7 @@ _ZL10stbi__get8P13stbi__context.exit137:          ; preds = %85, %88, %_ZL19stbi
   %127 = load ptr, ptr %0, align 8
   %128 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %127)
   %129 = add nsw i32 %128, -2
-  %130 = icmp ugt i32 %128, 2
+  %130 = icmp samesign ugt i32 %128, 2
   br i1 %130, label %.lr.ph187, label %._crit_edge188
 
 .lr.ph187:                                        ; preds = %126
@@ -82561,7 +82561,7 @@ _ZL10stbi__get8P13stbi__context.exit149:          ; preds = %185, %188, %_ZL19st
   br i1 %exitcond.not, label %221, label %.preheader176, !llvm.loop !1925
 
 221:                                              ; preds = %_ZL10stbi__get8P13stbi__context.exit149
-  %222 = icmp ugt i32 %220, 256
+  %222 = icmp samesign ugt i32 %220, 256
   br i1 %222, label %223, label %225
 
 223:                                              ; preds = %221
@@ -82708,7 +82708,7 @@ _ZL10stbi__get8P13stbi__context.exit155:          ; preds = %245, %248, %_ZL19st
 
 299:                                              ; preds = %289
   %300 = add nuw nsw i32 %295, %298
-  %301 = icmp ult i32 %300, 10
+  %301 = icmp samesign ult i32 %300, 10
   br i1 %301, label %302, label %318
 
 302:                                              ; preds = %299
@@ -82759,7 +82759,7 @@ _ZL19stbi__build_fast_acPsP13stbi__huffman.exit:  ; preds = %318, %._crit_edge
 325:                                              ; preds = %322
   %326 = load ptr, ptr %0, align 8
   %327 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %326)
-  %328 = icmp ult i32 %327, 2
+  %328 = icmp samesign ult i32 %327, 2
   br i1 %328, label %329, label %333
 
 329:                                              ; preds = %325
@@ -82776,8 +82776,8 @@ _ZL19stbi__build_fast_acPsP13stbi__huffman.exit:  ; preds = %318, %._crit_edge
 
 333:                                              ; preds = %325
   %334 = icmp eq i32 %1, 224
-  %335 = icmp ugt i32 %327, 6
-  %or.cond9 = and i1 %334, %335
+  %335 = icmp samesign ugt i32 %327, 6
+  %or.cond9 = select i1 %334, i1 %335, i1 false
   br i1 %or.cond9, label %.preheader, label %381
 
 .preheader:                                       ; preds = %333, %_ZL10stbi__get8P13stbi__context.exit162
@@ -82869,8 +82869,8 @@ _ZL10stbi__get8P13stbi__context.exit162:          ; preds = %342, %345, %_ZL19st
 381:                                              ; preds = %333
   %382 = add nsw i32 %327, -2
   %383 = icmp eq i32 %1, 238
-  %384 = icmp ugt i32 %327, 13
-  %or.cond11 = and i1 %383, %384
+  %384 = icmp samesign ugt i32 %327, 13
+  %or.cond11 = select i1 %383, i1 %384, i1 false
   br i1 %or.cond11, label %.preheader174, label %440
 
 .preheader174:                                    ; preds = %381, %_ZL10stbi__get8P13stbi__context.exit168
@@ -83042,7 +83042,7 @@ _ZL10stbi__skipP13stbi__contexti.exit:            ; preds = %232, %229, %468, %4
 define internal fastcc noundef range(i32 0, 2) i32 @_ZL26stbi__process_frame_headerP10stbi__jpegi(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %3)
-  %5 = icmp ult i32 %4, 11
+  %5 = icmp samesign ult i32 %4, 11
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
@@ -86376,7 +86376,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__zbuild_huffmanP14
   %70 = zext i16 %rev.i.i to i32
   %71 = sub nuw nsw i32 16, %47
   %72 = lshr i32 %70, %71
-  %73 = icmp ult i32 %72, 512
+  %73 = icmp samesign ult i32 %72, 512
   br i1 %73, label %.lr.ph78, label %.loopexit
 
 .lr.ph78:                                         ; preds = %69
@@ -86390,7 +86390,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__zbuild_huffmanP14
   %78 = getelementptr inbounds [512 x i16], ptr %0, i64 0, i64 %indvars.iv91
   store i16 %63, ptr %78, align 2
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, %76
-  %79 = icmp ult i64 %indvars.iv.next92, 512
+  %79 = icmp samesign ult i64 %indvars.iv.next92, 512
   br i1 %79, label %77, label %.loopexit, !llvm.loop !1958
 
 .loopexit:                                        ; preds = %77, %69, %48
@@ -86642,7 +86642,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL14stbi__psd_infoP13stbi__
 
 _ZL10stbi__skipP13stbi__contexti.exit:            ; preds = %38, %44
   %48 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %0)
-  %49 = icmp ugt i32 %48, 16
+  %49 = icmp samesign ugt i32 %48, 16
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %_ZL10stbi__skipP13stbi__contexti.exit
@@ -88629,7 +88629,7 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
   store float %66, ptr %41, align 4
   store float %70, ptr %43, align 4
   %indvars.iv.next.lver.orig = add nuw nsw i64 %indvars.iv.lver.orig, %34
-  %85 = icmp ult i64 %indvars.iv.next.lver.orig, %35
+  %85 = icmp samesign ult i64 %indvars.iv.next.lver.orig, %35
   br i1 %85, label %36, label %.preheader237, !llvm.loop !1967
 
 .preheader237:                                    ; preds = %36

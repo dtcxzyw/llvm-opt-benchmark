@@ -2179,7 +2179,7 @@ define noundef i32 @TT_RunIns(ptr noundef %0) #2 {
 
 134:                                              ; preds = %.sink.split.i, %130, %124
   %135 = tail call i64 @llvm.abs.i64(i64 %99, i1 true)
-  %136 = icmp ult i64 %135, 1024
+  %136 = icmp samesign ult i64 %135, 1024
   br i1 %136, label %137, label %Compute_Funcs.exit
 
 137:                                              ; preds = %134
@@ -2685,7 +2685,7 @@ Compute_Round.exit:                               ; preds = %Compute_Funcs.exit,
 
 352:                                              ; preds = %.sink.split.i.i, %349, %346
   %353 = call i64 @llvm.abs.i64(i64 %334, i1 true)
-  %354 = icmp ult i64 %353, 1024
+  %354 = icmp samesign ult i64 %353, 1024
   br i1 %354, label %355, label %Ins_SxyTCA.exit
 
 355:                                              ; preds = %352
@@ -2828,7 +2828,7 @@ Ins_SxyTCA.exit:                                  ; preds = %352, %355
 
 424:                                              ; preds = %.sink.split.i.i402, %421, %416
   %425 = call i64 @llvm.abs.i64(i64 %.sink.i, i1 true)
-  %426 = icmp ult i64 %425, 1024
+  %426 = icmp samesign ult i64 %425, 1024
   br i1 %426, label %427, label %Compute_Funcs.exit.i
 
 427:                                              ; preds = %424
@@ -2995,7 +2995,7 @@ Compute_Funcs.exit.i:                             ; preds = %427, %424
 
 507:                                              ; preds = %.sink.split.i.i416, %504, %501
   %508 = call i64 @llvm.abs.i64(i64 %489, i1 true)
-  %509 = icmp ult i64 %508, 1024
+  %509 = icmp samesign ult i64 %508, 1024
   br i1 %509, label %510, label %Compute_Funcs.exit.i415
 
 510:                                              ; preds = %507
@@ -5005,7 +5005,7 @@ Ins_NROUND.exit:                                  ; preds = %1462, %1464
 
 1502:                                             ; preds = %1497
   %1503 = and i64 %1485, 15
-  %1504 = icmp ugt i64 %1503, 7
+  %1504 = icmp samesign ugt i64 %1503, 7
   %spec.select.v.i = select i1 %1504, i64 -7, i64 -8
   %spec.select.i500 = add nsw i64 %spec.select.v.i, %1503
   %1505 = load i16, ptr %182, align 2
@@ -5374,7 +5374,7 @@ Normalize.exit58.i:                               ; preds = %1632, %Normalize.ex
 
 1681:                                             ; preds = %.sink.split.i.i517, %1678, %1675
   %1682 = call i64 @llvm.abs.i64(i64 %1663, i1 true)
-  %1683 = icmp ult i64 %1682, 1024
+  %1683 = icmp samesign ult i64 %1682, 1024
   br i1 %1683, label %1684, label %Compute_Funcs.exit.i516
 
 1684:                                             ; preds = %1681
@@ -6411,7 +6411,7 @@ Normalize.exit:                                   ; preds = %1, %7
 
 63:                                               ; preds = %.sink.split.i, %59, %53
   %64 = call i64 @llvm.abs.i64(i64 %.sink, i1 true)
-  %65 = icmp ult i64 %64, 1024
+  %65 = icmp samesign ult i64 %64, 1024
   br i1 %65, label %66, label %Compute_Funcs.exit
 
 66:                                               ; preds = %63
@@ -6583,7 +6583,7 @@ Normalize.exit:                                   ; preds = %.Normalize.exit_cri
 
 83:                                               ; preds = %.sink.split.i, %79, %73
   %84 = call i64 @llvm.abs.i64(i64 %48, i1 true)
-  %85 = icmp ult i64 %84, 1024
+  %85 = icmp samesign ult i64 %84, 1024
   br i1 %85, label %86, label %Compute_Funcs.exit
 
 86:                                               ; preds = %83
@@ -6678,7 +6678,7 @@ define internal fastcc void @Ins_SFVTPV(ptr nocapture noundef %0) unnamed_addr #
   br label %Compute_Funcs.exit
 
 41:                                               ; preds = %33
-  %42 = icmp ult i64 %.sink, 1024
+  %42 = icmp samesign ult i64 %.sink, 1024
   br i1 %42, label %43, label %Compute_Funcs.exit
 
 43:                                               ; preds = %41
@@ -9290,7 +9290,7 @@ define internal fastcc void @Ins_DELTAP(ptr noundef %0, ptr nocapture noundef re
 
 56:                                               ; preds = %51
   %57 = and i64 %38, 15
-  %58 = icmp ugt i64 %57, 7
+  %58 = icmp samesign ugt i64 %57, 7
   %spec.select.v = select i1 %58, i64 -7, i64 -8
   %spec.select = add nsw i64 %spec.select.v, %57
   %59 = load i16, ptr %15, align 2
@@ -9854,7 +9854,7 @@ define internal fastcc void @Ins_FLIPRGON(ptr nocapture noundef %0, ptr nocaptur
   br i1 %or.cond, label %.preheader, label %32
 
 .preheader:                                       ; preds = %18
-  %.not2326 = icmp ult i32 %24, %29
+  %.not2326 = icmp samesign ult i32 %24, %29
   br i1 %.not2326, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -9882,7 +9882,7 @@ define internal fastcc void @Ins_FLIPRGON(ptr nocapture noundef %0, ptr nocaptur
   %42 = or i8 %41, 1
   store i8 %42, ptr %40, align 1
   %43 = add i16 %.027, 1
-  %.not23 = icmp ugt i16 %43, %31
+  %.not23 = icmp samesign ugt i16 %43, %31
   br i1 %.not23, label %.loopexit, label %37, !llvm.loop !37
 
 .loopexit:                                        ; preds = %37, %.preheader, %32, %35, %15
@@ -9935,7 +9935,7 @@ define internal fastcc void @Ins_FLIPRGOFF(ptr nocapture noundef %0, ptr nocaptu
   br i1 %or.cond, label %.preheader, label %32
 
 .preheader:                                       ; preds = %18
-  %.not2326 = icmp ult i32 %24, %29
+  %.not2326 = icmp samesign ult i32 %24, %29
   br i1 %.not2326, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -9963,7 +9963,7 @@ define internal fastcc void @Ins_FLIPRGOFF(ptr nocapture noundef %0, ptr nocaptu
   %42 = and i8 %41, -2
   store i8 %42, ptr %40, align 1
   %43 = add i16 %.027, 1
-  %.not23 = icmp ugt i16 %43, %31
+  %.not23 = icmp samesign ugt i16 %43, %31
   br i1 %.not23, label %.loopexit, label %37, !llvm.loop !38
 
 .loopexit:                                        ; preds = %37, %.preheader, %32, %35, %15
@@ -9993,7 +9993,7 @@ define internal fastcc void @Ins_SCANCTRL(ptr nocapture noundef %0, ptr nocaptur
   %10 = getelementptr inbounds i8, ptr %0, i64 472
   %11 = load i16, ptr %10, align 8
   %12 = zext i16 %11 to i32
-  %.not24 = icmp ult i32 %5, %12
+  %.not24 = icmp samesign ult i32 %5, %12
   br i1 %.not24, label %15, label %13
 
 13:                                               ; preds = %9
@@ -10048,7 +10048,7 @@ define internal fastcc void @Ins_SCANCTRL(ptr nocapture noundef %0, ptr nocaptur
   %35 = getelementptr inbounds i8, ptr %0, i64 472
   %36 = load i16, ptr %35, align 8
   %37 = zext i16 %36 to i32
-  %38 = icmp ult i32 %5, %37
+  %38 = icmp samesign ult i32 %5, %37
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %34
@@ -11215,7 +11215,7 @@ define internal fastcc void @Ins_PUSHB(ptr nocapture noundef %0, ptr nocapture n
   %gep = getelementptr i64, ptr %invariant.gep, i64 %23
   store i64 %27, ptr %gep, align 8
   %28 = add i16 %.016, 1
-  %.not14 = icmp ugt i16 %28, %17
+  %.not14 = icmp samesign ugt i16 %28, %17
   br i1 %.not14, label %.loopexit, label %20, !llvm.loop !43
 
 .loopexit:                                        ; preds = %20, %.preheader, %18
@@ -15228,7 +15228,7 @@ define internal fastcc void @ft_var_load_avar(ptr noundef %0) unnamed_addr #2 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i16, ptr %.07183, align 8
   %64 = zext i16 %63 to i64
-  %65 = icmp ult i64 %indvars.iv.next, %64
+  %65 = icmp samesign ult i64 %indvars.iv.next, %64
   br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader

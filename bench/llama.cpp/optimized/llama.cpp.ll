@@ -76828,7 +76828,7 @@ if.end16.i.i.i.i:                                 ; preds = %if.then9.i.i.i.i, %
   %__holeIndex.addr.1.i.i.i.i = phi i64 [ %sub12.i.i.i.i, %if.then9.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i.i, %while.end.i.i.i.i ]
   %__value.sroa.0.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %__value.sroa.0.0.copyload10.i.i.i, 32
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %__value.sroa.0.sroa.2.0.extract.shift.i.i.i.i.i to i32
-  %cmp5.i.i.i.i.i = icmp ugt i64 %__holeIndex.addr.1.i.i.i.i, %div17.i.i.i
+  %cmp5.i.i.i.i.i = icmp samesign ugt i64 %__holeIndex.addr.1.i.i.i.i, %div17.i.i.i
   br i1 %cmp5.i.i.i.i.i, label %land.rhs.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i.i"
 
 land.rhs.lr.ph.i.i.i.i.i:                         ; preds = %if.end16.i.i.i.i
@@ -76910,7 +76910,7 @@ if.end16.i25.i.i.i:                               ; preds = %if.then9.i50.i.i.i,
   %__holeIndex.addr.1.i26.i.i.i = phi i64 [ %sub12.i52.i.i.i, %if.then9.i50.i.i.i ], [ %__holeIndex.addr.0.lcssa.i22.i.i.i, %while.end.i21.i.i.i ]
   %__value.sroa.0.sroa.2.0.extract.shift.i.i27.i.i.i = lshr i64 %__value.sroa.0.0.copyload14.i.i.i, 32
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i28.i.i.i = trunc nuw i64 %__value.sroa.0.sroa.2.0.extract.shift.i.i27.i.i.i to i32
-  %cmp5.i.i29.i.i.i = icmp ugt i64 %__holeIndex.addr.1.i26.i.i.i, %dec.i.i.i
+  %cmp5.i.i29.i.i.i = icmp samesign ugt i64 %__holeIndex.addr.1.i26.i.i.i, %dec.i.i.i
   br i1 %cmp5.i.i29.i.i.i, label %land.rhs.lr.ph.i.i35.i.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i.i"
 
 land.rhs.lr.ph.i.i35.i.i.i:                       ; preds = %if.end16.i25.i.i.i
@@ -77389,7 +77389,7 @@ if.end16.i.i.i:                                   ; preds = %if.then9.i.i.i, %wh
   %__holeIndex.addr.1.i.i.i = phi i64 [ %sub12.i.i.i, %if.then9.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i, %while.end.i.i.i ]
   %__value.sroa.0.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %__value.sroa.0.0.copyload10.i.i, 32
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %__value.sroa.0.sroa.2.0.extract.shift.i.i.i.i to i32
-  %cmp5.i.i.i.i = icmp ugt i64 %__holeIndex.addr.1.i.i.i, %div17.i.i
+  %cmp5.i.i.i.i = icmp samesign ugt i64 %__holeIndex.addr.1.i.i.i, %div17.i.i
   br i1 %cmp5.i.i.i.i, label %land.rhs.lr.ph.i.i.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i"
 
 land.rhs.lr.ph.i.i.i.i:                           ; preds = %if.end16.i.i.i
@@ -77471,7 +77471,7 @@ if.end16.i25.i.i:                                 ; preds = %if.then9.i50.i.i, %
   %__holeIndex.addr.1.i26.i.i = phi i64 [ %sub12.i52.i.i, %if.then9.i50.i.i ], [ %__holeIndex.addr.0.lcssa.i22.i.i, %while.end.i21.i.i ]
   %__value.sroa.0.sroa.2.0.extract.shift.i.i27.i.i = lshr i64 %__value.sroa.0.0.copyload14.i.i, 32
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i28.i.i = trunc nuw i64 %__value.sroa.0.sroa.2.0.extract.shift.i.i27.i.i to i32
-  %cmp5.i.i29.i.i = icmp ugt i64 %__holeIndex.addr.1.i26.i.i, %dec.i.i
+  %cmp5.i.i29.i.i = icmp samesign ugt i64 %__holeIndex.addr.1.i26.i.i, %dec.i.i
   br i1 %cmp5.i.i29.i.i, label %land.rhs.lr.ph.i.i35.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i"
 
 land.rhs.lr.ph.i.i35.i.i:                         ; preds = %if.end16.i25.i.i
