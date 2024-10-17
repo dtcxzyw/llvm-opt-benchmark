@@ -5012,7 +5012,7 @@ cvc5/integer_gmp_imp.cpp.ll 296700736
 cvc5/interactive_shell.cpp.ll 475602958
 cvc5/interpolation_solver.cpp.ll 345082146
 cvc5/io_utils.cpp.ll 122748410
-cvc5/ite_removal.cpp.ll 338107351
+cvc5/ite_removal.cpp.ll 338445465
 cvc5/ite_simp.cpp.ll 662870203
 cvc5/ite_utilities.cpp.ll 7807062180
 cvc5/justification_strategy.cpp.ll 1592261506
@@ -8587,7 +8587,7 @@ gromacs/vcm.cpp.ll 1258455837
 gromacs/veccompare.cpp.ll 76873074
 gromacs/velocityscalingtemperaturecoupling.cpp.ll 2926565716
 gromacs/version.cpp.ll 60385116
-gromacs/viewit.cpp.ll 95161312
+gromacs/viewit.cpp.ll 95256573
 gromacs/virials.cpp.ll 105993458
 gromacs/vsite.cpp.ll 5177742480
 gromacs/vsite_parm.cpp.ll 3093078658
@@ -12003,7 +12003,7 @@ linux/bio.ll 607367978
 linux/bitmap.ll 288058736
 linux/bitset.ll 311317649
 linux/blake2s-generic.ll 968840608
-linux/blake2s.ll 48785784
+linux/blake2s.ll 48834624
 linux/blk-cgroup.ll 562274528
 linux/blk-core.ll 612235868
 linux/blk-flush.ll 112990129
@@ -21807,7 +21807,7 @@ openjdk/InvocationAdapter.ll 241603779
 openjdk/JPLISAgent.ll 313649620
 openjdk/JPLISAssert.ll 35514072
 openjdk/JarFacade.ll 60882839
-openjdk/JavaExceptions.ll 95916214
+openjdk/JavaExceptions.ll 96012150
 openjdk/JdkConsoleImpl_md.ll 38263632
 openjdk/JvmLauncher.ll 713857762
 openjdk/JvmLauncherLib.ll 68105465
