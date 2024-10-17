@@ -4258,11 +4258,17 @@ define i32 @jv_get_refcnt(i64 %0, ptr nocapture readonly %1) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @jv_identical(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #2 {
   %.sroa.08.0.extract.trunc = trunc i64 %0 to i8
+  %.sroa.311.0.extract.shift = lshr i64 %0, 16
+  %.sroa.311.0.extract.trunc = trunc i64 %.sroa.311.0.extract.shift to i16
   %.sroa.0.0.extract.trunc = trunc i64 %2 to i8
+  %.sroa.37.0.extract.shift = lshr i64 %2, 16
+  %.sroa.37.0.extract.trunc = trunc i64 %.sroa.37.0.extract.shift to i16
   %.not = icmp eq i8 %.sroa.08.0.extract.trunc, %.sroa.0.0.extract.trunc
-  %.unshifted = xor i64 %2, %0
-  %5 = icmp ult i64 %.unshifted, 65536
-  %or.cond15 = and i1 %.not, %5
+  %.not2 = icmp eq i16 %.sroa.311.0.extract.trunc, %.sroa.37.0.extract.trunc
+  %or.cond = and i1 %.not, %.not2
+  %.not3.unshifted = xor i64 %2, %0
+  %.not3 = icmp ult i64 %.not3.unshifted, 4294967296
+  %or.cond15 = and i1 %.not3, %or.cond
   %.not5 = icmp eq ptr %1, %3
   %spec.select = select i1 %or.cond15, i1 %.not5, i1 false
   %.0 = zext i1 %spec.select to i32
