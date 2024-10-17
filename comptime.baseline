@@ -561,7 +561,7 @@ abc/giaSupp.c.ll 650248019
 abc/giaSupps.c.ll 2055072117
 abc/giaSweep.c.ll 760736337
 abc/giaSweeper.c.ll 834461495
-abc/giaSwitch.c.ll 787234164
+abc/giaSwitch.c.ll 786445724
 abc/giaTim.c.ll 1005215129
 abc/giaTis.c.ll 268839304
 abc/giaTranStoch.c.ll 309701806
@@ -3694,7 +3694,7 @@ coreutils-rs/22s4rgjb6so6raux.ll 96351287
 coreutils-rs/22yacccxm8wnu1mg.ll 482024286
 coreutils-rs/234chiv2gd72eavh.ll 144994486
 coreutils-rs/23k8p0ykb1fllbpy.ll 290217897
-coreutils-rs/2467wwsnh7q897tf.ll 130046071
+coreutils-rs/2467wwsnh7q897tf.ll 129912774
 coreutils-rs/24fsrxguu05stlu0.ll 196036825
 coreutils-rs/25226ex8la0o251x.ll 46651051
 coreutils-rs/25h8az05dh5yckjo.ll 70988636
@@ -7057,7 +7057,7 @@ git/connect.ll 737625518
 git/connected.ll 98781985
 git/convert.ll 937437651
 git/copy.ll 53650095
-git/credential-cache--daemon.ll 265460040
+git/credential-cache--daemon.ll 265194156
 git/credential-cache.ll 83434595
 git/credential-store.ll 158179996
 git/credential.ll 276349439
@@ -26944,7 +26944,7 @@ openusd/io.c.ll 57356471
 openusd/irregularPatchBuilder.cpp.ll 1260103972
 openusd/joint.cpp.ll 964096731
 openusd/json.cpp.ll 3350060126
-openusd/jsonSerialization.cpp.ll 3586717441
+openusd/jsonSerialization.cpp.ll 3583126579
 openusd/keyFrame.cpp.ll 751856551
 openusd/keyFrameMap.cpp.ll 341535348
 openusd/keyFrameUtils.cpp.ll 220267152
