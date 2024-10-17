@@ -24263,7 +24263,7 @@ openmpi/libprrte_la-prte_mca_params.ll 89147708
 openmpi/libprrte_la-prte_progress_threads.ll 157662071
 openmpi/libprrte_la-prte_quit.ll 125870286
 openmpi/libprrte_la-prte_wait.ll 158727396
-openmpi/libprrte_la-prted_comm.ll 290659311
+openmpi/libprrte_la-prted_comm.ll 290368480
 openmpi/libprrte_la-prun_common.ll 478053607
 openmpi/libprrte_la-rml.ll 162005561
 openmpi/libprrte_la-rml_base_msg_handlers.ll 144994730
