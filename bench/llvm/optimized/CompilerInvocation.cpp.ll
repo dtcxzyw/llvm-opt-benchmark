@@ -20348,7 +20348,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang19Streamin
   %581 = and i64 %580, 4294967295
   store i64 %581, ptr %579, align 8
   %582 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 406, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not = icmp ult i64 %582, 4294967296
+  %.not = icmp samesign ult i64 %582, 4294967296
   br i1 %.not, label %588, label %583
 
 583:                                              ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit2272.thread"
@@ -20717,7 +20717,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %709 = and i64 %708, -49153
   store i64 %709, ptr %707, align 8
   %710 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 637, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8127 = icmp ult i64 %710, 4294967296
+  %.not8127 = icmp samesign ult i64 %710, 4294967296
   br i1 %.not8127, label %717, label %711
 
 711:                                              ; preds = %_ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEED2Ev.exit
@@ -20972,7 +20972,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit241
   %808 = or disjoint i64 %807, 1125865547104256
   store i64 %808, ptr %781, align 8
   %809 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 903, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8128 = icmp ult i64 %809, 4294967296
+  %.not8128 = icmp samesign ult i64 %809, 4294967296
   br i1 %.not8128, label %816, label %810
 
 810:                                              ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit2432.thread"
@@ -20991,7 +20991,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit241
   %820 = or disjoint i64 %819, 2147483646
   store i64 %820, ptr %817, align 8
   %821 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 904, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8129 = icmp ult i64 %821, 4294967296
+  %.not8129 = icmp samesign ult i64 %821, 4294967296
   br i1 %.not8129, label %827, label %822
 
 822:                                              ; preds = %816
@@ -21146,7 +21146,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit243
   %884 = or disjoint i64 %883, 4294967296
   store i64 %884, ptr %521, align 8
   %885 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1578, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8130 = icmp ult i64 %885, 4294967296
+  %.not8130 = icmp samesign ult i64 %885, 4294967296
   br i1 %.not8130, label %891, label %886
 
 886:                                              ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit2456.thread"
@@ -21162,7 +21162,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit243
   %893 = and i64 %892, -4294967296
   store i64 %893, ptr %781, align 8
   %894 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1595, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8131 = icmp ult i64 %894, 4294967296
+  %.not8131 = icmp samesign ult i64 %894, 4294967296
   br i1 %.not8131, label %900, label %895
 
 895:                                              ; preds = %891
@@ -21179,7 +21179,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit243
   %903 = or disjoint i64 %902, 549755813888
   store i64 %903, ptr %707, align 8
   %904 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1773, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8132 = icmp ult i64 %904, 4294967296
+  %.not8132 = icmp samesign ult i64 %904, 4294967296
   br i1 %.not8132, label %911, label %905
 
 905:                                              ; preds = %900
@@ -22281,7 +22281,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1275 = and i64 %1274, -13194139533313
   store i64 %1275, ptr %817, align 8
   %1276 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1698, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8133 = icmp ult i64 %1276, 4294967296
+  %.not8133 = icmp samesign ult i64 %1276, 4294967296
   %.pre8354 = load i64, ptr %817, align 8
   %1277 = shl i64 %1276, 42
   %1278 = and i64 %1277, 13194139533312
@@ -22397,7 +22397,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1331 = or disjoint i64 %1330, 33554432
   store i64 %1331, ptr %707, align 8
   %1332 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1663, i32 noundef 14, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8134 = icmp ult i64 %1332, 4294967296
+  %.not8134 = icmp samesign ult i64 %1332, 4294967296
   br i1 %.not8134, label %1339, label %1333
 
 1333:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit2977.thread"
@@ -22574,7 +22574,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1414 = or disjoint i64 %1413, 134217728
   store i64 %1414, ptr %707, align 8
   %1415 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1658, i32 noundef 15, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8135 = icmp ult i64 %1415, 4294967296
+  %.not8135 = icmp samesign ult i64 %1415, 4294967296
   br i1 %.not8135, label %1422, label %1416
 
 1416:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit3037.thread"
@@ -22855,7 +22855,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1543 = and i64 %1542, -4294967296
   store i64 %1543, ptr %857, align 8
   %1544 = call fastcc i64 @_ZL23normalizeStringIntegralIiESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1714, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8136 = icmp ult i64 %1544, 4294967296
+  %.not8136 = icmp samesign ult i64 %1544, 4294967296
   br i1 %.not8136, label %1550, label %1545
 
 1545:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit3141.thread"
@@ -22920,7 +22920,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1577 = or i64 %1576, -4294967296
   store i64 %1577, ptr %1575, align 8
   %1578 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 848, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8137 = icmp ult i64 %1578, 4294967296
+  %.not8137 = icmp samesign ult i64 %1578, 4294967296
   br i1 %.not8137, label %1584, label %1579
 
 1579:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit3161.thread"
@@ -22981,7 +22981,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1609 = and i64 %1608, -1125899906842625
   store i64 %1609, ptr %0, align 8
   %1610 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 2287, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8138 = icmp ult i64 %1610, 4294967296
+  %.not8138 = icmp samesign ult i64 %1610, 4294967296
   %.pre8376 = load i64, ptr %0, align 8
   %1611 = shl i64 %1610, 50
   %1612 = and i64 %1611, 1125899906842624
@@ -23007,7 +23007,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1625 = or disjoint i64 %1624, 200
   store i64 %1625, ptr %1622, align 8
   %1626 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1884, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8139 = icmp ult i64 %1626, 4294967296
+  %.not8139 = icmp samesign ult i64 %1626, 4294967296
   br i1 %.not8139, label %1632, label %1627
 
 1627:                                             ; preds = %1621
@@ -23075,7 +23075,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1659 = or disjoint i64 %1658, 4294967296
   store i64 %1659, ptr %1622, align 8
   %1660 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1881, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8140 = icmp ult i64 %1660, 4294967296
+  %.not8140 = icmp samesign ult i64 %1660, 4294967296
   br i1 %.not8140, label %1666, label %1661
 
 1661:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit3199.thread"
@@ -23092,7 +23092,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1669 = and i64 %1668, -4294967296
   store i64 %1669, ptr %1667, align 8
   %1670 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1890, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8141 = icmp ult i64 %1670, 4294967296
+  %.not8141 = icmp samesign ult i64 %1670, 4294967296
   br i1 %.not8141, label %1676, label %1671
 
 1671:                                             ; preds = %1666
@@ -23323,7 +23323,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit324
   %1771 = and i64 %1770, -120259084289
   store i64 %1771, ptr %707, align 8
   %1772 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1846, i32 noundef 19, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8142 = icmp ult i64 %1772, 4294967296
+  %.not8142 = icmp samesign ult i64 %1772, 4294967296
   br i1 %.not8142, label %1779, label %1773
 
 1773:                                             ; preds = %1769
@@ -23546,7 +23546,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit324
   %1877 = and i64 %1876, 4294967295
   store i64 %1877, ptr %1667, align 8
   %1878 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1547, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8143 = icmp ult i64 %1878, 4294967296
+  %.not8143 = icmp samesign ult i64 %1878, 4294967296
   br i1 %.not8143, label %1884, label %1879
 
 1879:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit3356.thread"
@@ -24591,7 +24591,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %2230 = and i64 %2229, -412316860417
   store i64 %2230, ptr %707, align 8
   %2231 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1798, i32 noundef 22, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8144 = icmp ult i64 %2231, 4294967296
+  %.not8144 = icmp samesign ult i64 %2231, 4294967296
   br i1 %.not8144, label %2238, label %2232
 
 2232:                                             ; preds = %2228
@@ -25138,7 +25138,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit395
   %2479 = or disjoint i64 %2478, 2199023255552
   store i64 %2479, ptr %707, align 8
   %2480 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1892, i32 noundef 30, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8145 = icmp ult i64 %2480, 4294967296
+  %.not8145 = icmp samesign ult i64 %2480, 4294967296
   %.pre8404 = load i64, ptr %707, align 8
   %2481 = shl i64 %2480, 41
   %2482 = and i64 %2481, 68169720922112
@@ -25224,7 +25224,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit395
   %2523 = or disjoint i64 %2522, 562949953421312
   store i64 %2523, ptr %707, align 8
   %2524 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 642, i32 noundef 31, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8146 = icmp ult i64 %2524, 4294967296
+  %.not8146 = icmp samesign ult i64 %2524, 4294967296
   br i1 %.not8146, label %2531, label %2525
 
 2525:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit4045.thread"
@@ -25469,7 +25469,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit395
   %2639 = and i64 %2638, -13510798882111489
   store i64 %2639, ptr %707, align 8
   %2640 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1985, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8147 = icmp ult i64 %2640, 4294967296
+  %.not8147 = icmp samesign ult i64 %2640, 4294967296
   %.pre8412 = load i64, ptr %707, align 8
   %2641 = shl i64 %2640, 52
   %2642 = and i64 %2641, 13510798882111488
@@ -25486,7 +25486,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit395
   %2650 = and i64 %2649, -65537
   store i64 %2650, ptr %707, align 8
   %2651 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 2071, i32 noundef 33, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8148 = icmp ult i64 %2651, 4294967296
+  %.not8148 = icmp samesign ult i64 %2651, 4294967296
   br i1 %.not8148, label %2658, label %2652
 
 2652:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit4129.thread"
@@ -25504,7 +25504,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit395
   %2661 = and i64 %2660, -511
   store i64 %2661, ptr %2659, align 8
   %2662 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 2789, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8149 = icmp ult i64 %2662, 4294967296
+  %.not8149 = icmp samesign ult i64 %2662, 4294967296
   br i1 %.not8149, label %2669, label %2663
 
 2663:                                             ; preds = %2658
@@ -25550,14 +25550,14 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit395
   %2686 = and i64 %2685, -4294967296
   store i64 %2686, ptr %2684, align 8
   %2687 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 2767, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8150 = icmp ult i64 %2687, 4294967296
+  %.not8150 = icmp samesign ult i64 %2687, 4294967296
   %.pre8414 = load i64, ptr %2684, align 8
   %2688 = select i1 %.not8150, i64 %.pre8414, i64 %2687
   %2689 = and i64 %2688, 4294967295
   %2690 = or disjoint i64 %2689, 17592186044416
   store i64 %2690, ptr %2684, align 8
   %2691 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 2769, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8151 = icmp ult i64 %2691, 4294967296
+  %.not8151 = icmp samesign ult i64 %2691, 4294967296
   br i1 %.not8151, label %2697, label %2692
 
 2692:                                             ; preds = %2683
@@ -26194,7 +26194,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit435
   %2932 = or disjoint i64 %2931, 9223372032559808512
   store i64 %2932, ptr %2659, align 8
   %2933 = call fastcc i64 @_ZL23normalizeStringIntegralIiESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 2770, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8152 = icmp ult i64 %2933, 4294967296
+  %.not8152 = icmp samesign ult i64 %2933, 4294967296
   br i1 %.not8152, label %2939, label %2934
 
 2934:                                             ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit4359
@@ -26422,7 +26422,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit437
   %3024 = getelementptr inbounds nuw i8, ptr %0, i64 816
   store i32 1, ptr %3024, align 8
   %3025 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 2721, i32 noundef 39, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8153 = icmp ult i64 %3025, 4294967296
+  %.not8153 = icmp samesign ult i64 %3025, 4294967296
   br i1 %.not8153, label %3027, label %3026
 
 3026:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit4394.thread"
@@ -26724,7 +26724,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %3119 = and i64 %3118, -8
   store i64 %3119, ptr %707, align 8
   %3120 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 316, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8154 = icmp ult i64 %3120, 4294967296
+  %.not8154 = icmp samesign ult i64 %3120, 4294967296
   %.pre8435 = load i64, ptr %707, align 8
   %3121 = and i64 %3120, 7
   %3122 = and i64 %.pre8435, -8070450532247928840
@@ -26733,7 +26733,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %3125 = and i64 %3124, -8070450532247928833
   store i64 %3125, ptr %707, align 8
   %3126 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 272, i32 noundef 40, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8155 = icmp ult i64 %3126, 4294967296
+  %.not8155 = icmp samesign ult i64 %3126, 4294967296
   br i1 %.not8155, label %3133, label %3127
 
 3127:                                             ; preds = %_ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEED2Ev.exit4532
@@ -26822,7 +26822,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit453
   %3157 = and i64 %3156, -211106232532993
   store i64 %3157, ptr %707, align 8
   %3158 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 225, i32 noundef 41, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8156 = icmp ult i64 %3158, 4294967296
+  %.not8156 = icmp samesign ult i64 %3158, 4294967296
   br i1 %.not8156, label %3165, label %3159
 
 3159:                                             ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit4534
@@ -27322,13 +27322,13 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit459
   %3366 = and i64 %3365, -4294967296
   store i64 %3366, ptr %3364, align 8
   %3367 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 2715, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8157 = icmp ult i64 %3367, 4294967296
+  %.not8157 = icmp samesign ult i64 %3367, 4294967296
   %.pre8456 = load i64, ptr %3364, align 8
   %3368 = select i1 %.not8157, i64 %.pre8456, i64 %3367
   %3369 = and i64 %3368, 4294967295
   store i64 %3369, ptr %3364, align 8
   %3370 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 2752, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8158 = icmp ult i64 %3370, 4294967296
+  %.not8158 = icmp samesign ult i64 %3370, 4294967296
   br i1 %.not8158, label %3376, label %3371
 
 3371:                                             ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit4590
@@ -27344,7 +27344,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit459
   %3378 = and i64 %3377, -25
   store i64 %3378, ptr %579, align 8
   %3379 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1833, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8159 = icmp ult i64 %3379, 4294967296
+  %.not8159 = icmp samesign ult i64 %3379, 4294967296
   br i1 %.not8159, label %3386, label %3380
 
 3380:                                             ; preds = %3376
@@ -27747,7 +27747,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %3520 = and i64 %3519, -6755399441055745
   store i64 %3520, ptr %817, align 8
   %3521 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1690, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8160 = icmp ult i64 %3521, 4294967296
+  %.not8160 = icmp samesign ult i64 %3521, 4294967296
   %.pre8462 = load i64, ptr %817, align 8
   %3522 = shl i64 %3521, 51
   %3523 = and i64 %3522, 6755399441055744
@@ -27918,7 +27918,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %3613 = and i64 %3612, -4294967296
   store i64 %3613, ptr %534, align 8
   %3614 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1546, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8161 = icmp ult i64 %3614, 4294967296
+  %.not8161 = icmp samesign ult i64 %3614, 4294967296
   br i1 %.not8161, label %3620, label %3615
 
 3615:                                             ; preds = %3611
@@ -27934,7 +27934,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %3622 = and i64 %3621, -1572865
   store i64 %3622, ptr %707, align 8
   %3623 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1588, i32 noundef 42, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8162 = icmp ult i64 %3623, 4294967296
+  %.not8162 = icmp samesign ult i64 %3623, 4294967296
   br i1 %.not8162, label %3630, label %3624
 
 3624:                                             ; preds = %3620
@@ -28138,7 +28138,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit483
   %3703 = or i64 %3702, 4294967295
   store i64 %3703, ptr %2274, align 8
   %3704 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1866, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8163 = icmp ult i64 %3704, 4294967296
+  %.not8163 = icmp samesign ult i64 %3704, 4294967296
   br i1 %.not8163, label %3710, label %3705
 
 3705:                                             ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit4835
@@ -28197,7 +28197,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit483
   %3734 = or disjoint i64 %3733, 1125899906842624
   store i64 %3734, ptr %707, align 8
   %3735 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 654, i32 noundef 43, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8164 = icmp ult i64 %3735, 4294967296
+  %.not8164 = icmp samesign ult i64 %3735, 4294967296
   br i1 %.not8164, label %3742, label %3736
 
 3736:                                             ; preds = %3731
@@ -28473,7 +28473,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit490
   %3852 = and i64 %3851, -12289
   store i64 %3852, ptr %707, align 8
   %3853 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 2284, i32 noundef 49, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8165 = icmp ult i64 %3853, 4294967296
+  %.not8165 = icmp samesign ult i64 %3853, 4294967296
   br i1 %.not8165, label %3860, label %3854
 
 3854:                                             ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit4909
@@ -28801,7 +28801,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit504
   %3956 = and i64 %3955, -393217
   store i64 %3956, ptr %707, align 8
   %3957 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1463, i32 noundef 51, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8166 = icmp ult i64 %3957, 4294967296
+  %.not8166 = icmp samesign ult i64 %3957, 4294967296
   br i1 %.not8166, label %3964, label %3958
 
 3958:                                             ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit5046
@@ -28819,7 +28819,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit504
   %3967 = or disjoint i64 %3966, 8
   store i64 %3967, ptr %1575, align 8
   %3968 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 3164, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not8167 = icmp ult i64 %3968, 4294967296
+  %.not8167 = icmp samesign ult i64 %3968, 4294967296
   br i1 %.not8167, label %3974, label %3969
 
 3969:                                             ; preds = %3964
@@ -38304,7 +38304,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %241 = or disjoint i64 %240, 10
   store i64 %241, ptr %238, align 4
   %242 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 512, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %.0)
-  %.not998 = icmp ult i64 %242, 4294967296
+  %.not998 = icmp samesign ult i64 %242, 4294967296
   br i1 %.not998, label %248, label %243
 
 243:                                              ; preds = %237
@@ -38460,7 +38460,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %315 = or disjoint i64 %314, 6
   store i64 %315, ptr %312, align 4
   %316 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 893, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %.0)
-  %.not999 = icmp ult i64 %316, 4294967296
+  %.not999 = icmp samesign ult i64 %316, 4294967296
   br i1 %.not999, label %322, label %317
 
 317:                                              ; preds = %311
@@ -38478,7 +38478,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %326 = or disjoint i64 %325, 16
   store i64 %326, ptr %323, align 4
   %327 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 487, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %.0)
-  %.not1000 = icmp ult i64 %327, 4294967296
+  %.not1000 = icmp samesign ult i64 %327, 4294967296
   br i1 %.not1000, label %333, label %328
 
 328:                                              ; preds = %322
@@ -38495,7 +38495,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %336 = and i64 %335, 4294967295
   store i64 %336, ptr %334, align 4
   %337 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 911, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %.0)
-  %.not1001 = icmp ult i64 %337, 4294967296
+  %.not1001 = icmp samesign ult i64 %337, 4294967296
   br i1 %.not1001, label %343, label %338
 
 338:                                              ; preds = %333
@@ -38549,7 +38549,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %364 = and i8 %363, -9
   store i8 %364, ptr %294, align 4
   %365 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1731, i32 noundef 20, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %.0)
-  %.not1002 = icmp ult i64 %365, 4294967296
+  %.not1002 = icmp samesign ult i64 %365, 4294967296
   br i1 %.not1002, label %373, label %366
 
 366:                                              ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit541.thread"
@@ -38619,7 +38619,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %400 = or disjoint i64 %399, 214748364800
   store i64 %400, ptr %238, align 4
   %401 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1748, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %.0)
-  %.not1003 = icmp ult i64 %401, 4294967296
+  %.not1003 = icmp samesign ult i64 %401, 4294967296
   br i1 %.not1003, label %407, label %402
 
 402:                                              ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit561.thread"
@@ -38636,7 +38636,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %410 = or disjoint i64 %409, 42949672960
   store i64 %410, ptr %312, align 4
   %411 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1783, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %.0)
-  %.not1004 = icmp ult i64 %411, 4294967296
+  %.not1004 = icmp samesign ult i64 %411, 4294967296
   br i1 %.not1004, label %417, label %412
 
 412:                                              ; preds = %407
@@ -38716,7 +38716,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   %444 = and i8 %443, -7
   store i8 %444, ptr %294, align 4
   %445 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 597, i32 noundef 46, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %.0)
-  %.not1005 = icmp ult i64 %445, 4294967296
+  %.not1005 = icmp samesign ult i64 %445, 4294967296
   br i1 %.not1005, label %453, label %446
 
 446:                                              ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
@@ -38734,7 +38734,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   %455 = and i64 %454, -196609
   store i64 %455, ptr %218, align 4
   %456 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 603, i32 noundef 47, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %.0)
-  %.not1006 = icmp ult i64 %456, 4294967296
+  %.not1006 = icmp samesign ult i64 %456, 4294967296
   %.pre1053 = load i64, ptr %218, align 4
   %457 = shl nuw nsw i64 %456, 16
   %458 = and i64 %457, 196608
@@ -38759,7 +38759,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   %470 = or disjoint i64 %469, 8
   store i64 %470, ptr %334, align 4
   %471 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1782, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %.0)
-  %.not1007 = icmp ult i64 %471, 4294967296
+  %.not1007 = icmp samesign ult i64 %471, 4294967296
   br i1 %.not1007, label %477, label %472
 
 472:                                              ; preds = %467
@@ -38775,7 +38775,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   %479 = and i64 %478, 4294967295
   store i64 %479, ptr %218, align 4
   %480 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 648, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %.0)
-  %.not1008 = icmp ult i64 %480, 4294967296
+  %.not1008 = icmp samesign ult i64 %480, 4294967296
   %.pre1054 = load i64, ptr %218, align 4
   %481 = shl i64 %480, 32
   %482 = and i64 %.pre1054, 4294967293
@@ -51991,7 +51991,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit2723:        ; preds = %_ZN4llvmeqENS_9Stri
   %580 = and i64 %579, -211106232532993
   store i64 %580, ptr %514, align 8
   %581 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 224, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8335 = icmp ult i64 %581, 4294967296
+  %.not8335 = icmp samesign ult i64 %581, 4294967296
   br i1 %.not8335, label %588, label %582
 
 582:                                              ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit2753.thread"
@@ -52133,7 +52133,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit2723:        ; preds = %_ZN4llvmeqENS_9Stri
   %652 = getelementptr inbounds nuw i8, ptr %0, i64 732
   store i32 0, ptr %652, align 4
   %653 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 804, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8336 = icmp ult i64 %653, 4294967296
+  %.not8336 = icmp samesign ult i64 %653, 4294967296
   br i1 %.not8336, label %655, label %654
 
 654:                                              ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit2792.thread"
@@ -52337,7 +52337,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 
 741:                                              ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit2846.thread"
   %742 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1968, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8337 = icmp ult i64 %742, 4294967296
+  %.not8337 = icmp samesign ult i64 %742, 4294967296
   br i1 %.not8337, label %748, label %743
 
 743:                                              ; preds = %741
@@ -52354,7 +52354,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   %751 = and i64 %750, 4294967295
   store i64 %751, ptr %749, align 8
   %752 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 901, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8338 = icmp ult i64 %752, 4294967296
+  %.not8338 = icmp samesign ult i64 %752, 4294967296
   br i1 %.not8338, label %758, label %753
 
 753:                                              ; preds = %748
@@ -52435,7 +52435,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   %794 = and i16 %793, -769
   store i16 %794, ptr %792, align 8
   %795 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1767, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8339 = icmp ult i64 %795, 4294967296
+  %.not8339 = icmp samesign ult i64 %795, 4294967296
   br i1 %.not8339, label %803, label %796
 
 796:                                              ; preds = %791
@@ -53413,7 +53413,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1161 = getelementptr inbounds nuw i8, ptr %0, i64 372
   store i32 2, ptr %1161, align 4
   %1162 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 491, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8346 = icmp ult i64 %1162, 4294967296
+  %.not8346 = icmp samesign ult i64 %1162, 4294967296
   br i1 %.not8346, label %1164, label %1163
 
 1163:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit3268.thread"
@@ -53452,14 +53452,14 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1180 = or disjoint i64 %1179, 512
   store i64 %1180, ptr %1177, align 8
   %1181 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 513, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8347 = icmp ult i64 %1181, 4294967296
+  %.not8347 = icmp samesign ult i64 %1181, 4294967296
   %.pre8587 = load i64, ptr %1177, align 8
   %1182 = select i1 %.not8347, i64 %.pre8587, i64 %1181
   %1183 = and i64 %1182, 4294967295
   %1184 = or disjoint i64 %1183, 4503599627370496
   store i64 %1184, ptr %1177, align 8
   %1185 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 514, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8348 = icmp ult i64 %1185, 4294967296
+  %.not8348 = icmp samesign ult i64 %1185, 4294967296
   br i1 %.not8348, label %1191, label %1186
 
 1186:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit3278.thread"
@@ -53695,7 +53695,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1306 = and i64 %1305, -7696581394433
   store i64 %1306, ptr %514, align 8
   %1307 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 371, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8349 = icmp ult i64 %1307, 4294967296
+  %.not8349 = icmp samesign ult i64 %1307, 4294967296
   br i1 %.not8349, label %1314, label %1308
 
 1308:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit3352.thread"
@@ -53744,7 +53744,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1332 = and i64 %1331, -1610612737
   store i64 %1332, ptr %1330, align 8
   %1333 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 768, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8350 = icmp ult i64 %1333, 4294967296
+  %.not8350 = icmp samesign ult i64 %1333, 4294967296
   %.pre8591 = load i64, ptr %1330, align 8
   %1334 = shl nuw nsw i64 %1333, 29
   %1335 = and i64 %1334, 1610612736
@@ -53754,7 +53754,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1339 = and i64 %1338, -12884901889
   store i64 %1339, ptr %1330, align 8
   %1340 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 458, i32 noundef 9, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8351 = icmp ult i64 %1340, 4294967296
+  %.not8351 = icmp samesign ult i64 %1340, 4294967296
   %.pre8592 = load i64, ptr %1330, align 8
   %1341 = shl i64 %1340, 32
   %1342 = and i64 %1341, 12884901888
@@ -53764,7 +53764,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1346 = or i64 %1345, 402653184
   store i64 %1346, ptr %1330, align 8
   %1347 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 777, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8352 = icmp ult i64 %1347, 4294967296
+  %.not8352 = icmp samesign ult i64 %1347, 4294967296
   %.pre8593 = load i64, ptr %1330, align 8
   %1348 = shl nuw nsw i64 %1347, 27
   %1349 = and i64 %1348, 402653184
@@ -53774,7 +53774,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1353 = or i64 %1352, 100663296
   store i64 %1353, ptr %1330, align 8
   %1354 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 778, i32 noundef 11, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8353 = icmp ult i64 %1354, 4294967296
+  %.not8353 = icmp samesign ult i64 %1354, 4294967296
   br i1 %.not8353, label %1361, label %1355
 
 1355:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit3364.thread"
@@ -53898,7 +53898,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1412 = and i16 %1411, -8193
   store i16 %1412, ptr %792, align 8
   %1413 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 673, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8354 = icmp ult i64 %1413, 4294967296
+  %.not8354 = icmp samesign ult i64 %1413, 4294967296
   br i1 %.not8354, label %1421, label %1414
 
 1414:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit3394.thread"
@@ -53939,7 +53939,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1434 = and i16 %1433, -193
   store i16 %1434, ptr %792, align 8
   %1435 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 475, i32 noundef 13, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8355 = icmp ult i64 %1435, 4294967296
+  %.not8355 = icmp samesign ult i64 %1435, 4294967296
   br i1 %.not8355, label %1443, label %1436
 
 1436:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit3404.thread"
@@ -53957,7 +53957,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1445 = and i64 %1444, -97
   store i64 %1445, ptr %772, align 8
   %1446 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1659, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8356 = icmp ult i64 %1446, 4294967296
+  %.not8356 = icmp samesign ult i64 %1446, 4294967296
   br i1 %.not8356, label %1453, label %1447
 
 1447:                                             ; preds = %1443
@@ -55587,7 +55587,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %2032 = xor i64 %2031, 137438953472
   store i64 %2032, ptr %514, align 8
   %2033 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 881, i32 noundef 17, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8373 = icmp ult i64 %2033, 4294967296
+  %.not8373 = icmp samesign ult i64 %2033, 4294967296
   br i1 %.not8373, label %2040, label %2034
 
 2034:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit4106.thread"
@@ -55717,7 +55717,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %2099 = and i64 %2098, -844424930131969
   store i64 %2099, ptr %514, align 8
   %2100 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 959, i32 noundef 18, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8375 = icmp ult i64 %2100, 4294967296
+  %.not8375 = icmp samesign ult i64 %2100, 4294967296
   br i1 %.not8375, label %2107, label %2101
 
 2101:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit4142.thread"
@@ -56509,7 +56509,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit422
   %2480 = and i64 %2479, 4294967295
   store i64 %2480, ptr %549, align 8
   %2481 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 970, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8378 = icmp ult i64 %2481, 4294967296
+  %.not8378 = icmp samesign ult i64 %2481, 4294967296
   br i1 %.not8378, label %2487, label %2482
 
 2482:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit4386.thread"
@@ -56667,13 +56667,13 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit422
   %2560 = and i64 %2559, -4294967296
   store i64 %2560, ptr %2558, align 8
   %2561 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1539, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8379 = icmp ult i64 %2561, 4294967296
+  %.not8379 = icmp samesign ult i64 %2561, 4294967296
   %.pre8637 = load i64, ptr %2558, align 8
   %2562 = select i1 %.not8379, i64 %.pre8637, i64 %2561
   %2563 = and i64 %2562, 4294967295
   store i64 %2563, ptr %2558, align 8
   %2564 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 902, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8380 = icmp ult i64 %2564, 4294967296
+  %.not8380 = icmp samesign ult i64 %2564, 4294967296
   br i1 %.not8380, label %2570, label %2565
 
 2565:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit4436.thread"
@@ -57020,7 +57020,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit422
   %2735 = and i64 %2734, -864691128455135233
   store i64 %2735, ptr %1330, align 8
   %2736 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1816, i32 noundef 21, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8381 = icmp ult i64 %2736, 4294967296
+  %.not8381 = icmp samesign ult i64 %2736, 4294967296
   br i1 %.not8381, label %2743, label %2737
 
 2737:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit4556.thread"
@@ -57038,13 +57038,13 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit422
   %2746 = and i64 %2745, -4294967296
   store i64 %2746, ptr %2744, align 8
   %2747 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1815, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8382 = icmp ult i64 %2747, 4294967296
+  %.not8382 = icmp samesign ult i64 %2747, 4294967296
   %.pre8643 = load i64, ptr %2744, align 8
   %2748 = select i1 %.not8382, i64 %.pre8643, i64 %2747
   %2749 = and i64 %2748, 4294967295
   store i64 %2749, ptr %2744, align 8
   %2750 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1814, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8383 = icmp ult i64 %2750, 4294967296
+  %.not8383 = icmp samesign ult i64 %2750, 4294967296
   br i1 %.not8383, label %2756, label %2751
 
 2751:                                             ; preds = %2743
@@ -57062,7 +57062,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit422
   %2760 = or disjoint i64 %2759, 4398046511104
   store i64 %2760, ptr %2757, align 8
   %2761 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1785, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8384 = icmp ult i64 %2761, 4294967296
+  %.not8384 = icmp samesign ult i64 %2761, 4294967296
   %.pre8644 = load i64, ptr %2757, align 8
   %2762 = shl i64 %2761, 32
   %2763 = select i1 %.not8384, i64 %.pre8644, i64 %2762
@@ -57070,7 +57070,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit422
   %2765 = or disjoint i64 %2764, 256
   store i64 %2765, ptr %2757, align 8
   %2766 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1514, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8385 = icmp ult i64 %2766, 4294967296
+  %.not8385 = icmp samesign ult i64 %2766, 4294967296
   br i1 %.not8385, label %2772, label %2767
 
 2767:                                             ; preds = %2756
@@ -57111,7 +57111,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit422
   %2787 = and i64 %2786, -4294967296
   store i64 %2787, ptr %2785, align 8
   %2788 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 3316, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8386 = icmp ult i64 %2788, 4294967296
+  %.not8386 = icmp samesign ult i64 %2788, 4294967296
   br i1 %.not8386, label %2794, label %2789
 
 2789:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit4566.thread"
@@ -57186,7 +57186,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit422
 
 2824:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit4586.thread"
   %2825 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1855, i32 noundef 23, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8387 = icmp ult i64 %2825, 4294967296
+  %.not8387 = icmp samesign ult i64 %2825, 4294967296
   %.pre8646 = load i64, ptr %1330, align 8
   br i1 %.not8387, label %2831, label %2826
 
@@ -57209,7 +57209,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit422
 
 2837:                                             ; preds = %2831
   %2838 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1864, i32 noundef 24, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8388 = icmp ult i64 %2838, 4294967296
+  %.not8388 = icmp samesign ult i64 %2838, 4294967296
   %.pre8647 = load i64, ptr %1330, align 8
   br i1 %.not8388, label %2844, label %2839
 
@@ -57232,7 +57232,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit422
 
 2850:                                             ; preds = %2844
   %2851 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1856, i32 noundef 25, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8389 = icmp ult i64 %2851, 4294967296
+  %.not8389 = icmp samesign ult i64 %2851, 4294967296
   %.pre8648 = load i64, ptr %1330, align 8
   br i1 %.not8389, label %2857, label %2852
 
@@ -57255,7 +57255,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit422
 
 2863:                                             ; preds = %2857
   %2864 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1857, i32 noundef 26, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8390 = icmp ult i64 %2864, 4294967296
+  %.not8390 = icmp samesign ult i64 %2864, 4294967296
   %.pre8649 = load i64, ptr %1330, align 8
   br i1 %.not8390, label %2870, label %2865
 
@@ -57272,7 +57272,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit422
   %2873 = or disjoint i64 %2872, 549755813888
   store i64 %2873, ptr %1330, align 8
   %2874 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1865, i32 noundef 27, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8391 = icmp ult i64 %2874, 4294967296
+  %.not8391 = icmp samesign ult i64 %2874, 4294967296
   br i1 %.not8391, label %2881, label %2875
 
 2875:                                             ; preds = %2870
@@ -57353,7 +57353,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit422
   %2911 = or disjoint i64 %2910, 2097152
   store i64 %2911, ptr %1330, align 8
   %2912 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1860, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8392 = icmp ult i64 %2912, 4294967296
+  %.not8392 = icmp samesign ult i64 %2912, 4294967296
   %.pre8652 = load i64, ptr %1330, align 8
   %2913 = shl nuw nsw i64 %2912, 20
   %2914 = and i64 %2913, 7340032
@@ -57363,7 +57363,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit422
   %2918 = and i64 %2917, -786433
   store i64 %2918, ptr %1330, align 8
   %2919 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 2234, i32 noundef 29, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8393 = icmp ult i64 %2919, 4294967296
+  %.not8393 = icmp samesign ult i64 %2919, 4294967296
   br i1 %.not8393, label %2926, label %2920
 
 2920:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit4616.thread"
@@ -57551,7 +57551,7 @@ _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit4654: ; preds = %"_ZZL27mak
   %3015 = and i64 %3014, 4294967295
   store i64 %3015, ptr %3013, align 8
   %3016 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 2238, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8396 = icmp ult i64 %3016, 4294967296
+  %.not8396 = icmp samesign ult i64 %3016, 4294967296
   %.pre8654 = load i64, ptr %3013, align 8
   %3017 = shl i64 %3016, 32
   %3018 = and i64 %.pre8654, 4294967294
@@ -57575,7 +57575,7 @@ _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit4654: ; preds = %"_ZZL27mak
   %3029 = and i64 %3028, 4294967295
   store i64 %3029, ptr %3027, align 8
   %3030 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 786, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8397 = icmp ult i64 %3030, 4294967296
+  %.not8397 = icmp samesign ult i64 %3030, 4294967296
   br i1 %.not8397, label %3036, label %3031
 
 3031:                                             ; preds = %3026
@@ -57605,7 +57605,7 @@ _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit4654: ; preds = %"_ZZL27mak
   %3045 = and i64 %3044, 4611686018427387903
   store i64 %3045, ptr %1330, align 8
   %3046 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 2784, i32 noundef 34, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8398 = icmp ult i64 %3046, 4294967296
+  %.not8398 = icmp samesign ult i64 %3046, 4294967296
   br i1 %.not8398, label %3052, label %3047
 
 3047:                                             ; preds = %3043
@@ -57635,7 +57635,7 @@ _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit4654: ; preds = %"_ZZL27mak
   %3061 = and i64 %3060, 4294967295
   store i64 %3061, ptr %2001, align 8
   %3062 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 2834, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8399 = icmp ult i64 %3062, 4294967296
+  %.not8399 = icmp samesign ult i64 %3062, 4294967296
   br i1 %.not8399, label %3068, label %3063
 
 3063:                                             ; preds = %3059
@@ -57651,7 +57651,7 @@ _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit4654: ; preds = %"_ZZL27mak
   %3070 = and i64 %3069, -4294967296
   store i64 %3070, ptr %3027, align 8
   %3071 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 2833, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8400 = icmp ult i64 %3071, 4294967296
+  %.not8400 = icmp samesign ult i64 %3071, 4294967296
   br i1 %.not8400, label %3077, label %3072
 
 3072:                                             ; preds = %3068
@@ -57797,7 +57797,7 @@ _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit4654: ; preds = %"_ZZL27mak
   %3141 = and i64 %3140, -824633720833
   store i64 %3141, ptr %514, align 8
   %3142 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 419, i32 noundef 37, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8401 = icmp ult i64 %3142, 4294967296
+  %.not8401 = icmp samesign ult i64 %3142, 4294967296
   br i1 %.not8401, label %3149, label %3143
 
 3143:                                             ; preds = %3139
@@ -58552,7 +58552,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %3449 = and i64 %3448, -103079215105
   store i64 %3449, ptr %759, align 8
   %3450 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 3013, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8410 = icmp ult i64 %3450, 4294967296
+  %.not8410 = icmp samesign ult i64 %3450, 4294967296
   %.pre8672 = load i64, ptr %759, align 8
   %3451 = shl i64 %3450, 35
   %3452 = and i64 %3451, 103079215104
@@ -58683,7 +58683,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit498
   %3510 = and i64 %3509, -253953
   store i64 %3510, ptr %772, align 8
   %3511 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1818, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8411 = icmp ult i64 %3511, 4294967296
+  %.not8411 = icmp samesign ult i64 %3511, 4294967296
   br i1 %.not8411, label %3518, label %3512
 
 3512:                                             ; preds = %3508
@@ -58728,7 +58728,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit498
   %3534 = and i64 %3533, -216172782113783809
   store i64 %3534, ptr %1330, align 8
   %3535 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 3165, i32 noundef 52, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8412 = icmp ult i64 %3535, 4294967296
+  %.not8412 = icmp samesign ult i64 %3535, 4294967296
   %.pre8675 = load i64, ptr %1330, align 8
   %3536 = shl i64 %3535, 56
   %3537 = and i64 %3536, 216172782113783808
@@ -58741,7 +58741,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit498
   %3544 = or disjoint i64 %3542, %3543
   store i64 %3544, ptr %1330, align 8
   %3545 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1817, i32 noundef 53, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8413 = icmp ult i64 %3545, 4294967296
+  %.not8413 = icmp samesign ult i64 %3545, 4294967296
   br i1 %.not8413, label %3552, label %3546
 
 3546:                                             ; preds = %3532
@@ -58773,7 +58773,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit498
   %3562 = or disjoint i64 %3561, 1099511627776
   store i64 %3562, ptr %1192, align 8
   %3563 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 467, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8414 = icmp ult i64 %3563, 4294967296
+  %.not8414 = icmp samesign ult i64 %3563, 4294967296
   br i1 %.not8414, label %3569, label %3564
 
 3564:                                             ; preds = %3559
@@ -58861,7 +58861,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit498
   %3605 = and i64 %3604, -51539607553
   store i64 %3605, ptr %1330, align 8
   %3606 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 396, i32 noundef 54, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8415 = icmp ult i64 %3606, 4294967296
+  %.not8415 = icmp samesign ult i64 %3606, 4294967296
   br i1 %.not8415, label %3613, label %3607
 
 3607:                                             ; preds = %3603
@@ -58965,7 +58965,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit498
   %3658 = or disjoint i16 %3657, 1
   store i16 %3658, ptr %792, align 8
   %3659 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 3269, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8416 = icmp ult i64 %3659, 4294967296
+  %.not8416 = icmp samesign ult i64 %3659, 4294967296
   br i1 %.not8416, label %3666, label %3660
 
 3660:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit5051.thread"
@@ -59037,7 +59037,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit498
   %3694 = and i64 %3693, -7881299347898369
   store i64 %3694, ptr %514, align 8
   %3695 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 577, i32 noundef 55, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8417 = icmp ult i64 %3695, 4294967296
+  %.not8417 = icmp samesign ult i64 %3695, 4294967296
   br i1 %.not8417, label %3702, label %3696
 
 3696:                                             ; preds = %3692
@@ -59068,7 +59068,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit498
   %3711 = and i64 %3710, -540431955284459521
   store i64 %3711, ptr %759, align 8
   %3712 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1868, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8418 = icmp ult i64 %3712, 4294967296
+  %.not8418 = icmp samesign ult i64 %3712, 4294967296
   %.pre8683 = load i64, ptr %759, align 8
   %3713 = shl i64 %3712, 55
   %3714 = and i64 %3713, 540431955284459520
@@ -59143,7 +59143,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit498
   %3749 = and i64 %3748, -4294967296
   store i64 %3749, ptr %514, align 8
   %3750 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 659, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8419 = icmp ult i64 %3750, 4294967296
+  %.not8419 = icmp samesign ult i64 %3750, 4294967296
   br i1 %.not8419, label %3756, label %3751
 
 3751:                                             ; preds = %3747
@@ -59214,7 +59214,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit498
 
 3784:                                             ; preds = %3779
   %3785 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 3188, i32 noundef 57, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %5)
-  %.not8420 = icmp ult i64 %3785, 4294967296
+  %.not8420 = icmp samesign ult i64 %3785, 4294967296
   br i1 %.not8420, label %3792, label %3786
 
 3786:                                             ; preds = %3784
@@ -59396,8 +59396,8 @@ _ZN4llvm9StringRefC2EPKc.exit5109:                ; preds = %3829, %3833
 3863:                                             ; preds = %3858
   %.not.i5114 = icmp ne i32 %3861, 10
   %3864 = and i64 %3860, 9223372032559808512
-  %3865 = icmp ugt i64 %3864, 30064771071
-  %or.cond8303 = or i1 %.not.i5114, %3865
+  %3865 = icmp samesign ugt i64 %3864, 30064771071
+  %or.cond8303 = select i1 %.not.i5114, i1 true, i1 %3865
   br i1 %or.cond8303, label %_ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread, label %_ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread8163
 
 3866:                                             ; preds = %3853
@@ -59445,7 +59445,7 @@ _ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread:  ; preds = %3863, %3853, %3853,
 
 3880:                                             ; preds = %3879
   %3881 = and i64 %.fr8431, 9223372032559808512
-  %3882 = icmp ugt i64 %3881, 30064771071
+  %3882 = icmp samesign ugt i64 %3881, 30064771071
   %3883 = load i64, ptr %504, align 8
   br i1 %3882, label %3910, label %3912
 
@@ -59463,7 +59463,7 @@ _ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread:  ; preds = %3863, %3853, %3853,
 
 3890:                                             ; preds = %3889
   %3891 = and i64 %.fr8430, 9223372032559808512
-  %3892 = icmp ugt i64 %3891, 30064771071
+  %3892 = icmp samesign ugt i64 %3891, 30064771071
   %3893 = load i64, ptr %504, align 8
   br i1 %3892, label %3910, label %3912
 
@@ -59499,7 +59499,7 @@ _ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread8168: ; preds = %3874, %3884, %
 
 _ZNK5clang11ObjCRuntime10allowsWeakEv.exit:       ; preds = %3900
   %3907 = and i64 %.fr8428, 9223372028264841216
-  %3908 = icmp ugt i64 %3907, 25769803775
+  %3908 = icmp samesign ugt i64 %3907, 25769803775
   %3909 = load i64, ptr %504, align 8
   br i1 %3908, label %3910, label %3912
 
@@ -59620,9 +59620,9 @@ _ZN4llvm9StringRefC2EPKc.exit5116:                ; preds = %3951, %3955
 
 3968:                                             ; preds = %_ZN4llvm9StringRefC2EPKc.exit5116
   %3969 = icmp slt i64 %3965, 0
-  %3970 = icmp ugt i32 %.0.i5120, 99
+  %3970 = icmp samesign ugt i32 %.0.i5120, 99
   %or.cond = or i1 %3969, %3970
-  %3971 = icmp ugt i32 %.0.i5126, 99
+  %3971 = icmp samesign ugt i32 %.0.i5126, 99
   %or.cond13 = or i1 %3971, %or.cond
   br i1 %or.cond13, label %.critedge, label %_ZN5clang17DiagnosticBuilderD2Ev.exit5145
 
@@ -60963,7 +60963,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5249:        ; preds = %4622, %4618, %_ZN5c
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4623 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4513) #22
   %4624 = and i64 %4623, 4294967295
-  %4625 = icmp ult i64 %indvars.iv.next, %4624
+  %4625 = icmp samesign ult i64 %indvars.iv.next, %4624
   br i1 %4625, label %4536, label %.loopexit8469, !llvm.loop !2201
 
 .loopexit8469:                                    ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit5249, %.preheader, %4511
@@ -63205,20 +63205,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvmgeERKNS_12VersionTupleES2
   br i1 %29, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit, label %30
 
 30:                                               ; preds = %28
-  %31 = icmp ult i32 %7, %19
+  %31 = icmp samesign ult i32 %7, %19
   br i1 %31, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit, label %32
 
 32:                                               ; preds = %30
-  %33 = icmp ult i32 %19, %7
+  %33 = icmp samesign ult i32 %19, %7
   br i1 %33, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit, label %34
 
 34:                                               ; preds = %32
-  %35 = icmp ult i32 %11, %23
+  %35 = icmp samesign ult i32 %11, %23
   br i1 %35, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ult i32 %23, %11
-  %38 = icmp uge i32 %14, %26
+  %37 = icmp samesign ult i32 %23, %11
+  %38 = icmp samesign uge i32 %14, %26
   %spec.select.i.not = select i1 %37, i1 true, i1 %38
   br label %_ZN4llvmltERKNS_12VersionTupleES2_.exit
 
@@ -64120,7 +64120,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit263
   %492 = getelementptr inbounds nuw i8, ptr %440, i64 200
   store i32 5, ptr %492, align 8
   %493 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 107, ptr noundef nonnull align 8 dereferenceable(176) %265, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not956.i = icmp ult i64 %493, 4294967296
+  %.not956.i = icmp samesign ult i64 %493, 4294967296
   br i1 %.not956.i, label %495, label %494
 
 494:                                              ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit263.i
@@ -64146,7 +64146,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit263
   %503 = getelementptr inbounds nuw i8, ptr %440, i64 192
   store i32 4, ptr %503, align 8
   %504 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 111, ptr noundef nonnull align 8 dereferenceable(176) %265, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not957.i = icmp ult i64 %504, 4294967296
+  %.not957.i = icmp samesign ult i64 %504, 4294967296
   br i1 %.not957.i, label %506, label %505
 
 505:                                              ; preds = %502
@@ -64229,7 +64229,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit263
   %546 = or i32 %545, 512
   store i32 %546, ptr %441, align 4
   %547 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 94, i32 noundef 38, ptr noundef nonnull align 8 dereferenceable(176) %265, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not958.i = icmp ult i64 %547, 4294967296
+  %.not958.i = icmp samesign ult i64 %547, 4294967296
   %.pre1011.i = load i32, ptr %441, align 4
   %.sroa.0708.0.extract.trunc.i = trunc i64 %547 to i32
   %548 = shl i32 %.sroa.0708.0.extract.trunc.i, 9
@@ -66327,7 +66327,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %1269 = getelementptr inbounds nuw i8, ptr %1179, i64 360
   store i32 0, ptr %1269, align 8
   %1270 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 2694, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(176) %265, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not581.i = icmp ult i64 %1270, 4294967296
+  %.not581.i = icmp samesign ult i64 %1270, 4294967296
   br i1 %.not581.i, label %1272, label %1271
 
 1271:                                             ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit.thread.i"
@@ -66400,7 +66400,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i1
   %1293 = getelementptr inbounds nuw i8, ptr %1179, i64 400
   store i64 0, ptr %1293, align 8
   %1294 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 2351, ptr noundef nonnull align 8 dereferenceable(176) %265, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not582.i = icmp ult i64 %1294, 4294967296
+  %.not582.i = icmp samesign ult i64 %1294, 4294967296
   br i1 %.not582.i, label %1297, label %1295
 
 1295:                                             ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i158
@@ -66412,7 +66412,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i1
   %1298 = getelementptr inbounds nuw i8, ptr %1179, i64 192
   store i32 1, ptr %1298, align 8
   %1299 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 2244, i32 noundef 35, ptr noundef nonnull align 8 dereferenceable(176) %265, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not583.i = icmp ult i64 %1299, 4294967296
+  %.not583.i = icmp samesign ult i64 %1299, 4294967296
   br i1 %.not583.i, label %1301, label %1300
 
 1300:                                             ; preds = %1297
@@ -66424,7 +66424,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i1
   %1302 = getelementptr inbounds nuw i8, ptr %1179, i64 356
   store i32 500, ptr %1302, align 4
   %1303 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 2217, i32 noundef 36, ptr noundef nonnull align 8 dereferenceable(176) %265, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not584.i = icmp ult i64 %1303, 4294967296
+  %.not584.i = icmp samesign ult i64 %1303, 4294967296
   br i1 %.not584.i, label %1305, label %1304
 
 1304:                                             ; preds = %1301
@@ -68384,7 +68384,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit266
   %2011 = getelementptr inbounds nuw i8, ptr %1890, i64 316
   store i32 0, ptr %2011, align 4
   %2012 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1455, i32 noundef 50, ptr noundef nonnull align 8 dereferenceable(176) %265, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not870.i = icmp ult i64 %2012, 4294967296
+  %.not870.i = icmp samesign ult i64 %2012, 4294967296
   br i1 %.not870.i, label %2014, label %2013
 
 2013:                                             ; preds = %2010
@@ -70364,7 +70364,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit237
   %2666 = getelementptr inbounds nuw i8, ptr %2499, i64 4
   store i32 1, ptr %2666, align 4
   %2667 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 2013, i32 noundef 44, ptr noundef nonnull align 8 dereferenceable(176) %265, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not654.i = icmp ult i64 %2667, 4294967296
+  %.not654.i = icmp samesign ult i64 %2667, 4294967296
   br i1 %.not654.i, label %2669, label %2668
 
 2668:                                             ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit237.i
@@ -70376,7 +70376,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit237
   %2670 = getelementptr inbounds nuw i8, ptr %2499, i64 8
   store i32 0, ptr %2670, align 8
   %2671 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 2012, i32 noundef 45, ptr noundef nonnull align 8 dereferenceable(176) %265, ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  %.not655.i = icmp ult i64 %2671, 4294967296
+  %.not655.i = icmp samesign ult i64 %2671, 4294967296
   br i1 %.not655.i, label %2673, label %2672
 
 2672:                                             ; preds = %2669
@@ -71827,7 +71827,7 @@ _ZN4llvm13isPowerOf2_32Ej.exit.i:                 ; preds = %3276
   %3279 = lshr i64 %3278, 32
   %3280 = trunc nuw i64 %3279 to i32
   %3281 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %3280)
-  %3282 = icmp ult i32 %3281, 2
+  %3282 = icmp samesign ult i32 %3281, 2
   br i1 %3282, label %3345, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i
 
 _ZN4llvm13isPowerOf2_32Ej.exit.thread.i:          ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit.i
@@ -74235,7 +74235,7 @@ _ZNSt8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %524 = getelementptr inbounds nuw i8, ptr %0, i64 848
   store i32 500, ptr %524, align 8
   %525 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1794, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2)
-  %.not3268 = icmp ult i64 %525, 4294967296
+  %.not3268 = icmp samesign ult i64 %525, 4294967296
   br i1 %.not3268, label %527, label %526
 
 526:                                              ; preds = %523
@@ -75758,7 +75758,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit159
   %1028 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %1028, align 8
   %1029 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 130, i32 noundef 48, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2)
-  %.not3269 = icmp ult i64 %1029, 4294967296
+  %.not3269 = icmp samesign ult i64 %1029, 4294967296
   br i1 %.not3269, label %1031, label %1030
 
 1030:                                             ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1598
@@ -78935,7 +78935,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 604800, ptr %184, align 4
   %185 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 940, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2)
-  %.not1712 = icmp ult i64 %185, 4294967296
+  %.not1712 = icmp samesign ult i64 %185, 4294967296
   br i1 %.not1712, label %187, label %186
 
 186:                                              ; preds = %"_ZZL27makeBooleanOptionNormalizerbbN4llvm3opt12OptSpecifierEENK3$_0clES1_jRKNS0_7ArgListERN5clang17DiagnosticsEngineE.exit325.thread"
@@ -78947,7 +78947,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 2678400, ptr %188, align 8
   %189 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 939, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2)
-  %.not1713 = icmp ult i64 %189, 4294967296
+  %.not1713 = icmp samesign ult i64 %189, 4294967296
   br i1 %.not1713, label %191, label %190
 
 190:                                              ; preds = %187
@@ -104209,7 +104209,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i
@@ -115664,7 +115664,7 @@ _ZN4llvm16CachedHashStringC2ERKS0_.exit.i:        ; preds = %40, %39
   %44 = add nuw nsw i64 %.01340.i, 1
   %45 = load i32, ptr %3, align 8
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %44, %46
+  %47 = icmp samesign ult i64 %44, %46
   br i1 %47, label %.lr.ph.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_16CachedHashStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E8copyFromIS9_EEvRKNS0_IT_S2_S4_S6_S8_EE.exit, !llvm.loop !3758
 
 48:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_16CachedHashStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E10destroyAllEv.exit

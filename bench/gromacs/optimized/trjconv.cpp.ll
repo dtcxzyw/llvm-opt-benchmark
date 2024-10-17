@@ -3093,7 +3093,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit625:    ; preds = %1211
   %1241 = load i32, ptr %1240, align 4
   %1242 = icmp eq i32 %.0465, %1241
   %indvars.iv.next951 = add nuw nsw i64 %indvars.iv950, 1
-  %1243 = icmp uge i64 %indvars.iv.next951, %1239
+  %1243 = icmp samesign uge i64 %indvars.iv.next951, %1239
   %.not542 = select i1 %1243, i1 true, i1 %1242
   br i1 %.not542, label %.loopexit785.loopexit, label %.lr.ph862, !llvm.loop !26
 

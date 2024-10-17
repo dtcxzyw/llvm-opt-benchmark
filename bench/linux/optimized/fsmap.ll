@@ -496,7 +496,7 @@ define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr nocapture noundef
   %73 = getelementptr inbounds i8, ptr %72, i64 64
   %74 = load i32, ptr %73, align 64
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %71, %75
+  %76 = icmp samesign ult i64 %71, %75
   br i1 %76, label %.preheader43, label %.loopexit44, !llvm.loop !10
 
 .preheader43:                                     ; preds = %47, %63
@@ -590,7 +590,7 @@ define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr nocapture noundef
   %134 = load i32, ptr %133, align 8
   %135 = and i32 %134, 16
   %136 = icmp eq i32 %135, 0
-  %137 = icmp ult i64 %97, %94
+  %137 = icmp samesign ult i64 %97, %94
   %138 = select i1 %136, i1 true, i1 %137
   br i1 %138, label %139, label %155
 

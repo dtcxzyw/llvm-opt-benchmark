@@ -2814,7 +2814,7 @@ marker_is_icc.exit.thread.i:                      ; preds = %296, %marker_is_icc
   %318 = add i32 %.077107.i, -14
   %319 = add i32 %318, %314
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %320 = icmp ult i64 %indvars.iv.next.i, %307
+  %320 = icmp samesign ult i64 %indvars.iv.next.i, %307
   br i1 %320, label %.lr.ph110.i, label %._crit_edge111.i, !llvm.loop !8
 
 ._crit_edge111.i:                                 ; preds = %317
@@ -2864,7 +2864,7 @@ marker_is_icc.exit.thread.i:                      ; preds = %296, %marker_is_icc
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.078113.i, ptr nonnull align 1 %340, i64 %344, i1 false)
   %345 = getelementptr inbounds i8, ptr %.078113.i, i64 %344
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
-  %346 = icmp ult i64 %indvars.iv.next120.i, %307
+  %346 = icmp samesign ult i64 %indvars.iv.next120.i, %307
   br i1 %346, label %.lr.ph115.i, label %._crit_edge116.i, !llvm.loop !9
 
 ._crit_edge116.i:                                 ; preds = %.lr.ph115.i

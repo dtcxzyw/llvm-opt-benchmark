@@ -274,7 +274,7 @@ for.inc:                                          ; preds = %.noexc111, %for.bod
   %inc.i97 = add i64 %19, 1
   store i64 %inc.i97, ptr %mti.i95, align 8, !tbaa !3
   %inc = add nuw nsw i64 %i.0121, 1
-  %cmp = icmp ult i64 %inc, %rem
+  %cmp = icmp samesign ult i64 %inc, %rem
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !16
 
 lpad21:                                           ; preds = %if.then.i109

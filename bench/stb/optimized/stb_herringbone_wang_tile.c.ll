@@ -3001,7 +3001,7 @@ if.end:                                           ; preds = %for.end41, %for.end
   %conv49 = zext i8 %13 to i32
   %short_side_len50 = getelementptr inbounds i8, ptr %c, i64 4
   store i32 %conv49, ptr %short_side_len50, align 4
-  %or.cond = icmp ugt i32 %12, 64
+  %or.cond = icmp samesign ugt i32 %12, 64
   %14 = icmp ugt i8 %.sink43, 64
   %or.cond2 = select i1 %or.cond, i1 true, i1 %14
   %cmp68 = icmp eq i8 %13, 0

@@ -1170,7 +1170,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   %283 = mul nsw i64 %275, %275
   %284 = getelementptr inbounds i8, ptr %21, i64 8
   %285 = getelementptr inbounds i8, ptr %21, i64 16
-  %286 = icmp ugt i64 %283, 2305843009213693951
+  %286 = icmp samesign ugt i64 %283, 2305843009213693951
   br i1 %286, label %.invoke156, label %287
 
 287:                                              ; preds = %282
@@ -1239,7 +1239,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 
 310:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.thread
   call void @free(ptr noundef %299) #23
-  %311 = icmp ugt i64 %308, 2305843009213693951
+  %311 = icmp samesign ugt i64 %308, 2305843009213693951
   br i1 %311, label %.invoke158, label %312
 
 312:                                              ; preds = %310
@@ -11101,7 +11101,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   %28 = mul nsw i64 %19, %19
   %29 = getelementptr inbounds i8, ptr %12, i64 8
   %30 = getelementptr inbounds i8, ptr %12, i64 16
-  %31 = icmp ugt i64 %28, 2305843009213693951
+  %31 = icmp samesign ugt i64 %28, 2305843009213693951
   br i1 %31, label %.noexc, label %33
 
 .noexc:                                           ; preds = %27
@@ -13244,7 +13244,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 ._crit_edge.us.i322:                              ; preds = %189
   %199 = add nuw nsw i64 %.07992.us.i317, 4
-  %200 = icmp ult i64 %199, %183
+  %200 = icmp samesign ult i64 %199, %183
   br i1 %200, label %.preheader88.us.i316, label %.preheader87.i291, !llvm.loop !377
 
 .preheader87.i291:                                ; preds = %._crit_edge.us.i322, %180
@@ -13854,7 +13854,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal15queryCacheSizesERiS1_S1_(pt
 38:                                               ; preds = %.sink.split.i.i, %20, %15
   %39 = add nuw nsw i32 %.0.i.i, 1
   %40 = icmp ne i32 %18, 0
-  %41 = icmp ult i32 %.0.i.i, 15
+  %41 = icmp samesign ult i32 %.0.i.i, 15
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %15, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !388
 
@@ -13968,7 +13968,7 @@ _ZN5Eigen8internal15cpuid_is_vendorEPiPKi.exit11.thread: ; preds = %3, %9, %47, 
 95:                                               ; preds = %.sink.split.i.i14, %77, %72
   %96 = add nuw nsw i32 %.0.i.i12, 1
   %97 = icmp ne i32 %75, 0
-  %98 = icmp ult i32 %.0.i.i12, 15
+  %98 = icmp samesign ult i32 %.0.i.i12, 15
   %99 = select i1 %97, i1 %98, i1 false
   br i1 %99, label %72, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !388
 
@@ -16529,7 +16529,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
 
 .lr.ph:                                           ; preds = %25
   %30 = shl nuw nsw i64 %indvars.iv228, 1
-  %31 = icmp ugt i64 %indvars.iv228, 3
+  %31 = icmp samesign ugt i64 %indvars.iv228, 3
   %32 = and i64 %indvars.iv228, 2
   %.not.not = icmp eq i64 %32, 0
   br i1 %31, label %.lr.ph.split.us, label %.lr.ph.split
@@ -16575,7 +16575,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
   %52 = getelementptr inbounds double, ptr %51, i64 %indvars.iv228
   store <2 x double> %49, ptr %52, align 16
   %53 = add nuw nsw i64 %.0153168.us, 2
-  %54 = icmp ult i64 %53, %indvars.iv228
+  %54 = icmp samesign ult i64 %53, %indvars.iv228
   br i1 %54, label %.preheader161.us, label %35, !llvm.loop !514
 
 .preheader164.us:                                 ; preds = %.preheader164.us.preheader, %35
@@ -16669,7 +16669,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
   %96 = getelementptr inbounds double, ptr %95, i64 %indvars.iv228
   store <2 x double> %93, ptr %96, align 16
   %97 = add nuw nsw i64 %.0153168, 2
-  %98 = icmp ult i64 %97, %indvars.iv228
+  %98 = icmp samesign ult i64 %97, %indvars.iv228
   br i1 %98, label %.preheader161, label %99, !llvm.loop !514
 
 99:                                               ; preds = %.preheader161
@@ -17399,7 +17399,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 ._crit_edge.us.i334:                              ; preds = %215
   %225 = add nuw nsw i64 %.07992.us.i329, 4
-  %226 = icmp ult i64 %225, %209
+  %226 = icmp samesign ult i64 %225, %209
   br i1 %226, label %.preheader88.us.i328, label %.preheader87.i303, !llvm.loop !377
 
 .preheader87.i303:                                ; preds = %._crit_edge.us.i334, %204
@@ -22427,7 +22427,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %18, %10, %15
   %52 = load <2 x double>, ptr %gep.i, align 1
   %53 = load <2 x double>, ptr %43, align 1
   %54 = fmul <2 x double> %52, %53
-  %55 = icmp ugt i64 %.04899.i, 3
+  %55 = icmp samesign ugt i64 %.04899.i, 3
   br i1 %55, label %._crit_edge.i.i.i.i, label %69
 
 ._crit_edge.i.i.i.i:                              ; preds = %51
@@ -22436,7 +22436,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %18, %10, %15
   %58 = load <2 x double>, ptr %44, align 1
   %59 = fmul <2 x double> %57, %58
   %60 = fadd <2 x double> %54, %59
-  %61 = icmp ugt i64 %50, %49
+  %61 = icmp samesign ugt i64 %50, %49
   br i1 %61, label %62, label %69
 
 62:                                               ; preds = %._crit_edge.i.i.i.i
@@ -22968,7 +22968,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %18, %10, %15
   %55 = load <2 x double>, ptr %50, align 1
   %56 = load <2 x double>, ptr %51, align 1
   %57 = fmul <2 x double> %55, %56
-  %58 = icmp ugt i64 %.057110.i, 3
+  %58 = icmp samesign ugt i64 %.057110.i, 3
   br i1 %58, label %._crit_edge.i.i.i.i, label %73
 
 ._crit_edge.i.i.i.i:                              ; preds = %54
@@ -22978,7 +22978,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %18, %10, %15
   %62 = load <2 x double>, ptr %61, align 1
   %63 = fmul <2 x double> %60, %62
   %64 = fadd <2 x double> %57, %63
-  %65 = icmp ugt i64 %53, %52
+  %65 = icmp samesign ugt i64 %53, %52
   br i1 %65, label %66, label %73
 
 66:                                               ; preds = %._crit_edge.i.i.i.i

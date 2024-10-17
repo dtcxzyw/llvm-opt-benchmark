@@ -471,7 +471,7 @@ while.body:                                       ; preds = %while.body, %entry
   %add = add nuw nsw i64 %mul, %mul9
   %rem10 = urem i64 %add, 65535
   %sub = xor i64 %conv8, 65535
-  %cmp = icmp ult i64 %rem10, %sub
+  %cmp = icmp samesign ult i64 %rem10, %sub
   br i1 %cmp, label %while.body, label %if.end, !llvm.loop !6
 
 if.end:                                           ; preds = %while.body

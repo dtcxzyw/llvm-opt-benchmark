@@ -1611,7 +1611,7 @@ if.end.i.i:                                       ; preds = %for.cond.cleanup
   %30 = add i64 %count, 2305843009213693951
   %31 = and i64 %30, 2305843009213693951
   %32 = add nuw nsw i64 %31, 1
-  %min.iters.check1290 = icmp ult i64 %31, 3
+  %min.iters.check1290 = icmp samesign ult i64 %31, 3
   br i1 %min.iters.check1290, label %for.body.i.i.i.i.preheader, label %vector.ph1291
 
 vector.ph1291:                                    ; preds = %if.end.i.i

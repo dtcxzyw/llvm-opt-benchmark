@@ -4965,7 +4965,7 @@ if.end.i.i32:                                     ; preds = %for.cond.i
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i:   ; preds = %if.end.i.i32, %for.cond.i
   %retval.0.i.i34 = phi i64 [ %12, %if.end.i.i32 ], [ 0, %for.cond.i ]
-  %cmp.i = icmp ult i64 %indvars.iv.i, %retval.0.i.i34
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i34
   br i1 %cmp.i, label %for.body.i, label %_ZN6vectorIN3sat7literalELb0EjE6appendERKS2_.exit
 
 for.body.i:                                       ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i
@@ -5799,7 +5799,7 @@ if.end.i.i20:                                     ; preds = %for.cond
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit23: ; preds = %for.cond, %if.end.i.i20
   %retval.0.i.i22 = phi i64 [ %12, %if.end.i.i20 ], [ 0, %for.cond ]
-  %cmp11 = icmp ult i64 %indvars.iv, %retval.0.i.i22
+  %cmp11 = icmp samesign ult i64 %indvars.iv, %retval.0.i.i22
   br i1 %cmp11, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit23
@@ -5877,7 +5877,7 @@ if.end.i30:                                       ; preds = %while.cond
 
 _ZNK6vectorIN3smt22theory_user_propagator9prop_infoELb1EjE4sizeEv.exit33: ; preds = %while.cond, %if.end.i30
   %retval.0.i32 = phi i64 [ %28, %if.end.i30 ], [ 0, %while.cond ]
-  %cmp20 = icmp ult i64 %indvars.iv65, %retval.0.i32
+  %cmp20 = icmp samesign ult i64 %indvars.iv65, %retval.0.i32
   %.pre68 = load ptr, ptr %ctx21, align 8
   br i1 %cmp20, label %land.rhs, label %while.end
 

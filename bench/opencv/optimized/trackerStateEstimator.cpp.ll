@@ -2616,7 +2616,7 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoos
   %390 = sub i64 %388, %389
   %391 = sdiv exact i64 %390, 24
   %392 = lshr i64 %391, 1
-  %393 = icmp ult i64 %385, %392
+  %393 = icmp samesign ult i64 %385, %392
   br i1 %393, label %201, label %._crit_edge, !llvm.loop !29
 
 394:                                              ; preds = %308, %306

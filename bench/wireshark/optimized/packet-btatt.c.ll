@@ -6057,7 +6057,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %667 = load i32, ptr %652, align 8
   %668 = zext i32 %667 to i64
-  %669 = icmp ult i64 %indvars.iv.next, %668
+  %669 = icmp samesign ult i64 %indvars.iv.next, %668
   br i1 %669, label %655, label %proto_item_set_generated.exit.thread, !llvm.loop !10
 
 670:                                              ; preds = %649, %648

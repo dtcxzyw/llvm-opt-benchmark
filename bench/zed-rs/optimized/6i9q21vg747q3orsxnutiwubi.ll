@@ -360,7 +360,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   %7 = add nsw i64 %6, -20
   %8 = select i1 %5, i64 %7, i64 0
   %9 = load i8, ptr %.0.val1, align 8, !range !19, !alias.scope !17, !noalias !14, !noundef !4
-  %10 = icmp ult i8 %9, 21
+  %10 = icmp samesign ult i8 %9, 21
   %11 = zext nneg i8 %9 to i64
   %12 = add nsw i64 %11, -20
   %13 = select i1 %10, i64 0, i64 %12

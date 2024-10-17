@@ -339,7 +339,7 @@ _ZNSt6vectorIP26cmCTestBinPackerAllocationSaIS1_EE9push_backEOS1_.exit.i: ; pred
   br i1 %.not.i.i.i.i21.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES4_EC2ESA_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !5
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %64
@@ -496,7 +496,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i
   %109 = add nuw nsw i64 %storemerge26.i.i.i.i.i.i, 1
   %110 = lshr i64 %109, 1
-  %.not10.i.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.i.i.i.i, 2
+  %.not10.i.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.i.i.i.i, 2
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES8_EC2ESE_l.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !13
 
 111:                                              ; preds = %.lr.ph.i.i.i.i.i.i
@@ -802,7 +802,7 @@ _ZNSt6vectorIP26cmCTestBinPackerAllocationSaIS1_EE9push_backEOS1_.exit.i: ; pred
   br i1 %.not.i.i.i.i21.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES4_EC2ESA_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !5
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %64
@@ -959,7 +959,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i
   %109 = add nuw nsw i64 %storemerge26.i.i.i.i.i.i, 1
   %110 = lshr i64 %109, 1
-  %.not10.i.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.i.i.i.i, 2
+  %.not10.i.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.i.i.i.i, 2
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES8_EC2ESE_l.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !13
 
 111:                                              ; preds = %.lr.ph.i.i.i.i.i.i

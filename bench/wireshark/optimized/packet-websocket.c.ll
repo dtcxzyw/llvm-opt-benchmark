@@ -887,7 +887,7 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
   br label %240
 
 240:                                              ; preds = %236, %226
-  %.not.i144 = icmp ult i8 %181, 8
+  %.not.i144 = icmp samesign ult i8 %181, 8
   br i1 %.not.i144, label %266, label %241
 
 241:                                              ; preds = %240

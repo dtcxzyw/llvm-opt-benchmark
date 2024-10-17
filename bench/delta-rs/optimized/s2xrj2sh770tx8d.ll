@@ -4934,7 +4934,7 @@ default.unreachable:                              ; preds = %172
   %110 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !988
   %111 = icmp ult i64 %110, 6
   call void @llvm.assume(i1 %111)
-  %switch.selectcmp118.i = icmp ugt i64 %110, 4
+  %switch.selectcmp118.i = icmp samesign ugt i64 %110, 4
   br i1 %switch.selectcmp118.i, label %112, label %102
 
 112:                                              ; preds = %106
@@ -6201,7 +6201,7 @@ default.unreachable:                              ; preds = %"_ZN14deltalake_cor
   %104 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !1235
   %105 = icmp ult i64 %104, 6
   call void @llvm.assume(i1 %105)
-  %switch.selectcmp118.i = icmp ugt i64 %104, 4
+  %switch.selectcmp118.i = icmp samesign ugt i64 %104, 4
   br i1 %switch.selectcmp118.i, label %106, label %98
 
 106:                                              ; preds = %102
@@ -7444,7 +7444,7 @@ default.unreachable:                              ; preds = %"_ZN14deltalake_cor
   %104 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !1466
   %105 = icmp ult i64 %104, 6
   call void @llvm.assume(i1 %105)
-  %switch.selectcmp118.i = icmp ugt i64 %104, 4
+  %switch.selectcmp118.i = icmp samesign ugt i64 %104, 4
   br i1 %switch.selectcmp118.i, label %106, label %98
 
 106:                                              ; preds = %102
@@ -8633,7 +8633,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1c04a23d716b859aE.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1c04a23d716b859aE.exit.i"
@@ -9516,7 +9516,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfbd15a27f83f6955E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfbd15a27f83f6955E.exit.i"
@@ -10399,7 +10399,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h509a7223b0f30df7E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h509a7223b0f30df7E.exit.i"
@@ -10826,7 +10826,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h322955791aa33cb4E.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h322955791aa33cb4E.exit.i"
@@ -11212,7 +11212,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h40575f8bce99dc43E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h40575f8bce99dc43E.exit.i"
@@ -11649,7 +11649,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha0f14be964018a43E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha0f14be964018a43E.exit.i"
@@ -12532,7 +12532,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h17d13113da397987E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h17d13113da397987E.exit.i"
@@ -12959,7 +12959,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h68262b494be5da42E.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h68262b494be5da42E.exit.i"
@@ -13345,7 +13345,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3737f42efe7ad55E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3737f42efe7ad55E.exit.i"
@@ -13772,7 +13772,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha5f5ae654bacdea0E.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha5f5ae654bacdea0E.exit.i"
@@ -14159,7 +14159,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc1184c2c63bc47adE.exit.i": ; preds = %.noexc15.i, %57
   %64 = getelementptr inbounds i8, ptr %15, i64 24
   %65 = getelementptr inbounds i8, ptr %15, i64 8
-  %66 = icmp ugt i64 %.sink, %58
+  %66 = icmp samesign ugt i64 %.sink, %58
   br i1 %66, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc1184c2c63bc47adE.exit.i"
@@ -14597,7 +14597,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9610d9fa0fbce847E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9610d9fa0fbce847E.exit.i"
@@ -15034,7 +15034,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h90768a7559be3d42E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h90768a7559be3d42E.exit.i"
@@ -15752,7 +15752,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd4707ca77f3e0b8dE.exit.i": ; preds = %.noexc15.i, %55
   %62 = getelementptr inbounds i8, ptr %15, i64 24
   %63 = getelementptr inbounds i8, ptr %15, i64 8
-  %64 = icmp ugt i64 %.sink, %56
+  %64 = icmp samesign ugt i64 %.sink, %56
   br i1 %64, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd4707ca77f3e0b8dE.exit.i"
@@ -16189,7 +16189,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h213d5d36aa4c29a9E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h213d5d36aa4c29a9E.exit.i"
@@ -16616,7 +16616,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h68e5cc58e02240ffE.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h68e5cc58e02240ffE.exit.i"
@@ -16992,7 +16992,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5e85342ad107b12fE.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5e85342ad107b12fE.exit.i"
@@ -17368,7 +17368,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc52f6feef1d11a72E.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc52f6feef1d11a72E.exit.i"
@@ -17754,7 +17754,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2d04b44f7bf3cbecE.exit.i": ; preds = %.noexc15.i, %55
   %62 = getelementptr inbounds i8, ptr %15, i64 24
   %63 = getelementptr inbounds i8, ptr %15, i64 8
-  %64 = icmp ugt i64 %.sink, %56
+  %64 = icmp samesign ugt i64 %.sink, %56
   br i1 %64, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2d04b44f7bf3cbecE.exit.i"
@@ -18191,7 +18191,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb373cd73055a9a50E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb373cd73055a9a50E.exit.i"
@@ -18628,7 +18628,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4f4c88e21168eb71E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4f4c88e21168eb71E.exit.i"
@@ -19055,7 +19055,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h100e0664c4185c1aE.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h100e0664c4185c1aE.exit.i"
@@ -19431,7 +19431,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h441b057ae28738d1E.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h441b057ae28738d1E.exit.i"
@@ -19807,7 +19807,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3babe69a883b946aE.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3babe69a883b946aE.exit.i"
@@ -20193,7 +20193,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h12fbe8c8023e4365E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h12fbe8c8023e4365E.exit.i"
@@ -20630,7 +20630,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf3f7a1134e12dc0fE.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf3f7a1134e12dc0fE.exit.i"
@@ -21067,7 +21067,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf26112f96ce6baeaE.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf26112f96ce6baeaE.exit.i"
@@ -21504,7 +21504,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8f56b5f190d541a9E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8f56b5f190d541a9E.exit.i"
@@ -21931,7 +21931,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h313d3072c34edbb2E.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h313d3072c34edbb2E.exit.i"
@@ -22317,7 +22317,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc94f162ae95b8f2E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc94f162ae95b8f2E.exit.i"
@@ -22754,7 +22754,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd1e5276451fdaff1E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd1e5276451fdaff1E.exit.i"
@@ -23480,7 +23480,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h95bcc6d725df9a0aE.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h95bcc6d725df9a0aE.exit.i"
@@ -23856,7 +23856,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7f15ddc3b583e1b1E.exit.i": ; preds = %.noexc15.i, %52
   %59 = getelementptr inbounds i8, ptr %13, i64 24
   %60 = getelementptr inbounds i8, ptr %13, i64 8
-  %61 = icmp ugt i64 %.sink, %53
+  %61 = icmp samesign ugt i64 %.sink, %53
   br i1 %61, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7f15ddc3b583e1b1E.exit.i"
@@ -24242,7 +24242,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h99a44458f1927175E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h99a44458f1927175E.exit.i"
@@ -24679,7 +24679,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5d1162b560dd1370E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5d1162b560dd1370E.exit.i"
@@ -25116,7 +25116,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3b290d37412022a4E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3b290d37412022a4E.exit.i"
@@ -25543,7 +25543,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcea63115c12d0da5E.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcea63115c12d0da5E.exit.i"
@@ -26388,7 +26388,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb860e67e677a4534E.exit.i": ; preds = %.noexc15.i, %52
   %59 = getelementptr inbounds i8, ptr %17, i64 24
   %60 = getelementptr inbounds i8, ptr %17, i64 8
-  %61 = icmp ugt i64 %.sink, %53
+  %61 = icmp samesign ugt i64 %.sink, %53
   br i1 %61, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb860e67e677a4534E.exit.i"
@@ -26829,7 +26829,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h15df52f46c13a418E.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h15df52f46c13a418E.exit.i"
@@ -27228,7 +27228,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h71552f79d229f7abE.exit.i": ; preds = %.noexc15.i, %52
   %59 = getelementptr inbounds i8, ptr %17, i64 24
   %60 = getelementptr inbounds i8, ptr %17, i64 8
-  %61 = icmp ugt i64 %.sink, %53
+  %61 = icmp samesign ugt i64 %.sink, %53
   br i1 %61, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h71552f79d229f7abE.exit.i"
@@ -27679,7 +27679,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7474f1506e20bff9E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7474f1506e20bff9E.exit.i"
@@ -28116,7 +28116,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h13e6162d06f245d6E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h13e6162d06f245d6E.exit.i"
@@ -28542,7 +28542,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h36097c7962c3396fE.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h36097c7962c3396fE.exit.i"
@@ -28918,7 +28918,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7500902bcc88fdcdE.exit.i": ; preds = %.noexc15.i, %52
   %59 = getelementptr inbounds i8, ptr %13, i64 24
   %60 = getelementptr inbounds i8, ptr %13, i64 8
-  %61 = icmp ugt i64 %.sink, %53
+  %61 = icmp samesign ugt i64 %.sink, %53
   br i1 %61, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7500902bcc88fdcdE.exit.i"
@@ -29391,7 +29391,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
   %101 = lshr exact i64 %100, 1
   %102 = and i64 %101, 9223372036854775744
   %103 = add nuw i64 %102, 64
-  %104 = icmp ugt i64 %102, 9223372036854775616
+  %104 = icmp samesign ugt i64 %102, 9223372036854775616
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !8718
   br i1 %104, label %105, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
 
@@ -29667,7 +29667,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h513b4fb48729e517E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h513b4fb48729e517E.exit.i"
@@ -30104,7 +30104,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h55a22b09fedf789bE.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h55a22b09fedf789bE.exit.i"
@@ -30541,7 +30541,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h023552126417343dE.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h023552126417343dE.exit.i"
@@ -30968,7 +30968,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2a26357fb16558fdE.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2a26357fb16558fdE.exit.i"
@@ -31354,7 +31354,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc8014b1ceef880d0E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc8014b1ceef880d0E.exit.i"
@@ -32237,7 +32237,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h02f153cac4287387E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h02f153cac4287387E.exit.i"
@@ -32674,7 +32674,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7cee45b3953fe98eE.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7cee45b3953fe98eE.exit.i"
@@ -33100,7 +33100,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hbd3cbebe19f4260eE.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hbd3cbebe19f4260eE.exit.i"
@@ -33476,7 +33476,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3901ce122d1e05b2E.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3901ce122d1e05b2E.exit.i"
@@ -33862,7 +33862,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3d8fb97bf23fe21E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3d8fb97bf23fe21E.exit.i"
@@ -34289,7 +34289,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha5d369929aeb00d9E.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha5d369929aeb00d9E.exit.i"
@@ -34675,7 +34675,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc7bd9c87e2f1df99E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc7bd9c87e2f1df99E.exit.i"
@@ -35102,7 +35102,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3831e0bde0181cc0E.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3831e0bde0181cc0E.exit.i"
@@ -35488,7 +35488,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h695c7e8c8d7e37d6E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h695c7e8c8d7e37d6E.exit.i"
@@ -35925,7 +35925,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf9df238eb57bcf0E.exit.i": ; preds = %.noexc15.i, %55
   %62 = getelementptr inbounds i8, ptr %15, i64 24
   %63 = getelementptr inbounds i8, ptr %15, i64 8
-  %64 = icmp ugt i64 %.sink, %56
+  %64 = icmp samesign ugt i64 %.sink, %56
   br i1 %64, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf9df238eb57bcf0E.exit.i"
@@ -36362,7 +36362,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he60ea75d1d431c86E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he60ea75d1d431c86E.exit.i"
@@ -37021,7 +37021,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1b96ba29331b951dE.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1b96ba29331b951dE.exit.i"
@@ -37458,7 +37458,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h60a503af113cdf1dE.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h60a503af113cdf1dE.exit.i"
@@ -37898,7 +37898,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he8b41ff318e5d8f3E.exit.i": ; preds = %.noexc15.i, %49
   %56 = getelementptr inbounds i8, ptr %15, i64 24
   %57 = getelementptr inbounds i8, ptr %15, i64 8
-  %58 = icmp ugt i64 %.sink, %50
+  %58 = icmp samesign ugt i64 %.sink, %50
   br i1 %58, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he8b41ff318e5d8f3E.exit.i"
@@ -38299,7 +38299,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0fa29c8421ac27eaE.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0fa29c8421ac27eaE.exit.i"
@@ -38737,7 +38737,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h21f7fbce7603897dE.exit.i": ; preds = %.noexc15.i, %57
   %64 = getelementptr inbounds i8, ptr %15, i64 24
   %65 = getelementptr inbounds i8, ptr %15, i64 8
-  %66 = icmp ugt i64 %.sink, %58
+  %66 = icmp samesign ugt i64 %.sink, %58
   br i1 %66, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h21f7fbce7603897dE.exit.i"
@@ -39165,7 +39165,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd3b1c40ee62c566fE.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd3b1c40ee62c566fE.exit.i"
@@ -39542,7 +39542,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h16c54590977f4277E.exit.i": ; preds = %.noexc15.i, %54
   %61 = getelementptr inbounds i8, ptr %13, i64 24
   %62 = getelementptr inbounds i8, ptr %13, i64 8
-  %63 = icmp ugt i64 %.sink, %55
+  %63 = icmp samesign ugt i64 %.sink, %55
   br i1 %63, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h16c54590977f4277E.exit.i"
@@ -39929,7 +39929,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h29ff3f32c2f5d4c9E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h29ff3f32c2f5d4c9E.exit.i"
@@ -40366,7 +40366,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2adc17c03c194fd1E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2adc17c03c194fd1E.exit.i"
@@ -40803,7 +40803,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he5263cf385e616ebE.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he5263cf385e616ebE.exit.i"
@@ -41327,7 +41327,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
   %101 = lshr exact i64 %100, 1
   %102 = and i64 %101, 9223372036854775744
   %103 = add nuw i64 %102, 64
-  %104 = icmp ugt i64 %102, 9223372036854775616
+  %104 = icmp samesign ugt i64 %102, 9223372036854775616
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !12831
   br i1 %104, label %105, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
 
@@ -41593,7 +41593,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h68535ed9fc96f59dE.exit.i": ; preds = %.noexc15.i, %53
   %60 = getelementptr inbounds i8, ptr %13, i64 24
   %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = icmp ugt i64 %.sink, %54
+  %62 = icmp samesign ugt i64 %.sink, %54
   br i1 %62, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h68535ed9fc96f59dE.exit.i"
@@ -42425,7 +42425,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6ebb7a2bc80ac8deE.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6ebb7a2bc80ac8deE.exit.i"
@@ -42862,7 +42862,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h707eb4aece431901E.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h707eb4aece431901E.exit.i"
@@ -43299,7 +43299,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h58e0feab14c8a32cE.exit.i": ; preds = %.noexc15.i, %55
   %62 = getelementptr inbounds i8, ptr %15, i64 24
   %63 = getelementptr inbounds i8, ptr %15, i64 8
-  %64 = icmp ugt i64 %.sink, %56
+  %64 = icmp samesign ugt i64 %.sink, %56
   br i1 %64, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h58e0feab14c8a32cE.exit.i"
@@ -43736,7 +43736,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd2a747c20430fedbE.exit.i": ; preds = %.noexc15.i, %56
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = getelementptr inbounds i8, ptr %15, i64 8
-  %65 = icmp ugt i64 %.sink, %57
+  %65 = icmp samesign ugt i64 %.sink, %57
   br i1 %65, label %.noexc.i, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 .noexc.i:                                         ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd2a747c20430fedbE.exit.i"
@@ -44570,7 +44570,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hea26178ca196f382E.exit..thread
   %115 = zext i8 %114 to i64
   %116 = and i64 %37, 63
   %117 = lshr i64 %115, %116
-  %118 = icmp ugt i64 %111, 1
+  %118 = icmp samesign ugt i64 %111, 1
   br i1 %118, label %.lr.ph.i26.i, label %._crit_edge.i25.i
 
 ._crit_edge.i25.i:                                ; preds = %.lr.ph.i26.i, %105
@@ -44602,7 +44602,7 @@ _ZN12arrow_buffer4util18bit_chunk_iterator9BitChunks14remainder_bits17hcf1b0aaa7
   %132 = sub nuw nsw i64 %26, %131
   %133 = getelementptr inbounds i64, ptr %28, i64 %132
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13855)
-  %134 = icmp ult i64 %132, 2
+  %134 = icmp samesign ult i64 %132, 2
   br i1 %134, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd3b3b95fc955db12E.exit.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h22621da69fe46331E.exit.i.i.i.i.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h22621da69fe46331E.exit.i.i.i.i.i": ; preds = %_ZN12arrow_buffer4util18bit_chunk_iterator9BitChunks14remainder_bits17hcf1b0aaa7a630a7bE.exit.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h45b50a64b268969eE.exit.i.i"
@@ -87663,7 +87663,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -87676,7 +87676,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %.017.i13 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.0.i14, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81

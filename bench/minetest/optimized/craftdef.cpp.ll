@@ -5719,7 +5719,7 @@ invoke.cont12.i:                                  ; preds = %invoke.cont10.i
   %add17.i = add nuw nsw i64 %conv16.i, 1
   %add.ptr.i.i.i = getelementptr inbounds i16, ptr %94, i64 %add17.i
   %95 = load i16, ptr %nil.i, align 2, !tbaa !132
-  %min.iters.check = icmp ult i64 %conv16.i, 15
+  %min.iters.check = icmp samesign ult i64 %conv16.i, 15
   br i1 %min.iters.check, label %for.body.i.i.i.i.i280.preheader, label %vector.ph
 
 for.body.i.i.i.i.i280.preheader:                  ; preds = %middle.block, %invoke.cont12.i

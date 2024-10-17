@@ -2446,7 +2446,7 @@ if.else6.i.i:                                     ; preds = %if.else.i.i
 
 ZSTD_dictAndWindowLog.exit.i:                     ; preds = %if.else6.i.i, %if.else.i.i, %if.end.i.i, %if.then18.i
   %retval.0.i.i = phi i32 [ %add7.i.i, %if.else6.i.i ], [ %2, %if.then18.i ], [ %2, %if.end.i.i ], [ 31, %if.else.i.i ]
-  %cmp.i20.i = icmp ugt i32 %cPar2.sroa.16.0, 5
+  %cmp.i20.i = icmp samesign ugt i32 %cPar2.sroa.16.0, 5
   %conv.neg.i.i = sext i1 %cmp.i20.i to i32
   %sub.i21.i = add nsw i32 %cPar2.sroa.6.0, %conv.neg.i.i
   %add22.i = add nuw nsw i32 %retval.0.i.i, 1
@@ -3210,7 +3210,7 @@ for.body.i:                                       ; preds = %cond.end.i, %for.bo
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %cmp.i = icmp ne i64 %indvars.iv.i, 3
   %conv.i = zext i1 %cmp.i to i64
-  %cmp1.i7 = icmp ult i64 %indvars.iv.i, 2
+  %cmp1.i7 = icmp samesign ult i64 %indvars.iv.i, 2
   %conv2.i = zext i1 %cmp1.i7 to i64
   %add.i = add nuw nsw i64 %conv.i, %conv2.i
   %cmp3.i = icmp eq i64 %indvars.iv.i, 0
@@ -10695,7 +10695,7 @@ ZSTD_validateSequence.exit:                       ; preds = %if.then47
   %23 = or i1 %cmp.i144, %cmp3.i
   %conv6.i = select i1 %23, i64 3, i64 4
   %conv20.i = zext i32 %10 to i64
-  %cmp21.i150.not = icmp ugt i64 %conv6.i, %conv20.i
+  %cmp21.i150.not = icmp samesign ugt i64 %conv6.i, %conv20.i
   br i1 %cmp21.i150.not, label %return, label %do.body74
 
 do.body74:                                        ; preds = %do.end45, %ZSTD_validateSequence.exit
@@ -11207,7 +11207,7 @@ ZSTD_validateSequence.exit:                       ; preds = %if.then92
   %22 = or i1 %cmp.i145, %cmp3.i
   %conv6.i = select i1 %22, i64 3, i64 4
   %conv20.i = zext i32 %matchLength.1 to i64
-  %cmp21.i151.not = icmp ugt i64 %conv6.i, %conv20.i
+  %cmp21.i151.not = icmp samesign ugt i64 %conv6.i, %conv20.i
   br i1 %cmp21.i151.not, label %return, label %do.body122
 
 do.body122:                                       ; preds = %ZSTD_updateRep.exit, %ZSTD_validateSequence.exit
@@ -15088,7 +15088,7 @@ land.lhs.true:                                    ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 1
   %add.ptr2.ptr = getelementptr i8, ptr %src, i64 %and
   %add.ptr.i.ptr = getelementptr i8, ptr %add.ptr2.ptr, i64 -7
-  %cmp.i = icmp ugt i64 %and, 8
+  %cmp.i = icmp samesign ugt i64 %and, 8
   br i1 %cmp.i, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %land.lhs.true
@@ -15201,7 +15201,7 @@ for.cond9.preheader:                              ; preds = %if.end6, %for.inc20
 
 for.cond9:                                        ; preds = %for.body12
   %add = add nuw nsw i64 %u.017, 8
-  %cmp10 = icmp ult i64 %u.017, 24
+  %cmp10 = icmp samesign ult i64 %u.017, 24
   br i1 %cmp10, label %for.body12, label %for.inc20, !llvm.loop !75
 
 for.body12:                                       ; preds = %for.cond9.preheader, %for.cond9
@@ -15617,8 +15617,8 @@ if.then3:                                         ; preds = %if.end
   %6 = load i32, ptr %longLengthPos, align 4
   %conv = zext i32 %6 to i64
   %cmp4 = icmp ugt i64 %startIdx, %conv
-  %cmp8 = icmp ult i64 %endIdx, %conv
-  %or.cond = or i1 %cmp4, %cmp8
+  %cmp8 = icmp samesign ult i64 %endIdx, %conv
+  %or.cond = select i1 %cmp4, i1 true, i1 %cmp8
   br i1 %or.cond, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %if.then3
@@ -16757,7 +16757,7 @@ if.then36:                                        ; preds = %if.end32
   %spec.select125 = tail call i32 @llvm.umin.i32(i32 %., i32 28)
   %shl = shl nuw i32 8, %spec.select125
   %conv70 = zext i32 %shl to i64
-  %cmp71 = icmp ugt i64 %srcSize.addr.0, %conv70
+  %cmp71 = icmp samesign ugt i64 %srcSize.addr.0, %conv70
   br i1 %cmp71, label %if.then73, label %if.end79
 
 if.then73:                                        ; preds = %if.then36

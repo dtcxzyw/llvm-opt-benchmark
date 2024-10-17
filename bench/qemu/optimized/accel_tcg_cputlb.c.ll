@@ -2593,7 +2593,7 @@ while.end.i:                                      ; preds = %while.end.i.prehead
   br i1 %exitcond.not.i, label %for.end.i, label %while.end.i, !llvm.loop !46
 
 for.end.i:                                        ; preds = %while.end.i
-  %cmp1035.i = icmp ult i64 %shr2.i, %shr.i
+  %cmp1035.i = icmp samesign ult i64 %shr2.i, %shr.i
   br i1 %cmp1035.i, label %while.body11.lr.ph.i, label %for.inc59.i
 
 while.body11.lr.ph.i:                             ; preds = %for.end.i
@@ -2622,7 +2622,7 @@ while.body11.i:                                   ; preds = %while.body11.i, %wh
   %13 = load ptr, ptr %arrayidx38.i, align 8
   tail call void @bitmap_set_atomic(ptr noundef %13, i64 noundef %offset.037.i, i64 noundef %sub24.i) #19
   %inc56.i = add nuw nsw i64 %idx.038.i, 1
-  %cmp10.i = icmp ult i64 %add12.i, %shr.i
+  %cmp10.i = icmp samesign ult i64 %add12.i, %shr.i
   br i1 %cmp10.i, label %while.body11.i, label %for.inc59.i, !llvm.loop !47
 
 for.inc59.i:                                      ; preds = %while.body11.i, %for.end.i
@@ -3137,8 +3137,8 @@ if.end.i.i:                                       ; preds = %if.else.i
   %and2.i.i = and i32 %9, 65536
   %tobool3.not.i.i = icmp ne i32 %and2.i.i, 0
   %or.i.i = or i64 %7, -4096
-  %cmp11.i.i = icmp ult i64 %or.i.i, -8
-  %or.cond.i.i = and i1 %cmp11.i.i, %tobool3.not.i.i
+  %cmp11.i.i = icmp samesign ult i64 %or.i.i, -8
+  %or.cond.i.i = select i1 %tobool3.not.i.i, i1 %cmp11.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then19.i.i, label %if.end23.i.i
 
 if.then19.i.i:                                    ; preds = %if.end.i.i
@@ -3207,7 +3207,7 @@ sw.bb11.i.i.i:                                    ; preds = %if.end23.i.i
   %conv13.i.i.i = and i32 %15, 15
   %shl14.i.i.i = shl nuw nsw i32 1, %and1.i.i.i
   %add.i.i.i = add nuw nsw i32 %conv13.i.i.i, %shl14.i.i.i
-  %cmp.i.i.i = icmp ult i32 %add.i.i.i, 17
+  %cmp.i.i.i = icmp samesign ult i32 %add.i.i.i, 17
   %cond19.i.i.i = select i1 %cmp.i.i.i, i32 %and1.i.i.i, i32 0
   br label %sw.epilog.i.i.i
 
@@ -3216,7 +3216,7 @@ sw.bb20.i.i.i:                                    ; preds = %if.end23.i.i
   %conv22.i.i.i = and i32 %16, 15
   %shl23.i.i.i = shl nuw nsw i32 1, %and1.i.i.i
   %add24.i.i.i = add nuw nsw i32 %conv22.i.i.i, %shl23.i.i.i
-  %cmp25.i.i.i = icmp ult i32 %add24.i.i.i, 17
+  %cmp25.i.i.i = icmp samesign ult i32 %add24.i.i.i, 17
   br i1 %cmp25.i.i.i, label %sw.epilog.i.i.i, label %if.else.i13.i.i
 
 if.else.i13.i.i:                                  ; preds = %sw.bb20.i.i.i
@@ -3446,8 +3446,8 @@ if.end.i.i:                                       ; preds = %if.else.i
   %and2.i.i = and i32 %9, 65536
   %tobool3.not.i.i = icmp ne i32 %and2.i.i, 0
   %or.i.i = or i64 %7, -4096
-  %cmp11.i.i = icmp ult i64 %or.i.i, -8
-  %or.cond.i.i = and i1 %cmp11.i.i, %tobool3.not.i.i
+  %cmp11.i.i = icmp samesign ult i64 %or.i.i, -8
+  %or.cond.i.i = select i1 %tobool3.not.i.i, i1 %cmp11.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then19.i.i, label %if.end23.i.i
 
 if.then19.i.i:                                    ; preds = %if.end.i.i
@@ -3516,7 +3516,7 @@ sw.bb11.i.i.i:                                    ; preds = %if.end23.i.i
   %conv13.i.i.i = and i32 %15, 15
   %shl14.i.i.i = shl nuw nsw i32 1, %and1.i.i.i
   %add.i.i.i = add nuw nsw i32 %conv13.i.i.i, %shl14.i.i.i
-  %cmp.i.i.i = icmp ult i32 %add.i.i.i, 17
+  %cmp.i.i.i = icmp samesign ult i32 %add.i.i.i, 17
   %cond19.i.i.i = select i1 %cmp.i.i.i, i32 %and1.i.i.i, i32 0
   br label %sw.epilog.i.i.i
 
@@ -3525,7 +3525,7 @@ sw.bb20.i.i.i:                                    ; preds = %if.end23.i.i
   %conv22.i.i.i = and i32 %16, 15
   %shl23.i.i.i = shl nuw nsw i32 1, %and1.i.i.i
   %add24.i.i.i = add nuw nsw i32 %conv22.i.i.i, %shl23.i.i.i
-  %cmp25.i.i.i = icmp ult i32 %add24.i.i.i, 17
+  %cmp25.i.i.i = icmp samesign ult i32 %add24.i.i.i, 17
   br i1 %cmp25.i.i.i, label %sw.epilog.i.i.i, label %if.else.i13.i.i
 
 if.else.i13.i.i:                                  ; preds = %sw.bb20.i.i.i
@@ -3869,7 +3869,7 @@ sw.bb11.i.i:                                      ; preds = %if.end.i
   %conv13.i.i = and i32 %14, 15
   %shl14.i.i = shl nuw nsw i32 1, %and1.i.i
   %add.i.i = add nuw nsw i32 %shl14.i.i, %conv13.i.i
-  %cmp.i.i = icmp ult i32 %add.i.i, 17
+  %cmp.i.i = icmp samesign ult i32 %add.i.i, 17
   %cond19.i.i = select i1 %cmp.i.i, i32 %and1.i.i, i32 0
   br label %sw.epilog.i.i
 
@@ -3878,7 +3878,7 @@ sw.bb20.i.i:                                      ; preds = %if.end.i
   %conv22.i.i = and i32 %15, 15
   %shl23.i.i = shl nuw nsw i32 1, %and1.i.i
   %add24.i.i = add nuw nsw i32 %shl23.i.i, %conv22.i.i
-  %cmp25.i.i = icmp ult i32 %add24.i.i, 17
+  %cmp25.i.i = icmp samesign ult i32 %add24.i.i, 17
   br i1 %cmp25.i.i, label %sw.epilog.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb20.i.i
@@ -4328,7 +4328,7 @@ sw.bb11.i.i.i:                                    ; preds = %if.end.i.i
   %conv13.i.i.i = and i32 %10, 15
   %shl14.i.i.i = shl nuw nsw i32 1, %and1.i.i.i
   %add.i.i.i = add nuw nsw i32 %conv13.i.i.i, %shl14.i.i.i
-  %cmp.i.i.i = icmp ult i32 %add.i.i.i, 17
+  %cmp.i.i.i = icmp samesign ult i32 %add.i.i.i, 17
   %cond19.i.i.i = select i1 %cmp.i.i.i, i32 %and1.i.i.i, i32 0
   br label %sw.epilog.i.i.i
 
@@ -4337,7 +4337,7 @@ sw.bb20.i.i.i:                                    ; preds = %if.end.i.i
   %conv22.i.i.i = and i32 %11, 15
   %shl23.i.i.i = shl nuw nsw i32 1, %and1.i.i.i
   %add24.i.i.i = add nuw nsw i32 %conv22.i.i.i, %shl23.i.i.i
-  %cmp25.i.i.i = icmp ult i32 %add24.i.i.i, 17
+  %cmp25.i.i.i = icmp samesign ult i32 %add24.i.i.i, 17
   br i1 %cmp25.i.i.i, label %sw.epilog.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %sw.bb20.i.i.i
@@ -4611,7 +4611,7 @@ sw.bb11.i.i.i:                                    ; preds = %if.end.i.i
   %conv13.i.i.i = and i32 %10, 15
   %shl14.i.i.i = shl nuw nsw i32 1, %and1.i.i.i
   %add.i.i.i = add nuw nsw i32 %conv13.i.i.i, %shl14.i.i.i
-  %cmp.i.i.i = icmp ult i32 %add.i.i.i, 17
+  %cmp.i.i.i = icmp samesign ult i32 %add.i.i.i, 17
   %cond19.i.i.i = select i1 %cmp.i.i.i, i32 %and1.i.i.i, i32 0
   br label %sw.epilog.i.i.i
 
@@ -4620,7 +4620,7 @@ sw.bb20.i.i.i:                                    ; preds = %if.end.i.i
   %conv22.i.i.i = and i32 %11, 15
   %shl23.i.i.i = shl nuw nsw i32 1, %and1.i.i.i
   %add24.i.i.i = add nuw nsw i32 %conv22.i.i.i, %shl23.i.i.i
-  %cmp25.i.i.i = icmp ult i32 %add24.i.i.i, 17
+  %cmp25.i.i.i = icmp samesign ult i32 %add24.i.i.i, 17
   br i1 %cmp25.i.i.i, label %sw.epilog.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %sw.bb20.i.i.i
@@ -4980,7 +4980,7 @@ sw.bb11.i.i:                                      ; preds = %if.end.i
   %conv13.i.i = and i32 %17, 15
   %shl14.i.i = shl nuw nsw i32 1, %and1.i.i
   %add.i.i = add nuw nsw i32 %conv13.i.i, %shl14.i.i
-  %cmp.i.i = icmp ult i32 %add.i.i, 17
+  %cmp.i.i = icmp samesign ult i32 %add.i.i, 17
   %cond19.i.i = select i1 %cmp.i.i, i32 %and1.i.i, i32 0
   br label %sw.epilog.i.i
 
@@ -4989,7 +4989,7 @@ sw.bb20.i.i:                                      ; preds = %if.end.i
   %conv22.i.i = and i32 %18, 15
   %shl23.i.i = shl nuw nsw i32 1, %and1.i.i
   %add24.i.i = add nuw nsw i32 %conv22.i.i, %shl23.i.i
-  %cmp25.i.i = icmp ult i32 %add24.i.i, 17
+  %cmp25.i.i = icmp samesign ult i32 %add24.i.i, 17
   br i1 %cmp25.i.i, label %sw.epilog.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb20.i.i
@@ -5206,7 +5206,7 @@ store_bytes_leN.exit69.i:                         ; preds = %for.body.i61.i
   %32 = trunc i64 %31 to i32
   %conv.i73.i = shl i32 %32, 3
   %mul2.i74.i = and i32 %conv.i73.i, 120
-  %cmp.i75.i = icmp ult i64 %and.i, 9
+  %cmp.i75.i = icmp samesign ult i64 %and.i, 9
   %sub.i76.i = sub nsw i32 64, %mul.i72.i
   %sh_prom.i77.i = zext nneg i32 %sub.i76.i to i64
   %shr.i78.i = lshr i64 -1, %sh_prom.i77.i
@@ -12221,7 +12221,7 @@ rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %e
   %arrayidx.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %idxprom.i
   %2 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !182
-  %cmp521.i = icmp ult i64 %shr2.i, %shr.i
+  %cmp521.i = icmp samesign ult i64 %shr2.i, %shr.i
   br i1 %cmp521.i, label %while.body6.lr.ph.i, label %for.inc.i
 
 while.body6.lr.ph.i:                              ; preds = %rcu_read_auto_lock.exit.i
@@ -12244,8 +12244,8 @@ while.body6.i:                                    ; preds = %while.body6.i, %whi
   %call13.i = tail call i64 @find_next_bit(ptr noundef %4, i64 noundef %sub10.i, i64 noundef %offset.023.i) #19
   %cmp14.i = icmp ult i64 %call13.i, %sub10.i
   %inc.i = add nuw nsw i64 %idx.024.i, 1
-  %cmp5.i = icmp uge i64 %add7.i, %shr.i
-  %or.cond.not = or i1 %cmp5.i, %cmp14.i
+  %cmp5.i = icmp samesign uge i64 %add7.i, %shr.i
+  %or.cond.not = select i1 %cmp14.i, i1 true, i1 %cmp5.i
   br i1 %or.cond.not, label %for.inc.i, label %while.body6.i, !llvm.loop !183
 
 for.inc.i:                                        ; preds = %while.body6.i, %rcu_read_auto_lock.exit.i
@@ -13078,7 +13078,7 @@ sw.bb11.i.i:                                      ; preds = %if.end12.i
   %conv13.i.i = and i32 %13, 15
   %shl14.i.i = shl nuw nsw i32 1, %and1.i.i
   %add.i.i = add nuw nsw i32 %conv13.i.i, %shl14.i.i
-  %cmp.i.i = icmp ult i32 %add.i.i, 17
+  %cmp.i.i = icmp samesign ult i32 %add.i.i, 17
   %cond19.i.i = select i1 %cmp.i.i, i32 %and1.i.i, i32 0
   br label %sw.epilog.i.i
 
@@ -13087,7 +13087,7 @@ sw.bb20.i.i:                                      ; preds = %if.end12.i
   %conv22.i.i = and i32 %14, 15
   %shl23.i.i = shl nuw nsw i32 1, %and1.i.i
   %add24.i.i = add nuw nsw i32 %conv22.i.i, %shl23.i.i
-  %cmp25.i.i = icmp ult i32 %add24.i.i, 17
+  %cmp25.i.i = icmp samesign ult i32 %add24.i.i, 17
   br i1 %cmp25.i.i, label %sw.epilog.i.i, label %if.else.i8.i
 
 if.else.i8.i:                                     ; preds = %sw.bb20.i.i
@@ -13948,7 +13948,7 @@ sw.bb11.i.i:                                      ; preds = %if.end.i
   %conv13.i.i = and i32 %8, 15
   %shl14.i.i = shl nuw nsw i32 1, %and1.i.i
   %add.i.i = add nuw nsw i32 %conv13.i.i, %shl14.i.i
-  %cmp.i.i = icmp ult i32 %add.i.i, 17
+  %cmp.i.i = icmp samesign ult i32 %add.i.i, 17
   %cond19.i.i = select i1 %cmp.i.i, i32 %and1.i.i, i32 0
   br label %sw.epilog.i.i
 
@@ -13957,7 +13957,7 @@ sw.bb20.i.i:                                      ; preds = %if.end.i
   %conv22.i.i = and i32 %9, 15
   %shl23.i.i = shl nuw nsw i32 1, %and1.i.i
   %add24.i.i = add nuw nsw i32 %conv22.i.i, %shl23.i.i
-  %cmp25.i.i = icmp ult i32 %add24.i.i, 17
+  %cmp25.i.i = icmp samesign ult i32 %add24.i.i, 17
   br i1 %cmp25.i.i, label %sw.epilog.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb20.i.i

@@ -1828,7 +1828,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %66 = load i32, ptr %65, align 4
   %67 = icmp ne i32 %66, %.03052
   %68 = add nuw nsw i32 %.053, 1
-  %69 = icmp ult i32 %.053, 999999999
+  %69 = icmp samesign ult i32 %.053, 999999999
   %or.cond56 = select i1 %67, i1 %69, i1 false
   br i1 %or.cond56, label %.preheader, label %.critedge2.loopexit, !llvm.loop !23
 
@@ -2325,7 +2325,7 @@ define i32 @Abs_GiaSortNodes(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %.not, label %.critedge, label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i64 %indvars.iv, %10
+  %17 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %17, label %18, label %42
 
 18:                                               ; preds = %16
@@ -2420,7 +2420,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %.not43, label %.critedge2, label %56
 
 56:                                               ; preds = %51
-  %57 = icmp ult i64 %indvars.iv90, %50
+  %57 = icmp samesign ult i64 %indvars.iv90, %50
   br i1 %57, label %58, label %Gia_ObjIsRo.exit68.thread
 
 58:                                               ; preds = %56

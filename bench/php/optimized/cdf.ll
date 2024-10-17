@@ -498,12 +498,12 @@ define hidden range(i32 -1, 1) i32 @cdf_read_sat(ptr nocapture noundef readonly 
   %23 = shl nsw i64 %8, 6
   %24 = udiv i64 4294967295, %23
   %25 = udiv i64 %24, %10
-  %26 = icmp ult i64 %25, %22
+  %26 = icmp samesign ult i64 %25, %22
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %._crit_edge159, %19
   %.pre-phi162 = phi i64 [ %.pre161, %._crit_edge159 ], [ %24, %19 ]
-  %28 = icmp ugt i64 %.074.lcssa, %.pre-phi162
+  %28 = icmp samesign ugt i64 %.074.lcssa, %.pre-phi162
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %27, %19
@@ -757,7 +757,7 @@ cdf_read_sector.exit103:                          ; preds = %136
   %149 = add nuw nsw i64 %.076140, 1
   %150 = load i32, ptr %32, align 8
   %151 = zext i32 %150 to i64
-  %152 = icmp uge i64 %149, %151
+  %152 = icmp samesign uge i64 %149, %151
   %153 = icmp slt i32 %148, 0
   %or.cond = select i1 %152, i1 true, i1 %153
   br i1 %or.cond, label %.loopexit, label %85
@@ -807,7 +807,7 @@ define hidden range(i64 -1, 10001) i64 @cdf_count_chain(ptr nocapture noundef re
 .lr.ph.split:                                     ; preds = %.preheader, %12
   %.01522 = phi i64 [ %17, %12 ], [ 0, %.preheader ]
   %.01720 = phi i32 [ %16, %12 ], [ %1, %.preheader ]
-  %11 = icmp ult i64 %.01522, 10000
+  %11 = icmp samesign ult i64 %.01522, 10000
   %.not = icmp slt i32 %.01720, %8
   %or.cond = select i1 %11, i1 %.not, i1 false
   br i1 %or.cond, label %12, label %.loopexit
@@ -854,7 +854,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_long_sector_chain(ptr nocapture nou
 .lr.ph.split.i:                                   ; preds = %.preheader.i, %20
   %.01522.i = phi i64 [ %25, %20 ], [ 0, %.preheader.i ]
   %.01720.i = phi i32 [ %24, %20 ], [ %3, %.preheader.i ]
-  %19 = icmp ult i64 %.01522.i, 10000
+  %19 = icmp samesign ult i64 %.01522.i, 10000
   %.not.i = icmp slt i32 %.01720.i, %16
   %or.cond.i = select i1 %19, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %20, label %.loopexit.i
@@ -1034,7 +1034,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_short_sector_chain(ptr nocapture no
 .lr.ph.split.i:                                   ; preds = %.preheader.i, %25
   %.01522.i = phi i64 [ %30, %25 ], [ 0, %.preheader.i ]
   %.01720.i = phi i32 [ %29, %25 ], [ %3, %.preheader.i ]
-  %24 = icmp ult i64 %.01522.i, 10000
+  %24 = icmp samesign ult i64 %.01522.i, 10000
   %.not.i = icmp slt i32 %.01720.i, %21
   %or.cond.i = select i1 %24, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %25, label %cdf_count_chain.exit
@@ -1200,7 +1200,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_dir(ptr nocapture noundef readonly 
 .lr.ph.split.i:                                   ; preds = %.preheader.i, %20
   %.01522.i = phi i64 [ %25, %20 ], [ 0, %.preheader.i ]
   %.01720.i = phi i32 [ %24, %20 ], [ %11, %.preheader.i ]
-  %19 = icmp ult i64 %.01522.i, 10000
+  %19 = icmp samesign ult i64 %.01522.i, 10000
   %.not.i = icmp slt i32 %.01720.i, %16
   %or.cond.i = select i1 %19, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %20, label %cdf_count_chain.exit
@@ -1432,7 +1432,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_ssat(ptr nocapture noundef readonly
 .lr.ph.split.i:                                   ; preds = %.preheader.i, %20
   %.01522.i = phi i64 [ %25, %20 ], [ 0, %.preheader.i ]
   %.01720.i = phi i32 [ %24, %20 ], [ %11, %.preheader.i ]
-  %19 = icmp ult i64 %.01522.i, 10000
+  %19 = icmp samesign ult i64 %.01522.i, 10000
   %.not.i = icmp slt i32 %.01720.i, %16
   %or.cond.i = select i1 %19, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %20, label %cdf_count_chain.exit
@@ -2101,7 +2101,7 @@ cdf_copy_info.exit179:                            ; preds = %115
   br label %cdf_check_stream_offset.exit159
 
 122:                                              ; preds = %99, %99
-  %123 = icmp ugt i64 %.0128, 1
+  %123 = icmp samesign ugt i64 %.0128, 1
   br i1 %123, label %124, label %133
 
 124:                                              ; preds = %122
@@ -2154,7 +2154,7 @@ cdf_copy_info.exit179:                            ; preds = %115
   %151 = shl i64 %150, 2
   %152 = add nuw nsw i64 %.0127197, 1
   %153 = add nuw nsw i64 %.1123199, 1
-  %154 = icmp ult i64 %152, %.0128
+  %154 = icmp samesign ult i64 %152, %.0128
   %155 = icmp ult i64 %153, %36
   %156 = select i1 %154, i1 %155, i1 false
   br i1 %156, label %.lr.ph.split, label %._crit_edge
@@ -2406,7 +2406,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
   %58 = getelementptr inbounds [256 x i16], ptr %54, i64 0, i64 %.0123160
   store i16 %57, ptr %58, align 2
   %59 = add nuw nsw i64 %.0123160, 1
-  %60 = icmp ult i64 %59, %51
+  %60 = icmp samesign ult i64 %59, %51
   br i1 %60, label %55, label %._crit_edge162
 
 ._crit_edge162:                                   ; preds = %55, %.preheader

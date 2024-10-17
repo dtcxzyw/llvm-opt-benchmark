@@ -553,7 +553,7 @@ _ZN4llvm5APIntD2Ev.exit6.i:                       ; preds = %_ZN4llvm5APIntC2ERK
 
 179:                                              ; preds = %177
   %180 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %178)
-  %181 = icmp ult i64 %180, 2
+  %181 = icmp samesign ult i64 %180, 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %181, label %223, label %188

@@ -114,12 +114,12 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
 
 23:                                               ; preds = %21
   %24 = icmp ult i8 %19, 91
-  %25 = icmp ult i64 %.0123, 12
+  %25 = icmp samesign ult i64 %.0123, 12
   %or.cond40 = select i1 %24, i1 %25, i1 false
   br i1 %or.cond40, label %27, label %.critedge
 
 26:                                               ; preds = %.preheader
-  %.old39 = icmp ult i64 %.0123, 12
+  %.old39 = icmp samesign ult i64 %.0123, 12
   br i1 %.old39, label %27, label %.critedge
 
 27:                                               ; preds = %23, %26
@@ -137,7 +137,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   br i1 %31, label %32, label %.loopexit286
 
 32:                                               ; preds = %30
-  %33 = icmp ugt i64 %.0123, 3
+  %33 = icmp samesign ugt i64 %.0123, 3
   br i1 %33, label %.preheader350, label %34
 
 34:                                               ; preds = %32
@@ -193,7 +193,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
 .loopexit:                                        ; preds = %48, %45, %.loopexit286
   %.2120 = phi i32 [ %.0118314, %.loopexit286 ], [ -1, %45 ], [ -1, %48 ]
   %.not282 = icmp ne i32 %.0139310, -1
-  %51 = icmp ugt i64 %.0123, 4
+  %51 = icmp samesign ugt i64 %.0123, 4
   %or.cond284 = select i1 %.not282, i1 true, i1 %51
   br i1 %or.cond284, label %.thread267, label %.preheader.i193
 
@@ -470,7 +470,7 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
   %177 = add nuw nsw i32 %.0129313, 1
   %178 = load i8, ptr %.1232, align 1
   %179 = icmp ne i8 %178, 0
-  %180 = icmp ult i32 %.0129313, 5
+  %180 = icmp samesign ult i32 %.0129313, 5
   %181 = select i1 %179, i1 %180, i1 false
   br i1 %181, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 

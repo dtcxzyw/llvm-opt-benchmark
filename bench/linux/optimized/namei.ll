@@ -1189,7 +1189,7 @@ define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %99 = and i32 %98, 16384
   %100 = icmp eq i32 %99, 0
   %101 = select i1 %100, i32 2, i32 3
-  %102 = icmp ugt i32 %101, %91
+  %102 = icmp samesign ugt i32 %101, %91
   br i1 %102, label %116, label %103
 
 103:                                              ; preds = %88
@@ -8758,7 +8758,7 @@ define internal fastcc ptr @do_split(ptr noundef %0, ptr noundef %1, ptr nocaptu
   br i1 %149, label %.preheader54, label %.loopexit55
 
 .loopexit53:                                      ; preds = %173, %.preheader54
-  %150 = icmp ugt i32 %160, 2
+  %150 = icmp samesign ugt i32 %160, 2
   br i1 %150, label %.preheader54, label %.loopexit55, !llvm.loop !70
 
 .loopexit55:                                      ; preds = %.loopexit53, %.thread43, %144

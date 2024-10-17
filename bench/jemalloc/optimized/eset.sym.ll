@@ -421,7 +421,7 @@ fb_ffs.exit.i:                                    ; preds = %if.end29.i.i.i, %if
   %mul.i.i.i = shl i64 %group_ind.i.0.lcssa.i.i, 6
   %add42.i.i.i = or disjoint i64 %mul.i.i.i, %8
   %conv1049.i = and i64 %add42.i.i.i, 4294967295
-  %cmp50.i = icmp ult i64 %conv1049.i, 200
+  %cmp50.i = icmp samesign ult i64 %conv1049.i, 200
   br i1 %cmp50.i, label %do.end.lr.ph.i, label %eset_first_fit.exit
 
 do.end.lr.ph.i:                                   ; preds = %fb_ffs.exit.i
@@ -509,7 +509,7 @@ fb_ffs.exit45.i:                                  ; preds = %if.end29.i.i42.i, %
   %mul.i.i35.i = shl i64 %group_ind.i.0.lcssa.i34.i, 6
   %add42.i.i36.i = or disjoint i64 %mul.i.i35.i, %16
   %conv10.i = and i64 %add42.i.i36.i, 4294967295
-  %cmp.i = icmp ult i64 %conv10.i, 200
+  %cmp.i = icmp samesign ult i64 %conv10.i, 200
   br i1 %cmp.i, label %do.end.i, label %eset_first_fit.exit, !llvm.loop !7
 
 eset_first_fit.exit:                              ; preds = %while.body.i.i.i, %do.end.i, %if.end46.i, %fb_ffs.exit45.i, %while.body.i.i38.i, %if.then.i, %cond.false.i, %fb_ffs.exit.i

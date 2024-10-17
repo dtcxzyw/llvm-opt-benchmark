@@ -2874,7 +2874,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
   %271 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %spec.select163.i, i32 noundef -2147483648) #12
   %272 = zext i16 %271 to i32
   %273 = add i16 %spec.select162.i, %271
-  %274 = icmp ult i8 %268, 13
+  %274 = icmp samesign ult i8 %268, 13
   br i1 %274, label %switch.lookup, label %276
 
 switch.lookup:                                    ; preds = %.lr.ph19.i
@@ -3227,7 +3227,7 @@ find_known_channel_by_name.exit.i:                ; preds = %165, %162, %159, %1
   %170 = load i32, ptr %7, align 4
   %171 = call i32 @llvm.umin.i32(i32 %170, i32 31)
   %172 = zext nneg i32 %171 to i64
-  %173 = icmp ult i64 %indvars.iv.next.i, %172
+  %173 = icmp samesign ult i64 %indvars.iv.next.i, %172
   br i1 %173, label %.lr.ph.split.i, label %._crit_edge.thread.i, !llvm.loop !9
 
 ._crit_edge.thread.i:                             ; preds = %find_known_channel_by_name.exit.i, %.thread.i
@@ -3621,7 +3621,7 @@ rdp_get_conversation_data.exit:                   ; preds = %4, %81
   %indvars.iv = phi i64 [ %indvars.iv.next, %157 ], [ 0, %151 ]
   %.0117 = phi i32 [ %153, %157 ], [ %139, %151 ]
   %153 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0117, ptr noundef %1, ptr noundef %.0110, ptr noundef nonnull %16, i32 noundef 0)
-  %154 = icmp ult i64 %indvars.iv, 31
+  %154 = icmp samesign ult i64 %indvars.iv, 31
   %.pre = load i32, ptr %10, align 4
   br i1 %154, label %155, label %157
 
@@ -3636,7 +3636,7 @@ rdp_get_conversation_data.exit:                   ; preds = %4, %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %159 = load i32, ptr %9, align 4
   %160 = zext i32 %159 to i64
-  %161 = icmp ult i64 %indvars.iv.next, %160
+  %161 = icmp samesign ult i64 %indvars.iv.next, %160
   br i1 %161, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %157

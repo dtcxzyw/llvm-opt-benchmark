@@ -3378,7 +3378,7 @@ define internal i32 @mei_me_fw_status(ptr noundef %0, ptr noundef %1) #0 align 1
   %18 = load i32, ptr %4, align 4
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %17, %19
-  %21 = icmp ult i64 %24, 5
+  %21 = icmp samesign ult i64 %24, 5
   %22 = and i1 %21, %20
   br i1 %22, label %23, label %.loopexit, !llvm.loop !39
 
@@ -4133,7 +4133,7 @@ define internal range(i32 -75, 256) i32 @mei_me_count_full_read_slots(ptr nocapt
   %30 = lshr i32 %5, 16
   %31 = sub nsw i32 %30, %29
   %32 = and i32 %31, 255
-  %33 = icmp ugt i32 %32, %28
+  %33 = icmp samesign ugt i32 %32, %28
   %34 = select i1 %33, i32 -75, i32 %32
   ret i32 %34
 }

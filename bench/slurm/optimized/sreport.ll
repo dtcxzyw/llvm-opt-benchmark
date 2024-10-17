@@ -432,7 +432,7 @@ _set_sort.exit.backedge:                          ; preds = %101, %100, %96, %92
   %120 = and i8 %119, 1
   %121 = zext nneg i8 %120 to i32
   %.2 = add nuw nsw i32 %.1, %121
-  %122 = icmp ugt i32 %.2, 1
+  %122 = icmp samesign ugt i32 %.2, 1
   br i1 %122, label %123, label %126
 
 123:                                              ; preds = %115

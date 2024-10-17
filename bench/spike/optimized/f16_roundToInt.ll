@@ -10,7 +10,7 @@ define i16 @f16_roundToInt(i16 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
   %4 = zext i16 %0 to i64
   %5 = lshr i16 %0, 10
   %6 = and i16 %5, 31
-  %7 = icmp ult i16 %6, 15
+  %7 = icmp samesign ult i16 %6, 15
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %3
@@ -62,7 +62,7 @@ define i16 @f16_roundToInt(i16 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
   br label %56
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i16 %6, 24
+  %25 = icmp samesign ugt i16 %6, 24
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %24

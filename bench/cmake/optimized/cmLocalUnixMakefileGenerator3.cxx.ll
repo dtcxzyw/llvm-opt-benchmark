@@ -12304,8 +12304,8 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 
 95:                                               ; preds = %89
   %96 = icmp sgt i32 %91, -1
-  %97 = icmp ult i32 %.023122, 1000
-  %98 = and i1 %97, %96
+  %97 = icmp samesign ult i32 %.023122, 1000
+  %98 = select i1 %96, i1 %97, i1 false
   br i1 %98, label %99, label %.thread
 
 99:                                               ; preds = %95
@@ -12507,8 +12507,8 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 
 173:                                              ; preds = %167
   %174 = icmp sgt i32 %169, -1
-  %175 = icmp ult i32 %.0117, 1000
-  %176 = and i1 %175, %174
+  %175 = icmp samesign ult i32 %.0117, 1000
+  %176 = select i1 %174, i1 %175, i1 false
   br i1 %176, label %177, label %.thread92
 
 177:                                              ; preds = %173

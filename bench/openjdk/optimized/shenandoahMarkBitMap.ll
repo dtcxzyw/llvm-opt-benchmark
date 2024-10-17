@@ -102,7 +102,7 @@ define hidden noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP1
   %24 = lshr i64 %23, 2
   %25 = and i64 %24, 4611686018427387902
   %26 = lshr i64 %25, %20
-  %27 = icmp ult i64 %21, %26
+  %27 = icmp samesign ult i64 %21, %26
   br i1 %27, label %28, label %.loopexit.i.i
 
 28:                                               ; preds = %3
@@ -124,7 +124,7 @@ define hidden noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP1
 38:                                               ; preds = %37
   %39 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %35, i1 true)
   %40 = add nuw nsw i64 %39, %21
-  %41 = icmp ult i64 %40, %26
+  %41 = icmp samesign ult i64 %40, %26
   br i1 %41, label %_ZNK20ShenandoahMarkBitMap19get_next_one_offsetEmm.exit, label %.loopexit.i.i
 
 42:                                               ; preds = %37
@@ -135,7 +135,7 @@ define hidden noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP1
 45:                                               ; preds = %48, %42
   %.027.i.i = phi i64 [ %29, %42 ], [ %46, %48 ]
   %46 = add nuw nsw i64 %.027.i.i, 1
-  %47 = icmp ult i64 %46, %44
+  %47 = icmp samesign ult i64 %46, %44
   br i1 %47, label %48, label %.loopexit.i.i
 
 48:                                               ; preds = %45
@@ -194,7 +194,7 @@ define hidden void @_ZN20ShenandoahMarkBitMap11clear_rangeEmm(ptr nocapture noun
   %4 = add i64 %1, 63
   %5 = lshr i64 %4, 6
   %6 = lshr i64 %2, 6
-  %7 = icmp ult i64 %5, %6
+  %7 = icmp samesign ult i64 %5, %6
   %8 = and i64 %4, -64
   br i1 %7, label %9, label %30
 
@@ -298,7 +298,7 @@ define hidden void @_ZN20ShenandoahMarkBitMap17clear_large_rangeEmm(ptr nocaptur
   %5 = lshr i64 %4, 6
   %6 = lshr i64 %2, 6
   %7 = add nuw nsw i64 %5, 32
-  %.not = icmp ult i64 %7, %6
+  %.not = icmp samesign ult i64 %7, %6
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %3
@@ -379,7 +379,7 @@ define hidden void @_ZN20ShenandoahMarkBitMap17clear_range_largeE9MemRegion(ptr 
   %26 = lshr i64 %25, 6
   %27 = lshr i64 %24, 6
   %28 = add nuw nsw i64 %26, 32
-  %.not.i = icmp ult i64 %28, %27
+  %.not.i = icmp samesign ult i64 %28, %27
   br i1 %.not.i, label %30, label %29
 
 29:                                               ; preds = %3

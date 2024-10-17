@@ -7668,7 +7668,7 @@ define internal fastcc void @dissect_mq_encoding(ptr noundef %0, i32 noundef %1,
   %34 = sub i64 %.neg, %33
   %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %32, i64 noundef %34, ptr noundef nonnull @.str.1825) #7
   %36 = and i32 %7, 15
-  %37 = icmp ult i32 %36, 3
+  %37 = icmp samesign ult i32 %36, 3
   br i1 %37, label %switch.lookup, label %39
 
 switch.lookup:                                    ; preds = %27

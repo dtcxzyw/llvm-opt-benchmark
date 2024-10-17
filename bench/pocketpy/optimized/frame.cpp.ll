@@ -290,7 +290,7 @@ define void @_ZN4pkpy10FastLocals11to_namedictEv(ptr dead_on_unwind noalias writ
   %48 = phi i16 [ %.pre.i.i, %.noexc3 ], [ %36, %41 ], [ %36, %35 ]
   %indvars.iv.next.i8.i = add nuw nsw i64 %indvars.iv.i4.i, 1
   %49 = zext i16 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next.i8.i, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next.i8.i, %49
   br i1 %50, label %35, label %"_ZNK4pkpy12NameDictImplIiE5applyIZNS_10FastLocals11to_namedictEvE3$_0EEvT_.exit", !llvm.loop !11
 
 .loopexit:                                        ; preds = %28
@@ -1033,7 +1033,7 @@ define linkonce_odr void @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrName
 
 .preheader.i:                                     ; preds = %21, %.preheader.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.preheader.i ], [ 0, %21 ]
-  %30 = icmp ult i64 %indvars.iv24.i, 8
+  %30 = icmp samesign ult i64 %indvars.iv24.i, 8
   tail call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds [8 x %"struct.pkpy::StrName"], ptr %8, i64 0, i64 %indvars.iv24.i
   %32 = load i16, ptr %31, align 2
@@ -1651,7 +1651,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i

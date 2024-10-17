@@ -671,7 +671,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 454:                                              ; preds = %446, %440
   %455 = add nuw nsw i64 %134, 1
-  %456 = icmp ult i64 %134, %132
+  %456 = icmp samesign ult i64 %134, %132
   %457 = xor i32 %136, -1
   br i1 %456, label %133, label %.loopexit99.loopexit, !llvm.loop !9
 
@@ -1309,7 +1309,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br label %893
 
 893:                                              ; preds = %885, %870
-  %894 = icmp ult i64 %622, %620
+  %894 = icmp samesign ult i64 %622, %620
   %895 = xor i32 %624, -1
   br i1 %894, label %621, label %.loopexit103.loopexit, !llvm.loop !14
 

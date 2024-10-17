@@ -1551,7 +1551,7 @@ define dso_local void @tick_clock_notify() local_unnamed_addr #5 align 16 {
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %17, i32 1, ptr elementtype(i8) %17) #14, !srcloc !86
   %18 = add nuw nsw i64 %8, 1
   %19 = and i64 %18, 127
-  %20 = icmp ugt i64 %19, 63
+  %20 = icmp samesign ugt i64 %19, 63
   br i1 %20, label %.thread, label %1, !prof !87, !llvm.loop !88
 
 .thread:                                          ; preds = %1, %11, %7

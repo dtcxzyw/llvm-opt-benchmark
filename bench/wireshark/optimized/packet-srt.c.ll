@@ -1185,7 +1185,7 @@ define internal fastcc void @format_text_reorder_32(ptr noundef %0, ptr noundef 
   %15 = trunc nuw i32 %14 to i8
   tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext %15) #5
   %16 = add nuw nsw i32 %.01, 4
-  %17 = icmp ult i32 %16, %4
+  %17 = icmp samesign ult i32 %16, %4
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5

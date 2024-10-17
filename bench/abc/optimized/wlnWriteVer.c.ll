@@ -273,7 +273,7 @@ Wln_ObjFanin1.exit:                               ; preds = %28, %33
 
 39:                                               ; preds = %24, %Wln_ObjFanin1.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = icmp ult i64 %indvars.iv.next, %19
+  %40 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %40, label %24, label %.preheader, !llvm.loop !6
 
 41:                                               ; preds = %.lr.ph50, %Wln_ObjFanin0.exit
@@ -609,7 +609,7 @@ Wln_WriteVerIntVec.exit907:                       ; preds = %49, %33
   %.0812.i = phi i32 [ %81, %.lr.ph.i909 ], [ %80, %.lr.ph.i909.preheader ]
   %81 = udiv i32 %.0812.i, 10
   %82 = add nuw nsw i32 %.013.i, 1
-  %.not.i910 = icmp ult i32 %.0812.i, 10
+  %.not.i910 = icmp samesign ult i32 %.0812.i, 10
   br i1 %.not.i910, label %Abc_Base10Log.exit, label %.lr.ph.i909, !llvm.loop !10
 
 Abc_Base10Log.exit:                               ; preds = %.lr.ph.i909, %68
@@ -626,7 +626,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i909, %68
   %.0812.i914 = phi i32 [ %86, %.lr.ph.i912 ], [ %85, %.lr.ph.i912.preheader ]
   %86 = udiv i32 %.0812.i914, 10
   %87 = add nuw nsw i32 %.013.i913, 1
-  %.not.i915 = icmp ult i32 %.0812.i914, 10
+  %.not.i915 = icmp samesign ult i32 %.0812.i914, 10
   br i1 %.not.i915, label %Abc_Base10Log.exit917, label %.lr.ph.i912, !llvm.loop !10
 
 Abc_Base10Log.exit917:                            ; preds = %.lr.ph.i912, %Abc_Base10Log.exit
@@ -1427,7 +1427,7 @@ Wln_ObjFanin.exit961:                             ; preds = %493, %503
   %521 = load i32, ptr %520, align 4
   %522 = sub nsw i32 %519, %521
   %523 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %522, i1 true)
-  %.not1059.not = icmp ult i32 %.51081, %523
+  %.not1059.not = icmp samesign ult i32 %.51081, %523
   br i1 %.not1059.not, label %480, label %524, !llvm.loop !20
 
 524:                                              ; preds = %509

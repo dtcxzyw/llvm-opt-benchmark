@@ -149,7 +149,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsXor.exit.l
   %12 = lshr i64 %.val21, 32
   %13 = trunc nuw i64 %12 to i32
   %14 = and i32 %13, 536870911
-  %.not = icmp ult i32 %11, %14
+  %.not = icmp samesign ult i32 %11, %14
   br i1 %.not, label %15, label %Gia_ObjIsXor.exit.thread
 
 15:                                               ; preds = %Gia_ObjIsXor.exit
@@ -330,7 +330,7 @@ Vec_BitStart.exit:                                ; preds = %2, %16
   %33 = lshr i64 %.val129, 32
   %34 = trunc nuw i64 %33 to i32
   %35 = and i32 %34, 536870911
-  %36 = icmp ult i32 %32, %35
+  %36 = icmp samesign ult i32 %32, %35
   %37 = zext i1 %36 to i32
   br label %Gia_ObjIsXor.exit
 

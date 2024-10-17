@@ -837,7 +837,7 @@ if.end106:                                        ; preds = %if.then95, %if.then
   %ter.3 = phi i32 [ %ter.1, %if.end53 ], [ 0, %if.then79 ], [ 0, %if.then95 ], [ 0, %if.then64 ], [ 0, %if.then59 ], [ 0, %if.then74 ], [ 0, %if.else87 ], [ 0, %if.else90 ]
   %prevSecondary.3 = phi i32 [ %prevSecondary.1, %if.end53 ], [ %shr55, %if.then79 ], [ %shr55, %if.then95 ], [ %shr55, %if.then64 ], [ %shr55, %if.then59 ], [ %shr55, %if.then74 ], [ 1280, %if.else87 ], [ %shr55, %if.else90 ]
   %and = and i32 %conv54, 16191
-  %cmp107 = icmp ugt i32 %and, 1280
+  %cmp107 = icmp samesign ugt i32 %and, 1280
   br i1 %cmp107, label %if.then108, label %if.end117
 
 if.then108:                                       ; preds = %if.end106
@@ -1309,7 +1309,7 @@ if.end17.i:                                       ; preds = %_ZNK6icu_7525Collat
 if.then23.i:                                      ; preds = %if.end17.i
   %and24.i = and i32 %conv.i55.i, 992
   %and25.i = and i32 %conv.i55.i, 7
-  %cmp26.i = icmp ugt i32 %and24.i, 383
+  %cmp26.i = icmp samesign ugt i32 %and24.i, 383
   %36 = or disjoint i32 %and25.i, %and19.i
   %37 = icmp eq i32 %36, 0
   %or.cond1.i = and i1 %cmp26.i, %37
@@ -1522,7 +1522,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
 
 if.then5:                                         ; preds = %lor.lhs.false.i, %if.end
   %and.i = and i32 %call2, 255
-  %cmp.i39 = icmp ult i32 %and.i, 192
+  %cmp.i39 = icmp samesign ult i32 %and.i, 192
   br i1 %cmp.i39, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then5
@@ -1591,7 +1591,7 @@ sw.bb12:                                          ; preds = %if.else
   %add.ptr = getelementptr inbounds i32, ptr %1, i64 %idx.ext
   %shr.i52 = lshr i32 %call2, 8
   %and.i53 = and i32 %shr.i52, 31
-  %cmp = icmp ult i32 %and.i53, 3
+  %cmp = icmp samesign ult i32 %and.i53, 3
   br i1 %cmp, label %if.then16, label %return
 
 if.then16:                                        ; preds = %sw.bb12
@@ -1618,7 +1618,7 @@ sw.bb26:                                          ; preds = %if.else
   %add.ptr30 = getelementptr inbounds i64, ptr %4, i64 %idx.ext29
   %shr.i55 = lshr i32 %call2, 8
   %and.i56 = and i32 %shr.i55, 31
-  %cmp33 = icmp ult i32 %and.i56, 3
+  %cmp33 = icmp samesign ult i32 %and.i56, 3
   br i1 %cmp33, label %if.then34, label %return
 
 if.then34:                                        ; preds = %sw.bb26
@@ -1684,8 +1684,8 @@ if.end62:                                         ; preds = %if.end54
   %cmp67.not = icmp ne i32 %and, 83886080
   %or.cond.not59 = and i1 %cmp67.not, %cmp65
   %and71 = and i32 %conv64, 16128
-  %cmp72 = icmp ult i32 %and71, 1280
-  %or.cond35 = or i1 %cmp72, %or.cond.not59
+  %cmp72 = icmp samesign ult i32 %and71, 1280
+  %or.cond35 = select i1 %or.cond.not59, i1 true, i1 %cmp72
   br i1 %or.cond35, label %return, label %if.end74
 
 if.end74:                                         ; preds = %if.end62
@@ -1720,8 +1720,8 @@ if.end93:                                         ; preds = %if.end87
   %cmp99.not = icmp ne i32 %and98, 83886080
   %or.cond33.not61 = and i1 %cmp99.not, %or.cond32.not60.not62
   %and103 = and i32 %conv89, 16128
-  %cmp104 = icmp ult i32 %and103, 1280
-  %or.cond36 = or i1 %cmp104, %or.cond33.not61
+  %cmp104 = icmp samesign ult i32 %and103, 1280
+  %or.cond36 = select i1 %or.cond33.not61, i1 true, i1 %cmp104
   br i1 %or.cond36, label %return, label %if.end107
 
 if.end107:                                        ; preds = %if.end93, %if.end74
@@ -2062,7 +2062,7 @@ declare noundef i32 @_ZNK6icu_7513CollationData12getFinalCE32Ej(ptr noundef nonn
 define linkonce_odr noundef i64 @_ZN6icu_759Collation10ceFromCE32Ej(i32 noundef %ce32) local_unnamed_addr #3 comdat align 2 {
 entry:
   %and = and i32 %ce32, 255
-  %cmp = icmp ult i32 %and, 192
+  %cmp = icmp samesign ult i32 %and, 192
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -2552,7 +2552,7 @@ if.end17:                                         ; preds = %_ZNK6icu_7525Collat
 if.then23:                                        ; preds = %if.end17
   %and24 = and i32 %conv.i55, 992
   %and25 = and i32 %conv.i55, 7
-  %cmp26 = icmp ugt i32 %and24, 383
+  %cmp26 = icmp samesign ugt i32 %and24, 383
   %11 = or disjoint i32 %and25, %and19
   %12 = icmp eq i32 %11, 0
   %or.cond1 = and i1 %cmp26, %12

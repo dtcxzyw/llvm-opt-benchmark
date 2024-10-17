@@ -50,7 +50,7 @@ define range(i32 0, 2) i32 @Aig_ManFindCut_int(ptr nocapture noundef %0, ptr noc
   %.not10.i = icmp eq i64 %28, 0
   %29 = zext i1 %.not10.i to i32
   %30 = add nuw nsw i32 %29, %21
-  %31 = icmp ult i32 %30, 2
+  %31 = icmp samesign ult i32 %30, 2
   br i1 %31, label %Aig_NodeGetLeafCostOne.exit, label %32
 
 32:                                               ; preds = %13
@@ -78,7 +78,7 @@ Aig_NodeGetLeafCostOne.exit:                      ; preds = %8, %13, %32
   %45 = lshr i64 %44, 32
   %46 = trunc nuw i64 %45 to i32
   %47 = and i32 %46, 16777215
-  %48 = icmp ugt i32 %42, %47
+  %48 = icmp samesign ugt i32 %42, %47
   br i1 %48, label %49, label %.thread
 
 49:                                               ; preds = %Aig_NodeGetLeafCostOne.exit, %39

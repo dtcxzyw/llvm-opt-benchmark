@@ -191,12 +191,12 @@ _ZNK4llvm5APInt3ugeEm.exit:                       ; preds = %21, %_ZNK4llvm5APIn
 35:                                               ; preds = %30
   %.fca.1.extract.i.i24 = extractvalue { i64, i8 } %32, 1
   %36 = trunc i8 %.fca.1.extract.i.i24 to i1
-  %37 = icmp ule i64 %9, %34
+  %37 = icmp samesign ule i64 %9, %34
   %or.cond = select i1 %36, i1 %37, i1 false
   br i1 %or.cond, label %38, label %.critedge
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownLEERKS3_S5_.exit: ; preds = %30
-  %.old.not = icmp ugt i64 %9, %34
+  %.old.not = icmp samesign ugt i64 %9, %34
   br i1 %.old.not, label %.critedge, label %38
 
 38:                                               ; preds = %35, %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownLEERKS3_S5_.exit
@@ -508,12 +508,12 @@ _ZNK4llvm5APInt3ugeEm.exit:                       ; preds = %39, %_ZNK4llvm5APIn
 53:                                               ; preds = %48
   %.fca.1.extract.i.i49 = extractvalue { i64, i8 } %50, 1
   %54 = trunc i8 %.fca.1.extract.i.i49 to i1
-  %55 = icmp ule i64 %11, %52
+  %55 = icmp samesign ule i64 %11, %52
   %or.cond = select i1 %54, i1 %55, i1 false
   br i1 %or.cond, label %56, label %.critedge2
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownLEERKS3_S5_.exit: ; preds = %48
-  %.old.not = icmp ugt i64 %11, %52
+  %.old.not = icmp samesign ugt i64 %11, %52
   br i1 %.old.not, label %.critedge2, label %56
 
 56:                                               ; preds = %53, %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownLEERKS3_S5_.exit

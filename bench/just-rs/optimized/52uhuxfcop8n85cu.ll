@@ -14877,7 +14877,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$env_logger..logger..Builder$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6413)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6416)
   %25 = load i64, ptr %24, align 8, !range !6419, !alias.scope !6420, !noundef !4
-  %switch.i.i = icmp ult i64 %25, 2
+  %switch.i.i = icmp samesign ult i64 %25, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr53drop_in_place$LT$env_logger..fmt..writer..Builder$GT$17h7ccfe75e824e60edE.llvm.1798434116971987782.exit", label %26
 
 26:                                               ; preds = %"_ZN4core3ptr48drop_in_place$LT$env_filter..filter..Builder$GT$17h4487a22a3737e8daE.llvm.1798434116971987782.exit"
@@ -16825,7 +16825,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8
 define hidden void @"_ZN4core3ptr53drop_in_place$LT$env_logger..fmt..writer..Builder$GT$17h7ccfe75e824e60edE.llvm.1798434116971987782"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7335)
   %2 = load i64, ptr %0, align 8, !range !6419, !alias.scope !7335, !noundef !4
-  %switch.i = icmp ult i64 %2, 2
+  %switch.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr60drop_in_place$LT$env_logger..fmt..writer..target..Target$GT$17had7aaf6e7db39863E.llvm.1798434116971987782.exit", label %3
 
 3:                                                ; preds = %1
@@ -19926,7 +19926,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap..args..arg_builder..val
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr60drop_in_place$LT$env_logger..fmt..writer..target..Target$GT$17had7aaf6e7db39863E.llvm.1798434116971987782"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !6419, !noundef !4
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$u2b$core..marker..Send$GT$$GT$17h73a9de11c8703fdaE.llvm.1798434116971987782.exit", label %3
 
 3:                                                ; preds = %1

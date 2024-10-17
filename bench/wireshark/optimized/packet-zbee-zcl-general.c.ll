@@ -5702,7 +5702,7 @@ dissect_zcl_part_trasfpartframe.exit:             ; preds = %37, %39
   %82 = add nuw i32 %79, 1
   %83 = add nuw nsw i32 %.030.us.i, 1
   %84 = icmp ult i32 %82, %66
-  %85 = icmp ult i32 %.030.us.i, 15
+  %85 = icmp samesign ult i32 %.030.us.i, 15
   %86 = select i1 %84, i1 %85, i1 false
   br i1 %86, label %.lr.ph.split.us.i, label %dissect_zcl_part_multiack.exit.loopexit, !llvm.loop !17
 
@@ -5714,7 +5714,7 @@ dissect_zcl_part_trasfpartframe.exit:             ; preds = %37, %39
   %90 = add i32 %87, 2
   %91 = add nuw nsw i32 %.030.i, 1
   %92 = icmp ult i32 %90, %66
-  %93 = icmp ult i32 %.030.i, 15
+  %93 = icmp samesign ult i32 %.030.i, 15
   %94 = select i1 %92, i1 %93, i1 false
   br i1 %94, label %.lr.ph.split.i, label %dissect_zcl_part_multiack.exit.loopexit46, !llvm.loop !17
 
@@ -6728,8 +6728,8 @@ define internal i32 @dissect_zbee_zcl_appl_ctrl(ptr noundef %0, ptr nocapture no
 dissect_zcl_appl_ctrl_attr_func.exit.i:           ; preds = %61, %55
   %63 = phi i32 [ %60, %55 ], [ %.pre.i, %61 ]
   %64 = icmp ult i32 %63, %32
-  %65 = icmp ult i64 %indvars.iv.i, 31
-  %66 = and i1 %65, %64
+  %65 = icmp samesign ult i64 %indvars.iv.i, 31
+  %66 = select i1 %64, i1 %65, i1 false
   br i1 %66, label %.lr.ph.i, label %dissect_zcl_appl_ctrl_wr_funcs.exit, !llvm.loop !23
 
 67:                                               ; preds = %25
@@ -7640,7 +7640,7 @@ define internal void @dissect_zcl_gp_attr_data(ptr noundef %0, ptr noundef %1, p
   %26 = add i32 %25, %.pre.i
   %27 = add i8 %.01719.i, 1
   %28 = and i32 %26, 65535
-  %29 = icmp ult i32 %28, %12
+  %29 = icmp samesign ult i32 %28, %12
   br i1 %29, label %.preheader.i, label %dissect_zbee_zcl_gp_sink_table.exit, !llvm.loop !28
 
 dissect_zbee_zcl_gp_sink_table.exit:              ; preds = %.preheader.i, %24, %9
@@ -7724,7 +7724,7 @@ dissect_zbee_zcl_gp_sink_table.exit:              ; preds = %.preheader.i, %24, 
   %77 = add i32 %76, %.pre.i44
   %78 = add i8 %.01719.i42, 1
   %79 = and i32 %77, 65535
-  %80 = icmp ult i32 %79, %63
+  %80 = icmp samesign ult i32 %79, %63
   br i1 %80, label %.preheader.i41, label %dissect_zbee_zcl_gp_proxy_table.exit, !llvm.loop !29
 
 dissect_zbee_zcl_gp_proxy_table.exit:             ; preds = %.preheader.i41, %75, %60
@@ -8855,7 +8855,7 @@ define internal fastcc void @dissect_zcl_gp_proxy_sink_table_response(ptr nounde
   %30 = add nuw nsw i32 %.03841.us, %29
   %31 = tail call fastcc i32 @dissect_zbee_zcl_gp_sink_table_entry(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %30)
   %32 = add nuw nsw i32 %.03841.us, 1
-  %33 = icmp ult i32 %32, %28
+  %33 = icmp samesign ult i32 %32, %28
   %.not.us = icmp ne i32 %31, 0
   %34 = select i1 %33, i1 %.not.us, i1 false
   br i1 %34, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !33
@@ -8865,7 +8865,7 @@ define internal fastcc void @dissect_zcl_gp_proxy_sink_table_response(ptr nounde
   %35 = add nuw nsw i32 %.03841.us43, %29
   %36 = tail call fastcc i32 @dissect_zbee_zcl_gp_proxy_table_entry(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %35)
   %37 = add nuw nsw i32 %.03841.us43, 1
-  %38 = icmp ult i32 %37, %28
+  %38 = icmp samesign ult i32 %37, %28
   %.not.us45 = icmp ne i32 %36, 0
   %39 = select i1 %38, i1 %.not.us45, i1 false
   br i1 %39, label %.lr.ph.split.us42, label %.loopexit, !llvm.loop !33

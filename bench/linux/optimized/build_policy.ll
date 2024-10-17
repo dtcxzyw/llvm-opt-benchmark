@@ -1089,7 +1089,7 @@ thread-pre-split:                                 ; preds = %75, %69, %65, %55
   %149 = phi i32 [ %146, %144 ], [ %21, %47 ]
   %150 = add nuw nsw i64 %28, 1
   %151 = and i64 %150, 127
-  %152 = icmp ugt i64 %151, 63
+  %152 = icmp samesign ugt i64 %151, 63
   br i1 %152, label %.thread, label %19, !prof !77, !llvm.loop !78
 
 .thread:                                          ; preds = %19, %147, %27
@@ -1651,7 +1651,7 @@ define dso_local void @init_sched_rt_class() local_unnamed_addr #15 section ".in
   store i64 0, ptr %16, align 8
   %17 = add nuw nsw i64 %8, 1
   %18 = and i64 %17, 127
-  %19 = icmp ugt i64 %18, 63
+  %19 = icmp samesign ugt i64 %18, 63
   br i1 %19, label %.thread, label %1, !prof !77, !llvm.loop !108
 
 .thread:                                          ; preds = %1, %11, %7
@@ -2993,7 +2993,7 @@ define internal void @rq_offline_rt(ptr noundef %0) #2 align 16 {
   %.ph = phi i64 [ %70, %65 ], [ 0, %32 ]
   %.ph8 = phi i64 [ %68, %65 ], [ %35, %32 ]
   %36 = and i64 %.ph, 4294967295
-  %37 = icmp ugt i64 %36, 63
+  %37 = icmp samesign ugt i64 %36, 63
   br i1 %37, label %.thread, label %.lr.ph, !prof !97
 
 .lr.ph:                                           ; preds = %.outer
@@ -3059,7 +3059,7 @@ define internal void @rq_offline_rt(ptr noundef %0) #2 align 16 {
 71:                                               ; preds = %55, %48
   %72 = add nuw nsw i64 %45, 1
   %73 = and i64 %72, 127
-  %74 = icmp ugt i64 %73, 63
+  %74 = icmp samesign ugt i64 %73, 63
   br i1 %74, label %.thread, label %39, !prof !107, !llvm.loop !126
 
 .thread:                                          ; preds = %.outer, %44, %71, %39
@@ -3806,7 +3806,7 @@ define dso_local range(i32 0, 2) i32 @cpudl_find(ptr nocapture noundef readonly 
   %40 = phi i32 [ %18, %28 ], [ %26, %37 ], [ %18, %34 ]
   %41 = add nuw nsw i64 %25, 1
   %42 = and i64 %41, 127
-  %43 = icmp ugt i64 %42, 63
+  %43 = icmp samesign ugt i64 %42, 63
   br i1 %43, label %..threadthread-pre-split_crit_edge, label %16, !prof !77, !llvm.loop !136
 
 ..threadthread-pre-split_crit_edge:               ; preds = %38
@@ -4295,7 +4295,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cpudl_init(ptr nocapture noundef
   store i32 -1, ptr %24, align 4
   %25 = add nuw nsw i64 %18, 1
   %26 = and i64 %25, 127
-  %27 = icmp ugt i64 %26, 63
+  %27 = icmp samesign ugt i64 %26, 63
   br i1 %27, label %.thread, label %11, !prof !77, !llvm.loop !147
 
 .thread:                                          ; preds = %11, %21, %17, %1
@@ -4340,13 +4340,13 @@ define dso_local noundef range(i32 0, 2) i32 @__update_load_avg_blocked_se(i64 n
   %16 = zext i32 %15 to i64
   %17 = add nuw nsw i64 %11, %16
   %18 = lshr i64 %17, 10
-  %19 = icmp ult i64 %17, 1024
+  %19 = icmp samesign ult i64 %17, 1024
   br i1 %19, label %90, label %20
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds i8, ptr %1, i64 200
   %22 = load i64, ptr %21, align 8
-  %23 = icmp ugt i64 %17, 2065407
+  %23 = icmp samesign ugt i64 %17, 2065407
   br i1 %23, label %.thread3, label %25, !prof !7
 
 .thread3:                                         ; preds = %20
@@ -4355,7 +4355,7 @@ define dso_local noundef range(i32 0, 2) i32 @__update_load_avg_blocked_se(i64 n
   br label %86
 
 25:                                               ; preds = %20
-  %26 = icmp ult i64 %17, 32768
+  %26 = icmp samesign ult i64 %17, 32768
   br i1 %26, label %.thread4, label %46, !prof !29
 
 .thread4:                                         ; preds = %25
@@ -4560,17 +4560,17 @@ define dso_local noundef range(i32 0, 2) i32 @__update_load_avg_se(i64 noundef %
   %35 = zext i32 %34 to i64
   %36 = add nuw nsw i64 %27, %35
   %37 = lshr i64 %36, 10
-  %38 = icmp ult i64 %36, 1024
+  %38 = icmp samesign ult i64 %36, 1024
   br i1 %38, label %139, label %39
 
 39:                                               ; preds = %26
   %40 = getelementptr inbounds i8, ptr %2, i64 200
   %41 = load i64, ptr %40, align 8
-  %42 = icmp ugt i64 %36, 2065407
+  %42 = icmp samesign ugt i64 %36, 2065407
   br i1 %42, label %93, label %43, !prof !7
 
 43:                                               ; preds = %39
-  %44 = icmp ult i64 %36, 32768
+  %44 = icmp samesign ult i64 %36, 32768
   br i1 %44, label %.thread14, label %64, !prof !29
 
 .thread14:                                        ; preds = %43
@@ -4875,17 +4875,17 @@ define dso_local noundef range(i32 0, 2) i32 @__update_load_avg_cfs_rq(i64 nound
   %29 = zext i32 %28 to i64
   %30 = add nuw nsw i64 %21, %29
   %31 = lshr i64 %30, 10
-  %32 = icmp ult i64 %30, 1024
+  %32 = icmp samesign ult i64 %30, 1024
   br i1 %32, label %133, label %33
 
 33:                                               ; preds = %20
   %34 = getelementptr inbounds i8, ptr %1, i64 136
   %35 = load i64, ptr %34, align 8
-  %36 = icmp ugt i64 %30, 2065407
+  %36 = icmp samesign ugt i64 %30, 2065407
   br i1 %36, label %87, label %37, !prof !7
 
 37:                                               ; preds = %33
-  %38 = icmp ult i64 %30, 32768
+  %38 = icmp samesign ult i64 %30, 32768
   br i1 %38, label %.thread12, label %58, !prof !29
 
 .thread12:                                        ; preds = %37
@@ -5163,17 +5163,17 @@ define dso_local noundef range(i32 0, 2) i32 @update_rt_rq_load_avg(i64 noundef 
   %19 = zext i32 %18 to i64
   %20 = add nuw nsw i64 %13, %19
   %21 = lshr i64 %20, 10
-  %22 = icmp ult i64 %20, 1024
+  %22 = icmp samesign ult i64 %20, 1024
   br i1 %22, label %126, label %23
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds i8, ptr %1, i64 2632
   %25 = load i64, ptr %24, align 8
-  %26 = icmp ugt i64 %20, 2065407
+  %26 = icmp samesign ugt i64 %20, 2065407
   br i1 %26, label %77, label %27, !prof !7
 
 27:                                               ; preds = %23
-  %28 = icmp ult i64 %20, 32768
+  %28 = icmp samesign ult i64 %20, 32768
   br i1 %28, label %.thread15, label %48, !prof !29
 
 .thread15:                                        ; preds = %27
@@ -5444,17 +5444,17 @@ define dso_local noundef range(i32 0, 2) i32 @update_dl_rq_load_avg(i64 noundef 
   %19 = zext i32 %18 to i64
   %20 = add nuw nsw i64 %13, %19
   %21 = lshr i64 %20, 10
-  %22 = icmp ult i64 %20, 1024
+  %22 = icmp samesign ult i64 %20, 1024
   br i1 %22, label %126, label %23
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds i8, ptr %1, i64 2696
   %25 = load i64, ptr %24, align 8
-  %26 = icmp ugt i64 %20, 2065407
+  %26 = icmp samesign ugt i64 %20, 2065407
   br i1 %26, label %77, label %27, !prof !7
 
 27:                                               ; preds = %23
-  %28 = icmp ult i64 %20, 32768
+  %28 = icmp samesign ult i64 %20, 32768
   br i1 %28, label %.thread15, label %48, !prof !29
 
 .thread15:                                        ; preds = %27
@@ -7699,7 +7699,7 @@ define dso_local void @init_sched_dl_class() local_unnamed_addr #15 section ".in
   store i64 0, ptr %16, align 8
   %17 = add nuw nsw i64 %8, 1
   %18 = and i64 %17, 127
-  %19 = icmp ugt i64 %18, 63
+  %19 = icmp samesign ugt i64 %18, 63
   br i1 %19, label %.thread, label %1, !prof !77, !llvm.loop !201
 
 .thread:                                          ; preds = %1, %11, %7
@@ -7770,7 +7770,7 @@ define dso_local void @dl_add_task_root_domain(ptr noundef %0) local_unnamed_add
   store i64 %48, ptr %46, align 8
   %49 = add nuw nsw i64 %37, 1
   %50 = and i64 %49, 127
-  %51 = icmp ugt i64 %50, 63
+  %51 = icmp samesign ugt i64 %50, 63
   br i1 %51, label %.thread, label %29, !prof !77, !llvm.loop !203
 
 .thread:                                          ; preds = %29, %40, %36
@@ -9026,7 +9026,7 @@ define internal void @set_cpus_allowed_dl(ptr noundef %0, ptr noundef %1) #2 ali
   %62 = add i32 %54, 1
   %63 = add nuw nsw i64 %58, 1
   %64 = and i64 %63, 127
-  %65 = icmp ugt i64 %64, 63
+  %65 = icmp samesign ugt i64 %64, 63
   br i1 %65, label %.thread, label %.preheader, !prof !77, !llvm.loop !214
 
 .thread:                                          ; preds = %.preheader, %61, %57, %50
@@ -9068,7 +9068,7 @@ define internal void @set_cpus_allowed_dl(ptr noundef %0, ptr noundef %1) #2 ali
   store i64 %93, ptr %91, align 8
   %94 = add nuw nsw i64 %82, 1
   %95 = and i64 %94, 127
-  %96 = icmp ugt i64 %95, 63
+  %96 = icmp samesign ugt i64 %95, 63
   br i1 %96, label %.thread5, label %74, !prof !77, !llvm.loop !203
 
 .thread5:                                         ; preds = %74, %85, %81
@@ -9714,7 +9714,7 @@ define dso_local range(i32 -16, 1) i32 @sched_dl_global_validate() local_unnamed
 12:                                               ; preds = %81, %0
   %13 = phi i64 [ 0, %0 ], [ %83, %81 ]
   %14 = and i64 %13, 4294967295
-  %15 = icmp ugt i64 %14, 63
+  %15 = icmp samesign ugt i64 %14, 63
   br i1 %15, label %.thread, label %16, !prof !7
 
 16:                                               ; preds = %12
@@ -9788,7 +9788,7 @@ define dso_local range(i32 -16, 1) i32 @sched_dl_global_validate() local_unnamed
   %61 = add i32 %53, 1
   %62 = add nuw nsw i64 %57, 1
   %63 = and i64 %62, 127
-  %64 = icmp ugt i64 %63, 63
+  %64 = icmp samesign ugt i64 %63, 63
   br i1 %64, label %.thread7, label %.preheader, !prof !77, !llvm.loop !214
 
 .thread7:                                         ; preds = %.preheader, %60, %56, %49
@@ -9963,7 +9963,7 @@ define dso_local void @sched_dl_do_global() local_unnamed_addr #2 align 16 {
 87:                                               ; preds = %67, %63, %51, %47
   %88 = add nuw nsw i64 %21, 1
   %89 = and i64 %88, 127
-  %90 = icmp ugt i64 %89, 63
+  %90 = icmp samesign ugt i64 %89, 63
   br i1 %90, label %.thread, label %14, !prof !77, !llvm.loop !221
 
 .thread:                                          ; preds = %14, %87, %20
@@ -10065,7 +10065,7 @@ define dso_local range(i32 -1, 1) i32 @sched_dl_overflow(ptr noundef %0, i32 nou
   %65 = add i32 %57, 1
   %66 = add nuw nsw i64 %61, 1
   %67 = and i64 %66, 127
-  %68 = icmp ugt i64 %67, 63
+  %68 = icmp samesign ugt i64 %67, 63
   br i1 %68, label %.thread, label %.preheader34, !prof !77, !llvm.loop !214
 
 .thread:                                          ; preds = %.preheader34, %64, %60, %53
@@ -10126,7 +10126,7 @@ define dso_local range(i32 -1, 1) i32 @sched_dl_overflow(ptr noundef %0, i32 nou
   %103 = add i32 %95, 1
   %104 = add nuw nsw i64 %99, 1
   %105 = and i64 %104, 127
-  %106 = icmp ugt i64 %105, 63
+  %106 = icmp samesign ugt i64 %105, 63
   br i1 %106, label %.thread20, label %.preheader, !prof !77, !llvm.loop !214
 
 .thread20:                                        ; preds = %.preheader, %102, %98, %91
@@ -10153,7 +10153,7 @@ define dso_local range(i32 -1, 1) i32 @sched_dl_overflow(ptr noundef %0, i32 nou
   %120 = add i64 %112, 1024
   %121 = add nuw nsw i64 %116, 1
   %122 = and i64 %121, 127
-  %123 = icmp ugt i64 %122, 63
+  %123 = icmp samesign ugt i64 %122, 63
   br i1 %123, label %.thread22, label %110, !prof !77, !llvm.loop !222
 
 .thread22:                                        ; preds = %110, %119, %115, %.thread20
@@ -10227,7 +10227,7 @@ define dso_local range(i32 -1, 1) i32 @sched_dl_overflow(ptr noundef %0, i32 nou
   store i64 %172, ptr %170, align 8
   %173 = add nuw nsw i64 %161, 1
   %174 = and i64 %173, 127
-  %175 = icmp ugt i64 %174, 63
+  %175 = icmp samesign ugt i64 %174, 63
   br i1 %175, label %.thread24, label %153, !prof !77, !llvm.loop !203
 
 .thread24:                                        ; preds = %153, %164, %160, %141
@@ -10269,7 +10269,7 @@ define dso_local range(i32 -1, 1) i32 @sched_dl_overflow(ptr noundef %0, i32 nou
   store i64 %203, ptr %201, align 8
   %204 = add nuw nsw i64 %192, 1
   %205 = and i64 %204, 127
-  %206 = icmp ugt i64 %205, 63
+  %206 = icmp samesign ugt i64 %205, 63
   br i1 %206, label %.thread26, label %184, !prof !77, !llvm.loop !203
 
 207:                                              ; preds = %128
@@ -10332,7 +10332,7 @@ define dso_local range(i32 -1, 1) i32 @sched_dl_overflow(ptr noundef %0, i32 nou
   store i64 %247, ptr %245, align 8
   %248 = add nuw nsw i64 %236, 1
   %249 = and i64 %248, 127
-  %250 = icmp ugt i64 %249, 63
+  %250 = icmp samesign ugt i64 %249, 63
   br i1 %250, label %.thread29, label %228, !prof !77, !llvm.loop !203
 
 .thread29:                                        ; preds = %228, %239, %235
@@ -10372,7 +10372,7 @@ define dso_local range(i32 -1, 1) i32 @sched_dl_overflow(ptr noundef %0, i32 nou
   store i64 %276, ptr %274, align 8
   %277 = add nuw nsw i64 %265, 1
   %278 = and i64 %277, 127
-  %279 = icmp ugt i64 %278, 63
+  %279 = icmp samesign ugt i64 %278, 63
   br i1 %279, label %.thread31, label %257, !prof !77, !llvm.loop !203
 
 .thread31:                                        ; preds = %257, %268, %264
@@ -10715,7 +10715,7 @@ define dso_local range(i32 0, 2) i32 @dl_cpuset_cpumask_can_shrink(ptr nocapture
   %29 = add i64 %21, 1024
   %30 = add nuw nsw i64 %25, 1
   %31 = and i64 %30, 127
-  %32 = icmp ugt i64 %31, 63
+  %32 = icmp samesign ugt i64 %31, 63
   br i1 %32, label %.thread, label %19, !prof !77, !llvm.loop !222
 
 .thread:                                          ; preds = %19, %28, %24
@@ -10819,7 +10819,7 @@ define internal fastcc range(i32 -16, 1) i32 @dl_bw_manage(i32 noundef range(i32
   %38 = add i32 %30, 1
   %39 = add nuw nsw i64 %34, 1
   %40 = and i64 %39, 127
-  %41 = icmp ugt i64 %40, 63
+  %41 = icmp samesign ugt i64 %40, 63
   br i1 %41, label %.thread, label %.preheader, !prof !77, !llvm.loop !214
 
 .thread:                                          ; preds = %.preheader, %37, %33, %26
@@ -10861,7 +10861,7 @@ define internal fastcc range(i32 -16, 1) i32 @dl_bw_manage(i32 noundef range(i32
   store i64 %69, ptr %67, align 8
   %70 = add nuw nsw i64 %58, 1
   %71 = and i64 %70, 127
-  %72 = icmp ugt i64 %71, 63
+  %72 = icmp samesign ugt i64 %71, 63
   br i1 %72, label %.thread15, label %50, !prof !77, !llvm.loop !203
 
 73:                                               ; preds = %3
@@ -10921,7 +10921,7 @@ define internal fastcc range(i32 -16, 1) i32 @dl_bw_manage(i32 noundef range(i32
   %107 = add i32 %99, 1
   %108 = add nuw nsw i64 %103, 1
   %109 = and i64 %108, 127
-  %110 = icmp ugt i64 %109, 63
+  %110 = icmp samesign ugt i64 %109, 63
   br i1 %110, label %.thread17, label %.preheader25, !prof !77, !llvm.loop !214
 
 .thread17:                                        ; preds = %.preheader25, %106, %102, %95
@@ -10948,7 +10948,7 @@ define internal fastcc range(i32 -16, 1) i32 @dl_bw_manage(i32 noundef range(i32
   %124 = add i64 %116, 1024
   %125 = add nuw nsw i64 %120, 1
   %126 = and i64 %125, 127
-  %127 = icmp ugt i64 %126, 63
+  %127 = icmp samesign ugt i64 %126, 63
   br i1 %127, label %.thread19, label %114, !prof !77, !llvm.loop !222
 
 .thread19:                                        ; preds = %114, %123, %119, %.thread17
@@ -11014,7 +11014,7 @@ define internal fastcc range(i32 -16, 1) i32 @dl_bw_manage(i32 noundef range(i32
   %167 = add i32 %159, 1
   %168 = add nuw nsw i64 %163, 1
   %169 = and i64 %168, 127
-  %170 = icmp ugt i64 %169, 63
+  %170 = icmp samesign ugt i64 %169, 63
   br i1 %170, label %.thread21, label %.preheader24, !prof !77, !llvm.loop !214
 
 .thread21:                                        ; preds = %.preheader24, %166, %162, %155
@@ -11057,7 +11057,7 @@ define internal fastcc range(i32 -16, 1) i32 @dl_bw_manage(i32 noundef range(i32
   store i64 %199, ptr %197, align 8
   %200 = add nuw nsw i64 %188, 1
   %201 = and i64 %200, 127
-  %202 = icmp ugt i64 %201, 63
+  %202 = icmp samesign ugt i64 %201, 63
   br i1 %202, label %.thread23, label %180, !prof !77, !llvm.loop !203
 
 .thread23:                                        ; preds = %180, %191, %187, %141
@@ -11289,7 +11289,7 @@ define internal i32 @sched_rt_handler(ptr noundef %0, i32 noundef %1, ptr nounde
   tail call void @_raw_spin_unlock(ptr noundef %43) #29
   %50 = add nuw nsw i64 %34, 1
   %51 = and i64 %50, 127
-  %52 = icmp ugt i64 %51, 63
+  %52 = icmp samesign ugt i64 %51, 63
   br i1 %52, label %.thread4, label %27, !prof !77, !llvm.loop !232
 
 .thread4:                                         ; preds = %27, %37, %33
@@ -12709,7 +12709,7 @@ define internal fastcc void @task_non_contending(ptr noundef %0) unnamed_addr #2
   %158 = add i32 %150, 1
   %159 = add nuw nsw i64 %154, 1
   %160 = and i64 %159, 127
-  %161 = icmp ugt i64 %160, 63
+  %161 = icmp samesign ugt i64 %160, 63
   br i1 %161, label %.thread8, label %.preheader, !prof !77, !llvm.loop !214
 
 .thread8:                                         ; preds = %.preheader, %157, %153, %146
@@ -12751,7 +12751,7 @@ define internal fastcc void @task_non_contending(ptr noundef %0) unnamed_addr #2
   store i64 %189, ptr %187, align 8
   %190 = add nuw nsw i64 %178, 1
   %191 = and i64 %190, 127
-  %192 = icmp ugt i64 %191, 63
+  %192 = icmp samesign ugt i64 %191, 63
   br i1 %192, label %.thread10, label %170, !prof !77, !llvm.loop !203
 
 .thread10:                                        ; preds = %170, %181, %177
@@ -13341,7 +13341,7 @@ define internal void @pull_dl_task(ptr noundef %0) #2 align 16 {
   %108 = phi i8 [ %14, %26 ], [ %14, %36 ], [ %88, %105 ], [ %88, %92 ]
   %109 = add nuw nsw i64 %23, 1
   %110 = and i64 %109, 127
-  %111 = icmp ugt i64 %110, 63
+  %111 = icmp samesign ugt i64 %110, 63
   br i1 %111, label %.thread, label %12, !prof !77, !llvm.loop !292
 
 .thread:                                          ; preds = %12, %106, %22
@@ -13936,7 +13936,7 @@ define internal fastcc ptr @dl_task_offline_migration(ptr noundef %0, ptr nounde
   store i64 %164, ptr %162, align 8
   %165 = add nuw nsw i64 %153, 1
   %166 = and i64 %165, 127
-  %167 = icmp ugt i64 %166, 63
+  %167 = icmp samesign ugt i64 %166, 63
   br i1 %167, label %.thread, label %145, !prof !77, !llvm.loop !203
 
 .thread:                                          ; preds = %145, %156, %152
@@ -13990,7 +13990,7 @@ define internal fastcc ptr @dl_task_offline_migration(ptr noundef %0, ptr nounde
   store i64 %205, ptr %203, align 8
   %206 = add nuw nsw i64 %194, 1
   %207 = and i64 %206, 127
-  %208 = icmp ugt i64 %207, 63
+  %208 = icmp samesign ugt i64 %207, 63
   br i1 %208, label %.thread11, label %186, !prof !77, !llvm.loop !203
 
 .thread11:                                        ; preds = %186, %197, %193
@@ -14209,7 +14209,7 @@ define internal noundef i32 @inactive_task_timer(ptr noundef %0) #2 align 16 {
   %138 = add i32 %130, 1
   %139 = add nuw nsw i64 %134, 1
   %140 = and i64 %139, 127
-  %141 = icmp ugt i64 %140, 63
+  %141 = icmp samesign ugt i64 %140, 63
   br i1 %141, label %.thread, label %.preheader, !prof !77, !llvm.loop !214
 
 .thread:                                          ; preds = %.preheader, %137, %133, %126
@@ -14251,7 +14251,7 @@ define internal noundef i32 @inactive_task_timer(ptr noundef %0) #2 align 16 {
   store i64 %169, ptr %167, align 8
   %170 = add nuw nsw i64 %158, 1
   %171 = and i64 %170, 127
-  %172 = icmp ugt i64 %171, 63
+  %172 = icmp samesign ugt i64 %171, 63
   br i1 %172, label %.thread8, label %150, !prof !77, !llvm.loop !203
 
 .thread8:                                         ; preds = %150, %161, %157

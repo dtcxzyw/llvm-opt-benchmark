@@ -3921,7 +3921,7 @@ _ZNK4llvm9BitVector10find_firstEv.exit.i:         ; preds = %1566
   %1592 = lshr i32 %1588, 6
   %1593 = add i32 %1589, -1
   %1594 = lshr i32 %1593, 6
-  %.not32.i.i.i = icmp ugt i32 %1592, %1594
+  %.not32.i.i.i = icmp samesign ugt i32 %1592, %1594
   br i1 %.not32.i.i.i, label %._crit_edge.i168, label %.lr.ph.i.i.i166
 
 .lr.ph.i.i.i166:                                  ; preds = %1591
@@ -4668,7 +4668,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i193: ; pr
   br i1 %.not.i.i.i.i.i234, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPiiEC2ES0_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i233
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i232, label %.lr.ph.i.i.i.i.i233, !llvm.loop !49
 
 .loopexit.i.i.i232:                               ; preds = %select.unfold.i.i.i.i.i, %1941
@@ -4707,7 +4707,7 @@ _ZNSt17_Temporary_bufferIPiiEC2ES0_l.exit.i.i.i:  ; preds = %.lr.ph.i.i.i.i.i233
   %1954 = load i32, ptr %1953, align 4
   %1955 = icmp ne i32 %1954, -1
   %indvars.iv.next880 = add nuw nsw i64 %indvars.iv879, 1
-  %1956 = icmp ult i64 %indvars.iv.next880, %183
+  %1956 = icmp samesign ult i64 %indvars.iv.next880, %183
   %or.cond644 = select i1 %1955, i1 %1956, i1 false
   br i1 %or.cond644, label %.lr.ph630.us, label %.loopexit.us
 
@@ -4868,7 +4868,7 @@ _ZNSt17_Temporary_bufferIPN4llvm9SlotIndexES1_EC2ES2_l.exit.thread36.i.us: ; pre
 select.unfold.i.i.i.us:                           ; preds = %.lr.ph.i.i.i353.us
   %2037 = add nuw nsw i64 %storemerge26.i.i.i.us, 1
   %2038 = lshr i64 %2037, 1
-  %.not10.i.i.i.us = icmp ult i64 %storemerge26.i.i.i.us, 2
+  %.not10.i.i.i.us = icmp samesign ult i64 %storemerge26.i.i.i.us, 2
   br i1 %.not10.i.i.i.us, label %_ZNSt17_Temporary_bufferIPN4llvm9SlotIndexES1_EC2ES2_l.exit.thread.i.us, label %.lr.ph.i.i.i353.us, !llvm.loop !51
 
 _ZNSt17_Temporary_bufferIPN4llvm9SlotIndexES1_EC2ES2_l.exit.thread.i.us: ; preds = %select.unfold.i.i.i.us, %2025

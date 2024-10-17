@@ -1455,7 +1455,7 @@ define internal fastcc void @skl_scaler_setup_filter(ptr nocapture noundef reado
   %83 = getelementptr i8, ptr %81, i64 %82
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %53, ptr elementtype(i32) %83) #7, !srcloc !44
   %84 = add nuw nsw i32 %46, 2
-  %85 = icmp ult i32 %46, 117
+  %85 = icmp samesign ult i32 %46, 117
   br i1 %85, label %45, label %86, !llvm.loop !45
 
 86:                                               ; preds = %79

@@ -903,7 +903,7 @@ define internal fastcc i32 @ptrace_set_debugreg(ptr noundef %0, i32 noundef rang
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
   %153 = add nuw nsw i64 %101, 1
-  %154 = icmp ult i64 %101, 3
+  %154 = icmp samesign ult i64 %101, 3
   %155 = and i1 %154, %152
   br i1 %155, label %100, label %.loopexit, !llvm.loop !27
 

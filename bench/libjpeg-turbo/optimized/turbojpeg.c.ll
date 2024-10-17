@@ -1676,7 +1676,7 @@ define i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 
 6:                                                ; preds = %4
   %7 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %1)
-  %8 = icmp ugt i32 %7, 1
+  %8 = icmp samesign ugt i32 %7, 1
   %9 = icmp ugt i32 %3, 6
   %or.cond3 = or i1 %8, %9
   br i1 %or.cond3, label %10, label %13
@@ -1808,8 +1808,8 @@ tj3YUVPlaneHeight.exit:                           ; preds = %75
   %84 = mul nuw nsw i64 %.1.i39, %83
   %85 = add i64 %84, %.143
   %86 = add nuw nsw i32 %.03142, 1
-  %87 = icmp ult i32 %.03142, 2
-  %88 = and i1 %14, %87
+  %87 = icmp samesign ult i32 %.03142, 2
+  %88 = select i1 %14, i1 %87, i1 false
   br i1 %88, label %56, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %tj3YUVPlaneHeight.exit, %80, %37, %tj3YUVPlaneHeight.exit.thread, %10
@@ -3240,7 +3240,7 @@ define noundef ptr @tj3LoadImage8(ptr noundef %0, ptr noundef readonly %1, ptr n
 
 26:                                               ; preds = %18
   %27 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %3)
-  %.not155 = icmp ult i32 %27, 2
+  %.not155 = icmp samesign ult i32 %27, 2
   br i1 %.not155, label %33, label %28
 
 28:                                               ; preds = %26
@@ -4704,7 +4704,7 @@ define noundef ptr @tj3LoadImage12(ptr noundef %0, ptr noundef readonly %1, ptr 
 
 26:                                               ; preds = %18
   %27 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %3)
-  %.not155 = icmp ult i32 %27, 2
+  %.not155 = icmp samesign ult i32 %27, 2
   br i1 %.not155, label %33, label %28
 
 28:                                               ; preds = %26
@@ -5973,7 +5973,7 @@ define noundef ptr @tj3LoadImage16(ptr noundef %0, ptr noundef readonly %1, ptr 
 
 26:                                               ; preds = %18
   %27 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %3)
-  %.not155 = icmp ult i32 %27, 2
+  %.not155 = icmp samesign ult i32 %27, 2
   br i1 %.not155, label %33, label %28
 
 28:                                               ; preds = %26
@@ -7341,7 +7341,7 @@ define range(i32 -1, 1) i32 @tj3EncodeYUVPlanes8(ptr noundef %0, ptr noundef %1,
 
 ._crit_edge288:                                   ; preds = %268, %264, %258, %253
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
-  %271 = icmp ult i64 %indvars.iv.next341, %145
+  %271 = icmp samesign ult i64 %indvars.iv.next341, %145
   br i1 %271, label %146, label %._crit_edge294, !llvm.loop !34
 
 ._crit_edge294:                                   ; preds = %._crit_edge288, %.loopexit
@@ -7593,7 +7593,7 @@ define range(i32 -1, 1) i32 @tj3EncodeYUV8(ptr noundef %0, ptr noundef %1, i32 n
   %22 = or i1 %18, %21
   %or.cond5 = or i1 %17, %22
   %23 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %7)
-  %24 = icmp ugt i32 %23, 1
+  %24 = icmp samesign ugt i32 %23, 1
   %or.cond58.not = select i1 %or.cond5, i1 true, i1 %24
   br i1 %or.cond58.not, label %25, label %30
 
@@ -7773,7 +7773,7 @@ tj3YUVPlaneHeight.exit76:                         ; preds = %111, %.sink.split.i
   %135 = icmp ugt i64 %134, 2147483647
   %136 = zext nneg i32 %130 to i64
   %137 = mul nuw nsw i64 %.0.i75, %136
-  %138 = icmp ugt i64 %137, 2147483647
+  %138 = icmp samesign ugt i64 %137, 2147483647
   %or.cond62 = select i1 %135, i1 true, i1 %138
   br i1 %or.cond62, label %139, label %144
 
@@ -8683,7 +8683,7 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUV8(ptr noundef %0, ptr noundef %1,
 
 19:                                               ; preds = %13
   %20 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %3)
-  %21 = icmp ugt i32 %20, 1
+  %21 = icmp samesign ugt i32 %20, 1
   %22 = icmp slt i32 %4, 1
   %or.cond5 = or i1 %21, %22
   br i1 %or.cond5, label %23, label %28
@@ -10268,7 +10268,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
 
 ._crit_edge257:                                   ; preds = %245, %241, %235, %230
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
-  %248 = icmp ult i64 %indvars.iv.next306, %166
+  %248 = icmp samesign ult i64 %indvars.iv.next306, %166
   br i1 %248, label %167, label %._crit_edge263, !llvm.loop !54
 
 ._crit_edge263:                                   ; preds = %._crit_edge257, %.loopexit
@@ -10621,7 +10621,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUV8(ptr noundef %0, ptr noundef %1, i32 n
 
 19:                                               ; preds = %14
   %20 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %2)
-  %21 = icmp ugt i32 %20, 1
+  %21 = icmp samesign ugt i32 %20, 1
   %22 = icmp slt i32 %4, 1
   %or.cond3 = or i1 %21, %22
   %23 = icmp slt i32 %6, 1
@@ -10804,7 +10804,7 @@ tj3YUVPlaneHeight.exit74:                         ; preds = %110, %.sink.split.i
   %134 = icmp ugt i64 %133, 2147483647
   %135 = zext nneg i32 %129 to i64
   %136 = mul nuw nsw i64 %.0.i73, %135
-  %137 = icmp ugt i64 %136, 2147483647
+  %137 = icmp samesign ugt i64 %136, 2147483647
   %or.cond60 = select i1 %134, i1 true, i1 %137
   br i1 %or.cond60, label %138, label %143
 
@@ -11219,7 +11219,7 @@ setDecompParameters.exit:                         ; preds = %65, %switch.lookup
 179:                                              ; preds = %166
   %180 = icmp eq i32 %176, 3
   %181 = select i1 %180, i64 1, i64 3
-  %.not.i = icmp ult i64 %indvars.iv307, %181
+  %.not.i = icmp samesign ult i64 %indvars.iv307, %181
   br i1 %.not.i, label %182, label %.sink.split.i
 
 182:                                              ; preds = %179
@@ -11269,7 +11269,7 @@ tj3YUVPlaneWidth.exit:                            ; preds = %199, %.sink.split.i
 208:                                              ; preds = %tj3YUVPlaneWidth.exit
   %209 = icmp eq i32 %202, 3
   %210 = select i1 %209, i64 1, i64 3
-  %.not.i242 = icmp ult i64 %indvars.iv307, %210
+  %.not.i242 = icmp samesign ult i64 %indvars.iv307, %210
   br i1 %.not.i242, label %211, label %.sink.split.i243
 
 211:                                              ; preds = %208
@@ -11888,7 +11888,7 @@ define range(i32 -1, 1) i32 @tj3DecompressToYUV8(ptr noundef %0, ptr noundef %1,
   %18 = icmp sgt i32 %4, 0
   %or.cond5.not96 = and i1 %or.cond3.not98, %18
   %19 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %4)
-  %20 = icmp ult i32 %19, 2
+  %20 = icmp samesign ult i32 %19, 2
   %or.cond76 = select i1 %or.cond5.not96, i1 %20, i1 false
   br i1 %or.cond76, label %21, label %.sink.split
 
@@ -12150,7 +12150,7 @@ tj3YUVPlaneHeight.exit94:                         ; preds = %160, %.sink.split.i
   %184 = icmp ugt i64 %183, 2147483647
   %185 = zext nneg i32 %179 to i64
   %186 = mul nuw nsw i64 %.0.i93, %185
-  %187 = icmp ugt i64 %186, 2147483647
+  %187 = icmp samesign ugt i64 %186, 2147483647
   %or.cond80 = select i1 %184, i1 true, i1 %187
   br i1 %or.cond80, label %.sink.split, label %188
 

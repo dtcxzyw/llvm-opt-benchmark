@@ -338,9 +338,9 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   br i1 %.not3800.i, label %.critedge3945.i, label %152
 
 152:                                              ; preds = %147
-  %153 = icmp ugt i32 %133, 64
+  %153 = icmp samesign ugt i32 %133, 64
   call void @llvm.assume(i1 %153)
-  %154 = icmp ult i32 %133, 91
+  %154 = icmp samesign ult i32 %133, 91
   call void @llvm.assume(i1 %154)
   %155 = add nsw i32 %133, -65
   %156 = zext nneg i32 %155 to i64
@@ -593,9 +593,9 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   br i1 %.not3923.i, label %.critedge3948.i, label %275
 
 275:                                              ; preds = %265
-  %276 = icmp ugt i32 %270, 64
+  %276 = icmp samesign ugt i32 %270, 64
   call void @llvm.assume(i1 %276)
-  %277 = icmp ult i32 %270, 91
+  %277 = icmp samesign ult i32 %270, 91
   call void @llvm.assume(i1 %277)
   %278 = add nsw i32 %270, -65
   %279 = zext nneg i32 %278 to i64
@@ -912,9 +912,9 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   br i1 %.not3914.i, label %.critedge3952.i, label %463
 
 463:                                              ; preds = %457
-  %464 = icmp ugt i32 %458, 64
+  %464 = icmp samesign ugt i32 %458, 64
   call void @llvm.assume(i1 %464)
-  %465 = icmp ult i32 %458, 91
+  %465 = icmp samesign ult i32 %458, 91
   call void @llvm.assume(i1 %465)
   %466 = add nsw i32 %458, -65
   %467 = zext nneg i32 %466 to i64
@@ -1087,9 +1087,9 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   br i1 %.not3907.i, label %.critedge3954.i, label %565
 
 565:                                              ; preds = %559
-  %566 = icmp ugt i32 %560, 64
+  %566 = icmp samesign ugt i32 %560, 64
   call void @llvm.assume(i1 %566)
-  %567 = icmp ult i32 %560, 91
+  %567 = icmp samesign ult i32 %560, 91
   call void @llvm.assume(i1 %567)
   %568 = add nsw i32 %560, -65
   %569 = zext nneg i32 %568 to i64
@@ -1208,8 +1208,8 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %631 = getelementptr inbounds i8, ptr %203, i64 %indvars.iv.i.i
   %632 = load i8, ptr %631, align 1
   %633 = icmp ne i8 %632, 0
-  %634 = icmp ult i64 %indvars.iv.i.i, 3
-  %635 = and i1 %634, %633
+  %634 = icmp samesign ult i64 %indvars.iv.i.i, 3
+  %635 = select i1 %633, i1 %634, i1 false
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   br i1 %635, label %.preheader.i, label %Lookahead.exit.i
 
@@ -1292,9 +1292,9 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   br i1 %.not3893.i, label %.thread3969.i, label %681
 
 681:                                              ; preds = %676
-  %682 = icmp ugt i32 %550, 64
+  %682 = icmp samesign ugt i32 %550, 64
   call void @llvm.assume(i1 %682)
-  %683 = icmp ult i32 %550, 91
+  %683 = icmp samesign ult i32 %550, 91
   call void @llvm.assume(i1 %683)
   %684 = add nsw i32 %550, -65
   %685 = zext nneg i32 %684 to i64
@@ -1448,9 +1448,9 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   br i1 %.not3885.i, label %.critedge3958.i, label %775
 
 775:                                              ; preds = %765
-  %776 = icmp ugt i32 %770, 64
+  %776 = icmp samesign ugt i32 %770, 64
   call void @llvm.assume(i1 %776)
-  %777 = icmp ult i32 %770, 91
+  %777 = icmp samesign ult i32 %770, 91
   call void @llvm.assume(i1 %777)
   %778 = add nsw i32 %770, -65
   %779 = zext nneg i32 %778 to i64
@@ -1468,9 +1468,9 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   br i1 %.not3887.i, label %.critedge3960.i, label %787
 
 787:                                              ; preds = %782
-  %788 = icmp ugt i32 %221, 64
+  %788 = icmp samesign ugt i32 %221, 64
   call void @llvm.assume(i1 %788)
-  %789 = icmp ult i32 %221, 91
+  %789 = icmp samesign ult i32 %221, 91
   call void @llvm.assume(i1 %789)
   %790 = add nsw i32 %221, -65
   %791 = zext nneg i32 %790 to i64
@@ -2340,9 +2340,9 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   br i1 %.not3838.i, label %.critedge3958.i, label %1295
 
 1295:                                             ; preds = %1285
-  %1296 = icmp ugt i32 %1290, 64
+  %1296 = icmp samesign ugt i32 %1290, 64
   call void @llvm.assume(i1 %1296)
-  %1297 = icmp ult i32 %1290, 91
+  %1297 = icmp samesign ult i32 %1290, 91
   call void @llvm.assume(i1 %1297)
   %1298 = add nsw i32 %1290, -65
   %1299 = zext nneg i32 %1298 to i64
@@ -2563,9 +2563,9 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   br i1 %.not3826.i, label %.critedge3958.i, label %1427
 
 1427:                                             ; preds = %1417
-  %1428 = icmp ugt i32 %1422, 64
+  %1428 = icmp samesign ugt i32 %1422, 64
   call void @llvm.assume(i1 %1428)
-  %1429 = icmp ult i32 %1422, 91
+  %1429 = icmp samesign ult i32 %1422, 91
   call void @llvm.assume(i1 %1429)
   %1430 = add nsw i32 %1422, -65
   %1431 = zext nneg i32 %1430 to i64

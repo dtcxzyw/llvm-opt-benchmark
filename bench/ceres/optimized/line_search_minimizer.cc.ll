@@ -495,7 +495,7 @@ common.resume.i255:                               ; preds = %.body.i258, %127
   %202 = load <2 x double>, ptr %201, align 1
   store <2 x double> %202, ptr %200, align 16
   %203 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 2
-  %204 = icmp ult i64 %203, %199
+  %204 = icmp samesign ult i64 %203, %199
   br i1 %204, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, !llvm.loop !4
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread587, %.thread585, %197
@@ -2583,7 +2583,7 @@ define internal fastcc noundef zeroext i1 @_ZN5ceres8internal12_GLOBAL__N_121Eva
   %26 = xor <2 x i64> %25, <i64 -9223372036854775808, i64 -9223372036854775808>
   store <2 x i64> %26, ptr %23, align 16
   %27 = add nuw nsw i64 %.011.i.i.i.i.i.i, 2
-  %28 = icmp ult i64 %27, %22
+  %28 = icmp samesign ult i64 %27, %22
   br i1 %28, label %.lr.ph.i.i.i.i.i.i17, label %._crit_edge.i.i.i.i.i.i16, !llvm.loop !12
 
 ._crit_edge.i.i.i.i.i.i16:                        ; preds = %.lr.ph.i.i.i.i.i.i17, %.thread, %20

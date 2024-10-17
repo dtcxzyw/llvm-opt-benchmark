@@ -1652,7 +1652,7 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %134
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
 .thread:                                          ; preds = %_ZNK4llvm9KnownBits20countMinLeadingZerosEv.exit.thread, %133
-  %147 = icmp ugt i32 %112, 1
+  %147 = icmp samesign ugt i32 %112, 1
   br i1 %147, label %148, label %_ZN4llvm20FunctionLoweringInfo17GetLiveOutRegInfoENS_8RegisterE.exit.thread
 
 148:                                              ; preds = %.thread
@@ -3258,7 +3258,7 @@ _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit428: ; preds = %478, %_ZN4llv
   %.sroa.0270.01040 = phi i16 [ %.sroa.0270.01041, %_ZN4llvm3MVT12getIntegerVTEj.exit.i427 ], [ %.sroa.0270.0, %492 ], [ %.sroa.0270.0, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ], [ 4, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1047 ], [ %.sroa.0270.0, %486 ], [ 5, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1052 ], [ %.sroa.0270.0, %487 ], [ 6, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1057 ], [ %.sroa.0270.0, %488 ], [ 7, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1062 ], [ %.sroa.0270.0, %489 ], [ 8, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1067 ], [ %.sroa.0270.0, %490 ], [ 9, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1072 ], [ %.sroa.0270.0, %491 ], [ 3, %478 ]
   %.sroa.3.0.i423 = phi ptr [ %498, %_ZN4llvm3MVT12getIntegerVTEj.exit.i427 ], [ null, %492 ], [ null, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ], [ null, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1047 ], [ null, %486 ], [ null, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1052 ], [ null, %487 ], [ null, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1057 ], [ null, %488 ], [ null, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1062 ], [ null, %489 ], [ null, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1067 ], [ null, %490 ], [ null, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1072 ], [ null, %491 ], [ null, %478 ]
   %.sroa.0.0.i424 = phi i16 [ %497, %_ZN4llvm3MVT12getIntegerVTEj.exit.i427 ], [ 9, %492 ], [ 2, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ], [ 3, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1047 ], [ 3, %486 ], [ 4, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1052 ], [ 4, %487 ], [ 5, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1057 ], [ 5, %488 ], [ 6, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1062 ], [ 6, %489 ], [ 7, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1067 ], [ 7, %490 ], [ 8, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread1072 ], [ 8, %491 ], [ 2, %478 ]
-  %500 = icmp ugt i32 %473, 1
+  %500 = icmp samesign ugt i32 %473, 1
   br i1 %500, label %501, label %507
 
 501:                                              ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit428
@@ -6032,7 +6032,7 @@ _ZNK4llvm3EVTneES0_.exit.thread749:               ; preds = %508, %_ZL33diagnose
 
 530:                                              ; preds = %501
   %531 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %5)
-  %.not = icmp ult i32 %531, 2
+  %.not = icmp samesign ult i32 %531, 2
   br i1 %.not, label %561, label %532
 
 532:                                              ; preds = %530
@@ -32924,7 +32924,7 @@ declare noundef zeroext i1 @_ZNK4llvm21BranchProbabilityInfo9isEdgeHotEPKNS_10Ba
 define internal fastcc noundef zeroext i1 @_ZL22collectInstructionDepsPN4llvm14SmallMapVectorIPKNS_11InstructionEbLj8EEEPKNS_5ValueES5_j(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
-  %7 = icmp ugt i32 %3, 5
+  %7 = icmp samesign ugt i32 %3, 5
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %4
@@ -33500,7 +33500,7 @@ _ZL7InBlockPKN4llvm5ValueEPKNS_10BasicBlockE.exit97.thread: ; preds = %_ZL7InBlo
   %106 = zext nneg i32 %105 to i64
   %107 = zext i32 %8 to i64
   %108 = add nuw nsw i64 %106, %107
-  %109 = icmp ugt i64 %108, 2147483648
+  %109 = icmp samesign ugt i64 %108, 2147483648
   %110 = add i32 %105, %8
   %spec.select.i.i98 = select i1 %109, i32 -2147483648, i32 %110
   call void @_ZN4llvm19SelectionDAGBuilder20FindMergedConditionsEPKNS_5ValueEPNS_17MachineBasicBlockES5_S5_S5_NS_11Instruction9BinaryOpsENS_17BranchProbabilityES8_b(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef %103, ptr noundef %2, ptr noundef nonnull %93, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 29, i32 %105, i32 %spec.select.i.i98, i1 noundef zeroext %9)
@@ -33526,7 +33526,7 @@ _ZL7InBlockPKN4llvm5ValueEPKNS_10BasicBlockE.exit97.thread: ; preds = %_ZL7InBlo
   %120 = zext i32 %7 to i64
   %121 = zext nneg i32 %119 to i64
   %122 = add nuw nsw i64 %121, %120
-  %123 = icmp ugt i64 %122, 2147483648
+  %123 = icmp samesign ugt i64 %122, 2147483648
   %124 = add i32 %119, %7
   %spec.select.i.i99 = select i1 %123, i32 -2147483648, i32 %124
   call void @_ZN4llvm19SelectionDAGBuilder20FindMergedConditionsEPKNS_5ValueEPNS_17MachineBasicBlockES5_S5_S5_NS_11Instruction9BinaryOpsENS_17BranchProbabilityES8_b(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef %103, ptr noundef nonnull %93, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6, i32 %spec.select.i.i99, i32 %119, i1 noundef zeroext %9)
@@ -37361,7 +37361,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEeqERKS3_.exit.thread: 
   %.sroa.2113.0.copyload = load ptr, ptr %.sroa.2155.0..sroa_idx, align 8
   %616 = load i32, ptr %375, align 4
   %617 = zext i32 %616 to i64
-  %618 = icmp ult i64 %indvars.iv779, %617
+  %618 = icmp samesign ult i64 %indvars.iv779, %617
   store i16 %.sroa.0.0.copyload.i.i531, ptr %24, align 8
   store ptr %.sroa.21.0.copyload.i.i533, ptr %376, align 8
   %.not.i.i = icmp eq i16 %.sroa.0.0.copyload.i.i531, 0
@@ -40865,7 +40865,7 @@ _ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit483: ; preds = %745, %750, %_Z
   br label %_ZN4llvm5SDLocD2Ev.exit485
 
 _ZN4llvm5SDLocD2Ev.exit485:                       ; preds = %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit483, %758
-  %.not1168 = icmp ult i64 %756, 4294967296
+  %.not1168 = icmp samesign ult i64 %756, 4294967296
   br i1 %.not1168, label %791, label %759
 
 759:                                              ; preds = %_ZN4llvm5SDLocD2Ev.exit485
@@ -48226,7 +48226,7 @@ _ZNK4llvm3EVT13getScalarTypeEv.exit:              ; preds = %67, %_ZNK4llvm3EVT8
   %.sroa.0.0.i = phi i16 [ %74, %70 ], [ %77, %75 ], [ 0, %_ZNK4llvm3EVT8isVectorEv.exit.i ], [ %.sroa.0.0.copyload.i.i, %67 ]
   %.sroa.31.0.i = phi ptr [ null, %70 ], [ %78, %75 ], [ %.sroa.21.0.copyload.i.i, %_ZNK4llvm3EVT8isVectorEv.exit.i ], [ %.sroa.21.0.copyload.i.i, %67 ]
   %79 = call i8 @_ZNK4llvm12SelectionDAG11getEVTAlignENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(904) %66, i16 %.sroa.0.0.i, ptr %.sroa.31.0.i) #32
-  %.not = icmp ult i16 %.sroa.0.0.insert.insert.i, 256
+  %.not = icmp samesign ult i16 %.sroa.0.0.insert.insert.i, 256
   %.sroa.0.0.i88 = select i1 %.not, i8 %79, i8 %.sroa.0110.0.extract.trunc
   %80 = load ptr, ptr %65, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
@@ -49423,7 +49423,7 @@ _ZNK4llvm3EVT13getScalarTypeEv.exit:              ; preds = %75, %_ZNK4llvm3EVT8
   %.sroa.0.0.i = phi i16 [ %82, %78 ], [ %85, %83 ], [ 0, %_ZNK4llvm3EVT8isVectorEv.exit.i ], [ %56, %75 ]
   %.sroa.31.0.i = phi ptr [ null, %78 ], [ %86, %83 ], [ %58, %_ZNK4llvm3EVT8isVectorEv.exit.i ], [ %58, %75 ]
   %87 = call i8 @_ZNK4llvm12SelectionDAG11getEVTAlignENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(904) %74, i16 %.sroa.0.0.i, ptr %.sroa.31.0.i) #32
-  %.not = icmp ult i16 %.sroa.0.0.insert.insert.i, 256
+  %.not = icmp samesign ult i16 %.sroa.0.0.insert.insert.i, 256
   %.sroa.0.0.i92 = select i1 %.not, i8 %87, i8 %.sroa.0115.0.extract.trunc
   %88 = load i32, ptr %28, align 4
   %89 = and i32 %88, 536870912
@@ -65333,7 +65333,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %187 = sub i64 %185, %186
   %188 = lshr exact i64 %187, 5
   %189 = and i64 %188, 4294967295
-  %190 = icmp ult i64 %indvars.iv.next, %189
+  %190 = icmp samesign ult i64 %indvars.iv.next, %189
   br i1 %190, label %158, label %._crit_edge, !llvm.loop !1060
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit, %121
@@ -78538,7 +78538,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %65 = sub i64 %63, %64
   %66 = lshr exact i64 %65, 5
   %67 = and i64 %66, 4294967295
-  %68 = icmp ult i64 %indvars.iv.next, %67
+  %68 = icmp samesign ult i64 %indvars.iv.next, %67
   br i1 %68, label %22, label %._crit_edge, !llvm.loop !1252
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit, %4
@@ -81960,7 +81960,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2ERK
 
 _ZNK4llvm5APInt10isPowerOf2Ev.exit:               ; preds = %81
   %88 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %83)
-  %89 = icmp ult i64 %88, 2
+  %89 = icmp samesign ult i64 %88, 2
   br i1 %89, label %90, label %_ZN4llvm5SDLocD2Ev.exit
 
 90:                                               ; preds = %84, %_ZNK4llvm5APInt10isPowerOf2Ev.exit
@@ -82055,7 +82055,7 @@ _ZN4llvm5APIntD2Ev.exit215:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %127 = zext i32 %126 to i64
   %128 = zext i32 %.sroa.0103.0.copyload to i64
   %129 = add nuw nsw i64 %127, %128
-  %130 = icmp ugt i64 %129, 2147483648
+  %130 = icmp samesign ugt i64 %129, 2147483648
   %131 = add i32 %126, %.sroa.0103.0.copyload
   %spec.select.i.i = select i1 %130, i32 -2147483648, i32 %131
   call void @_ZN4llvm19SelectionDAGBuilder20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef %3, ptr noundef %123, i32 %spec.select.i.i)
@@ -82498,7 +82498,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   %268 = zext i32 %.sroa.0288.0342 to i64
   %269 = zext i32 %.sroa.072.0.copyload to i64
   %270 = add nuw nsw i64 %269, %268
-  %271 = icmp ugt i64 %270, 2147483648
+  %271 = icmp samesign ugt i64 %270, 2147483648
   %272 = add i32 %.sroa.072.0.copyload, %.sroa.0288.0342
   %spec.select.i = select i1 %271, i32 -2147483648, i32 %272
   %273 = getelementptr inbounds i8, ptr %.sroa.0285.0341, i64 40

@@ -739,8 +739,8 @@ define dso_local void @TrimCLOG() local_unnamed_addr #0 {
 40:                                               ; preds = %15
   %41 = and i64 %36, 7
   %42 = icmp eq i64 %41, 0
-  %43 = icmp ult i32 %35, 1025
-  %or.cond3 = and i1 %43, %42
+  %43 = icmp samesign ult i32 %35, 1025
+  %or.cond3 = select i1 %42, i1 %43, i1 false
   br i1 %or.cond3, label %44, label %56
 
 44:                                               ; preds = %40

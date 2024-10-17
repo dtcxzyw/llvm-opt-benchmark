@@ -902,7 +902,7 @@ _ZL6get_ikP7_jclass.exit23:                       ; preds = %76, %80, %84
   %92 = add nsw i32 %88, 1
   %93 = icmp sgt i32 %88, -1
   %94 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %92)
-  %95 = icmp ult i32 %94, 2
+  %95 = icmp samesign ult i32 %94, 2
   %or.cond.i.i.i.i.i = select i1 %93, i1 %95, i1 false
   %96 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %92, i1 true)
   %97 = sub nuw nsw i32 32, %96
@@ -5226,7 +5226,7 @@ define hidden noundef range(i32 0, 114) i32 @_ZN18VM_RedefineClasses20merge_cp_a
   %36 = add nsw i32 %31, 1
   %37 = icmp sgt i32 %31, -1
   %38 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %36)
-  %39 = icmp ult i32 %38, 2
+  %39 = icmp samesign ult i32 %38, 2
   %or.cond.i.i.i.i.i.i = select i1 %37, i1 %39, i1 false
   %40 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %36, i1 true)
   %41 = sub nuw nsw i32 32, %40
@@ -5268,7 +5268,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %26, %_ZN26Gro
   %59 = add nsw i32 %54, 1
   %60 = icmp sgt i32 %54, -1
   %61 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %59)
-  %62 = icmp ult i32 %61, 2
+  %62 = icmp samesign ult i32 %61, 2
   %or.cond.i.i.i.i.i.i48 = select i1 %60, i1 %62, i1 false
   %63 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %59, i1 true)
   %64 = sub nuw nsw i32 32, %63
@@ -5306,7 +5306,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit51: ; preds = %_ZN18consta
   %81 = add nsw i32 %76, 1
   %82 = icmp sgt i32 %76, -1
   %83 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %81)
-  %84 = icmp ult i32 %83, 2
+  %84 = icmp samesign ult i32 %83, 2
   %or.cond.i.i.i.i.i.i54 = select i1 %82, i1 %84, i1 false
   %85 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %81, i1 true)
   %86 = sub nuw nsw i32 32, %85
@@ -6143,7 +6143,7 @@ define hidden void @_ZN18VM_RedefineClasses21set_new_constant_poolEP15ClassLoade
   %24 = add nsw i32 %19, 1
   %25 = icmp sgt i32 %19, -1
   %26 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %24)
-  %27 = icmp ult i32 %26, 2
+  %27 = icmp samesign ult i32 %26, 2
   %or.cond.i.i.i.i.i.i = select i1 %25, i1 %27, i1 false
   %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 true)
   %29 = sub nuw nsw i32 32, %28
@@ -6190,7 +6190,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %53 = add nsw i32 %48, 1
   %54 = icmp sgt i32 %48, -1
   %55 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %53)
-  %56 = icmp ult i32 %55, 2
+  %56 = icmp samesign ult i32 %55, 2
   %or.cond.i.i.i.i.i.i.i = select i1 %54, i1 %56, i1 false
   %57 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %53, i1 true)
   %58 = sub nuw nsw i32 32, %57
@@ -6668,7 +6668,7 @@ _ZN18VM_RedefineClasses14find_new_indexEi.exit231.thread: ; preds = %206, %256, 
   %287 = add nsw i32 %282, 1
   %288 = icmp sgt i32 %282, -1
   %289 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %287)
-  %290 = icmp ult i32 %289, 2
+  %290 = icmp samesign ult i32 %289, 2
   %or.cond.i.i.i.i.i.i234 = select i1 %288, i1 %290, i1 false
   %291 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %287, i1 true)
   %292 = sub nuw nsw i32 32, %291
@@ -7568,7 +7568,7 @@ _ZN18VM_RedefineClasses14find_new_indexEi.exit18: ; preds = %31, %37, %41
   %.0.i16 = phi i16 [ 0, %31 ], [ 0, %37 ], [ %spec.select.i17, %41 ]
   store i16 %.0.i16, ptr %32, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = icmp ult i64 %indvars.iv.next, %30
+  %49 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %49, label %31, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %_ZN18VM_RedefineClasses14find_new_indexEi.exit18, %22
@@ -7954,7 +7954,7 @@ define hidden noundef zeroext i1 @_ZN18VM_RedefineClasses26rewrite_cp_refs_in_me
   %32 = add nsw i32 %27, 1
   %33 = icmp sgt i32 %27, -1
   %34 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %32)
-  %35 = icmp ult i32 %34, 2
+  %35 = icmp samesign ult i32 %34, 2
   %or.cond.i.i.i.i.i.i = select i1 %33, i1 %35, i1 false
   %36 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %32, i1 true)
   %37 = sub nuw nsw i32 32, %36
@@ -14356,7 +14356,7 @@ define linkonce_odr hidden void @_ZN15FieldStreamBaseC2EPK5ArrayIhEP12ConstantPo
   %23 = add nsw i32 %18, 1
   %24 = icmp sgt i32 %18, -1
   %25 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %23)
-  %26 = icmp ult i32 %25, 2
+  %26 = icmp samesign ult i32 %25, 2
   %or.cond.i.i.i.i.i.i = select i1 %24, i1 %26, i1 false
   %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %23, i1 true)
   %28 = sub nuw nsw i32 32, %27
@@ -16215,7 +16215,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25

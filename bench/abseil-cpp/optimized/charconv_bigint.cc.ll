@@ -549,7 +549,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.body.i
-  %tobool.not.i = icmp ugt i64 %add.i, 4294967295
+  %tobool.not.i = icmp samesign ugt i64 %add.i, 4294967295
   %cmp14.i = icmp slt i32 %.sroa.speculated.i196201, 4
   %or.cond10.i = and i1 %cmp14.i, %tobool.not.i
   br i1 %or.cond10.i, label %if.then15.i, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit
@@ -578,7 +578,7 @@ while.body.i:                                     ; preds = %_ZN4absl16strings_i
   %cmp6.i = icmp ugt i32 %value.addr.013.i, %add.i57
   %inc.i = zext i1 %cmp6.i to i32
   %index.addr.1.i = add nuw nsw i32 %index.addr.012.i, %inc.i
-  %cmp.i58 = icmp ult i32 %index.addr.1.i, 4
+  %cmp.i58 = icmp samesign ult i32 %index.addr.1.i, 4
   %26 = and i1 %cmp6.i, %cmp.i58
   br i1 %26, label %while.body.i, label %while.end.i, !llvm.loop !12
 
@@ -673,7 +673,7 @@ while.body.i91:                                   ; preds = %while.body.i91, %wh
   %cmp6.i97 = icmp ugt i32 %value.addr.013.i92, %add.i96
   %inc.i98 = zext i1 %cmp6.i97 to i32
   %index.addr.1.i99 = add nuw nsw i32 %index.addr.012.i93, %inc.i98
-  %cmp.i100 = icmp ult i32 %index.addr.1.i99, 4
+  %cmp.i100 = icmp samesign ult i32 %index.addr.1.i99, 4
   %35 = and i1 %cmp6.i97, %cmp.i100
   br i1 %35, label %while.body.i91, label %while.end.i101, !llvm.loop !12
 
@@ -853,7 +853,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !11
 
 for.end.i.i:                                      ; preds = %for.body.i.i
-  %tobool.not.i.i = icmp ugt i64 %add.i.i, 4294967295
+  %tobool.not.i.i = icmp samesign ugt i64 %add.i.i, 4294967295
   %cmp14.i.i = icmp slt i32 %inc23.i3335.i, 4
   %or.cond10.i.i = and i1 %cmp14.i.i, %tobool.not.i.i
   br i1 %or.cond10.i.i, label %if.then15.i.i, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit.i
@@ -1525,7 +1525,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.body.i
-  %tobool.not.i = icmp ugt i64 %add.i, 4294967295
+  %tobool.not.i = icmp samesign ugt i64 %add.i, 4294967295
   %cmp14.i = icmp slt i32 %inc23.i3335, 4
   %or.cond10.i = and i1 %cmp14.i, %tobool.not.i
   br i1 %or.cond10.i, label %if.then15.i, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit
@@ -1850,7 +1850,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !11
 
 for.end.i.i:                                      ; preds = %for.body.i.i
-  %tobool.not.i.i = icmp ugt i64 %add.i.i, 4294967295
+  %tobool.not.i.i = icmp samesign ugt i64 %add.i.i, 4294967295
   %cmp14.i.i = icmp slt i32 %inc23.i3335.i, 4
   %or.cond10.i.i = and i1 %cmp14.i.i, %tobool.not.i.i
   br i1 %or.cond10.i.i, label %if.then15.i.i, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit.i
@@ -2838,7 +2838,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !26
 
 for.end.i:                                        ; preds = %for.body.i
-  %tobool.not.i = icmp ugt i64 %add.i, 4294967295
+  %tobool.not.i = icmp samesign ugt i64 %add.i, 4294967295
   %cmp14.i = icmp slt i32 %.sroa.speculated.i196201, 84
   %or.cond10.i = and i1 %cmp14.i, %tobool.not.i
   br i1 %or.cond10.i, label %if.then15.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit
@@ -2867,7 +2867,7 @@ while.body.i:                                     ; preds = %_ZN4absl16strings_i
   %cmp6.i = icmp ugt i32 %value.addr.013.i, %add.i57
   %inc.i = zext i1 %cmp6.i to i32
   %index.addr.1.i = add nuw nsw i32 %index.addr.012.i, %inc.i
-  %cmp.i58 = icmp ult i32 %index.addr.1.i, 84
+  %cmp.i58 = icmp samesign ult i32 %index.addr.1.i, 84
   %26 = and i1 %cmp6.i, %cmp.i58
   br i1 %26, label %while.body.i, label %while.end.i, !llvm.loop !27
 
@@ -2962,7 +2962,7 @@ while.body.i91:                                   ; preds = %while.body.i91, %wh
   %cmp6.i97 = icmp ugt i32 %value.addr.013.i92, %add.i96
   %inc.i98 = zext i1 %cmp6.i97 to i32
   %index.addr.1.i99 = add nuw nsw i32 %index.addr.012.i93, %inc.i98
-  %cmp.i100 = icmp ult i32 %index.addr.1.i99, 84
+  %cmp.i100 = icmp samesign ult i32 %index.addr.1.i99, 84
   %35 = and i1 %cmp6.i97, %cmp.i100
   br i1 %35, label %while.body.i91, label %while.end.i101, !llvm.loop !27
 
@@ -3142,7 +3142,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !26
 
 for.end.i.i:                                      ; preds = %for.body.i.i
-  %tobool.not.i.i = icmp ugt i64 %add.i.i, 4294967295
+  %tobool.not.i.i = icmp samesign ugt i64 %add.i.i, 4294967295
   %cmp14.i.i = icmp slt i32 %inc23.i3335.i, 84
   %or.cond10.i.i = and i1 %cmp14.i.i, %tobool.not.i.i
   br i1 %or.cond10.i.i, label %if.then15.i.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i
@@ -3814,7 +3814,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !26
 
 for.end.i:                                        ; preds = %for.body.i
-  %tobool.not.i = icmp ugt i64 %add.i, 4294967295
+  %tobool.not.i = icmp samesign ugt i64 %add.i, 4294967295
   %cmp14.i = icmp slt i32 %inc23.i3335, 84
   %or.cond10.i = and i1 %cmp14.i, %tobool.not.i
   br i1 %or.cond10.i, label %if.then15.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit
@@ -4139,7 +4139,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !26
 
 for.end.i.i:                                      ; preds = %for.body.i.i
-  %tobool.not.i.i = icmp ugt i64 %add.i.i, 4294967295
+  %tobool.not.i.i = icmp samesign ugt i64 %add.i.i, 4294967295
   %cmp14.i.i = icmp slt i32 %inc23.i3335.i, 84
   %or.cond10.i.i = and i1 %cmp14.i.i, %tobool.not.i.i
   br i1 %or.cond10.i.i, label %if.then15.i.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i

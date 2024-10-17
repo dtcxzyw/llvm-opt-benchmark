@@ -23342,7 +23342,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %14
   %16 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %17 = icmp ult i64 %16, 2
+  %17 = icmp samesign ult i64 %16, 2
   br i1 %17, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %18
 
 18:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i
@@ -23355,7 +23355,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2
   %21 = lshr i64 %.01114.i.i, %.015.i.i
   %22 = or i64 %21, %.01114.i.i
   %23 = shl nuw nsw i64 %.015.i.i, 1
-  %24 = icmp ult i64 %.015.i.i, 32
+  %24 = icmp samesign ult i64 %.015.i.i, 32
   br i1 %24, label %20, label %25, !llvm.loop !250
 
 25:                                               ; preds = %20
@@ -30141,7 +30141,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %44 = and i32 %43, 31
   %45 = add nuw nsw i32 %33, 5
   %46 = and i32 %45, 31
-  %47 = icmp ult i32 %44, %46
+  %47 = icmp samesign ult i32 %44, %46
   br i1 %47, label %49, label %64
 
 .critedge.i.i:                                    ; preds = %36, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3.i
@@ -30275,7 +30275,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %39 = and i32 %38, 31
   %40 = add nuw nsw i32 %28, 5
   %41 = and i32 %40, 31
-  %42 = icmp ult i32 %39, %41
+  %42 = icmp samesign ult i32 %39, %41
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
 .critedge.i:                                      ; preds = %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2
@@ -30541,7 +30541,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %39 = and i32 %38, 31
   %40 = add nuw nsw i32 %28, 5
   %41 = and i32 %40, 31
-  %42 = icmp ult i32 %39, %41
+  %42 = icmp samesign ult i32 %39, %41
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
 .critedge.i:                                      ; preds = %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
@@ -30693,7 +30693,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %42 = and i32 %41, 31
   %43 = add nuw nsw i32 %31, 5
   %44 = and i32 %43, 31
-  %45 = icmp ult i32 %42, %44
+  %45 = icmp samesign ult i32 %42, %44
   br i1 %45, label %47, label %.preheader
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i, %34
@@ -30770,7 +30770,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %85 = and i32 %84, 31
   %86 = add nuw nsw i32 %74, 5
   %87 = and i32 %86, 31
-  %88 = icmp ult i32 %85, %87
+  %88 = icmp samesign ult i32 %85, %87
   br i1 %88, label %.backedge, label %90
 
 .backedge:                                        ; preds = %83, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit16
@@ -31043,7 +31043,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %39 = and i32 %38, 31
   %40 = add nuw nsw i32 %28, 5
   %41 = and i32 %40, 31
-  %42 = icmp ult i32 %39, %41
+  %42 = icmp samesign ult i32 %39, %41
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
 .critedge.i:                                      ; preds = %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
@@ -39057,7 +39057,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorppEv.exit: ; preds 
 
 _ZNK32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratoreqERKS0_.exit8: ; preds = %82, %78, %74, %72, %_ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorppEv.exit
   %88 = phi i1 [ false, %72 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorppEv.exit ], [ false, %78 ], [ false, %74 ], [ %87, %82 ]
-  %89 = icmp ugt i64 %68, 3
+  %89 = icmp samesign ugt i64 %68, 3
   %.not5 = select i1 %88, i1 true, i1 %89
   br i1 %.not5, label %94, label %90
 
@@ -47138,7 +47138,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorppEv.exit: ; preds 
 
 _ZNK32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratoreqERKS0_.exit8: ; preds = %82, %78, %74, %72, %_ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorppEv.exit
   %88 = phi i1 [ false, %72 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorppEv.exit ], [ false, %78 ], [ false, %74 ], [ %87, %82 ]
-  %89 = icmp ugt i64 %68, 3
+  %89 = icmp samesign ugt i64 %68, 3
   %.not5 = select i1 %88, i1 true, i1 %89
   br i1 %.not5, label %94, label %90
 

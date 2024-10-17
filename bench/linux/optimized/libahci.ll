@@ -370,7 +370,7 @@ define internal noundef i32 @ahci_qc_prep(ptr noundef %0) #0 align 16 {
   %58 = tail call ptr @sg_next(ptr noundef %45) #12
   %59 = load i32, ptr %37, align 8
   %60 = zext i32 %59 to i64
-  %61 = icmp ult i64 %57, %60
+  %61 = icmp samesign ult i64 %57, %60
   br i1 %61, label %43, label %62, !llvm.loop !7
 
 62:                                               ; preds = %43
@@ -2293,7 +2293,7 @@ define internal i64 @ahci_led_store(ptr noundef %0, ptr noundef %1, i64 noundef 
   %10 = load i32, ptr %4, align 4
   %11 = lshr i32 %10, 8
   %12 = and i32 %11, 255
-  %13 = icmp ult i32 %12, 15
+  %13 = icmp samesign ult i32 %12, 15
   br i1 %13, label %14, label %33
 
 14:                                               ; preds = %9
@@ -2416,7 +2416,7 @@ define internal noundef i64 @ahci_transmit_led_message(ptr nocapture noundef rea
   %9 = load ptr, ptr %8, align 8
   %10 = lshr i32 %1, 8
   %11 = and i32 %10, 255
-  %12 = icmp ult i32 %11, 15
+  %12 = icmp samesign ult i32 %11, 15
   br i1 %12, label %13, label %56
 
 13:                                               ; preds = %3
@@ -3132,7 +3132,7 @@ define internal range(i32 0, 2) i32 @ahci_single_level_irq_intr(i32 %0, ptr noun
   %51 = add nuw nsw i64 %20, 1
   %52 = load i32, ptr %13, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %51, %53
+  %54 = icmp samesign ult i64 %51, %53
   br i1 %54, label %19, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %49, %10
@@ -4465,7 +4465,7 @@ define dso_local range(i32 0, 2) i32 @ahci_handle_port_intr(ptr nocapture nounde
   %42 = add nuw nsw i64 %10, 1
   %43 = load i32, ptr %3, align 8
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %42, %44
+  %45 = icmp samesign ult i64 %42, %44
   br i1 %45, label %9, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %40, %2

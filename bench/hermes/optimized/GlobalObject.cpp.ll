@@ -663,7 +663,7 @@ _ZNK6hermes2vm10StringView14const_iteratordeEv.exit208.us: ; preds = %cond.false
   %53 = add i16 %cond.i205.us, -48
   %or.cond.i.us = icmp ult i16 %53, 10
   %conv.i.us = zext nneg i16 %cond.i205.us to i32
-  %cmp5.i.us = icmp ugt i32 %add.i, %conv.i.us
+  %cmp5.i.us = icmp samesign ugt i32 %add.i, %conv.i.us
   %or.cond497 = select i1 %or.cond.i.us, i1 %cmp5.i.us, i1 false
   br i1 %or.cond497, label %for.inc.us, label %for.end
 
@@ -715,7 +715,7 @@ if.end.i209.us464:                                ; preds = %_ZNK6hermes2vm10Str
   %58 = or i16 %cond.i205.us462, 32
   %cmp9.i.us = icmp ugt i16 %58, 96
   %conv8.i.us = zext i16 %58 to i32
-  %cmp12.i.us = icmp ugt i32 %sub.i592604, %conv8.i.us
+  %cmp12.i.us = icmp samesign ugt i32 %sub.i592604, %conv8.i.us
   %or.cond495 = select i1 %cmp9.i.us, i1 %cmp12.i.us, i1 false
   br i1 %or.cond495, label %for.inc.us468, label %for.end
 
@@ -1378,7 +1378,7 @@ if.end86:                                         ; preds = %if.end72
   %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %str8, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i, align 4
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %cmp.i.i111 = icmp ugt i64 %str16.sroa.18.8.insert.ext365, 31
+  %cmp.i.i111 = icmp samesign ugt i64 %str16.sroa.18.8.insert.ext365, 31
   br i1 %cmp.i.i111, label %if.then.i.i113, label %if.end.i.i112
 
 if.then.i.i113:                                   ; preds = %if.end86
@@ -1683,7 +1683,7 @@ entry:
   %str1.sroa.10.8.extract.shift = lshr i64 %str1.coerce1, 32
   %str2.sroa.3.8.extract.trunc = trunc i64 %str2.coerce1 to i32
   %str2.sroa.6.8.extract.shift = lshr i64 %str2.coerce1, 32
-  %cmp = icmp ugt i64 %str1.sroa.10.8.extract.shift, %str2.sroa.6.8.extract.shift
+  %cmp = icmp samesign ugt i64 %str1.sroa.10.8.extract.shift, %str2.sroa.6.8.extract.shift
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

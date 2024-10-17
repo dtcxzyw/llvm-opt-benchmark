@@ -2677,8 +2677,8 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %if.then
   %and5 = and i32 %c, 224
   %cmp6 = icmp eq i32 %and5, 192
-  %cmp7 = icmp ugt i32 %c, 193
-  %or.cond = and i1 %cmp7, %cmp6
+  %cmp7 = icmp samesign ugt i32 %c, 193
+  %or.cond = select i1 %cmp6, i1 %cmp7, i1 false
   br i1 %or.cond, label %if.end25, label %if.else10
 
 if.else10:                                        ; preds = %if.else
@@ -2689,8 +2689,8 @@ if.else10:                                        ; preds = %if.else
 if.else15:                                        ; preds = %if.else10
   %and16 = and i32 %c, 248
   %cmp17 = icmp eq i32 %and16, 240
-  %cmp19 = icmp ult i32 %c, 245
-  %or.cond1 = and i1 %cmp19, %cmp17
+  %cmp19 = icmp samesign ult i32 %c, 245
+  %or.cond1 = select i1 %cmp17, i1 %cmp19, i1 false
   br i1 %or.cond1, label %if.end25, label %return
 
 if.end25:                                         ; preds = %if.else15, %if.else10, %if.else, %if.then
@@ -2719,14 +2719,14 @@ lor.lhs.false:                                    ; preds = %if.then41
   %utf8_first_byte_44 = getelementptr inbounds i8, ptr %this, i64 66
   %1 = load i8, ptr %utf8_first_byte_44, align 2
   %cmp46 = icmp eq i8 %1, -32
-  %cmp48 = icmp ult i32 %c, 160
-  %or.cond2 = and i1 %cmp48, %cmp46
+  %cmp48 = icmp samesign ult i32 %c, 160
+  %or.cond2 = select i1 %cmp46, i1 %cmp48, i1 false
   br i1 %or.cond2, label %return, label %lor.lhs.false49
 
 lor.lhs.false49:                                  ; preds = %lor.lhs.false
   %cmp52 = icmp eq i8 %1, -19
-  %cmp54 = icmp ugt i32 %c, 159
-  %or.cond3 = and i1 %cmp54, %cmp52
+  %cmp54 = icmp samesign ugt i32 %c, 159
+  %or.cond3 = select i1 %cmp52, i1 %cmp54, i1 false
   br i1 %or.cond3, label %return, label %if.end56
 
 if.end56:                                         ; preds = %lor.lhs.false49
@@ -2742,14 +2742,14 @@ lor.lhs.false66:                                  ; preds = %if.then63
   %utf8_first_byte_67 = getelementptr inbounds i8, ptr %this, i64 66
   %2 = load i8, ptr %utf8_first_byte_67, align 2
   %cmp69 = icmp eq i8 %2, -16
-  %cmp71 = icmp ult i32 %c, 144
-  %or.cond4 = and i1 %cmp71, %cmp69
+  %cmp71 = icmp samesign ult i32 %c, 144
+  %or.cond4 = select i1 %cmp69, i1 %cmp71, i1 false
   br i1 %or.cond4, label %return, label %lor.lhs.false72
 
 lor.lhs.false72:                                  ; preds = %lor.lhs.false66
   %cmp75 = icmp eq i8 %2, -12
-  %cmp77 = icmp ugt i32 %c, 143
-  %or.cond5 = and i1 %cmp77, %cmp75
+  %cmp77 = icmp samesign ugt i32 %c, 143
+  %or.cond5 = select i1 %cmp75, i1 %cmp77, i1 false
   br i1 %or.cond5, label %return, label %if.end79
 
 if.end79:                                         ; preds = %lor.lhs.false72

@@ -452,7 +452,7 @@ define noundef i64 @_ZN7RawRead4GetVEv(ptr nocapture noundef nonnull align 8 der
 7:                                                ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 7
   %8 = icmp ult i64 %13, %4
-  %9 = icmp ult i64 %indvars.iv, 57
+  %9 = icmp samesign ult i64 %indvars.iv, 57
   %10 = select i1 %8, i1 %9, i1 false
   br i1 %10, label %11, label %._crit_edge, !llvm.loop !4
 

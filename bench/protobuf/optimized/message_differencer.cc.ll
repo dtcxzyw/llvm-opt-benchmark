@@ -13642,7 +13642,7 @@ for.inc154:                                       ; preds = %invoke.cont120, %if
   %next_unmatched_index.1 = phi i32 [ %next_unmatched_index.2, %invoke.cont150 ], [ %next_unmatched_index.2, %if.else140 ], [ %next_unmatched_index.2, %invoke.cont139 ], [ %next_unmatched_index.2, %invoke.cont120 ], [ %next_unmatched_index.0428, %invoke.cont60 ], [ %next_unmatched_index.0428, %if.then50 ]
   %fieldDifferent.1 = phi i1 [ %fieldDifferent.2, %invoke.cont150 ], [ %fieldDifferent.2, %if.else140 ], [ %fieldDifferent.2, %invoke.cont139 ], [ true, %invoke.cont120 ], [ true, %invoke.cont60 ], [ %fieldDifferent.0430, %if.then50 ]
   %indvars.iv.next446 = add nuw nsw i64 %indvars.iv445, 1
-  %cmp40 = icmp uge i64 %indvars.iv.next446, %14
+  %cmp40 = icmp samesign uge i64 %indvars.iv.next446, %14
   %cmp43.not = icmp sge i64 %indvars.iv.next446, %13
   %or.cond117.not = and i1 %12, %cmp43.not
   %or.cond386 = or i1 %cmp40, %or.cond117.not
@@ -15412,7 +15412,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i, %if.end4.
   br i1 %cmp2.not.i.i.i, label %if.end4.i.i.i, label %if.then.i.i
 
 if.end4.i.i.i:                                    ; preds = %while.body.i.i.i
-  %cmp1.not.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i, 3
+  %cmp1.not.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i, 3
   br i1 %cmp1.not.i.i.i, label %if.then5.i, label %while.body.i.i.i, !llvm.loop !265
 
 if.then.i.i:                                      ; preds = %while.body.i.i.i

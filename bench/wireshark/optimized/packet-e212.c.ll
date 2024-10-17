@@ -2132,10 +2132,10 @@ switch.lookup:                                    ; preds = %6
   %45 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %44, ptr noundef nonnull @.str.3, i32 noundef %28) #3
   %46 = tail call ptr @val_to_str_ext_const(i32 noundef %28, ptr noundef nonnull @E212_codes_ext, ptr noundef nonnull @.str.5) #3
   %47 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %2, i32 noundef %.0103, ptr noundef %0, i32 noundef %3, i32 noundef 2, ptr noundef %45, ptr noundef nonnull @.str.4, ptr noundef %46, ptr noundef %45) #3
-  %48 = icmp ugt i8 %13, 9
+  %48 = icmp samesign ugt i8 %13, 9
   %49 = icmp ugt i8 %12, -97
   %or.cond4 = or i1 %49, %48
-  %50 = icmp ugt i8 %17, 9
+  %50 = icmp samesign ugt i8 %17, 9
   %or.cond7 = select i1 %or.cond4, i1 true, i1 %50
   %51 = icmp ne i32 %11, 16777215
   %or.cond9 = select i1 %or.cond7, i1 %51, i1 false
@@ -2160,7 +2160,7 @@ switch.lookup:                                    ; preds = %6
   %62 = tail call ptr @val_to_str_ext_const(i32 noundef %28, ptr noundef nonnull @E212_codes_ext, ptr noundef nonnull @.str.7) #3
   %63 = tail call ptr @val_to_str_ext_const(i32 noundef %58, ptr noundef nonnull %mcc_mnc_3digits_codes_ext.mcc_mnc_2digits_codes_ext, ptr noundef nonnull @.str.7) #3
   %64 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %61, ptr noundef nonnull %.str.6..str.9, i32 noundef %28, ptr noundef %62, i32 noundef %.0107.in, ptr noundef %63) #3
-  %65 = icmp ugt i8 %21, 9
+  %65 = icmp samesign ugt i8 %21, 9
   %66 = icmp ugt i8 %20, -97
   %or.cond12 = or i1 %66, %65
   br i1 %or.cond12, label %69, label %67
@@ -2241,10 +2241,10 @@ define range(i32 5, 7) i32 @dissect_e212_mcc_mnc_in_address(ptr noundef %0, ptr 
   %37 = load i32, ptr @hf_E212_mcc, align 4
   %38 = tail call ptr @val_to_str_ext_const(i32 noundef %22, ptr noundef nonnull @E212_codes_ext, ptr noundef nonnull @.str.5) #3
   %39 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %3, i32 noundef 2, ptr noundef %36, ptr noundef nonnull @.str.4, ptr noundef %38, ptr noundef %36) #3
-  %40 = icmp ugt i8 %7, 9
+  %40 = icmp samesign ugt i8 %7, 9
   %41 = icmp ugt i8 %6, -97
   %or.cond5 = or i1 %41, %40
-  %42 = icmp ugt i8 %11, 9
+  %42 = icmp samesign ugt i8 %11, 9
   %or.cond8 = select i1 %or.cond5, i1 true, i1 %42
   %43 = icmp ne i32 %5, 16777215
   %or.cond10 = select i1 %or.cond8, i1 %43, i1 false
@@ -2277,8 +2277,8 @@ define range(i32 5, 7) i32 @dissect_e212_mcc_mnc_in_address(ptr noundef %0, ptr 
 60:                                               ; preds = %55, %48
   %.087 = phi ptr [ %54, %48 ], [ %59, %55 ]
   %61 = icmp ugt i8 %10, -97
-  %62 = icmp ugt i8 %15, 9
-  %or.cond13 = or i1 %61, %62
+  %62 = icmp samesign ugt i8 %15, 9
+  %or.cond13 = select i1 %61, i1 true, i1 %62
   br i1 %or.cond13, label %65, label %63
 
 63:                                               ; preds = %60

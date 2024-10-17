@@ -149,7 +149,7 @@ do.end.i:                                         ; preds = %st_mult.exit.i, %do
   %alloc.2.i = phi i64 [ %add.div17.i, %st_mult.exit.i ], [ %alloc.039.i, %do.body.i ]
   %items.1.i = phi ptr [ %call16.i, %st_mult.exit.i ], [ %items.040.i, %do.body.i ]
   %arrayidx.i = getelementptr inbounds %struct.parallel_checkout_item, ptr %items.1.i, i64 %nr.038.i
-  %cmp.i18.i = icmp ult i32 %call41.i, 72
+  %cmp.i18.i = icmp samesign ult i32 %call41.i, 72
   br i1 %cmp.i18.i, label %if.then.i19.i, label %if.end.i.i
 
 if.then.i19.i:                                    ; preds = %do.end.i

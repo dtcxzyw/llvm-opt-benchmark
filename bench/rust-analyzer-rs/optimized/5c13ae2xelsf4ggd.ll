@@ -352,9 +352,9 @@ define void @_ZN6parser9lexed_str8LexedStr3new17hbb9240a51ed04732E(ptr noalias n
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %3
-  %15 = icmp ult i64 %12, 5
+  %15 = icmp samesign ult i64 %12, 5
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ult i64 %12, 3
+  %16 = icmp samesign ult i64 %12, 3
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
@@ -2529,9 +2529,9 @@ define void @"_ZN6parser9shortcuts45_$LT$impl$u20$parser..lexed_str..LexedStr$GT
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %2
-  %10 = icmp ult i64 %7, 5
+  %10 = icmp samesign ult i64 %7, 5
   tail call void @llvm.assume(i1 %10)
-  %11 = icmp ult i64 %7, 3
+  %11 = icmp samesign ult i64 %7, 3
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %9
@@ -2989,7 +2989,7 @@ default.unreachable:                              ; preds = %"_ZN102_$LT$core..i
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h49f0690edf64ef0aE.exit.thread": ; preds = %_ZN6parser9shortcuts7Builder4exit17h8e6d44809751d2f1E.exit, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h49f0690edf64ef0aE.exit"
   %.pre = load i8, ptr %13, align 8, !range !76
-  %24 = icmp ult i8 %.pre, 2
+  %24 = icmp samesign ult i8 %.pre, 2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   store i8 1, ptr %13, align 8
   br i1 %24, label %25, label %26

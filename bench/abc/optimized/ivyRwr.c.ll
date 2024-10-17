@@ -149,7 +149,7 @@ Abc_Clock.exit:                                   ; preds = %4, %21
   br i1 %.not83, label %Ivy_NodeRewrite.exit.thread.thread, label %93
 
 93:                                               ; preds = %91
-  %.not84 = icmp ult i64 %indvars.iv, %80
+  %.not84 = icmp samesign ult i64 %indvars.iv, %80
   br i1 %.not84, label %94, label %.critedge
 
 94:                                               ; preds = %93

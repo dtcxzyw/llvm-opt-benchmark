@@ -1205,7 +1205,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i
@@ -8384,7 +8384,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEb
   br i1 %51, label %82, label %52
 
 52:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i, %50
-  %.not184 = icmp ult i64 %.067.i, 2
+  %.not184 = icmp samesign ult i64 %.067.i, 2
   br i1 %.not184, label %_ZSt13__lower_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.i.i
 
 _ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.i.i: ; preds = %52, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPK16ImpliedExtsEntryKN4llvm9StringRefEEEbT_RT0_.exit.i.i
@@ -11418,7 +11418,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEb
   br i1 %23, label %54, label %24
 
 24:                                               ; preds = %22, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit
-  %.not = icmp ult i64 %.067, 2
+  %.not = icmp samesign ult i64 %.067, 2
   br i1 %.not, label %_ZSt13__lower_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit, label %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.i
 
 _ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.i: ; preds = %24, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPK16ImpliedExtsEntryKN4llvm9StringRefEEEbT_RT0_.exit.i

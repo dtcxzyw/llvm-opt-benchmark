@@ -440,7 +440,7 @@ define dso_local i32 @crypto_register_lskcipher(ptr noundef %0) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
   %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %7), !range !9
-  %9 = icmp ult i32 %8, 2
+  %9 = icmp samesign ult i32 %8, 2
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %5
@@ -494,7 +494,7 @@ define dso_local i32 @crypto_register_lskciphers(ptr noundef %0, i32 noundef %1)
   %13 = getelementptr inbounds i8, ptr %8, i64 52
   %14 = load i32, ptr %13, align 4
   %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14), !range !9
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   br i1 %16, label %17, label %.thread6
 
 17:                                               ; preds = %12
@@ -583,7 +583,7 @@ define dso_local i32 @lskcipher_register_instance(ptr noundef %0, ptr noundef %1
   %11 = getelementptr inbounds i8, ptr %1, i64 60
   %12 = load i32, ptr %11, align 4
   %13 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %12), !range !9
-  %14 = icmp ult i32 %13, 2
+  %14 = icmp samesign ult i32 %13, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %10

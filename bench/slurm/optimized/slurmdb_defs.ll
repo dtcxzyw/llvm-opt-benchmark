@@ -449,7 +449,7 @@ define range(i32 -1, 1) i32 @slurmdb_setup_cluster_rec(ptr noundef %0) local_unn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load i16, ptr %23, align 4
   %60 = zext i16 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next, %60
   br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %45, %22, %26, %4, %7, %16

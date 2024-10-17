@@ -2109,7 +2109,7 @@ for.body.i119:                                    ; preds = %for.body.i119, %for
 
 _ZL19decodeMultiByteCharPKhjj.exit:               ; preds = %for.body.i119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp69 = icmp ult i64 %indvars.iv.next, %70
+  %cmp69 = icmp samesign ult i64 %indvars.iv.next, %70
   br i1 %cmp69, label %for.inc, label %lor.lhs.false70
 
 lor.lhs.false70:                                  ; preds = %_ZL19decodeMultiByteCharPKhjj.exit
@@ -3809,7 +3809,7 @@ if.then28.i:                                      ; preds = %_ZNK10StringView10s
   %call30.i = tail call fastcc i16 @_ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
   %ref.tmp29.i.sroa.0.0.extract.trunc = trunc nuw i16 %call30.i to i8
   store i8 %ref.tmp29.i.sroa.0.0.extract.trunc, ptr %Quals.i.i5.i503, align 1
-  %tobool33.i.not = icmp ult i16 %call30.i, 256
+  %tobool33.i.not = icmp samesign ult i16 %call30.i, 256
   tail call void @llvm.assume(i1 %tobool33.i.not)
   br label %if.end37.i
 
@@ -6226,7 +6226,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.co
   %arrayidx.i = getelementptr inbounds [17 x i8], ptr %TempBuffer.i, i64 0, i64 %indvars.iv.i
   %61 = trunc i32 %C.addr.135.i to i8
   %conv.i = and i8 %61, 15
-  %cmp.i.i253 = icmp ult i8 %conv.i, 10
+  %cmp.i.i253 = icmp samesign ult i8 %conv.i, 10
   %add.i.i254 = or disjoint i8 %conv.i, 48
   %sub.i.i = add nuw nsw i8 %conv.i, 55
   %cond.i.i = select i1 %cmp.i.i253, i8 %add.i.i254, i8 %sub.i.i
@@ -10446,7 +10446,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle18ThunkSignatureNodeE, i64 16), ptr %call2.i.sink23.i48, align 8
   %ThisAdjust.i13.i58 = getelementptr inbounds i8, ptr %call2.i.sink23.i48, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ThisAdjust.i13.i58, i8 0, i64 16, i1 false)
-  %tobool18.not = icmp ult i16 %retval.0.i.ph, 1024
+  %tobool18.not = icmp samesign ult i16 %retval.0.i.ph, 1024
   br i1 %tobool18.not, label %if.end26, label %if.then19
 
 if.then19:                                        ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit60

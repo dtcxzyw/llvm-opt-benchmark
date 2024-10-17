@@ -231,7 +231,7 @@ BufferGetPage.exit.i:                             ; preds = %74, %68
   %112 = getelementptr inbounds i8, ptr %90, i64 8
   %113 = load i32, ptr %112, align 4
   %114 = zext i32 %113 to i64
-  %115 = icmp ugt i64 %indvars.iv, %114
+  %115 = icmp samesign ugt i64 %indvars.iv, %114
   %spec.select.i = select i1 %115, i32 %113, i32 -1
   br label %116
 
@@ -691,8 +691,8 @@ BufferGetPage.exit50.i.i:                         ; preds = %314, %308
   %350 = trunc i32 %349 to i16
   %.0.i51.i.i = select i1 %346, i16 0, i16 %350
   %351 = icmp ult i16 %.0.i51.i.i, %299
-  %352 = icmp ult i16 %.0.i51.i.i, 2
-  %or.cond54.i.i = or i1 %351, %352
+  %352 = icmp samesign ult i16 %.0.i51.i.i, 2
+  %or.cond54.i.i = select i1 %351, i1 true, i1 %352
   br i1 %or.cond54.i.i, label %gistdeletepage.exit.thread.i, label %353
 
 353:                                              ; preds = %344

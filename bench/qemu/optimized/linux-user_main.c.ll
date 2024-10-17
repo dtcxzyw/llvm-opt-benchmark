@@ -890,7 +890,7 @@ for.body172:                                      ; preds = %for.body172.prehead
   %arrayidx178 = getelementptr ptr, ptr %call156, i64 %indvars.iv
   store ptr %call176, ptr %arrayidx178, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp170 = icmp ult i64 %indvars.iv.next, %56
+  %cmp170 = icmp samesign ult i64 %indvars.iv.next, %56
   br i1 %cmp170, label %for.body172, label %for.end181, !llvm.loop !14
 
 for.end181:                                       ; preds = %for.body172, %if.end168.for.end181_crit_edge
@@ -1460,7 +1460,7 @@ entry:
   store i64 %conv, ptr @qemu_host_page_size, align 8
   %cmp = icmp ne i32 %call, 0
   %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %conv)
-  %cmp2.not = icmp ult i64 %0, 2
+  %cmp2.not = icmp samesign ult i64 %0, 2
   %or.cond = select i1 %cmp, i1 %cmp2.not, i1 false
   br i1 %or.cond, label %if.end, label %if.then
 

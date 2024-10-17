@@ -111,7 +111,7 @@ define void @_ZN11cache_sim_tC2EmmmPKc(ptr noundef nonnull align 8 dereferenceab
   %17 = load i64, ptr %10, align 8
   %18 = icmp ugt i64 %17, 7
   %19 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %17)
-  %.not4.i = icmp ult i64 %19, 2
+  %.not4.i = icmp samesign ult i64 %19, 2
   %or.cond5.i = select i1 %18, i1 %.not4.i, i1 false
   br i1 %or.cond5.i, label %.lr.ph.i, label %.invoke
 
@@ -275,7 +275,7 @@ define void @_ZN11cache_sim_t4initEv(ptr nocapture noundef nonnull align 8 deref
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %8, 7
   %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %8)
-  %.not4 = icmp ult i64 %10, 2
+  %.not4 = icmp samesign ult i64 %10, 2
   %or.cond5 = select i1 %9, i1 %.not4, i1 false
   br i1 %or.cond5, label %.lr.ph, label %11
 

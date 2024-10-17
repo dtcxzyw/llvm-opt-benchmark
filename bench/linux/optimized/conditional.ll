@@ -242,7 +242,7 @@ define dso_local void @evaluate_cond_nodes(ptr nocapture noundef readonly %0) lo
   %142 = add nuw nsw i64 %134, 1
   %143 = load i32, ptr %119, align 8
   %144 = zext i32 %143 to i64
-  %145 = icmp ult i64 %142, %144
+  %145 = icmp samesign ult i64 %142, %144
   br i1 %145, label %133, label %.loopexit5, !llvm.loop !9
 
 146:                                              ; preds = %146, %129
@@ -258,14 +258,14 @@ define dso_local void @evaluate_cond_nodes(ptr nocapture noundef readonly %0) lo
   %155 = add nuw nsw i64 %147, 1
   %156 = load i32, ptr %126, align 8
   %157 = zext i32 %156 to i64
-  %158 = icmp ult i64 %155, %157
+  %158 = icmp samesign ult i64 %155, %157
   br i1 %158, label %146, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %146, %.loopexit5, %.thread
   %159 = add nuw nsw i64 %10, 1
   %160 = load i32, ptr %3, align 8
   %161 = zext i32 %160 to i64
-  %162 = icmp ult i64 %159, %161
+  %162 = icmp samesign ult i64 %159, %161
   br i1 %162, label %9, label %.loopexit6, !llvm.loop !11
 
 .loopexit6:                                       ; preds = %.loopexit, %1
@@ -326,7 +326,7 @@ define dso_local void @cond_policydb_destroy(ptr noundef %0) local_unnamed_addr 
   %20 = add nuw nsw i64 %11, 1
   %21 = load i32, ptr %5, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %20, %22
+  %23 = icmp samesign ult i64 %20, %22
   br i1 %23, label %10, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %10, %1
@@ -746,7 +746,7 @@ cond_read_av_list.exit.thread:                    ; preds = %90, %.loopexit21, %
   %151 = add nuw nsw i64 %142, 1
   %152 = load i32, ptr %139, align 8
   %153 = zext i32 %152 to i64
-  %154 = icmp ult i64 %151, %153
+  %154 = icmp samesign ult i64 %151, %153
   br i1 %154, label %.preheader, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %.thread16
@@ -848,7 +848,7 @@ define dso_local i32 @cond_write_list(ptr noundef %0, ptr noundef %1) local_unna
   %20 = add nuw nsw i64 %28, 1
   %21 = load i32, ptr %3, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %20, %22
+  %23 = icmp samesign ult i64 %20, %22
   br i1 %23, label %thread-pre-split, label %.thread21, !llvm.loop !16
 
 thread-pre-split:                                 ; preds = %.loopexit
@@ -912,7 +912,7 @@ thread-pre-split:                                 ; preds = %.loopexit
   %59 = add nuw nsw i64 %48, 1
   %60 = load i32, ptr %36, align 8
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %59, %61
+  %62 = icmp samesign ult i64 %59, %61
   br i1 %62, label %thread-pre-split10, label %thread-pre-split13, !llvm.loop !17
 
 thread-pre-split10:                               ; preds = %.lr.ph
@@ -944,7 +944,7 @@ thread-pre-split13:                               ; preds = %.lr.ph, %38
   %78 = add nuw nsw i64 %82, 1
   %79 = load i32, ptr %67, align 8
   %80 = zext i32 %79 to i64
-  %81 = icmp ult i64 %78, %80
+  %81 = icmp samesign ult i64 %78, %80
   br i1 %81, label %.preheader22, label %thread-pre-split17, !llvm.loop !18
 
 .preheader22:                                     ; preds = %69, %77
@@ -985,7 +985,7 @@ thread-pre-split17:                               ; preds = %77
   %103 = add nuw nsw i64 %107, 1
   %104 = load i32, ptr %91, align 8
   %105 = zext i32 %104 to i64
-  %106 = icmp ult i64 %103, %105
+  %106 = icmp samesign ult i64 %103, %105
   br i1 %106, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .preheader:                                       ; preds = %93, %102
@@ -1280,7 +1280,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef %0
   %38 = add nuw nsw i64 %43, 1
   %39 = load i32, ptr %27, align 8
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %38, %40
+  %41 = icmp samesign ult i64 %38, %40
   br i1 %41, label %42, label %.loopexit9, !llvm.loop !21
 
 42:                                               ; preds = %.loopexit5, %36
@@ -1354,7 +1354,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef %0
   %92 = add nuw nsw i64 %77, 1
   %93 = load i32, ptr %65, align 8
   %94 = zext i32 %93 to i64
-  %95 = icmp ult i64 %92, %94
+  %95 = icmp samesign ult i64 %92, %94
   br i1 %95, label %76, label %.loopexit7, !llvm.loop !22
 
 .loopexit7:                                       ; preds = %89, %71
@@ -1402,7 +1402,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef %0
   %125 = add nuw nsw i64 %110, 1
   %126 = load i32, ptr %98, align 8
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %125, %127
+  %128 = icmp samesign ult i64 %125, %127
   br i1 %128, label %109, label %.loopexit5, !llvm.loop !22
 
 .loopexit4:                                       ; preds = %.loopexit7, %60, %42, %76, %109, %26
@@ -1427,7 +1427,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef %0
   %140 = add nuw nsw i64 %131, 1
   %141 = load i32, ptr %5, align 8
   %142 = zext i32 %141 to i64
-  %143 = icmp ult i64 %140, %142
+  %143 = icmp samesign ult i64 %140, %142
   br i1 %143, label %.preheader, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit4

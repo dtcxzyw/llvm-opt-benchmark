@@ -26400,7 +26400,7 @@ lpad:                                             ; preds = %for.body
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #41
-  %cmp935 = icmp ugt i64 %__i.034, 1
+  %cmp935 = icmp samesign ugt i64 %__i.034, 1
   br i1 %cmp935, label %for.body10, label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.body10, %lpad
@@ -26519,7 +26519,7 @@ lpad:                                             ; preds = %for.body
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #41
-  %cmp934 = icmp ugt i64 %__i.033, 1
+  %cmp934 = icmp samesign ugt i64 %__i.033, 1
   br i1 %cmp934, label %for.body10, label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.body10, %lpad
@@ -28274,7 +28274,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   %i.0.i.i2.lcssa = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ], [ 2, %for.inc.i.i.1 ], [ 3, %for.inc.i.i.2 ], [ 4, %for.inc.i.i.3 ], [ 5, %for.inc.i.i.4 ], [ 6, %for.inc.i.i.5 ], [ 7, %for.inc.i.i.6 ], [ 8, %for.inc.i.i.7 ], [ 9, %for.inc.i.i.8 ], [ 10, %for.inc.i.i.9 ], [ 11, %for.inc.i.i.10 ], [ 12, %for.inc.i.i.11 ], [ 13, %for.inc.i.i.12 ], [ 14, %for.inc.i.i.13 ], [ 15, %for.inc.i.i.14 ], [ 16, %for.inc.i.i.15 ], [ 17, %for.inc.i.i.16 ], [ 18, %for.inc.i.i.17 ], [ 19, %for.inc.i.i.18 ]
   %conv3.i.i = zext i1 %cmp1.i.i to i64
   %add.i.i = add nuw nsw i64 %i.0.i.i2.lcssa, %conv3.i.i
-  %cmp.i3 = icmp ugt i64 %add.i.i, 2
+  %cmp.i3 = icmp samesign ugt i64 %add.i.i, 2
   br i1 %cmp.i3, label %while.body.i.preheader, label %while.end.i, !prof !1447
 
 while.body.i.preheader:                           ; preds = %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit, %for.inc.i.i.18
@@ -66376,7 +66376,7 @@ if.then42.i:                                      ; preds = %if.end37.i
 
 if.end49.i:                                       ; preds = %if.end37.i
   %mul50.i = mul nsw i64 %spec.store.select.i, %spec.store.select.i
-  %cmp53.i = icmp ugt i64 %mul50.i, 9223372036854675807
+  %cmp53.i = icmp samesign ugt i64 %mul50.i, 9223372036854675807
   br i1 %cmp53.i, label %if.then54.i, label %if.end61.i
 
 if.then54.i:                                      ; preds = %if.end49.i
@@ -70391,7 +70391,7 @@ for.body.us:                                      ; preds = %for.inc.us
   br i1 %cmp.i.us, label %cleanup12.loopexit, label %lor.lhs.false.us, !llvm.loop !2313
 
 for.body:                                         ; preds = %for.inc
-  %cmp.not = icmp uge i64 %indvars.iv.next, %2
+  %cmp.not = icmp samesign uge i64 %indvars.iv.next, %2
   %10 = load ptr, ptr %last, align 8, !tbaa !22
   %cmp.i = icmp eq ptr %incdec.ptr.i, %10
   br i1 %cmp.i, label %cleanup12, label %lor.lhs.falsethread-pre-split, !llvm.loop !2314
@@ -70447,7 +70447,7 @@ for.end:                                          ; preds = %for.inc.us, %for.en
   br label %cleanup12
 
 cleanup12.loopexit:                               ; preds = %for.body.us, %lor.lhs.false.us
-  %cmp.not.us.le = icmp uge i64 %indvars.iv.next.us, %2
+  %cmp.not.us.le = icmp samesign uge i64 %indvars.iv.next.us, %2
   br label %cleanup12
 
 cleanup12:                                        ; preds = %for.body, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit, %cleanup12.loopexit, %lor.lhs.false.preheader.split.us, %for.end, %for.body.lr.ph
@@ -71668,7 +71668,7 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   br i1 %cmp.i.i45.i.i.i, label %cleanup.i.i.i, label %if.else15.i.i.i
 
 if.else15.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp17.i.i.i.i.not = icmp ult i64 %__len.098.i.i.i, 2
+  %cmp17.i.i.i.i.not = icmp samesign ult i64 %__len.098.i.i.i, 2
   br i1 %cmp17.i.i.i.i.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost13re_detail_50020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SE_SE_RKT0_T1_.exit.i.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.else15.i.i.i, %while.body.i.i.i.i
@@ -73868,7 +73868,7 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   br i1 %cmp.i.i45.i.i.i, label %cleanup.i.i.i, label %if.else15.i.i.i
 
 if.else15.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp17.i.i.i.i.not = icmp ult i64 %__len.098.i.i.i, 2
+  %cmp17.i.i.i.i.not = icmp samesign ult i64 %__len.098.i.i.i, 2
   br i1 %cmp17.i.i.i.i.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost13re_detail_50020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SE_SE_RKT0_T1_.exit.i.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.else15.i.i.i, %while.body.i.i.i.i
@@ -74090,7 +74090,7 @@ if.else.i.i.i131:                                 ; preds = %while.body.i.i.i120
   br i1 %cmp.i.i45.i.i.i132, label %cleanup.i.i.i182, label %if.else15.i.i.i133
 
 if.else15.i.i.i133:                               ; preds = %if.else.i.i.i131
-  %cmp17.i.i.i.i137.not = icmp ult i64 %__len.098.i.i.i121, 2
+  %cmp17.i.i.i.i137.not = icmp samesign ult i64 %__len.098.i.i.i121, 2
   br i1 %cmp17.i.i.i.i137.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost13re_detail_50020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SE_SE_RKT0_T1_.exit.i.i.i138, label %while.body.i.i.i.i166
 
 while.body.i.i.i.i166:                            ; preds = %if.else15.i.i.i133, %while.body.i.i.i.i166

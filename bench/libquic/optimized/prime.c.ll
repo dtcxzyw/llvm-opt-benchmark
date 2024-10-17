@@ -115,7 +115,7 @@ loop.preheader:                                   ; preds = %if.end54
   %cmp59 = icmp eq ptr %add, null
   %cmp12.i65 = icmp eq ptr %rem, null
   %dec.i = add nsw i32 %bits, -1
-  %cmp.i = icmp ult i32 %bits, 65
+  %cmp.i = icmp samesign ult i32 %bits, 65
   %cmp12.i = icmp eq i32 %bits, 64
   %sh_prom.i = zext nneg i32 %bits to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -247,7 +247,7 @@ for.body60.i:                                     ; preds = %for.cond57.i, %loop
   %13 = load i16, ptr %arrayidx66.i, align 2
   %conv67.i = zext i16 %13 to i64
   %rem68.i = urem i64 %add64.i, %conv67.i
-  %cmp69.i = icmp ult i64 %rem68.i, 2
+  %cmp69.i = icmp samesign ult i64 %rem68.i, 2
   br i1 %cmp69.i, label %if.then71.i, label %for.cond57.i
 
 if.then71.i:                                      ; preds = %for.body60.i

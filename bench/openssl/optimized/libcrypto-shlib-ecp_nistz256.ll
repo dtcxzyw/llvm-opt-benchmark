@@ -456,7 +456,7 @@ if.end45:                                         ; preds = %if.end40, %lor.lhs.
 
 for.cond88.preheader:                             ; preds = %for.body
   %7 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %cmp89182 = icmp ult i64 %indvars.iv, 25
+  %cmp89182 = icmp samesign ult i64 %indvars.iv, 25
   br i1 %cmp89182, label %for.body91.preheader, label %for.end95
 
 for.body91.preheader:                             ; preds = %if.end45, %for.cond88.preheader
@@ -527,7 +527,7 @@ for.end95:                                        ; preds = %for.body91.preheade
   %not.i = sub nsw i32 0, %shr.i
   %sub2.i = xor i32 %and, 255
   %and.i = and i32 %sub2.i, %not.i
-  %20 = icmp ult i32 %and, 128
+  %20 = icmp samesign ult i32 %and, 128
   %and4.i = select i1 %20, i32 %and, i32 0
   %or.i = or i32 %and.i, %and4.i
   %shr5.i = lshr i32 %or.i, 1
@@ -627,7 +627,7 @@ for.body148:                                      ; preds = %for.end95, %for.bod
   %not.i103 = sub nsw i32 0, %shr.i102
   %sub2.i104 = xor i32 %and162, 255
   %and.i105 = and i32 %sub2.i104, %not.i103
-  %42 = icmp ult i32 %and162, 128
+  %42 = icmp samesign ult i32 %and162, 128
   %and4.i106 = select i1 %42, i32 %and162, i32 0
   %or.i107 = or i32 %and.i105, %and4.i106
   %shr5.i108 = lshr i32 %or.i107, 1
@@ -788,7 +788,7 @@ if.end37.i:                                       ; preds = %if.else.i, %if.end2
 
 for.cond93.preheader.i:                           ; preds = %for.body43.i
   %61 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %cmp94256.i = icmp ult i64 %indvars.iv.i, 25
+  %cmp94256.i = icmp samesign ult i64 %indvars.iv.i, 25
   br i1 %cmp94256.i, label %for.body96.preheader.i, label %for.end101.i
 
 for.body96.preheader.i:                           ; preds = %for.cond93.preheader.i, %if.end37.i
@@ -963,7 +963,7 @@ for.body202.i:                                    ; preds = %for.body202.i, %for
   %not.i208.i = sub nsw i32 0, %shr.i207.i
   %sub2.i209.i = xor i32 %and217.i, 63
   %and.i210.i = and i32 %sub2.i209.i, %not.i208.i
-  %85 = icmp ult i32 %and217.i, 32
+  %85 = icmp samesign ult i32 %and217.i, 32
   %and4.i.i = select i1 %85, i32 %and217.i, i32 0
   %or.i211.i = or i32 %and.i210.i, %and4.i.i
   %shr5.i212.i = lshr i32 %or.i211.i, 1
@@ -1025,7 +1025,7 @@ for.body245.i:                                    ; preds = %for.end240.i, %for.
   %not.i221.i = sub nsw i32 0, %shr.i220.i
   %sub2.i222.i = xor i32 %and250.i, 63
   %and.i223.i = and i32 %sub2.i222.i, %not.i221.i
-  %95 = icmp ult i32 %and250.i, 32
+  %95 = icmp samesign ult i32 %and250.i, 32
   %and4.i224.i = select i1 %95, i32 %and250.i, i32 0
   %or.i225.i = or i32 %and.i223.i, %and4.i224.i
   %shr5.i226.i = lshr i32 %or.i225.i, 1

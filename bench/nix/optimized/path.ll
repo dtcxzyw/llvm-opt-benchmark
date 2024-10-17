@@ -4030,7 +4030,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %34
   %.0.lcssa.i = phi i32 [ %4, %34 ], [ %45, %.lr.ph.i11 ]
-  %60 = icmp ugt i32 %.0.lcssa.i, 9
+  %60 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %60, label %61, label %71
 
 61:                                               ; preds = %._crit_edge.i
@@ -8394,7 +8394,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i4, %31
   %.0.lcssa.i = phi i64 [ %1, %31 ], [ %42, %.lr.ph.i4 ]
-  %55 = icmp ugt i64 %.0.lcssa.i, 9
+  %55 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %55, label %56, label %64
 
 56:                                               ; preds = %._crit_edge.i
@@ -11606,7 +11606,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   store i8 %10, ptr %12, align 1
   %13 = getelementptr inbounds i8, ptr %.sroa.029.040, i64 8
   %14 = icmp ne ptr %13, %2
-  %15 = icmp ult i64 %.041, 14
+  %15 = icmp samesign ult i64 %.041, 14
   %or.cond = select i1 %14, i1 %15, i1 false
   br i1 %or.cond, label %.lr.ph, label %.critedge.preheader, !llvm.loop !384
 

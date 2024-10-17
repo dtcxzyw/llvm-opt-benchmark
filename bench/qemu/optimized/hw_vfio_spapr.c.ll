@@ -232,7 +232,7 @@ int128_get64.exit.i:                              ; preds = %cond.end.i
   %div27.lhs.trunc.i = sub nuw nsw i8 64, %17
   %div2733.i = udiv i8 %div27.lhs.trunc.i, %cast.i23.i
   %div27.zext.i = zext nneg i8 %div2733.i to i32
-  %cmp29.not35.i = icmp ugt i32 %spec.select19.i, %div27.zext.i
+  %cmp29.not35.i = icmp samesign ugt i32 %spec.select19.i, %div27.zext.i
   br i1 %cmp29.not35.i, label %if.end41.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %int128_get64.exit.i

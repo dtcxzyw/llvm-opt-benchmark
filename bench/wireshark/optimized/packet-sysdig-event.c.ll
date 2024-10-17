@@ -1732,7 +1732,7 @@ format_param_str.exit.i:                          ; preds = %193, %189
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %215 = load i32, ptr %109, align 4
   %216 = zext i32 %215 to i64
-  %217 = icmp ult i64 %indvars.iv.next.i, %216
+  %217 = icmp samesign ult i64 %indvars.iv.next.i, %216
   br i1 %217, label %173, label %dissect_event_params.exit, !llvm.loop !12
 
 dissect_event_params.exit:                        ; preds = %.lr.ph154, %212, %173, %170, %103

@@ -4524,7 +4524,7 @@ _ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit459: ; preds = %1001, %_ZNSt
 .lr.ph1178:                                       ; preds = %.preheader613, %1191
   %.01451177 = phi i32 [ %1193, %1191 ], [ 0, %.preheader613 ]
   %.sroa.0523.01176 = phi ptr [ %1192, %1191 ], [ %1112, %.preheader613 ]
-  %1162 = icmp ugt i32 %.01451177, 1
+  %1162 = icmp samesign ugt i32 %.01451177, 1
   br i1 %1162, label %1163, label %1174
 
 1163:                                             ; preds = %.lr.ph1178
@@ -4571,8 +4571,8 @@ _ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit459: ; preds = %1001, %_ZNSt
   %1193 = add nuw nsw i32 %.01451177, 1
   %1194 = load ptr, ptr %1114, align 8, !noalias !27
   %1195 = icmp ne ptr %1192, %1194
-  %1196 = icmp ult i32 %.01451177, 3
-  %1197 = and i1 %1195, %1196
+  %1196 = icmp samesign ult i32 %.01451177, 3
+  %1197 = select i1 %1195, i1 %1196, i1 false
   br i1 %1197, label %.lr.ph1178, label %.loopexit614, !llvm.loop !35
 
 .loopexit614:                                     ; preds = %1191, %.preheader613, %1173

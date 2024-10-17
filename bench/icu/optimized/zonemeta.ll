@@ -1570,7 +1570,7 @@ for.inc:                                          ; preds = %for.body
   %mul = mul nsw i32 %year.090, 10
   %add = add nsw i32 %cond, %mul
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp5 = icmp ugt i64 %indvars.iv, 2
+  %cmp5 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %cmp5, label %for.body26, label %for.body, !llvm.loop !12
 
 for.body59.preheader:                             ; preds = %for.inc50
@@ -1594,7 +1594,7 @@ for.inc50:                                        ; preds = %for.body26
   %mul46 = mul nsw i32 %month.094, 10
   %add47 = add nsw i32 %cond43, %mul46
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %cmp21 = icmp ugt i64 %indvars.iv113, 5
+  %cmp21 = icmp samesign ugt i64 %indvars.iv113, 5
   br i1 %cmp21, label %for.body59.preheader, label %for.body26, !llvm.loop !13
 
 for.cond53.preheader.thread150:                   ; preds = %for.body26
@@ -1623,7 +1623,7 @@ for.inc83:                                        ; preds = %for.body59
   %mul79 = mul nsw i32 %day.099, 10
   %add80 = add nsw i32 %cond76, %mul79
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %cmp54 = icmp ugt i64 %indvars.iv116, 8
+  %cmp54 = icmp samesign ugt i64 %indvars.iv116, 8
   br i1 %cmp54, label %for.end85, label %for.body59, !llvm.loop !14
 
 for.end85:                                        ; preds = %for.inc83, %for.cond20.preheader.thread176, %if.end4, %for.inc83.thread, %for.cond53.preheader.thread150
@@ -1659,7 +1659,7 @@ for.inc118:                                       ; preds = %for.body94
   %mul114 = mul nsw i32 %hour.1104, 10
   %add115 = add nsw i32 %cond111, %mul114
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %cmp89 = icmp ugt i64 %indvars.iv119, 11
+  %cmp89 = icmp samesign ugt i64 %indvars.iv119, 11
   br i1 %cmp89, label %for.body127, label %for.body94, !llvm.loop !15
 
 for.body127:                                      ; preds = %for.inc118, %for.inc151
@@ -1683,7 +1683,7 @@ for.inc151:                                       ; preds = %for.body127
   %mul147 = mul nsw i32 %min.1109, 10
   %add148 = add nsw i32 %cond144, %mul147
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %cmp122 = icmp ugt i64 %indvars.iv122, 14
+  %cmp122 = icmp samesign ugt i64 %indvars.iv122, 14
   br i1 %cmp122, label %if.end154.loopexit, label %for.body127, !llvm.loop !16
 
 if.end154.loopexit:                               ; preds = %for.inc151, %for.inc151.thread

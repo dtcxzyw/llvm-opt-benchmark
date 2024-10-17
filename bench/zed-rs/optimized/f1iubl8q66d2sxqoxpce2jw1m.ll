@@ -1790,15 +1790,15 @@ select.unfold440:                                 ; preds = %393, %389, %358
   br i1 %404, label %.loopexit, label %462
 
 462:                                              ; preds = %460
-  %463 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %463 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %463, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i", label %464
 
 464:                                              ; preds = %462
-  %465 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %465 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %465, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i", label %466
 
 466:                                              ; preds = %464
-  %467 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %467 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %467, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i"
 

@@ -488,7 +488,7 @@ define hidden void @_ZN2cv27generateDescriptorSubsampleERNS_3MatES1_iii(ptr noun
   %.0159222 = phi i32 [ 0, %45 ], [ %52, %.loopexit211 ]
   %.1176221 = phi i32 [ %.0175224, %45 ], [ %.2177.lcssa, %.loopexit211 ]
   %52 = add nuw nsw i32 %.0159222, 1
-  %53 = icmp ult i32 %52, %47
+  %53 = icmp samesign ult i32 %52, %47
   br i1 %53, label %.lr.ph, label %.loopexit211
 
 .lr.ph:                                           ; preds = %51
@@ -658,7 +658,7 @@ _ZN2cv4Mat_IiEaSERKi.exit203:                     ; preds = %115
 _ZN2cv3RNGclEj.exit:                              ; preds = %133, %137
   %.sroa.0.1 = phi i64 [ %142, %137 ], [ %.sroa.0.0231, %133 ]
   %145 = phi i32 [ %144, %137 ], [ 0, %133 ]
-  %146 = icmp ult i64 %indvars.iv258, 6
+  %146 = icmp samesign ult i64 %indvars.iv258, 6
   %spec.select = select i1 %146, i32 %.pre272, i32 %145
   %.not189225 = icmp sgt i32 %.0155232, 0
   %.pre = load ptr, ptr %122, align 8
@@ -1002,7 +1002,7 @@ _ZN2cv3RNGclEj.exit:                              ; preds = %133, %137
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #22
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #22
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
-  %364 = icmp ult i64 %indvars.iv.next259, %132
+  %364 = icmp samesign ult i64 %indvars.iv.next259, %132
   br i1 %364, label %133, label %._crit_edge, !llvm.loop !19
 
 365:                                              ; preds = %356
@@ -3378,7 +3378,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %_ZSt8_DestroyIPN2cv
   %123 = sub i32 %122, %110
   %124 = mul nsw i32 %123, %123
   %125 = add nuw nsw i32 %124, %116
-  %.not.us.i.us = icmp ugt i32 %125, %79
+  %.not.us.i.us = icmp samesign ugt i32 %125, %79
   br i1 %.not.us.i.us, label %139, label %126
 
 126:                                              ; preds = %121
@@ -3583,7 +3583,7 @@ _ZN2cvL19find_neighbor_pointEiiRKNS_3MatEiRi.exit.thread.us: ; preds = %._crit_e
   %237 = sub i32 %236, %209
   %238 = mul nsw i32 %237, %237
   %239 = add nuw nsw i32 %238, %230
-  %.not.us.i93 = icmp ugt i32 %239, %197
+  %.not.us.i93 = icmp samesign ugt i32 %239, %197
   br i1 %.not.us.i93, label %240, label %241
 
 240:                                              ; preds = %235, %231
@@ -5636,7 +5636,7 @@ define hidden void @_ZNK2cv36Upright_MLDB_Full_Descriptor_Invoker32Get_Upright_M
 .loopexit.us:                                     ; preds = %109
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274314, 1
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv.next286316, 1
-  %127 = icmp ult i64 %indvars.iv.next286, %138
+  %127 = icmp samesign ult i64 %indvars.iv.next286, %138
   br i1 %127, label %.lr.ph.us, label %.loopexit.us.thread, !llvm.loop !90
 
 .preheader173.us.us226:                           ; preds = %.preheader173.lr.ph.us, %._crit_edge.split.us216.us
@@ -5670,7 +5670,7 @@ define hidden void @_ZNK2cv36Upright_MLDB_Full_Descriptor_Invoker32Get_Upright_M
   %137 = add nuw nsw i64 %indvars.iv290, 2
   %138 = mul nuw nsw i64 %137, %137
   %wide.trip.count283 = zext i32 %indvars.iv281 to i64
-  %139 = icmp ugt i64 %138, 1
+  %139 = icmp samesign ugt i64 %138, 1
   br i1 %139, label %.lr.ph.us, label %.loopexit.us.thread
 
 .preheader173.us.us.us:                           ; preds = %.preheader173.lr.ph.us, %._crit_edge.split.us.us.us.us
@@ -5811,13 +5811,13 @@ define hidden void @_ZNK2cv36Upright_MLDB_Full_Descriptor_Invoker32Get_Upright_M
   %194 = add nuw nsw i64 %indvars.iv256, 2
   %195 = mul nuw nsw i64 %194, %194
   %wide.trip.count = zext i32 %indvars.iv248 to i64
-  %196 = icmp ugt i64 %195, 1
+  %196 = icmp samesign ugt i64 %195, 1
   br i1 %196, label %.lr.ph, label %.loopexit.thread
 
 .loopexit:                                        ; preds = %220
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241310, 1
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv.next252312, 1
-  %197 = icmp ult i64 %indvars.iv.next252, %195
+  %197 = icmp samesign ult i64 %indvars.iv.next252, %195
   br i1 %197, label %.lr.ph, label %.loopexit.thread, !llvm.loop !90
 
 .lr.ph:                                           ; preds = %.split, %.loopexit
@@ -6506,7 +6506,7 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker23MLDB_Binary_Compariso
   %gep69 = getelementptr inbounds i32, ptr %invariant.gep68, i64 %17
   %18 = load i32, ptr %gep69, align 4
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %19 = icmp ult i64 %indvars.iv.next57, %15
+  %19 = icmp samesign ult i64 %indvars.iv.next57, %15
   br i1 %19, label %.lr.ph42.us.preheader, label %.loopexit.us
 
 .lr.ph42.us.preheader:                            ; preds = %16
@@ -6720,7 +6720,7 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker24Get_MLDB_Full_Descrip
   %gep69.i = getelementptr inbounds i32, ptr %invariant.gep68.i, i64 %84
   %85 = load i32, ptr %gep69.i, align 4
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
-  %86 = icmp ult i64 %indvars.iv.next57.i, %71
+  %86 = icmp samesign ult i64 %indvars.iv.next57.i, %71
   br i1 %86, label %.lr.ph42.us.i, label %.loopexit.us.i
 
 .lr.ph42.us.i:                                    ; preds = %83, %99
@@ -7960,7 +7960,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %15
   %137 = sub i32 %136, %124
   %138 = mul nsw i32 %137, %137
   %139 = add nuw nsw i32 %138, %130
-  %.not.us.i.us = icmp ugt i32 %139, %62
+  %.not.us.i.us = icmp samesign ugt i32 %139, %62
   br i1 %.not.us.i.us, label %150, label %140
 
 140:                                              ; preds = %135
@@ -9009,7 +9009,7 @@ define internal fastcc void @_ZZN2cvL34Sample_Derivative_Response_Radius6ERKNS_3
   %.12 = phi i32 [ %.0224, %.preheader ], [ %.2, %30 ]
   %7 = mul nsw i32 %.0203, %.0203
   %8 = add nuw nsw i32 %7, %3
-  %9 = icmp ult i32 %8, 36
+  %9 = icmp samesign ult i32 %8, 36
   br i1 %9, label %10, label %30
 
 10:                                               ; preds = %6

@@ -1701,7 +1701,7 @@ define internal fastcc void @dissect_readreg_cmd(ptr noundef %0, ptr noundef %1,
 
 get_register_name_from_address.exit:              ; preds = %6, %22, %.thread.i
   %.0.i = phi ptr [ %13, %6 ], [ %24, %22 ], [ %25, %.thread.i ]
-  %26 = icmp ugt i32 %3, 7
+  %26 = icmp samesign ugt i32 %3, 7
   %27 = getelementptr inbounds i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   br i1 %26, label %29, label %30
@@ -1742,7 +1742,7 @@ get_register_name_from_address.exit:              ; preds = %6, %22, %.thread.i
   br label %.lr.ph
 
 46:                                               ; preds = %41
-  %.not57 = icmp ult i32 %3, 4
+  %.not57 = icmp samesign ult i32 %3, 4
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %46
@@ -1948,7 +1948,7 @@ get_register_name_from_address.exit:              ; preds = %11, %25, %.thread.i
   br label %36
 
 36:                                               ; preds = %get_register_name_from_address.exit, %34, %31
-  %37 = icmp ugt i32 %3, 15
+  %37 = icmp samesign ugt i32 %3, 15
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not70 = icmp eq ptr %0, null
@@ -1960,8 +1960,8 @@ get_register_name_from_address.exit:              ; preds = %11, %25, %.thread.i
 
 .thread:                                          ; preds = %36
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %39, i32 noundef 25, ptr noundef nonnull @.str.740, ptr noundef %.0.i, i32 noundef %13) #5
-  %.not85 = icmp ult i32 %3, 8
-  %or.cond = or i1 %.not70, %.not85
+  %.not85 = icmp samesign ult i32 %3, 8
+  %or.cond = select i1 %.not70, i1 true, i1 %.not85
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .thread76.thread:                                 ; preds = %40
@@ -2340,7 +2340,7 @@ define internal fastcc void @dissect_event_cmd(ptr noundef %0, ptr noundef %1, p
 
 16:                                               ; preds = %14, %12
   %.0 = phi i32 [ %13, %12 ], [ %.zext, %14 ]
-  %17 = icmp ugt i32 %.0, 1
+  %17 = icmp samesign ugt i32 %.0, 1
   br i1 %17, label %.thread, label %20
 
 .thread:                                          ; preds = %16
@@ -2612,12 +2612,12 @@ define internal fastcc void @dissect_readreg_ack(ptr noundef %0, ptr noundef %1,
   br i1 %.not85, label %11, label %.thread
 
 11:                                               ; preds = %8, %6
-  %12 = icmp ugt i32 %3, 7
+  %12 = icmp samesign ugt i32 %3, 7
   br i1 %12, label %.thread145, label %42
 
 .thread:                                          ; preds = %8
   %13 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %10) #5
-  %14 = icmp ugt i32 %3, 7
+  %14 = icmp samesign ugt i32 %3, 7
   br i1 %14, label %.thread145, label %15
 
 15:                                               ; preds = %.thread
@@ -2672,7 +2672,7 @@ get_register_name_from_address.exit:              ; preds = %16, %31, %.thread.i
   br label %37
 
 37:                                               ; preds = %get_register_name_from_address.exit, %15
-  %.not88 = icmp ult i32 %3, 4
+  %.not88 = icmp samesign ult i32 %3, 4
   br i1 %.not88, label %42, label %38
 
 38:                                               ; preds = %37
@@ -2686,8 +2686,8 @@ get_register_name_from_address.exit:              ; preds = %16, %31, %.thread.i
   %.076114 = phi i32 [ %13, %38 ], [ %13, %37 ], [ 0, %11 ]
   %.not86111 = phi i1 [ true, %38 ], [ true, %37 ], [ false, %11 ]
   %.not89 = icmp eq ptr %0, null
-  %.not134 = icmp ult i32 %3, 4
-  %or.cond = or i1 %.not89, %.not134
+  %.not134 = icmp samesign ult i32 %3, 4
+  %or.cond = select i1 %.not89, i1 true, i1 %.not134
   br i1 %or.cond, label %.loopexit124, label %.lr.ph
 
 .thread145:                                       ; preds = %11, %.thread

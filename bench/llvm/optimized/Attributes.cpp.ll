@@ -9905,7 +9905,7 @@ _ZNK4llvm13AttributeList14getNumAttrSetsEv.exit.i: ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
-  %.not3.i = icmp ult i64 %indvars.iv, %31
+  %.not3.i = icmp samesign ult i64 %indvars.iv, %31
   br i1 %.not3.i, label %32, label %_ZNK4llvm13AttributeList13getAttributesEj.exit
 
 32:                                               ; preds = %_ZNK4llvm13AttributeList14getNumAttrSetsEv.exit.i

@@ -2560,7 +2560,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 114:                                              ; preds = %111
   %115 = add nuw nsw i32 %.023, 1
-  %116 = icmp ult i32 %.023, 9
+  %116 = icmp samesign ult i32 %.023, 9
   %117 = zext i1 %116 to i32
   %118 = add nuw nsw i32 %.023, %117
   %119 = zext nneg i32 %118 to i64

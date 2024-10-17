@@ -479,7 +479,7 @@ cond.true40.i:                                    ; preds = %if.then33.i, %for.b
   %next41.i = getelementptr inbounds i8, ptr %entry34.012.i, i64 8
   %23 = load ptr, ptr %next41.i, align 8
   %tobool42.i = icmp ne ptr %23, null
-  %cmp44.i = icmp ult i32 %i.011.i, 5
+  %cmp44.i = icmp samesign ult i32 %i.011.i, 5
   %or.cond1.i = select i1 %tobool42.i, i1 %cmp44.i, i1 false
   br i1 %or.cond1.i, label %for.body45.i, label %if.end60.thread.i
 

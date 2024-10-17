@@ -921,7 +921,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 31:                                               ; preds = %28
   %32 = and i8 %.018.i, 15
-  %33 = icmp ult i8 %32, 10
+  %33 = icmp samesign ult i8 %32, 10
   %34 = or disjoint i8 %32, 48
   %35 = add nuw nsw i8 %32, 87
   %36 = select i1 %33, i8 %34, i8 %35
@@ -1266,7 +1266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 11:                                               ; preds = %8
   %12 = and i8 %.018, 15
-  %13 = icmp ult i8 %12, 10
+  %13 = icmp samesign ult i8 %12, 10
   %14 = or disjoint i8 %12, 48
   %15 = add nuw nsw i8 %12, 87
   %16 = select i1 %13, i8 %14, i8 %15

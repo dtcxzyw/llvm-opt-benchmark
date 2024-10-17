@@ -1765,17 +1765,17 @@ cpuid_or_from_dump.exit:                          ; preds = %34, %45
   %59 = lshr i64 %58, 16
   %spec.select.i = select i1 %.not28.i, i64 %58, i64 %59
   %spec.select33.i = select i1 %.not28.i, i32 1, i32 17
-  %.not29.i = icmp ult i64 %spec.select.i, 256
+  %.not29.i = icmp samesign ult i64 %spec.select.i, 256
   %60 = lshr i64 %spec.select.i, 8
   %61 = or disjoint i32 %spec.select33.i, 8
   %.223.i = select i1 %.not29.i, i64 %spec.select.i, i64 %60
   %.2.i = select i1 %.not29.i, i32 %spec.select33.i, i32 %61
-  %.not30.i = icmp ult i64 %.223.i, 16
+  %.not30.i = icmp samesign ult i64 %.223.i, 16
   %62 = lshr i64 %.223.i, 4
   %63 = or disjoint i32 %.2.i, 4
   %.324.i = select i1 %.not30.i, i64 %.223.i, i64 %62
   %.3.i = select i1 %.not30.i, i32 %.2.i, i32 %63
-  %.not31.i = icmp ult i64 %.324.i, 4
+  %.not31.i = icmp samesign ult i64 %.324.i, 4
   %64 = lshr i64 %.324.i, 2
   %65 = or disjoint i32 %.3.i, 2
   %.425.i = select i1 %.not31.i, i64 %.324.i, i64 %64
@@ -1808,7 +1808,7 @@ hwloc_flsl_manual.exit:                           ; preds = %53, %57
   %80 = and i32 %79, 15
   %81 = icmp eq i32 %6, 0
   %82 = icmp eq i32 %6, 1
-  %or.cond = icmp ult i32 %6, 2
+  %or.cond = icmp samesign ult i32 %6, 2
   %83 = icmp eq i32 %6, 3
   %or.cond3 = or i1 %or.cond, %83
   %84 = icmp eq i32 %80, 15
@@ -2276,7 +2276,7 @@ cpuid_or_from_dump.exit.i:                        ; preds = %282, %._crit_edge.i
   %.046.i = phi i32 [ %284, %282 ], [ 0, %._crit_edge.i.i.i311 ], [ %274, %271 ]
   %.045.i = phi i32 [ %285, %282 ], [ 0, %._crit_edge.i.i.i311 ], [ %278, %271 ]
   store i32 %.046.i, ptr %71, align 4
-  %.not.i312 = icmp ult i64 %2, 2
+  %.not.i312 = icmp samesign ult i64 %2, 2
   %.pre.i = load i32, ptr %89, align 8
   br i1 %.not.i312, label %.thread57.i, label %286
 
@@ -2341,7 +2341,7 @@ read_amd_cores_topoext.exit:                      ; preds = %293, %298
   br label %315
 
 308:                                              ; preds = %304
-  %or.cond33 = icmp ult i32 %6, 3
+  %or.cond33 = icmp samesign ult i32 %6, 3
   %309 = icmp ugt i32 %3, 10
   %or.cond35 = and i1 %309, %or.cond33
   br i1 %or.cond35, label %310, label %315
@@ -3449,17 +3449,17 @@ read_intel_caches.exit:                           ; preds = %cpuid_or_from_dump.
   %840 = lshr i64 %839, 16
   %spec.select.i367 = select i1 %.not28.i366, i64 %839, i64 %840
   %spec.select33.i368 = select i1 %.not28.i366, i32 1, i32 17
-  %.not29.i369 = icmp ult i64 %spec.select.i367, 256
+  %.not29.i369 = icmp samesign ult i64 %spec.select.i367, 256
   %841 = lshr i64 %spec.select.i367, 8
   %842 = or disjoint i32 %spec.select33.i368, 8
   %.223.i370 = select i1 %.not29.i369, i64 %spec.select.i367, i64 %841
   %.2.i371 = select i1 %.not29.i369, i32 %spec.select33.i368, i32 %842
-  %.not30.i372 = icmp ult i64 %.223.i370, 16
+  %.not30.i372 = icmp samesign ult i64 %.223.i370, 16
   %843 = lshr i64 %.223.i370, 4
   %844 = or disjoint i32 %.2.i371, 4
   %.324.i373 = select i1 %.not30.i372, i64 %.223.i370, i64 %843
   %.3.i374 = select i1 %.not30.i372, i32 %.2.i371, i32 %844
-  %.not31.i375 = icmp ult i64 %.324.i373, 4
+  %.not31.i375 = icmp samesign ult i64 %.324.i373, 4
   %845 = lshr i64 %.324.i373, 2
   %846 = or disjoint i32 %.3.i374, 2
   %.425.i376 = select i1 %.not31.i375, i64 %.324.i373, i64 %845
@@ -3493,7 +3493,7 @@ hwloc_flsl_manual.exit380:                        ; preds = %836, %838
 
 860:                                              ; preds = %856
   %861 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %833)
-  %.not258 = icmp ult i32 %861, 2
+  %.not258 = icmp samesign ult i32 %861, 2
   %862 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %833, i1 true)
   %863 = shl nuw i32 4, %862
   %.0 = select i1 %.not258, i32 %833, i32 %863
@@ -3607,7 +3607,7 @@ hwloc_flsl_manual.exit380:                        ; preds = %836, %838
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %923 = load i32, ptr %321, align 4
   %924 = zext i32 %923 to i64
-  %925 = icmp ult i64 %indvars.iv.next, %924
+  %925 = icmp samesign ult i64 %indvars.iv.next, %924
   br i1 %925, label %828, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.thread425, %825, %315
@@ -3787,8 +3787,8 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
 
 .loopexit483:                                     ; preds = %._crit_edge506, %39, %27, %.loopexit482, %23
   %71 = icmp ne i32 %15, 0
-  %.not421 = icmp ugt i64 %2, 1
-  %or.cond445.not = and i1 %.not421, %71
+  %.not421 = icmp samesign ugt i64 %2, 1
+  %or.cond445.not = select i1 %71, i1 %.not421, i1 false
   br i1 %or.cond445.not, label %72, label %.loopexit481
 
 72:                                               ; preds = %.loopexit483

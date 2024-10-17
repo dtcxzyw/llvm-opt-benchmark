@@ -2763,7 +2763,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i180, %.crit
   br label %Abc_TtFlip.exit
 
 212:                                              ; preds = %199
-  %213 = icmp ult i64 %indvars.iv242, 6
+  %213 = icmp samesign ult i64 %indvars.iv242, 6
   br i1 %213, label %214, label %228
 
 214:                                              ; preds = %212
@@ -3680,7 +3680,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 59:                                               ; preds = %37, %33, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = icmp ult i64 %indvars.iv.next, %28
+  %60 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %60, label %33, label %.critedge.preheader, !llvm.loop !33
 
 61:                                               ; preds = %.lr.ph117, %.critedge
@@ -4321,7 +4321,7 @@ Vec_IntStartFull.exit70:                          ; preds = %Vec_IntStartFull.ex
 
 49:                                               ; preds = %44, %28, %47, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = icmp ult i64 %indvars.iv.next, %27
+  %50 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %50, label %28, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %49, %Vec_IntStartFull.exit70
@@ -5240,7 +5240,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 44:                                               ; preds = %41, %38
   %.124 = phi i32 [ %42, %41 ], [ %.02343, %38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = icmp ult i64 %indvars.iv.next, %36
+  %45 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %45, label %38, label %.lr.ph48, !llvm.loop !47
 
 46:                                               ; preds = %.lr.ph48, %Mini_AigNodeIsPo.exit.thread
@@ -6316,7 +6316,7 @@ Vec_IntStart.exit121:                             ; preds = %Vec_IntAlloc.exit.t
   %86 = add nsw i32 %85, 1
   store i32 %86, ptr %84, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %87 = icmp ult i64 %indvars.iv.next, %62
+  %87 = icmp samesign ult i64 %indvars.iv.next, %62
   br i1 %87, label %66, label %.preheader, !llvm.loop !61
 
 .critedge.preheader:                              ; preds = %154
@@ -6745,7 +6745,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_StrStart.exit, 
   %52 = getelementptr inbounds i32, ptr %22, i64 %51
   store i32 %50, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = icmp ult i64 %indvars.iv.next, %27
+  %53 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %53, label %28, label %.critedge, !llvm.loop !66
 
 .critedge:                                        ; preds = %29, %28, %Vec_IntStartFull.exit
@@ -6935,7 +6935,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_StrStart.exit, 
   %52 = getelementptr inbounds i32, ptr %22, i64 %51
   store i32 %50, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = icmp ult i64 %indvars.iv.next, %27
+  %53 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %53, label %28, label %.critedge, !llvm.loop !68
 
 .critedge:                                        ; preds = %29, %28, %Vec_IntStartFull.exit
@@ -7159,7 +7159,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %119
 
 155:                                              ; preds = %144, %153
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
-  %156 = icmp ult i64 %indvars.iv.next209, %121
+  %156 = icmp samesign ult i64 %indvars.iv.next209, %121
   br i1 %156, label %.lr.ph199, label %.critedge6, !llvm.loop !71
 
 .critedge6:                                       ; preds = %155, %.lr.ph199, %Vec_IntFree.exit

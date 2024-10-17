@@ -643,7 +643,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %indvars.iv = phi i64 [ 1, %.lr.ph1617 ], [ %indvars.iv.next, %185 ]
   %183 = getelementptr inbounds %struct.qtmd_modelsym, ptr %167, i64 %indvars.iv, i32 1
   %184 = load i16, ptr %183, align 2
-  %.not1065 = icmp ugt i16 %184, %181
+  %.not1065 = icmp samesign ugt i16 %184, %181
   br i1 %.not1065, label %185, label %._crit_edge1618.loopexit.split.loop.exit
 
 185:                                              ; preds = %182
@@ -716,7 +716,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %221 = zext i16 %.5990 to i32
   %222 = zext i16 %.5971 to i32
   %223 = xor i32 %222, %221
-  %.not1066 = icmp ult i32 %223, 32768
+  %.not1066 = icmp samesign ult i32 %223, 32768
   br i1 %.not1066, label %231, label %224
 
 224:                                              ; preds = %220
@@ -920,7 +920,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %indvars.iv2105 = phi i64 [ 1, %.lr.ph1784 ], [ %indvars.iv.next2106, %330 ]
   %328 = getelementptr inbounds %struct.qtmd_modelsym, ptr %311, i64 %indvars.iv2105, i32 1
   %329 = load i16, ptr %328, align 2
-  %.not1142 = icmp ugt i16 %329, %326
+  %.not1142 = icmp samesign ugt i16 %329, %326
   br i1 %.not1142, label %330, label %._crit_edge1785.loopexit.split.loop.exit
 
 330:                                              ; preds = %327
@@ -993,7 +993,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %366 = zext i16 %.7992 to i32
   %367 = zext i16 %.7973 to i32
   %368 = xor i32 %367, %366
-  %.not1143 = icmp ult i32 %368, 32768
+  %.not1143 = icmp samesign ult i32 %368, 32768
   br i1 %.not1143, label %376, label %369
 
 369:                                              ; preds = %365
@@ -1135,7 +1135,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %indvars.iv2097 = phi i64 [ 1, %.lr.ph1735 ], [ %indvars.iv.next2098, %442 ]
   %440 = getelementptr inbounds %struct.qtmd_modelsym, ptr %424, i64 %indvars.iv2097, i32 1
   %441 = load i16, ptr %440, align 2
-  %.not1112 = icmp ugt i16 %441, %438
+  %.not1112 = icmp samesign ugt i16 %441, %438
   br i1 %.not1112, label %442, label %._crit_edge1736.loopexit.split.loop.exit
 
 442:                                              ; preds = %439
@@ -1208,7 +1208,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %478 = zext i16 %.10995 to i32
   %479 = zext i16 %.10976 to i32
   %480 = xor i32 %479, %478
-  %.not1113 = icmp ult i32 %480, 32768
+  %.not1113 = icmp samesign ult i32 %480, 32768
   br i1 %.not1113, label %488, label %481
 
 481:                                              ; preds = %477
@@ -1428,7 +1428,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %indvars.iv2089 = phi i64 [ 1, %.lr.ph1702 ], [ %indvars.iv.next2090, %593 ]
   %591 = getelementptr inbounds %struct.qtmd_modelsym, ptr %575, i64 %indvars.iv2089, i32 1
   %592 = load i16, ptr %591, align 2
-  %.not1099 = icmp ugt i16 %592, %589
+  %.not1099 = icmp samesign ugt i16 %592, %589
   br i1 %.not1099, label %593, label %._crit_edge1703.loopexit.split.loop.exit
 
 593:                                              ; preds = %590
@@ -1501,7 +1501,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %629 = zext i16 %.13998 to i32
   %630 = zext i16 %.13979 to i32
   %631 = xor i32 %630, %629
-  %.not1100 = icmp ult i32 %631, 32768
+  %.not1100 = icmp samesign ult i32 %631, 32768
   br i1 %.not1100, label %639, label %632
 
 632:                                              ; preds = %628
@@ -1721,7 +1721,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %indvars.iv2073 = phi i64 [ 1, %.lr.ph1636 ], [ %indvars.iv.next2074, %744 ]
   %742 = getelementptr inbounds %struct.qtmd_modelsym, ptr %726, i64 %indvars.iv2073, i32 1
   %743 = load i16, ptr %742, align 2
-  %.not1073 = icmp ugt i16 %743, %740
+  %.not1073 = icmp samesign ugt i16 %743, %740
   br i1 %.not1073, label %744, label %._crit_edge1637.loopexit.split.loop.exit
 
 744:                                              ; preds = %741
@@ -1794,7 +1794,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %780 = zext i16 %.151000 to i32
   %781 = zext i16 %.15981 to i32
   %782 = xor i32 %781, %780
-  %.not1074 = icmp ult i32 %782, 32768
+  %.not1074 = icmp samesign ult i32 %782, 32768
   br i1 %.not1074, label %790, label %783
 
 783:                                              ; preds = %779
@@ -2028,7 +2028,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %indvars.iv2081 = phi i64 [ 1, %.lr.ph1669 ], [ %indvars.iv.next2082, %900 ]
   %898 = getelementptr inbounds %struct.qtmd_modelsym, ptr %882, i64 %indvars.iv2081, i32 1
   %899 = load i16, ptr %898, align 2
-  %.not1082 = icmp ugt i16 %899, %896
+  %.not1082 = icmp samesign ugt i16 %899, %896
   br i1 %.not1082, label %900, label %._crit_edge1670.loopexit.split.loop.exit
 
 900:                                              ; preds = %897
@@ -2101,7 +2101,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %936 = zext i16 %.171002 to i32
   %937 = zext i16 %.17983 to i32
   %938 = xor i32 %937, %936
-  %.not1083 = icmp ult i32 %938, 32768
+  %.not1083 = icmp samesign ult i32 %938, 32768
   br i1 %.not1083, label %946, label %939
 
 939:                                              ; preds = %935

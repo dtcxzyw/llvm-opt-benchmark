@@ -698,7 +698,7 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit110.i: ; preds = %if.end
   %divisor_was_negative.1.i = phi i8 [ %divisor_was_negative.0.i, %if.then9.i84.i ], [ %divisor_was_negative.0.i, %if.end.i77.i ], [ %frombool.i70.i, %if.then29.i99.i ], [ %frombool.i70.i, %if.end35.i95.i ], [ %frombool.i70.i, %if.end38.i97.i ]
   %cmp6724.i = phi i1 [ true, %if.then9.i84.i ], [ true, %if.end.i77.i ], [ true, %if.then29.i99.i ], [ false, %if.end35.i95.i ], [ true, %if.end38.i97.i ]
   %retval.0.i83.i = phi i64 [ 4, %if.then9.i84.i ], [ 3, %if.end.i77.i ], [ 2, %if.then29.i99.i ], [ 0, %if.end35.i95.i ], [ 1, %if.end38.i97.i ]
-  %cmp.not.not.i = icmp ult i64 %retval.0.i.i, %retval.0.i83.i
+  %cmp.not.not.i = icmp samesign ult i64 %retval.0.i.i, %retval.0.i83.i
   br i1 %cmp.not.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit110.i
@@ -2779,7 +2779,7 @@ for.body.i.i.i.i:                                 ; preds = %for.end.i.i, %for.c
 
 for.cond18.preheader.i.i.i.i:                     ; preds = %cond.end.i.i.i.i, %cond.end.thread.i.i.i.i
   %i4.0.lcssa.i.i.i.i = phi i64 [ %inc32.i.i.i.i, %cond.end.thread.i.i.i.i ], [ %inc.i.i.i.i, %cond.end.i.i.i.i ]
-  %cmp1923.i.i.i.i = icmp ult i64 %i4.0.lcssa.i.i.i.i, 4
+  %cmp1923.i.i.i.i = icmp samesign ult i64 %i4.0.lcssa.i.i.i.i, 4
   br i1 %cmp1923.i.i.i.i, label %for.body20.preheader.i.i.i.i, label %if.end.i108.i
 
 for.body20.preheader.i.i.i.i:                     ; preds = %for.cond18.preheader.i.i.i.i
@@ -2814,7 +2814,7 @@ cond.end.i.i.i.i:                                 ; preds = %for.body8.i.i.i.i
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [4 x i64], ptr %result_array.i.i.i, i64 0, i64 %i4.022.i.i.i.i
   store i64 %add.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i4.022.i.i.i.i, 1
-  %cmp6.i.i.i.i = icmp ult i64 %i4.022.i.i.i.i, 3
+  %cmp6.i.i.i.i = icmp samesign ult i64 %i4.022.i.i.i.i, 3
   %cmp7.i.i.i.i = icmp ne i64 %next_index.021.i.i.i.i, 1
   %17 = and i1 %cmp6.i.i.i.i, %cmp7.i.i.i.i
   br i1 %17, label %for.body8.i.i.i.i, label %for.cond18.preheader.i.i.i.i, !llvm.loop !25
@@ -3127,7 +3127,7 @@ for.body8.preheader.i.i.i:                        ; preds = %for.end.i.i153.i
 
 for.cond18.preheader.i.i.i:                       ; preds = %cond.end.i.i.i, %cond.end.thread.i.i.i
   %i4.0.lcssa.i.i.i = phi i64 [ %inc32.i.i.i, %cond.end.thread.i.i.i ], [ %inc.i.i158.i, %cond.end.i.i.i ]
-  %cmp1923.i.i.i = icmp ult i64 %i4.0.lcssa.i.i.i, 4
+  %cmp1923.i.i.i = icmp samesign ult i64 %i4.0.lcssa.i.i.i, 4
   br i1 %cmp1923.i.i.i, label %for.body20.preheader.i.i.i, label %if.end133.i
 
 for.body20.preheader.i.i.i:                       ; preds = %for.cond18.preheader.i.i.i, %for.end.i.i153.i
@@ -3163,7 +3163,7 @@ cond.end.i.i.i:                                   ; preds = %for.body8.i.i.i
   %arrayidx.i.i.i.i.i157.i = getelementptr inbounds [4 x i64], ptr %result_array.i152.i, i64 0, i64 %i4.022.i.i.i
   store i64 %add.i.i156.i, ptr %arrayidx.i.i.i.i.i157.i, align 8
   %inc.i.i158.i = add nuw nsw i64 %i4.022.i.i.i, 1
-  %cmp6.i.i.i = icmp ult i64 %i4.022.i.i.i, 3
+  %cmp6.i.i.i = icmp samesign ult i64 %i4.022.i.i.i, 3
   %cmp7.i.i.i = icmp ne i64 %next_index.021.i.i.i, 1
   %50 = and i1 %cmp6.i.i.i, %cmp7.i.i.i
   br i1 %50, label %for.body8.i.i.i, label %for.cond18.preheader.i.i.i, !llvm.loop !25
@@ -3197,7 +3197,7 @@ for.body.i.i197.i:                                ; preds = %if.end133.i, %for.c
 
 for.cond18.preheader.i.i191.i:                    ; preds = %cond.end.i.i181.i, %cond.end.thread.i.i194.i
   %i4.0.lcssa.i.i192.i = phi i64 [ %inc32.i.i196.i, %cond.end.thread.i.i194.i ], [ %inc.i.i188.i, %cond.end.i.i181.i ]
-  %cmp1923.i.i193.i = icmp ult i64 %i4.0.lcssa.i.i192.i, 4
+  %cmp1923.i.i193.i = icmp samesign ult i64 %i4.0.lcssa.i.i192.i, 4
   br i1 %cmp1923.i.i193.i, label %for.body20.preheader.i.i168.i, label %if.end138.i
 
 for.body20.preheader.i.i168.i:                    ; preds = %for.cond18.preheader.i.i191.i
@@ -3232,7 +3232,7 @@ cond.end.i.i181.i:                                ; preds = %for.body8.i.i175.i
   %arrayidx.i.i.i.i.i187.i = getelementptr inbounds [4 x i64], ptr %result_array.i163.i, i64 0, i64 %i4.022.i.i176.i
   store i64 %add.i.i186.i, ptr %arrayidx.i.i.i.i.i187.i, align 8
   %inc.i.i188.i = add nuw nsw i64 %i4.022.i.i176.i, 1
-  %cmp6.i.i189.i = icmp ult i64 %i4.022.i.i176.i, 3
+  %cmp6.i.i189.i = icmp samesign ult i64 %i4.022.i.i176.i, 3
   %cmp7.i.i190.i = icmp ne i64 %next_index.021.i.i177.i, 1
   %56 = and i1 %cmp6.i.i189.i, %cmp7.i.i190.i
   br i1 %56, label %for.body8.i.i175.i, label %for.cond18.preheader.i.i191.i, !llvm.loop !25

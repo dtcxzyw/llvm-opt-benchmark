@@ -2600,7 +2600,7 @@ opal_thread_add_fetch_32.exit97:                  ; preds = %102, %104
   %112 = load ptr, ptr %111, align 8
   %113 = load ptr, ptr %112, align 8
   store i8 %31, ptr %113, align 8
-  %114 = icmp ugt i32 %2, 1
+  %114 = icmp samesign ugt i32 %2, 1
   br i1 %114, label %117, label %115
 
 115:                                              ; preds = %opal_thread_add_fetch_32.exit97

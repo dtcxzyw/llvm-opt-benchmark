@@ -358,7 +358,7 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
   %.05894 = phi i64 [ 0, %40 ], [ %74, %65 ]
   %66 = phi i8 [ 0, %40 ], [ %73, %65 ]
   %67 = phi i8 [ 0, %40 ], [ %71, %65 ]
-  %.not77 = icmp ult i64 %.05894, %63
+  %.not77 = icmp samesign ult i64 %.05894, %63
   %68 = getelementptr i8, ptr %gep91, i64 %.05894
   %69 = load i8, ptr %68, align 1
   %70 = select i1 %.not77, i8 %69, i8 0
@@ -415,7 +415,7 @@ define internal fastcc i32 @unwrap(ptr noundef %0, ptr nocapture noundef readonl
   %8 = alloca [16 x i8], align 16
   %9 = alloca [16 x i8], align 16
   store i64 0, ptr %5, align 8
-  %10 = icmp ult i64 %2, 3
+  %10 = icmp samesign ult i64 %2, 3
   br i1 %10, label %41, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %6

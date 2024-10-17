@@ -294,7 +294,7 @@ define internal fastcc void @read_pages(ptr noundef %0) unnamed_addr #0 align 16
   %74 = getelementptr inbounds i8, ptr %73, i64 12
   %75 = load i32, ptr %74, align 4
   %76 = zext i32 %75 to i64
-  %77 = icmp ugt i64 %67, %76
+  %77 = icmp samesign ugt i64 %67, %76
   br i1 %77, label %80, label %78
 
 78:                                               ; preds = %66
@@ -733,7 +733,7 @@ define internal fastcc void @ondemand_readahead(ptr noundef %0, ptr noundef %1, 
 51:                                               ; preds = %36
   store i64 %41, ptr %9, align 8
   %52 = lshr i64 %34, 4
-  %53 = icmp ugt i64 %52, %40
+  %53 = icmp samesign ugt i64 %52, %40
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %51
@@ -742,7 +742,7 @@ define internal fastcc void @ondemand_readahead(ptr noundef %0, ptr noundef %1, 
 
 56:                                               ; preds = %51
   %57 = lshr i64 %34, 1
-  %58 = icmp ult i64 %57, %40
+  %58 = icmp samesign ult i64 %57, %40
   %59 = shl nuw nsw i64 %40, 1
   %60 = select i1 %58, i64 %34, i64 %59
   br label %129
@@ -769,7 +769,7 @@ define internal fastcc void @ondemand_readahead(ptr noundef %0, ptr noundef %1, 
   %71 = add i64 %68, %2
   %72 = and i64 %71, 4294967295
   %73 = lshr i64 %34, 4
-  %74 = icmp ugt i64 %73, %72
+  %74 = icmp samesign ugt i64 %73, %72
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %70
@@ -778,7 +778,7 @@ define internal fastcc void @ondemand_readahead(ptr noundef %0, ptr noundef %1, 
 
 77:                                               ; preds = %70
   %78 = lshr i64 %34, 1
-  %79 = icmp ult i64 %78, %72
+  %79 = icmp samesign ult i64 %78, %72
   %80 = shl nuw nsw i64 %72, 1
   %81 = select i1 %79, i64 %34, i64 %80
   br label %129
@@ -878,7 +878,7 @@ define internal fastcc void @ondemand_readahead(ptr noundef %0, ptr noundef %1, 
 139:                                              ; preds = %.thread
   %140 = zext i32 %135 to i64
   %141 = lshr i64 %34, 4
-  %142 = icmp ugt i64 %141, %140
+  %142 = icmp samesign ugt i64 %141, %140
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %139
@@ -887,7 +887,7 @@ define internal fastcc void @ondemand_readahead(ptr noundef %0, ptr noundef %1, 
 
 145:                                              ; preds = %139
   %146 = lshr i64 %34, 1
-  %147 = icmp ult i64 %146, %140
+  %147 = icmp samesign ult i64 %146, %140
   %148 = shl nuw nsw i64 %140, 1
   %149 = select i1 %147, i64 %34, i64 %148
   br label %150
@@ -1257,7 +1257,7 @@ define dso_local void @readahead_expand(ptr nocapture noundef %0, i64 noundef %1
   %59 = lshr i64 %58, 12
   %60 = getelementptr inbounds i8, ptr %0, i64 32
   %61 = zext i32 %53 to i64
-  %62 = icmp ugt i64 %59, %61
+  %62 = icmp samesign ugt i64 %59, %61
   br i1 %62, label %63, label %.loopexit
 
 63:                                               ; preds = %.loopexit10
@@ -1310,7 +1310,7 @@ define dso_local void @readahead_expand(ptr nocapture noundef %0, i64 noundef %1
   %94 = add i32 %93, 1
   store i32 %94, ptr %60, align 8
   %95 = zext i32 %94 to i64
-  %96 = icmp ugt i64 %59, %95
+  %96 = icmp samesign ugt i64 %59, %95
   br i1 %96, label %.split.us, label %.loopexit, !llvm.loop !29
 
 .split:                                           ; preds = %63, %124
@@ -1371,7 +1371,7 @@ define dso_local void @readahead_expand(ptr nocapture noundef %0, i64 noundef %1
   store i32 %130, ptr %68, align 4
   %131 = load i32, ptr %60, align 8
   %132 = zext i32 %131 to i64
-  %133 = icmp ugt i64 %59, %132
+  %133 = icmp samesign ugt i64 %59, %132
   br i1 %133, label %.split, label %.loopexit, !llvm.loop !29
 
 134:                                              ; preds = %.split15.us, %34

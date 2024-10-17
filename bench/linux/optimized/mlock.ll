@@ -964,7 +964,7 @@ define internal fastcc void @mlock_folio_batch(ptr noundef %0) unnamed_addr #0 a
   %512 = add nuw nsw i64 %7, 1
   %513 = load i8, ptr %0, align 8
   %514 = zext i8 %513 to i64
-  %515 = icmp ult i64 %512, %514
+  %515 = icmp samesign ult i64 %512, %514
   br i1 %515, label %6, label %516, !llvm.loop !24
 
 516:                                              ; preds = %.critedge
@@ -2486,7 +2486,7 @@ define internal fastcc void @apply_mlockall_flags(i32 noundef range(i32 0, 8) %0
   %19 = load i64, ptr %18, align 16
   %20 = or i64 %19, 8192
   store i64 %20, ptr %18, align 16
-  %21 = icmp ult i32 %0, 4
+  %21 = icmp samesign ult i32 %0, 4
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %16
@@ -2503,14 +2503,14 @@ define internal fastcc void @apply_mlockall_flags(i32 noundef range(i32 0, 8) %0
   br i1 %29, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %27
-  %30 = icmp ult i32 %0, 4
+  %30 = icmp samesign ult i32 %0, 4
   %31 = select i1 %30, i64 8192, i64 532480
   br label %36
 
 32:                                               ; preds = %1
   %.pre = and i32 %0, 1
   %33 = icmp eq i32 %.pre, 0
-  %34 = icmp ult i32 %0, 4
+  %34 = icmp samesign ult i32 %0, 4
   %35 = select i1 %34, i64 8192, i64 532480
   %spec.select = select i1 %33, i64 0, i64 %35
   br label %36

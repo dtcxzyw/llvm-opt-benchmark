@@ -65,7 +65,7 @@ define hidden range(i32 -1, 2) i32 @mp2t_open(ptr nocapture noundef %0, ptr noun
   br i1 %.not63, label %26, label %mp2t_bits_per_second.exit.thread
 
 26:                                               ; preds = %24
-  %27 = icmp ult i32 %.057, 2
+  %27 = icmp samesign ult i32 %.057, 2
   br i1 %27, label %mp2t_bits_per_second.exit.thread, label %.loopexit
 
 28:                                               ; preds = %.preheader72
@@ -317,7 +317,7 @@ define hidden range(i32 -1, 2) i32 @mp2t_open(ptr nocapture noundef %0, ptr noun
   %173 = or disjoint i64 %.masked.i.i43.le.i, %172
   %174 = mul nuw nsw i64 %170, 300
   %175 = add nuw nsw i64 %174, %173
-  %.not31.i = icmp ugt i64 %175, %106
+  %.not31.i = icmp samesign ugt i64 %175, %106
   br i1 %.not31.i, label %176, label %mp2t_bits_per_second.exit.thread
 
 176:                                              ; preds = %156

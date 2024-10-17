@@ -231,7 +231,7 @@ _ZL9schubfachim.exit:                             ; preds = %37, %157, %161
   %.sroa.0.0.i = phi i64 [ %38, %37 ], [ %159, %157 ], [ %173, %161 ]
   %.sroa.4.0.i = phi i32 [ 0, %37 ], [ %160, %157 ], [ %52, %161 ]
   %174 = getelementptr inbounds i8, ptr %3, i64 20
-  %175 = icmp ugt i64 %.sroa.0.0.i, 9999
+  %175 = icmp samesign ugt i64 %.sroa.0.0.i, 9999
   br i1 %175, label %.lr.ph.i, label %._crit_edge.i78
 
 .lr.ph.i:                                         ; preds = %_ZL9schubfachim.exit, %.lr.ph.i
@@ -254,14 +254,14 @@ _ZL9schubfachim.exit:                             ; preds = %37, %157, %161
   %188 = load i16, ptr %187, align 2
   store i16 %188, ptr %183, align 1
   %189 = udiv i64 %.01922.i, 10000
-  %190 = icmp ugt i64 %.01922.i, 99999999
+  %190 = icmp samesign ugt i64 %.01922.i, 99999999
   br i1 %190, label %.lr.ph.i, label %._crit_edge.i78, !llvm.loop !5
 
 ._crit_edge.i78:                                  ; preds = %.lr.ph.i, %_ZL9schubfachim.exit
   %.019.lcssa.i = phi i64 [ %.sroa.0.0.i, %_ZL9schubfachim.exit ], [ %189, %.lr.ph.i ]
   %.018.lcssa.i = phi ptr [ %174, %_ZL9schubfachim.exit ], [ %177, %.lr.ph.i ]
   %191 = trunc nuw nsw i64 %.019.lcssa.i to i32
-  %192 = icmp ugt i64 %.019.lcssa.i, 9
+  %192 = icmp samesign ugt i64 %.019.lcssa.i, 9
   br i1 %192, label %.lr.ph28.i, label %._crit_edge29.i
 
 .lr.ph28.i:                                       ; preds = %._crit_edge.i78, %.lr.ph28.i
@@ -404,7 +404,7 @@ _Z8trimzeroPc.exit84:                             ; preds = %257
   %266 = getelementptr inbounds i8, ptr %spec.select, i64 2
   store i8 %265, ptr %263, align 1
   %267 = call i32 @llvm.abs.i32(i32 %262, i1 true)
-  %268 = icmp ugt i32 %267, 99
+  %268 = icmp samesign ugt i32 %267, 99
   br i1 %268, label %269, label %_ZL8printexpPci.exit
 
 269:                                              ; preds = %_Z8trimzeroPc.exit84

@@ -4036,7 +4036,7 @@ slurm_option_set_by_cli.exit34.i:                 ; preds = %521, %534, %530, %5
   %540 = phi i32 [ 0, %520 ], [ 0, %slurm_option_set_by_cli.exit26.thread.i66 ], [ %517, %527 ], [ %517, %530 ], [ %517, %534 ], [ %517, %521 ]
   %.012.i32.i = phi i32 [ 0, %520 ], [ 0, %slurm_option_set_by_cli.exit26.thread.i66 ], [ 0, %527 ], [ 0, %530 ], [ %539, %534 ], [ 0, %521 ]
   %541 = add nuw nsw i32 %.012.i32.i, %540
-  %542 = icmp ugt i32 %541, 1
+  %542 = icmp samesign ugt i32 %541, 1
   br i1 %542, label %543, label %544
 
 543:                                              ; preds = %slurm_option_set_by_cli.exit34.i
@@ -4488,7 +4488,7 @@ slurm_option_set_by_env.exit115.i:                ; preds = %719, %728, %725, %7
   %733 = phi i32 [ %715, %728 ], [ 0, %718 ], [ 0, %slurm_option_set_by_env.exit107.thread.i ], [ %715, %725 ], [ %715, %719 ]
   %.010.i113.i = phi i32 [ %732, %728 ], [ 0, %718 ], [ 0, %slurm_option_set_by_env.exit107.thread.i ], [ 0, %725 ], [ 0, %719 ]
   %734 = add nuw nsw i32 %.010.i113.i, %733
-  %735 = icmp ugt i32 %734, 1
+  %735 = icmp samesign ugt i32 %734, 1
   br i1 %735, label %736, label %slurm_option_reset.exit50.i
 
 736:                                              ; preds = %slurm_option_set_by_env.exit115.i
@@ -13118,7 +13118,7 @@ define internal range(i32 -1, 1) i32 @arg_set_nice(ptr nocapture noundef writeon
 5:                                                ; preds = %2, %3
   %.0 = phi i64 [ %4, %3 ], [ 100, %2 ]
   %6 = tail call i64 @llvm.abs.i64(i64 %.0, i1 true)
-  %7 = icmp ugt i64 %6, 2147483645
+  %7 = icmp samesign ugt i64 %6, 2147483645
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
@@ -13166,7 +13166,7 @@ define internal i32 @arg_set_data_nice(ptr nocapture noundef writeonly %0, ptr n
 19:                                               ; preds = %9
   %20 = load i64, ptr %4, align 8
   %21 = call i64 @llvm.abs.i64(i64 %20, i1 true)
-  %22 = icmp ugt i64 %21, 2147483644
+  %22 = icmp samesign ugt i64 %21, 2147483644
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %19

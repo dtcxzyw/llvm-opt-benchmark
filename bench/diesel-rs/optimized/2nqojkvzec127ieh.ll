@@ -6537,7 +6537,7 @@ _ZN3std4sync4once4Once9call_once17hefaff4a1323aa093E.llvm.5435959977682051014.ex
 define void @"_ZN6diesel5mysql5types13date_and_time6chrono148_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Date$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$chrono..naive..date..NaiveDate$GT$6to_sql17h9163a889addb5581E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4, !noundef !16
   %5 = and i32 %4, 8191
-  %6 = icmp ult i32 %5, 5864
+  %6 = icmp samesign ult i32 %5, 5864
   br i1 %6, label %7, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit5
 
 7:                                                ; preds = %3

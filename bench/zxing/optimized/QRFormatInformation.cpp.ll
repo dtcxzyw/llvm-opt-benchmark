@@ -68,7 +68,7 @@ _ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i26:         ; preds = %2
   %.reass.us.reass.i.reass.reass = xor i32 %19, %invariant.op.reass
   %20 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.reass.us.reass.i.reass.reass)
   %21 = zext i8 %.sroa.5.211.us.i to i32
-  %22 = icmp ult i32 %20, %21
+  %22 = icmp samesign ult i32 %20, %21
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %18
@@ -164,7 +164,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
   %.reass.us.reass.i.reass.reass = xor i32 %5, %invariant.op
   %6 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.reass.us.reass.i.reass.reass)
   %7 = zext i8 %.sroa.5.211.us.i to i32
-  %8 = icmp ult i32 %6, %7
+  %8 = icmp samesign ult i32 %6, %7
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %4
@@ -251,7 +251,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   %5 = xor i32 %4, %0
   %6 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %5)
   %7 = zext i8 %3 to i32
-  %8 = icmp ult i32 %6, %7
+  %8 = icmp samesign ult i32 %6, %7
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %.preheader.i.preheader.i
@@ -283,7 +283,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   %18 = xor i32 %17, %1
   %19 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %18)
   %20 = zext i8 %16 to i32
-  %21 = icmp ult i32 %19, %20
+  %21 = icmp samesign ult i32 %19, %20
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %.preheader.i6.i.preheader
@@ -315,7 +315,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   %31 = xor i32 %30, %0
   %32 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %31)
   %33 = zext i8 %29 to i32
-  %34 = icmp ult i32 %32, %33
+  %34 = icmp samesign ult i32 %32, %33
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %.preheader.i.preheader.i90

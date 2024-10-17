@@ -1233,7 +1233,7 @@ define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr nound
 
 .loopexit:                                        ; preds = %7, %3
   %27 = phi i32 [ %2, %3 ], [ %12, %7 ]
-  %28 = icmp ugt i32 %27, 9
+  %28 = icmp samesign ugt i32 %27, 9
   br i1 %28, label %29, label %39
 
 29:                                               ; preds = %.loopexit

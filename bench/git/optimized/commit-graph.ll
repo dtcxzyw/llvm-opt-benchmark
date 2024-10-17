@@ -1439,7 +1439,7 @@ for.inc30:                                        ; preds = %while.end.i, %if.en
   %base_graph39.i = getelementptr inbounds i8, ptr %call1.i, i64 88
   store ptr %graph_chain.086, ptr %base_graph39.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv.next, %4
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp, label %for.body, label %while.body.i42.preheader, !llvm.loop !11
 
 for.end31:                                        ; preds = %for.body, %_.exit41, %_.exit
@@ -1815,7 +1815,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %5 = load ptr, ptr %arrayidx.i, align 8
   tail call void @free(ptr noundef %5) #22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %4
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %4
   br i1 %cmp.i, label %for.body.i, label %clear_commit_graph_data_slab.exit, !llvm.loop !16
 
 clear_commit_graph_data_slab.exit:                ; preds = %for.body.i, %if.end
@@ -2144,7 +2144,7 @@ do.body:                                          ; preds = %if.end38, %if.end23
   %18 = load i64, ptr %chunk_extra_edges_size, align 8
   %div35 = lshr i64 %18, 2
   %conv25 = zext i32 %parent_data_pos.0 to i64
-  %cmp26.not = icmp ugt i64 %div35, %conv25
+  %cmp26.not = icmp samesign ugt i64 %div35, %conv25
   br i1 %cmp26.not, label %if.end38, label %if.then28
 
 if.then28:                                        ; preds = %do.body
@@ -2526,7 +2526,7 @@ if.end31:                                         ; preds = %if.then27
   %25 = load i64, ptr %chunk_generation_data_overflow_size, align 8
   %div35 = lshr i64 %25, 3
   %conv33 = zext nneg i32 %xor to i64
-  %cmp34.not = icmp ugt i64 %div35, %conv33
+  %cmp34.not = icmp samesign ugt i64 %div35, %conv33
   br i1 %cmp34.not, label %if.end38, label %if.then36
 
 if.then36:                                        ; preds = %if.end31
@@ -3363,7 +3363,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %num_commits, align 4
   %44 = zext i32 %43 to i64
-  %cmp139 = icmp ult i64 %indvars.iv.next, %44
+  %cmp139 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %cmp139, label %for.body, label %if.end145, !llvm.loop !29
 
 if.end145:                                        ; preds = %for.body, %for.cond.preheader, %land.lhs.true129, %if.end122
@@ -4278,7 +4278,7 @@ while.body.us.i:                                  ; preds = %st_mult.exit.us.i
 
 if.end35.us.i:                                    ; preds = %while.body.us.i
   %sub.us.i = xor i64 %conv23.us.i, 4294967295
-  %cmp39.us.i = icmp ult i64 %sub.us.i, %conv21.us.i
+  %cmp39.us.i = icmp samesign ult i64 %sub.us.i, %conv21.us.i
   br i1 %cmp39.us.i, label %if.then41.i, label %if.end46.us.i
 
 if.end46.us.i:                                    ; preds = %if.end35.us.i
@@ -4323,7 +4323,7 @@ while.body.i240:                                  ; preds = %st_mult.exit.i238
 
 if.end35.i:                                       ; preds = %while.body.i240
   %sub.i242 = xor i64 %conv23.i, 4294967295
-  %cmp39.i = icmp ult i64 %sub.i242, %conv21.i
+  %cmp39.i = icmp samesign ult i64 %sub.i242, %conv21.i
   br i1 %cmp39.i, label %if.then41.i, label %if.end46.i
 
 if.then41.i:                                      ; preds = %if.end35.i, %if.end35.us.i
@@ -4407,7 +4407,7 @@ land.rhs88.lr.ph.i:                               ; preds = %if.end78.i
 land.rhs88.i:                                     ; preds = %for.body.i232
   %198 = load i32, ptr %num_commit_graphs_before89.i, align 8
   %199 = zext i32 %198 to i64
-  %cmp90.i = icmp ult i64 %indvars.iv.next.i234, %199
+  %cmp90.i = icmp samesign ult i64 %indvars.iv.next.i234, %199
   br i1 %cmp90.i, label %for.body.i232, label %for.end.i229, !llvm.loop !39
 
 for.body.i232:                                    ; preds = %land.rhs88.lr.ph.i, %land.rhs88.i
@@ -4422,7 +4422,7 @@ for.body.i232:                                    ; preds = %land.rhs88.lr.ph.i,
   %indvars.iv.next.i234 = add nuw nsw i64 %indvars.iv.i228504, 1
   %203 = load i32, ptr %num_commit_graphs_after61139.i, align 4
   %204 = zext i32 %203 to i64
-  %cmp86.i = icmp ult i64 %indvars.iv.next.i234, %204
+  %cmp86.i = icmp samesign ult i64 %indvars.iv.next.i234, %204
   br i1 %cmp86.i, label %land.rhs88.i, label %for.end.i229, !llvm.loop !39
 
 for.end.i229:                                     ; preds = %land.rhs88.i, %for.body.i232, %land.rhs88.lr.ph.i, %if.end78.i
@@ -5479,7 +5479,7 @@ for.body.i393:                                    ; preds = %if.end204.i, %for.b
   %indvars.iv.next.i395 = add nuw nsw i64 %indvars.iv.i394, 1
   %387 = load i32, ptr %num_commit_graphs_after.i378, align 4
   %388 = zext i32 %387 to i64
-  %cmp238.i = icmp ult i64 %indvars.iv.next.i395, %388
+  %cmp238.i = icmp samesign ult i64 %indvars.iv.next.i395, %388
   br i1 %cmp238.i, label %for.body.i393, label %for.end.i396, !llvm.loop !44
 
 for.end.i396:                                     ; preds = %for.body.i393, %if.end204.i
@@ -5560,7 +5560,7 @@ for.inc.i421:                                     ; preds = %if.end.i420, %for.b
   %indvars.iv.next.i422 = add nuw nsw i64 %indvars.iv.i417, 1
   %400 = load i32, ptr %num_commit_graphs_before.i412, align 8
   %401 = zext i32 %400 to i64
-  %cmp.i423 = icmp ult i64 %indvars.iv.next.i422, %401
+  %cmp.i423 = icmp samesign ult i64 %indvars.iv.next.i422, %401
   br i1 %cmp.i423, label %for.body.i416, label %mark_commit_graphs.exit, !llvm.loop !45
 
 mark_commit_graphs.exit:                          ; preds = %for.inc.i421, %if.then231
@@ -5775,7 +5775,7 @@ for.body.i469:                                    ; preds = %cleanup, %for.body.
   %indvars.iv.next.i472 = add nuw nsw i64 %indvars.iv.i470, 1
   %433 = load i32, ptr %slab_count.i.i, align 8
   %434 = zext i32 %433 to i64
-  %cmp.i473 = icmp ult i64 %indvars.iv.next.i472, %434
+  %cmp.i473 = icmp samesign ult i64 %indvars.iv.next.i472, %434
   br i1 %cmp.i473, label %for.body.i469, label %clear_topo_level_slab.exit, !llvm.loop !48
 
 clear_topo_level_slab.exit:                       ; preds = %for.body.i469, %cleanup
@@ -5821,7 +5821,7 @@ for.body241:                                      ; preds = %for.body241.lr.ph, 
   %indvars.iv.next528 = add nuw nsw i64 %indvars.iv527, 1
   %443 = load i32, ptr %num_commit_graphs_after238, align 4
   %444 = zext i32 %443 to i64
-  %cmp239 = icmp ult i64 %indvars.iv.next528, %444
+  %cmp239 = icmp samesign ult i64 %indvars.iv.next528, %444
   br i1 %cmp239, label %for.body241, label %for.cond250.preheader, !llvm.loop !49
 
 for.body254:                                      ; preds = %for.body254.lr.ph, %for.body254
@@ -5833,7 +5833,7 @@ for.body254:                                      ; preds = %for.body254.lr.ph, 
   %indvars.iv.next531 = add nuw nsw i64 %indvars.iv530, 1
   %447 = load i32, ptr %num_commit_graphs_before251, align 8
   %448 = zext i32 %447 to i64
-  %cmp252 = icmp ult i64 %indvars.iv.next531, %448
+  %cmp252 = icmp samesign ult i64 %indvars.iv.next531, %448
   br i1 %cmp252, label %for.body254, label %for.end260, !llvm.loop !50
 
 for.end260:                                       ; preds = %for.body254, %for.cond250.preheader
@@ -6057,7 +6057,7 @@ land.rhs.i.i:                                     ; preds = %while.body.i.i, %fo
   %num_commits_in_base.i.i = getelementptr inbounds i8, ptr %g.addr.014.i.i, i64 80
   %18 = load i32, ptr %num_commits_in_base.i.i, align 8
   %19 = zext i32 %18 to i64
-  %cmp.i.i = icmp ult i64 %17, %19
+  %cmp.i.i = icmp samesign ult i64 %17, %19
   br i1 %cmp.i.i, label %while.body.i.i, label %if.end.i.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
@@ -6075,7 +6075,7 @@ if.end.i.i:                                       ; preds = %land.rhs.i.i
   %21 = load i32, ptr %num_commits.i.i, align 4
   %add.i.i = add i32 %21, %18
   %22 = zext i32 %add.i.i to i64
-  %cmp3.not.i.i = icmp ult i64 %17, %22
+  %cmp3.not.i.i = icmp samesign ult i64 %17, %22
   br i1 %cmp3.not.i.i, label %load_oid_from_graph.exit.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
@@ -6124,7 +6124,7 @@ if.then58.i:                                      ; preds = %load_oid_from_graph
 for.inc.i:                                        ; preds = %if.then58.i, %load_oid_from_graph.exit.i
   %34 = load i32, ptr %num_commits.i, align 4
   %35 = zext i32 %34 to i64
-  %cmp51.i = icmp ult i64 %indvars.iv.next.i, %35
+  %cmp51.i = icmp samesign ult i64 %indvars.iv.next.i, %35
   br i1 %cmp51.i, label %for.body.i, label %merge_commit_graph.exit, !llvm.loop !52
 
 merge_commit_graph.exit:                          ; preds = %for.inc.i, %do.end.i
@@ -6556,7 +6556,7 @@ if.end22.i:                                       ; preds = %_.exit89.i, %while.
   %31 = phi i8 [ %.pre332.i, %_.exit89.i ], [ %22, %while.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %32 = zext i8 %31 to i64
-  %cmp14.i = icmp ult i64 %indvars.iv.next.i, %32
+  %cmp14.i = icmp samesign ult i64 %indvars.iv.next.i, %32
   br i1 %cmp14.i, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !55
 
 while.end.loopexit.i:                             ; preds = %if.end22.i
@@ -6656,7 +6656,7 @@ for.inc.i:                                        ; preds = %_.exit97.i, %parse_
   %indvars.iv.next324.i = add nuw nsw i64 %indvars.iv323.i, 1
   %46 = load i32, ptr %num_commits.i, align 4
   %47 = zext i32 %46 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next324.i, %47
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next324.i, %47
   br i1 %cmp.i, label %for.body.i, label %while.cond31.preheader.i, !llvm.loop !56
 
 while.body34.i:                                   ; preds = %if.end45.i, %while.body34.lr.ph.i
@@ -7238,7 +7238,7 @@ for.inc158.i:                                     ; preds = %.thread.i.thread, %
   %indvars.iv.next330.i = add nuw nsw i64 %indvars.iv329.i, 1
   %132 = load i32, ptr %num_commits.i, align 4
   %133 = zext i32 %132 to i64
-  %cmp53.i = icmp ult i64 %indvars.iv.next330.i, %133
+  %cmp53.i = icmp samesign ult i64 %indvars.iv.next330.i, %133
   br i1 %cmp53.i, label %for.body55.i, label %for.end160.i, !llvm.loop !59
 
 for.end160.i:                                     ; preds = %for.inc158.i
@@ -7509,7 +7509,7 @@ for.body:                                         ; preds = %commit_graph_data_s
   %arrayidx3 = getelementptr inbounds %struct.commit_graph_data, ptr %9, i64 %indvars.iv
   store i32 -1, ptr %arrayidx3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv, 32765
+  %cmp = icmp samesign ult i64 %indvars.iv, 32765
   br i1 %cmp, label %for.body, label %return, !llvm.loop !62
 
 return:                                           ; preds = %for.body, %commit_graph_data_slab_peek.exit
@@ -8789,7 +8789,7 @@ for.body:                                         ; preds = %while.body, %for.bo
   %inc6 = add nuw nsw i32 %num_parents.047, 1
   %next = getelementptr inbounds i8, ptr %parent.048, i64 8
   %parent.0 = load ptr, ptr %next, align 8
-  %cmp5 = icmp ult i32 %num_parents.047, 2
+  %cmp5 = icmp samesign ult i32 %num_parents.047, 2
   %tobool = icmp ne ptr %parent.0, null
   %5 = select i1 %cmp5, i1 %tobool, i1 false
   br i1 %5, label %for.body, label %for.end, !llvm.loop !71

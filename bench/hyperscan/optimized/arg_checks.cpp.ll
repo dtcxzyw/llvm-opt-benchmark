@@ -9064,7 +9064,7 @@ for.cond29.loopexit:                              ; preds = %cleanup.cont103, %f
 for.body32:                                       ; preds = %for.cond29.loopexit, %for.inc.2
   %i28.0308 = phi i64 [ 0, %for.inc.2 ], [ %add, %for.cond29.loopexit ]
   %add = add nuw nsw i64 %i28.0308, 1
-  %cmp34306 = icmp ugt i64 %i28.0308, 1
+  %cmp34306 = icmp samesign ugt i64 %i28.0308, 1
   br i1 %cmp34306, label %for.cond29.loopexit, label %for.body36.lr.ph
 
 for.body36.lr.ph:                                 ; preds = %for.body32

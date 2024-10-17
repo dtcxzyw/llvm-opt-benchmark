@@ -649,7 +649,7 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !76
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h45dc2d6451e35dc0E.llvm.4274486045284728278"(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 %8), !noalias !76
   %10 = load i64, ptr %3, align 8, !range !79, !noundef !7
-  %.not.i = icmp ult i64 %10, 2
+  %.not.i = icmp samesign ult i64 %10, 2
   %11 = add nsw i64 %10, -1
   %12 = select i1 %.not.i, i64 0, i64 %11
   switch i64 %12, label %13 [
@@ -1030,7 +1030,7 @@ define hidden void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h45dc2d6451e35dc0E.llvm.4274486045284728278"(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 %1)
   %5 = load i64, ptr %3, align 8, !range !79, !noundef !7
-  %.not = icmp ult i64 %5, 2
+  %.not = icmp samesign ult i64 %5, 2
   %6 = add nsw i64 %5, -1
   %7 = select i1 %.not, i64 0, i64 %6
   switch i64 %7, label %8 [
@@ -3064,7 +3064,7 @@ define hidden void @_ZN4core5slice4sort6stable14driftsort_main17h20a493f213a7301
   %.sroa.0.0.sroa.speculated.i16 = tail call noundef i64 @llvm.umax.i64(i64 %5, i64 %.sroa.0.0.sroa.speculated.i)
   %.sroa.0.0.sroa.speculated.i17 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i16, i64 48)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
-  %6 = icmp ult i64 %.sroa.0.0.sroa.speculated.i16, 171
+  %6 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i16, 171
   br i1 %6, label %16, label %7
 
 7:                                                ; preds = %3
@@ -3118,7 +3118,7 @@ define hidden void @_ZN4core5slice4sort6stable14driftsort_main17h28ab8bb8b3b0a8d
   %.sroa.0.0.sroa.speculated.i17 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i16, i64 48)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %7 = icmp ult i64 %.sroa.0.0.sroa.speculated.i16, 103
+  %7 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i16, 103
   br i1 %7, label %17, label %8
 
 8:                                                ; preds = %3
@@ -3250,7 +3250,7 @@ define hidden void @_ZN4core5slice4sort6stable14driftsort_main17h6f29cd19cb9048a
   %.sroa.0.0.sroa.speculated.i16 = tail call noundef i64 @llvm.umax.i64(i64 %5, i64 %.sroa.0.0.sroa.speculated.i)
   %.sroa.0.0.sroa.speculated.i17 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i16, i64 48)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
-  %6 = icmp ult i64 %.sroa.0.0.sroa.speculated.i16, 513
+  %6 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i16, 513
   br i1 %6, label %16, label %7
 
 7:                                                ; preds = %3
@@ -3302,7 +3302,7 @@ define hidden void @_ZN4core5slice4sort6stable14driftsort_main17h7a73de29eb4c866
   %.sroa.0.0.sroa.speculated.i16 = tail call noundef i64 @llvm.umax.i64(i64 %5, i64 %.sroa.0.0.sroa.speculated.i)
   %.sroa.0.0.sroa.speculated.i17 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i16, i64 48)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
-  %6 = icmp ult i64 %.sroa.0.0.sroa.speculated.i16, 257
+  %6 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i16, 257
   br i1 %6, label %16, label %7
 
 7:                                                ; preds = %3

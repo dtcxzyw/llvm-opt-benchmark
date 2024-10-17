@@ -84,7 +84,7 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias nocapture no
   %42 = and <2 x i64> %.1159163.us, %40
   %43 = getelementptr inbounds i8, ptr %.0160162.us, i64 64
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 16
-  %44 = icmp ult i64 %indvars.iv.next202, %13
+  %44 = icmp samesign ult i64 %indvars.iv.next202, %13
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 16
   br i1 %44, label %25, label %..preheader_crit_edge.us, !llvm.loop !7
 

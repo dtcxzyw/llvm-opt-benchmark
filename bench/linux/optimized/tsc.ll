@@ -640,7 +640,7 @@ define dso_local i64 @native_calibrate_cpu_early() #6 align 16 {
   br i1 %49, label %.loopexit10, label %37, !llvm.loop !35
 
 50:                                               ; preds = %37
-  %51 = icmp ult i32 %42, 5
+  %51 = icmp samesign ult i32 %42, 5
   br label %.loopexit10
 
 .loopexit10:                                      ; preds = %.preheader9, %50, %28, %19
@@ -708,7 +708,7 @@ define dso_local i64 @native_calibrate_cpu_early() #6 align 16 {
   br i1 %99, label %.loopexit, label %86, !llvm.loop !35
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %86
-  %100 = icmp ult i32 %92, 5
+  %100 = icmp samesign ult i32 %92, 5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %..loopexit.loopexit_crit_edge, %67, %.preheader6
@@ -886,7 +886,7 @@ define dso_local void @tsc_restore_sched_clock_state() local_unnamed_addr #6 ali
   store i64 %15, ptr %34, align 8
   %35 = add nuw nsw i64 %23, 1
   %36 = and i64 %35, 127
-  %37 = icmp ugt i64 %36, 63
+  %37 = icmp samesign ugt i64 %36, 63
   br i1 %37, label %.thread, label %16, !prof !41, !llvm.loop !42
 
 .thread:                                          ; preds = %16, %26, %22
@@ -1364,7 +1364,7 @@ define internal fastcc void @cyc2ns_init_secondary_cpus() unnamed_addr #12 secti
   %28 = phi ptr [ %24, %18 ], [ %8, %16 ]
   %29 = add nuw nsw i64 %13, 1
   %30 = and i64 %29, 127
-  %31 = icmp ugt i64 %30, 63
+  %31 = icmp samesign ugt i64 %30, 63
   br i1 %31, label %.thread, label %5, !prof !41, !llvm.loop !55
 
 .thread:                                          ; preds = %5, %26, %12
@@ -1503,7 +1503,7 @@ define dso_local i64 @calibrate_delay_is_known() local_unnamed_addr #6 align 16 
 .preheader:                                       ; preds = %16, %27
   %19 = phi i64 [ %33, %27 ], [ 0, %16 ]
   %20 = and i64 %19, 4294967295
-  %21 = icmp ugt i64 %20, 63
+  %21 = icmp samesign ugt i64 %20, 63
   br i1 %21, label %.thread, label %22, !prof !44
 
 22:                                               ; preds = %.preheader
@@ -2204,7 +2204,7 @@ define internal void @tsc_refine_calibration_work(ptr nocapture readnone %0) #6 
 197:                                              ; preds = %196, %193
   %198 = add nuw nsw i64 %184, 1
   %199 = and i64 %198, 127
-  %200 = icmp ugt i64 %199, 63
+  %200 = icmp samesign ugt i64 %199, 63
   br i1 %200, label %.thread10, label %177, !prof !41, !llvm.loop !65
 
 .thread10:                                        ; preds = %177, %197, %183, %.thread, %168, %.split21.us

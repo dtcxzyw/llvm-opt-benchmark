@@ -2555,7 +2555,7 @@ define dso_local ptr @inet_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 
   %36 = shl i8 %35, 2
   %37 = and i8 %36, 60
   %38 = zext nneg i8 %37 to i32
-  %39 = icmp ult i8 %37, 20
+  %39 = icmp samesign ult i8 %37, 20
   br i1 %39, label %.thread, label %40
 
 40:                                               ; preds = %30
@@ -3571,7 +3571,7 @@ define dso_local i64 @snmp_fold_field(ptr noundef %0, i32 noundef %1) #6 align 1
   %24 = add i64 %23, %8
   %25 = add nuw nsw i64 %13, 1
   %26 = and i64 %25, 127
-  %27 = icmp ugt i64 %26, 63
+  %27 = icmp samesign ugt i64 %26, 63
   br i1 %27, label %.thread, label %6, !prof !67, !llvm.loop !68
 
 .thread:                                          ; preds = %6, %16, %12
@@ -4360,7 +4360,7 @@ define internal noundef range(i32 -12, 1) i32 @ipv4_mib_init_net(ptr nocapture n
 11:                                               ; preds = %19, %9
   %12 = phi i64 [ %23, %19 ], [ 0, %9 ]
   %13 = and i64 %12, 4294967295
-  %14 = icmp ugt i64 %13, 63
+  %14 = icmp samesign ugt i64 %13, 63
   br i1 %14, label %.thread, label %15, !prof !28
 
 15:                                               ; preds = %11

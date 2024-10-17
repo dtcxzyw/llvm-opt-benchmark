@@ -372,7 +372,7 @@ define dso_local void @scontrol_print_completing() local_unnamed_addr #0 {
   %29 = phi i32 [ %21, %.lr.ph ], [ %.pre, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %28, %15, %12, %14, %4, %6
@@ -1344,7 +1344,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
   %149 = getelementptr inbounds i8, ptr %148, i64 8
   %150 = load i32, ptr %149, align 8
   %151 = zext i32 %150 to i64
-  %152 = icmp ult i64 %indvars.iv.next168, %151
+  %152 = icmp samesign ult i64 %indvars.iv.next168, %151
   br i1 %152, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %163
@@ -1374,7 +1374,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
   %165 = getelementptr inbounds i8, ptr %164, i64 8
   %166 = load i32, ptr %165, align 8
   %167 = zext i32 %166 to i64
-  %168 = icmp ult i64 %indvars.iv.next, %167
+  %168 = icmp samesign ult i64 %indvars.iv.next, %167
   br i1 %168, label %.lr.ph.split, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %163, %.lr.ph.split.us, %136
@@ -2804,7 +2804,7 @@ _in_task_array.exit:                              ; preds = %.lr.ph.i, %.loopexi
   %60 = phi i32 [ %.pre30, %.loopexit ], [ %48, %.lr.ph.i ]
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %indvars.iv.next28, %61
+  %62 = icmp samesign ult i64 %indvars.iv.next28, %61
   br i1 %62, label %.lr.ph24, label %._crit_edge25, !llvm.loop !29
 
 ._crit_edge25:                                    ; preds = %_in_task_array.exit, %._crit_edge

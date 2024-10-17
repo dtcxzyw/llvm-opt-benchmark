@@ -8608,7 +8608,7 @@ for.body78:                                       ; preds = %for.body78.lr.ph, %
   %add.ptr.i57 = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i47, i64 %conv87
   store i64 %60, ptr %add.ptr.i57, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp77 = icmp ult i64 %indvars.iv.next, %58
+  %cmp77 = icmp samesign ult i64 %indvars.iv.next, %58
   br i1 %cmp77, label %for.body78, label %for.end91, !llvm.loop !816
 
 for.end91:                                        ; preds = %for.body78, %if.then70

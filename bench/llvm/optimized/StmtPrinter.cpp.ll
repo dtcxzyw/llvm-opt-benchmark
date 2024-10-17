@@ -6122,7 +6122,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %79, %81
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit42 ]
   %112 = call noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   %113 = zext i32 %112 to i64
-  %114 = icmp ult i64 %indvars.iv, %113
+  %114 = icmp samesign ult i64 %indvars.iv, %113
   br i1 %114, label %115, label %169
 
 115:                                              ; preds = %111
@@ -13702,7 +13702,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit44:    ; preds = %103, %105, %106
   %138 = lshr i64 %137, 32
   %139 = trunc nuw i64 %138 to i32
   %140 = and i32 %139, 2147483647
-  %141 = icmp ult i32 %140, 65
+  %141 = icmp samesign ult i32 %140, 65
   br i1 %141, label %_ZNK5clang16TemplateArgument13getAsIntegralEv.exit.thread, label %_ZNK5clang16TemplateArgument13getAsIntegralEv.exit
 
 _ZNK5clang16TemplateArgument13getAsIntegralEv.exit.thread: ; preds = %136
@@ -14290,7 +14290,7 @@ _ZN4llvm11raw_ostreamlsEc.exit51:                 ; preds = %217, %219
 
 225:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit57
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit57 ]
-  %226 = icmp ugt i64 %indvars.iv, 1
+  %226 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %226, label %227, label %_ZN4llvm11raw_ostreamlsEPKc.exit55
 
 227:                                              ; preds = %225
@@ -14352,7 +14352,7 @@ _ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit57: ; preds = %255, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %262 = load i32, ptr %221, align 8
   %263 = zext i32 %262 to i64
-  %264 = icmp ult i64 %indvars.iv.next, %263
+  %264 = icmp samesign ult i64 %indvars.iv.next, %263
   br i1 %264, label %225, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit57, %_ZN4llvm11raw_ostreamlsEc.exit51

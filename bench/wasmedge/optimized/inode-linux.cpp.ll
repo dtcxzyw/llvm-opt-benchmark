@@ -2365,7 +2365,7 @@ _ZN8WasmEdge4Host4WASI6detail17fromAddressFamilyEi.exit77: ; preds = %123, %128,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %144 = load i32, ptr %10, align 4
   %145 = zext i32 %144 to i64
-  %146 = icmp ult i64 %indvars.iv.next, %145
+  %146 = icmp samesign ult i64 %indvars.iv.next, %145
   br i1 %146, label %switch.lookup97, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %142

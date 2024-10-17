@@ -1069,12 +1069,12 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   call void @llvm.lifetime.start.p0(i64 1920, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !419)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
-  %5 = icmp ult i64 %1, 2
+  %5 = icmp samesign ult i64 %1, 2
   br i1 %5, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1adbbd74dbc9388dE.exit, label %6
 
 6:                                                ; preds = %2
   %7 = lshr i64 %1, 1
-  %8 = icmp ugt i64 %1, 7
+  %8 = icmp samesign ugt i64 %1, 7
   br i1 %8, label %9, label %66
 
 9:                                                ; preds = %6
@@ -1364,12 +1364,12 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   call void @llvm.lifetime.start.p0(i64 3072, ptr nonnull %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !449)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !452)
-  %14 = icmp ult i64 %1, 2
+  %14 = icmp samesign ult i64 %1, 2
   br i1 %14, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hf802d3ad86fde235E.exit, label %15
 
 15:                                               ; preds = %2
   %16 = lshr i64 %1, 1
-  %17 = icmp ugt i64 %1, 7
+  %17 = icmp samesign ugt i64 %1, 7
   %18 = getelementptr inbounds { i64, [7 x i64] }, ptr %0, i64 %16
   %19 = getelementptr { i64, [7 x i64] }, ptr %13, i64 %16
   br i1 %17, label %20, label %21
@@ -1921,7 +1921,7 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h3d37d23dd56
   %.val30 = load ptr, ptr %6, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !688)
   call void @llvm.experimental.noalias.scope.decl(metadata !691)
-  %16 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %16 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %16, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h85d73d2d7cf58c53E.exit, label %17
 
 17:                                               ; preds = %.outer._crit_edge
@@ -1931,7 +1931,7 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h3d37d23dd56
 
 20:                                               ; preds = %17
   %21 = lshr i64 %.sroa.12.0.lcssa, 1
-  %22 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %22 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   br i1 %22, label %24, label %103
 
 23:                                               ; preds = %17

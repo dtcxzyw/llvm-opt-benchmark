@@ -1313,7 +1313,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_cbo_invalP
 61:                                               ; preds = %50, %.thread
   %62 = lshr i64 %1, 15
   %63 = and i64 %62, 31
-  %64 = icmp ugt i64 %63, 15
+  %64 = icmp samesign ugt i64 %63, 15
   br i1 %64, label %65, label %79
 
 65:                                               ; preds = %61
@@ -1331,7 +1331,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_cbo_invalP
 70:                                               ; preds = %.thread
   %71 = lshr i64 %1, 15
   %72 = and i64 %71, 31
-  %73 = icmp ugt i64 %72, 15
+  %73 = icmp samesign ugt i64 %72, 15
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %70
@@ -1469,7 +1469,7 @@ define noundef i64 @_Z20fast_rv64e_cbo_invalP11processor_t6insn_tm(ptr nocapture
 61:                                               ; preds = %50, %.thread
   %62 = lshr i64 %1, 15
   %63 = and i64 %62, 31
-  %64 = icmp ugt i64 %63, 15
+  %64 = icmp samesign ugt i64 %63, 15
   br i1 %64, label %65, label %79
 
 65:                                               ; preds = %61
@@ -1487,7 +1487,7 @@ define noundef i64 @_Z20fast_rv64e_cbo_invalP11processor_t6insn_tm(ptr nocapture
 70:                                               ; preds = %.thread
   %71 = lshr i64 %1, 15
   %72 = and i64 %71, 31
-  %73 = icmp ugt i64 %72, 15
+  %73 = icmp samesign ugt i64 %72, 15
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %70
@@ -1623,7 +1623,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_cbo_inva
 61:                                               ; preds = %50, %.thread
   %62 = lshr i64 %1, 15
   %63 = and i64 %62, 31
-  %64 = icmp ugt i64 %63, 15
+  %64 = icmp samesign ugt i64 %63, 15
   br i1 %64, label %65, label %79
 
 65:                                               ; preds = %61
@@ -1641,7 +1641,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_cbo_inva
 70:                                               ; preds = %.thread
   %71 = lshr i64 %1, 15
   %72 = and i64 %71, 31
-  %73 = icmp ugt i64 %72, 15
+  %73 = icmp samesign ugt i64 %72, 15
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %70
@@ -1779,7 +1779,7 @@ define noundef i64 @_Z22logged_rv64e_cbo_invalP11processor_t6insn_tm(ptr nocaptu
 61:                                               ; preds = %50, %.thread
   %62 = lshr i64 %1, 15
   %63 = and i64 %62, 31
-  %64 = icmp ugt i64 %63, 15
+  %64 = icmp samesign ugt i64 %63, 15
   br i1 %64, label %65, label %79
 
 65:                                               ; preds = %61
@@ -1797,7 +1797,7 @@ define noundef i64 @_Z22logged_rv64e_cbo_invalP11processor_t6insn_tm(ptr nocaptu
 70:                                               ; preds = %.thread
   %71 = lshr i64 %1, 15
   %72 = and i64 %71, 31
-  %73 = icmp ugt i64 %72, 15
+  %73 = icmp samesign ugt i64 %72, 15
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %70

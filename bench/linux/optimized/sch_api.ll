@@ -5297,7 +5297,7 @@ define internal fastcc i32 @tc_fill_qdisc(ptr noundef %0, ptr noundef nonnull %1
   %124 = add i32 %123, %107
   %125 = add nuw nsw i64 %112, 1
   %126 = and i64 %125, 127
-  %127 = icmp ugt i64 %126, 63
+  %127 = icmp samesign ugt i64 %126, 63
   br i1 %127, label %.thread15, label %105, !prof !69, !llvm.loop !70
 
 128:                                              ; preds = %96

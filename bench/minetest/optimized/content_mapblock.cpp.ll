@@ -3329,7 +3329,7 @@ if.then.3.i.i:                                    ; preds = %if.end.2.i.i
   %sub6.i51.i.i = sub nsw i32 %490, %522
   %543 = call i32 @llvm.abs.i32(i32 %sub6.i51.i.i, i1 true)
   %add.i52.i.i = add nuw nsw i32 %542, %543
-  %cmp32.i.not.i = icmp ult i32 %add.i.i.i, %add.i52.i.i
+  %cmp32.i.not.i = icmp samesign ult i32 %add.i.i.i, %add.i52.i.i
   %_ZL15quad_indices_13._ZL15quad_indices_02.i = select i1 %cmp32.i.not.i, ptr @_ZL15quad_indices_13, ptr @_ZL15quad_indices_02
   %cond.i = call i32 @llvm.smin.i32(i32 %477, i32 %sub.i137)
   %544 = load ptr, ptr %collector.i, align 8, !tbaa !31
@@ -4433,7 +4433,7 @@ if.then.3.i.i:                                    ; preds = %if.end.2.i.i
   %161 = add nuw nsw <2 x i32> %158, %160
   %162 = extractelement <2 x i32> %161, i64 0
   %163 = extractelement <2 x i32> %161, i64 1
-  %cmp20.i.not.i = icmp ult i32 %162, %163
+  %cmp20.i.not.i = icmp samesign ult i32 %162, %163
   %_ZL15quad_indices_13._ZL15quad_indices_02.i = select i1 %cmp20.i.not.i, ptr @_ZL15quad_indices_13, ptr @_ZL15quad_indices_02
   %164 = load ptr, ptr %collector.i, align 8, !tbaa !31
   %arrayidx.i240 = getelementptr inbounds %struct.TileSpec, ptr %tiles, i64 %indvars.iv.i
@@ -5384,7 +5384,7 @@ if.then54:                                        ; preds = %if.else
   store i8 1, ptr %is_same_liquid, align 2, !tbaa !147
   %31 = and i8 %n2.sroa.7252.0.extract.trunc, 7
   %conv58 = and i32 %n2.sroa.7252.0.extract.shift, 7
-  %cmp60.not = icmp ult i32 %sub, %conv58
+  %cmp60.not = icmp samesign ult i32 %sub, %conv58
   %conv67 = sub nsw i8 %31, %10
   %32 = uitofp i8 %conv67 to float
   %33 = fadd nsz float %32, 5.000000e-01
@@ -13840,7 +13840,7 @@ for.cond191.for.cond.cleanup193_crit_edge:        ; preds = %if.end217
   %sub.ptr.sub.i505 = sub i64 %sub.ptr.lhs.cast.i503, %sub.ptr.rhs.cast.i504
   %sub.ptr.div.i506 = sdiv exact i64 %sub.ptr.sub.i505, 24
   %cmp183 = icmp ult i64 %inc230, %sub.ptr.div.i506
-  %cmp184 = icmp ult i64 %i180.0722, 99
+  %cmp184 = icmp samesign ult i64 %i180.0722, 99
   %103 = and i1 %cmp184, %cmp183
   br i1 %103, label %for.body186, label %for.cond.cleanup185, !llvm.loop !200
 

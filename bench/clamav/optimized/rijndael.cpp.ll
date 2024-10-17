@@ -89,7 +89,7 @@ define void @_ZN8Rijndael14GenerateTablesEv(ptr nocapture nonnull readnone align
   %.not1314.i = icmp slt i8 %.0916.i, 0
   %25 = select i1 %.not1314.i, i8 %24, i8 %23
   %26 = lshr i8 %.01015.i, 1
-  %.not.i = icmp ult i8 %.01015.i, 2
+  %.not.i = icmp samesign ult i8 %.01015.i, 2
   br i1 %.not.i, label %_ZL4gmulhh.exit, label %20, !llvm.loop !6
 
 _ZL4gmulhh.exit:                                  ; preds = %20
@@ -115,7 +115,7 @@ _ZL4gmulhh.exit:                                  ; preds = %20
   %.not1314.i69 = icmp slt i8 %.0916.i65, 0
   %35 = select i1 %.not1314.i69, i8 %34, i8 %33
   %36 = lshr i8 %.01015.i66, 1
-  %.not.i70 = icmp ult i8 %.01015.i66, 2
+  %.not.i70 = icmp samesign ult i8 %.01015.i66, 2
   br i1 %.not.i70, label %_ZL4gmulhh.exit71, label %30, !llvm.loop !6
 
 _ZL4gmulhh.exit71:                                ; preds = %30
@@ -143,7 +143,7 @@ _ZL4gmulhh.exit71:                                ; preds = %30
   %.not1314.i77 = icmp slt i8 %.0916.i73, 0
   %47 = select i1 %.not1314.i77, i8 %46, i8 %45
   %48 = lshr i8 %.01015.i74, 1
-  %.not.i78 = icmp ult i8 %.01015.i74, 2
+  %.not.i78 = icmp samesign ult i8 %.01015.i74, 2
   br i1 %.not.i78, label %_ZL4gmulhh.exit79, label %42, !llvm.loop !6
 
 _ZL4gmulhh.exit79:                                ; preds = %42
@@ -185,7 +185,7 @@ _ZL4gmulhh.exit79:                                ; preds = %42
   %.not1314.i85 = icmp slt i8 %.0916.i81, 0
   %69 = select i1 %.not1314.i85, i8 %68, i8 %67
   %70 = lshr i8 %.01015.i82, 1
-  %.not.i86 = icmp ult i8 %.01015.i82, 2
+  %.not.i86 = icmp samesign ult i8 %.01015.i82, 2
   br i1 %.not.i86, label %_ZL4gmulhh.exit87, label %64, !llvm.loop !6
 
 _ZL4gmulhh.exit87:                                ; preds = %64
@@ -218,7 +218,7 @@ _ZL4gmulhh.exit87:                                ; preds = %64
   %.not1314.i93 = icmp slt i8 %.0916.i89, 0
   %82 = select i1 %.not1314.i93, i8 %81, i8 %80
   %83 = lshr i8 %.01015.i90, 1
-  %.not.i94 = icmp ult i8 %.01015.i90, 2
+  %.not.i94 = icmp samesign ult i8 %.01015.i90, 2
   br i1 %.not.i94, label %_ZL4gmulhh.exit95, label %77, !llvm.loop !6
 
 _ZL4gmulhh.exit95:                                ; preds = %77
@@ -251,7 +251,7 @@ _ZL4gmulhh.exit95:                                ; preds = %77
   %.not1314.i101 = icmp slt i8 %.0916.i97, 0
   %95 = select i1 %.not1314.i101, i8 %94, i8 %93
   %96 = lshr i8 %.01015.i98, 1
-  %.not.i102 = icmp ult i8 %.01015.i98, 2
+  %.not.i102 = icmp samesign ult i8 %.01015.i98, 2
   br i1 %.not.i102, label %_ZL4gmulhh.exit103, label %90, !llvm.loop !6
 
 _ZL4gmulhh.exit103:                               ; preds = %90

@@ -1042,7 +1042,7 @@ land.lhs.true42:                                  ; preds = %if.else39
   %10 = load i8, ptr %arrayidx344, align 1
   %conv50 = zext i8 %10 to i32
   %add51 = add nuw nsw i32 %add48, %conv50
-  %cmp52 = icmp ugt i32 %add51, 255
+  %cmp52 = icmp samesign ugt i32 %add51, 255
   br i1 %cmp52, label %if.then54, label %if.end75
 
 if.then54:                                        ; preds = %land.lhs.true42
@@ -1156,7 +1156,7 @@ land.lhs.true118:                                 ; preds = %if.else115
   %21 = load i8, ptr %arrayidx344, align 1
   %conv127 = zext i8 %21 to i32
   %add128 = add nuw nsw i32 %add125, %conv127
-  %cmp129 = icmp ugt i32 %add128, 255
+  %cmp129 = icmp samesign ugt i32 %add128, 255
   br i1 %cmp129, label %if.then131, label %if.end152
 
 if.then131:                                       ; preds = %land.lhs.true118
@@ -1505,7 +1505,7 @@ land.lhs.true336:                                 ; preds = %if.else333
   %52 = load i8, ptr %arrayidx344, align 1
   %conv345 = zext i8 %52 to i32
   %add346 = add nuw nsw i32 %add343, %conv345
-  %cmp347 = icmp ugt i32 %add346, 255
+  %cmp347 = icmp samesign ugt i32 %add346, 255
   br i1 %cmp347, label %if.then349, label %sw.epilog429.thread
 
 if.then349:                                       ; preds = %land.lhs.true336
@@ -2680,7 +2680,7 @@ land.lhs.true39:                                  ; preds = %if.else36
   %11 = load i8, ptr %arrayidx335, align 1
   %conv47 = zext i8 %11 to i32
   %add48 = add nuw nsw i32 %add45, %conv47
-  %cmp49 = icmp ugt i32 %add48, 255
+  %cmp49 = icmp samesign ugt i32 %add48, 255
   br i1 %cmp49, label %if.then51, label %if.end72
 
 if.then51:                                        ; preds = %land.lhs.true39
@@ -2794,7 +2794,7 @@ land.lhs.true115:                                 ; preds = %if.else112
   %22 = load i8, ptr %arrayidx335, align 1
   %conv124 = zext i8 %22 to i32
   %add125 = add nuw nsw i32 %add122, %conv124
-  %cmp126 = icmp ugt i32 %add125, 255
+  %cmp126 = icmp samesign ugt i32 %add125, 255
   br i1 %cmp126, label %if.then128, label %if.end149
 
 if.then128:                                       ; preds = %land.lhs.true115
@@ -3143,7 +3143,7 @@ land.lhs.true327:                                 ; preds = %if.else324
   %53 = load i8, ptr %arrayidx335, align 1
   %conv336 = zext i8 %53 to i32
   %add337 = add nuw nsw i32 %add334, %conv336
-  %cmp338 = icmp ugt i32 %add337, 255
+  %cmp338 = icmp samesign ugt i32 %add337, 255
   br i1 %cmp338, label %if.then340, label %sw.epilog420.thread
 
 if.then340:                                       ; preds = %land.lhs.true327

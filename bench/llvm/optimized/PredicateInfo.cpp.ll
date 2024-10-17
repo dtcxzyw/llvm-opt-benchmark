@@ -9324,7 +9324,7 @@ define linkonce_odr void @_ZSt13__stable_sortIPN4llvm8ValueDFSEN9__gnu_cxx5__ops
   br i1 %.not.i.i, label %select.unfold.i.i, label %13
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIPN4llvm8ValueDFSES1_EC2ES2_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !168
 
 13:                                               ; preds = %.lr.ph.i.i

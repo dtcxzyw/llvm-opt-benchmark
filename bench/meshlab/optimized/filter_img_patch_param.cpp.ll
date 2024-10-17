@@ -28472,11 +28472,11 @@ define void @_ZN25FilterImgPatchParamPlugin14computePatchUVER6CMeshOP11RasterMod
   %25 = tail call float @llvm.fmuladd.f32(float %24, float %18, float %.sroa.0154.0.copyload)
   %.zext38.i = lshr i32 %.02339.i, 1
   %.urem.i = add nsw i32 %.zext38.i, -2
-  %.cmp.i = icmp ult i32 %.02339.i, 4
+  %.cmp.i = icmp samesign ult i32 %.02339.i, 4
   %26 = select i1 %.cmp.i, i32 %.zext38.i, i32 %.urem.i
   %27 = sitofp i32 %26 to float
   %28 = tail call float @llvm.fmuladd.f32(float %27, float %19, float %.sroa.2.0.copyload)
-  %29 = icmp ugt i32 %.02339.i, 3
+  %29 = icmp samesign ugt i32 %.02339.i, 3
   %30 = uitofp i1 %29 to float
   %31 = tail call float @llvm.fmuladd.f32(float %30, float %20, float %.sroa.3155.0.copyload)
   %32 = fmul float %.sroa.4.0.copyload.i, %28

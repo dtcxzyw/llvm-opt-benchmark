@@ -866,7 +866,7 @@ edata_list_active_concat.exit.i:                  ; preds = %do.end51.sink.split
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %26 = load i32, ptr %npsizes.i, align 8
   %27 = zext i32 %26 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %27
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %27
   br i1 %cmp.i, label %for.body.i, label %sec_flush_all_locked.exit, !llvm.loop !8
 
 sec_flush_all_locked.exit:                        ; preds = %edata_list_active_concat.exit.i, %malloc_mutex_lock.exit
@@ -1017,7 +1017,7 @@ edata_list_active_concat.exit.i:                  ; preds = %do.end51.sink.split
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = load i32, ptr %npsizes.i, align 8
   %28 = zext i32 %27 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %28
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %28
   br i1 %cmp.i, label %for.body.i, label %sec_flush_all_locked.exit, !llvm.loop !8
 
 sec_flush_all_locked.exit:                        ; preds = %edata_list_active_concat.exit.i, %malloc_mutex_lock.exit

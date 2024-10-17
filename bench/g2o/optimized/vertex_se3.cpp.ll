@@ -960,7 +960,7 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi6EN5Eigen9TransformIdL
   %107 = load <2 x i64>, ptr %103, align 8
   %108 = and <2 x i64> %107, <i64 9223372036854775807, i64 9223372036854775807>
   %109 = bitcast <2 x i64> %108 to <2 x double>
-  %110 = icmp ult i64 %.045.i, 3
+  %110 = icmp samesign ult i64 %.045.i, 3
   br i1 %110, label %._crit_edge.i.i.i.i.i.i, label %123
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %106
@@ -969,7 +969,7 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi6EN5Eigen9TransformIdL
   %113 = and <2 x i64> %112, <i64 9223372036854775807, i64 9223372036854775807>
   %114 = bitcast <2 x i64> %113 to <2 x double>
   %115 = fadd <2 x double> %109, %114
-  %116 = icmp ugt i64 %105, %104
+  %116 = icmp samesign ugt i64 %105, %104
   br i1 %116, label %117, label %123
 
 117:                                              ; preds = %._crit_edge.i.i.i.i.i.i

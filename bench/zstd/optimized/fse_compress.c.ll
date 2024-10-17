@@ -136,7 +136,7 @@ for.body75:                                       ; preds = %for.body75.preheade
   %add.ptr78 = getelementptr inbounds i8, ptr %add.ptr71, i64 %indvars.iv143
   store i64 %sv.0126, ptr %add.ptr78, align 1
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 8
-  %cmp73 = icmp ult i64 %indvars.iv.next144, %10
+  %cmp73 = icmp samesign ult i64 %indvars.iv.next144, %10
   br i1 %cmp73, label %for.body75, label %for.end81, !llvm.loop !6
 
 for.end81:                                        ; preds = %for.body75, %for.body67
@@ -165,7 +165,7 @@ for.cond95.preheader:                             ; preds = %for.cond89.preheade
   %add111 = add nuw nsw i64 %position.0129, %mul110
   %and113 = and i64 %add111, %conv102
   %add115 = add nuw nsw i64 %s88.0130, 2
-  %cmp91 = icmp ult i64 %add115, %idx.ext61172
+  %cmp91 = icmp samesign ult i64 %add115, %idx.ext61172
   br i1 %cmp91, label %for.cond95.preheader, label %if.end145, !llvm.loop !8
 
 for.body122:                                      ; preds = %for.end, %for.inc142

@@ -268,7 +268,7 @@ define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nocapt
   br label %143
 
 .critedge:                                        ; preds = %126
-  %130 = icmp ult i32 %121, %123
+  %130 = icmp samesign ult i32 %121, %123
   %131 = sub nsw i32 %120, %123
   %132 = icmp sgt i32 %131, 65280
   %or.cond311 = select i1 %130, i1 true, i1 %132
@@ -343,7 +343,7 @@ define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nocapt
   %163 = trunc i32 %162 to i16
   store i16 %163, ptr %151, align 8
   %164 = and i32 %162, 65535
-  %165 = icmp ult i32 %164, 96
+  %165 = icmp samesign ult i32 %164, 96
   br i1 %165, label %.preheader, label %173
 
 .preheader:                                       ; preds = %161, %171

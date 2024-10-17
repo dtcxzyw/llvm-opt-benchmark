@@ -173,7 +173,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
 13:                                               ; preds = %7
   %14 = sext i32 %3 to i64
   %15 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %14), !range !9
-  %16 = icmp ult i64 %15, 2
+  %16 = icmp samesign ult i64 %15, 2
   br label %17
 
 17:                                               ; preds = %13, %7
@@ -257,7 +257,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
   %67 = phi i64 [ %69, %56 ], [ 0, %51 ]
   %68 = add i32 %66, %65
   %69 = add nuw nsw i64 %67, 1
-  %70 = icmp ult i64 %69, %27
+  %70 = icmp samesign ult i64 %69, %27
   br i1 %70, label %56, label %.loopexit17, !llvm.loop !10
 
 71:                                               ; preds = %.preheader19
@@ -277,7 +277,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
   %82 = phi i64 [ %84, %71 ], [ 0, %45 ]
   %83 = add i32 %81, %80
   %84 = add nuw nsw i64 %82, 1
-  %85 = icmp ult i64 %84, %27
+  %85 = icmp samesign ult i64 %84, %27
   br i1 %85, label %71, label %.loopexit17, !llvm.loop !11
 
 86:                                               ; preds = %.preheader22
@@ -298,7 +298,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
   %98 = phi i64 [ %100, %86 ], [ 0, %38 ]
   %99 = add i32 %97, %96
   %100 = add nuw nsw i64 %98, 1
-  %101 = icmp ult i64 %100, %27
+  %101 = icmp samesign ult i64 %100, %27
   br i1 %101, label %86, label %.loopexit17, !llvm.loop !12
 
 .preheader:                                       ; preds = %36, %132

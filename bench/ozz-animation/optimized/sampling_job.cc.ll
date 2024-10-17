@@ -324,7 +324,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %182 = shl nuw nsw <4 x i32> %181, <i32 13, i32 13, i32 13, i32 13>
   %183 = bitcast <4 x i32> %182 to <4 x float>
   %184 = fmul <4 x float> %183, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %185 = icmp ugt <4 x i32> %181, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %185 = icmp samesign ugt <4 x i32> %181, <i32 31743, i32 31743, i32 31743, i32 31743>
   %186 = and <4 x i32> %180, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %187 = shl nuw <4 x i32> %186, <i32 16, i32 16, i32 16, i32 16>
   %188 = select <4 x i1> %185, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
@@ -352,7 +352,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %209 = shl nuw nsw <4 x i32> %208, <i32 13, i32 13, i32 13, i32 13>
   %210 = bitcast <4 x i32> %209 to <4 x float>
   %211 = fmul <4 x float> %210, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %212 = icmp ugt <4 x i32> %208, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %212 = icmp samesign ugt <4 x i32> %208, <i32 31743, i32 31743, i32 31743, i32 31743>
   %213 = and <4 x i32> %207, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %214 = shl nuw <4 x i32> %213, <i32 16, i32 16, i32 16, i32 16>
   %215 = select <4 x i1> %212, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
@@ -381,7 +381,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %237 = shl nuw nsw <4 x i32> %236, <i32 13, i32 13, i32 13, i32 13>
   %238 = bitcast <4 x i32> %237 to <4 x float>
   %239 = fmul <4 x float> %238, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %240 = icmp ugt <4 x i32> %236, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %240 = icmp samesign ugt <4 x i32> %236, <i32 31743, i32 31743, i32 31743, i32 31743>
   %241 = and <4 x i32> %235, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %242 = shl nuw <4 x i32> %241, <i32 16, i32 16, i32 16, i32 16>
   %243 = select <4 x i1> %240, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
@@ -472,7 +472,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %315 = shl nuw nsw <4 x i32> %314, <i32 13, i32 13, i32 13, i32 13>
   %316 = bitcast <4 x i32> %315 to <4 x float>
   %317 = fmul <4 x float> %316, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %318 = icmp ugt <4 x i32> %314, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %318 = icmp samesign ugt <4 x i32> %314, <i32 31743, i32 31743, i32 31743, i32 31743>
   %319 = and <4 x i32> %313, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %320 = shl nuw <4 x i32> %319, <i32 16, i32 16, i32 16, i32 16>
   %321 = select <4 x i1> %318, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
@@ -500,7 +500,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %342 = shl nuw nsw <4 x i32> %341, <i32 13, i32 13, i32 13, i32 13>
   %343 = bitcast <4 x i32> %342 to <4 x float>
   %344 = fmul <4 x float> %343, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %345 = icmp ugt <4 x i32> %341, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %345 = icmp samesign ugt <4 x i32> %341, <i32 31743, i32 31743, i32 31743, i32 31743>
   %346 = and <4 x i32> %340, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %347 = shl nuw <4 x i32> %346, <i32 16, i32 16, i32 16, i32 16>
   %348 = select <4 x i1> %345, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
@@ -529,7 +529,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %370 = shl nuw nsw <4 x i32> %369, <i32 13, i32 13, i32 13, i32 13>
   %371 = bitcast <4 x i32> %370 to <4 x float>
   %372 = fmul <4 x float> %371, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %373 = icmp ugt <4 x i32> %369, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %373 = icmp samesign ugt <4 x i32> %369, <i32 31743, i32 31743, i32 31743, i32 31743>
   %374 = and <4 x i32> %368, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %375 = shl nuw <4 x i32> %374, <i32 16, i32 16, i32 16, i32 16>
   %376 = select <4 x i1> %373, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
@@ -1014,7 +1014,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %715 = shl nuw nsw <4 x i32> %714, <i32 13, i32 13, i32 13, i32 13>
   %716 = bitcast <4 x i32> %715 to <4 x float>
   %717 = fmul <4 x float> %716, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %718 = icmp ugt <4 x i32> %714, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %718 = icmp samesign ugt <4 x i32> %714, <i32 31743, i32 31743, i32 31743, i32 31743>
   %719 = and <4 x i32> %713, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %720 = shl nuw <4 x i32> %719, <i32 16, i32 16, i32 16, i32 16>
   %721 = select <4 x i1> %718, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
@@ -1042,7 +1042,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %742 = shl nuw nsw <4 x i32> %741, <i32 13, i32 13, i32 13, i32 13>
   %743 = bitcast <4 x i32> %742 to <4 x float>
   %744 = fmul <4 x float> %743, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %745 = icmp ugt <4 x i32> %741, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %745 = icmp samesign ugt <4 x i32> %741, <i32 31743, i32 31743, i32 31743, i32 31743>
   %746 = and <4 x i32> %740, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %747 = shl nuw <4 x i32> %746, <i32 16, i32 16, i32 16, i32 16>
   %748 = select <4 x i1> %745, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
@@ -1071,7 +1071,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %770 = shl nuw nsw <4 x i32> %769, <i32 13, i32 13, i32 13, i32 13>
   %771 = bitcast <4 x i32> %770 to <4 x float>
   %772 = fmul <4 x float> %771, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %773 = icmp ugt <4 x i32> %769, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %773 = icmp samesign ugt <4 x i32> %769, <i32 31743, i32 31743, i32 31743, i32 31743>
   %774 = and <4 x i32> %768, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %775 = shl nuw <4 x i32> %774, <i32 16, i32 16, i32 16, i32 16>
   %776 = select <4 x i1> %773, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
@@ -1162,7 +1162,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %848 = shl nuw nsw <4 x i32> %847, <i32 13, i32 13, i32 13, i32 13>
   %849 = bitcast <4 x i32> %848 to <4 x float>
   %850 = fmul <4 x float> %849, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %851 = icmp ugt <4 x i32> %847, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %851 = icmp samesign ugt <4 x i32> %847, <i32 31743, i32 31743, i32 31743, i32 31743>
   %852 = and <4 x i32> %846, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %853 = shl nuw <4 x i32> %852, <i32 16, i32 16, i32 16, i32 16>
   %854 = select <4 x i1> %851, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
@@ -1190,7 +1190,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %875 = shl nuw nsw <4 x i32> %874, <i32 13, i32 13, i32 13, i32 13>
   %876 = bitcast <4 x i32> %875 to <4 x float>
   %877 = fmul <4 x float> %876, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %878 = icmp ugt <4 x i32> %874, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %878 = icmp samesign ugt <4 x i32> %874, <i32 31743, i32 31743, i32 31743, i32 31743>
   %879 = and <4 x i32> %873, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %880 = shl nuw <4 x i32> %879, <i32 16, i32 16, i32 16, i32 16>
   %881 = select <4 x i1> %878, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
@@ -1219,7 +1219,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %903 = shl nuw nsw <4 x i32> %902, <i32 13, i32 13, i32 13, i32 13>
   %904 = bitcast <4 x i32> %903 to <4 x float>
   %905 = fmul <4 x float> %904, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %906 = icmp ugt <4 x i32> %902, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %906 = icmp samesign ugt <4 x i32> %902, <i32 31743, i32 31743, i32 31743, i32 31743>
   %907 = and <4 x i32> %901, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %908 = shl nuw <4 x i32> %907, <i32 16, i32 16, i32 16, i32 16>
   %909 = select <4 x i1> %906, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer

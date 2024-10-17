@@ -238,7 +238,7 @@ while.body.i:                                     ; preds = %if.then49, %while.b
   %x.addr.04.i = phi i64 [ %shr.i, %while.body.i ], [ %cond, %if.then49 ]
   %add.i = add nuw nsw i32 %y.05.i, 1
   %shr.i = lshr i64 %x.addr.04.i, 1
-  %cmp.i = icmp ugt i64 %x.addr.04.i, 3
+  %cmp.i = icmp samesign ugt i64 %x.addr.04.i, 3
   br i1 %cmp.i, label %while.body.i, label %floor_log2.exit.loopexit, !llvm.loop !4
 
 floor_log2.exit.loopexit:                         ; preds = %while.body.i
@@ -257,7 +257,7 @@ while.body.i96:                                   ; preds = %if.else, %while.bod
   %spec.select.i = select i1 %tobool.not.i, i32 %r.07.i, i32 1
   %add.i97 = add nuw nsw i32 %y.06.i, 1
   %shr.i98 = lshr i64 %x.addr.05.i, 1
-  %cmp.i99 = icmp ugt i64 %x.addr.05.i, 3
+  %cmp.i99 = icmp samesign ugt i64 %x.addr.05.i, 3
   br i1 %cmp.i99, label %while.body.i96, label %while.end.loopexit.i, !llvm.loop !6
 
 while.end.loopexit.i:                             ; preds = %while.body.i96
@@ -278,7 +278,7 @@ while.body.i102:                                  ; preds = %if.then70, %while.b
   %x.addr.04.i104 = phi i64 [ %shr.i106, %while.body.i102 ], [ %add, %if.then70 ]
   %add.i105 = add nuw nsw i32 %y.05.i103, 1
   %shr.i106 = lshr i64 %x.addr.04.i104, 1
-  %cmp.i107 = icmp ugt i64 %x.addr.04.i104, 3
+  %cmp.i107 = icmp samesign ugt i64 %x.addr.04.i104, 3
   br i1 %cmp.i107, label %while.body.i102, label %floor_log2.exit108.loopexit, !llvm.loop !4
 
 floor_log2.exit108.loopexit:                      ; preds = %while.body.i102
@@ -295,7 +295,7 @@ while.body.i111:                                  ; preds = %floor_log2.exit108,
   %x.addr.04.i113 = phi i64 [ %shr.i115, %while.body.i111 ], [ %add32, %floor_log2.exit108 ]
   %add.i114 = add nuw nsw i32 %y.05.i112, 1
   %shr.i115 = lshr i64 %x.addr.04.i113, 1
-  %cmp.i116 = icmp ugt i64 %x.addr.04.i113, 3
+  %cmp.i116 = icmp samesign ugt i64 %x.addr.04.i113, 3
   br i1 %cmp.i116, label %while.body.i111, label %floor_log2.exit117.loopexit, !llvm.loop !4
 
 floor_log2.exit117.loopexit:                      ; preds = %while.body.i111
@@ -314,7 +314,7 @@ while.body.i120:                                  ; preds = %if.else75, %while.b
   %spec.select.i126 = select i1 %tobool.not.i125, i32 %r.07.i121, i32 1
   %add.i127 = add nuw nsw i32 %y.06.i122, 1
   %shr.i128 = lshr i64 %x.addr.05.i123, 1
-  %cmp.i129 = icmp ugt i64 %x.addr.05.i123, 3
+  %cmp.i129 = icmp samesign ugt i64 %x.addr.05.i123, 3
   br i1 %cmp.i129, label %while.body.i120, label %while.end.loopexit.i130, !llvm.loop !6
 
 while.end.loopexit.i130:                          ; preds = %while.body.i120
@@ -336,7 +336,7 @@ while.body.i134:                                  ; preds = %ceil_log2.exit131, 
   %spec.select.i140 = select i1 %tobool.not.i139, i32 %r.07.i135, i32 1
   %add.i141 = add nuw nsw i32 %y.06.i136, 1
   %shr.i142 = lshr i64 %x.addr.05.i137, 1
-  %cmp.i143 = icmp ugt i64 %x.addr.05.i137, 3
+  %cmp.i143 = icmp samesign ugt i64 %x.addr.05.i137, 3
   br i1 %cmp.i143, label %while.body.i134, label %while.end.loopexit.i144, !llvm.loop !6
 
 while.end.loopexit.i144:                          ; preds = %while.body.i134
@@ -3181,7 +3181,7 @@ if.then2:                                         ; preds = %if.then.i
   br label %return
 
 if.end5:                                          ; preds = %if.end, %land.lhs.true.i, %if.then.i
-  %cmp6 = icmp ugt i32 %eltsize, 1
+  %cmp6 = icmp samesign ugt i32 %eltsize, 1
   br i1 %cmp6, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.end5
@@ -3951,7 +3951,7 @@ if.end6:                                          ; preds = %if.end
   %3 = load i8, ptr %level_and_round, align 1
   %conv = zext i8 %3 to i32
   %and = and i32 %conv, 15
-  %cmp11 = icmp ugt i32 %and, 2
+  %cmp11 = icmp samesign ugt i32 %and, 2
   br i1 %cmp11, label %if.then13, label %if.end19
 
 if.then13:                                        ; preds = %if.end6

@@ -1190,7 +1190,7 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
   %285 = add i64 %.0.copyload.i.i.i.i.i.i13.i.i, %.0.copyload.i.i.i.i.i.i12.i.i
   %286 = xor i64 %284, %285
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 32
-  %287 = icmp ult i64 %indvars.iv.i, 128
+  %287 = icmp samesign ult i64 %indvars.iv.i, 128
   br i1 %287, label %254, label %288, !llvm.loop !15
 
 288:                                              ; preds = %254
@@ -1204,7 +1204,7 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
   %296 = mul i64 %295, 1609587791953885689
   %297 = lshr i64 %296, 32
   %298 = xor i64 %297, %296
-  %.not4.i = icmp ult i64 %1, 160
+  %.not4.i = icmp samesign ult i64 %1, 160
   br i1 %.not4.i, label %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %288, %.lr.ph.i
@@ -1264,7 +1264,7 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
   %329 = add i64 %.0.copyload.i.i.i.i.i.i13.i116.i, %.0.copyload.i.i.i.i.i.i12.i115.i
   %330 = xor i64 %328, %329
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 32
-  %.not.i = icmp ult i64 %1, %indvars.iv.next14.i
+  %.not.i = icmp samesign ult i64 %1, %indvars.iv.next14.i
   br i1 %.not.i, label %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit, label %.lr.ph.i, !llvm.loop !16
 
 _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288

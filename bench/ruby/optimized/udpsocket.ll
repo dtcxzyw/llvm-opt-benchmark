@@ -357,7 +357,7 @@ define internal i64 @udp_send_internal(i64 noundef %0) #0 {
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %12
-  %19 = icmp ult i64 %16, 4611686018427387904
+  %19 = icmp samesign ult i64 %16, 4611686018427387904
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18

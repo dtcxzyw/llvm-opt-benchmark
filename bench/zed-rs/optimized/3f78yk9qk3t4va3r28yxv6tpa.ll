@@ -3229,7 +3229,7 @@ default.unreachable30:                            ; preds = %78, %2
   %.val.i.i.i.i.i.i = load i64, ptr %16, align 8, !range !270, !alias.scope !647, !noalias !648, !noundef !7
   %39 = icmp ne i64 %.val.i.i.i.i.i.i, 2
   %40 = zext i1 %39 to i64
-  %41 = icmp ult i64 %33, %40
+  %41 = icmp samesign ult i64 %33, %40
   br i1 %41, label %49, label %42
 
 42:                                               ; preds = %._crit_edge.i.i.i.i.i.i, %35

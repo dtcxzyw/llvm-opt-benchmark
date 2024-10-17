@@ -5739,7 +5739,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %3, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = tail call noundef i32 @_ZNK4llvm11NamedMDNode14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #35
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %_ZN4llvm9StringRefC2EPKc.exit

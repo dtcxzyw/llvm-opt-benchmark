@@ -2979,7 +2979,7 @@ default.unreachable164:                           ; preds = %.noexc.i33, %.noexc
 55:                                               ; preds = %38
   %56 = lshr i64 %46, 4
   %57 = and i64 %56, 15
-  %58 = icmp ugt i64 %57, 7
+  %58 = icmp samesign ugt i64 %57, 7
   br i1 %58, label %59, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h83d47bc93467cd73E.exit.i.i.i"
 
 59:                                               ; preds = %55

@@ -4259,7 +4259,7 @@ define internal fastcc i32 @skx_pmu_get_topology(ptr noundef %0, ptr nocapture n
 13:                                               ; preds = %25, %.preheader
   %14 = phi i64 [ 0, %.preheader ], [ %34, %25 ]
   %15 = and i64 %14, 4294967295
-  %16 = icmp ugt i64 %15, 63
+  %16 = icmp samesign ugt i64 %15, 63
   br i1 %16, label %.thread, label %17, !prof !10
 
 17:                                               ; preds = %13

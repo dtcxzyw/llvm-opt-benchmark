@@ -2621,7 +2621,7 @@ lpad98.body:                                      ; preds = %ehcleanup.i487, %cl
 
 for.inc110:                                       ; preds = %invoke.cont76
   %indvars.iv.next616 = add nuw nsw i64 %indvars.iv615, 1
-  %cmp69.not = icmp ult i64 %indvars.iv.next616, %97
+  %cmp69.not = icmp samesign ult i64 %indvars.iv.next616, %97
   br i1 %cmp69.not, label %invoke.cont76, label %for.end112.invoke.cont116_crit_edge, !llvm.loop !17
 
 for.end112.invoke.cont116_crit_edge:              ; preds = %for.inc110

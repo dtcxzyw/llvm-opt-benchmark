@@ -3316,7 +3316,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp4 = icmp eq i32 %rem, 0
   %cond = select i1 %cmp4, ptr @.str.104, ptr @.str.105
   %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull %cond) #28
-  %cmp6 = icmp ult i64 %indvars.iv, %0
+  %cmp6 = icmp samesign ult i64 %indvars.iv, %0
   %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i32
@@ -3360,7 +3360,7 @@ if.then:                                          ; preds = %for.body
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %cmp3 = icmp ult i64 %indvars.iv, %0
+  %cmp3 = icmp samesign ult i64 %indvars.iv, %0
   %arrayidx = getelementptr inbounds i8, ptr %d, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i32

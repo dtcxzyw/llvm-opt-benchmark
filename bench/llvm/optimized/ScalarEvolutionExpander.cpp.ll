@@ -3559,7 +3559,7 @@ define internal fastcc void @_ZN4llvm11stable_sortIRNS_11SmallVectorISt4pairIPKN
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %11
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %_ZNSt17_Temporary_bufferIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES8_EC2ES9_l.exit.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !38
 
 11:                                               ; preds = %.lr.ph.i.i.i.i
@@ -5400,7 +5400,7 @@ _ZN4llvm12SCEVExpander23isExpandedAddRecExprPHIEPNS_7PHINodeEPNS_11InstructionEP
 159:                                              ; preds = %154
   %160 = lshr i32 %156, 8
   %161 = lshr i32 %151, 8
-  %162 = icmp ugt i32 %160, %161
+  %162 = icmp samesign ugt i32 %160, %161
   br i1 %162, label %_ZNK4llvm7PHINode10isCompleteEv.exit, label %163
 
 163:                                              ; preds = %159
@@ -10074,7 +10074,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit: ; preds
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPN4llvm7PHINodeES2_EC2ES3_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !131
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %47
@@ -14121,7 +14121,7 @@ _ZNK4llvm4User14operand_valuesEv.exit:            ; preds = %33, %36
   %42 = getelementptr inbounds i8, ptr %41, i64 %.idx18
   %43 = getelementptr inbounds i8, ptr %1, i64 -8
   %44 = load ptr, ptr %43, align 8
-  %.not17 = icmp ult i64 %.pre-phi2.i.i.i, 4
+  %.not17 = icmp samesign ult i64 %.pre-phi2.i.i.i, 4
   br i1 %.not17, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK4llvm4User14operand_valuesEv.exit

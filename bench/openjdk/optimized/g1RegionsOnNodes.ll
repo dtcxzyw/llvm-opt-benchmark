@@ -34,7 +34,7 @@ define hidden void @_ZN16G1RegionsOnNodesC2Ev(ptr nocapture noundef nonnull alig
   %12 = load ptr, ptr %2, align 8
   %13 = tail call noundef i32 @_ZNK6G1NUMA16num_active_nodesEv(ptr noundef nonnull align 8 dereferenceable(56) %12) #3
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next.i, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next.i, %14
   br i1 %15, label %.lr.ph.i, label %_ZN16G1RegionsOnNodes5clearEv.exit, !llvm.loop !6
 
 _ZN16G1RegionsOnNodes5clearEv.exit:               ; preds = %.lr.ph.i, %1
@@ -62,7 +62,7 @@ define hidden void @_ZN16G1RegionsOnNodes5clearEv(ptr nocapture noundef nonnull 
   %7 = load ptr, ptr %2, align 8
   %8 = tail call noundef i32 @_ZNK6G1NUMA16num_active_nodesEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #3
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv.next, %9
+  %10 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1

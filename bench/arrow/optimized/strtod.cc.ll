@@ -155,7 +155,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %mul.i.i = mul nuw i64 %result.07.i.i, 10
   %sub.i.i = add i64 %mul.i.i, -48
   %add.i.i = add i64 %sub.i.i, %conv.i.i
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %0
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %0
   %cmp1.i.i = icmp ult i64 %add.i.i, 1844674407370955161
   %2 = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
   br i1 %2, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !4
@@ -194,7 +194,7 @@ while.body.i22.i:                                 ; preds = %while.body.i22.i, %
   %mul.i28.i = mul nuw i64 %result.07.i24.i, 10
   %sub.i29.i = add i64 %mul.i28.i, -48
   %add.i30.i = add i64 %sub.i29.i, %conv.i27.i
-  %cmp.i31.i = icmp ult i64 %indvars.iv.next.i25.i, %5
+  %cmp.i31.i = icmp samesign ult i64 %indvars.iv.next.i25.i, %5
   %cmp1.i32.i = icmp ult i64 %add.i30.i, 1844674407370955161
   %7 = select i1 %cmp.i31.i, i1 %cmp1.i32.i, i1 false
   br i1 %7, label %while.body.i22.i, label %while.end.loopexit.i33.i, !llvm.loop !4
@@ -239,7 +239,7 @@ while.body.i40.i:                                 ; preds = %while.body.i40.i, %
   %mul.i46.i = mul nuw i64 %result.07.i42.i, 10
   %sub.i47.i = add i64 %mul.i46.i, -48
   %add.i48.i = add i64 %sub.i47.i, %conv.i45.i
-  %cmp.i49.i = icmp ult i64 %indvars.iv.next.i43.i, %10
+  %cmp.i49.i = icmp samesign ult i64 %indvars.iv.next.i43.i, %10
   %cmp1.i50.i = icmp ult i64 %add.i48.i, 1844674407370955161
   %12 = select i1 %cmp.i49.i, i1 %cmp1.i50.i, i1 false
   br i1 %12, label %while.body.i40.i, label %while.end.loopexit.i51.i, !llvm.loop !4
@@ -285,7 +285,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %mul.i.i.i = mul nuw i64 %result.07.i.i.i, 10
   %sub.i.i.i = add i64 %mul.i.i.i, -48
   %add.i.i.i = add i64 %sub.i.i.i, %conv.i.i.i
-  %cmp.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %16
+  %cmp.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %16
   %cmp1.i.i.i = icmp ult i64 %add.i.i.i, 1844674407370955161
   %18 = select i1 %cmp.i.i.i, i1 %cmp1.i.i.i, i1 false
   br i1 %18, label %while.body.i.i.i, label %while.end.loopexit.i.i.i, !llvm.loop !4

@@ -2346,7 +2346,7 @@ define internal fastcc i32 @register_variable(ptr noundef %0, ptr noundef %1, pt
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
-  %.not = icmp ult i32 %6, 131072
+  %.not = icmp samesign ult i32 %6, 131072
   br i1 %.not, label %24, label %15
 
 15:                                               ; preds = %9

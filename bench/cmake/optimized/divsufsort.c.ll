@@ -335,7 +335,7 @@ define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(p
   %37 = getelementptr inbounds i8, ptr %0, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
-  %.not289 = icmp ult i32 %.0418, %39
+  %.not289 = icmp samesign ult i32 %.0418, %39
   br i1 %.not289, label %.preheader336, label %40, !llvm.loop !10
 
 40:                                               ; preds = %.lr.ph
@@ -379,7 +379,7 @@ define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(p
   %59 = load i32, ptr %58, align 4
   %60 = add nsw i32 %52, %59
   %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
-  %61 = icmp ult i64 %indvars.iv579, 255
+  %61 = icmp samesign ult i64 %indvars.iv579, 255
   br i1 %61, label %.lr.ph429, label %.loopexit335
 
 .lr.ph429:                                        ; preds = %49, %.lr.ph429
@@ -720,7 +720,7 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   %.2.i = phi ptr [ %250, %247 ], [ %.1108165.i, %.lr.ph169.i ]
   %252 = shl i32 %.1102166.i, 1
   %253 = lshr i32 %.1167.i, 1
-  %.not117.i = icmp ult i32 %.1167.i, 2
+  %.not117.i = icmp samesign ult i32 %.1167.i, 2
   br i1 %.not117.i, label %._crit_edge170.i, label %.lr.ph169.i, !llvm.loop !17
 
 ._crit_edge170.i:                                 ; preds = %251, %._crit_edge162.thread.i
@@ -1173,11 +1173,11 @@ sssort.exit:                                      ; preds = %.critedge.i, %ss_in
   br i1 %445, label %.lr.ph446, label %.loopexit329, !llvm.loop !28
 
 .loopexit329:                                     ; preds = %440, %.critedge4, %.critedge4.thread
-  %.not.i.i291 = icmp ult i32 %72, 65536
+  %.not.i.i291 = icmp samesign ult i32 %72, 65536
   br i1 %.not.i.i291, label %459, label %446
 
 446:                                              ; preds = %.loopexit329
-  %.not8.i.i = icmp ult i32 %72, 16777216
+  %.not8.i.i = icmp samesign ult i32 %72, 16777216
   br i1 %.not8.i.i, label %453, label %447
 
 447:                                              ; preds = %446
@@ -1197,7 +1197,7 @@ sssort.exit:                                      ; preds = %.critedge.i, %ss_in
   br label %tr_ilg.exit.i
 
 459:                                              ; preds = %.loopexit329
-  %.not7.i.i = icmp ult i32 %72, 256
+  %.not7.i.i = icmp samesign ult i32 %72, 256
   br i1 %.not7.i.i, label %466, label %460
 
 460:                                              ; preds = %459
@@ -2704,7 +2704,7 @@ tr_ilg.exit556.i.i:                               ; preds = %1173, %1167, %1160,
   %1286 = load i32, ptr %1285, align 4
   %1287 = shl nuw nsw i64 %indvars.iv.next.i.i.i, 1
   %1288 = or disjoint i64 %1287, 1
-  %1289 = icmp ult i64 %1288, %1281
+  %1289 = icmp samesign ult i64 %1288, %1281
   %1290 = trunc nsw i64 %indvars.iv.next.i.i.i to i32
   br i1 %1289, label %.lr.ph.i.preheader.i.i.i, label %tr_fixdown.exit.i.i.i
 
@@ -4150,7 +4150,7 @@ trsort.exit:                                      ; preds = %.thread151.i, %2067
   %2087 = getelementptr inbounds i8, ptr %0, i64 %2086
   %2088 = load i8, ptr %2087, align 1
   %2089 = zext i8 %2088 to i32
-  %.not287 = icmp ult i32 %.4448, %2089
+  %.not287 = icmp samesign ult i32 %.4448, %2089
   br i1 %.not287, label %.critedge6, label %2090
 
 2090:                                             ; preds = %.lr.ph450
@@ -5171,7 +5171,7 @@ ss_insertionsort.exit:                            ; preds = %.critedge.thread.th
   %136 = load i8, ptr %135, align 1
   %137 = shl nuw nsw i64 %indvars.iv.next.i, 1
   %138 = or disjoint i64 %137, 1
-  %139 = icmp ult i64 %138, %128
+  %139 = icmp samesign ult i64 %138, %128
   %140 = trunc nsw i64 %indvars.iv.next.i to i32
   br i1 %139, label %.lr.ph.i.preheader.i, label %ss_fixdown.exit.i
 

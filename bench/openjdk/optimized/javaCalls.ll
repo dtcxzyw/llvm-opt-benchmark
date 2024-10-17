@@ -452,7 +452,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %32, %22, %6
   %51 = add nsw i32 %46, 1
   %52 = icmp sgt i32 %46, -1
   %53 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %51)
-  %54 = icmp ult i32 %53, 2
+  %54 = icmp samesign ult i32 %53, 2
   %or.cond.i.i.i.i.i.i = select i1 %52, i1 %54, i1 false
   %55 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %51, i1 true)
   %56 = sub nuw nsw i32 32, %55
@@ -633,7 +633,7 @@ define hidden void @_ZN9JavaCalls12call_specialEP9JavaValueP5KlassP6SymbolS5_P17
   %32 = add nsw i32 %27, 1
   %33 = icmp sgt i32 %27, -1
   %34 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %32)
-  %35 = icmp ult i32 %34, 2
+  %35 = icmp samesign ult i32 %34, 2
   %or.cond.i.i.i.i.i.i = select i1 %33, i1 %35, i1 false
   %36 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %32, i1 true)
   %37 = sub nuw nsw i32 32, %36
@@ -799,7 +799,7 @@ define hidden void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17J
   %28 = add nsw i32 %23, 1
   %29 = icmp sgt i32 %23, -1
   %30 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %28)
-  %31 = icmp ult i32 %30, 2
+  %31 = icmp samesign ult i32 %30, 2
   %or.cond.i.i.i.i.i.i = select i1 %29, i1 %31, i1 false
   %32 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %33 = sub nuw nsw i32 32, %32

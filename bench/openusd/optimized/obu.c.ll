@@ -1600,7 +1600,7 @@ default.unreachable.i.i:                          ; preds = %690
 
 yv12_tile_copy.exit.i.i:                          ; preds = %._crit_edge.us.i.i.i, %694, %693, %692, %.preheader.lr.ph.i.i.i, %655
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %695 = icmp ult i64 %indvars.iv.i.i, 2
+  %695 = icmp samesign ult i64 %indvars.iv.i.i, 2
   %696 = select i1 %.not.i.i.i189, i1 %695, i1 false
   br i1 %696, label %638, label %copy_decoded_tile_to_tile_list_buffer.exit.i, !llvm.loop !18
 

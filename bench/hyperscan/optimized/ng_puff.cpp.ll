@@ -1320,7 +1320,7 @@ invoke.cont205.i:                                 ; preds = %invoke.cont192.i
   %85 = load i64, ptr %arrayidx.i.i46.i.i.i, align 8
   %86 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %85)
   %add21.i.i.i = add nuw nsw i64 %add15.i.i.i, %86
-  %cmp207.i = icmp ult i64 %add21.i.i.i, 3
+  %cmp207.i = icmp samesign ult i64 %add21.i.i.i, 3
   %cmp212.i = icmp eq i64 %75, 1
   %or.cond556.i = and i1 %cmp212.i, %cmp207.i
   br i1 %or.cond556.i, label %land.lhs.true213.i, label %if.end226.i
@@ -1346,7 +1346,7 @@ invoke.cont222.i:                                 ; preds = %land.lhs.true213.i
   %94 = load i64, ptr %arrayidx.i.i46.i.i348.i, align 8
   %95 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %94)
   %add21.i.i349.i = add nuw nsw i64 %add15.i.i347.i, %95
-  %cmp224.i = icmp ult i64 %add21.i.i349.i, 3
+  %cmp224.i = icmp samesign ult i64 %add21.i.i349.i, 3
   br i1 %cmp224.i, label %invoke.cont239.i, label %if.end226.i
 
 if.end226.i:                                      ; preds = %invoke.cont222.i, %invoke.cont205.i

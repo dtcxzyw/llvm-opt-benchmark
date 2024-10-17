@@ -686,7 +686,7 @@ define internal fastcc { i64, i64 } @_ZN6memchr6memmem4find17h4d79853fd56f95bbE(
 _ZN6memchr4arch3all9rabinkarp6Finder3new17h85b66220665eec02E.exit: ; preds = %20, %25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !168
   %33 = ptrtoint ptr %0 to i64
-  %34 = icmp ugt i64 %3, %1
+  %34 = icmp samesign ugt i64 %3, %1
   br i1 %34, label %_ZN6memchr4arch3all9rabinkarp6Finder4find17h181cc588d46a72baE.exit, label %35
 
 35:                                               ; preds = %_ZN6memchr4arch3all9rabinkarp6Finder3new17h85b66220665eec02E.exit
@@ -2845,7 +2845,7 @@ common.resume:                                    ; preds = %98, %117, %.body.i,
   %560 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !248
   %561 = icmp ult i64 %560, 6
   call void @llvm.assume(i1 %561)
-  %switch.selectcmp215.i = icmp ugt i64 %560, 3
+  %switch.selectcmp215.i = icmp samesign ugt i64 %560, 3
   br i1 %switch.selectcmp215.i, label %562, label %558
 
 562:                                              ; preds = %559
@@ -4623,7 +4623,7 @@ _ZN15actix_multipart6server13PayloadBuffer8readline17h6753e605d64a35b3E.exit: ; 
   %426 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %427 = icmp ult i64 %426, 6
   tail call void @llvm.assume(i1 %427)
-  %switch.selectcmp38 = icmp ugt i64 %426, 1
+  %switch.selectcmp38 = icmp samesign ugt i64 %426, 1
   br i1 %switch.selectcmp38, label %428, label %419
 
 428:                                              ; preds = %"_ZN4core5array8equality92_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$A$u3b$$u20$N$u5d$$GT$$u20$for$u20$$u5b$B$u5d$$GT$2ne17hd9617938165328cdE.exit.thread"

@@ -3991,7 +3991,7 @@ for.body:                                         ; preds = %if.then21, %for.bod
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %12 = zext i32 %11 to i64
-  %cmp24 = icmp ult i64 %indvars.iv.next, %12
+  %cmp24 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp24, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %if.then21

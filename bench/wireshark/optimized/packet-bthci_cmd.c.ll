@@ -7651,7 +7651,7 @@ define internal fastcc i32 @dissect_le_cmd(ptr noundef %0, ptr noundef %1, ptr n
   %221 = shl nuw nsw i32 %220, 1
   %222 = add nuw nsw i32 %221, 2402
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %218, ptr noundef nonnull @.str.2534, i32 noundef %222) #7
-  %223 = icmp ugt i16 %3, 50
+  %223 = icmp samesign ugt i16 %3, 50
   br i1 %223, label %224, label %.thread
 
 224:                                              ; preds = %216
@@ -7659,7 +7659,7 @@ define internal fastcc i32 @dissect_le_cmd(ptr noundef %0, ptr noundef %1, ptr n
   %226 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %225, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #7
   %227 = load i32, ptr @hf_bthci_cmd_modulation_index, align 4
   %228 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %227, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648) #7
-  %229 = icmp ugt i16 %3, 78
+  %229 = icmp samesign ugt i16 %3, 78
   br i1 %229, label %230, label %.thread
 
 230:                                              ; preds = %224
@@ -7688,13 +7688,13 @@ define internal fastcc i32 @dissect_le_cmd(ptr noundef %0, ptr noundef %1, ptr n
   %249 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %248, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #7
   %250 = load i32, ptr @hf_bthci_cmd_test_packet_payload, align 4
   %251 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %250, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648) #7
-  %252 = icmp ugt i16 %3, 51
+  %252 = icmp samesign ugt i16 %3, 51
   br i1 %252, label %253, label %.thread
 
 253:                                              ; preds = %241
   %254 = load i32, ptr @hf_bthci_cmd_phy, align 4
   %255 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %254, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648) #7
-  %256 = icmp ugt i16 %3, 79
+  %256 = icmp samesign ugt i16 %3, 79
   br i1 %256, label %257, label %.thread
 
 257:                                              ; preds = %253
@@ -7707,7 +7707,7 @@ define internal fastcc i32 @dissect_le_cmd(ptr noundef %0, ptr noundef %1, ptr n
   %263 = load i32, ptr @hf_bthci_cmd_cte_type, align 4
   %264 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %263, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #7
   %265 = tail call fastcc i32 @dissect_antenna_switching_pattern(ptr noundef %0, i32 noundef 9, ptr noundef %2)
-  %266 = icmp ugt i16 %3, 122
+  %266 = icmp samesign ugt i16 %3, 122
   br i1 %266, label %267, label %.thread
 
 267:                                              ; preds = %257
@@ -10073,8 +10073,8 @@ define internal fastcc i32 @dissect_eir_ad_data(ptr noundef %0, ptr noundef %1, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %441 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %440) #7
   %442 = icmp sgt i32 %441, 0
-  %443 = icmp ult i64 %indvars.iv, 7
-  %444 = and i1 %442, %443
+  %443 = icmp samesign ult i64 %indvars.iv, 7
+  %444 = select i1 %442, i1 %443, i1 false
   br i1 %444, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader

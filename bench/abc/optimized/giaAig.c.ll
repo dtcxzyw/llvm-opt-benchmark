@@ -2805,7 +2805,7 @@ Gia_ObjSibl.exit61:                               ; preds = %Gia_ObjSibl.exit
 
 Gia_ObjSibl.exit.thread:                          ; preds = %21, %16, %Gia_ObjSibl.exit61, %Gia_ObjSibl.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = icmp ult i64 %indvars.iv.next, %14
+  %26 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %26, label %15, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %15, %Gia_ObjSibl.exit.thread, %Vec_IntStart.exit

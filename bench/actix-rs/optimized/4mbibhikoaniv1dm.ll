@@ -645,7 +645,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hed395236ffcf51ee
   %.0104.i = phi i64 [ %225, %222 ], [ %239, %237 ]
   %228 = phi i64 [ %219, %222 ], [ %234, %237 ]
   %229 = phi i64 [ %217, %222 ], [ %238, %237 ]
-  %230 = icmp ult i64 %.0104.i, 32768
+  %230 = icmp samesign ult i64 %.0104.i, 32768
   br i1 %230, label %231, label %236, !prof !5
 
 231:                                              ; preds = %226
@@ -744,7 +744,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hed395236ffcf51ee
 
 273:                                              ; preds = %268
   %274 = icmp eq i64 %271, 2
-  %275 = icmp ult i64 %.sroa.0.085.us122, 2
+  %275 = icmp samesign ult i64 %.sroa.0.085.us122, 2
   %or.cond = and i1 %275, %274
   br i1 %or.cond, label %276, label %.outer32
 
@@ -3339,7 +3339,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.0.sroa.speculated.i = add nuw nsw i64 %83, 4294967280
   %84 = and i64 %.0.sroa.speculated.i, 4294967295
   %85 = zext i16 %54 to i64
-  %.old1107 = icmp ult i64 %84, %85
+  %.old1107 = icmp samesign ult i64 %84, %85
   br i1 %.old1107, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %81
@@ -3491,7 +3491,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h456073b07195e3c9
   %.0104.i = phi i64 [ %147, %144 ], [ %161, %159 ]
   %150 = phi i64 [ %141, %144 ], [ %156, %159 ]
   %151 = phi i64 [ %139, %144 ], [ %160, %159 ]
-  %152 = icmp ult i64 %.0104.i, 32768
+  %152 = icmp samesign ult i64 %.0104.i, 32768
   br i1 %152, label %153, label %158, !prof !5
 
 153:                                              ; preds = %148
@@ -3821,7 +3821,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.0.sroa.speculated.i = tail call noundef range(i32 0, 65535) i32 @llvm.smax.i32(i32 %95, i32 0)
   %96 = zext nneg i32 %.0.sroa.speculated.i to i64
   %97 = zext i16 %60 to i64
-  %.old1126 = icmp ugt i64 %97, %96
+  %.old1126 = icmp samesign ugt i64 %97, %96
   br i1 %.old1126, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %93
@@ -3842,7 +3842,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.263.us = phi i64 [ %102, %105 ], [ %.162128, %.preheader ]
   %102 = add nsw i64 %.263.us, -1
   %103 = and i64 %102, %84
-  %104 = icmp ult i64 %103, %76
+  %104 = icmp samesign ult i64 %103, %76
   br i1 %104, label %105, label %.split.us, !prof !5
 
 105:                                              ; preds = %.preheader.split.us
@@ -3864,7 +3864,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.263.us92 = phi i64 [ %113, %130 ], [ %.162128, %.preheader.split ]
   %113 = add nsw i64 %.263.us92, -1
   %114 = and i64 %113, %84
-  %115 = icmp ult i64 %114, %76
+  %115 = icmp samesign ult i64 %114, %76
   br i1 %115, label %116, label %.split.us, !prof !5
 
 116:                                              ; preds = %.preheader.split.split.us
@@ -3902,7 +3902,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.263 = phi i64 [ %134, %145 ], [ %.162128, %.preheader.split ]
   %134 = add nsw i64 %.263, -1
   %135 = and i64 %134, %84
-  %136 = icmp ult i64 %135, %76
+  %136 = icmp samesign ult i64 %135, %76
   br i1 %136, label %137, label %.split.us, !prof !5
 
 137:                                              ; preds = %.preheader.split.split
@@ -4019,7 +4019,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hf3f051a18e1469e6
   %.0104.i = phi i64 [ %180, %177 ], [ %194, %192 ]
   %183 = phi i64 [ %174, %177 ], [ %189, %192 ]
   %184 = phi i64 [ %172, %177 ], [ %193, %192 ]
-  %185 = icmp ult i64 %.0104.i, 32768
+  %185 = icmp samesign ult i64 %.0104.i, 32768
   br i1 %185, label %186, label %191, !prof !5
 
 186:                                              ; preds = %181
@@ -4324,7 +4324,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.0.sroa.speculated.i = tail call noundef range(i32 0, 65535) i32 @llvm.smax.i32(i32 %85, i32 0)
   %86 = zext nneg i32 %.0.sroa.speculated.i to i64
   %87 = zext i16 %52 to i64
-  %.old1136 = icmp ugt i64 %87, %86
+  %.old1136 = icmp samesign ugt i64 %87, %86
   br i1 %.old1136, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %83
@@ -4347,7 +4347,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.263.us = phi i64 [ %93, %96 ], [ %.162138, %.preheader ]
   %93 = add nsw i64 %.263.us, -1
   %94 = and i64 %93, %89
-  %95 = icmp ult i64 %94, %68
+  %95 = icmp samesign ult i64 %94, %68
   br i1 %95, label %96, label %.split.us, !prof !5
 
 96:                                               ; preds = %.preheader.split.us
@@ -4369,7 +4369,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.263.us97 = phi i64 [ %104, %121 ], [ %.162138, %.preheader.split ]
   %104 = add nsw i64 %.263.us97, -1
   %105 = and i64 %104, %89
-  %106 = icmp ult i64 %105, %68
+  %106 = icmp samesign ult i64 %105, %68
   br i1 %106, label %107, label %.split.us, !prof !5
 
 107:                                              ; preds = %.preheader.split.split.us
@@ -4407,7 +4407,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.263 = phi i64 [ %125, %136 ], [ %.162138, %.preheader.split ]
   %125 = add nsw i64 %.263, -1
   %126 = and i64 %125, %89
-  %127 = icmp ult i64 %126, %68
+  %127 = icmp samesign ult i64 %126, %68
   br i1 %127, label %128, label %.split.us, !prof !5
 
 128:                                              ; preds = %.preheader.split.split
@@ -4529,7 +4529,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hfae9f379570ef1a5
   %.0104.i = phi i64 [ %171, %168 ], [ %185, %183 ]
   %174 = phi i64 [ %165, %168 ], [ %180, %183 ]
   %175 = phi i64 [ %163, %168 ], [ %184, %183 ]
-  %176 = icmp ult i64 %.0104.i, 32768
+  %176 = icmp samesign ult i64 %.0104.i, 32768
   br i1 %176, label %177, label %182, !prof !5
 
 177:                                              ; preds = %172
@@ -4844,7 +4844,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.0.sroa.speculated.i = add nuw nsw i64 %83, 4294967232
   %84 = and i64 %.0.sroa.speculated.i, 4294967295
   %85 = zext i16 %54 to i64
-  %.old1107 = icmp ult i64 %84, %85
+  %.old1107 = icmp samesign ult i64 %84, %85
   br i1 %.old1107, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %81
@@ -4996,7 +4996,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h6e6e2914e7e6a3a8
   %.0104.i = phi i64 [ %147, %144 ], [ %161, %159 ]
   %150 = phi i64 [ %141, %144 ], [ %156, %159 ]
   %151 = phi i64 [ %139, %144 ], [ %160, %159 ]
-  %152 = icmp ult i64 %.0104.i, 32768
+  %152 = icmp samesign ult i64 %.0104.i, 32768
   br i1 %152, label %153, label %158, !prof !5
 
 153:                                              ; preds = %148
@@ -8038,7 +8038,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i: ; preds 
 278:                                              ; preds = %274
   %279 = add i64 %.172.i, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %109, i64 32, i1 false), !noalias !1301
-  %280 = icmp ult i32 %.064.i, 3
+  %280 = icmp samesign ult i32 %.064.i, 3
   %281 = add i64 %.1.i, 9
   %282 = icmp ult i64 %281, %125
   %or.cond6.i = and i1 %280, %282
@@ -8713,7 +8713,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i81: ; pred
 559:                                              ; preds = %555
   %560 = add i64 %.172.i70, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %98, i64 32, i1 false), !noalias !1472
-  %561 = icmp ult i32 %.064.i72, 3
+  %561 = icmp samesign ult i32 %.064.i72, 3
   %562 = add i64 %.1.i73, 9
   %563 = icmp ult i64 %562, %402
   %or.cond6.i112 = and i1 %561, %563
@@ -9389,7 +9389,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i166: ; pre
 848:                                              ; preds = %844
   %849 = add i64 %.172.i154, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %87, i64 32, i1 false), !noalias !1641
-  %850 = icmp ult i32 %.064.i156, 3
+  %850 = icmp samesign ult i32 %.064.i156, 3
   %851 = add i64 %.1.i157, 9
   %852 = icmp ult i64 %851, %689
   %or.cond6.i199 = and i1 %850, %852
@@ -10073,7 +10073,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i255: ; pre
 1138:                                             ; preds = %1134
   %1139 = add i64 %.172.i241, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %76, i64 32, i1 false), !noalias !1812
-  %1140 = icmp ult i32 %.064.i243, 3
+  %1140 = icmp samesign ult i32 %.064.i243, 3
   %1141 = add i64 %.1.i244, 9
   %1142 = icmp ult i64 %1141, %981
   %or.cond6.i286 = and i1 %1140, %1142
@@ -11244,7 +11244,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i323: ; pre
 1776:                                             ; preds = %1772
   %1777 = add i64 %.172.i311, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %65, i64 32, i1 false), !noalias !1983
-  %1778 = icmp ult i32 %.064.i313, 3
+  %1778 = icmp samesign ult i32 %.064.i313, 3
   %1779 = add i64 %.1.i314, 5
   %1780 = icmp ult i64 %1779, %1268
   %or.cond6.i340 = and i1 %1778, %1780
@@ -12580,7 +12580,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i375: ; pre
 2524:                                             ; preds = %2520
   %2525 = add i64 %.172.i363, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %55, i64 32, i1 false), !noalias !2106
-  %2526 = icmp ult i32 %.064.i365, 3
+  %2526 = icmp samesign ult i32 %.064.i365, 3
   %2527 = add i64 %.1.i366, 5
   %2528 = icmp ult i64 %2527, %2038
   %or.cond6.i398 = and i1 %2526, %2528
@@ -13840,7 +13840,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i439: ; pre
 3227:                                             ; preds = %3223
   %3228 = add i64 %.172.i427, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 32, i1 false), !noalias !2218
-  %3229 = icmp ult i32 %.064.i429, 3
+  %3229 = icmp samesign ult i32 %.064.i429, 3
   %3230 = add i64 %.1.i430, 5
   %3231 = icmp ult i64 %3230, %2741
   %or.cond6.i468 = and i1 %3229, %3231
@@ -14676,7 +14676,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i508: ; pre
 3636:                                             ; preds = %3632
   %3637 = add i64 %.172.i496, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32, i1 false), !noalias !2330
-  %3638 = icmp ult i32 %.064.i498, 3
+  %3638 = icmp samesign ult i32 %.064.i498, 3
   %3639 = add i64 %.1.i499, 9
   %3640 = icmp ult i64 %3639, %3444
   %or.cond6.i522 = and i1 %3638, %3640
@@ -15279,7 +15279,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i564: ; pre
 3907:                                             ; preds = %3903
   %3908 = add i64 %.172.i552, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false), !noalias !2448
-  %3909 = icmp ult i32 %.064.i554, 3
+  %3909 = icmp samesign ult i32 %.064.i554, 3
   %3910 = add i64 %.1.i555, 5
   %3911 = icmp ult i64 %3910, %3727
   %or.cond6.i579 = and i1 %3909, %3911

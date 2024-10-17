@@ -801,7 +801,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %93
 140:                                              ; preds = %136
   %141 = call i32 @pmix_net_get_port(ptr noundef nonnull %78) #13
   %142 = and i32 %141, 65535
-  %143 = icmp ugt i32 %142, 1024
+  %143 = icmp samesign ugt i32 %142, 1024
   br i1 %143, label %144, label %178
 
 144:                                              ; preds = %140

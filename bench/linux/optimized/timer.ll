@@ -2200,7 +2200,7 @@ define dso_local i64 @__round_jiffies(i64 noundef %0, i32 noundef %1) #5 align 1
   %4 = sext i32 %3 to i64
   %5 = add i64 %0, %4
   %6 = urem i64 %5, 1000
-  %7 = icmp ugt i64 %6, 249
+  %7 = icmp samesign ugt i64 %6, 249
   %8 = sub nuw i64 %5, %6
   %9 = add i64 %8, 1000
   %10 = select i1 %7, i64 %9, i64 %8
@@ -2220,7 +2220,7 @@ define dso_local i64 @__round_jiffies_relative(i64 noundef %0, i32 noundef %1) #
   %6 = sext i32 %5 to i64
   %7 = add i64 %4, %6
   %8 = urem i64 %7, 1000
-  %9 = icmp ugt i64 %8, 249
+  %9 = icmp samesign ugt i64 %8, 249
   %10 = sub nuw i64 %7, %8
   %11 = add i64 %10, 1000
   %12 = select i1 %9, i64 %11, i64 %10
@@ -2240,7 +2240,7 @@ define dso_local i64 @round_jiffies(i64 noundef %0) #1 align 16 {
   %4 = sext i32 %3 to i64
   %5 = add i64 %0, %4
   %6 = urem i64 %5, 1000
-  %7 = icmp ugt i64 %6, 249
+  %7 = icmp samesign ugt i64 %6, 249
   %8 = sub nuw i64 %5, %6
   %9 = add i64 %8, 1000
   %10 = select i1 %7, i64 %9, i64 %8
@@ -2261,7 +2261,7 @@ define dso_local i64 @round_jiffies_relative(i64 noundef %0) #1 align 16 {
   %6 = sext i32 %5 to i64
   %7 = add i64 %4, %6
   %8 = urem i64 %7, 1000
-  %9 = icmp ugt i64 %8, 249
+  %9 = icmp samesign ugt i64 %8, 249
   %10 = sub nuw i64 %7, %8
   %11 = add i64 %10, 1000
   %12 = select i1 %9, i64 %11, i64 %10
@@ -2419,7 +2419,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__mod_timer(ptr noundef %0, 
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   store i64 0, ptr %5, align 8, !annotation !24
-  %6 = icmp ult i32 %2, 4
+  %6 = icmp samesign ult i32 %2, 4
   br i1 %6, label %7, label %82
 
 7:                                                ; preds = %3
@@ -2436,7 +2436,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__mod_timer(ptr noundef %0, 
 
 15:                                               ; preds = %11
   %16 = sub i64 %13, %1
-  %17 = icmp ugt i32 %2, 1
+  %17 = icmp samesign ugt i32 %2, 1
   %18 = icmp slt i64 %16, 1
   %19 = and i1 %17, %18
   br i1 %19, label %.thread11, label %20
@@ -3752,7 +3752,7 @@ define internal fastcc void @next_expiry_recalc(ptr noundef %0) unnamed_addr #1 
   %16 = zext i32 %14 to i64
   %17 = tail call i64 @_find_next_bit(ptr noundef %5, i64 noundef %15, i64 noundef %16) #16
   %18 = and i64 %17, 4294967295
-  %19 = icmp ugt i64 %15, %18
+  %19 = icmp samesign ugt i64 %15, %18
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %6
@@ -3783,7 +3783,7 @@ select.unfold:                                    ; preds = %23, %20
   %37 = select i1 %36, i64 %34, i64 %9
   %38 = sub i64 0, %10
   %39 = and i64 %38, 7
-  %40 = icmp ult i64 %39, %31
+  %40 = icmp samesign ult i64 %39, %31
   br i1 %40, label %.thread, label %.thread3
 
 .thread:                                          ; preds = %23, %select.unfold, %30
@@ -4572,7 +4572,7 @@ define internal fastcc void @init_timer_cpus() unnamed_addr #4 section ".init.te
 27:                                               ; preds = %14
   %28 = add nuw nsw i64 %8, 1
   %29 = and i64 %28, 127
-  %30 = icmp ult i64 %29, 64
+  %30 = icmp samesign ult i64 %29, 64
   br i1 %30, label %1, label %.thread, !prof !108, !llvm.loop !109
 
 .thread:                                          ; preds = %1, %27, %7

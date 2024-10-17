@@ -1337,7 +1337,7 @@ _ZNK2cv11_InputArray6getMatEi.exit54:             ; preds = %39, %42
   %78 = getelementptr inbounds double, ptr %70, i64 %.062
   store double %77, ptr %78, align 8
   %79 = add nuw nsw i64 %.062, 1
-  %80 = icmp ult i64 %.062, 255
+  %80 = icmp samesign ult i64 %.062, 255
   br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 81:                                               ; preds = %36, %33, %_ZNK2cv11_InputArray6getMatEi.exit
@@ -1703,7 +1703,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %8
 
 73:                                               ; preds = %72, %48
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
-  %.not48.us.not.i = icmp ult i64 %indvars.iv95.i, %47
+  %.not48.us.not.i = icmp samesign ult i64 %indvars.iv95.i, %47
   br i1 %.not48.us.not.i, label %48, label %._crit_edge.us.i, !llvm.loop !59
 
 .preheader.us85.i:                                ; preds = %._crit_edge.us.i, %.preheader.us85.preheader.i
@@ -1712,7 +1712,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %8
 
 ._crit_edge.us.i:                                 ; preds = %73
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
-  %.not.us87.not.i = icmp ult i64 %indvars.iv101.i, %42
+  %.not.us87.not.i = icmp samesign ult i64 %indvars.iv101.i, %42
   br i1 %.not.us87.not.i, label %.preheader.us85.i, label %._crit_edge77.us.i, !llvm.loop !60
 
 ._crit_edge77.us.i:                               ; preds = %._crit_edge.us.i, %.preheader.lr.ph.us.i
@@ -3272,7 +3272,7 @@ _ZNK2cv11_InputArray6getMatEi.exit72:             ; preds = %76, %79
   %191 = getelementptr inbounds double, ptr %183, i64 %.0109
   store double %190, ptr %191, align 8
   %192 = add nuw nsw i64 %.0109, 1
-  %193 = icmp ult i64 %.0109, 255
+  %193 = icmp samesign ult i64 %.0109, 255
   br i1 %193, label %.lr.ph, label %._crit_edge, !llvm.loop !100
 
 194:                                              ; preds = %178

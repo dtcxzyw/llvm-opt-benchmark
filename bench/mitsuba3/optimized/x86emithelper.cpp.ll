@@ -393,7 +393,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper11emitArgMoveERKN
 
 _ZN6asmjit9_abi_1_103x86L16kmovInstFromSizeEj.exit: ; preds = %70, %73
   %77 = phi i32 [ %76, %73 ], [ 0, %70 ]
-  %78 = icmp ult i32 %61, 5
+  %78 = icmp samesign ult i32 %61, 5
   %79 = select i1 %78, i32 67108913, i32 134217785
   store i32 %79, ptr %7, align 4, !tbaa !4
   br label %256
@@ -490,7 +490,7 @@ _ZN6asmjit9_abi_1_103x86L16kmovInstFromSizeEj.exit6: ; preds = %129, %132
   %136 = phi i32 [ %135, %132 ], [ 0, %129 ]
   %137 = and i32 %125, 3847
   %138 = icmp eq i32 %137, 1
-  %139 = icmp ult i32 %119, 5
+  %139 = icmp samesign ult i32 %119, 5
   %140 = and i1 %139, %138
   br i1 %140, label %141, label %256
 
@@ -523,7 +523,7 @@ _ZN6asmjit9_abi_1_103x86L16kmovInstFromSizeEj.exit6: ; preds = %129, %132
 157:                                              ; preds = %149
   %158 = shl nuw nsw i32 %28, 1
   %159 = tail call noundef i32 @llvm.umin.i32(i32 %32, i32 %158)
-  %160 = icmp ult i32 %159, 9
+  %160 = icmp samesign ult i32 %159, 9
   %161 = getelementptr inbounds i8, ptr %0, i64 16
   %162 = load i8, ptr %161, align 8, !tbaa !13, !range !18, !noundef !19
   %163 = icmp eq i8 %162, 0
@@ -544,8 +544,8 @@ _ZN6asmjit9_abi_1_103x86L16kmovInstFromSizeEj.exit6: ; preds = %129, %132
   br i1 %172, label %173, label %256
 
 173:                                              ; preds = %170
-  %174 = icmp ult i32 %159, 17
-  %175 = icmp ult i32 %159, 33
+  %174 = icmp samesign ult i32 %159, 17
+  %175 = icmp samesign ult i32 %159, 33
   %176 = select i1 %175, i32 536871273, i32 1073742193
   %177 = select i1 %174, i32 268435809, i32 %176
   store i32 %177, ptr %8, align 4, !tbaa !4
@@ -562,21 +562,21 @@ _ZN6asmjit9_abi_1_103x86L16kmovInstFromSizeEj.exit6: ; preds = %129, %132
   %184 = tail call noundef i32 @llvm.umin.i32(i32 %183, i32 %28)
   %185 = lshr i32 %184, 1
   %186 = and i32 %184, 254
-  %187 = icmp ult i32 %184, 10
+  %187 = icmp samesign ult i32 %184, 10
   %188 = getelementptr inbounds i8, ptr %0, i64 16
   %189 = load i8, ptr %188, align 8, !tbaa !13, !range !18, !noundef !19
   %190 = icmp eq i8 %189, 0
   %191 = select i1 %190, i32 132, i32 885
   %192 = select i1 %190, i32 125, i32 860
   %193 = select i1 %187, i32 %191, i32 %192
-  %194 = icmp ult i32 %186, 17
-  %195 = icmp ult i32 %186, 33
+  %194 = icmp samesign ult i32 %186, 17
+  %195 = icmp samesign ult i32 %186, 33
   %196 = select i1 %195, i32 536871273, i32 1073742193
   %197 = select i1 %194, i32 268435809, i32 %196
   store i32 %197, ptr %7, align 4, !tbaa !4
   %198 = and i32 %146, 7
   %199 = icmp eq i32 %198, 1
-  %200 = icmp ugt i32 %184, 63
+  %200 = icmp samesign ugt i32 %184, 63
   %201 = and i1 %200, %199
   br i1 %201, label %202, label %256
 
@@ -594,7 +594,7 @@ _ZN6asmjit9_abi_1_103x86L16kmovInstFromSizeEj.exit6: ; preds = %129, %132
   br i1 %209, label %210, label %227
 
 210:                                              ; preds = %203
-  %211 = icmp ult i32 %204, 5
+  %211 = icmp samesign ult i32 %204, 5
   br i1 %211, label %212, label %220
 
 212:                                              ; preds = %210
@@ -651,8 +651,8 @@ _ZN6asmjit9_abi_1_103x86L16kmovInstFromSizeEj.exit6: ; preds = %129, %132
 
 247:                                              ; preds = %243, %237, %230
   %248 = phi i32 [ %246, %243 ], [ %234, %237 ], [ %234, %230 ]
-  %249 = icmp ult i32 %204, 17
-  %250 = icmp ult i32 %204, 33
+  %249 = icmp samesign ult i32 %204, 17
+  %250 = icmp samesign ult i32 %204, 33
   %251 = select i1 %250, i32 536871273, i32 1073742193
   %252 = select i1 %249, i32 268435809, i32 %251
   store i32 %252, ptr %7, align 4, !tbaa !4

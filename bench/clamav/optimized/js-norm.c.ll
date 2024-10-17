@@ -736,7 +736,7 @@ match_parameters.exit.i:                          ; preds = %173, %197
   %.4.i.i = phi i64 [ %237, %.preheader160.i.i ], [ %117, %248 ], [ %.5175.i.i, %.lr.ph176.i.i ], [ %117, %244 ], [ %.3170.i.i, %.lr.ph171.i.i ]
   %250 = add i64 %.4.i.i, 1
   %251 = add nuw nsw i64 %.0124180.i.i, 1
-  %252 = icmp ult i64 %.0124180.i.i, 5
+  %252 = icmp samesign ult i64 %.0124180.i.i, 5
   %253 = icmp ult i64 %250, %117
   %254 = and i1 %252, %253
   br i1 %254, label %.lr.ph182.i.i, label %._crit_edge183.i.i
@@ -826,7 +826,7 @@ match_parameters.exit.i:                          ; preds = %173, %197
   %.10.i.i = phi i64 [ %268, %.preheader155.i.i ], [ %117, %278 ], [ %.11202.i.i, %.lr.ph203.i.i ], [ %117, %274 ], [ %.9197.i.i, %.lr.ph198.i.i ]
   %280 = add i64 %.10.i.i, 1
   %281 = add nuw nsw i64 %.1125207.i.i, 1
-  %282 = icmp ult i64 %.1125207.i.i, 5
+  %282 = icmp samesign ult i64 %.1125207.i.i, 5
   %283 = icmp ult i64 %280, %117
   %284 = and i1 %282, %283
   br i1 %284, label %.preheader157.i.i, label %285
@@ -1541,7 +1541,7 @@ textbuf_clean.exit.i:                             ; preds = %69, %62
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
   %110 = add nuw nsw i32 %104, %109
-  %111 = icmp ult i32 %110, 122
+  %111 = icmp samesign ult i32 %110, 122
   br i1 %111, label %112, label %select.unfold.i.i
 
 112:                                              ; preds = %97
@@ -1619,7 +1619,7 @@ parseOperator.exit.i:                             ; preds = %123
   %150 = load i8, ptr %149, align 1
   %151 = zext i8 %150 to i32
   %152 = add nuw nsw i32 %146, %151
-  %153 = icmp ult i32 %152, 122
+  %153 = icmp samesign ult i32 %152, 122
   br i1 %153, label %154, label %select.unfold.i109.i
 
 154:                                              ; preds = %139
@@ -4544,7 +4544,7 @@ textbuffer_putc.exit52:                           ; preds = %69, %74
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
   %96 = add nuw nsw i32 %91, %95
-  %97 = icmp ult i32 %96, 103
+  %97 = icmp samesign ult i32 %96, 103
   br i1 %97, label %98, label %117
 
 98:                                               ; preds = %84

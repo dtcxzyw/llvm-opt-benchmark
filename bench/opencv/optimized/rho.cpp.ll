@@ -981,7 +981,7 @@ _ZN2cvL14sacInitPEndFpIEjjj.exit:                 ; preds = %56
   %92 = fsub double %91, %.016.i.i
   %93 = fcmp ogt double %92, 1.500000e-08
   %94 = add nuw nsw i32 %.0.i.i, 1
-  %95 = icmp ult i32 %.0.i.i, 9
+  %95 = icmp samesign ult i32 %.0.i.i, 9
   %or.cond.i.i = select i1 %93, i1 %95, i1 false
   br i1 %or.cond.i.i, label %89, label %_ZN2cv13RHO_HEST_REFC14designSPRTTestEv.exit, !llvm.loop !7
 
@@ -2246,7 +2246,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIcEEvRPT_mt(pt
 
 40:                                               ; preds = %32
   %41 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %3)
-  %42 = icmp ult i16 %41, 2
+  %42 = icmp samesign ult i16 %41, 2
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %40
@@ -3058,7 +3058,7 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC17evaluateModelSPRTEv(ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = load i32, ptr %19, align 8
   %80 = zext i32 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next, %80
+  %81 = icmp samesign ult i64 %indvars.iv.next, %80
   %or.cond.not = select i1 %81, i1 %77, i1 false
   br i1 %or.cond.not, label %30, label %.critedge.loopexit, !llvm.loop !22
 
@@ -3126,7 +3126,7 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC10updateSPRTEv(ptr noundef
   %36 = fsub double %35, %.016.i.i
   %37 = fcmp ogt double %36, 1.500000e-08
   %38 = add nuw nsw i32 %.0.i.i, 1
-  %39 = icmp ult i32 %.0.i.i, 9
+  %39 = icmp samesign ult i32 %.0.i.i, 9
   %or.cond.i.i = select i1 %37, i1 %39, i1 false
   br i1 %or.cond.i.i, label %33, label %_ZN2cv13RHO_HEST_REFC14designSPRTTestEv.exit, !llvm.loop !7
 
@@ -3190,7 +3190,7 @@ _ZN2cv13RHO_HEST_REFC14designSPRTTestEv.exit:     ; preds = %33
   %83 = fsub double %82, %.016.i.i6
   %84 = fcmp ogt double %83, 1.500000e-08
   %85 = add nuw nsw i32 %.0.i.i7, 1
-  %86 = icmp ult i32 %.0.i.i7, 9
+  %86 = icmp samesign ult i32 %.0.i.i7, 9
   %or.cond.i.i8 = select i1 %84, i1 %86, i1 false
   br i1 %or.cond.i.i8, label %80, label %_ZN2cv13RHO_HEST_REFC14designSPRTTestEv.exit9, !llvm.loop !7
 
@@ -3778,7 +3778,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIjEEvRPT_mt(pt
 
 52:                                               ; preds = %42
   %53 = tail call range(i16 1, 15) i16 @llvm.ctpop.i16(i16 %3)
-  %54 = icmp ult i16 %53, 2
+  %54 = icmp samesign ult i16 %53, 2
   br i1 %54, label %62, label %55
 
 55:                                               ; preds = %52
@@ -3972,7 +3972,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIfEEvRPT_mt(pt
 
 52:                                               ; preds = %42
   %53 = tail call range(i16 1, 15) i16 @llvm.ctpop.i16(i16 %3)
-  %54 = icmp ult i16 %53, 2
+  %54 = icmp samesign ult i16 %53, 2
   br i1 %54, label %62, label %55
 
 55:                                               ; preds = %52

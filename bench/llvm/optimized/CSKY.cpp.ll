@@ -1595,7 +1595,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo16hasBuilti
 8:                                                ; preds = %7
   %9 = lshr i64 %1, 3
   %10 = tail call range(i64 1, 6) i64 @llvm.ctpop.i64(i64 %9)
-  %11 = icmp ult i64 %10, 2
+  %11 = icmp samesign ult i64 %10, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %8, %7, %3

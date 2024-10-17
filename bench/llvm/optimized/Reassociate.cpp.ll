@@ -5279,7 +5279,7 @@ _ZN4llvm9SetVectorINS_11AssertingVHINS_11InstructionEEESt5dequeIS3_SaIS3_EENS_8D
   %762 = load i32, ptr %98, align 4
   %763 = and i32 %762, 134217727
   %764 = zext nneg i32 %763 to i64
-  %765 = icmp ult i64 %indvars.iv.next, %764
+  %765 = icmp samesign ult i64 %indvars.iv.next, %764
   br i1 %765, label %102, label %.loopexit, !llvm.loop !68
 
 ._crit_edge313:                                   ; preds = %.loopexit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionEmELb1EE9push_backES4_.exit
@@ -6620,7 +6620,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11reassociate7XorOpndELb1EE9push_backES3_.
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPN4llvm11reassociate7XorOpndES3_EC2ES4_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !100
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %89
@@ -9818,7 +9818,7 @@ define dso_local noundef ptr @_ZN4llvm15ReassociatePass11OptimizeMulEPNS_14Binar
 27:                                               ; preds = %23
   %28 = add i32 %.04964.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %29 = icmp ult i64 %indvars.iv.next.i, %15
+  %29 = icmp samesign ult i64 %indvars.iv.next.i, %15
   br i1 %29, label %23, label %.critedge.i, !llvm.loop !150
 
 .critedge.split.loop.exit95.i:                    ; preds = %23
@@ -9960,7 +9960,7 @@ _ZN4llvm15SmallVectorImplINS_11reassociate10ValueEntryEE5eraseEPKS2_S5_.exit.i: 
   br i1 %.not.i.i.i.i.i.i, label %select.unfold.i.i.i.i.i.i, label %100
 
 select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not10.i.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
+  %.not10.i.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN4llvm11reassociate6FactorES2_EC2ES3_l.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !154
 
 100:                                              ; preds = %.lr.ph.i.i.i.i.i.i
@@ -12915,7 +12915,7 @@ _ZN4llvm4User8operandsEv.exit.i:                  ; preds = %279, %276
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %276 ], [ %281, %279 ]
   %.idx7.i = shl nuw nsw i64 %.pre-phi2.i.i.i, 5
   %285 = getelementptr inbounds i8, ptr %284, i64 %.idx7.i
-  %.not.i = icmp ult i64 %.pre-phi2.i.i.i, 4
+  %.not.i = icmp samesign ult i64 %.pre-phi2.i.i.i, 4
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvm4User8operandsEv.exit.i
@@ -16269,7 +16269,7 @@ define linkonce_odr void @_ZN4llvm11stable_sortIRNS_11SmallVectorINS_11reassocia
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %10
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN4llvm11reassociate10ValueEntryES2_EC2ES3_l.exit.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !273
 
 10:                                               ; preds = %.lr.ph.i.i.i.i
@@ -17281,7 +17281,7 @@ define dso_local void @_ZN4llvm15ReassociatePass3runERNS_8FunctionERNS_15Analysi
   %68 = add nuw nsw i64 %.013.i.i.i.i.i.i, 1
   %69 = load i32, ptr %17, align 8
   %70 = zext i32 %69 to i64
-  %71 = icmp ult i64 %68, %70
+  %71 = icmp samesign ult i64 %68, %70
   br i1 %71, label %.critedge.i.i.i.i.i.i, label %_ZN4llvm9SetVectorINS_11AssertingVHINS_11InstructionEEESt5dequeIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EEC2ERKSB_.exit, !llvm.loop !305
 
 72:                                               ; preds = %._crit_edge

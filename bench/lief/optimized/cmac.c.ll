@@ -262,7 +262,7 @@ define hidden i32 @mbedtls_cipher_cmac_finish(ptr noundef %0, ptr noundef writeo
 
 .lr.ph.i:                                         ; preds = %36, %.lr.ph.preheader.i
   %.015.i = phi i64 [ %37, %36 ], [ 0, %.lr.ph.preheader.i ]
-  %26 = icmp ult i64 %.015.i, %23
+  %26 = icmp samesign ult i64 %.015.i, %23
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.lr.ph.i

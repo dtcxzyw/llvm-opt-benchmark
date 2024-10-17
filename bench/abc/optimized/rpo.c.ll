@@ -793,7 +793,7 @@ select.unfold.i:                                  ; preds = %54, %Lit_TruthPosit
 
 58:                                               ; preds = %54
   %59 = tail call noalias ptr @malloc(i64 noundef %10) #14
-  %60 = icmp ult i32 %2, 5
+  %60 = icmp samesign ult i32 %2, 5
   %61 = icmp sgt i32 %8, 0
   br i1 %60, label %.preheader.i, label %.preheader19.i
 

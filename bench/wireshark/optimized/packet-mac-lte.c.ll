@@ -3810,7 +3810,7 @@ proto_item_set_generated.exit476:                 ; preds = %proto_item_set_gene
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %278 = load i16, ptr %190, align 2
   %279 = zext i16 %278 to i64
-  %280 = icmp ult i64 %indvars.iv.next, %279
+  %280 = icmp samesign ult i64 %indvars.iv.next, %279
   br i1 %280, label %206, label %.loopexit, !llvm.loop !11
 
 281:                                              ; preds = %128
@@ -7861,7 +7861,7 @@ is_data_lcid.exit.thread2040:                     ; preds = %456, %467, %475
   %.01733 = phi ptr [ %452, %453 ], [ %463, %464 ]
   %482 = add i32 %.0, 1
   %483 = load i8, ptr %105, align 1
-  %484 = icmp ult i8 %446, 11
+  %484 = icmp samesign ult i8 %446, 11
   br i1 %484, label %is_data_lcid.exit1926.thread, label %is_data_lcid.exit
 
 is_data_lcid.exit:                                ; preds = %481
@@ -8275,7 +8275,7 @@ write_pdu_label_and_info_literal.exit:            ; preds = %602, %600, %599, %.
   %634 = sub i32 %.22249, %.0
   call void @proto_item_set_len(ptr noundef %429, i32 noundef %634) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %635 = icmp ult i64 %indvars.iv, 1023
+  %635 = icmp samesign ult i64 %indvars.iv, 1023
   %636 = select i1 %635, i1 %520, i1 false
   %indvars.iv.next2198 = add nuw nsw i16 %indvars.iv2197, 1
   br i1 %636, label %426, label %637, !llvm.loop !18
@@ -8284,7 +8284,7 @@ write_pdu_label_and_info_literal.exit:            ; preds = %602, %600, %599, %.
   %638 = trunc nuw nsw i64 %indvars.iv.next to i16
   %639 = trunc i64 %indvars.iv.next to i32
   %640 = and i32 %639, 65535
-  %641 = icmp ugt i64 %indvars.iv, 1022
+  %641 = icmp samesign ugt i64 %indvars.iv, 1022
   br i1 %641, label %642, label %644
 
 642:                                              ; preds = %637
@@ -11776,7 +11776,7 @@ proto_item_set_hidden.exit:                       ; preds = %write_pdu_label_and
   %56 = call ptr @val_to_str_const(i32 noundef %55, ptr noundef nonnull @mch_lcid_vals, ptr noundef nonnull @.str.1500) #16
   call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %3, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.1499, ptr noundef %56)
   %57 = add i32 %.0, 1
-  %58 = icmp ult i8 %50, 29
+  %58 = icmp samesign ult i8 %50, 29
   %.1262 = select i1 %58, i32 1, i32 %.0261
   %.1254 = select i1 %58, i32 1, i32 %.0253
   %.not272 = icmp eq i32 %.1254, 0
@@ -11790,7 +11790,7 @@ proto_item_set_hidden.exit:                       ; preds = %write_pdu_label_and
   br label %287
 
 61:                                               ; preds = %43
-  %62 = icmp ugt i8 %50, 28
+  %62 = icmp samesign ugt i8 %50, 28
   br i1 %62, label %63, label %74
 
 63:                                               ; preds = %61
@@ -11966,7 +11966,7 @@ write_pdu_label_and_info_literal.exit284:         ; preds = %99
   %128 = sub i32 %.1357, %.0
   call void @proto_item_set_len(ptr noundef %36, i32 noundef %128) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %129 = icmp ult i64 %indvars.iv, 1023
+  %129 = icmp samesign ult i64 %indvars.iv, 1023
   %130 = icmp ne i8 %47, 0
   %131 = select i1 %129, i1 %130, i1 false
   %indvars.iv.next341 = add nuw nsw i16 %indvars.iv340, 1
@@ -11976,7 +11976,7 @@ write_pdu_label_and_info_literal.exit284:         ; preds = %99
   %133 = trunc nuw nsw i64 %indvars.iv.next to i16
   %134 = trunc i64 %indvars.iv.next to i32
   %135 = and i32 %134, 65535
-  %136 = icmp ugt i64 %indvars.iv, 1022
+  %136 = icmp samesign ugt i64 %indvars.iv, 1022
   br i1 %136, label %137, label %.lr.ph322.preheader
 
 137:                                              ; preds = %132
@@ -12410,7 +12410,7 @@ define internal fastcc void @dissect_slsch(ptr noundef %0, ptr noundef %1, ptr n
   %67 = call ptr @val_to_str_const(i32 noundef %66, ptr noundef nonnull @slsch_lcid_vals, ptr noundef nonnull @.str.1500) #16
   call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %3, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.1499, ptr noundef %67)
   %68 = add i32 %.1, 1
-  %69 = icmp ult i8 %62, 11
+  %69 = icmp samesign ult i8 %62, 11
   br i1 %69, label %.thread283, label %is_data_lcid.exit
 
 is_data_lcid.exit:                                ; preds = %57
@@ -12579,7 +12579,7 @@ write_pdu_label_and_info_literal.exit:            ; preds = %.critedge.thread
   %136 = sub i32 %.2290, %.1
   call void @proto_item_set_len(ptr noundef %49, i32 noundef %136) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %137 = icmp ult i64 %indvars.iv, 1023
+  %137 = icmp samesign ult i64 %indvars.iv, 1023
   %138 = and i1 %137, %129
   %indvars.iv.next274 = add nuw nsw i16 %indvars.iv273, 1
   br i1 %138, label %47, label %139, !llvm.loop !35
@@ -12588,7 +12588,7 @@ write_pdu_label_and_info_literal.exit:            ; preds = %.critedge.thread
   %140 = trunc nuw nsw i64 %indvars.iv.next to i16
   %141 = trunc i64 %indvars.iv.next to i32
   %142 = and i32 %141, 65535
-  %143 = icmp ugt i64 %indvars.iv, 1022
+  %143 = icmp samesign ugt i64 %indvars.iv, 1022
   br i1 %143, label %144, label %.lr.ph.preheader
 
 144:                                              ; preds = %139

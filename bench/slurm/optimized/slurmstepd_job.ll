@@ -332,7 +332,7 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %198 = load i32, ptr %154, align 8
   %199 = zext i32 %198 to i64
-  %200 = icmp ult i64 %indvars.iv.next, %199
+  %200 = icmp samesign ult i64 %indvars.iv.next, %199
   br i1 %200, label %179, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %179, %163
@@ -411,7 +411,7 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %246 = load i32, ptr %137, align 8
   %247 = zext i32 %246 to i64
-  %248 = icmp ult i64 %indvars.iv.next280, %247
+  %248 = icmp samesign ult i64 %indvars.iv.next280, %247
   br i1 %248, label %.lr.ph274, label %._crit_edge275, !llvm.loop !9
 
 ._crit_edge275:                                   ; preds = %245, %212
@@ -883,7 +883,7 @@ _expand_stdio_filename.exit69.i:                  ; preds = %510, %508, %506, %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %534 = load i32, ptr %50, align 8
   %535 = zext i32 %534 to i64
-  %536 = icmp ult i64 %indvars.iv.next.i, %535
+  %536 = icmp samesign ult i64 %indvars.iv.next.i, %535
   br i1 %536, label %460, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %533, %448
@@ -931,7 +931,7 @@ _expand_stdio_filename.exit69.i:                  ; preds = %510, %508, %506, %5
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %562 = load i32, ptr %50, align 8
   %563 = zext i32 %562 to i64
-  %564 = icmp ult i64 %indvars.iv.next78.i, %563
+  %564 = icmp samesign ult i64 %indvars.iv.next78.i, %563
   br i1 %564, label %547, label %_job_init_task_info.exit, !llvm.loop !11
 
 _job_init_task_info.exit:                         ; preds = %547, %543, %._crit_edge.i, %445, %8, %69, %29
@@ -1012,7 +1012,7 @@ _task_info_destroy.exit.us.i:                     ; preds = %22
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %24 = load i32, ptr %11, align 8
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next47.i, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next47.i, %25
   br i1 %26, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !12
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_task_info_destroy.exit.i
@@ -1065,7 +1065,7 @@ _task_info_destroy.exit.i:                        ; preds = %35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %39 = load i32, ptr %11, align 8
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next.i, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next.i, %40
   br i1 %41, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %_task_info_destroy.exit.i, %_task_info_destroy.exit.us.i, %10
@@ -1268,7 +1268,7 @@ _task_info_array_destroy.exit:                    ; preds = %1, %._crit_edge.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = load i32, ptr %110, align 4
   %116 = zext i32 %115 to i64
-  %117 = icmp ult i64 %indvars.iv.next, %116
+  %117 = icmp samesign ult i64 %indvars.iv.next, %116
   br i1 %117, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %107

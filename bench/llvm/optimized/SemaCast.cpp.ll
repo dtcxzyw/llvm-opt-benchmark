@@ -2684,7 +2684,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113CastOperationC2ERN5clang4SemaENS
 47:                                               ; preds = %38
   %48 = load i32, ptr %45, align 16
   %49 = and i32 %48, 267911168
-  %50 = icmp ugt i32 %49, 256901120
+  %50 = icmp samesign ugt i32 %49, 256901120
   br i1 %50, label %_ZNK5clang4Type20getAsPlaceholderTypeEv.exit, label %53
 
 _ZNK5clang4Type20getAsPlaceholderTypeEv.exit:     ; preds = %47
@@ -12209,7 +12209,7 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread4.i150: ; preds 
   %319 = lshr i64 %318, 38
   %320 = trunc nuw nsw i64 %319 to i32
   %321 = and i32 %320, 65535
-  %322 = icmp ugt i32 %316, %321
+  %322 = icmp samesign ugt i32 %316, %321
   br i1 %322, label %323, label %325
 
 323:                                              ; preds = %311
@@ -12218,7 +12218,7 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread4.i150: ; preds 
   br i1 %.not36, label %.thread, label %329
 
 325:                                              ; preds = %311
-  %326 = icmp uge i32 %316, %321
+  %326 = icmp samesign uge i32 %316, %321
   %327 = and i64 %313, 1152921504606846976
   %328 = icmp ne i64 %327, 0
   %or.cond33 = or i1 %328, %326

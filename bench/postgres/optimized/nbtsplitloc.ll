@@ -106,8 +106,8 @@ define dso_local zeroext i16 @_bt_findsplitloc(ptr noundef %0, ptr noundef %1, i
   br i1 %69, label %70, label %97
 
 70:                                               ; preds = %60
-  %71 = icmp ugt i32 %67, 64
-  %or.cond.i = and i1 %71, %45
+  %71 = icmp samesign ugt i32 %67, 64
+  %or.cond.i = select i1 %45, i1 %71, i1 false
   br i1 %or.cond.i, label %72, label %BTreeTupleIsPosting.exit.thread.i
 
 72:                                               ; preds = %70
@@ -179,8 +179,8 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %70
   br i1 %98, label %99, label %131
 
 99:                                               ; preds = %97
-  %100 = icmp ugt i32 %67, 64
-  %or.cond.i108 = and i1 %100, %45
+  %100 = icmp samesign ugt i32 %67, 64
+  %or.cond.i108 = select i1 %45, i1 %100, i1 false
   br i1 %or.cond.i108, label %101, label %BTreeTupleIsPosting.exit.thread.i109
 
 101:                                              ; preds = %99
@@ -285,8 +285,8 @@ BTreeTupleIsPosting.exit.thread.i109:             ; preds = %99
 _bt_recsplitloc.exit156:                          ; preds = %131, %136
   %.sroa.122.5 = phi i64 [ %..061.i139, %136 ], [ %.sroa.122.0600, %131 ]
   %.sroa.136.5 = phi i32 [ %143, %136 ], [ %.sroa.136.0601, %131 ]
-  %144 = icmp ugt i32 %67, 64
-  %or.cond.i178 = and i1 %144, %45
+  %144 = icmp samesign ugt i32 %67, 64
+  %or.cond.i178 = select i1 %45, i1 %144, i1 false
   br i1 %or.cond.i178, label %145, label %BTreeTupleIsPosting.exit.thread.i179
 
 145:                                              ; preds = %_bt_recsplitloc.exit156
@@ -1101,7 +1101,7 @@ _bt_split_penalty.exit._crit_edge.i:              ; preds = %_bt_split_penalty.e
   %499 = zext i16 %2 to i32
   %500 = zext i16 %498 to i32
   %501 = add nuw nsw i32 %499, 9
-  %502 = icmp ugt i32 %501, %500
+  %502 = icmp samesign ugt i32 %501, %500
   %or.cond.i255 = select i1 %.not38.i, i1 %502, i1 false
   %spec.select43.i = select i1 %or.cond.i255, ptr %50, ptr %491
   br label %_bt_bestsplitloc.exit

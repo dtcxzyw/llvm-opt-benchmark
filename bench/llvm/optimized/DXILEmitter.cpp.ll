@@ -2955,7 +2955,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit47.i:             ; preds = %1226, %1224
   %1233 = getelementptr inbounds i8, ptr %.117.us.i.i, i64 -1
   store i8 %1232, ptr %1233, align 1, !noalias !17
   %1234 = lshr i64 %.019.us.i.i, 4
-  %.not15.us.i.i = icmp ult i64 %.019.us.i.i, 16
+  %.not15.us.i.i = icmp samesign ult i64 %.019.us.i.i, 16
   br i1 %.not15.us.i.i, label %_ZN4llvm9utohexstrB5cxx11Embj.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !20
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit.i:             ; preds = %.lr.ph.split.us.i.i, %.thread.i
@@ -3993,7 +3993,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i194: ; preds = %289, %287, %283, %2
 
 ._crit_edge.i.i196:                               ; preds = %.lr.ph.i2.i200, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i194
   %.0.lcssa.i.i197 = phi i32 [ %271, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i194 ], [ %302, %.lr.ph.i2.i200 ]
-  %317 = icmp ugt i32 %.0.lcssa.i.i197, 9
+  %317 = icmp samesign ugt i32 %.0.lcssa.i.i197, 9
   br i1 %317, label %318, label %328
 
 318:                                              ; preds = %._crit_edge.i.i196
@@ -4100,7 +4100,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %345, %343, %339, %3
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i2.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
   %.0.lcssa.i.i = phi i32 [ %274, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %358, %.lr.ph.i2.i ]
-  %373 = icmp ugt i32 %.0.lcssa.i.i, 9
+  %373 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
   br i1 %373, label %374, label %384
 
 374:                                              ; preds = %._crit_edge.i.i
@@ -4430,7 +4430,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i220: ; preds = %481, %479, %475, %4
 
 ._crit_edge.i.i222:                               ; preds = %.lr.ph.i2.i226, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i220
   %.0.lcssa.i.i223 = phi i32 [ %463, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i220 ], [ %494, %.lr.ph.i2.i226 ]
-  %509 = icmp ugt i32 %.0.lcssa.i.i223, 9
+  %509 = icmp samesign ugt i32 %.0.lcssa.i.i223, 9
   br i1 %509, label %510, label %520
 
 510:                                              ; preds = %._crit_edge.i.i222
@@ -4537,7 +4537,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i207: ; preds = %537, %535, %531, %5
 
 ._crit_edge.i.i209:                               ; preds = %.lr.ph.i2.i213, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i207
   %.0.lcssa.i.i210 = phi i32 [ %466, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i207 ], [ %550, %.lr.ph.i2.i213 ]
-  %565 = icmp ugt i32 %.0.lcssa.i.i210, 9
+  %565 = icmp samesign ugt i32 %.0.lcssa.i.i210, 9
   br i1 %565, label %566, label %576
 
 566:                                              ; preds = %._crit_edge.i.i209
@@ -4797,7 +4797,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i246: ; preds = %660, %658, %654, %6
 
 ._crit_edge.i.i248:                               ; preds = %.lr.ph.i2.i252, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i246
   %.0.lcssa.i.i249 = phi i32 [ %642, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i246 ], [ %673, %.lr.ph.i2.i252 ]
-  %688 = icmp ugt i32 %.0.lcssa.i.i249, 9
+  %688 = icmp samesign ugt i32 %.0.lcssa.i.i249, 9
   br i1 %688, label %689, label %699
 
 689:                                              ; preds = %._crit_edge.i.i248
@@ -4904,7 +4904,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i233: ; preds = %716, %714, %710, %7
 
 ._crit_edge.i.i235:                               ; preds = %.lr.ph.i2.i239, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i233
   %.0.lcssa.i.i236 = phi i32 [ %645, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i233 ], [ %729, %.lr.ph.i2.i239 ]
-  %744 = icmp ugt i32 %.0.lcssa.i.i236, 9
+  %744 = icmp samesign ugt i32 %.0.lcssa.i.i236, 9
   br i1 %744, label %745, label %755
 
 745:                                              ; preds = %._crit_edge.i.i235
@@ -6125,8 +6125,8 @@ define internal fastcc void @_ZL22AscendingSortByVersionRSt6vectorIPN4llvm6Recor
   %31 = trunc i64 %20 to i32
   %32 = and i32 %31, 2147483647
   %33 = icmp uge i32 %26, %25
-  %34 = icmp ult i32 %32, %30
-  %spec.select.i.i.i.i.i = and i1 %33, %34
+  %34 = icmp samesign ult i32 %32, %30
+  %spec.select.i.i.i.i.i = select i1 %33, i1 %34, i1 false
   br i1 %spec.select.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.backedge, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL22AscendingSortByVersionRS8_E3$_0EEEvT_T0_.exit.i.i.i.i"
 
 .lr.ph.i.i.i.i.i.backedge:                        ; preds = %28, %.lr.ph.i.i.i.i.i
@@ -6221,8 +6221,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %45 = trunc i64 %35 to i32
   %46 = and i32 %45, 2147483647
   %47 = icmp uge i32 %41, %40
-  %48 = icmp ult i32 %46, %44
-  %spec.select.i11.i.i.i = and i1 %47, %48
+  %48 = icmp samesign ult i32 %46, %44
+  %spec.select.i11.i.i.i = select i1 %47, i1 %48, i1 false
   br i1 %spec.select.i11.i.i.i, label %"_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit12.thread.i.i.i", label %49
 
 "_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit12.thread.i.i.i": ; preds = %"_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit12.i.i.i", %.lr.ph.i.i.i.i
@@ -6278,8 +6278,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %75 = trunc i64 %65 to i32
   %76 = and i32 %75, 2147483647
   %77 = icmp uge i32 %71, %70
-  %78 = icmp ult i32 %76, %74
-  %spec.select.i10.i.i.i = and i1 %77, %78
+  %78 = icmp samesign ult i32 %76, %74
+  %spec.select.i10.i.i.i = select i1 %77, i1 %78, i1 false
   br i1 %spec.select.i10.i.i.i, label %"_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit.thread.i.i.i", label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZL22AscendingSortByVersionRS8_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
 
 "_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit.thread.i.i.i": ; preds = %"_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit.i.i.i", %.lr.ph.i.i.i.i.i
@@ -6302,8 +6302,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %85, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZL22AscendingSortByVersionRS8_E3$_0EEEvT_SF_SF_T0_.exit"
 
 .lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZL22AscendingSortByVersionRS8_E3$_0EEEvT_SF_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZL22AscendingSortByVersionRS8_E3$_0EEEvT_SF_SF_RT0_.exit.i13.i"
-  %.sroa.0.03.i.i = phi ptr [ %86, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZL22AscendingSortByVersionRS8_E3$_0EEEvT_SF_SF_RT0_.exit.i13.i" ], [ %storemerge26.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZL22AscendingSortByVersionRS8_E3$_0EEEvT_SF_RT0_.exit.i.i" ]
-  %86 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
+  %.sroa.0.04.i.i = phi ptr [ %86, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZL22AscendingSortByVersionRS8_E3$_0EEEvT_SF_SF_RT0_.exit.i13.i" ], [ %storemerge26.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZL22AscendingSortByVersionRS8_E3$_0EEEvT_SF_RT0_.exit.i.i" ]
+  %86 = getelementptr inbounds i8, ptr %.sroa.0.04.i.i, i64 -8
   %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr %0, align 8
   store ptr %88, ptr %86, align 8
@@ -6343,8 +6343,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %115 = trunc i64 %105 to i32
   %116 = and i32 %115, 2147483647
   %117 = icmp uge i32 %111, %110
-  %118 = icmp ult i32 %116, %114
-  %spec.select.i3.i.i = and i1 %117, %118
+  %118 = icmp samesign ult i32 %116, %114
+  %spec.select.i3.i.i = select i1 %117, i1 %118, i1 false
   br i1 %spec.select.i3.i.i, label %"_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit4.thread.i.i", label %119
 
 "_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit4.thread.i.i": ; preds = %"_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit4.i.i", %.lr.ph.i.i.i23.i
@@ -6410,8 +6410,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %154 = trunc i64 %144 to i32
   %155 = and i32 %154, 2147483647
   %156 = icmp uge i32 %150, %149
-  %157 = icmp ult i32 %155, %153
-  %spec.select.i.i20.i = and i1 %156, %157
+  %157 = icmp samesign ult i32 %155, %153
+  %spec.select.i.i20.i = select i1 %156, i1 %157, i1 false
   br i1 %spec.select.i.i20.i, label %"_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit.thread.i21.i", label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZL22AscendingSortByVersionRS8_E3$_0EEEvT_SF_SF_RT0_.exit.i13.i"
 
 "_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit.thread.i21.i": ; preds = %"_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit.i19.i", %.lr.ph.i.i.i.i15.i
@@ -6535,8 +6535,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %217 = trunc i64 %207 to i32
   %218 = and i32 %217, 2147483647
   %219 = icmp uge i32 %213, %212
-  %220 = icmp ult i32 %218, %216
-  %spec.select.i.i.i = and i1 %219, %220
+  %220 = icmp samesign ult i32 %218, %216
+  %spec.select.i.i.i = select i1 %219, i1 %220, i1 false
   br i1 %spec.select.i.i.i, label %"_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit.thread.i.i", label %.preheader.i.i
 
 "_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit.thread.i.i": ; preds = %"_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit.i.i", %201
@@ -6567,8 +6567,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %237 = trunc i64 %227 to i32
   %238 = and i32 %237, 2147483647
   %239 = icmp uge i32 %233, %232
-  %240 = icmp ult i32 %238, %236
-  %spec.select.i8.i.i = and i1 %239, %240
+  %240 = icmp samesign ult i32 %238, %236
+  %spec.select.i8.i.i = select i1 %239, i1 %240, i1 false
   br i1 %spec.select.i8.i.i, label %.preheader.i.i.backedge, label %241
 
 .preheader.i.i.backedge:                          ; preds = %"_ZZL22AscendingSortByVersionRSt6vectorIPN4llvm6RecordESaIS2_EEENK3$_0clES2_S2_.exit9.i.i", %.preheader.i.i
@@ -6619,8 +6619,8 @@ define internal fastcc noundef zeroext i1 @"_ZZL22AscendingSortByVersionRSt6vect
   %17 = trunc i64 %6 to i32
   %18 = and i32 %17, 2147483647
   %19 = icmp uge i32 %12, %11
-  %20 = icmp ult i32 %18, %16
-  %spec.select = and i1 %19, %20
+  %20 = icmp samesign ult i32 %18, %16
+  %spec.select = select i1 %19, i1 %20, i1 false
   br label %_ZN4llvmltERKNS_12VersionTupleES2_.exit
 
 _ZN4llvmltERKNS_12VersionTupleES2_.exit:          ; preds = %14, %2
@@ -6695,8 +6695,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_
   %34 = trunc i64 %23 to i32
   %35 = and i32 %34, 2147483647
   %36 = icmp uge i32 %29, %28
-  %37 = icmp ult i32 %35, %33
-  %spec.select.i = and i1 %36, %37
+  %37 = icmp samesign ult i32 %35, %33
+  %spec.select.i = select i1 %36, i1 %37, i1 false
   br i1 %spec.select.i, label %.lr.ph.i.backedge, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL22AscendingSortByVersionRS8_E3$_0EEEvT_T0_.exit"
 
 .lr.ph.i.backedge:                                ; preds = %31, %.lr.ph.i
@@ -7557,7 +7557,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %45 = icmp ugt i32 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %._crit_edge.i

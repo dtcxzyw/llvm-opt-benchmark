@@ -3510,7 +3510,7 @@ _ZNSt14_Function_baseD2Ev.exit6.i.i.i.i:          ; preds = %if.then.i3.i.i.i.i,
 "_ZZN8QuantLib21Concentrating1dMesherC1EddmRKSt6vectorISt5tupleIJddbEESaIS3_EEdENK3$_0clEd.exit.i.i": ; preds = %if.then.i.i.i.i.i124, %invoke.cont.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %odeFct.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %a.addr.i.i.i.i)
-  %cmp10.not147.i.i = icmp ugt i64 %ref.tmp68.sroa.78.0, 99
+  %cmp10.not147.i.i = icmp samesign ugt i64 %ref.tmp68.sroa.78.0, 99
   br i1 %cmp10.not147.i.i, label %do.body.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %"_ZZN8QuantLib21Concentrating1dMesherC1EddmRKSt6vectorISt5tupleIJddbEESaIS3_EEdENK3$_0clEd.exit.i.i"
@@ -4887,7 +4887,7 @@ cond.false.i.i.i.i.i:                             ; preds = %if.end74.i237
           to label %call2.i.i.i.i.noexc unwind label %lpad192.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call2.i.i.i.i.noexc:                              ; preds = %"_ZZN8QuantLib21Concentrating1dMesherC1EddmRKSt6vectorISt5tupleIJddbEESaIS3_EEdENK3$_1clEd.exit.i.i"
-  %cmp10.not123.i.i = icmp ugt i64 %ref.tmp189.sroa.78.2, 99
+  %cmp10.not123.i.i = icmp samesign ugt i64 %ref.tmp189.sroa.78.2, 99
   br i1 %cmp10.not123.i.i, label %do.body.i.i283, label %while.body.lr.ph.i.i245
 
 while.body.lr.ph.i.i245:                          ; preds = %call2.i.i.i.i.noexc

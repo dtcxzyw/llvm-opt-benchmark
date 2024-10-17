@@ -1204,7 +1204,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %1072 = add i64 %1071, %1060
   %1073 = add nuw nsw i32 %.010421043, 16
   %1074 = getelementptr inbounds i8, ptr %.010411044, i64 128
-  %1075 = icmp ult i32 %.010421043, 64
+  %1075 = icmp samesign ult i32 %.010421043, 64
   br i1 %1075, label %449, label %1076, !llvm.loop !7
 
 1076:                                             ; preds = %449
@@ -1244,7 +1244,7 @@ define dso_local void @rhash_sha512_final(ptr noundef %0, ptr noundef %1) local_
   %15 = add nuw nsw i64 %6, 1
   %16 = xor i64 %13, %14
   store i64 %16, ptr %11, align 8
-  %17 = icmp ugt i64 %6, 13
+  %17 = icmp samesign ugt i64 %6, 13
   br i1 %17, label %18, label %._crit_edge
 
 18:                                               ; preds = %2

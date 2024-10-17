@@ -1213,9 +1213,11 @@ define void @php_pcre_match_impl(ptr nocapture noundef readonly %0, ptr noundef 
 
 45:                                               ; preds = %40
   %46 = trunc nuw nsw i64 %44 to i32
-  %47 = icmp ult i64 %44, 3
-  %brmerge.not = and i1 %4, %47
-  br i1 %brmerge.not, label %51, label %48
+  %47 = icmp samesign ugt i64 %44, 2
+  %or.cond = select i1 %4, i1 %47, i1 false
+  %.not512 = xor i1 %4, true
+  %brmerge = or i1 %or.cond, %.not512
+  br i1 %brmerge, label %48, label %51
 
 48:                                               ; preds = %45
   tail call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 4, ptr noundef nonnull @.str.13) #23
@@ -1345,24 +1347,24 @@ free_subpats_table.exit:                          ; preds = %94, %81
   %or.cond8 = and i1 %4, %62
   %98 = icmp eq i32 %.0447, 1
   %or.cond10 = select i1 %or.cond8, i1 %98, i1 false
-  br i1 %or.cond10, label %99, label %.loopexit552
+  br i1 %or.cond10, label %99, label %.loopexit551
 
 99:                                               ; preds = %97
   %100 = zext i32 %61 to i64
   %101 = tail call noalias ptr @_safe_emalloc(i64 noundef %100, i64 noundef 8, i64 noundef 0) #23
-  %.not609 = icmp eq i32 %61, 0
-  br i1 %.not609, label %.loopexit552, label %.lr.ph
+  %.not608 = icmp eq i32 %61, 0
+  br i1 %.not608, label %.loopexit551, label %.lr.ph
 
 .lr.ph:                                           ; preds = %99, %.lr.ph
-  %.0441593 = phi i64 [ %104, %.lr.ph ], [ 0, %99 ]
+  %.0441592 = phi i64 [ %104, %.lr.ph ], [ 0, %99 ]
   %102 = tail call ptr @_zend_new_array_0() #23
-  %103 = getelementptr inbounds ptr, ptr %101, i64 %.0441593
+  %103 = getelementptr inbounds ptr, ptr %101, i64 %.0441592
   store ptr %102, ptr %103, align 8
-  %104 = add nuw nsw i64 %.0441593, 1
+  %104 = add nuw nsw i64 %.0441592, 1
   %exitcond.not = icmp eq i64 %104, %100
-  br i1 %exitcond.not, label %.loopexit552, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit551, label %.lr.ph
 
-.loopexit552:                                     ; preds = %.lr.ph, %99, %97
+.loopexit551:                                     ; preds = %.lr.ph, %99, %97
   %.0434 = phi ptr [ null, %97 ], [ %101, %99 ], [ %101, %.lr.ph ]
   %105 = tail call ptr @php_pcre2_get_ovector_pointer(ptr noundef %.0456) #23
   %106 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1371,7 +1373,7 @@ free_subpats_table.exit:                          ; preds = %94, %81
   %.not492 = icmp eq i32 %108, 0
   br i1 %.not492, label %123, label %109
 
-109:                                              ; preds = %.loopexit552
+109:                                              ; preds = %.loopexit551
   %110 = getelementptr inbounds i8, ptr %1, i64 4
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %111, 512
@@ -1395,8 +1397,8 @@ free_subpats_table.exit:                          ; preds = %94, %81
   %122 = select i1 %121, i32 0, i32 1073741824
   br label %123
 
-123:                                              ; preds = %117, %114, %.loopexit552
-  %124 = phi i32 [ 1073741824, %.loopexit552 ], [ %122, %117 ], [ 1073741824, %114 ]
+123:                                              ; preds = %117, %114, %.loopexit551
+  %124 = phi i32 [ 1073741824, %.loopexit551 ], [ %122, %117 ], [ 1073741824, %114 ]
   %125 = getelementptr inbounds i8, ptr %0, i64 8
   %126 = load i32, ptr %125, align 8
   %127 = and i32 %126, 8
@@ -1423,9 +1425,9 @@ free_subpats_table.exit:                          ; preds = %94, %81
   %141 = phi ptr [ %125, %130 ], [ %135, %134 ]
   %.0435 = phi i32 [ %133, %130 ], [ %139, %134 ]
   %142 = icmp sgt i32 %.0435, -1
-  br i1 %142, label %.lr.ph602, label %._crit_edge
+  br i1 %142, label %.lr.ph601, label %._crit_edge
 
-.lr.ph602:                                        ; preds = %140
+.lr.ph601:                                        ; preds = %140
   %143 = getelementptr inbounds i8, ptr %105, i64 8
   %144 = getelementptr inbounds i8, ptr %8, i64 8
   %.not495 = icmp eq i32 %.0448, 0
@@ -1436,11 +1438,11 @@ free_subpats_table.exit:                          ; preds = %94, %81
   %148 = getelementptr inbounds i8, ptr %12, i64 8
   br label %149
 
-149:                                              ; preds = %.lr.ph602, %321
-  %.1601 = phi i32 [ %.0435, %.lr.ph602 ], [ %.5, %321 ]
-  %.0436600 = phi i32 [ 0, %.lr.ph602 ], [ %306, %321 ]
-  %.0450599 = phi ptr [ null, %.lr.ph602 ], [ %.2452, %321 ]
-  %150 = icmp eq i32 %.1601, 0
+149:                                              ; preds = %.lr.ph601, %321
+  %.1600 = phi i32 [ %.0435, %.lr.ph601 ], [ %.5, %321 ]
+  %.0436599 = phi i32 [ 0, %.lr.ph601 ], [ %306, %321 ]
+  %.0450598 = phi ptr [ null, %.lr.ph601 ], [ %.2452, %321 ]
+  %150 = icmp eq i32 %.1600, 0
   br i1 %150, label %151, label %152
 
 151:                                              ; preds = %149
@@ -1448,16 +1450,16 @@ free_subpats_table.exit:                          ; preds = %94, %81
   br label %152
 
 152:                                              ; preds = %151, %149
-  %.2 = phi i32 [ %61, %151 ], [ %.1601, %149 ]
-  %153 = sext i32 %.0436600 to i64
+  %.2 = phi i32 [ %61, %151 ], [ %.1600, %149 ]
+  %153 = sext i32 %.0436599 to i64
   br label %154
 
 154:                                              ; preds = %284, %152
-  %indvars.iv652 = phi i64 [ %indvars.iv.next653, %284 ], [ %153, %152 ]
-  %.1451 = phi ptr [ %.2452, %284 ], [ %.0450599, %152 ]
+  %indvars.iv651 = phi i64 [ %indvars.iv.next652, %284 ], [ %153, %152 ]
+  %.1451 = phi ptr [ %.2452, %284 ], [ %.0450598, %152 ]
   %.3 = phi i32 [ %282, %284 ], [ %.2, %152 ]
-  %indvars.iv.next653 = add nsw i64 %indvars.iv652, 1
-  br i1 %62, label %155, label %.loopexit542
+  %indvars.iv.next652 = add nsw i64 %indvars.iv651, 1
+  br i1 %62, label %155, label %.loopexit541
 
 155:                                              ; preds = %154
   %156 = load i64, ptr %143, align 8
@@ -1535,39 +1537,39 @@ free_subpats_table.exit523:                       ; preds = %173, %160
 
 180:                                              ; preds = %179
   %181 = sext i32 %.3 to i64
-  %.not611 = icmp eq i32 %.3, 0
-  br i1 %.not495, label %.preheader543, label %.preheader545
+  %.not610 = icmp eq i32 %.3, 0
+  br i1 %.not495, label %.preheader542, label %.preheader544
 
-.preheader545:                                    ; preds = %180
-  br i1 %.not611, label %.loopexit544, label %.lr.ph595
+.preheader544:                                    ; preds = %180
+  br i1 %.not610, label %.loopexit543, label %.lr.ph594
 
-.preheader543:                                    ; preds = %180
-  br i1 %.not611, label %.loopexit544, label %.lr.ph597
+.preheader542:                                    ; preds = %180
+  br i1 %.not610, label %.loopexit543, label %.lr.ph596
 
-.lr.ph595:                                        ; preds = %.preheader545, %.lr.ph595
-  %.1442594 = phi i64 [ %190, %.lr.ph595 ], [ 0, %.preheader545 ]
-  %182 = getelementptr inbounds ptr, ptr %.0434, i64 %.1442594
+.lr.ph594:                                        ; preds = %.preheader544, %.lr.ph594
+  %.1442593 = phi i64 [ %190, %.lr.ph594 ], [ 0, %.preheader544 ]
+  %182 = getelementptr inbounds ptr, ptr %.0434, i64 %.1442593
   %183 = load ptr, ptr %182, align 8
-  %184 = shl i64 %.1442594, 1
+  %184 = shl i64 %.1442593, 1
   %185 = getelementptr inbounds i64, ptr %105, i64 %184
   %186 = load i64, ptr %185, align 8
   %187 = or disjoint i64 %184, 1
   %188 = getelementptr inbounds i64, ptr %105, i64 %187
   %189 = load i64, ptr %188, align 8
   call fastcc void @add_offset_pair(ptr noundef %183, ptr noundef nonnull %16, i64 noundef %186, i64 noundef %189, ptr noundef null, i64 noundef %.0449)
-  %190 = add nuw i64 %.1442594, 1
-  %exitcond643.not = icmp eq i64 %190, %181
-  br i1 %exitcond643.not, label %.loopexit544, label %.lr.ph595
+  %190 = add nuw i64 %.1442593, 1
+  %exitcond642.not = icmp eq i64 %190, %181
+  br i1 %exitcond642.not, label %.loopexit543, label %.lr.ph594
 
-.lr.ph597:                                        ; preds = %.preheader543, %228
-  %.2443596 = phi i64 [ %232, %228 ], [ 0, %.preheader543 ]
-  %191 = shl i64 %.2443596, 1
+.lr.ph596:                                        ; preds = %.preheader542, %228
+  %.2443595 = phi i64 [ %232, %228 ], [ 0, %.preheader542 ]
+  %191 = shl i64 %.2443595, 1
   %192 = getelementptr inbounds i64, ptr %105, i64 %191
   %193 = load i64, ptr %192, align 8
   %194 = icmp eq i64 %193, -1
   br i1 %194, label %195, label %198
 
-195:                                              ; preds = %.lr.ph597
+195:                                              ; preds = %.lr.ph596
   br i1 %.not496, label %196, label %228
 
 196:                                              ; preds = %195
@@ -1575,7 +1577,7 @@ free_subpats_table.exit523:                       ; preds = %173, %160
   store ptr %197, ptr %9, align 8
   br label %228
 
-198:                                              ; preds = %.lr.ph597
+198:                                              ; preds = %.lr.ph596
   %199 = or disjoint i64 %191, 1
   %200 = getelementptr inbounds i64, ptr %105, i64 %199
   %201 = load i64, ptr %200, align 8
@@ -1629,19 +1631,19 @@ free_subpats_table.exit523:                       ; preds = %173, %160
 228:                                              ; preds = %195, %196, %223
   %.sink = phi i32 [ 6, %196 ], [ %227, %223 ], [ 1, %195 ]
   store i32 %.sink, ptr %145, align 8
-  %229 = getelementptr inbounds ptr, ptr %.0434, i64 %.2443596
+  %229 = getelementptr inbounds ptr, ptr %.0434, i64 %.2443595
   %230 = load ptr, ptr %229, align 8
   %231 = call ptr @zend_hash_next_index_insert_new(ptr noundef %230, ptr noundef nonnull %9) #23
-  %232 = add nuw i64 %.2443596, 1
-  %exitcond644.not = icmp eq i64 %232, %181
-  br i1 %exitcond644.not, label %.loopexit544, label %.lr.ph597
+  %232 = add nuw i64 %.2443595, 1
+  %exitcond643.not = icmp eq i64 %232, %181
+  br i1 %exitcond643.not, label %.loopexit543, label %.lr.ph596
 
-.loopexit544:                                     ; preds = %.lr.ph595, %228, %.preheader545, %.preheader543
+.loopexit543:                                     ; preds = %.lr.ph594, %228, %.preheader544, %.preheader542
   %233 = call ptr @php_pcre2_get_mark(ptr noundef %.0456) #23
   %.not498 = icmp eq ptr %233, null
   br i1 %.not498, label %248, label %234
 
-234:                                              ; preds = %.loopexit544
+234:                                              ; preds = %.loopexit543
   %.not499 = icmp eq ptr %.1451, null
   br i1 %.not499, label %235, label %237
 
@@ -1668,54 +1670,54 @@ free_subpats_table.exit523:                       ; preds = %173, %160
   store i8 0, ptr %246, align 1
   store ptr %241, ptr %10, align 8
   store i32 262, ptr %146, align 8
-  %247 = call ptr @zend_hash_index_add_new(ptr noundef %.4454, i64 noundef %indvars.iv652, ptr noundef nonnull %10) #23
+  %247 = call ptr @zend_hash_index_add_new(ptr noundef %.4454, i64 noundef %indvars.iv651, ptr noundef nonnull %10) #23
   br label %248
 
-248:                                              ; preds = %237, %.loopexit544
-  %.3453 = phi ptr [ %.4454, %237 ], [ %.1451, %.loopexit544 ]
+248:                                              ; preds = %237, %.loopexit543
+  %.3453 = phi ptr [ %.4454, %237 ], [ %.1451, %.loopexit543 ]
   %249 = icmp ult i32 %.3, %61
-  br i1 %249, label %.preheader541, label %.loopexit542
+  br i1 %249, label %.preheader540, label %.loopexit541
 
-.preheader541:                                    ; preds = %248
+.preheader540:                                    ; preds = %248
   %250 = sext i32 %.3 to i64
-  br i1 %.not495, label %.preheader541.split.us, label %.preheader541.split
+  br i1 %.not495, label %.preheader540.split.us, label %.preheader540.split
 
-.preheader541.split.us:                           ; preds = %.preheader541
-  br i1 %.not496, label %.preheader541.split.us.split.us, label %.preheader541.split.us.split
+.preheader540.split.us:                           ; preds = %.preheader540
+  br i1 %.not496, label %.preheader540.split.us.split.us, label %.preheader540.split.us.split
 
-.preheader541.split.us.split.us:                  ; preds = %.preheader541.split.us, %.preheader541.split.us.split.us
-  %indvars.iv649 = phi i64 [ %indvars.iv.next650, %.preheader541.split.us.split.us ], [ %250, %.preheader541.split.us ]
+.preheader540.split.us.split.us:                  ; preds = %.preheader540.split.us, %.preheader540.split.us.split.us
+  %indvars.iv648 = phi i64 [ %indvars.iv.next649, %.preheader540.split.us.split.us ], [ %250, %.preheader540.split.us ]
   %251 = load ptr, ptr @zend_empty_string, align 8
   store ptr %251, ptr %12, align 8
   store i32 6, ptr %148, align 8
-  %252 = getelementptr inbounds ptr, ptr %.0434, i64 %indvars.iv649
+  %252 = getelementptr inbounds ptr, ptr %.0434, i64 %indvars.iv648
   %253 = load ptr, ptr %252, align 8
   %254 = call ptr @zend_hash_next_index_insert_new(ptr noundef %253, ptr noundef nonnull %12) #23
-  %indvars.iv.next650 = add nuw nsw i64 %indvars.iv649, 1
-  %255 = trunc nsw i64 %indvars.iv.next650 to i32
+  %indvars.iv.next649 = add nuw nsw i64 %indvars.iv648, 1
+  %255 = trunc nsw i64 %indvars.iv.next649 to i32
   %256 = icmp ugt i32 %61, %255
-  br i1 %256, label %.preheader541.split.us.split.us, label %.loopexit542
+  br i1 %256, label %.preheader540.split.us.split.us, label %.loopexit541
 
-.preheader541.split.us.split:                     ; preds = %.preheader541.split.us, %.preheader541.split.us.split
-  %indvars.iv646 = phi i64 [ %indvars.iv.next647, %.preheader541.split.us.split ], [ %250, %.preheader541.split.us ]
+.preheader540.split.us.split:                     ; preds = %.preheader540.split.us, %.preheader540.split.us.split
+  %indvars.iv645 = phi i64 [ %indvars.iv.next646, %.preheader540.split.us.split ], [ %250, %.preheader540.split.us ]
   store i32 1, ptr %147, align 8
-  %257 = getelementptr inbounds ptr, ptr %.0434, i64 %indvars.iv646
+  %257 = getelementptr inbounds ptr, ptr %.0434, i64 %indvars.iv645
   %258 = load ptr, ptr %257, align 8
   %259 = call ptr @zend_hash_next_index_insert_new(ptr noundef %258, ptr noundef nonnull %11) #23
-  %indvars.iv.next647 = add nuw nsw i64 %indvars.iv646, 1
-  %260 = trunc nsw i64 %indvars.iv.next647 to i32
+  %indvars.iv.next646 = add nuw nsw i64 %indvars.iv645, 1
+  %260 = trunc nsw i64 %indvars.iv.next646 to i32
   %261 = icmp ugt i32 %61, %260
-  br i1 %261, label %.preheader541.split.us.split, label %.loopexit542
+  br i1 %261, label %.preheader540.split.us.split, label %.loopexit541
 
-.preheader541.split:                              ; preds = %.preheader541, %.preheader541.split
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader541.split ], [ %250, %.preheader541 ]
+.preheader540.split:                              ; preds = %.preheader540, %.preheader540.split
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader540.split ], [ %250, %.preheader540 ]
   %262 = getelementptr inbounds ptr, ptr %.0434, i64 %indvars.iv
   %263 = load ptr, ptr %262, align 8
   call fastcc void @add_offset_pair(ptr noundef %263, ptr noundef null, i64 noundef -1, i64 noundef -1, ptr noundef null, i64 noundef %.0449)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %264 = trunc nsw i64 %indvars.iv.next to i32
   %265 = icmp ugt i32 %61, %264
-  br i1 %265, label %.preheader541.split, label %.loopexit542
+  br i1 %265, label %.preheader540.split, label %.loopexit541
 
 266:                                              ; preds = %179
   %267 = call ptr @php_pcre2_get_mark(ptr noundef %.0456) #23
@@ -1728,22 +1730,22 @@ free_subpats_table.exit523:                       ; preds = %173, %160
   call fastcc void @populate_subpat_array(ptr noundef %8, ptr noundef nonnull %16, ptr noundef nonnull %105, ptr noundef %.0440, i32 noundef %61, i32 noundef %.3, ptr noundef %267, i64 noundef %5)
   %271 = load ptr, ptr %.0433, align 8
   %272 = call ptr @zend_hash_next_index_insert_new(ptr noundef %271, ptr noundef nonnull %8) #23
-  br label %.loopexit542
+  br label %.loopexit541
 
 273:                                              ; preds = %178
-  %274 = trunc nsw i64 %indvars.iv.next653 to i32
+  %274 = trunc nsw i64 %indvars.iv.next652 to i32
   %275 = call ptr @php_pcre2_get_mark(ptr noundef %.0456) #23
   call fastcc void @populate_subpat_array(ptr noundef %.0433, ptr noundef nonnull %16, ptr noundef nonnull %105, ptr noundef %.0440, i32 noundef %61, i32 noundef %.3, ptr noundef %275, i64 noundef %5)
-  br label %.loopexit549
+  br label %.loopexit548
 
-.loopexit542:                                     ; preds = %.preheader541.split, %.preheader541.split.us.split, %.preheader541.split.us.split.us, %248, %266, %154
-  %.2452 = phi ptr [ %.3453, %248 ], [ %.1451, %266 ], [ %.1451, %154 ], [ %.3453, %.preheader541.split.us.split.us ], [ %.3453, %.preheader541.split.us.split ], [ %.3453, %.preheader541.split ]
+.loopexit541:                                     ; preds = %.preheader540.split, %.preheader540.split.us.split, %.preheader540.split.us.split.us, %248, %266, %154
+  %.2452 = phi ptr [ %.3453, %248 ], [ %.1451, %266 ], [ %.1451, %154 ], [ %.3453, %.preheader540.split.us.split.us ], [ %.3453, %.preheader540.split.us.split ], [ %.3453, %.preheader540.split ]
   %276 = load i64, ptr %143, align 8
   %277 = load i64, ptr %105, align 8
   %278 = icmp eq i64 %276, %277
-  br i1 %278, label %279, label %.loopexit548.loopexit
+  br i1 %278, label %279, label %.loopexit547.loopexit
 
-279:                                              ; preds = %.loopexit542
+279:                                              ; preds = %.loopexit541
   %280 = load ptr, ptr %0, align 8
   %281 = load ptr, ptr @mctx, align 8
   %282 = call i32 @php_pcre2_match(ptr noundef %280, ptr noundef nonnull %16, i64 noundef %18, i64 noundef %276, i32 noundef -1073741816, ptr noundef %.0456, ptr noundef %281) #23
@@ -1751,33 +1753,33 @@ free_subpats_table.exit523:                       ; preds = %173, %160
   br i1 %283, label %284, label %285
 
 284:                                              ; preds = %279
-  br i1 %4, label %154, label %.loopexit549.loopexit
+  br i1 %4, label %154, label %.loopexit548.loopexit
 
 285:                                              ; preds = %279
-  %286 = trunc nsw i64 %indvars.iv.next653 to i32
+  %286 = trunc nsw i64 %indvars.iv.next652 to i32
   %287 = icmp eq i32 %282, -1
-  br i1 %287, label %288, label %.loopexit550
+  br i1 %287, label %288, label %.loopexit549
 
 288:                                              ; preds = %285
   %289 = icmp ult i64 %276, %18
-  br i1 %289, label %290, label %.loopexit549
+  br i1 %289, label %290, label %.loopexit548
 
 290:                                              ; preds = %288
   %291 = getelementptr inbounds i8, ptr %16, i64 %276
   %292 = load i32, ptr %106, align 4
   %293 = and i32 %292, 524288
   %.not500 = icmp eq i32 %293, 0
-  br i1 %.not500, label %302, label %.preheader547
+  br i1 %.not500, label %302, label %.preheader546
 
-.preheader547:                                    ; preds = %290, %.preheader547
-  %.0431 = phi ptr [ %294, %.preheader547 ], [ %291, %290 ]
+.preheader546:                                    ; preds = %290, %.preheader546
+  %.0431 = phi ptr [ %294, %.preheader546 ], [ %291, %290 ]
   %294 = getelementptr inbounds i8, ptr %.0431, i64 1
   %295 = load i8, ptr %294, align 1
   %296 = and i8 %295, -64
   %297 = icmp eq i8 %296, -128
-  br i1 %297, label %.preheader547, label %298
+  br i1 %297, label %.preheader546, label %298
 
-298:                                              ; preds = %.preheader547
+298:                                              ; preds = %.preheader546
   %299 = ptrtoint ptr %294 to i64
   %300 = ptrtoint ptr %291 to i64
   %301 = sub i64 %299, %300
@@ -1786,32 +1788,32 @@ free_subpats_table.exit523:                       ; preds = %173, %160
 302:                                              ; preds = %290, %298
   %.0430 = phi i64 [ %301, %298 ], [ 1, %290 ]
   %303 = add i64 %.0430, %276
-  br label %.loopexit548
+  br label %.loopexit547
 
 ._crit_edge:                                      ; preds = %321, %140
   %.0450.lcssa = phi ptr [ null, %140 ], [ %.2452, %321 ]
   %.0436.lcssa = phi i32 [ 0, %140 ], [ %306, %321 ]
   %.1.lcssa = phi i32 [ %.0435, %140 ], [ %.5, %321 ]
   %304 = icmp eq i32 %.1.lcssa, -1
-  br i1 %304, label %.loopexit549, label %.loopexit550
+  br i1 %304, label %.loopexit548, label %.loopexit549
 
-.loopexit550:                                     ; preds = %285, %._crit_edge
+.loopexit549:                                     ; preds = %285, %._crit_edge
   %.6 = phi ptr [ %.0450.lcssa, %._crit_edge ], [ %.2452, %285 ]
   %.3439 = phi i32 [ %.0436.lcssa, %._crit_edge ], [ %286, %285 ]
   %.4 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %282, %285 ]
   call fastcc void @pcre_handle_exec_error(i32 noundef %.4)
-  br label %.loopexit549
-
-.loopexit548.loopexit:                            ; preds = %.loopexit542
-  %305 = trunc nsw i64 %indvars.iv.next653 to i32
   br label %.loopexit548
 
-.loopexit548:                                     ; preds = %.loopexit548.loopexit, %302
-  %306 = phi i32 [ %286, %302 ], [ %305, %.loopexit548.loopexit ]
-  %.1458 = phi i64 [ %303, %302 ], [ %276, %.loopexit548.loopexit ]
-  br i1 %4, label %307, label %.loopexit549
+.loopexit547.loopexit:                            ; preds = %.loopexit541
+  %305 = trunc nsw i64 %indvars.iv.next652 to i32
+  br label %.loopexit547
 
-307:                                              ; preds = %.loopexit548
+.loopexit547:                                     ; preds = %.loopexit547.loopexit, %302
+  %306 = phi i32 [ %286, %302 ], [ %305, %.loopexit547.loopexit ]
+  %.1458 = phi i64 [ %303, %302 ], [ %276, %.loopexit547.loopexit ]
+  br i1 %4, label %307, label %.loopexit548
+
+307:                                              ; preds = %.loopexit547
   %308 = load i32, ptr %141, align 8
   %309 = and i32 %308, 8
   %.not501 = icmp eq i32 %309, 0
@@ -1823,7 +1825,7 @@ free_subpats_table.exit523:                       ; preds = %173, %160
 
 312:                                              ; preds = %310
   store i32 1, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 76), align 4
-  br label %.loopexit549
+  br label %.loopexit548
 
 313:                                              ; preds = %310
   %314 = load ptr, ptr %0, align 8
@@ -1842,52 +1844,52 @@ free_subpats_table.exit523:                       ; preds = %173, %160
   %322 = icmp sgt i32 %.5, -1
   br i1 %322, label %149, label %._crit_edge
 
-.loopexit549.loopexit:                            ; preds = %284
-  %323 = trunc nsw i64 %indvars.iv.next653 to i32
-  br label %.loopexit549
+.loopexit548.loopexit:                            ; preds = %284
+  %323 = trunc nsw i64 %indvars.iv.next652 to i32
+  br label %.loopexit548
 
-.loopexit549:                                     ; preds = %.loopexit548, %288, %.loopexit549.loopexit, %._crit_edge, %312, %.loopexit550, %273
-  %.5455 = phi ptr [ %.2452, %312 ], [ %.6, %.loopexit550 ], [ %.1451, %273 ], [ %.0450.lcssa, %._crit_edge ], [ %.2452, %.loopexit549.loopexit ], [ %.2452, %288 ], [ %.2452, %.loopexit548 ]
-  %.2438 = phi i32 [ %306, %312 ], [ %.3439, %.loopexit550 ], [ %274, %273 ], [ %.0436.lcssa, %._crit_edge ], [ %323, %.loopexit549.loopexit ], [ %306, %.loopexit548 ], [ %286, %288 ]
+.loopexit548:                                     ; preds = %.loopexit547, %288, %.loopexit548.loopexit, %._crit_edge, %312, %.loopexit549, %273
+  %.5455 = phi ptr [ %.2452, %312 ], [ %.6, %.loopexit549 ], [ %.1451, %273 ], [ %.0450.lcssa, %._crit_edge ], [ %.2452, %.loopexit548.loopexit ], [ %.2452, %288 ], [ %.2452, %.loopexit547 ]
+  %.2438 = phi i32 [ %306, %312 ], [ %.3439, %.loopexit549 ], [ %274, %273 ], [ %.0436.lcssa, %._crit_edge ], [ %323, %.loopexit548.loopexit ], [ %306, %.loopexit547 ], [ %286, %288 ]
   %324 = load ptr, ptr @mdata, align 8
   %.not502 = icmp eq ptr %.0456, %324
   br i1 %.not502, label %326, label %325
 
-325:                                              ; preds = %.loopexit549
+325:                                              ; preds = %.loopexit548
   call void @php_pcre2_match_data_free(ptr noundef %.0456) #23
   br label %326
 
-326:                                              ; preds = %325, %.loopexit549
+326:                                              ; preds = %325, %.loopexit548
   %.not503 = icmp eq ptr %.0434, null
   br i1 %.not503, label %356, label %327
 
 327:                                              ; preds = %326
   %.not504 = icmp eq ptr %.0440, null
   %328 = zext i32 %61 to i64
-  %.not613 = icmp eq i32 %61, 0
-  br i1 %.not504, label %.preheader, label %.preheader539
+  %.not612 = icmp eq i32 %61, 0
+  br i1 %.not504, label %.preheader, label %.preheader538
 
-.preheader539:                                    ; preds = %327
-  br i1 %.not613, label %.loopexit, label %.lr.ph606
+.preheader538:                                    ; preds = %327
+  br i1 %.not612, label %.loopexit, label %.lr.ph605
 
-.lr.ph606:                                        ; preds = %.preheader539
+.lr.ph605:                                        ; preds = %.preheader538
   %329 = getelementptr inbounds i8, ptr %13, i64 8
   br label %331
 
 .preheader:                                       ; preds = %327
-  br i1 %.not613, label %.loopexit, label %.lr.ph608
+  br i1 %.not612, label %.loopexit, label %.lr.ph607
 
-.lr.ph608:                                        ; preds = %.preheader
+.lr.ph607:                                        ; preds = %.preheader
   %330 = getelementptr inbounds i8, ptr %14, i64 8
   br label %346
 
-331:                                              ; preds = %.lr.ph606, %342
-  %.3444605 = phi i64 [ 0, %.lr.ph606 ], [ %345, %342 ]
-  %332 = getelementptr inbounds ptr, ptr %.0434, i64 %.3444605
+331:                                              ; preds = %.lr.ph605, %342
+  %.3444604 = phi i64 [ 0, %.lr.ph605 ], [ %345, %342 ]
+  %332 = getelementptr inbounds ptr, ptr %.0434, i64 %.3444604
   %333 = load ptr, ptr %332, align 8
   store ptr %333, ptr %13, align 8
   store i32 775, ptr %329, align 8
-  %334 = getelementptr inbounds ptr, ptr %.0440, i64 %.3444605
+  %334 = getelementptr inbounds ptr, ptr %.0440, i64 %.3444604
   %335 = load ptr, ptr %334, align 8
   %.not508 = icmp eq ptr %335, null
   br i1 %.not508, label %342, label %336
@@ -1904,23 +1906,23 @@ free_subpats_table.exit523:                       ; preds = %173, %160
 342:                                              ; preds = %336, %331
   %343 = load ptr, ptr %.0433, align 8
   %344 = call ptr @zend_hash_next_index_insert_new(ptr noundef %343, ptr noundef nonnull %13) #23
-  %345 = add nuw nsw i64 %.3444605, 1
-  %exitcond655.not = icmp eq i64 %345, %328
-  br i1 %exitcond655.not, label %.loopexit, label %331
+  %345 = add nuw nsw i64 %.3444604, 1
+  %exitcond654.not = icmp eq i64 %345, %328
+  br i1 %exitcond654.not, label %.loopexit, label %331
 
-346:                                              ; preds = %.lr.ph608, %346
-  %.4445607 = phi i64 [ 0, %.lr.ph608 ], [ %351, %346 ]
-  %347 = getelementptr inbounds ptr, ptr %.0434, i64 %.4445607
+346:                                              ; preds = %.lr.ph607, %346
+  %.4445606 = phi i64 [ 0, %.lr.ph607 ], [ %351, %346 ]
+  %347 = getelementptr inbounds ptr, ptr %.0434, i64 %.4445606
   %348 = load ptr, ptr %347, align 8
   store ptr %348, ptr %14, align 8
   store i32 775, ptr %330, align 8
   %349 = load ptr, ptr %.0433, align 8
   %350 = call ptr @zend_hash_next_index_insert_new(ptr noundef %349, ptr noundef nonnull %14) #23
-  %351 = add nuw nsw i64 %.4445607, 1
-  %exitcond656.not = icmp eq i64 %351, %328
-  br i1 %exitcond656.not, label %.loopexit, label %346
+  %351 = add nuw nsw i64 %.4445606, 1
+  %exitcond655.not = icmp eq i64 %351, %328
+  br i1 %exitcond655.not, label %.loopexit, label %346
 
-.loopexit:                                        ; preds = %342, %346, %.preheader539, %.preheader
+.loopexit:                                        ; preds = %342, %346, %.preheader538, %.preheader
   call void @_efree(ptr noundef nonnull %.0434) #23
   %.not505 = icmp eq ptr %.5455, null
   br i1 %.not505, label %356, label %352

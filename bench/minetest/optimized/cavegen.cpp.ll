@@ -2727,7 +2727,7 @@ land.lhs.true162:                                 ; preds = %if.then158
   %55 = tail call i32 @llvm.abs.i32(i32 %conv138464, i1 true)
   %56 = udiv i16 %54, 3
   %div166 = zext nneg i16 %56 to i32
-  %cmp167.not = icmp ult i32 %55, %div166
+  %cmp167.not = icmp samesign ult i32 %55, %div166
   br i1 %cmp167.not, label %if.end170, label %for.inc
 
 if.end170:                                        ; preds = %land.lhs.true162, %if.then158, %if.end156
@@ -4139,7 +4139,7 @@ land.lhs.true:                                    ; preds = %if.then121
   %40 = tail call i32 @llvm.abs.i32(i32 %conv115395, i1 true)
   %41 = udiv i16 %39, 3
   %div128 = zext nneg i16 %41 to i32
-  %cmp129.not = icmp ult i32 %40, %div128
+  %cmp129.not = icmp samesign ult i32 %40, %div128
   br i1 %cmp129.not, label %if.end132, label %for.inc
 
 if.end132:                                        ; preds = %land.lhs.true, %if.then121, %for.body119

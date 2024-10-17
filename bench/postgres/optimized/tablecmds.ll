@@ -1863,7 +1863,7 @@ MergeCheckConstraint.exit.i:                      ; preds = %._crit_edge.i.i, %6
   %indvars.iv.next955.i = add nuw nsw i64 %indvars.iv954.i, 1
   %627 = load i16, ptr %569, align 2
   %628 = zext i16 %627 to i64
-  %629 = icmp ult i64 %indvars.iv.next955.i, %628
+  %629 = icmp samesign ult i64 %indvars.iv.next955.i, %628
   br i1 %629, label %.lr.ph714.i, label %.loopexit.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %MergeCheckConstraint.exit.i, %568, %.thread415.i
@@ -13834,7 +13834,7 @@ ATExecDropConstraint.exit:                        ; preds = %1151, %1161, %1163
   %1298 = getelementptr inbounds i8, ptr %1297, i64 18
   %1299 = load i16, ptr %1298, align 2
   %1300 = and i16 %1299, 2046
-  %1301 = icmp ult i16 %1300, 26
+  %1301 = icmp samesign ult i16 %1300, 26
   br i1 %1301, label %1302, label %1304
 
 1302:                                             ; preds = %1294
@@ -21991,7 +21991,7 @@ transformFkeyGetPrimaryKey.exit.i:                ; preds = %._crit_edge.loopexi
   %indvars.iv162.i.i = phi i64 [ 0, %.lr.ph89.preheader.i.i ], [ %indvars.iv.next163.i.i, %.loopexit.i.i ]
   %indvars.iv.i221.i = phi i64 [ 1, %.lr.ph89.preheader.i.i ], [ %indvars.iv.next.i222.i, %.loopexit.i.i ]
   %indvars.iv.next163.i.i = add nuw nsw i64 %indvars.iv162.i.i, 1
-  %298 = icmp ult i64 %indvars.iv.next163.i.i, %297
+  %298 = icmp samesign ult i64 %indvars.iv.next163.i.i, %297
   br i1 %298, label %.lr.ph.i225.i, label %.loopexit.i.i
 
 .lr.ph.i225.i:                                    ; preds = %.lr.ph89.i.i
@@ -23711,7 +23711,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 2047
   %10 = zext nneg i16 %9 to i32
-  %11 = icmp ugt i32 %1, %10
+  %11 = icmp samesign ugt i32 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4

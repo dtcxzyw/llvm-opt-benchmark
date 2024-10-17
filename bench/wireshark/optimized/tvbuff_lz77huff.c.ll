@@ -149,7 +149,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   store ptr %31, ptr %5, align 8
   %62 = getelementptr inbounds i8, ptr %5, i64 10
   store i8 0, ptr %62, align 2
-  %63 = icmp ult i64 %indvars.iv78.i.i, 512
+  %63 = icmp samesign ult i64 %indvars.iv78.i.i, 512
   br i1 %63, label %.lr.ph.i.i, label %.loopexit79.i
 
 .lr.ph.i.i:                                       ; preds = %.critedge.i.i

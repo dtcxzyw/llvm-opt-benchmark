@@ -22041,7 +22041,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_152v() #4 personality ptr @__gxx_pe
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %85, %135
   %indvars.iv = phi i64 [ %indvars.iv.next, %135 ], [ 0, %85 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %87 = icmp ult i64 %indvars.iv, 10
+  %87 = icmp samesign ult i64 %indvars.iv, 10
   %.0.i.i = select i1 %87, i64 1, i64 2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #37, !noalias !175
   %88 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -22067,7 +22067,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
           to label %._crit_edge.i.i unwind label %104
 
 ._crit_edge.i.i:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i
-  %92 = icmp ugt i64 %indvars.iv, 9
+  %92 = icmp samesign ugt i64 %indvars.iv, 9
   br i1 %92, label %93, label %101
 
 93:                                               ; preds = %._crit_edge.i.i
@@ -27695,7 +27695,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us: ; pred
   %.sroa.031.2.us = phi ptr [ %.sroa.031.0.us, %.preheader.split.us ], [ %spec.select.us, %11 ]
   %.0.i.i.i.i.us = phi i32 [ %.sroa.11.0.us, %.preheader.split.us ], [ %12, %11 ]
   %14 = icmp eq i32 %.0.i.i.i.i.us, -1
-  %15 = icmp ult i64 %.0.us, 15
+  %15 = icmp samesign ult i64 %.0.us, 15
   %16 = select i1 %14, i1 %15, i1 false
   br i1 %16, label %17, label %.split.us
 
@@ -27760,7 +27760,7 @@ _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   %.0.i.i4.i.i = phi i1 [ true, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %35, %32 ]
   %36 = icmp eq i32 %.0.i.i.i.i, -1
   %37 = xor i1 %36, %.0.i.i4.i.i
-  %38 = icmp ult i64 %.0, 15
+  %38 = icmp samesign ult i64 %.0, 15
   %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %40, label %.split.us
 
@@ -40025,7 +40025,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -41989,7 +41989,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i16, %28
   %.0.lcssa.i = phi i64 [ %4, %28 ], [ %33, %.lr.ph.i16 ]
-  %46 = icmp ugt i64 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %46, label %47, label %55
 
 47:                                               ; preds = %._crit_edge.i

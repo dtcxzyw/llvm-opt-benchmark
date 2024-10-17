@@ -19860,7 +19860,7 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   br i1 %cmp.i9.i.i.i.not, label %if.else6.i.i.i, label %if.end11.i.i.i
 
 if.else6.i.i.i:                                   ; preds = %if.else.i.i.i
-  %cmp11.i.i.i.i.not = icmp ult i64 %__len.060.i.i.i, 2
+  %cmp11.i.i.i.i.not = icmp samesign ult i64 %__len.060.i.i.i, 2
   br i1 %cmp11.i.i.i.i.not, label %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_less_valEET_S4_S4_RKT0_T1_.exit.i.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.else6.i.i.i, %while.body.i.i.i.i
@@ -20250,7 +20250,7 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   br i1 %cmp.i.i10.i.i.i.not, label %if.else15.i.i.i, label %if.end31.i.i.i
 
 if.else15.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp7.i.i.i.i.not = icmp ult i64 %__len.056.i.i.i, 2
+  %cmp7.i.i.i.i.not = icmp samesign ult i64 %__len.056.i.i.i, 2
   br i1 %cmp7.i.i.i.i.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valISt7greaterIiEEEET_SC_SC_RKT0_T1_.exit.i.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.else15.i.i.i, %while.body.i.i.i.i
@@ -39207,7 +39207,7 @@ while.body.i.i.i:                                 ; preds = %entry, %if.end4.i.i
 if.end4.i.i.i:                                    ; preds = %while.body.i.i.i
   %add.i.i.i = add nuw nsw i64 %storemerge27.i.i.i, 1
   %div5.i.i.i = lshr i64 %add.i.i.i, 1
-  %cmp1.not.i.i.i = icmp ult i64 %storemerge27.i.i.i, 2
+  %cmp1.not.i.i.i = icmp samesign ult i64 %storemerge27.i.i.i, 2
   br i1 %cmp1.not.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i, label %while.body.i.i.i, !llvm.loop !635
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i: ; preds = %if.end4.i.i.i, %while.body.i.i.i
@@ -58913,7 +58913,7 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %if.end4.i.i
   br i1 %cmp2.not.i.i.i.i.i, label %if.end4.i.i.i.i.i, label %if.else.i.i.i
 
 if.end4.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
-  %cmp1.not.i.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i.i, 3
+  %cmp1.not.i.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i.i, 3
   br i1 %cmp1.not.i.i.i.i.i, label %if.then5.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !1520
 
 if.then5.i.i.i:                                   ; preds = %if.end4.i.i.i.i.i
@@ -63577,7 +63577,7 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %if.end4.i.i
   br i1 %cmp2.not.i.i.i.i.i, label %if.end4.i.i.i.i.i, label %if.else.i.i.i
 
 if.end4.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
-  %cmp1.not.i.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i.i, 3
+  %cmp1.not.i.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i.i, 3
   br i1 %cmp1.not.i.i.i.i.i, label %if.then5.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !1520
 
 if.then5.i.i.i:                                   ; preds = %if.end4.i.i.i.i.i
@@ -77773,7 +77773,7 @@ while.body.i.i:                                   ; preds = %if.end, %if.end4.i.
 if.end4.i.i:                                      ; preds = %while.body.i.i
   %add.i.i = add nuw nsw i64 %storemerge27.i.i, 1
   %div5.i.i = lshr i64 %add.i.i, 1
-  %cmp1.not.i.i = icmp ult i64 %storemerge27.i.i, 2
+  %cmp1.not.i.i = icmp samesign ult i64 %storemerge27.i.i, 2
   br i1 %cmp1.not.i.i, label %if.then17, label %while.body.i.i, !llvm.loop !635
 
 if.then17:                                        ; preds = %if.end4.i.i, %if.end
@@ -78484,7 +78484,7 @@ while.body.i.i:                                   ; preds = %if.end, %if.end4.i.
 if.end4.i.i:                                      ; preds = %while.body.i.i
   %add.i.i = add nuw nsw i64 %storemerge27.i.i, 1
   %div5.i.i = lshr i64 %add.i.i, 1
-  %cmp1.not.i.i = icmp ult i64 %storemerge27.i.i, 2
+  %cmp1.not.i.i = icmp samesign ult i64 %storemerge27.i.i, 2
   br i1 %cmp1.not.i.i, label %if.then17, label %while.body.i.i, !llvm.loop !635
 
 if.then17:                                        ; preds = %if.end4.i.i, %if.end

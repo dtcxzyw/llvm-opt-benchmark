@@ -1065,7 +1065,7 @@ _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit: ; preds = %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %228 = load i32, ptr %200, align 8
   %229 = icmp eq i32 %228, 2
-  %230 = icmp uge i64 %indvars.iv.next, %207
+  %230 = icmp samesign uge i64 %indvars.iv.next, %207
   %.not15 = select i1 %229, i1 true, i1 %230
   br i1 %.not15, label %._crit_edge.loopexit, label %208, !llvm.loop !20
 

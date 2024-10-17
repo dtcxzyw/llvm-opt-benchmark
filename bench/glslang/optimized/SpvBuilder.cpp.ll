@@ -15636,7 +15636,7 @@ define linkonce_odr void @_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloat
 
 16:                                               ; preds = %.preheader
   %17 = lshr i32 %.03252, 1
-  %.not = icmp ult i32 %.03252, 2
+  %.not = icmp samesign ult i32 %.03252, 2
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !72
 
 .preheader:                                       ; preds = %9, %16
@@ -18831,7 +18831,7 @@ _ZN3spv8Function17addParamPrecisionEjNS_10DecorationE.exit: ; preds = %_ZN3spv7B
   %183 = sub i64 %181, %182
   %184 = sdiv exact i64 %183, 24
   %185 = and i64 %184, 4294967295
-  %186 = icmp ult i64 %indvars.iv.next79, %185
+  %186 = icmp samesign ult i64 %indvars.iv.next79, %185
   br i1 %186, label %.preheader, label %._crit_edge73, !llvm.loop !87
 
 ._crit_edge73:                                    ; preds = %._crit_edge, %_ZN3spv8Function18setReturnPrecisionENS_10DecorationE.exit
@@ -37095,7 +37095,7 @@ define linkonce_odr noundef zeroext i16 @_ZN8spvutils8HexFloatINS_10FloatProxyIf
   br i1 %26, label %.lr.ph.i.i, label %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE29getUnbiasedNormalizedExponentEv.exit.i, !llvm.loop !194
 
 _ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE29getUnbiasedNormalizedExponentEv.exit.i: ; preds = %.lr.ph.i.i
-  %27 = icmp ult i32 %.111.i.i, -125
+  %27 = icmp samesign ult i32 %.111.i.i, -125
   br i1 %27, label %.lr.ph.i.preheader, label %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit
 
 .lr.ph.i.preheader:                               ; preds = %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE29getUnbiasedNormalizedExponentEv.exit.i, %20

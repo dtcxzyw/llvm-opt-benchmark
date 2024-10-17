@@ -466,7 +466,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17he37d247a616f01c5E
 .body.i.i.i.i:                                    ; preds = %76, %58
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %59, %58 ], [ %77, %76 ]
   %60 = load i8, ptr %.sroa.13.sroa.4.0..sroa.13.0..sroa_idx.sroa_idx.i.i.i.i, align 8, !range !55, !alias.scope !56, !noundef !4
-  %switch.not.i.i.i.i.i.i.i = icmp ult i8 %60, 2
+  %switch.not.i.i.i.i.i.i.i = icmp samesign ult i8 %60, 2
   br i1 %switch.not.i.i.i.i.i.i.i, label %61, label %.body
 
 61:                                               ; preds = %.body.i.i.i.i
@@ -531,7 +531,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17he37d247a616f01c5E
   %85 = load ptr, ptr %84, align 8, !alias.scope !63, !nonnull !4, !align !38, !noundef !4
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %10)
   %86 = load i8, ptr %.sroa.13.sroa.4.0..sroa.13.0..sroa_idx.sroa_idx.i.i.i.i, align 8, !range !55, !alias.scope !67, !noundef !4
-  %switch.not.i.i.i20.i.i.i.i = icmp ult i8 %86, 2
+  %switch.not.i.i.i20.i.i.i.i = icmp samesign ult i8 %86, 2
   br i1 %switch.not.i.i.i20.i.i.i.i, label %87, label %92
 
 87:                                               ; preds = %81

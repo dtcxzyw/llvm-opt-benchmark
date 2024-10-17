@@ -2500,15 +2500,15 @@ define internal i32 @nv_napi_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
 78:                                               ; preds = %73
   %79 = zext nneg i16 %76 to i32
   %80 = add nuw nsw i32 %75, %79
-  %81 = icmp ugt i32 %60, 60
+  %81 = icmp samesign ugt i32 %60, 60
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %78
-  %83 = icmp ugt i32 %80, %60
+  %83 = icmp samesign ugt i32 %80, %60
   br i1 %83, label %select.unfold, label %.thread
 
 84:                                               ; preds = %78
-  %85 = icmp ugt i32 %80, 60
+  %85 = icmp samesign ugt i32 %80, 60
   br i1 %85, label %select.unfold, label %.thread
 
 select.unfold:                                    ; preds = %84, %82
@@ -2580,15 +2580,15 @@ select.unfold:                                    ; preds = %84, %82
 120:                                              ; preds = %115
   %121 = zext nneg i16 %118 to i32
   %122 = add nuw nsw i32 %117, %121
-  %123 = icmp ugt i32 %102, 60
+  %123 = icmp samesign ugt i32 %102, 60
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %120
-  %125 = icmp ugt i32 %122, %102
+  %125 = icmp samesign ugt i32 %122, %102
   br i1 %125, label %select.unfold19, label %.thread23
 
 126:                                              ; preds = %120
-  %127 = icmp ugt i32 %122, 60
+  %127 = icmp samesign ugt i32 %122, 60
   br i1 %127, label %select.unfold19, label %.thread23
 
 select.unfold19:                                  ; preds = %126, %124
@@ -7146,7 +7146,7 @@ define internal fastcc void @nv_drain_tx(ptr nocapture noundef %0) unnamed_addr 
   %64 = add nuw nsw i64 %12, 1
   %65 = load i32, ptr %2, align 4
   %66 = zext i32 %65 to i64
-  %67 = icmp ult i64 %64, %66
+  %67 = icmp samesign ult i64 %64, %66
   br i1 %67, label %11, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %49, %1
@@ -7792,15 +7792,15 @@ define internal fastcc i32 @nv_rx_process_optimized(ptr noundef %0, i32 noundef 
 59:                                               ; preds = %54
   %60 = zext nneg i16 %57 to i32
   %61 = add nuw nsw i32 %56, %60
-  %62 = icmp ugt i32 %41, 60
+  %62 = icmp samesign ugt i32 %41, 60
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %59
-  %64 = icmp ugt i32 %61, %41
+  %64 = icmp samesign ugt i32 %61, %41
   br i1 %64, label %select.unfold, label %.thread
 
 65:                                               ; preds = %59
-  %66 = icmp ugt i32 %61, 60
+  %66 = icmp samesign ugt i32 %61, 60
   br i1 %66, label %select.unfold, label %.thread
 
 select.unfold:                                    ; preds = %65, %63
@@ -10801,7 +10801,7 @@ nv_stop_tx.exit:                                  ; preds = %.loopexit.i1, %86
   %131 = load i32, ptr %100, align 4
   %132 = and i32 %131, 15
   %133 = zext nneg i32 %132 to i64
-  %134 = icmp ult i64 %130, %133
+  %134 = icmp samesign ult i64 %130, %133
   br i1 %134, label %125, label %.loopexit.i2, !llvm.loop !63
 
 .loopexit.i2:                                     ; preds = %125, %120
@@ -12539,7 +12539,7 @@ define internal void @nv_get_stats64(ptr noundef %0, ptr nocapture noundef %1) #
   store i64 %54, ptr %9, align 8
   %55 = add nuw nsw i64 %17, 1
   %56 = and i64 %55, 127
-  %57 = icmp ugt i64 %56, 63
+  %57 = icmp samesign ugt i64 %56, 63
   br i1 %57, label %.thread, label %10, !prof !83, !llvm.loop !84
 
 .thread:                                          ; preds = %10, %20, %16
@@ -14300,7 +14300,7 @@ define internal void @nv_get_regs(ptr noundef %0, ptr nocapture noundef writeonl
   %17 = load i32, ptr %8, align 4
   %18 = lshr i32 %17, 2
   %19 = zext nneg i32 %18 to i64
-  %20 = icmp ult i64 %16, %19
+  %20 = icmp samesign ult i64 %16, %19
   br i1 %20, label %.preheader, label %.loopexit, !llvm.loop !100
 
 .loopexit:                                        ; preds = %.preheader, %3
@@ -16009,7 +16009,7 @@ nv_stop_tx.exit:                                  ; preds = %.loopexit.i8, %164
   %220 = load i32, ptr %205, align 4
   %221 = and i32 %220, 15
   %222 = zext nneg i32 %221 to i64
-  %223 = icmp ult i64 %219, %222
+  %223 = icmp samesign ult i64 %219, %222
   br i1 %223, label %214, label %.loopexit.i9, !llvm.loop !63
 
 .loopexit.i9:                                     ; preds = %214, %209
@@ -16137,7 +16137,7 @@ nv_free_irq.exit:                                 ; preds = %226, %237
   %293 = load i32, ptr %246, align 4
   %294 = and i32 %293, 15
   %295 = zext nneg i32 %294 to i64
-  %296 = icmp ult i64 %292, %295
+  %296 = icmp samesign ult i64 %292, %295
   br i1 %296, label %287, label %.loopexit.i10, !llvm.loop !63
 
 .loopexit.i10:                                    ; preds = %287, %282
@@ -18354,7 +18354,7 @@ define internal noundef i32 @nv_suspend(ptr nocapture noundef readonly %0) #2 al
   %22 = load i32, ptr %13, align 4
   %23 = lshr i32 %22, 2
   %24 = zext nneg i32 %23 to i64
-  %25 = icmp ult i64 %16, %24
+  %25 = icmp samesign ult i64 %16, %24
   br i1 %25, label %15, label %26, !llvm.loop !105
 
 26:                                               ; preds = %15
@@ -18382,7 +18382,7 @@ define internal noundef range(i32 0, 2) i32 @nv_resume(ptr noundef %0) #2 align 
   %15 = load i32, ptr %6, align 4
   %16 = lshr i32 %15, 2
   %17 = zext nneg i32 %16 to i64
-  %18 = icmp ult i64 %9, %17
+  %18 = icmp samesign ult i64 %9, %17
   br i1 %18, label %8, label %19, !llvm.loop !106
 
 19:                                               ; preds = %8

@@ -338,8 +338,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit54.thread221:    ; preds = %102, %114, %_ZN4llv
 125:                                              ; preds = %120
   %.not228 = icmp eq i32 %119, 10
   %126 = and i64 %.fr, 9223372028264841216
-  %127 = icmp ult i64 %126, 42949672960
-  %or.cond234 = and i1 %.not228, %127
+  %127 = icmp samesign ult i64 %126, 42949672960
+  %or.cond234 = select i1 %.not228, i1 %127, i1 false
   br i1 %or.cond234, label %.thread, label %..critedge.thread_crit_edge
 
 ..critedge.thread_crit_edge:                      ; preds = %125

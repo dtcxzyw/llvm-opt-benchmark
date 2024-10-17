@@ -400,7 +400,7 @@ define hidden range(i32 0, 2) i32 @column_prefs_custom_resolve(ptr noundef %0) l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = tail call i32 @g_strv_length(ptr noundef nonnull %2) #6
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 switch.hole_check:                                ; preds = %16

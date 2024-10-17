@@ -9424,7 +9424,7 @@ define hidden void @_ZN16wasmtime_environ12module_types18ModuleTypesBuilder15sta
   %15 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %16 = icmp ult i64 %15, 6
   tail call void @llvm.assume(i1 %16)
-  %17 = icmp ugt i64 %15, 4
+  %17 = icmp samesign ugt i64 %15, 4
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %4, %21
@@ -9534,7 +9534,7 @@ define hidden void @_ZN16wasmtime_environ12module_types18ModuleTypesBuilder15sta
   %65 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %66 = icmp ult i64 %65, 6
   call void @llvm.assume(i1 %66)
-  %67 = icmp ugt i64 %65, 4
+  %67 = icmp samesign ugt i64 %65, 4
   br i1 %67, label %71, label %68
 
 68:                                               ; preds = %59, %"_ZN91_$LT$wasmparser..validator..types..TypeList$u20$as$u20$core..ops..index..Index$LT$T$GT$$GT$5index17h93395718a57cc745E.exit"
@@ -9964,7 +9964,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i117:
   %140 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !1076
   %141 = icmp ult i64 %140, 6
   call void @llvm.assume(i1 %141)
-  %142 = icmp ugt i64 %140, 4
+  %142 = icmp samesign ugt i64 %140, 4
   br i1 %142, label %146, label %143
 
 143:                                              ; preds = %.noexc128, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h187a0e1bfb80253aE.exit.i"

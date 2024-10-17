@@ -46345,7 +46345,7 @@ define hidden void @"_ZN4core3ptr130drop_in_place$LT$$u5b$core..option..Option$L
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr130drop_in_place$LT$hir_ty..mir..ProjectionElem$LT$core..convert..Infallible$C$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h057056c4042381a6E.llvm.6579604558243679033"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !13973, !noundef !4
-  %switch = icmp ult i8 %2, 6
+  %switch = icmp samesign ult i8 %2, 6
   br i1 %switch, label %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h2660f916a752af1fE.exit", label %3
 
 3:                                                ; preds = %1
@@ -46677,7 +46677,7 @@ define hidden void @"_ZN4core3ptr140drop_in_place$LT$$u5b$hir_ty..mir..Projectio
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr144drop_in_place$LT$hir_ty..mir..ProjectionElem$LT$la_arena..Idx$LT$hir_ty..mir..Local$GT$$C$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h4ed29ce37896bda4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !13973, !noundef !4
-  %switch = icmp ult i8 %2, 6
+  %switch = icmp samesign ult i8 %2, 6
   br i1 %switch, label %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h2660f916a752af1fE.exit", label %3
 
 3:                                                ; preds = %1
@@ -47672,7 +47672,7 @@ define hidden void @"_ZN4core3ptr310drop_in_place$LT$$u5b$chalk_recursive..fixed
 13:                                               ; preds = %"_ZN4core3ptr128drop_in_place$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$17he762a5c75c02ced3E.exit.i"
   %14 = getelementptr inbounds i8, ptr %4, i64 24
   %15 = load i64, ptr %14, align 8, !range !209, !alias.scope !14248, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %15, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %15, 2
   br i1 %switch.i.i.i.i, label %.sink.split.i.i.i.i, label %"_ZN4core3ptr300drop_in_place$LT$chalk_recursive..fixed_point..search_graph..Node$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$$GT$17h15de7c3597f8f7b1E.exit"
 
 .sink.split.i.i.i.i:                              ; preds = %13
@@ -48714,7 +48714,7 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$chalk_ir..WhereClau
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr77drop_in_place$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$17hf96ae17bce104ae8E.llvm.6579604558243679033"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !9534, !noundef !4
-  %switch = icmp ult i8 %2, 2
+  %switch = icmp samesign ult i8 %2, 2
   br i1 %switch, label %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h2660f916a752af1fE.exit", label %3
 
 3:                                                ; preds = %1
@@ -49467,7 +49467,7 @@ define hidden { i64, ptr } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14788)
   %11 = getelementptr inbounds i8, ptr %7, i64 -7
   %12 = load i8, ptr %11, align 1, !range !9534, !alias.scope !14788, !noundef !4
-  %switch.i.i = icmp ult i8 %12, 2
+  %switch.i.i = icmp samesign ult i8 %12, 2
   br i1 %switch.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24b2d92036d56546E.exit", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24b2d92036d56546E.exit.thread"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24b2d92036d56546E.exit.thread": ; preds = %9
@@ -49507,7 +49507,7 @@ define hidden { i64, ptr } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14794)
   %12 = getelementptr inbounds i8, ptr %10, i64 -7
   %13 = load i8, ptr %12, align 1, !range !9534, !alias.scope !14794, !noundef !4
-  %switch.i.i = icmp ult i8 %13, 2
+  %switch.i.i = icmp samesign ult i8 %13, 2
   br i1 %switch.i.i, label %16, label %14
 
 14:                                               ; preds = %9
@@ -86083,7 +86083,7 @@ define hidden { i64, ptr } @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22943)
   %12 = getelementptr inbounds i8, ptr %10, i64 -7
   %13 = load i8, ptr %12, align 1, !range !9534, !alias.scope !22943, !noalias !22946, !noundef !4
-  %switch.i.i.i = icmp ult i8 %13, 2
+  %switch.i.i.i = icmp samesign ult i8 %13, 2
   br i1 %switch.i.i.i, label %16, label %14
 
 14:                                               ; preds = %9
@@ -86161,7 +86161,7 @@ define hidden { i64, ptr } @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22967)
   %11 = getelementptr inbounds i8, ptr %7, i64 -7
   %12 = load i8, ptr %11, align 1, !range !9534, !alias.scope !22967, !noalias !22970, !noundef !4
-  %switch.i.i.i = icmp ult i8 %12, 2
+  %switch.i.i.i = icmp samesign ult i8 %12, 2
   br i1 %switch.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24b2d92036d56546E.exit.i", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24b2d92036d56546E.exit.thread.i"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24b2d92036d56546E.exit.thread.i": ; preds = %9

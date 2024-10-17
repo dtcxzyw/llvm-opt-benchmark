@@ -1231,7 +1231,7 @@ yylex.exit.thread:                                ; preds = %309, %yylex.exit
 
 328:                                              ; preds = %324
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #24
-  %329 = icmp ult i32 %325, 163
+  %329 = icmp samesign ult i32 %325, 163
   %330 = select i1 %329, ptr @.str.72, ptr @.str.73
   %331 = zext nneg i32 %325 to i64
   %332 = getelementptr inbounds [442 x ptr], ptr @yytname, i64 0, i64 %331
@@ -37793,7 +37793,7 @@ RSTRING_PTR.exit240.i:                            ; preds = %1178, %ruby_nonempt
 
 1179:                                             ; preds = %1150, %.preheader.i856
   %.0162.add.i = add nuw nsw i64 %.0162.idx.i, 24
-  %1180 = icmp ult i64 %.0162.idx.i, 96
+  %1180 = icmp samesign ult i64 %.0162.idx.i, 96
   br i1 %1180, label %.preheader.i856, label %.loopexit.i857.loopexit, !llvm.loop !86
 
 .loopexit.i857.loopexit:                          ; preds = %1179
@@ -45963,14 +45963,14 @@ tokspace.exit:                                    ; preds = %._crit_edge.i, %210
   store i8 120, ptr %219, align 1
   %221 = lshr i32 %203, 4
   %222 = and i32 %221, 15
-  %223 = icmp ult i32 %222, 10
+  %223 = icmp samesign ult i32 %222, 10
   %224 = select i1 %223, i32 48, i32 55
   %225 = add nuw nsw i32 %224, %222
   %226 = trunc nuw nsw i32 %225 to i8
   %227 = getelementptr inbounds i8, ptr %218, i64 3
   store i8 %226, ptr %220, align 1
   %228 = and i32 %203, 15
-  %229 = icmp ult i32 %228, 10
+  %229 = icmp samesign ult i32 %228, 10
   %230 = select i1 %229, i32 48, i32 55
   %231 = add nuw nsw i32 %230, %228
   %232 = trunc nuw nsw i32 %231 to i8
@@ -46942,7 +46942,7 @@ pushback.exit:                                    ; preds = %10, %19, %22, %26
   br label %tok_hex.exit
 
 56:                                               ; preds = %tailrecurse
-  %.not77 = icmp ult i32 %.tr96, 2
+  %.not77 = icmp samesign ult i32 %.tr96, 2
   br i1 %.not77, label %57, label %.loopexit97
 
 57:                                               ; preds = %56
@@ -46987,7 +46987,7 @@ tailrecurse.backedge:                             ; preds = %61, %64
   br i1 %.not80, label %85, label %72
 
 72:                                               ; preds = %70
-  %73 = icmp ult i32 %60, 32
+  %73 = icmp samesign ult i32 %60, 32
   %74 = icmp eq i32 %60, 127
   %narrow.i = or i1 %73, %74
   %.not83 = icmp eq i32 %.tr96, 0
@@ -48797,7 +48797,7 @@ define internal fastcc noundef range(i32 314, 318) i32 @set_number_literal(ptr n
   %10 = and i32 %2, 1
   %.not = icmp eq i32 %10, 0
   %spec.select = select i1 %.not, i32 %1, i32 316
-  %.not49 = icmp ult i32 %2, 2
+  %.not49 = icmp samesign ult i32 %2, 2
   %.1 = select i1 %.not49, i32 %spec.select, i32 317
   switch i32 %.1, label %default.unreachable54 [
     i32 314, label %11

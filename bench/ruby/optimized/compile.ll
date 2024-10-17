@@ -3112,7 +3112,7 @@ rb_obj_written.exit.i24:                          ; preds = %677, %rb_array_cons
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %692 = load i32, ptr %639, align 1
   %693 = zext i32 %692 to i64
-  %694 = icmp ult i64 %indvars.iv.next.i, %693
+  %694 = icmp samesign ult i64 %indvars.iv.next.i, %693
   br i1 %694, label %642, label %ISEQ_COMPILE_DATA.exit57.i, !llvm.loop !22
 
 ISEQ_COMPILE_DATA.exit57.i:                       ; preds = %691
@@ -3560,7 +3560,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i.i:                   ; preds = %97, %94
   %105 = getelementptr inbounds i8, ptr %100, i64 12
   %106 = load i32, ptr %105, align 4
   %107 = zext i32 %106 to i64
-  %108 = icmp ugt i64 %104, %107
+  %108 = icmp samesign ugt i64 %104, %107
   br i1 %108, label %.preheader.i.i.i.i.i, label %new_label_body.exit.i
 
 .preheader.i.i.i.i.i:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i.i
@@ -3569,7 +3569,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i.i:                   ; preds = %97, %94
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i.i, %112
   %.027.i.i.i.i.i = phi i32 [ %113, %112 ], [ %106, %.preheader.i.i.i.i.i ]
-  %110 = icmp ugt i32 %.027.i.i.i.i.i, 1073741822
+  %110 = icmp samesign ugt i32 %.027.i.i.i.i.i, 1073741822
   br i1 %110, label %111, label %112
 
 111:                                              ; preds = %.lr.ph.i.i.i.i.i
@@ -3578,7 +3578,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i.i:                   ; preds = %97, %94
 
 112:                                              ; preds = %.lr.ph.i.i.i.i.i
   %113 = shl nuw nsw i32 %.027.i.i.i.i.i, 1
-  %114 = icmp ult i32 %.027.i.i.i.i.i, 24
+  %114 = icmp samesign ult i32 %.027.i.i.i.i.i, 24
   br i1 %114, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i.i:                   ; preds = %112
@@ -3679,7 +3679,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i149.i:                ; preds = %157, %154
   %165 = getelementptr inbounds i8, ptr %160, i64 12
   %166 = load i32, ptr %165, align 4
   %167 = zext i32 %166 to i64
-  %168 = icmp ugt i64 %164, %167
+  %168 = icmp samesign ugt i64 %164, %167
   br i1 %168, label %.preheader.i.i.i.i153.i, label %new_label_body.exit160.i
 
 .preheader.i.i.i.i153.i:                          ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i149.i
@@ -3688,7 +3688,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i149.i:                ; preds = %157, %154
 
 .lr.ph.i.i.i.i157.i:                              ; preds = %.preheader.i.i.i.i153.i, %172
   %.027.i.i.i.i158.i = phi i32 [ %173, %172 ], [ %166, %.preheader.i.i.i.i153.i ]
-  %170 = icmp ugt i32 %.027.i.i.i.i158.i, 1073741822
+  %170 = icmp samesign ugt i32 %.027.i.i.i.i158.i, 1073741822
   br i1 %170, label %171, label %172
 
 171:                                              ; preds = %.lr.ph.i.i.i.i157.i
@@ -3697,7 +3697,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i149.i:                ; preds = %157, %154
 
 172:                                              ; preds = %.lr.ph.i.i.i.i157.i
   %173 = shl nuw nsw i32 %.027.i.i.i.i158.i, 1
-  %174 = icmp ult i32 %.027.i.i.i.i158.i, 24
+  %174 = icmp samesign ult i32 %.027.i.i.i.i158.i, 24
   br i1 %174, label %.lr.ph.i.i.i.i157.i, label %._crit_edge.i.i.loopexit.i.i159.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i159.i:                ; preds = %172
@@ -4378,7 +4378,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %489, %486
   %498 = getelementptr inbounds i8, ptr %493, i64 12
   %499 = load i32, ptr %498, align 4
   %500 = zext i32 %499 to i64
-  %501 = icmp ugt i64 %497, %500
+  %501 = icmp samesign ugt i64 %497, %500
   br i1 %501, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -4387,7 +4387,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %489, %486
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %505
   %.027.i.i.i.i = phi i32 [ %506, %505 ], [ %499, %.preheader.i.i.i.i ]
-  %503 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %503 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %503, label %504, label %505
 
 504:                                              ; preds = %.lr.ph.i.i.i.i
@@ -4396,7 +4396,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %489, %486
 
 505:                                              ; preds = %.lr.ph.i.i.i.i
   %506 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %507 = icmp ult i32 %.027.i.i.i.i, 24
+  %507 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %507, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %505
@@ -4478,7 +4478,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i117:                  ; preds = %540, %new_label_bod
   %548 = getelementptr inbounds i8, ptr %543, i64 12
   %549 = load i32, ptr %548, align 4
   %550 = zext i32 %549 to i64
-  %551 = icmp ugt i64 %547, %550
+  %551 = icmp samesign ugt i64 %547, %550
   br i1 %551, label %.preheader.i.i.i.i121, label %new_label_body.exit128
 
 .preheader.i.i.i.i121:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i117
@@ -4487,7 +4487,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i117:                  ; preds = %540, %new_label_bod
 
 .lr.ph.i.i.i.i125:                                ; preds = %.preheader.i.i.i.i121, %555
   %.027.i.i.i.i126 = phi i32 [ %556, %555 ], [ %549, %.preheader.i.i.i.i121 ]
-  %553 = icmp ugt i32 %.027.i.i.i.i126, 1073741822
+  %553 = icmp samesign ugt i32 %.027.i.i.i.i126, 1073741822
   br i1 %553, label %554, label %555
 
 554:                                              ; preds = %.lr.ph.i.i.i.i125
@@ -4496,7 +4496,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i117:                  ; preds = %540, %new_label_bod
 
 555:                                              ; preds = %.lr.ph.i.i.i.i125
   %556 = shl nuw nsw i32 %.027.i.i.i.i126, 1
-  %557 = icmp ult i32 %.027.i.i.i.i126, 24
+  %557 = icmp samesign ult i32 %.027.i.i.i.i126, 24
   br i1 %557, label %.lr.ph.i.i.i.i125, label %._crit_edge.i.i.loopexit.i.i127, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i127:                  ; preds = %555
@@ -4585,7 +4585,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i133:                  ; preds = %595, %new_label_bod
   %603 = getelementptr inbounds i8, ptr %598, i64 12
   %604 = load i32, ptr %603, align 4
   %605 = zext i32 %604 to i64
-  %606 = icmp ugt i64 %602, %605
+  %606 = icmp samesign ugt i64 %602, %605
   br i1 %606, label %.preheader.i.i.i.i136, label %new_trace_body.exit
 
 .preheader.i.i.i.i136:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i133
@@ -4594,7 +4594,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i133:                  ; preds = %595, %new_label_bod
 
 .lr.ph.i.i.i.i140:                                ; preds = %.preheader.i.i.i.i136, %610
   %.027.i.i.i.i141 = phi i32 [ %611, %610 ], [ %604, %.preheader.i.i.i.i136 ]
-  %608 = icmp ugt i32 %.027.i.i.i.i141, 1073741822
+  %608 = icmp samesign ugt i32 %.027.i.i.i.i141, 1073741822
   br i1 %608, label %609, label %610
 
 609:                                              ; preds = %.lr.ph.i.i.i.i140
@@ -4603,7 +4603,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i133:                  ; preds = %595, %new_label_bod
 
 610:                                              ; preds = %.lr.ph.i.i.i.i140
   %611 = shl nuw nsw i32 %.027.i.i.i.i141, 1
-  %612 = icmp ult i32 %.027.i.i.i.i141, 20
+  %612 = icmp samesign ult i32 %.027.i.i.i.i141, 20
   br i1 %612, label %.lr.ph.i.i.i.i140, label %._crit_edge.i.i.loopexit.i.i142, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i142:                  ; preds = %610
@@ -4728,7 +4728,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i148:                  ; preds = %664, %658
   %672 = getelementptr inbounds i8, ptr %667, i64 12
   %673 = load i32, ptr %672, align 4
   %674 = zext i32 %673 to i64
-  %675 = icmp ugt i64 %671, %674
+  %675 = icmp samesign ugt i64 %671, %674
   br i1 %675, label %.preheader.i.i.i.i151, label %new_trace_body.exit158
 
 .preheader.i.i.i.i151:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i148
@@ -4737,7 +4737,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i148:                  ; preds = %664, %658
 
 .lr.ph.i.i.i.i155:                                ; preds = %.preheader.i.i.i.i151, %679
   %.027.i.i.i.i156 = phi i32 [ %680, %679 ], [ %673, %.preheader.i.i.i.i151 ]
-  %677 = icmp ugt i32 %.027.i.i.i.i156, 1073741822
+  %677 = icmp samesign ugt i32 %.027.i.i.i.i156, 1073741822
   br i1 %677, label %678, label %679
 
 678:                                              ; preds = %.lr.ph.i.i.i.i155
@@ -4746,7 +4746,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i148:                  ; preds = %664, %658
 
 679:                                              ; preds = %.lr.ph.i.i.i.i155
   %680 = shl nuw nsw i32 %.027.i.i.i.i156, 1
-  %681 = icmp ult i32 %.027.i.i.i.i156, 20
+  %681 = icmp samesign ult i32 %.027.i.i.i.i156, 20
   br i1 %681, label %.lr.ph.i.i.i.i155, label %._crit_edge.i.i.loopexit.i.i157, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i157:                  ; preds = %679
@@ -4942,7 +4942,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i182:                  ; preds = %777, %774
   %786 = getelementptr inbounds i8, ptr %781, i64 12
   %787 = load i32, ptr %786, align 4
   %788 = zext i32 %787 to i64
-  %789 = icmp ugt i64 %785, %788
+  %789 = icmp samesign ugt i64 %785, %788
   br i1 %789, label %.preheader.i.i.i.i185, label %new_trace_body.exit192
 
 .preheader.i.i.i.i185:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i182
@@ -4951,7 +4951,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i182:                  ; preds = %777, %774
 
 .lr.ph.i.i.i.i189:                                ; preds = %.preheader.i.i.i.i185, %793
   %.027.i.i.i.i190 = phi i32 [ %794, %793 ], [ %787, %.preheader.i.i.i.i185 ]
-  %791 = icmp ugt i32 %.027.i.i.i.i190, 1073741822
+  %791 = icmp samesign ugt i32 %.027.i.i.i.i190, 1073741822
   br i1 %791, label %792, label %793
 
 792:                                              ; preds = %.lr.ph.i.i.i.i189
@@ -4960,7 +4960,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i182:                  ; preds = %777, %774
 
 793:                                              ; preds = %.lr.ph.i.i.i.i189
   %794 = shl nuw nsw i32 %.027.i.i.i.i190, 1
-  %795 = icmp ult i32 %.027.i.i.i.i190, 20
+  %795 = icmp samesign ult i32 %.027.i.i.i.i190, 20
   br i1 %795, label %.lr.ph.i.i.i.i189, label %._crit_edge.i.i.loopexit.i.i191, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i191:                  ; preds = %793
@@ -5064,7 +5064,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i198:                  ; preds = %836, %833
   %845 = getelementptr inbounds i8, ptr %840, i64 12
   %846 = load i32, ptr %845, align 4
   %847 = zext i32 %846 to i64
-  %848 = icmp ugt i64 %844, %847
+  %848 = icmp samesign ugt i64 %844, %847
   br i1 %848, label %.preheader.i.i.i.i201, label %new_trace_body.exit208
 
 .preheader.i.i.i.i201:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i198
@@ -5073,7 +5073,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i198:                  ; preds = %836, %833
 
 .lr.ph.i.i.i.i205:                                ; preds = %.preheader.i.i.i.i201, %852
   %.027.i.i.i.i206 = phi i32 [ %853, %852 ], [ %846, %.preheader.i.i.i.i201 ]
-  %850 = icmp ugt i32 %.027.i.i.i.i206, 1073741822
+  %850 = icmp samesign ugt i32 %.027.i.i.i.i206, 1073741822
   br i1 %850, label %851, label %852
 
 851:                                              ; preds = %.lr.ph.i.i.i.i205
@@ -5082,7 +5082,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i198:                  ; preds = %836, %833
 
 852:                                              ; preds = %.lr.ph.i.i.i.i205
   %853 = shl nuw nsw i32 %.027.i.i.i.i206, 1
-  %854 = icmp ult i32 %.027.i.i.i.i206, 20
+  %854 = icmp samesign ult i32 %.027.i.i.i.i206, 20
   br i1 %854, label %.lr.ph.i.i.i.i205, label %._crit_edge.i.i.loopexit.i.i207, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i207:                  ; preds = %852
@@ -5169,7 +5169,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i216:                  ; preds = %889, %ISEQ_COMPILE_
   %897 = getelementptr inbounds i8, ptr %892, i64 12
   %898 = load i32, ptr %897, align 4
   %899 = zext i32 %898 to i64
-  %900 = icmp ugt i64 %896, %899
+  %900 = icmp samesign ugt i64 %896, %899
   br i1 %900, label %.preheader.i.i.i.i219, label %new_trace_body.exit226
 
 .preheader.i.i.i.i219:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i216
@@ -5178,7 +5178,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i216:                  ; preds = %889, %ISEQ_COMPILE_
 
 .lr.ph.i.i.i.i223:                                ; preds = %.preheader.i.i.i.i219, %904
   %.027.i.i.i.i224 = phi i32 [ %905, %904 ], [ %898, %.preheader.i.i.i.i219 ]
-  %902 = icmp ugt i32 %.027.i.i.i.i224, 1073741822
+  %902 = icmp samesign ugt i32 %.027.i.i.i.i224, 1073741822
   br i1 %902, label %903, label %904
 
 903:                                              ; preds = %.lr.ph.i.i.i.i223
@@ -5187,7 +5187,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i216:                  ; preds = %889, %ISEQ_COMPILE_
 
 904:                                              ; preds = %.lr.ph.i.i.i.i223
   %905 = shl nuw nsw i32 %.027.i.i.i.i224, 1
-  %906 = icmp ult i32 %.027.i.i.i.i224, 20
+  %906 = icmp samesign ult i32 %.027.i.i.i.i224, 20
   br i1 %906, label %.lr.ph.i.i.i.i223, label %._crit_edge.i.i.loopexit.i.i225, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i225:                  ; preds = %904
@@ -5296,7 +5296,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i235:                  ; preds = %949, %ISEQ_COMPILE_
   %957 = getelementptr inbounds i8, ptr %952, i64 12
   %958 = load i32, ptr %957, align 4
   %959 = zext i32 %958 to i64
-  %960 = icmp ugt i64 %956, %959
+  %960 = icmp samesign ugt i64 %956, %959
   br i1 %960, label %.preheader.i.i.i.i238, label %new_trace_body.exit245
 
 .preheader.i.i.i.i238:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i235
@@ -5305,7 +5305,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i235:                  ; preds = %949, %ISEQ_COMPILE_
 
 .lr.ph.i.i.i.i242:                                ; preds = %.preheader.i.i.i.i238, %964
   %.027.i.i.i.i243 = phi i32 [ %965, %964 ], [ %958, %.preheader.i.i.i.i238 ]
-  %962 = icmp ugt i32 %.027.i.i.i.i243, 1073741822
+  %962 = icmp samesign ugt i32 %.027.i.i.i.i243, 1073741822
   br i1 %962, label %963, label %964
 
 963:                                              ; preds = %.lr.ph.i.i.i.i242
@@ -5314,7 +5314,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i235:                  ; preds = %949, %ISEQ_COMPILE_
 
 964:                                              ; preds = %.lr.ph.i.i.i.i242
   %965 = shl nuw nsw i32 %.027.i.i.i.i243, 1
-  %966 = icmp ult i32 %.027.i.i.i.i243, 20
+  %966 = icmp samesign ult i32 %.027.i.i.i.i243, 20
   br i1 %966, label %.lr.ph.i.i.i.i242, label %._crit_edge.i.i.loopexit.i.i244, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i244:                  ; preds = %964
@@ -5662,7 +5662,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %4, %1
   %13 = getelementptr inbounds i8, ptr %8, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
-  %16 = icmp ugt i64 %12, %15
+  %16 = icmp samesign ugt i64 %12, %15
   br i1 %16, label %.preheader.i.i.i, label %compile_data_alloc_label.exit
 
 .preheader.i.i.i:                                 ; preds = %ISEQ_COMPILE_DATA.exit.i.i
@@ -5671,7 +5671,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %4, %1
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %20
   %.027.i.i.i = phi i32 [ %21, %20 ], [ %14, %.preheader.i.i.i ]
-  %18 = icmp ugt i32 %.027.i.i.i, 1073741822
+  %18 = icmp samesign ugt i32 %.027.i.i.i, 1073741822
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %.lr.ph.i.i.i
@@ -5680,7 +5680,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %4, %1
 
 20:                                               ; preds = %.lr.ph.i.i.i
   %21 = shl nuw nsw i32 %.027.i.i.i, 1
-  %22 = icmp ult i32 %.027.i.i.i, 24
+  %22 = icmp samesign ult i32 %.027.i.i.i, 24
   br i1 %22, label %.lr.ph.i.i.i, label %._crit_edge.i.i.loopexit.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i:                       ; preds = %20
@@ -5761,7 +5761,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %6, %3
   %15 = getelementptr inbounds i8, ptr %10, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
-  %18 = icmp ugt i64 %14, %17
+  %18 = icmp samesign ugt i64 %14, %17
   br i1 %18, label %.preheader.i.i.i, label %compile_data_alloc_trace.exit
 
 .preheader.i.i.i:                                 ; preds = %ISEQ_COMPILE_DATA.exit.i.i
@@ -5770,7 +5770,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %6, %3
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %22
   %.027.i.i.i = phi i32 [ %23, %22 ], [ %16, %.preheader.i.i.i ]
-  %20 = icmp ugt i32 %.027.i.i.i, 1073741822
+  %20 = icmp samesign ugt i32 %.027.i.i.i, 1073741822
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %.lr.ph.i.i.i
@@ -5779,7 +5779,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %6, %3
 
 22:                                               ; preds = %.lr.ph.i.i.i
   %23 = shl nuw nsw i32 %.027.i.i.i, 1
-  %24 = icmp ult i32 %.027.i.i.i, 20
+  %24 = icmp samesign ult i32 %.027.i.i.i, 20
   br i1 %24, label %.lr.ph.i.i.i, label %._crit_edge.i.i.loopexit.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i:                       ; preds = %22
@@ -6446,14 +6446,14 @@ define dso_local void @rb_iseq_mark_and_pin_insn_storage(ptr noundef readonly %0
   %4 = getelementptr inbounds i8, ptr %.019, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
-  %7 = icmp ugt i64 %3, %6
+  %7 = icmp samesign ugt i64 %3, %6
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds i8, ptr %.019, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ugt i64 %3, %11
+  %12 = icmp samesign ugt i64 %3, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %8, %.lr.ph
@@ -7928,7 +7928,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i.i:                   ; preds = %735, %select.unfold
   %743 = getelementptr inbounds i8, ptr %738, i64 12
   %744 = load i32, ptr %743, align 4
   %745 = zext i32 %744 to i64
-  %746 = icmp ugt i64 %742, %745
+  %746 = icmp samesign ugt i64 %742, %745
   br i1 %746, label %.preheader.i.i.i.i.i, label %new_trace_body.exit.i
 
 .preheader.i.i.i.i.i:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i.i
@@ -7937,7 +7937,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i.i:                   ; preds = %735, %select.unfold
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i.i, %750
   %.027.i.i.i.i.i = phi i32 [ %751, %750 ], [ %744, %.preheader.i.i.i.i.i ]
-  %748 = icmp ugt i32 %.027.i.i.i.i.i, 1073741822
+  %748 = icmp samesign ugt i32 %.027.i.i.i.i.i, 1073741822
   br i1 %748, label %749, label %750
 
 749:                                              ; preds = %.lr.ph.i.i.i.i.i
@@ -7946,7 +7946,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i.i:                   ; preds = %735, %select.unfold
 
 750:                                              ; preds = %.lr.ph.i.i.i.i.i
   %751 = shl nuw nsw i32 %.027.i.i.i.i.i, 1
-  %752 = icmp ult i32 %.027.i.i.i.i.i, 20
+  %752 = icmp samesign ult i32 %.027.i.i.i.i.i, 20
   br i1 %752, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i.i:                   ; preds = %750
@@ -8143,7 +8143,7 @@ RARRAY_AREF.exit185.i:                            ; preds = %815, %813
   %845 = getelementptr [210 x i8], ptr @rb_vm_insn_len_info, i64 0, i64 %844
   %846 = load i8, ptr %845, align 1
   %847 = zext i8 %846 to i64
-  %.not.i186.i = icmp ult i64 %indvars.iv.i225, %847
+  %.not.i186.i = icmp samesign ult i64 %indvars.iv.i225, %847
   br i1 %.not.i186.i, label %insn_op_type.exit.i, label %insn_op_type.exit.thread.i
 
 insn_op_type.exit.i:                              ; preds = %842
@@ -8708,7 +8708,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i.i.i:                 ; preds = %1119, %1116
   %1127 = getelementptr inbounds i8, ptr %1122, i64 12
   %1128 = load i32, ptr %1127, align 4
   %1129 = zext i32 %1128 to i64
-  %1130 = icmp ugt i64 %1126, %1129
+  %1130 = icmp samesign ugt i64 %1126, %1129
   br i1 %1130, label %.preheader.i.i.i.i.i.i, label %new_label_body.exit.i.i
 
 .preheader.i.i.i.i.i.i:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i.i.i
@@ -8717,7 +8717,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i.i.i:                 ; preds = %1119, %1116
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.i.i, %1134
   %.027.i.i.i.i.i.i = phi i32 [ %1135, %1134 ], [ %1128, %.preheader.i.i.i.i.i.i ]
-  %1132 = icmp ugt i32 %.027.i.i.i.i.i.i, 1073741822
+  %1132 = icmp samesign ugt i32 %.027.i.i.i.i.i.i, 1073741822
   br i1 %1132, label %1133, label %1134
 
 1133:                                             ; preds = %.lr.ph.i.i.i.i.i.i
@@ -8726,7 +8726,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i.i.i:                 ; preds = %1119, %1116
 
 1134:                                             ; preds = %.lr.ph.i.i.i.i.i.i
   %1135 = shl nuw nsw i32 %.027.i.i.i.i.i.i, 1
-  %1136 = icmp ult i32 %.027.i.i.i.i.i.i, 24
+  %1136 = icmp samesign ult i32 %.027.i.i.i.i.i.i, 24
   br i1 %1136, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i.i.i:                 ; preds = %1134
@@ -8973,7 +8973,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %8
   %20 = getelementptr inbounds i8, ptr %15, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
-  %23 = icmp ugt i64 %19, %22
+  %23 = icmp samesign ugt i64 %19, %22
   br i1 %23, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -8982,7 +8982,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %8
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %27
   %.027.i.i.i.i = phi i32 [ %28, %27 ], [ %21, %.preheader.i.i.i.i ]
-  %25 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %25 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %.lr.ph.i.i.i.i
@@ -8991,7 +8991,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %8
 
 27:                                               ; preds = %.lr.ph.i.i.i.i
   %28 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %29 = icmp ult i32 %.027.i.i.i.i, 24
+  %29 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %29, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %27
@@ -13893,7 +13893,7 @@ ibf_load_iseq.exit.i33:                           ; preds = %pinned_list_store.e
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2286 = load i32, ptr %2030, align 1
   %2287 = zext i32 %2286 to i64
-  %2288 = icmp ult i64 %indvars.iv.next, %2287
+  %2288 = icmp samesign ult i64 %indvars.iv.next, %2287
   br i1 %2288, label %2034, label %ibf_load_catch_table.exit, !llvm.loop !72
 
 ibf_load_catch_table.exit:                        ; preds = %ibf_load_iseq.exit.i33, %ibf_load_local_table.exit
@@ -16016,7 +16016,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %28, %25
   %36 = getelementptr inbounds i8, ptr %31, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = zext i32 %37 to i64
-  %39 = icmp ugt i64 %35, %38
+  %39 = icmp samesign ugt i64 %35, %38
   br i1 %39, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -16025,7 +16025,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %28, %25
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %43
   %.027.i.i.i.i = phi i32 [ %44, %43 ], [ %37, %.preheader.i.i.i.i ]
-  %41 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %41 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %.lr.ph.i.i.i.i
@@ -16034,7 +16034,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %28, %25
 
 43:                                               ; preds = %.lr.ph.i.i.i.i
   %44 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %45 = icmp ult i32 %.027.i.i.i.i, 24
+  %45 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %45, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %43
@@ -16190,7 +16190,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i238:                  ; preds = %123, %120
   %131 = getelementptr inbounds i8, ptr %126, i64 12
   %132 = load i32, ptr %131, align 4
   %133 = zext i32 %132 to i64
-  %134 = icmp ugt i64 %130, %133
+  %134 = icmp samesign ugt i64 %130, %133
   br i1 %134, label %.preheader.i.i.i.i242, label %new_label_body.exit249
 
 .preheader.i.i.i.i242:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i238
@@ -16199,7 +16199,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i238:                  ; preds = %123, %120
 
 .lr.ph.i.i.i.i246:                                ; preds = %.preheader.i.i.i.i242, %138
   %.027.i.i.i.i247 = phi i32 [ %139, %138 ], [ %132, %.preheader.i.i.i.i242 ]
-  %136 = icmp ugt i32 %.027.i.i.i.i247, 1073741822
+  %136 = icmp samesign ugt i32 %.027.i.i.i.i247, 1073741822
   br i1 %136, label %137, label %138
 
 137:                                              ; preds = %.lr.ph.i.i.i.i246
@@ -16208,7 +16208,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i238:                  ; preds = %123, %120
 
 138:                                              ; preds = %.lr.ph.i.i.i.i246
   %139 = shl nuw nsw i32 %.027.i.i.i.i247, 1
-  %140 = icmp ult i32 %.027.i.i.i.i247, 24
+  %140 = icmp samesign ult i32 %.027.i.i.i.i247, 24
   br i1 %140, label %.lr.ph.i.i.i.i246, label %._crit_edge.i.i.loopexit.i.i248, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i248:                  ; preds = %138
@@ -17129,7 +17129,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %82, %79
   %90 = getelementptr inbounds i8, ptr %85, i64 12
   %91 = load i32, ptr %90, align 4
   %92 = zext i32 %91 to i64
-  %93 = icmp ugt i64 %89, %92
+  %93 = icmp samesign ugt i64 %89, %92
   br i1 %93, label %.preheader.i.i.i.i, label %new_trace_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -17138,7 +17138,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %82, %79
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %97
   %.027.i.i.i.i = phi i32 [ %98, %97 ], [ %91, %.preheader.i.i.i.i ]
-  %95 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %95 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %.lr.ph.i.i.i.i
@@ -17147,7 +17147,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %82, %79
 
 97:                                               ; preds = %.lr.ph.i.i.i.i
   %98 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %99 = icmp ult i32 %.027.i.i.i.i, 20
+  %99 = icmp samesign ult i32 %.027.i.i.i.i, 20
   br i1 %99, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %97
@@ -18555,7 +18555,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4227:                 ; preds = %794, %784
   %802 = getelementptr inbounds i8, ptr %797, i64 12
   %803 = load i32, ptr %802, align 4
   %804 = zext i32 %803 to i64
-  %805 = icmp ugt i64 %801, %804
+  %805 = icmp samesign ugt i64 %801, %804
   br i1 %805, label %.preheader.i.i.i.i4231, label %new_label_body.exit
 
 .preheader.i.i.i.i4231:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i4227
@@ -18564,7 +18564,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4227:                 ; preds = %794, %784
 
 .lr.ph.i.i.i.i4235:                               ; preds = %.preheader.i.i.i.i4231, %809
   %.027.i.i.i.i4236 = phi i32 [ %810, %809 ], [ %803, %.preheader.i.i.i.i4231 ]
-  %807 = icmp ugt i32 %.027.i.i.i.i4236, 1073741822
+  %807 = icmp samesign ugt i32 %.027.i.i.i.i4236, 1073741822
   br i1 %807, label %808, label %809
 
 808:                                              ; preds = %.lr.ph.i.i.i.i4235
@@ -18573,7 +18573,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4227:                 ; preds = %794, %784
 
 809:                                              ; preds = %.lr.ph.i.i.i.i4235
   %810 = shl nuw nsw i32 %.027.i.i.i.i4236, 1
-  %811 = icmp ult i32 %.027.i.i.i.i4236, 24
+  %811 = icmp samesign ult i32 %.027.i.i.i.i4236, 24
   br i1 %811, label %.lr.ph.i.i.i.i4235, label %._crit_edge.i.i.loopexit.i.i4237, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i4237:                 ; preds = %809
@@ -18757,7 +18757,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4242:                 ; preds = %906, %900
   %914 = getelementptr inbounds i8, ptr %909, i64 12
   %915 = load i32, ptr %914, align 4
   %916 = zext i32 %915 to i64
-  %917 = icmp ugt i64 %913, %916
+  %917 = icmp samesign ugt i64 %913, %916
   br i1 %917, label %.preheader.i.i.i.i4246, label %new_label_body.exit4253
 
 .preheader.i.i.i.i4246:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i4242
@@ -18766,7 +18766,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4242:                 ; preds = %906, %900
 
 .lr.ph.i.i.i.i4250:                               ; preds = %.preheader.i.i.i.i4246, %921
   %.027.i.i.i.i4251 = phi i32 [ %922, %921 ], [ %915, %.preheader.i.i.i.i4246 ]
-  %919 = icmp ugt i32 %.027.i.i.i.i4251, 1073741822
+  %919 = icmp samesign ugt i32 %.027.i.i.i.i4251, 1073741822
   br i1 %919, label %920, label %921
 
 920:                                              ; preds = %.lr.ph.i.i.i.i4250
@@ -18775,7 +18775,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4242:                 ; preds = %906, %900
 
 921:                                              ; preds = %.lr.ph.i.i.i.i4250
   %922 = shl nuw nsw i32 %.027.i.i.i.i4251, 1
-  %923 = icmp ult i32 %.027.i.i.i.i4251, 24
+  %923 = icmp samesign ult i32 %.027.i.i.i.i4251, 24
   br i1 %923, label %.lr.ph.i.i.i.i4250, label %._crit_edge.i.i.loopexit.i.i4252, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i4252:                 ; preds = %921
@@ -18974,7 +18974,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4260:                 ; preds = %1021, %1014
   %1029 = getelementptr inbounds i8, ptr %1024, i64 12
   %1030 = load i32, ptr %1029, align 4
   %1031 = zext i32 %1030 to i64
-  %1032 = icmp ugt i64 %1028, %1031
+  %1032 = icmp samesign ugt i64 %1028, %1031
   br i1 %1032, label %.preheader.i.i.i.i4264, label %new_label_body.exit4271
 
 .preheader.i.i.i.i4264:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i4260
@@ -18983,7 +18983,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4260:                 ; preds = %1021, %1014
 
 .lr.ph.i.i.i.i4268:                               ; preds = %.preheader.i.i.i.i4264, %1036
   %.027.i.i.i.i4269 = phi i32 [ %1037, %1036 ], [ %1030, %.preheader.i.i.i.i4264 ]
-  %1034 = icmp ugt i32 %.027.i.i.i.i4269, 1073741822
+  %1034 = icmp samesign ugt i32 %.027.i.i.i.i4269, 1073741822
   br i1 %1034, label %1035, label %1036
 
 1035:                                             ; preds = %.lr.ph.i.i.i.i4268
@@ -18992,7 +18992,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4260:                 ; preds = %1021, %1014
 
 1036:                                             ; preds = %.lr.ph.i.i.i.i4268
   %1037 = shl nuw nsw i32 %.027.i.i.i.i4269, 1
-  %1038 = icmp ult i32 %.027.i.i.i.i4269, 24
+  %1038 = icmp samesign ult i32 %.027.i.i.i.i4269, 24
   br i1 %1038, label %.lr.ph.i.i.i.i4268, label %._crit_edge.i.i.loopexit.i.i4270, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i4270:                 ; preds = %1036
@@ -19627,7 +19627,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4298:                 ; preds = %1385, %1382
   %1393 = getelementptr inbounds i8, ptr %1388, i64 12
   %1394 = load i32, ptr %1393, align 4
   %1395 = zext i32 %1394 to i64
-  %1396 = icmp ugt i64 %1392, %1395
+  %1396 = icmp samesign ugt i64 %1392, %1395
   br i1 %1396, label %.preheader.i.i.i.i4302, label %new_label_body.exit4309
 
 .preheader.i.i.i.i4302:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i4298
@@ -19636,7 +19636,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4298:                 ; preds = %1385, %1382
 
 .lr.ph.i.i.i.i4306:                               ; preds = %.preheader.i.i.i.i4302, %1400
   %.027.i.i.i.i4307 = phi i32 [ %1401, %1400 ], [ %1394, %.preheader.i.i.i.i4302 ]
-  %1398 = icmp ugt i32 %.027.i.i.i.i4307, 1073741822
+  %1398 = icmp samesign ugt i32 %.027.i.i.i.i4307, 1073741822
   br i1 %1398, label %1399, label %1400
 
 1399:                                             ; preds = %.lr.ph.i.i.i.i4306
@@ -19645,7 +19645,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4298:                 ; preds = %1385, %1382
 
 1400:                                             ; preds = %.lr.ph.i.i.i.i4306
   %1401 = shl nuw nsw i32 %.027.i.i.i.i4307, 1
-  %1402 = icmp ult i32 %.027.i.i.i.i4307, 24
+  %1402 = icmp samesign ult i32 %.027.i.i.i.i4307, 24
   br i1 %1402, label %.lr.ph.i.i.i.i4306, label %._crit_edge.i.i.loopexit.i.i4308, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i4308:                 ; preds = %1400
@@ -19768,7 +19768,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4312:                 ; preds = %1456, %1447
   %1464 = getelementptr inbounds i8, ptr %1459, i64 12
   %1465 = load i32, ptr %1464, align 4
   %1466 = zext i32 %1465 to i64
-  %1467 = icmp ugt i64 %1463, %1466
+  %1467 = icmp samesign ugt i64 %1463, %1466
   br i1 %1467, label %.preheader.i.i.i.i4316, label %1479
 
 .preheader.i.i.i.i4316:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i4312
@@ -19777,7 +19777,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4312:                 ; preds = %1456, %1447
 
 .lr.ph.i.i.i.i4320:                               ; preds = %.preheader.i.i.i.i4316, %1471
   %.027.i.i.i.i4321 = phi i32 [ %1472, %1471 ], [ %1465, %.preheader.i.i.i.i4316 ]
-  %1469 = icmp ugt i32 %.027.i.i.i.i4321, 1073741822
+  %1469 = icmp samesign ugt i32 %.027.i.i.i.i4321, 1073741822
   br i1 %1469, label %1470, label %1471
 
 1470:                                             ; preds = %.lr.ph.i.i.i.i4320
@@ -19786,7 +19786,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4312:                 ; preds = %1456, %1447
 
 1471:                                             ; preds = %.lr.ph.i.i.i.i4320
   %1472 = shl nuw nsw i32 %.027.i.i.i.i4321, 1
-  %1473 = icmp ult i32 %.027.i.i.i.i4321, 24
+  %1473 = icmp samesign ult i32 %.027.i.i.i.i4321, 24
   br i1 %1473, label %.lr.ph.i.i.i.i4320, label %._crit_edge.i.i.loopexit.i.i4322, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i4322:                 ; preds = %1471
@@ -28345,7 +28345,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4717:                 ; preds = %6223, %6220
   %6231 = getelementptr inbounds i8, ptr %6226, i64 12
   %6232 = load i32, ptr %6231, align 4
   %6233 = zext i32 %6232 to i64
-  %6234 = icmp ugt i64 %6230, %6233
+  %6234 = icmp samesign ugt i64 %6230, %6233
   br i1 %6234, label %.preheader.i.i.i.i4721, label %new_label_body.exit4728
 
 .preheader.i.i.i.i4721:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i4717
@@ -28354,7 +28354,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4717:                 ; preds = %6223, %6220
 
 .lr.ph.i.i.i.i4725:                               ; preds = %.preheader.i.i.i.i4721, %6238
   %.027.i.i.i.i4726 = phi i32 [ %6239, %6238 ], [ %6232, %.preheader.i.i.i.i4721 ]
-  %6236 = icmp ugt i32 %.027.i.i.i.i4726, 1073741822
+  %6236 = icmp samesign ugt i32 %.027.i.i.i.i4726, 1073741822
   br i1 %6236, label %6237, label %6238
 
 6237:                                             ; preds = %.lr.ph.i.i.i.i4725
@@ -28363,7 +28363,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4717:                 ; preds = %6223, %6220
 
 6238:                                             ; preds = %.lr.ph.i.i.i.i4725
   %6239 = shl nuw nsw i32 %.027.i.i.i.i4726, 1
-  %6240 = icmp ult i32 %.027.i.i.i.i4726, 24
+  %6240 = icmp samesign ult i32 %.027.i.i.i.i4726, 24
   br i1 %6240, label %.lr.ph.i.i.i.i4725, label %._crit_edge.i.i.loopexit.i.i4727, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i4727:                 ; preds = %6238
@@ -28520,7 +28520,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4730:                 ; preds = %6310, %6307
   %6318 = getelementptr inbounds i8, ptr %6313, i64 12
   %6319 = load i32, ptr %6318, align 4
   %6320 = zext i32 %6319 to i64
-  %6321 = icmp ugt i64 %6317, %6320
+  %6321 = icmp samesign ugt i64 %6317, %6320
   br i1 %6321, label %.preheader.i.i.i.i4734, label %new_label_body.exit4741
 
 .preheader.i.i.i.i4734:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i4730
@@ -28529,7 +28529,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4730:                 ; preds = %6310, %6307
 
 .lr.ph.i.i.i.i4738:                               ; preds = %.preheader.i.i.i.i4734, %6325
   %.027.i.i.i.i4739 = phi i32 [ %6326, %6325 ], [ %6319, %.preheader.i.i.i.i4734 ]
-  %6323 = icmp ugt i32 %.027.i.i.i.i4739, 1073741822
+  %6323 = icmp samesign ugt i32 %.027.i.i.i.i4739, 1073741822
   br i1 %6323, label %6324, label %6325
 
 6324:                                             ; preds = %.lr.ph.i.i.i.i4738
@@ -28538,7 +28538,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i4730:                 ; preds = %6310, %6307
 
 6325:                                             ; preds = %.lr.ph.i.i.i.i4738
   %6326 = shl nuw nsw i32 %.027.i.i.i.i4739, 1
-  %6327 = icmp ult i32 %.027.i.i.i.i4739, 24
+  %6327 = icmp samesign ult i32 %.027.i.i.i.i4739, 24
   br i1 %6327, label %.lr.ph.i.i.i.i4738, label %._crit_edge.i.i.loopexit.i.i4740, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i4740:                 ; preds = %6325
@@ -30069,7 +30069,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %27, %7
   %36 = getelementptr inbounds i8, ptr %31, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = zext i32 %37 to i64
-  %39 = icmp ugt i64 %35, %38
+  %39 = icmp samesign ugt i64 %35, %38
   br i1 %39, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -30078,7 +30078,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %27, %7
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %43
   %.027.i.i.i.i = phi i32 [ %44, %43 ], [ %37, %.preheader.i.i.i.i ]
-  %41 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %41 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %.lr.ph.i.i.i.i
@@ -30087,7 +30087,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %27, %7
 
 43:                                               ; preds = %.lr.ph.i.i.i.i
   %44 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %45 = icmp ult i32 %.027.i.i.i.i, 24
+  %45 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %45, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %43
@@ -30162,7 +30162,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i127:                  ; preds = %74, %new_label_body
   %82 = getelementptr inbounds i8, ptr %77, i64 12
   %83 = load i32, ptr %82, align 4
   %84 = zext i32 %83 to i64
-  %85 = icmp ugt i64 %81, %84
+  %85 = icmp samesign ugt i64 %81, %84
   br i1 %85, label %.preheader.i.i.i.i131, label %new_label_body.exit138
 
 .preheader.i.i.i.i131:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i127
@@ -30171,7 +30171,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i127:                  ; preds = %74, %new_label_body
 
 .lr.ph.i.i.i.i135:                                ; preds = %.preheader.i.i.i.i131, %89
   %.027.i.i.i.i136 = phi i32 [ %90, %89 ], [ %83, %.preheader.i.i.i.i131 ]
-  %87 = icmp ugt i32 %.027.i.i.i.i136, 1073741822
+  %87 = icmp samesign ugt i32 %.027.i.i.i.i136, 1073741822
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %.lr.ph.i.i.i.i135
@@ -30180,7 +30180,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i127:                  ; preds = %74, %new_label_body
 
 89:                                               ; preds = %.lr.ph.i.i.i.i135
   %90 = shl nuw nsw i32 %.027.i.i.i.i136, 1
-  %91 = icmp ult i32 %.027.i.i.i.i136, 24
+  %91 = icmp samesign ult i32 %.027.i.i.i.i136, 24
   br i1 %91, label %.lr.ph.i.i.i.i135, label %._crit_edge.i.i.loopexit.i.i137, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i137:                  ; preds = %89
@@ -30836,7 +30836,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %14, %8
   %23 = getelementptr inbounds i8, ptr %18, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %26 = icmp ugt i64 %22, %25
+  %26 = icmp samesign ugt i64 %22, %25
   br i1 %26, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -30845,7 +30845,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %14, %8
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %30
   %.027.i.i.i.i = phi i32 [ %31, %30 ], [ %24, %.preheader.i.i.i.i ]
-  %28 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %28 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %.lr.ph.i.i.i.i
@@ -30854,7 +30854,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %14, %8
 
 30:                                               ; preds = %.lr.ph.i.i.i.i
   %31 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %32 = icmp ult i32 %.027.i.i.i.i, 24
+  %32 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %30
@@ -30943,7 +30943,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i44:                   ; preds = %67, %64
   %75 = getelementptr inbounds i8, ptr %70, i64 12
   %76 = load i32, ptr %75, align 4
   %77 = zext i32 %76 to i64
-  %78 = icmp ugt i64 %74, %77
+  %78 = icmp samesign ugt i64 %74, %77
   br i1 %78, label %.preheader.i.i.i.i48, label %new_label_body.exit55
 
 .preheader.i.i.i.i48:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i44
@@ -30952,7 +30952,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i44:                   ; preds = %67, %64
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.preheader.i.i.i.i48, %82
   %.027.i.i.i.i53 = phi i32 [ %83, %82 ], [ %76, %.preheader.i.i.i.i48 ]
-  %80 = icmp ugt i32 %.027.i.i.i.i53, 1073741822
+  %80 = icmp samesign ugt i32 %.027.i.i.i.i53, 1073741822
   br i1 %80, label %81, label %82
 
 81:                                               ; preds = %.lr.ph.i.i.i.i52
@@ -30961,7 +30961,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i44:                   ; preds = %67, %64
 
 82:                                               ; preds = %.lr.ph.i.i.i.i52
   %83 = shl nuw nsw i32 %.027.i.i.i.i53, 1
-  %84 = icmp ult i32 %.027.i.i.i.i53, 24
+  %84 = icmp samesign ult i32 %.027.i.i.i.i53, 24
   br i1 %84, label %.lr.ph.i.i.i.i52, label %._crit_edge.i.i.loopexit.i.i54, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i54:                   ; preds = %82
@@ -31035,7 +31035,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i31:                   ; preds = %112, %new_label_bod
   %120 = getelementptr inbounds i8, ptr %115, i64 12
   %121 = load i32, ptr %120, align 4
   %122 = zext i32 %121 to i64
-  %123 = icmp ugt i64 %119, %122
+  %123 = icmp samesign ugt i64 %119, %122
   br i1 %123, label %.preheader.i.i.i.i35, label %new_label_body.exit42
 
 .preheader.i.i.i.i35:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i31
@@ -31044,7 +31044,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i31:                   ; preds = %112, %new_label_bod
 
 .lr.ph.i.i.i.i39:                                 ; preds = %.preheader.i.i.i.i35, %127
   %.027.i.i.i.i40 = phi i32 [ %128, %127 ], [ %121, %.preheader.i.i.i.i35 ]
-  %125 = icmp ugt i32 %.027.i.i.i.i40, 1073741822
+  %125 = icmp samesign ugt i32 %.027.i.i.i.i40, 1073741822
   br i1 %125, label %126, label %127
 
 126:                                              ; preds = %.lr.ph.i.i.i.i39
@@ -31053,7 +31053,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i31:                   ; preds = %112, %new_label_bod
 
 127:                                              ; preds = %.lr.ph.i.i.i.i39
   %128 = shl nuw nsw i32 %.027.i.i.i.i40, 1
-  %129 = icmp ult i32 %.027.i.i.i.i40, 24
+  %129 = icmp samesign ult i32 %.027.i.i.i.i40, 24
   br i1 %129, label %.lr.ph.i.i.i.i39, label %._crit_edge.i.i.loopexit.i.i41, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i41:                   ; preds = %127
@@ -31784,7 +31784,7 @@ pm_parse_input_error.exit:                        ; preds = %32, %.loopexit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %142 = load i32, ptr %126, align 8
   %143 = zext i32 %142 to i64
-  %144 = icmp ult i64 %indvars.iv.next, %143
+  %144 = icmp samesign ult i64 %indvars.iv.next, %143
   br i1 %144, label %132, label %._crit_edge68, !llvm.loop !156
 
 ._crit_edge68:                                    ; preds = %132, %124
@@ -31964,7 +31964,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %9, %6
   %18 = getelementptr inbounds i8, ptr %13, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
-  %21 = icmp ugt i64 %17, %20
+  %21 = icmp samesign ugt i64 %17, %20
   br i1 %21, label %.preheader.i.i, label %compile_data_alloc_insn.exit
 
 .preheader.i.i:                                   ; preds = %ISEQ_COMPILE_DATA.exit.i
@@ -31973,7 +31973,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %9, %6
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %25
   %.027.i.i = phi i32 [ %26, %25 ], [ %19, %.preheader.i.i ]
-  %23 = icmp ugt i32 %.027.i.i, 1073741822
+  %23 = icmp samesign ugt i32 %.027.i.i, 1073741822
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %.lr.ph.i.i
@@ -31982,7 +31982,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %9, %6
 
 25:                                               ; preds = %.lr.ph.i.i
   %26 = shl nuw nsw i32 %.027.i.i, 1
-  %27 = icmp ult i32 %.027.i.i, 32
+  %27 = icmp samesign ult i32 %.027.i.i, 32
   br i1 %27, label %.lr.ph.i.i, label %._crit_edge.i.loopexit.i, !llvm.loop !7
 
 ._crit_edge.i.loopexit.i:                         ; preds = %25
@@ -32312,7 +32312,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i.i:                   ; preds = %96, %93
   %104 = getelementptr inbounds i8, ptr %99, i64 12
   %105 = load i32, ptr %104, align 4
   %106 = zext i32 %105 to i64
-  %107 = icmp ugt i64 %103, %106
+  %107 = icmp samesign ugt i64 %103, %106
   br i1 %107, label %.preheader.i.i.i.i.i, label %new_label_body.exit.i
 
 .preheader.i.i.i.i.i:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i.i
@@ -32321,7 +32321,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i.i:                   ; preds = %96, %93
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i.i, %111
   %.027.i.i.i.i.i = phi i32 [ %112, %111 ], [ %105, %.preheader.i.i.i.i.i ]
-  %109 = icmp ugt i32 %.027.i.i.i.i.i, 1073741822
+  %109 = icmp samesign ugt i32 %.027.i.i.i.i.i, 1073741822
   br i1 %109, label %110, label %111
 
 110:                                              ; preds = %.lr.ph.i.i.i.i.i
@@ -32330,7 +32330,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i.i:                   ; preds = %96, %93
 
 111:                                              ; preds = %.lr.ph.i.i.i.i.i
   %112 = shl nuw nsw i32 %.027.i.i.i.i.i, 1
-  %113 = icmp ult i32 %.027.i.i.i.i.i, 24
+  %113 = icmp samesign ult i32 %.027.i.i.i.i.i, 24
   br i1 %113, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i.i:                   ; preds = %111
@@ -34084,7 +34084,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %921, %918
   %929 = getelementptr inbounds i8, ptr %924, i64 12
   %930 = load i32, ptr %929, align 4
   %931 = zext i32 %930 to i64
-  %932 = icmp ugt i64 %928, %931
+  %932 = icmp samesign ugt i64 %928, %931
   br i1 %932, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -34093,7 +34093,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %921, %918
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %936
   %.027.i.i.i.i = phi i32 [ %937, %936 ], [ %930, %.preheader.i.i.i.i ]
-  %934 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %934 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %934, label %935, label %936
 
 935:                                              ; preds = %.lr.ph.i.i.i.i
@@ -34102,7 +34102,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %921, %918
 
 936:                                              ; preds = %.lr.ph.i.i.i.i
   %937 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %938 = icmp ult i32 %.027.i.i.i.i, 24
+  %938 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %938, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %936
@@ -36895,7 +36895,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %42, %39
   %50 = getelementptr inbounds i8, ptr %45, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = zext i32 %51 to i64
-  %53 = icmp ugt i64 %49, %52
+  %53 = icmp samesign ugt i64 %49, %52
   br i1 %53, label %.preheader.i.i.i.i, label %new_trace_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -36904,7 +36904,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %42, %39
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %57
   %.027.i.i.i.i = phi i32 [ %58, %57 ], [ %51, %.preheader.i.i.i.i ]
-  %55 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %55 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %.lr.ph.i.i.i.i
@@ -36913,7 +36913,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %42, %39
 
 57:                                               ; preds = %.lr.ph.i.i.i.i
   %58 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %59 = icmp ult i32 %.027.i.i.i.i, 20
+  %59 = icmp samesign ult i32 %.027.i.i.i.i, 20
   br i1 %59, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %57
@@ -40057,7 +40057,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %17, %5
   %26 = getelementptr inbounds i8, ptr %21, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
-  %29 = icmp ugt i64 %25, %28
+  %29 = icmp samesign ugt i64 %25, %28
   br i1 %29, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -40066,7 +40066,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %17, %5
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %33
   %.027.i.i.i.i = phi i32 [ %34, %33 ], [ %27, %.preheader.i.i.i.i ]
-  %31 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %31 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %.lr.ph.i.i.i.i
@@ -40075,7 +40075,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %17, %5
 
 33:                                               ; preds = %.lr.ph.i.i.i.i
   %34 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %35 = icmp ult i32 %.027.i.i.i.i, 24
+  %35 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %33
@@ -40150,7 +40150,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i81:                   ; preds = %64, %new_label_body
   %72 = getelementptr inbounds i8, ptr %67, i64 12
   %73 = load i32, ptr %72, align 4
   %74 = zext i32 %73 to i64
-  %75 = icmp ugt i64 %71, %74
+  %75 = icmp samesign ugt i64 %71, %74
   br i1 %75, label %.preheader.i.i.i.i85, label %new_label_body.exit92
 
 .preheader.i.i.i.i85:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i81
@@ -40159,7 +40159,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i81:                   ; preds = %64, %new_label_body
 
 .lr.ph.i.i.i.i89:                                 ; preds = %.preheader.i.i.i.i85, %79
   %.027.i.i.i.i90 = phi i32 [ %80, %79 ], [ %73, %.preheader.i.i.i.i85 ]
-  %77 = icmp ugt i32 %.027.i.i.i.i90, 1073741822
+  %77 = icmp samesign ugt i32 %.027.i.i.i.i90, 1073741822
   br i1 %77, label %78, label %79
 
 78:                                               ; preds = %.lr.ph.i.i.i.i89
@@ -40168,7 +40168,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i81:                   ; preds = %64, %new_label_body
 
 79:                                               ; preds = %.lr.ph.i.i.i.i89
   %80 = shl nuw nsw i32 %.027.i.i.i.i90, 1
-  %81 = icmp ult i32 %.027.i.i.i.i90, 24
+  %81 = icmp samesign ult i32 %.027.i.i.i.i90, 24
   br i1 %81, label %.lr.ph.i.i.i.i89, label %._crit_edge.i.i.loopexit.i.i91, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i91:                   ; preds = %79
@@ -40345,7 +40345,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i96:                   ; preds = %157, %152
   %165 = getelementptr inbounds i8, ptr %160, i64 12
   %166 = load i32, ptr %165, align 4
   %167 = zext i32 %166 to i64
-  %168 = icmp ugt i64 %164, %167
+  %168 = icmp samesign ugt i64 %164, %167
   br i1 %168, label %.preheader.i.i.i.i100, label %new_label_body.exit107
 
 .preheader.i.i.i.i100:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i96
@@ -40354,7 +40354,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i96:                   ; preds = %157, %152
 
 .lr.ph.i.i.i.i104:                                ; preds = %.preheader.i.i.i.i100, %172
   %.027.i.i.i.i105 = phi i32 [ %173, %172 ], [ %166, %.preheader.i.i.i.i100 ]
-  %170 = icmp ugt i32 %.027.i.i.i.i105, 1073741822
+  %170 = icmp samesign ugt i32 %.027.i.i.i.i105, 1073741822
   br i1 %170, label %171, label %172
 
 171:                                              ; preds = %.lr.ph.i.i.i.i104
@@ -40363,7 +40363,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i96:                   ; preds = %157, %152
 
 172:                                              ; preds = %.lr.ph.i.i.i.i104
   %173 = shl nuw nsw i32 %.027.i.i.i.i105, 1
-  %174 = icmp ult i32 %.027.i.i.i.i105, 24
+  %174 = icmp samesign ult i32 %.027.i.i.i.i105, 24
   br i1 %174, label %.lr.ph.i.i.i.i104, label %._crit_edge.i.i.loopexit.i.i106, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i106:                  ; preds = %172
@@ -40676,7 +40676,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %50, %47
   %59 = getelementptr inbounds i8, ptr %54, i64 12
   %60 = load i32, ptr %59, align 4
   %61 = zext i32 %60 to i64
-  %62 = icmp ugt i64 %58, %61
+  %62 = icmp samesign ugt i64 %58, %61
   br i1 %62, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -40685,7 +40685,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %50, %47
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %66
   %.027.i.i.i.i = phi i32 [ %67, %66 ], [ %60, %.preheader.i.i.i.i ]
-  %64 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %64 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %.lr.ph.i.i.i.i
@@ -40694,7 +40694,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %50, %47
 
 66:                                               ; preds = %.lr.ph.i.i.i.i
   %67 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %68 = icmp ult i32 %.027.i.i.i.i, 24
+  %68 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %68, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %66
@@ -40769,7 +40769,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i149:                  ; preds = %97, %new_label_body
   %105 = getelementptr inbounds i8, ptr %100, i64 12
   %106 = load i32, ptr %105, align 4
   %107 = zext i32 %106 to i64
-  %108 = icmp ugt i64 %104, %107
+  %108 = icmp samesign ugt i64 %104, %107
   br i1 %108, label %.preheader.i.i.i.i153, label %new_label_body.exit160
 
 .preheader.i.i.i.i153:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i149
@@ -40778,7 +40778,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i149:                  ; preds = %97, %new_label_body
 
 .lr.ph.i.i.i.i157:                                ; preds = %.preheader.i.i.i.i153, %112
   %.027.i.i.i.i158 = phi i32 [ %113, %112 ], [ %106, %.preheader.i.i.i.i153 ]
-  %110 = icmp ugt i32 %.027.i.i.i.i158, 1073741822
+  %110 = icmp samesign ugt i32 %.027.i.i.i.i158, 1073741822
   br i1 %110, label %111, label %112
 
 111:                                              ; preds = %.lr.ph.i.i.i.i157
@@ -40787,7 +40787,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i149:                  ; preds = %97, %new_label_body
 
 112:                                              ; preds = %.lr.ph.i.i.i.i157
   %113 = shl nuw nsw i32 %.027.i.i.i.i158, 1
-  %114 = icmp ult i32 %.027.i.i.i.i158, 24
+  %114 = icmp samesign ult i32 %.027.i.i.i.i158, 24
   br i1 %114, label %.lr.ph.i.i.i.i157, label %._crit_edge.i.i.loopexit.i.i159, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i159:                  ; preds = %112
@@ -40888,7 +40888,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i162:                  ; preds = %154, %151
   %162 = getelementptr inbounds i8, ptr %157, i64 12
   %163 = load i32, ptr %162, align 4
   %164 = zext i32 %163 to i64
-  %165 = icmp ugt i64 %161, %164
+  %165 = icmp samesign ugt i64 %161, %164
   br i1 %165, label %.preheader.i.i.i.i166, label %new_label_body.exit173
 
 .preheader.i.i.i.i166:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i162
@@ -40897,7 +40897,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i162:                  ; preds = %154, %151
 
 .lr.ph.i.i.i.i170:                                ; preds = %.preheader.i.i.i.i166, %169
   %.027.i.i.i.i171 = phi i32 [ %170, %169 ], [ %163, %.preheader.i.i.i.i166 ]
-  %167 = icmp ugt i32 %.027.i.i.i.i171, 1073741822
+  %167 = icmp samesign ugt i32 %.027.i.i.i.i171, 1073741822
   br i1 %167, label %168, label %169
 
 168:                                              ; preds = %.lr.ph.i.i.i.i170
@@ -40906,7 +40906,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i162:                  ; preds = %154, %151
 
 169:                                              ; preds = %.lr.ph.i.i.i.i170
   %170 = shl nuw nsw i32 %.027.i.i.i.i171, 1
-  %171 = icmp ult i32 %.027.i.i.i.i171, 24
+  %171 = icmp samesign ult i32 %.027.i.i.i.i171, 24
   br i1 %171, label %.lr.ph.i.i.i.i170, label %._crit_edge.i.i.loopexit.i.i172, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i172:                  ; preds = %169
@@ -41325,7 +41325,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %14, %4
   %23 = getelementptr inbounds i8, ptr %18, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %26 = icmp ugt i64 %22, %25
+  %26 = icmp samesign ugt i64 %22, %25
   br i1 %26, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -41334,7 +41334,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %14, %4
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %30
   %.027.i.i.i.i = phi i32 [ %31, %30 ], [ %24, %.preheader.i.i.i.i ]
-  %28 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %28 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %.lr.ph.i.i.i.i
@@ -41343,7 +41343,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %14, %4
 
 30:                                               ; preds = %.lr.ph.i.i.i.i
   %31 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %32 = icmp ult i32 %.027.i.i.i.i, 24
+  %32 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %30
@@ -41436,7 +41436,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i97:                   ; preds = %67, %64
   %75 = getelementptr inbounds i8, ptr %70, i64 12
   %76 = load i32, ptr %75, align 4
   %77 = zext i32 %76 to i64
-  %78 = icmp ugt i64 %74, %77
+  %78 = icmp samesign ugt i64 %74, %77
   br i1 %78, label %.preheader.i.i.i.i101, label %new_label_body.exit108
 
 .preheader.i.i.i.i101:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i97
@@ -41445,7 +41445,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i97:                   ; preds = %67, %64
 
 .lr.ph.i.i.i.i105:                                ; preds = %.preheader.i.i.i.i101, %82
   %.027.i.i.i.i106 = phi i32 [ %83, %82 ], [ %76, %.preheader.i.i.i.i101 ]
-  %80 = icmp ugt i32 %.027.i.i.i.i106, 1073741822
+  %80 = icmp samesign ugt i32 %.027.i.i.i.i106, 1073741822
   br i1 %80, label %81, label %82
 
 81:                                               ; preds = %.lr.ph.i.i.i.i105
@@ -41454,7 +41454,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i97:                   ; preds = %67, %64
 
 82:                                               ; preds = %.lr.ph.i.i.i.i105
   %83 = shl nuw nsw i32 %.027.i.i.i.i106, 1
-  %84 = icmp ult i32 %.027.i.i.i.i106, 24
+  %84 = icmp samesign ult i32 %.027.i.i.i.i106, 24
   br i1 %84, label %.lr.ph.i.i.i.i105, label %._crit_edge.i.i.loopexit.i.i107, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i107:                  ; preds = %82
@@ -41624,7 +41624,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i111:                  ; preds = %161, %.preheader
   %169 = getelementptr inbounds i8, ptr %164, i64 12
   %170 = load i32, ptr %169, align 4
   %171 = zext i32 %170 to i64
-  %172 = icmp ugt i64 %168, %171
+  %172 = icmp samesign ugt i64 %168, %171
   br i1 %172, label %.preheader.i.i.i.i115, label %new_label_body.exit122
 
 .preheader.i.i.i.i115:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i111
@@ -41633,7 +41633,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i111:                  ; preds = %161, %.preheader
 
 .lr.ph.i.i.i.i119:                                ; preds = %.preheader.i.i.i.i115, %176
   %.027.i.i.i.i120 = phi i32 [ %177, %176 ], [ %170, %.preheader.i.i.i.i115 ]
-  %174 = icmp ugt i32 %.027.i.i.i.i120, 1073741822
+  %174 = icmp samesign ugt i32 %.027.i.i.i.i120, 1073741822
   br i1 %174, label %175, label %176
 
 175:                                              ; preds = %.lr.ph.i.i.i.i119
@@ -41642,7 +41642,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i111:                  ; preds = %161, %.preheader
 
 176:                                              ; preds = %.lr.ph.i.i.i.i119
   %177 = shl nuw nsw i32 %.027.i.i.i.i120, 1
-  %178 = icmp ult i32 %.027.i.i.i.i120, 24
+  %178 = icmp samesign ult i32 %.027.i.i.i.i120, 24
   br i1 %178, label %.lr.ph.i.i.i.i119, label %._crit_edge.i.i.loopexit.i.i121, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i121:                  ; preds = %176
@@ -41919,7 +41919,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %29, %24
   %38 = getelementptr inbounds i8, ptr %33, i64 12
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
-  %41 = icmp ugt i64 %37, %40
+  %41 = icmp samesign ugt i64 %37, %40
   br i1 %41, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -41928,7 +41928,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %29, %24
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %45
   %.027.i.i.i.i = phi i32 [ %46, %45 ], [ %39, %.preheader.i.i.i.i ]
-  %43 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %43 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %.lr.ph.i.i.i.i
@@ -41937,7 +41937,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %29, %24
 
 45:                                               ; preds = %.lr.ph.i.i.i.i
   %46 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %47 = icmp ult i32 %.027.i.i.i.i, 24
+  %47 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %47, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %45
@@ -42012,7 +42012,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i265:                  ; preds = %76, %new_label_body
   %84 = getelementptr inbounds i8, ptr %79, i64 12
   %85 = load i32, ptr %84, align 4
   %86 = zext i32 %85 to i64
-  %87 = icmp ugt i64 %83, %86
+  %87 = icmp samesign ugt i64 %83, %86
   br i1 %87, label %.preheader.i.i.i.i269, label %new_label_body.exit276
 
 .preheader.i.i.i.i269:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i265
@@ -42021,7 +42021,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i265:                  ; preds = %76, %new_label_body
 
 .lr.ph.i.i.i.i273:                                ; preds = %.preheader.i.i.i.i269, %91
   %.027.i.i.i.i274 = phi i32 [ %92, %91 ], [ %85, %.preheader.i.i.i.i269 ]
-  %89 = icmp ugt i32 %.027.i.i.i.i274, 1073741822
+  %89 = icmp samesign ugt i32 %.027.i.i.i.i274, 1073741822
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %.lr.ph.i.i.i.i273
@@ -42030,7 +42030,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i265:                  ; preds = %76, %new_label_body
 
 91:                                               ; preds = %.lr.ph.i.i.i.i273
   %92 = shl nuw nsw i32 %.027.i.i.i.i274, 1
-  %93 = icmp ult i32 %.027.i.i.i.i274, 24
+  %93 = icmp samesign ult i32 %.027.i.i.i.i274, 24
   br i1 %93, label %.lr.ph.i.i.i.i273, label %._crit_edge.i.i.loopexit.i.i275, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i275:                  ; preds = %91
@@ -42252,7 +42252,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i280:                  ; preds = %208, %205
   %216 = getelementptr inbounds i8, ptr %211, i64 12
   %217 = load i32, ptr %216, align 4
   %218 = zext i32 %217 to i64
-  %219 = icmp ugt i64 %215, %218
+  %219 = icmp samesign ugt i64 %215, %218
   br i1 %219, label %.preheader.i.i.i.i284, label %new_label_body.exit291
 
 .preheader.i.i.i.i284:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i280
@@ -42261,7 +42261,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i280:                  ; preds = %208, %205
 
 .lr.ph.i.i.i.i288:                                ; preds = %.preheader.i.i.i.i284, %223
   %.027.i.i.i.i289 = phi i32 [ %224, %223 ], [ %217, %.preheader.i.i.i.i284 ]
-  %221 = icmp ugt i32 %.027.i.i.i.i289, 1073741822
+  %221 = icmp samesign ugt i32 %.027.i.i.i.i289, 1073741822
   br i1 %221, label %222, label %223
 
 222:                                              ; preds = %.lr.ph.i.i.i.i288
@@ -42270,7 +42270,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i280:                  ; preds = %208, %205
 
 223:                                              ; preds = %.lr.ph.i.i.i.i288
   %224 = shl nuw nsw i32 %.027.i.i.i.i289, 1
-  %225 = icmp ult i32 %.027.i.i.i.i289, 24
+  %225 = icmp samesign ult i32 %.027.i.i.i.i289, 24
   br i1 %225, label %.lr.ph.i.i.i.i288, label %._crit_edge.i.i.loopexit.i.i290, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i290:                  ; preds = %223
@@ -42429,7 +42429,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i300:                  ; preds = %300, %297
   %308 = getelementptr inbounds i8, ptr %303, i64 12
   %309 = load i32, ptr %308, align 4
   %310 = zext i32 %309 to i64
-  %311 = icmp ugt i64 %307, %310
+  %311 = icmp samesign ugt i64 %307, %310
   br i1 %311, label %.preheader.i.i.i.i304, label %new_label_body.exit311
 
 .preheader.i.i.i.i304:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i300
@@ -42438,7 +42438,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i300:                  ; preds = %300, %297
 
 .lr.ph.i.i.i.i308:                                ; preds = %.preheader.i.i.i.i304, %315
   %.027.i.i.i.i309 = phi i32 [ %316, %315 ], [ %309, %.preheader.i.i.i.i304 ]
-  %313 = icmp ugt i32 %.027.i.i.i.i309, 1073741822
+  %313 = icmp samesign ugt i32 %.027.i.i.i.i309, 1073741822
   br i1 %313, label %314, label %315
 
 314:                                              ; preds = %.lr.ph.i.i.i.i308
@@ -42447,7 +42447,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i300:                  ; preds = %300, %297
 
 315:                                              ; preds = %.lr.ph.i.i.i.i308
   %316 = shl nuw nsw i32 %.027.i.i.i.i309, 1
-  %317 = icmp ult i32 %.027.i.i.i.i309, 24
+  %317 = icmp samesign ult i32 %.027.i.i.i.i309, 24
   br i1 %317, label %.lr.ph.i.i.i.i308, label %._crit_edge.i.i.loopexit.i.i310, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i310:                  ; preds = %315
@@ -42662,7 +42662,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i421:                  ; preds = %433, %430
   %441 = getelementptr inbounds i8, ptr %436, i64 12
   %442 = load i32, ptr %441, align 4
   %443 = zext i32 %442 to i64
-  %444 = icmp ugt i64 %440, %443
+  %444 = icmp samesign ugt i64 %440, %443
   br i1 %444, label %.preheader.i.i.i.i425, label %new_label_body.exit432
 
 .preheader.i.i.i.i425:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i421
@@ -42671,7 +42671,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i421:                  ; preds = %433, %430
 
 .lr.ph.i.i.i.i429:                                ; preds = %.preheader.i.i.i.i425, %448
   %.027.i.i.i.i430 = phi i32 [ %449, %448 ], [ %442, %.preheader.i.i.i.i425 ]
-  %446 = icmp ugt i32 %.027.i.i.i.i430, 1073741822
+  %446 = icmp samesign ugt i32 %.027.i.i.i.i430, 1073741822
   br i1 %446, label %447, label %448
 
 447:                                              ; preds = %.lr.ph.i.i.i.i429
@@ -42680,7 +42680,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i421:                  ; preds = %433, %430
 
 448:                                              ; preds = %.lr.ph.i.i.i.i429
   %449 = shl nuw nsw i32 %.027.i.i.i.i430, 1
-  %450 = icmp ult i32 %.027.i.i.i.i430, 24
+  %450 = icmp samesign ult i32 %.027.i.i.i.i430, 24
   br i1 %450, label %.lr.ph.i.i.i.i429, label %._crit_edge.i.i.loopexit.i.i431, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i431:                  ; preds = %448
@@ -42754,7 +42754,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i434:                  ; preds = %478, %new_label_bod
   %486 = getelementptr inbounds i8, ptr %481, i64 12
   %487 = load i32, ptr %486, align 4
   %488 = zext i32 %487 to i64
-  %489 = icmp ugt i64 %485, %488
+  %489 = icmp samesign ugt i64 %485, %488
   br i1 %489, label %.preheader.i.i.i.i438, label %new_label_body.exit445
 
 .preheader.i.i.i.i438:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i434
@@ -42763,7 +42763,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i434:                  ; preds = %478, %new_label_bod
 
 .lr.ph.i.i.i.i442:                                ; preds = %.preheader.i.i.i.i438, %493
   %.027.i.i.i.i443 = phi i32 [ %494, %493 ], [ %487, %.preheader.i.i.i.i438 ]
-  %491 = icmp ugt i32 %.027.i.i.i.i443, 1073741822
+  %491 = icmp samesign ugt i32 %.027.i.i.i.i443, 1073741822
   br i1 %491, label %492, label %493
 
 492:                                              ; preds = %.lr.ph.i.i.i.i442
@@ -42772,7 +42772,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i434:                  ; preds = %478, %new_label_bod
 
 493:                                              ; preds = %.lr.ph.i.i.i.i442
   %494 = shl nuw nsw i32 %.027.i.i.i.i443, 1
-  %495 = icmp ult i32 %.027.i.i.i.i443, 24
+  %495 = icmp samesign ult i32 %.027.i.i.i.i443, 24
   br i1 %495, label %.lr.ph.i.i.i.i442, label %._crit_edge.i.i.loopexit.i.i444, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i444:                  ; preds = %493
@@ -43311,7 +43311,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %5, %9
   %26 = getelementptr inbounds i8, ptr %21, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
-  %29 = icmp ugt i64 %25, %28
+  %29 = icmp samesign ugt i64 %25, %28
   br i1 %29, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -43320,7 +43320,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %5, %9
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %33
   %.027.i.i.i.i = phi i32 [ %34, %33 ], [ %27, %.preheader.i.i.i.i ]
-  %31 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %31 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %.lr.ph.i.i.i.i
@@ -43329,7 +43329,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %5, %9
 
 33:                                               ; preds = %.lr.ph.i.i.i.i
   %34 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %35 = icmp ult i32 %.027.i.i.i.i, 24
+  %35 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %33
@@ -43411,7 +43411,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i174:                  ; preds = %68, %new_label_body
   %76 = getelementptr inbounds i8, ptr %71, i64 12
   %77 = load i32, ptr %76, align 4
   %78 = zext i32 %77 to i64
-  %79 = icmp ugt i64 %75, %78
+  %79 = icmp samesign ugt i64 %75, %78
   br i1 %79, label %.preheader.i.i.i.i178, label %new_label_body.exit185
 
 .preheader.i.i.i.i178:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i174
@@ -43420,7 +43420,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i174:                  ; preds = %68, %new_label_body
 
 .lr.ph.i.i.i.i182:                                ; preds = %.preheader.i.i.i.i178, %83
   %.027.i.i.i.i183 = phi i32 [ %84, %83 ], [ %77, %.preheader.i.i.i.i178 ]
-  %81 = icmp ugt i32 %.027.i.i.i.i183, 1073741822
+  %81 = icmp samesign ugt i32 %.027.i.i.i.i183, 1073741822
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %.lr.ph.i.i.i.i182
@@ -43429,7 +43429,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i174:                  ; preds = %68, %new_label_body
 
 83:                                               ; preds = %.lr.ph.i.i.i.i182
   %84 = shl nuw nsw i32 %.027.i.i.i.i183, 1
-  %85 = icmp ult i32 %.027.i.i.i.i183, 24
+  %85 = icmp samesign ult i32 %.027.i.i.i.i183, 24
   br i1 %85, label %.lr.ph.i.i.i.i182, label %._crit_edge.i.i.loopexit.i.i184, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i184:                  ; preds = %83
@@ -43510,7 +43510,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i190:                  ; preds = %117, %new_label_bod
   %125 = getelementptr inbounds i8, ptr %120, i64 12
   %126 = load i32, ptr %125, align 4
   %127 = zext i32 %126 to i64
-  %128 = icmp ugt i64 %124, %127
+  %128 = icmp samesign ugt i64 %124, %127
   br i1 %128, label %.preheader.i.i.i.i194, label %new_label_body.exit201
 
 .preheader.i.i.i.i194:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i190
@@ -43519,7 +43519,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i190:                  ; preds = %117, %new_label_bod
 
 .lr.ph.i.i.i.i198:                                ; preds = %.preheader.i.i.i.i194, %132
   %.027.i.i.i.i199 = phi i32 [ %133, %132 ], [ %126, %.preheader.i.i.i.i194 ]
-  %130 = icmp ugt i32 %.027.i.i.i.i199, 1073741822
+  %130 = icmp samesign ugt i32 %.027.i.i.i.i199, 1073741822
   br i1 %130, label %131, label %132
 
 131:                                              ; preds = %.lr.ph.i.i.i.i198
@@ -43528,7 +43528,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i190:                  ; preds = %117, %new_label_bod
 
 132:                                              ; preds = %.lr.ph.i.i.i.i198
   %133 = shl nuw nsw i32 %.027.i.i.i.i199, 1
-  %134 = icmp ult i32 %.027.i.i.i.i199, 24
+  %134 = icmp samesign ult i32 %.027.i.i.i.i199, 24
   br i1 %134, label %.lr.ph.i.i.i.i198, label %._crit_edge.i.i.loopexit.i.i200, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i200:                  ; preds = %132
@@ -43609,7 +43609,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i206:                  ; preds = %166, %new_label_bod
   %174 = getelementptr inbounds i8, ptr %169, i64 12
   %175 = load i32, ptr %174, align 4
   %176 = zext i32 %175 to i64
-  %177 = icmp ugt i64 %173, %176
+  %177 = icmp samesign ugt i64 %173, %176
   br i1 %177, label %.preheader.i.i.i.i210, label %new_label_body.exit217
 
 .preheader.i.i.i.i210:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i206
@@ -43618,7 +43618,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i206:                  ; preds = %166, %new_label_bod
 
 .lr.ph.i.i.i.i214:                                ; preds = %.preheader.i.i.i.i210, %181
   %.027.i.i.i.i215 = phi i32 [ %182, %181 ], [ %175, %.preheader.i.i.i.i210 ]
-  %179 = icmp ugt i32 %.027.i.i.i.i215, 1073741822
+  %179 = icmp samesign ugt i32 %.027.i.i.i.i215, 1073741822
   br i1 %179, label %180, label %181
 
 180:                                              ; preds = %.lr.ph.i.i.i.i214
@@ -43627,7 +43627,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i206:                  ; preds = %166, %new_label_bod
 
 181:                                              ; preds = %.lr.ph.i.i.i.i214
   %182 = shl nuw nsw i32 %.027.i.i.i.i215, 1
-  %183 = icmp ult i32 %.027.i.i.i.i215, 24
+  %183 = icmp samesign ult i32 %.027.i.i.i.i215, 24
   br i1 %183, label %.lr.ph.i.i.i.i214, label %._crit_edge.i.i.loopexit.i.i216, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i216:                  ; preds = %181
@@ -43701,7 +43701,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i219:                  ; preds = %211, %new_label_bod
   %219 = getelementptr inbounds i8, ptr %214, i64 12
   %220 = load i32, ptr %219, align 4
   %221 = zext i32 %220 to i64
-  %222 = icmp ugt i64 %218, %221
+  %222 = icmp samesign ugt i64 %218, %221
   br i1 %222, label %.preheader.i.i.i.i223, label %new_label_body.exit230
 
 .preheader.i.i.i.i223:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i219
@@ -43710,7 +43710,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i219:                  ; preds = %211, %new_label_bod
 
 .lr.ph.i.i.i.i227:                                ; preds = %.preheader.i.i.i.i223, %226
   %.027.i.i.i.i228 = phi i32 [ %227, %226 ], [ %220, %.preheader.i.i.i.i223 ]
-  %224 = icmp ugt i32 %.027.i.i.i.i228, 1073741822
+  %224 = icmp samesign ugt i32 %.027.i.i.i.i228, 1073741822
   br i1 %224, label %225, label %226
 
 225:                                              ; preds = %.lr.ph.i.i.i.i227
@@ -43719,7 +43719,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i219:                  ; preds = %211, %new_label_bod
 
 226:                                              ; preds = %.lr.ph.i.i.i.i227
   %227 = shl nuw nsw i32 %.027.i.i.i.i228, 1
-  %228 = icmp ult i32 %.027.i.i.i.i228, 24
+  %228 = icmp samesign ult i32 %.027.i.i.i.i228, 24
   br i1 %228, label %.lr.ph.i.i.i.i227, label %._crit_edge.i.i.loopexit.i.i229, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i229:                  ; preds = %226
@@ -43793,7 +43793,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i232:                  ; preds = %256, %new_label_bod
   %264 = getelementptr inbounds i8, ptr %259, i64 12
   %265 = load i32, ptr %264, align 4
   %266 = zext i32 %265 to i64
-  %267 = icmp ugt i64 %263, %266
+  %267 = icmp samesign ugt i64 %263, %266
   br i1 %267, label %.preheader.i.i.i.i236, label %new_label_body.exit243
 
 .preheader.i.i.i.i236:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i232
@@ -43802,7 +43802,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i232:                  ; preds = %256, %new_label_bod
 
 .lr.ph.i.i.i.i240:                                ; preds = %.preheader.i.i.i.i236, %271
   %.027.i.i.i.i241 = phi i32 [ %272, %271 ], [ %265, %.preheader.i.i.i.i236 ]
-  %269 = icmp ugt i32 %.027.i.i.i.i241, 1073741822
+  %269 = icmp samesign ugt i32 %.027.i.i.i.i241, 1073741822
   br i1 %269, label %270, label %271
 
 270:                                              ; preds = %.lr.ph.i.i.i.i240
@@ -43811,7 +43811,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i232:                  ; preds = %256, %new_label_bod
 
 271:                                              ; preds = %.lr.ph.i.i.i.i240
   %272 = shl nuw nsw i32 %.027.i.i.i.i241, 1
-  %273 = icmp ult i32 %.027.i.i.i.i241, 24
+  %273 = icmp samesign ult i32 %.027.i.i.i.i241, 24
   br i1 %273, label %.lr.ph.i.i.i.i240, label %._crit_edge.i.i.loopexit.i.i242, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i242:                  ; preds = %271
@@ -43931,7 +43931,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i249:                  ; preds = %330, %327
   %338 = getelementptr inbounds i8, ptr %333, i64 12
   %339 = load i32, ptr %338, align 4
   %340 = zext i32 %339 to i64
-  %341 = icmp ugt i64 %337, %340
+  %341 = icmp samesign ugt i64 %337, %340
   br i1 %341, label %.preheader.i.i.i.i253, label %new_label_body.exit260
 
 .preheader.i.i.i.i253:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i249
@@ -43940,7 +43940,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i249:                  ; preds = %330, %327
 
 .lr.ph.i.i.i.i257:                                ; preds = %.preheader.i.i.i.i253, %345
   %.027.i.i.i.i258 = phi i32 [ %346, %345 ], [ %339, %.preheader.i.i.i.i253 ]
-  %343 = icmp ugt i32 %.027.i.i.i.i258, 1073741822
+  %343 = icmp samesign ugt i32 %.027.i.i.i.i258, 1073741822
   br i1 %343, label %344, label %345
 
 344:                                              ; preds = %.lr.ph.i.i.i.i257
@@ -43949,7 +43949,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i249:                  ; preds = %330, %327
 
 345:                                              ; preds = %.lr.ph.i.i.i.i257
   %346 = shl nuw nsw i32 %.027.i.i.i.i258, 1
-  %347 = icmp ult i32 %.027.i.i.i.i258, 24
+  %347 = icmp samesign ult i32 %.027.i.i.i.i258, 24
   br i1 %347, label %.lr.ph.i.i.i.i257, label %._crit_edge.i.i.loopexit.i.i259, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i259:                  ; preds = %345
@@ -44159,7 +44159,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i264:                  ; preds = %452, %446
   %460 = getelementptr inbounds i8, ptr %455, i64 12
   %461 = load i32, ptr %460, align 4
   %462 = zext i32 %461 to i64
-  %463 = icmp ugt i64 %459, %462
+  %463 = icmp samesign ugt i64 %459, %462
   br i1 %463, label %.preheader.i.i.i.i268, label %new_adjust_body.exit
 
 .preheader.i.i.i.i268:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i264
@@ -44168,7 +44168,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i264:                  ; preds = %452, %446
 
 .lr.ph.i.i.i.i272:                                ; preds = %.preheader.i.i.i.i268, %467
   %.027.i.i.i.i273 = phi i32 [ %468, %467 ], [ %461, %.preheader.i.i.i.i268 ]
-  %465 = icmp ugt i32 %.027.i.i.i.i273, 1073741822
+  %465 = icmp samesign ugt i32 %.027.i.i.i.i273, 1073741822
   br i1 %465, label %466, label %467
 
 466:                                              ; preds = %.lr.ph.i.i.i.i272
@@ -44177,7 +44177,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i264:                  ; preds = %452, %446
 
 467:                                              ; preds = %.lr.ph.i.i.i.i272
   %468 = shl nuw nsw i32 %.027.i.i.i.i273, 1
-  %469 = icmp ult i32 %.027.i.i.i.i273, 20
+  %469 = icmp samesign ult i32 %.027.i.i.i.i273, 20
   br i1 %469, label %.lr.ph.i.i.i.i272, label %._crit_edge.i.i.loopexit.i.i274, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i274:                  ; preds = %467
@@ -44541,7 +44541,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %4, %12
   %23 = getelementptr inbounds i8, ptr %18, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %26 = icmp ugt i64 %22, %25
+  %26 = icmp samesign ugt i64 %22, %25
   br i1 %26, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -44550,7 +44550,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %4, %12
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %30
   %.027.i.i.i.i = phi i32 [ %31, %30 ], [ %24, %.preheader.i.i.i.i ]
-  %28 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %28 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %.lr.ph.i.i.i.i
@@ -44559,7 +44559,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %4, %12
 
 30:                                               ; preds = %.lr.ph.i.i.i.i
   %31 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %32 = icmp ult i32 %.027.i.i.i.i, 24
+  %32 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %30
@@ -44634,7 +44634,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i79:                   ; preds = %61, %new_label_body
   %69 = getelementptr inbounds i8, ptr %64, i64 12
   %70 = load i32, ptr %69, align 4
   %71 = zext i32 %70 to i64
-  %72 = icmp ugt i64 %68, %71
+  %72 = icmp samesign ugt i64 %68, %71
   br i1 %72, label %.preheader.i.i.i.i83, label %new_label_body.exit90
 
 .preheader.i.i.i.i83:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i79
@@ -44643,7 +44643,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i79:                   ; preds = %61, %new_label_body
 
 .lr.ph.i.i.i.i87:                                 ; preds = %.preheader.i.i.i.i83, %76
   %.027.i.i.i.i88 = phi i32 [ %77, %76 ], [ %70, %.preheader.i.i.i.i83 ]
-  %74 = icmp ugt i32 %.027.i.i.i.i88, 1073741822
+  %74 = icmp samesign ugt i32 %.027.i.i.i.i88, 1073741822
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %.lr.ph.i.i.i.i87
@@ -44652,7 +44652,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i79:                   ; preds = %61, %new_label_body
 
 76:                                               ; preds = %.lr.ph.i.i.i.i87
   %77 = shl nuw nsw i32 %.027.i.i.i.i88, 1
-  %78 = icmp ult i32 %.027.i.i.i.i88, 24
+  %78 = icmp samesign ult i32 %.027.i.i.i.i88, 24
   br i1 %78, label %.lr.ph.i.i.i.i87, label %._crit_edge.i.i.loopexit.i.i89, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i89:                   ; preds = %76
@@ -45185,7 +45185,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %8, %3
   %17 = getelementptr inbounds i8, ptr %12, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
-  %20 = icmp ugt i64 %16, %19
+  %20 = icmp samesign ugt i64 %16, %19
   br i1 %20, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -45194,7 +45194,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %8, %3
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %24
   %.027.i.i.i.i = phi i32 [ %25, %24 ], [ %18, %.preheader.i.i.i.i ]
-  %22 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %22 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %.lr.ph.i.i.i.i
@@ -45203,7 +45203,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %8, %3
 
 24:                                               ; preds = %.lr.ph.i.i.i.i
   %25 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %26 = icmp ult i32 %.027.i.i.i.i, 24
+  %26 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %26, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %24
@@ -45278,7 +45278,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i79:                   ; preds = %55, %new_label_body
   %63 = getelementptr inbounds i8, ptr %58, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = zext i32 %64 to i64
-  %66 = icmp ugt i64 %62, %65
+  %66 = icmp samesign ugt i64 %62, %65
   br i1 %66, label %.preheader.i.i.i.i83, label %iseq_compile_each.exit
 
 .preheader.i.i.i.i83:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i79
@@ -45287,7 +45287,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i79:                   ; preds = %55, %new_label_body
 
 .lr.ph.i.i.i.i87:                                 ; preds = %.preheader.i.i.i.i83, %70
   %.027.i.i.i.i88 = phi i32 [ %71, %70 ], [ %64, %.preheader.i.i.i.i83 ]
-  %68 = icmp ugt i32 %.027.i.i.i.i88, 1073741822
+  %68 = icmp samesign ugt i32 %.027.i.i.i.i88, 1073741822
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %.lr.ph.i.i.i.i87
@@ -45296,7 +45296,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i79:                   ; preds = %55, %new_label_body
 
 70:                                               ; preds = %.lr.ph.i.i.i.i87
   %71 = shl nuw nsw i32 %.027.i.i.i.i88, 1
-  %72 = icmp ult i32 %.027.i.i.i.i88, 24
+  %72 = icmp samesign ult i32 %.027.i.i.i.i88, 24
   br i1 %72, label %.lr.ph.i.i.i.i87, label %._crit_edge.i.i.loopexit.i.i89, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i89:                   ; preds = %70
@@ -45625,7 +45625,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %ISEQ_COMPILE_DATA.e
   %30 = getelementptr inbounds i8, ptr %25, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
-  %33 = icmp ugt i64 %29, %32
+  %33 = icmp samesign ugt i64 %29, %32
   br i1 %33, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -45634,7 +45634,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %ISEQ_COMPILE_DATA.e
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %37
   %.027.i.i.i.i = phi i32 [ %38, %37 ], [ %31, %.preheader.i.i.i.i ]
-  %35 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %35 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %.lr.ph.i.i.i.i
@@ -45643,7 +45643,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %ISEQ_COMPILE_DATA.e
 
 37:                                               ; preds = %.lr.ph.i.i.i.i
   %38 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %39 = icmp ult i32 %.027.i.i.i.i, 24
+  %39 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %39, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %37
@@ -45731,7 +45731,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i71:                   ; preds = %new_label_body.exit
   %83 = getelementptr inbounds i8, ptr %78, i64 12
   %84 = load i32, ptr %83, align 4
   %85 = zext i32 %84 to i64
-  %86 = icmp ugt i64 %82, %85
+  %86 = icmp samesign ugt i64 %82, %85
   br i1 %86, label %.preheader.i.i.i.i75, label %compile_data_alloc_adjust.exit.i
 
 .preheader.i.i.i.i75:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i71
@@ -45740,7 +45740,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i71:                   ; preds = %new_label_body.exit
 
 .lr.ph.i.i.i.i79:                                 ; preds = %.preheader.i.i.i.i75, %90
   %.027.i.i.i.i80 = phi i32 [ %91, %90 ], [ %84, %.preheader.i.i.i.i75 ]
-  %88 = icmp ugt i32 %.027.i.i.i.i80, 1073741822
+  %88 = icmp samesign ugt i32 %.027.i.i.i.i80, 1073741822
   br i1 %88, label %89, label %90
 
 89:                                               ; preds = %.lr.ph.i.i.i.i79
@@ -45749,7 +45749,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i71:                   ; preds = %new_label_body.exit
 
 90:                                               ; preds = %.lr.ph.i.i.i.i79
   %91 = shl nuw nsw i32 %.027.i.i.i.i80, 1
-  %92 = icmp ult i32 %.027.i.i.i.i80, 20
+  %92 = icmp samesign ult i32 %.027.i.i.i.i80, 20
   br i1 %92, label %.lr.ph.i.i.i.i79, label %._crit_edge.i.i.loopexit.i.i81, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i81:                   ; preds = %90
@@ -45904,7 +45904,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i96:                   ; preds = %164, %iseq_compile_
   %172 = getelementptr inbounds i8, ptr %167, i64 12
   %173 = load i32, ptr %172, align 4
   %174 = zext i32 %173 to i64
-  %175 = icmp ugt i64 %171, %174
+  %175 = icmp samesign ugt i64 %171, %174
   br i1 %175, label %.preheader.i.i.i.i101, label %new_adjust_body.exit108
 
 .preheader.i.i.i.i101:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i96
@@ -45913,7 +45913,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i96:                   ; preds = %164, %iseq_compile_
 
 .lr.ph.i.i.i.i105:                                ; preds = %.preheader.i.i.i.i101, %179
   %.027.i.i.i.i106 = phi i32 [ %180, %179 ], [ %173, %.preheader.i.i.i.i101 ]
-  %177 = icmp ugt i32 %.027.i.i.i.i106, 1073741822
+  %177 = icmp samesign ugt i32 %.027.i.i.i.i106, 1073741822
   br i1 %177, label %178, label %179
 
 178:                                              ; preds = %.lr.ph.i.i.i.i105
@@ -45922,7 +45922,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i96:                   ; preds = %164, %iseq_compile_
 
 179:                                              ; preds = %.lr.ph.i.i.i.i105
   %180 = shl nuw nsw i32 %.027.i.i.i.i106, 1
-  %181 = icmp ult i32 %.027.i.i.i.i106, 20
+  %181 = icmp samesign ult i32 %.027.i.i.i.i106, 20
   br i1 %181, label %.lr.ph.i.i.i.i105, label %._crit_edge.i.i.loopexit.i.i107, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i107:                  ; preds = %179
@@ -46185,7 +46185,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %ISEQ_COMPILE_DATA.e
   %30 = getelementptr inbounds i8, ptr %25, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
-  %33 = icmp ugt i64 %29, %32
+  %33 = icmp samesign ugt i64 %29, %32
   br i1 %33, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -46194,7 +46194,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %ISEQ_COMPILE_DATA.e
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %37
   %.027.i.i.i.i = phi i32 [ %38, %37 ], [ %31, %.preheader.i.i.i.i ]
-  %35 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %35 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %.lr.ph.i.i.i.i
@@ -46203,7 +46203,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %ISEQ_COMPILE_DATA.e
 
 37:                                               ; preds = %.lr.ph.i.i.i.i
   %38 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %39 = icmp ult i32 %.027.i.i.i.i, 24
+  %39 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %39, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %37
@@ -46331,7 +46331,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i108:                  ; preds = %88, %91
   %102 = getelementptr inbounds i8, ptr %97, i64 12
   %103 = load i32, ptr %102, align 4
   %104 = zext i32 %103 to i64
-  %105 = icmp ugt i64 %101, %104
+  %105 = icmp samesign ugt i64 %101, %104
   br i1 %105, label %.preheader.i.i.i.i112, label %compile_data_alloc_adjust.exit.i
 
 .preheader.i.i.i.i112:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i108
@@ -46340,7 +46340,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i108:                  ; preds = %88, %91
 
 .lr.ph.i.i.i.i116:                                ; preds = %.preheader.i.i.i.i112, %109
   %.027.i.i.i.i117 = phi i32 [ %110, %109 ], [ %103, %.preheader.i.i.i.i112 ]
-  %107 = icmp ugt i32 %.027.i.i.i.i117, 1073741822
+  %107 = icmp samesign ugt i32 %.027.i.i.i.i117, 1073741822
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %.lr.ph.i.i.i.i116
@@ -46349,7 +46349,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i108:                  ; preds = %88, %91
 
 109:                                              ; preds = %.lr.ph.i.i.i.i116
   %110 = shl nuw nsw i32 %.027.i.i.i.i117, 1
-  %111 = icmp ult i32 %.027.i.i.i.i117, 20
+  %111 = icmp samesign ult i32 %.027.i.i.i.i117, 20
   br i1 %111, label %.lr.ph.i.i.i.i116, label %._crit_edge.i.i.loopexit.i.i118, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i118:                  ; preds = %109
@@ -46458,7 +46458,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i126:                  ; preds = %161, %new_adjust_bo
   %169 = getelementptr inbounds i8, ptr %164, i64 12
   %170 = load i32, ptr %169, align 4
   %171 = zext i32 %170 to i64
-  %172 = icmp ugt i64 %168, %171
+  %172 = icmp samesign ugt i64 %168, %171
   br i1 %172, label %.preheader.i.i.i.i131, label %new_adjust_body.exit138
 
 .preheader.i.i.i.i131:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i126
@@ -46467,7 +46467,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i126:                  ; preds = %161, %new_adjust_bo
 
 .lr.ph.i.i.i.i135:                                ; preds = %.preheader.i.i.i.i131, %176
   %.027.i.i.i.i136 = phi i32 [ %177, %176 ], [ %170, %.preheader.i.i.i.i131 ]
-  %174 = icmp ugt i32 %.027.i.i.i.i136, 1073741822
+  %174 = icmp samesign ugt i32 %.027.i.i.i.i136, 1073741822
   br i1 %174, label %175, label %176
 
 175:                                              ; preds = %.lr.ph.i.i.i.i135
@@ -46476,7 +46476,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i126:                  ; preds = %161, %new_adjust_bo
 
 176:                                              ; preds = %.lr.ph.i.i.i.i135
   %177 = shl nuw nsw i32 %.027.i.i.i.i136, 1
-  %178 = icmp ult i32 %.027.i.i.i.i136, 20
+  %178 = icmp samesign ult i32 %.027.i.i.i.i136, 20
   br i1 %178, label %.lr.ph.i.i.i.i135, label %._crit_edge.i.i.loopexit.i.i137, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i137:                  ; preds = %176
@@ -46606,7 +46606,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i155:                  ; preds = %ISEQ_COMPILE_DATA.e
   %231 = getelementptr inbounds i8, ptr %226, i64 12
   %232 = load i32, ptr %231, align 4
   %233 = zext i32 %232 to i64
-  %234 = icmp ugt i64 %230, %233
+  %234 = icmp samesign ugt i64 %230, %233
   br i1 %234, label %.preheader.i.i.i.i159, label %new_label_body.exit166
 
 .preheader.i.i.i.i159:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i155
@@ -46615,7 +46615,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i155:                  ; preds = %ISEQ_COMPILE_DATA.e
 
 .lr.ph.i.i.i.i163:                                ; preds = %.preheader.i.i.i.i159, %238
   %.027.i.i.i.i164 = phi i32 [ %239, %238 ], [ %232, %.preheader.i.i.i.i159 ]
-  %236 = icmp ugt i32 %.027.i.i.i.i164, 1073741822
+  %236 = icmp samesign ugt i32 %.027.i.i.i.i164, 1073741822
   br i1 %236, label %237, label %238
 
 237:                                              ; preds = %.lr.ph.i.i.i.i163
@@ -46624,7 +46624,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i155:                  ; preds = %ISEQ_COMPILE_DATA.e
 
 238:                                              ; preds = %.lr.ph.i.i.i.i163
   %239 = shl nuw nsw i32 %.027.i.i.i.i164, 1
-  %240 = icmp ult i32 %.027.i.i.i.i164, 24
+  %240 = icmp samesign ult i32 %.027.i.i.i.i164, 24
   br i1 %240, label %.lr.ph.i.i.i.i163, label %._crit_edge.i.i.loopexit.i.i165, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i165:                  ; preds = %238
@@ -46712,7 +46712,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i171:                  ; preds = %new_label_body.exit
   %284 = getelementptr inbounds i8, ptr %279, i64 12
   %285 = load i32, ptr %284, align 4
   %286 = zext i32 %285 to i64
-  %287 = icmp ugt i64 %283, %286
+  %287 = icmp samesign ugt i64 %283, %286
   br i1 %287, label %.preheader.i.i.i.i176, label %compile_data_alloc_adjust.exit.i173
 
 .preheader.i.i.i.i176:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i171
@@ -46721,7 +46721,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i171:                  ; preds = %new_label_body.exit
 
 .lr.ph.i.i.i.i180:                                ; preds = %.preheader.i.i.i.i176, %291
   %.027.i.i.i.i181 = phi i32 [ %292, %291 ], [ %285, %.preheader.i.i.i.i176 ]
-  %289 = icmp ugt i32 %.027.i.i.i.i181, 1073741822
+  %289 = icmp samesign ugt i32 %.027.i.i.i.i181, 1073741822
   br i1 %289, label %290, label %291
 
 290:                                              ; preds = %.lr.ph.i.i.i.i180
@@ -46730,7 +46730,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i171:                  ; preds = %new_label_body.exit
 
 291:                                              ; preds = %.lr.ph.i.i.i.i180
   %292 = shl nuw nsw i32 %.027.i.i.i.i181, 1
-  %293 = icmp ult i32 %.027.i.i.i.i181, 20
+  %293 = icmp samesign ult i32 %.027.i.i.i.i181, 20
   br i1 %293, label %.lr.ph.i.i.i.i180, label %._crit_edge.i.i.loopexit.i.i182, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i182:                  ; preds = %291
@@ -46879,7 +46879,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i197:                  ; preds = %361, %ISEQ_COMPILE_
   %369 = getelementptr inbounds i8, ptr %364, i64 12
   %370 = load i32, ptr %369, align 4
   %371 = zext i32 %370 to i64
-  %372 = icmp ugt i64 %368, %371
+  %372 = icmp samesign ugt i64 %368, %371
   br i1 %372, label %.preheader.i.i.i.i202, label %new_adjust_body.exit209
 
 .preheader.i.i.i.i202:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i197
@@ -46888,7 +46888,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i197:                  ; preds = %361, %ISEQ_COMPILE_
 
 .lr.ph.i.i.i.i206:                                ; preds = %.preheader.i.i.i.i202, %376
   %.027.i.i.i.i207 = phi i32 [ %377, %376 ], [ %370, %.preheader.i.i.i.i202 ]
-  %374 = icmp ugt i32 %.027.i.i.i.i207, 1073741822
+  %374 = icmp samesign ugt i32 %.027.i.i.i.i207, 1073741822
   br i1 %374, label %375, label %376
 
 375:                                              ; preds = %.lr.ph.i.i.i.i206
@@ -46897,7 +46897,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i197:                  ; preds = %361, %ISEQ_COMPILE_
 
 376:                                              ; preds = %.lr.ph.i.i.i.i206
   %377 = shl nuw nsw i32 %.027.i.i.i.i207, 1
-  %378 = icmp ult i32 %.027.i.i.i.i207, 20
+  %378 = icmp samesign ult i32 %.027.i.i.i.i207, 20
   br i1 %378, label %.lr.ph.i.i.i.i206, label %._crit_edge.i.i.loopexit.i.i208, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i208:                  ; preds = %376
@@ -47162,7 +47162,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %ISEQ_COMPILE_DATA.e
   %30 = getelementptr inbounds i8, ptr %25, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
-  %33 = icmp ugt i64 %29, %32
+  %33 = icmp samesign ugt i64 %29, %32
   br i1 %33, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -47171,7 +47171,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %ISEQ_COMPILE_DATA.e
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %37
   %.027.i.i.i.i = phi i32 [ %38, %37 ], [ %31, %.preheader.i.i.i.i ]
-  %35 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %35 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %.lr.ph.i.i.i.i
@@ -47180,7 +47180,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %ISEQ_COMPILE_DATA.e
 
 37:                                               ; preds = %.lr.ph.i.i.i.i
   %38 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %39 = icmp ult i32 %.027.i.i.i.i, 24
+  %39 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %39, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %37
@@ -47268,7 +47268,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i95:                   ; preds = %new_label_body.exit
   %83 = getelementptr inbounds i8, ptr %78, i64 12
   %84 = load i32, ptr %83, align 4
   %85 = zext i32 %84 to i64
-  %86 = icmp ugt i64 %82, %85
+  %86 = icmp samesign ugt i64 %82, %85
   br i1 %86, label %.preheader.i.i.i.i99, label %compile_data_alloc_adjust.exit.i
 
 .preheader.i.i.i.i99:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i95
@@ -47277,7 +47277,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i95:                   ; preds = %new_label_body.exit
 
 .lr.ph.i.i.i.i103:                                ; preds = %.preheader.i.i.i.i99, %90
   %.027.i.i.i.i104 = phi i32 [ %91, %90 ], [ %84, %.preheader.i.i.i.i99 ]
-  %88 = icmp ugt i32 %.027.i.i.i.i104, 1073741822
+  %88 = icmp samesign ugt i32 %.027.i.i.i.i104, 1073741822
   br i1 %88, label %89, label %90
 
 89:                                               ; preds = %.lr.ph.i.i.i.i103
@@ -47286,7 +47286,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i95:                   ; preds = %new_label_body.exit
 
 90:                                               ; preds = %.lr.ph.i.i.i.i103
   %91 = shl nuw nsw i32 %.027.i.i.i.i104, 1
-  %92 = icmp ult i32 %.027.i.i.i.i104, 20
+  %92 = icmp samesign ult i32 %.027.i.i.i.i104, 20
   br i1 %92, label %.lr.ph.i.i.i.i103, label %._crit_edge.i.i.loopexit.i.i105, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i105:                  ; preds = %90
@@ -47396,7 +47396,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i113:                  ; preds = %142, %new_adjust_bo
   %150 = getelementptr inbounds i8, ptr %145, i64 12
   %151 = load i32, ptr %150, align 4
   %152 = zext i32 %151 to i64
-  %153 = icmp ugt i64 %149, %152
+  %153 = icmp samesign ugt i64 %149, %152
   br i1 %153, label %.preheader.i.i.i.i118, label %new_adjust_body.exit125
 
 .preheader.i.i.i.i118:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i113
@@ -47405,7 +47405,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i113:                  ; preds = %142, %new_adjust_bo
 
 .lr.ph.i.i.i.i122:                                ; preds = %.preheader.i.i.i.i118, %157
   %.027.i.i.i.i123 = phi i32 [ %158, %157 ], [ %151, %.preheader.i.i.i.i118 ]
-  %155 = icmp ugt i32 %.027.i.i.i.i123, 1073741822
+  %155 = icmp samesign ugt i32 %.027.i.i.i.i123, 1073741822
   br i1 %155, label %156, label %157
 
 156:                                              ; preds = %.lr.ph.i.i.i.i122
@@ -47414,7 +47414,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i113:                  ; preds = %142, %new_adjust_bo
 
 157:                                              ; preds = %.lr.ph.i.i.i.i122
   %158 = shl nuw nsw i32 %.027.i.i.i.i123, 1
-  %159 = icmp ult i32 %.027.i.i.i.i123, 20
+  %159 = icmp samesign ult i32 %.027.i.i.i.i123, 20
   br i1 %159, label %.lr.ph.i.i.i.i122, label %._crit_edge.i.i.loopexit.i.i124, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i124:                  ; preds = %157
@@ -47565,7 +47565,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i142:                  ; preds = %ISEQ_COMPILE_DATA.e
   %221 = getelementptr inbounds i8, ptr %216, i64 12
   %222 = load i32, ptr %221, align 4
   %223 = zext i32 %222 to i64
-  %224 = icmp ugt i64 %220, %223
+  %224 = icmp samesign ugt i64 %220, %223
   br i1 %224, label %.preheader.i.i.i.i146, label %new_label_body.exit153
 
 .preheader.i.i.i.i146:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i142
@@ -47574,7 +47574,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i142:                  ; preds = %ISEQ_COMPILE_DATA.e
 
 .lr.ph.i.i.i.i150:                                ; preds = %.preheader.i.i.i.i146, %228
   %.027.i.i.i.i151 = phi i32 [ %229, %228 ], [ %222, %.preheader.i.i.i.i146 ]
-  %226 = icmp ugt i32 %.027.i.i.i.i151, 1073741822
+  %226 = icmp samesign ugt i32 %.027.i.i.i.i151, 1073741822
   br i1 %226, label %227, label %228
 
 227:                                              ; preds = %.lr.ph.i.i.i.i150
@@ -47583,7 +47583,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i142:                  ; preds = %ISEQ_COMPILE_DATA.e
 
 228:                                              ; preds = %.lr.ph.i.i.i.i150
   %229 = shl nuw nsw i32 %.027.i.i.i.i151, 1
-  %230 = icmp ult i32 %.027.i.i.i.i151, 24
+  %230 = icmp samesign ult i32 %.027.i.i.i.i151, 24
   br i1 %230, label %.lr.ph.i.i.i.i150, label %._crit_edge.i.i.loopexit.i.i152, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i152:                  ; preds = %228
@@ -47672,7 +47672,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i158:                  ; preds = %new_label_body.exit
   %274 = getelementptr inbounds i8, ptr %269, i64 12
   %275 = load i32, ptr %274, align 4
   %276 = zext i32 %275 to i64
-  %277 = icmp ugt i64 %273, %276
+  %277 = icmp samesign ugt i64 %273, %276
   br i1 %277, label %.preheader.i.i.i.i163, label %compile_data_alloc_adjust.exit.i160
 
 .preheader.i.i.i.i163:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i158
@@ -47681,7 +47681,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i158:                  ; preds = %new_label_body.exit
 
 .lr.ph.i.i.i.i167:                                ; preds = %.preheader.i.i.i.i163, %281
   %.027.i.i.i.i168 = phi i32 [ %282, %281 ], [ %275, %.preheader.i.i.i.i163 ]
-  %279 = icmp ugt i32 %.027.i.i.i.i168, 1073741822
+  %279 = icmp samesign ugt i32 %.027.i.i.i.i168, 1073741822
   br i1 %279, label %280, label %281
 
 280:                                              ; preds = %.lr.ph.i.i.i.i167
@@ -47690,7 +47690,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i158:                  ; preds = %new_label_body.exit
 
 281:                                              ; preds = %.lr.ph.i.i.i.i167
   %282 = shl nuw nsw i32 %.027.i.i.i.i168, 1
-  %283 = icmp ult i32 %.027.i.i.i.i168, 20
+  %283 = icmp samesign ult i32 %.027.i.i.i.i168, 20
   br i1 %283, label %.lr.ph.i.i.i.i167, label %._crit_edge.i.i.loopexit.i.i169, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i169:                  ; preds = %281
@@ -47799,7 +47799,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i178:                  ; preds = %333, %new_adjust_bo
   %341 = getelementptr inbounds i8, ptr %336, i64 12
   %342 = load i32, ptr %341, align 4
   %343 = zext i32 %342 to i64
-  %344 = icmp ugt i64 %340, %343
+  %344 = icmp samesign ugt i64 %340, %343
   br i1 %344, label %.preheader.i.i.i.i183, label %new_adjust_body.exit190
 
 .preheader.i.i.i.i183:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i178
@@ -47808,7 +47808,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i178:                  ; preds = %333, %new_adjust_bo
 
 .lr.ph.i.i.i.i187:                                ; preds = %.preheader.i.i.i.i183, %348
   %.027.i.i.i.i188 = phi i32 [ %349, %348 ], [ %342, %.preheader.i.i.i.i183 ]
-  %346 = icmp ugt i32 %.027.i.i.i.i188, 1073741822
+  %346 = icmp samesign ugt i32 %.027.i.i.i.i188, 1073741822
   br i1 %346, label %347, label %348
 
 347:                                              ; preds = %.lr.ph.i.i.i.i187
@@ -47817,7 +47817,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i178:                  ; preds = %333, %new_adjust_bo
 
 348:                                              ; preds = %.lr.ph.i.i.i.i187
   %349 = shl nuw nsw i32 %.027.i.i.i.i188, 1
-  %350 = icmp ult i32 %.027.i.i.i.i188, 20
+  %350 = icmp samesign ult i32 %.027.i.i.i.i188, 20
   br i1 %350, label %.lr.ph.i.i.i.i187, label %._crit_edge.i.i.loopexit.i.i189, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i189:                  ; preds = %348
@@ -48071,7 +48071,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %4
   %20 = getelementptr inbounds i8, ptr %15, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
-  %23 = icmp ugt i64 %19, %22
+  %23 = icmp samesign ugt i64 %19, %22
   br i1 %23, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -48080,7 +48080,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %4
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %27
   %.027.i.i.i.i = phi i32 [ %28, %27 ], [ %21, %.preheader.i.i.i.i ]
-  %25 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %25 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %.lr.ph.i.i.i.i
@@ -48089,7 +48089,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %4
 
 27:                                               ; preds = %.lr.ph.i.i.i.i
   %28 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %29 = icmp ult i32 %.027.i.i.i.i, 24
+  %29 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %29, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %27
@@ -48164,7 +48164,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i79:                   ; preds = %58, %new_label_body
   %66 = getelementptr inbounds i8, ptr %61, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = zext i32 %67 to i64
-  %69 = icmp ugt i64 %65, %68
+  %69 = icmp samesign ugt i64 %65, %68
   br i1 %69, label %.preheader.i.i.i.i83, label %new_label_body.exit90
 
 .preheader.i.i.i.i83:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i79
@@ -48173,7 +48173,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i79:                   ; preds = %58, %new_label_body
 
 .lr.ph.i.i.i.i87:                                 ; preds = %.preheader.i.i.i.i83, %73
   %.027.i.i.i.i88 = phi i32 [ %74, %73 ], [ %67, %.preheader.i.i.i.i83 ]
-  %71 = icmp ugt i32 %.027.i.i.i.i88, 1073741822
+  %71 = icmp samesign ugt i32 %.027.i.i.i.i88, 1073741822
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %.lr.ph.i.i.i.i87
@@ -48182,7 +48182,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i79:                   ; preds = %58, %new_label_body
 
 73:                                               ; preds = %.lr.ph.i.i.i.i87
   %74 = shl nuw nsw i32 %.027.i.i.i.i88, 1
-  %75 = icmp ult i32 %.027.i.i.i.i88, 24
+  %75 = icmp samesign ult i32 %.027.i.i.i.i88, 24
   br i1 %75, label %.lr.ph.i.i.i.i87, label %._crit_edge.i.i.loopexit.i.i89, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i89:                   ; preds = %73
@@ -48256,7 +48256,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i92:                   ; preds = %103, %new_label_bod
   %111 = getelementptr inbounds i8, ptr %106, i64 12
   %112 = load i32, ptr %111, align 4
   %113 = zext i32 %112 to i64
-  %114 = icmp ugt i64 %110, %113
+  %114 = icmp samesign ugt i64 %110, %113
   br i1 %114, label %.preheader.i.i.i.i96, label %new_label_body.exit103
 
 .preheader.i.i.i.i96:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i92
@@ -48265,7 +48265,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i92:                   ; preds = %103, %new_label_bod
 
 .lr.ph.i.i.i.i100:                                ; preds = %.preheader.i.i.i.i96, %118
   %.027.i.i.i.i101 = phi i32 [ %119, %118 ], [ %112, %.preheader.i.i.i.i96 ]
-  %116 = icmp ugt i32 %.027.i.i.i.i101, 1073741822
+  %116 = icmp samesign ugt i32 %.027.i.i.i.i101, 1073741822
   br i1 %116, label %117, label %118
 
 117:                                              ; preds = %.lr.ph.i.i.i.i100
@@ -48274,7 +48274,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i92:                   ; preds = %103, %new_label_bod
 
 118:                                              ; preds = %.lr.ph.i.i.i.i100
   %119 = shl nuw nsw i32 %.027.i.i.i.i101, 1
-  %120 = icmp ult i32 %.027.i.i.i.i101, 24
+  %120 = icmp samesign ult i32 %.027.i.i.i.i101, 24
   br i1 %120, label %.lr.ph.i.i.i.i100, label %._crit_edge.i.i.loopexit.i.i102, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i102:                  ; preds = %118
@@ -48695,7 +48695,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %8
   %19 = getelementptr inbounds i8, ptr %14, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  %22 = icmp ugt i64 %18, %21
+  %22 = icmp samesign ugt i64 %18, %21
   br i1 %22, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -48704,7 +48704,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %8
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %26
   %.027.i.i.i.i = phi i32 [ %27, %26 ], [ %20, %.preheader.i.i.i.i ]
-  %24 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %24 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %.lr.ph.i.i.i.i
@@ -48713,7 +48713,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %8
 
 26:                                               ; preds = %.lr.ph.i.i.i.i
   %27 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %28 = icmp ult i32 %.027.i.i.i.i, 24
+  %28 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %28, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %26
@@ -48787,7 +48787,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i106:                  ; preds = %56, %new_label_body
   %64 = getelementptr inbounds i8, ptr %59, i64 12
   %65 = load i32, ptr %64, align 4
   %66 = zext i32 %65 to i64
-  %67 = icmp ugt i64 %63, %66
+  %67 = icmp samesign ugt i64 %63, %66
   br i1 %67, label %.preheader.i.i.i.i110, label %new_label_body.exit117
 
 .preheader.i.i.i.i110:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i106
@@ -48796,7 +48796,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i106:                  ; preds = %56, %new_label_body
 
 .lr.ph.i.i.i.i114:                                ; preds = %.preheader.i.i.i.i110, %71
   %.027.i.i.i.i115 = phi i32 [ %72, %71 ], [ %65, %.preheader.i.i.i.i110 ]
-  %69 = icmp ugt i32 %.027.i.i.i.i115, 1073741822
+  %69 = icmp samesign ugt i32 %.027.i.i.i.i115, 1073741822
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %.lr.ph.i.i.i.i114
@@ -48805,7 +48805,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i106:                  ; preds = %56, %new_label_body
 
 71:                                               ; preds = %.lr.ph.i.i.i.i114
   %72 = shl nuw nsw i32 %.027.i.i.i.i115, 1
-  %73 = icmp ult i32 %.027.i.i.i.i115, 24
+  %73 = icmp samesign ult i32 %.027.i.i.i.i115, 24
   br i1 %73, label %.lr.ph.i.i.i.i114, label %._crit_edge.i.i.loopexit.i.i116, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i116:                  ; preds = %71
@@ -49164,7 +49164,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i132:                  ; preds = %270, %.loopexit
   %278 = getelementptr inbounds i8, ptr %273, i64 12
   %279 = load i32, ptr %278, align 4
   %280 = zext i32 %279 to i64
-  %281 = icmp ugt i64 %277, %280
+  %281 = icmp samesign ugt i64 %277, %280
   br i1 %281, label %.preheader.i.i.i.i135, label %new_trace_body.exit
 
 .preheader.i.i.i.i135:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i132
@@ -49173,7 +49173,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i132:                  ; preds = %270, %.loopexit
 
 .lr.ph.i.i.i.i139:                                ; preds = %.preheader.i.i.i.i135, %285
   %.027.i.i.i.i140 = phi i32 [ %286, %285 ], [ %279, %.preheader.i.i.i.i135 ]
-  %283 = icmp ugt i32 %.027.i.i.i.i140, 1073741822
+  %283 = icmp samesign ugt i32 %.027.i.i.i.i140, 1073741822
   br i1 %283, label %284, label %285
 
 284:                                              ; preds = %.lr.ph.i.i.i.i139
@@ -49182,7 +49182,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i132:                  ; preds = %270, %.loopexit
 
 285:                                              ; preds = %.lr.ph.i.i.i.i139
   %286 = shl nuw nsw i32 %.027.i.i.i.i140, 1
-  %287 = icmp ult i32 %.027.i.i.i.i140, 20
+  %287 = icmp samesign ult i32 %.027.i.i.i.i140, 20
   br i1 %287, label %.lr.ph.i.i.i.i139, label %._crit_edge.i.i.loopexit.i.i141, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i141:                  ; preds = %285
@@ -49378,7 +49378,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %44, %4
   %52 = getelementptr inbounds i8, ptr %47, i64 12
   %53 = load i32, ptr %52, align 4
   %54 = zext i32 %53 to i64
-  %55 = icmp ugt i64 %51, %54
+  %55 = icmp samesign ugt i64 %51, %54
   br i1 %55, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -49387,7 +49387,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %44, %4
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %59
   %.027.i.i.i.i = phi i32 [ %60, %59 ], [ %53, %.preheader.i.i.i.i ]
-  %57 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %57 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %.lr.ph.i.i.i.i
@@ -49396,7 +49396,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %44, %4
 
 59:                                               ; preds = %.lr.ph.i.i.i.i
   %60 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %61 = icmp ult i32 %.027.i.i.i.i, 24
+  %61 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %61, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %59
@@ -49470,7 +49470,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i78:                   ; preds = %89, %new_label_body
   %97 = getelementptr inbounds i8, ptr %92, i64 12
   %98 = load i32, ptr %97, align 4
   %99 = zext i32 %98 to i64
-  %100 = icmp ugt i64 %96, %99
+  %100 = icmp samesign ugt i64 %96, %99
   br i1 %100, label %.preheader.i.i.i.i82, label %new_label_body.exit89
 
 .preheader.i.i.i.i82:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i78
@@ -49479,7 +49479,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i78:                   ; preds = %89, %new_label_body
 
 .lr.ph.i.i.i.i86:                                 ; preds = %.preheader.i.i.i.i82, %104
   %.027.i.i.i.i87 = phi i32 [ %105, %104 ], [ %98, %.preheader.i.i.i.i82 ]
-  %102 = icmp ugt i32 %.027.i.i.i.i87, 1073741822
+  %102 = icmp samesign ugt i32 %.027.i.i.i.i87, 1073741822
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %.lr.ph.i.i.i.i86
@@ -49488,7 +49488,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i78:                   ; preds = %89, %new_label_body
 
 104:                                              ; preds = %.lr.ph.i.i.i.i86
   %105 = shl nuw nsw i32 %.027.i.i.i.i87, 1
-  %106 = icmp ult i32 %.027.i.i.i.i87, 24
+  %106 = icmp samesign ult i32 %.027.i.i.i.i87, 24
   br i1 %106, label %.lr.ph.i.i.i.i86, label %._crit_edge.i.i.loopexit.i.i88, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i88:                   ; preds = %104
@@ -49562,7 +49562,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i91:                   ; preds = %134, %new_label_bod
   %142 = getelementptr inbounds i8, ptr %137, i64 12
   %143 = load i32, ptr %142, align 4
   %144 = zext i32 %143 to i64
-  %145 = icmp ugt i64 %141, %144
+  %145 = icmp samesign ugt i64 %141, %144
   br i1 %145, label %.preheader.i.i.i.i95, label %new_label_body.exit102
 
 .preheader.i.i.i.i95:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i91
@@ -49571,7 +49571,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i91:                   ; preds = %134, %new_label_bod
 
 .lr.ph.i.i.i.i99:                                 ; preds = %.preheader.i.i.i.i95, %149
   %.027.i.i.i.i100 = phi i32 [ %150, %149 ], [ %143, %.preheader.i.i.i.i95 ]
-  %147 = icmp ugt i32 %.027.i.i.i.i100, 1073741822
+  %147 = icmp samesign ugt i32 %.027.i.i.i.i100, 1073741822
   br i1 %147, label %148, label %149
 
 148:                                              ; preds = %.lr.ph.i.i.i.i99
@@ -49580,7 +49580,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i91:                   ; preds = %134, %new_label_bod
 
 149:                                              ; preds = %.lr.ph.i.i.i.i99
   %150 = shl nuw nsw i32 %.027.i.i.i.i100, 1
-  %151 = icmp ult i32 %.027.i.i.i.i100, 24
+  %151 = icmp samesign ult i32 %.027.i.i.i.i100, 24
   br i1 %151, label %.lr.ph.i.i.i.i99, label %._crit_edge.i.i.loopexit.i.i101, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i101:                  ; preds = %149
@@ -50958,7 +50958,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %141, %137
   %150 = getelementptr inbounds i8, ptr %145, i64 12
   %151 = load i32, ptr %150, align 4
   %152 = zext i32 %151 to i64
-  %153 = icmp ugt i64 %149, %152
+  %153 = icmp samesign ugt i64 %149, %152
   br i1 %153, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -50967,7 +50967,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %141, %137
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %157
   %.027.i.i.i.i = phi i32 [ %158, %157 ], [ %151, %.preheader.i.i.i.i ]
-  %155 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %155 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %155, label %156, label %157
 
 156:                                              ; preds = %.lr.ph.i.i.i.i
@@ -50976,7 +50976,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %141, %137
 
 157:                                              ; preds = %.lr.ph.i.i.i.i
   %158 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %159 = icmp ult i32 %.027.i.i.i.i, 24
+  %159 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %159, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %157
@@ -51051,7 +51051,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i430:                  ; preds = %188, %new_label_bod
   %196 = getelementptr inbounds i8, ptr %191, i64 12
   %197 = load i32, ptr %196, align 4
   %198 = zext i32 %197 to i64
-  %199 = icmp ugt i64 %195, %198
+  %199 = icmp samesign ugt i64 %195, %198
   br i1 %199, label %.preheader.i.i.i.i434, label %new_label_body.exit441
 
 .preheader.i.i.i.i434:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i430
@@ -51060,7 +51060,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i430:                  ; preds = %188, %new_label_bod
 
 .lr.ph.i.i.i.i438:                                ; preds = %.preheader.i.i.i.i434, %203
   %.027.i.i.i.i439 = phi i32 [ %204, %203 ], [ %197, %.preheader.i.i.i.i434 ]
-  %201 = icmp ugt i32 %.027.i.i.i.i439, 1073741822
+  %201 = icmp samesign ugt i32 %.027.i.i.i.i439, 1073741822
   br i1 %201, label %202, label %203
 
 202:                                              ; preds = %.lr.ph.i.i.i.i438
@@ -51069,7 +51069,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i430:                  ; preds = %188, %new_label_bod
 
 203:                                              ; preds = %.lr.ph.i.i.i.i438
   %204 = shl nuw nsw i32 %.027.i.i.i.i439, 1
-  %205 = icmp ult i32 %.027.i.i.i.i439, 24
+  %205 = icmp samesign ult i32 %.027.i.i.i.i439, 24
   br i1 %205, label %.lr.ph.i.i.i.i438, label %._crit_edge.i.i.loopexit.i.i440, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i440:                  ; preds = %203
@@ -52231,7 +52231,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %12, %4
   %21 = getelementptr inbounds i8, ptr %16, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
-  %24 = icmp ugt i64 %20, %23
+  %24 = icmp samesign ugt i64 %20, %23
   br i1 %24, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -52240,7 +52240,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %12, %4
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %28
   %.027.i.i.i.i = phi i32 [ %29, %28 ], [ %22, %.preheader.i.i.i.i ]
-  %26 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %26 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %.lr.ph.i.i.i.i
@@ -52249,7 +52249,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %12, %4
 
 28:                                               ; preds = %.lr.ph.i.i.i.i
   %29 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %30 = icmp ult i32 %.027.i.i.i.i, 24
+  %30 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %30, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %28
@@ -52324,7 +52324,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i148:                  ; preds = %59, %new_label_body
   %67 = getelementptr inbounds i8, ptr %62, i64 12
   %68 = load i32, ptr %67, align 4
   %69 = zext i32 %68 to i64
-  %70 = icmp ugt i64 %66, %69
+  %70 = icmp samesign ugt i64 %66, %69
   br i1 %70, label %.preheader.i.i.i.i152, label %new_label_body.exit159
 
 .preheader.i.i.i.i152:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i148
@@ -52333,7 +52333,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i148:                  ; preds = %59, %new_label_body
 
 .lr.ph.i.i.i.i156:                                ; preds = %.preheader.i.i.i.i152, %74
   %.027.i.i.i.i157 = phi i32 [ %75, %74 ], [ %68, %.preheader.i.i.i.i152 ]
-  %72 = icmp ugt i32 %.027.i.i.i.i157, 1073741822
+  %72 = icmp samesign ugt i32 %.027.i.i.i.i157, 1073741822
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %.lr.ph.i.i.i.i156
@@ -52342,7 +52342,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i148:                  ; preds = %59, %new_label_body
 
 74:                                               ; preds = %.lr.ph.i.i.i.i156
   %75 = shl nuw nsw i32 %.027.i.i.i.i157, 1
-  %76 = icmp ult i32 %.027.i.i.i.i157, 24
+  %76 = icmp samesign ult i32 %.027.i.i.i.i157, 24
   br i1 %76, label %.lr.ph.i.i.i.i156, label %._crit_edge.i.i.loopexit.i.i158, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i158:                  ; preds = %74
@@ -52494,7 +52494,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i164:                  ; preds = %142, %139
   %150 = getelementptr inbounds i8, ptr %145, i64 12
   %151 = load i32, ptr %150, align 4
   %152 = zext i32 %151 to i64
-  %153 = icmp ugt i64 %149, %152
+  %153 = icmp samesign ugt i64 %149, %152
   br i1 %153, label %.preheader.i.i.i.i168, label %new_label_body.exit175
 
 .preheader.i.i.i.i168:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i164
@@ -52503,7 +52503,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i164:                  ; preds = %142, %139
 
 .lr.ph.i.i.i.i172:                                ; preds = %.preheader.i.i.i.i168, %157
   %.027.i.i.i.i173 = phi i32 [ %158, %157 ], [ %151, %.preheader.i.i.i.i168 ]
-  %155 = icmp ugt i32 %.027.i.i.i.i173, 1073741822
+  %155 = icmp samesign ugt i32 %.027.i.i.i.i173, 1073741822
   br i1 %155, label %156, label %157
 
 156:                                              ; preds = %.lr.ph.i.i.i.i172
@@ -52512,7 +52512,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i164:                  ; preds = %142, %139
 
 157:                                              ; preds = %.lr.ph.i.i.i.i172
   %158 = shl nuw nsw i32 %.027.i.i.i.i173, 1
-  %159 = icmp ult i32 %.027.i.i.i.i173, 24
+  %159 = icmp samesign ult i32 %.027.i.i.i.i173, 24
   br i1 %159, label %.lr.ph.i.i.i.i172, label %._crit_edge.i.i.loopexit.i.i174, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i174:                  ; preds = %157
@@ -53054,7 +53054,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %58, %55
   %67 = getelementptr inbounds i8, ptr %62, i64 12
   %68 = load i32, ptr %67, align 4
   %69 = zext i32 %68 to i64
-  %70 = icmp ugt i64 %66, %69
+  %70 = icmp samesign ugt i64 %66, %69
   br i1 %70, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -53063,7 +53063,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %58, %55
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %74
   %.027.i.i.i.i = phi i32 [ %75, %74 ], [ %68, %.preheader.i.i.i.i ]
-  %72 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %72 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %.lr.ph.i.i.i.i
@@ -53072,7 +53072,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %58, %55
 
 74:                                               ; preds = %.lr.ph.i.i.i.i
   %75 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %76 = icmp ult i32 %.027.i.i.i.i, 24
+  %76 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %76, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %74
@@ -53234,7 +53234,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i145:                  ; preds = %166, %163
   %175 = getelementptr inbounds i8, ptr %170, i64 12
   %176 = load i32, ptr %175, align 4
   %177 = zext i32 %176 to i64
-  %178 = icmp ugt i64 %174, %177
+  %178 = icmp samesign ugt i64 %174, %177
   br i1 %178, label %.preheader.i.i.i.i149, label %new_label_body.exit156
 
 .preheader.i.i.i.i149:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i145
@@ -53243,7 +53243,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i145:                  ; preds = %166, %163
 
 .lr.ph.i.i.i.i153:                                ; preds = %.preheader.i.i.i.i149, %182
   %.027.i.i.i.i154 = phi i32 [ %183, %182 ], [ %176, %.preheader.i.i.i.i149 ]
-  %180 = icmp ugt i32 %.027.i.i.i.i154, 1073741822
+  %180 = icmp samesign ugt i32 %.027.i.i.i.i154, 1073741822
   br i1 %180, label %181, label %182
 
 181:                                              ; preds = %.lr.ph.i.i.i.i153
@@ -53252,7 +53252,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i145:                  ; preds = %166, %163
 
 182:                                              ; preds = %.lr.ph.i.i.i.i153
   %183 = shl nuw nsw i32 %.027.i.i.i.i154, 1
-  %184 = icmp ult i32 %.027.i.i.i.i154, 24
+  %184 = icmp samesign ult i32 %.027.i.i.i.i154, 24
   br i1 %184, label %.lr.ph.i.i.i.i153, label %._crit_edge.i.i.loopexit.i.i155, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i155:                  ; preds = %182
@@ -53627,7 +53627,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %9, %5
   %18 = getelementptr inbounds i8, ptr %13, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
-  %21 = icmp ugt i64 %17, %20
+  %21 = icmp samesign ugt i64 %17, %20
   br i1 %21, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -53636,7 +53636,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %9, %5
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %25
   %.027.i.i.i.i = phi i32 [ %26, %25 ], [ %19, %.preheader.i.i.i.i ]
-  %23 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %23 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %.lr.ph.i.i.i.i
@@ -53645,7 +53645,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %9, %5
 
 25:                                               ; preds = %.lr.ph.i.i.i.i
   %26 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %27 = icmp ult i32 %.027.i.i.i.i, 24
+  %27 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %27, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %25
@@ -53741,7 +53741,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i63:                   ; preds = %66, %63
   %74 = getelementptr inbounds i8, ptr %69, i64 12
   %75 = load i32, ptr %74, align 4
   %76 = zext i32 %75 to i64
-  %77 = icmp ugt i64 %73, %76
+  %77 = icmp samesign ugt i64 %73, %76
   br i1 %77, label %.preheader.i.i.i.i67, label %new_label_body.exit74
 
 .preheader.i.i.i.i67:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i63
@@ -53750,7 +53750,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i63:                   ; preds = %66, %63
 
 .lr.ph.i.i.i.i71:                                 ; preds = %.preheader.i.i.i.i67, %81
   %.027.i.i.i.i72 = phi i32 [ %82, %81 ], [ %75, %.preheader.i.i.i.i67 ]
-  %79 = icmp ugt i32 %.027.i.i.i.i72, 1073741822
+  %79 = icmp samesign ugt i32 %.027.i.i.i.i72, 1073741822
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %.lr.ph.i.i.i.i71
@@ -53759,7 +53759,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i63:                   ; preds = %66, %63
 
 81:                                               ; preds = %.lr.ph.i.i.i.i71
   %82 = shl nuw nsw i32 %.027.i.i.i.i72, 1
-  %83 = icmp ult i32 %.027.i.i.i.i72, 24
+  %83 = icmp samesign ult i32 %.027.i.i.i.i72, 24
   br i1 %83, label %.lr.ph.i.i.i.i71, label %._crit_edge.i.i.loopexit.i.i73, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i73:                   ; preds = %81
@@ -53858,7 +53858,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i76:                   ; preds = %127, %124
   %135 = getelementptr inbounds i8, ptr %130, i64 12
   %136 = load i32, ptr %135, align 4
   %137 = zext i32 %136 to i64
-  %138 = icmp ugt i64 %134, %137
+  %138 = icmp samesign ugt i64 %134, %137
   br i1 %138, label %.preheader.i.i.i.i80, label %new_label_body.exit87
 
 .preheader.i.i.i.i80:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i76
@@ -53867,7 +53867,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i76:                   ; preds = %127, %124
 
 .lr.ph.i.i.i.i84:                                 ; preds = %.preheader.i.i.i.i80, %142
   %.027.i.i.i.i85 = phi i32 [ %143, %142 ], [ %136, %.preheader.i.i.i.i80 ]
-  %140 = icmp ugt i32 %.027.i.i.i.i85, 1073741822
+  %140 = icmp samesign ugt i32 %.027.i.i.i.i85, 1073741822
   br i1 %140, label %141, label %142
 
 141:                                              ; preds = %.lr.ph.i.i.i.i84
@@ -53876,7 +53876,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i76:                   ; preds = %127, %124
 
 142:                                              ; preds = %.lr.ph.i.i.i.i84
   %143 = shl nuw nsw i32 %.027.i.i.i.i85, 1
-  %144 = icmp ult i32 %.027.i.i.i.i85, 24
+  %144 = icmp samesign ult i32 %.027.i.i.i.i85, 24
   br i1 %144, label %.lr.ph.i.i.i.i84, label %._crit_edge.i.i.loopexit.i.i86, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i86:                   ; preds = %142
@@ -57729,7 +57729,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %31, %.thread
   %40 = getelementptr inbounds i8, ptr %35, i64 12
   %41 = load i32, ptr %40, align 4
   %42 = zext i32 %41 to i64
-  %43 = icmp ugt i64 %39, %42
+  %43 = icmp samesign ugt i64 %39, %42
   br i1 %43, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -57738,7 +57738,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %31, %.thread
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %47
   %.027.i.i.i.i = phi i32 [ %48, %47 ], [ %41, %.preheader.i.i.i.i ]
-  %45 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %45 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %.lr.ph.i.i.i.i
@@ -57747,7 +57747,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %31, %.thread
 
 47:                                               ; preds = %.lr.ph.i.i.i.i
   %48 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %49 = icmp ult i32 %.027.i.i.i.i, 24
+  %49 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %49, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %47
@@ -57832,7 +57832,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i64:                   ; preds = %85, %new_label_body
   %93 = getelementptr inbounds i8, ptr %88, i64 12
   %94 = load i32, ptr %93, align 4
   %95 = zext i32 %94 to i64
-  %96 = icmp ugt i64 %92, %95
+  %96 = icmp samesign ugt i64 %92, %95
   br i1 %96, label %.preheader.i.i.i.i67, label %new_adjust_body.exit
 
 .preheader.i.i.i.i67:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i64
@@ -57841,7 +57841,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i64:                   ; preds = %85, %new_label_body
 
 .lr.ph.i.i.i.i71:                                 ; preds = %.preheader.i.i.i.i67, %100
   %.027.i.i.i.i72 = phi i32 [ %101, %100 ], [ %94, %.preheader.i.i.i.i67 ]
-  %98 = icmp ugt i32 %.027.i.i.i.i72, 1073741822
+  %98 = icmp samesign ugt i32 %.027.i.i.i.i72, 1073741822
   br i1 %98, label %99, label %100
 
 99:                                               ; preds = %.lr.ph.i.i.i.i71
@@ -57850,7 +57850,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i64:                   ; preds = %85, %new_label_body
 
 100:                                              ; preds = %.lr.ph.i.i.i.i71
   %101 = shl nuw nsw i32 %.027.i.i.i.i72, 1
-  %102 = icmp ult i32 %.027.i.i.i.i72, 20
+  %102 = icmp samesign ult i32 %.027.i.i.i.i72, 20
   br i1 %102, label %.lr.ph.i.i.i.i71, label %._crit_edge.i.i.loopexit.i.i73, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i73:                   ; preds = %100
@@ -58001,7 +58001,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i79:                   ; preds = %160, %.loopexit
   %169 = getelementptr inbounds i8, ptr %164, i64 12
   %170 = load i32, ptr %169, align 4
   %171 = zext i32 %170 to i64
-  %172 = icmp ugt i64 %168, %171
+  %172 = icmp samesign ugt i64 %168, %171
   br i1 %172, label %.preheader.i.i.i.i82, label %new_trace_body.exit
 
 .preheader.i.i.i.i82:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i79
@@ -58010,7 +58010,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i79:                   ; preds = %160, %.loopexit
 
 .lr.ph.i.i.i.i86:                                 ; preds = %.preheader.i.i.i.i82, %176
   %.027.i.i.i.i87 = phi i32 [ %177, %176 ], [ %170, %.preheader.i.i.i.i82 ]
-  %174 = icmp ugt i32 %.027.i.i.i.i87, 1073741822
+  %174 = icmp samesign ugt i32 %.027.i.i.i.i87, 1073741822
   br i1 %174, label %175, label %176
 
 175:                                              ; preds = %.lr.ph.i.i.i.i86
@@ -58019,7 +58019,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i79:                   ; preds = %160, %.loopexit
 
 176:                                              ; preds = %.lr.ph.i.i.i.i86
   %177 = shl nuw nsw i32 %.027.i.i.i.i87, 1
-  %178 = icmp ult i32 %.027.i.i.i.i87, 20
+  %178 = icmp samesign ult i32 %.027.i.i.i.i87, 20
   br i1 %178, label %.lr.ph.i.i.i.i86, label %._crit_edge.i.i.loopexit.i.i88, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i88:                   ; preds = %176
@@ -58096,7 +58096,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i91:                   ; preds = %208, %new_trace_bod
   %217 = getelementptr inbounds i8, ptr %212, i64 12
   %218 = load i32, ptr %217, align 4
   %219 = zext i32 %218 to i64
-  %220 = icmp ugt i64 %216, %219
+  %220 = icmp samesign ugt i64 %216, %219
   br i1 %220, label %.preheader.i.i.i.i95, label %compile_data_alloc_adjust.exit.i
 
 .preheader.i.i.i.i95:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i91
@@ -58105,7 +58105,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i91:                   ; preds = %208, %new_trace_bod
 
 .lr.ph.i.i.i.i99:                                 ; preds = %.preheader.i.i.i.i95, %224
   %.027.i.i.i.i100 = phi i32 [ %225, %224 ], [ %218, %.preheader.i.i.i.i95 ]
-  %222 = icmp ugt i32 %.027.i.i.i.i100, 1073741822
+  %222 = icmp samesign ugt i32 %.027.i.i.i.i100, 1073741822
   br i1 %222, label %223, label %224
 
 223:                                              ; preds = %.lr.ph.i.i.i.i99
@@ -58114,7 +58114,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i91:                   ; preds = %208, %new_trace_bod
 
 224:                                              ; preds = %.lr.ph.i.i.i.i99
   %225 = shl nuw nsw i32 %.027.i.i.i.i100, 1
-  %226 = icmp ult i32 %.027.i.i.i.i100, 20
+  %226 = icmp samesign ult i32 %.027.i.i.i.i100, 20
   br i1 %226, label %.lr.ph.i.i.i.i99, label %._crit_edge.i.i.loopexit.i.i101, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i101:                  ; preds = %224
@@ -59752,7 +59752,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %9, %6
   %18 = getelementptr inbounds i8, ptr %13, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
-  %21 = icmp ugt i64 %17, %20
+  %21 = icmp samesign ugt i64 %17, %20
   br i1 %21, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -59761,7 +59761,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %9, %6
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %25
   %.027.i.i.i.i = phi i32 [ %26, %25 ], [ %19, %.preheader.i.i.i.i ]
-  %23 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %23 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %.lr.ph.i.i.i.i
@@ -59770,7 +59770,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %9, %6
 
 25:                                               ; preds = %.lr.ph.i.i.i.i
   %26 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %27 = icmp ult i32 %.027.i.i.i.i, 24
+  %27 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %27, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %25
@@ -60213,7 +60213,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %25, %20
   %34 = getelementptr inbounds i8, ptr %29, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
-  %37 = icmp ugt i64 %33, %36
+  %37 = icmp samesign ugt i64 %33, %36
   br i1 %37, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -60222,7 +60222,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %25, %20
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %41
   %.027.i.i.i.i = phi i32 [ %42, %41 ], [ %35, %.preheader.i.i.i.i ]
-  %39 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %39 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %.lr.ph.i.i.i.i
@@ -60231,7 +60231,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %25, %20
 
 41:                                               ; preds = %.lr.ph.i.i.i.i
   %42 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %43 = icmp ult i32 %.027.i.i.i.i, 24
+  %43 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %43, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %41
@@ -60554,7 +60554,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %8, %3
   %17 = getelementptr inbounds i8, ptr %12, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
-  %20 = icmp ugt i64 %16, %19
+  %20 = icmp samesign ugt i64 %16, %19
   br i1 %20, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -60563,7 +60563,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %8, %3
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %24
   %.027.i.i.i.i = phi i32 [ %25, %24 ], [ %18, %.preheader.i.i.i.i ]
-  %22 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %22 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %.lr.ph.i.i.i.i
@@ -60572,7 +60572,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %8, %3
 
 24:                                               ; preds = %.lr.ph.i.i.i.i
   %25 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %26 = icmp ult i32 %.027.i.i.i.i, 24
+  %26 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %26, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %24
@@ -61414,7 +61414,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %26, %23
   %34 = getelementptr inbounds i8, ptr %29, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
-  %37 = icmp ugt i64 %33, %36
+  %37 = icmp samesign ugt i64 %33, %36
   br i1 %37, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -61423,7 +61423,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %26, %23
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %41
   %.027.i.i.i.i = phi i32 [ %42, %41 ], [ %35, %.preheader.i.i.i.i ]
-  %39 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %39 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %.lr.ph.i.i.i.i
@@ -61432,7 +61432,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %26, %23
 
 41:                                               ; preds = %.lr.ph.i.i.i.i
   %42 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %43 = icmp ult i32 %.027.i.i.i.i, 24
+  %43 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %43, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %41
@@ -61523,7 +61523,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i97:                   ; preds = %80, %77
   %88 = getelementptr inbounds i8, ptr %83, i64 12
   %89 = load i32, ptr %88, align 4
   %90 = zext i32 %89 to i64
-  %91 = icmp ugt i64 %87, %90
+  %91 = icmp samesign ugt i64 %87, %90
   br i1 %91, label %.preheader.i.i.i.i101, label %new_label_body.exit108
 
 .preheader.i.i.i.i101:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i97
@@ -61532,7 +61532,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i97:                   ; preds = %80, %77
 
 .lr.ph.i.i.i.i105:                                ; preds = %.preheader.i.i.i.i101, %95
   %.027.i.i.i.i106 = phi i32 [ %96, %95 ], [ %89, %.preheader.i.i.i.i101 ]
-  %93 = icmp ugt i32 %.027.i.i.i.i106, 1073741822
+  %93 = icmp samesign ugt i32 %.027.i.i.i.i106, 1073741822
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %.lr.ph.i.i.i.i105
@@ -61541,7 +61541,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i97:                   ; preds = %80, %77
 
 95:                                               ; preds = %.lr.ph.i.i.i.i105
   %96 = shl nuw nsw i32 %.027.i.i.i.i106, 1
-  %97 = icmp ult i32 %.027.i.i.i.i106, 24
+  %97 = icmp samesign ult i32 %.027.i.i.i.i106, 24
   br i1 %97, label %.lr.ph.i.i.i.i105, label %._crit_edge.i.i.loopexit.i.i107, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i107:                  ; preds = %95
@@ -62151,7 +62151,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %108, %105
   %117 = getelementptr inbounds i8, ptr %112, i64 12
   %118 = load i32, ptr %117, align 4
   %119 = zext i32 %118 to i64
-  %120 = icmp ugt i64 %116, %119
+  %120 = icmp samesign ugt i64 %116, %119
   br i1 %120, label %.preheader.i.i.i.i, label %new_trace_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -62160,7 +62160,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %108, %105
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %124
   %.027.i.i.i.i = phi i32 [ %125, %124 ], [ %118, %.preheader.i.i.i.i ]
-  %122 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %122 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %122, label %123, label %124
 
 123:                                              ; preds = %.lr.ph.i.i.i.i
@@ -62169,7 +62169,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %108, %105
 
 124:                                              ; preds = %.lr.ph.i.i.i.i
   %125 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %126 = icmp ult i32 %.027.i.i.i.i, 20
+  %126 = icmp samesign ult i32 %.027.i.i.i.i, 20
   br i1 %126, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %124
@@ -62255,7 +62255,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %10, %5
   %19 = getelementptr inbounds i8, ptr %14, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  %22 = icmp ugt i64 %18, %21
+  %22 = icmp samesign ugt i64 %18, %21
   br i1 %22, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -62264,7 +62264,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %10, %5
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %26
   %.027.i.i.i.i = phi i32 [ %27, %26 ], [ %20, %.preheader.i.i.i.i ]
-  %24 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %24 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %.lr.ph.i.i.i.i
@@ -62273,7 +62273,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %10, %5
 
 26:                                               ; preds = %.lr.ph.i.i.i.i
   %27 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %28 = icmp ult i32 %.027.i.i.i.i, 24
+  %28 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %28, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %26
@@ -62989,7 +62989,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %45, %41
   %54 = getelementptr inbounds i8, ptr %49, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = zext i32 %55 to i64
-  %57 = icmp ugt i64 %53, %56
+  %57 = icmp samesign ugt i64 %53, %56
   br i1 %57, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -62998,7 +62998,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %45, %41
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %61
   %.027.i.i.i.i = phi i32 [ %62, %61 ], [ %55, %.preheader.i.i.i.i ]
-  %59 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %59 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %.lr.ph.i.i.i.i
@@ -63007,7 +63007,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %45, %41
 
 61:                                               ; preds = %.lr.ph.i.i.i.i
   %62 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %63 = icmp ult i32 %.027.i.i.i.i, 24
+  %63 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %63, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %61
@@ -63082,7 +63082,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1221:                 ; preds = %92, %new_label_body
   %100 = getelementptr inbounds i8, ptr %95, i64 12
   %101 = load i32, ptr %100, align 4
   %102 = zext i32 %101 to i64
-  %103 = icmp ugt i64 %99, %102
+  %103 = icmp samesign ugt i64 %99, %102
   br i1 %103, label %.preheader.i.i.i.i1225, label %new_label_body.exit1232
 
 .preheader.i.i.i.i1225:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1221
@@ -63091,7 +63091,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1221:                 ; preds = %92, %new_label_body
 
 .lr.ph.i.i.i.i1229:                               ; preds = %.preheader.i.i.i.i1225, %107
   %.027.i.i.i.i1230 = phi i32 [ %108, %107 ], [ %101, %.preheader.i.i.i.i1225 ]
-  %105 = icmp ugt i32 %.027.i.i.i.i1230, 1073741822
+  %105 = icmp samesign ugt i32 %.027.i.i.i.i1230, 1073741822
   br i1 %105, label %106, label %107
 
 106:                                              ; preds = %.lr.ph.i.i.i.i1229
@@ -63100,7 +63100,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1221:                 ; preds = %92, %new_label_body
 
 107:                                              ; preds = %.lr.ph.i.i.i.i1229
   %108 = shl nuw nsw i32 %.027.i.i.i.i1230, 1
-  %109 = icmp ult i32 %.027.i.i.i.i1230, 24
+  %109 = icmp samesign ult i32 %.027.i.i.i.i1230, 24
   br i1 %109, label %.lr.ph.i.i.i.i1229, label %._crit_edge.i.i.loopexit.i.i1231, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1231:                 ; preds = %107
@@ -63174,7 +63174,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1234:                 ; preds = %137, %new_label_bod
   %145 = getelementptr inbounds i8, ptr %140, i64 12
   %146 = load i32, ptr %145, align 4
   %147 = zext i32 %146 to i64
-  %148 = icmp ugt i64 %144, %147
+  %148 = icmp samesign ugt i64 %144, %147
   br i1 %148, label %.preheader.i.i.i.i1238, label %new_label_body.exit1245
 
 .preheader.i.i.i.i1238:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1234
@@ -63183,7 +63183,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1234:                 ; preds = %137, %new_label_bod
 
 .lr.ph.i.i.i.i1242:                               ; preds = %.preheader.i.i.i.i1238, %152
   %.027.i.i.i.i1243 = phi i32 [ %153, %152 ], [ %146, %.preheader.i.i.i.i1238 ]
-  %150 = icmp ugt i32 %.027.i.i.i.i1243, 1073741822
+  %150 = icmp samesign ugt i32 %.027.i.i.i.i1243, 1073741822
   br i1 %150, label %151, label %152
 
 151:                                              ; preds = %.lr.ph.i.i.i.i1242
@@ -63192,7 +63192,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1234:                 ; preds = %137, %new_label_bod
 
 152:                                              ; preds = %.lr.ph.i.i.i.i1242
   %153 = shl nuw nsw i32 %.027.i.i.i.i1243, 1
-  %154 = icmp ult i32 %.027.i.i.i.i1243, 24
+  %154 = icmp samesign ult i32 %.027.i.i.i.i1243, 24
   br i1 %154, label %.lr.ph.i.i.i.i1242, label %._crit_edge.i.i.loopexit.i.i1244, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1244:                 ; preds = %152
@@ -63266,7 +63266,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1247:                 ; preds = %182, %new_label_bod
   %190 = getelementptr inbounds i8, ptr %185, i64 12
   %191 = load i32, ptr %190, align 4
   %192 = zext i32 %191 to i64
-  %193 = icmp ugt i64 %189, %192
+  %193 = icmp samesign ugt i64 %189, %192
   br i1 %193, label %.preheader.i.i.i.i1251, label %new_label_body.exit1258
 
 .preheader.i.i.i.i1251:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1247
@@ -63275,7 +63275,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1247:                 ; preds = %182, %new_label_bod
 
 .lr.ph.i.i.i.i1255:                               ; preds = %.preheader.i.i.i.i1251, %197
   %.027.i.i.i.i1256 = phi i32 [ %198, %197 ], [ %191, %.preheader.i.i.i.i1251 ]
-  %195 = icmp ugt i32 %.027.i.i.i.i1256, 1073741822
+  %195 = icmp samesign ugt i32 %.027.i.i.i.i1256, 1073741822
   br i1 %195, label %196, label %197
 
 196:                                              ; preds = %.lr.ph.i.i.i.i1255
@@ -63284,7 +63284,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1247:                 ; preds = %182, %new_label_bod
 
 197:                                              ; preds = %.lr.ph.i.i.i.i1255
   %198 = shl nuw nsw i32 %.027.i.i.i.i1256, 1
-  %199 = icmp ult i32 %.027.i.i.i.i1256, 24
+  %199 = icmp samesign ult i32 %.027.i.i.i.i1256, 24
   br i1 %199, label %.lr.ph.i.i.i.i1255, label %._crit_edge.i.i.loopexit.i.i1257, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1257:                 ; preds = %197
@@ -63535,7 +63535,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1483:                 ; preds = %341, %310
   %349 = getelementptr inbounds i8, ptr %344, i64 12
   %350 = load i32, ptr %349, align 4
   %351 = zext i32 %350 to i64
-  %352 = icmp ugt i64 %348, %351
+  %352 = icmp samesign ugt i64 %348, %351
   br i1 %352, label %.preheader.i.i.i.i1487, label %new_label_body.exit1494
 
 .preheader.i.i.i.i1487:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1483
@@ -63544,7 +63544,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1483:                 ; preds = %341, %310
 
 .lr.ph.i.i.i.i1491:                               ; preds = %.preheader.i.i.i.i1487, %356
   %.027.i.i.i.i1492 = phi i32 [ %357, %356 ], [ %350, %.preheader.i.i.i.i1487 ]
-  %354 = icmp ugt i32 %.027.i.i.i.i1492, 1073741822
+  %354 = icmp samesign ugt i32 %.027.i.i.i.i1492, 1073741822
   br i1 %354, label %355, label %356
 
 355:                                              ; preds = %.lr.ph.i.i.i.i1491
@@ -63553,7 +63553,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1483:                 ; preds = %341, %310
 
 356:                                              ; preds = %.lr.ph.i.i.i.i1491
   %357 = shl nuw nsw i32 %.027.i.i.i.i1492, 1
-  %358 = icmp ult i32 %.027.i.i.i.i1492, 24
+  %358 = icmp samesign ult i32 %.027.i.i.i.i1492, 24
   br i1 %358, label %.lr.ph.i.i.i.i1491, label %._crit_edge.i.i.loopexit.i.i1493, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1493:                 ; preds = %356
@@ -63898,7 +63898,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1496:                 ; preds = %566, %516
   %574 = getelementptr inbounds i8, ptr %569, i64 12
   %575 = load i32, ptr %574, align 4
   %576 = zext i32 %575 to i64
-  %577 = icmp ugt i64 %573, %576
+  %577 = icmp samesign ugt i64 %573, %576
   br i1 %577, label %.preheader.i.i.i.i1500, label %new_label_body.exit1507
 
 .preheader.i.i.i.i1500:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1496
@@ -63907,7 +63907,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1496:                 ; preds = %566, %516
 
 .lr.ph.i.i.i.i1504:                               ; preds = %.preheader.i.i.i.i1500, %581
   %.027.i.i.i.i1505 = phi i32 [ %582, %581 ], [ %575, %.preheader.i.i.i.i1500 ]
-  %579 = icmp ugt i32 %.027.i.i.i.i1505, 1073741822
+  %579 = icmp samesign ugt i32 %.027.i.i.i.i1505, 1073741822
   br i1 %579, label %580, label %581
 
 580:                                              ; preds = %.lr.ph.i.i.i.i1504
@@ -63916,7 +63916,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1496:                 ; preds = %566, %516
 
 581:                                              ; preds = %.lr.ph.i.i.i.i1504
   %582 = shl nuw nsw i32 %.027.i.i.i.i1505, 1
-  %583 = icmp ult i32 %.027.i.i.i.i1505, 24
+  %583 = icmp samesign ult i32 %.027.i.i.i.i1505, 24
   br i1 %583, label %.lr.ph.i.i.i.i1504, label %._crit_edge.i.i.loopexit.i.i1506, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1506:                 ; preds = %581
@@ -64211,7 +64211,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1277:                 ; preds = %750, %746
   %759 = getelementptr inbounds i8, ptr %754, i64 12
   %760 = load i32, ptr %759, align 4
   %761 = zext i32 %760 to i64
-  %762 = icmp ugt i64 %758, %761
+  %762 = icmp samesign ugt i64 %758, %761
   br i1 %762, label %.preheader.i.i.i.i1281, label %new_label_body.exit1288
 
 .preheader.i.i.i.i1281:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1277
@@ -64220,7 +64220,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1277:                 ; preds = %750, %746
 
 .lr.ph.i.i.i.i1285:                               ; preds = %.preheader.i.i.i.i1281, %766
   %.027.i.i.i.i1286 = phi i32 [ %767, %766 ], [ %760, %.preheader.i.i.i.i1281 ]
-  %764 = icmp ugt i32 %.027.i.i.i.i1286, 1073741822
+  %764 = icmp samesign ugt i32 %.027.i.i.i.i1286, 1073741822
   br i1 %764, label %765, label %766
 
 765:                                              ; preds = %.lr.ph.i.i.i.i1285
@@ -64229,7 +64229,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1277:                 ; preds = %750, %746
 
 766:                                              ; preds = %.lr.ph.i.i.i.i1285
   %767 = shl nuw nsw i32 %.027.i.i.i.i1286, 1
-  %768 = icmp ult i32 %.027.i.i.i.i1286, 24
+  %768 = icmp samesign ult i32 %.027.i.i.i.i1286, 24
   br i1 %768, label %.lr.ph.i.i.i.i1285, label %._crit_edge.i.i.loopexit.i.i1287, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1287:                 ; preds = %766
@@ -64304,7 +64304,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1290:                 ; preds = %797, %new_label_bod
   %805 = getelementptr inbounds i8, ptr %800, i64 12
   %806 = load i32, ptr %805, align 4
   %807 = zext i32 %806 to i64
-  %808 = icmp ugt i64 %804, %807
+  %808 = icmp samesign ugt i64 %804, %807
   br i1 %808, label %.preheader.i.i.i.i1294, label %new_label_body.exit1301
 
 .preheader.i.i.i.i1294:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1290
@@ -64313,7 +64313,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1290:                 ; preds = %797, %new_label_bod
 
 .lr.ph.i.i.i.i1298:                               ; preds = %.preheader.i.i.i.i1294, %812
   %.027.i.i.i.i1299 = phi i32 [ %813, %812 ], [ %806, %.preheader.i.i.i.i1294 ]
-  %810 = icmp ugt i32 %.027.i.i.i.i1299, 1073741822
+  %810 = icmp samesign ugt i32 %.027.i.i.i.i1299, 1073741822
   br i1 %810, label %811, label %812
 
 811:                                              ; preds = %.lr.ph.i.i.i.i1298
@@ -64322,7 +64322,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1290:                 ; preds = %797, %new_label_bod
 
 812:                                              ; preds = %.lr.ph.i.i.i.i1298
   %813 = shl nuw nsw i32 %.027.i.i.i.i1299, 1
-  %814 = icmp ult i32 %.027.i.i.i.i1299, 24
+  %814 = icmp samesign ult i32 %.027.i.i.i.i1299, 24
   br i1 %814, label %.lr.ph.i.i.i.i1298, label %._crit_edge.i.i.loopexit.i.i1300, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1300:                 ; preds = %812
@@ -64396,7 +64396,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1303:                 ; preds = %842, %new_label_bod
   %850 = getelementptr inbounds i8, ptr %845, i64 12
   %851 = load i32, ptr %850, align 4
   %852 = zext i32 %851 to i64
-  %853 = icmp ugt i64 %849, %852
+  %853 = icmp samesign ugt i64 %849, %852
   br i1 %853, label %.preheader.i.i.i.i1307, label %new_label_body.exit1314
 
 .preheader.i.i.i.i1307:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1303
@@ -64405,7 +64405,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1303:                 ; preds = %842, %new_label_bod
 
 .lr.ph.i.i.i.i1311:                               ; preds = %.preheader.i.i.i.i1307, %857
   %.027.i.i.i.i1312 = phi i32 [ %858, %857 ], [ %851, %.preheader.i.i.i.i1307 ]
-  %855 = icmp ugt i32 %.027.i.i.i.i1312, 1073741822
+  %855 = icmp samesign ugt i32 %.027.i.i.i.i1312, 1073741822
   br i1 %855, label %856, label %857
 
 856:                                              ; preds = %.lr.ph.i.i.i.i1311
@@ -64414,7 +64414,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1303:                 ; preds = %842, %new_label_bod
 
 857:                                              ; preds = %.lr.ph.i.i.i.i1311
   %858 = shl nuw nsw i32 %.027.i.i.i.i1312, 1
-  %859 = icmp ult i32 %.027.i.i.i.i1312, 24
+  %859 = icmp samesign ult i32 %.027.i.i.i.i1312, 24
   br i1 %859, label %.lr.ph.i.i.i.i1311, label %._crit_edge.i.i.loopexit.i.i1313, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1313:                 ; preds = %857
@@ -64488,7 +64488,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1316:                 ; preds = %887, %new_label_bod
   %895 = getelementptr inbounds i8, ptr %890, i64 12
   %896 = load i32, ptr %895, align 4
   %897 = zext i32 %896 to i64
-  %898 = icmp ugt i64 %894, %897
+  %898 = icmp samesign ugt i64 %894, %897
   br i1 %898, label %.preheader.i.i.i.i1320, label %new_label_body.exit1327
 
 .preheader.i.i.i.i1320:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1316
@@ -64497,7 +64497,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1316:                 ; preds = %887, %new_label_bod
 
 .lr.ph.i.i.i.i1324:                               ; preds = %.preheader.i.i.i.i1320, %902
   %.027.i.i.i.i1325 = phi i32 [ %903, %902 ], [ %896, %.preheader.i.i.i.i1320 ]
-  %900 = icmp ugt i32 %.027.i.i.i.i1325, 1073741822
+  %900 = icmp samesign ugt i32 %.027.i.i.i.i1325, 1073741822
   br i1 %900, label %901, label %902
 
 901:                                              ; preds = %.lr.ph.i.i.i.i1324
@@ -64506,7 +64506,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1316:                 ; preds = %887, %new_label_bod
 
 902:                                              ; preds = %.lr.ph.i.i.i.i1324
   %903 = shl nuw nsw i32 %.027.i.i.i.i1325, 1
-  %904 = icmp ult i32 %.027.i.i.i.i1325, 24
+  %904 = icmp samesign ult i32 %.027.i.i.i.i1325, 24
   br i1 %904, label %.lr.ph.i.i.i.i1324, label %._crit_edge.i.i.loopexit.i.i1326, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1326:                 ; preds = %902
@@ -64859,7 +64859,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1509:                 ; preds = %1125, %1112
   %1133 = getelementptr inbounds i8, ptr %1128, i64 12
   %1134 = load i32, ptr %1133, align 4
   %1135 = zext i32 %1134 to i64
-  %1136 = icmp ugt i64 %1132, %1135
+  %1136 = icmp samesign ugt i64 %1132, %1135
   br i1 %1136, label %.preheader.i.i.i.i1513, label %new_label_body.exit1520
 
 .preheader.i.i.i.i1513:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1509
@@ -64868,7 +64868,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1509:                 ; preds = %1125, %1112
 
 .lr.ph.i.i.i.i1517:                               ; preds = %.preheader.i.i.i.i1513, %1140
   %.027.i.i.i.i1518 = phi i32 [ %1141, %1140 ], [ %1134, %.preheader.i.i.i.i1513 ]
-  %1138 = icmp ugt i32 %.027.i.i.i.i1518, 1073741822
+  %1138 = icmp samesign ugt i32 %.027.i.i.i.i1518, 1073741822
   br i1 %1138, label %1139, label %1140
 
 1139:                                             ; preds = %.lr.ph.i.i.i.i1517
@@ -64877,7 +64877,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1509:                 ; preds = %1125, %1112
 
 1140:                                             ; preds = %.lr.ph.i.i.i.i1517
   %1141 = shl nuw nsw i32 %.027.i.i.i.i1518, 1
-  %1142 = icmp ult i32 %.027.i.i.i.i1518, 24
+  %1142 = icmp samesign ult i32 %.027.i.i.i.i1518, 24
   br i1 %1142, label %.lr.ph.i.i.i.i1517, label %._crit_edge.i.i.loopexit.i.i1519, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1519:                 ; preds = %1140
@@ -65466,7 +65466,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1342:                 ; preds = %1528, %1525
   %1537 = getelementptr inbounds i8, ptr %1532, i64 12
   %1538 = load i32, ptr %1537, align 4
   %1539 = zext i32 %1538 to i64
-  %1540 = icmp ugt i64 %1536, %1539
+  %1540 = icmp samesign ugt i64 %1536, %1539
   br i1 %1540, label %.preheader.i.i.i.i1346, label %new_label_body.exit1353
 
 .preheader.i.i.i.i1346:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1342
@@ -65475,7 +65475,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1342:                 ; preds = %1528, %1525
 
 .lr.ph.i.i.i.i1350:                               ; preds = %.preheader.i.i.i.i1346, %1544
   %.027.i.i.i.i1351 = phi i32 [ %1545, %1544 ], [ %1538, %.preheader.i.i.i.i1346 ]
-  %1542 = icmp ugt i32 %.027.i.i.i.i1351, 1073741822
+  %1542 = icmp samesign ugt i32 %.027.i.i.i.i1351, 1073741822
   br i1 %1542, label %1543, label %1544
 
 1543:                                             ; preds = %.lr.ph.i.i.i.i1350
@@ -65484,7 +65484,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1342:                 ; preds = %1528, %1525
 
 1544:                                             ; preds = %.lr.ph.i.i.i.i1350
   %1545 = shl nuw nsw i32 %.027.i.i.i.i1351, 1
-  %1546 = icmp ult i32 %.027.i.i.i.i1351, 24
+  %1546 = icmp samesign ult i32 %.027.i.i.i.i1351, 24
   br i1 %1546, label %.lr.ph.i.i.i.i1350, label %._crit_edge.i.i.loopexit.i.i1352, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1352:                 ; preds = %1544
@@ -65559,7 +65559,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1355:                 ; preds = %1575, %new_label_bo
   %1583 = getelementptr inbounds i8, ptr %1578, i64 12
   %1584 = load i32, ptr %1583, align 4
   %1585 = zext i32 %1584 to i64
-  %1586 = icmp ugt i64 %1582, %1585
+  %1586 = icmp samesign ugt i64 %1582, %1585
   br i1 %1586, label %.preheader.i.i.i.i1359, label %new_label_body.exit1366
 
 .preheader.i.i.i.i1359:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1355
@@ -65568,7 +65568,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1355:                 ; preds = %1575, %new_label_bo
 
 .lr.ph.i.i.i.i1363:                               ; preds = %.preheader.i.i.i.i1359, %1590
   %.027.i.i.i.i1364 = phi i32 [ %1591, %1590 ], [ %1584, %.preheader.i.i.i.i1359 ]
-  %1588 = icmp ugt i32 %.027.i.i.i.i1364, 1073741822
+  %1588 = icmp samesign ugt i32 %.027.i.i.i.i1364, 1073741822
   br i1 %1588, label %1589, label %1590
 
 1589:                                             ; preds = %.lr.ph.i.i.i.i1363
@@ -65577,7 +65577,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1355:                 ; preds = %1575, %new_label_bo
 
 1590:                                             ; preds = %.lr.ph.i.i.i.i1363
   %1591 = shl nuw nsw i32 %.027.i.i.i.i1364, 1
-  %1592 = icmp ult i32 %.027.i.i.i.i1364, 24
+  %1592 = icmp samesign ult i32 %.027.i.i.i.i1364, 24
   br i1 %1592, label %.lr.ph.i.i.i.i1363, label %._crit_edge.i.i.loopexit.i.i1365, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1365:                 ; preds = %1590
@@ -66028,7 +66028,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1378:                 ; preds = %1845, %1842
   %1853 = getelementptr inbounds i8, ptr %1848, i64 12
   %1854 = load i32, ptr %1853, align 4
   %1855 = zext i32 %1854 to i64
-  %1856 = icmp ugt i64 %1852, %1855
+  %1856 = icmp samesign ugt i64 %1852, %1855
   br i1 %1856, label %.preheader.i.i.i.i1382, label %new_label_body.exit1389
 
 .preheader.i.i.i.i1382:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1378
@@ -66037,7 +66037,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1378:                 ; preds = %1845, %1842
 
 .lr.ph.i.i.i.i1386:                               ; preds = %.preheader.i.i.i.i1382, %1860
   %.027.i.i.i.i1387 = phi i32 [ %1861, %1860 ], [ %1854, %.preheader.i.i.i.i1382 ]
-  %1858 = icmp ugt i32 %.027.i.i.i.i1387, 1073741822
+  %1858 = icmp samesign ugt i32 %.027.i.i.i.i1387, 1073741822
   br i1 %1858, label %1859, label %1860
 
 1859:                                             ; preds = %.lr.ph.i.i.i.i1386
@@ -66046,7 +66046,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1378:                 ; preds = %1845, %1842
 
 1860:                                             ; preds = %.lr.ph.i.i.i.i1386
   %1861 = shl nuw nsw i32 %.027.i.i.i.i1387, 1
-  %1862 = icmp ult i32 %.027.i.i.i.i1387, 24
+  %1862 = icmp samesign ult i32 %.027.i.i.i.i1387, 24
   br i1 %1862, label %.lr.ph.i.i.i.i1386, label %._crit_edge.i.i.loopexit.i.i1388, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1388:                 ; preds = %1860
@@ -66318,7 +66318,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1522:                 ; preds = %2024, %rbimpl_inter
   %2032 = getelementptr inbounds i8, ptr %2027, i64 12
   %2033 = load i32, ptr %2032, align 4
   %2034 = zext i32 %2033 to i64
-  %2035 = icmp ugt i64 %2031, %2034
+  %2035 = icmp samesign ugt i64 %2031, %2034
   br i1 %2035, label %.preheader.i.i.i.i1526, label %new_label_body.exit1533
 
 .preheader.i.i.i.i1526:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1522
@@ -66327,7 +66327,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1522:                 ; preds = %2024, %rbimpl_inter
 
 .lr.ph.i.i.i.i1530:                               ; preds = %.preheader.i.i.i.i1526, %2039
   %.027.i.i.i.i1531 = phi i32 [ %2040, %2039 ], [ %2033, %.preheader.i.i.i.i1526 ]
-  %2037 = icmp ugt i32 %.027.i.i.i.i1531, 1073741822
+  %2037 = icmp samesign ugt i32 %.027.i.i.i.i1531, 1073741822
   br i1 %2037, label %2038, label %2039
 
 2038:                                             ; preds = %.lr.ph.i.i.i.i1530
@@ -66336,7 +66336,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1522:                 ; preds = %2024, %rbimpl_inter
 
 2039:                                             ; preds = %.lr.ph.i.i.i.i1530
   %2040 = shl nuw nsw i32 %.027.i.i.i.i1531, 1
-  %2041 = icmp ult i32 %.027.i.i.i.i1531, 24
+  %2041 = icmp samesign ult i32 %.027.i.i.i.i1531, 24
   br i1 %2041, label %.lr.ph.i.i.i.i1530, label %._crit_edge.i.i.loopexit.i.i1532, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1532:                 ; preds = %2039
@@ -66992,7 +66992,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1535:                 ; preds = %2408, %2403
   %2417 = getelementptr inbounds i8, ptr %2412, i64 12
   %2418 = load i32, ptr %2417, align 4
   %2419 = zext i32 %2418 to i64
-  %2420 = icmp ugt i64 %2416, %2419
+  %2420 = icmp samesign ugt i64 %2416, %2419
   br i1 %2420, label %.preheader.i.i.i.i1539, label %new_label_body.exit1546
 
 .preheader.i.i.i.i1539:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1535
@@ -67001,7 +67001,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1535:                 ; preds = %2408, %2403
 
 .lr.ph.i.i.i.i1543:                               ; preds = %.preheader.i.i.i.i1539, %2424
   %.027.i.i.i.i1544 = phi i32 [ %2425, %2424 ], [ %2418, %.preheader.i.i.i.i1539 ]
-  %2422 = icmp ugt i32 %.027.i.i.i.i1544, 1073741822
+  %2422 = icmp samesign ugt i32 %.027.i.i.i.i1544, 1073741822
   br i1 %2422, label %2423, label %2424
 
 2423:                                             ; preds = %.lr.ph.i.i.i.i1543
@@ -67010,7 +67010,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1535:                 ; preds = %2408, %2403
 
 2424:                                             ; preds = %.lr.ph.i.i.i.i1543
   %2425 = shl nuw nsw i32 %.027.i.i.i.i1544, 1
-  %2426 = icmp ult i32 %.027.i.i.i.i1544, 24
+  %2426 = icmp samesign ult i32 %.027.i.i.i.i1544, 24
   br i1 %2426, label %.lr.ph.i.i.i.i1543, label %._crit_edge.i.i.loopexit.i.i1545, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1545:                 ; preds = %2424
@@ -67290,7 +67290,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1438:                 ; preds = %2589, %2586
   %2598 = getelementptr inbounds i8, ptr %2593, i64 12
   %2599 = load i32, ptr %2598, align 4
   %2600 = zext i32 %2599 to i64
-  %2601 = icmp ugt i64 %2597, %2600
+  %2601 = icmp samesign ugt i64 %2597, %2600
   br i1 %2601, label %.preheader.i.i.i.i1442, label %new_label_body.exit1449
 
 .preheader.i.i.i.i1442:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1438
@@ -67299,7 +67299,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1438:                 ; preds = %2589, %2586
 
 .lr.ph.i.i.i.i1446:                               ; preds = %.preheader.i.i.i.i1442, %2605
   %.027.i.i.i.i1447 = phi i32 [ %2606, %2605 ], [ %2599, %.preheader.i.i.i.i1442 ]
-  %2603 = icmp ugt i32 %.027.i.i.i.i1447, 1073741822
+  %2603 = icmp samesign ugt i32 %.027.i.i.i.i1447, 1073741822
   br i1 %2603, label %2604, label %2605
 
 2604:                                             ; preds = %.lr.ph.i.i.i.i1446
@@ -67308,7 +67308,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1438:                 ; preds = %2589, %2586
 
 2605:                                             ; preds = %.lr.ph.i.i.i.i1446
   %2606 = shl nuw nsw i32 %.027.i.i.i.i1447, 1
-  %2607 = icmp ult i32 %.027.i.i.i.i1447, 24
+  %2607 = icmp samesign ult i32 %.027.i.i.i.i1447, 24
   br i1 %2607, label %.lr.ph.i.i.i.i1446, label %._crit_edge.i.i.loopexit.i.i1448, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1448:                 ; preds = %2605
@@ -67476,7 +67476,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1454:                 ; preds = %2698, %2695
   %2707 = getelementptr inbounds i8, ptr %2702, i64 12
   %2708 = load i32, ptr %2707, align 4
   %2709 = zext i32 %2708 to i64
-  %2710 = icmp ugt i64 %2706, %2709
+  %2710 = icmp samesign ugt i64 %2706, %2709
   br i1 %2710, label %.preheader.i.i.i.i1458, label %new_label_body.exit1465
 
 .preheader.i.i.i.i1458:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1454
@@ -67485,7 +67485,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1454:                 ; preds = %2698, %2695
 
 .lr.ph.i.i.i.i1462:                               ; preds = %.preheader.i.i.i.i1458, %2714
   %.027.i.i.i.i1463 = phi i32 [ %2715, %2714 ], [ %2708, %.preheader.i.i.i.i1458 ]
-  %2712 = icmp ugt i32 %.027.i.i.i.i1463, 1073741822
+  %2712 = icmp samesign ugt i32 %.027.i.i.i.i1463, 1073741822
   br i1 %2712, label %2713, label %2714
 
 2713:                                             ; preds = %.lr.ph.i.i.i.i1462
@@ -67494,7 +67494,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1454:                 ; preds = %2698, %2695
 
 2714:                                             ; preds = %.lr.ph.i.i.i.i1462
   %2715 = shl nuw nsw i32 %.027.i.i.i.i1463, 1
-  %2716 = icmp ult i32 %.027.i.i.i.i1463, 24
+  %2716 = icmp samesign ult i32 %.027.i.i.i.i1463, 24
   br i1 %2716, label %.lr.ph.i.i.i.i1462, label %._crit_edge.i.i.loopexit.i.i1464, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1464:                 ; preds = %2714
@@ -67569,7 +67569,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1467:                 ; preds = %2745, %new_label_bo
   %2753 = getelementptr inbounds i8, ptr %2748, i64 12
   %2754 = load i32, ptr %2753, align 4
   %2755 = zext i32 %2754 to i64
-  %2756 = icmp ugt i64 %2752, %2755
+  %2756 = icmp samesign ugt i64 %2752, %2755
   br i1 %2756, label %.preheader.i.i.i.i1471, label %new_label_body.exit1478
 
 .preheader.i.i.i.i1471:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1467
@@ -67578,7 +67578,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1467:                 ; preds = %2745, %new_label_bo
 
 .lr.ph.i.i.i.i1475:                               ; preds = %.preheader.i.i.i.i1471, %2760
   %.027.i.i.i.i1476 = phi i32 [ %2761, %2760 ], [ %2754, %.preheader.i.i.i.i1471 ]
-  %2758 = icmp ugt i32 %.027.i.i.i.i1476, 1073741822
+  %2758 = icmp samesign ugt i32 %.027.i.i.i.i1476, 1073741822
   br i1 %2758, label %2759, label %2760
 
 2759:                                             ; preds = %.lr.ph.i.i.i.i1475
@@ -67587,7 +67587,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1467:                 ; preds = %2745, %new_label_bo
 
 2760:                                             ; preds = %.lr.ph.i.i.i.i1475
   %2761 = shl nuw nsw i32 %.027.i.i.i.i1476, 1
-  %2762 = icmp ult i32 %.027.i.i.i.i1476, 24
+  %2762 = icmp samesign ult i32 %.027.i.i.i.i1476, 24
   br i1 %2762, label %.lr.ph.i.i.i.i1475, label %._crit_edge.i.i.loopexit.i.i1477, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1477:                 ; preds = %2760
@@ -68199,7 +68199,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %9, %6
   %18 = getelementptr inbounds i8, ptr %13, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
-  %21 = icmp ugt i64 %17, %20
+  %21 = icmp samesign ugt i64 %17, %20
   br i1 %21, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -68208,7 +68208,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %9, %6
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %25
   %.027.i.i.i.i = phi i32 [ %26, %25 ], [ %19, %.preheader.i.i.i.i ]
-  %23 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %23 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %.lr.ph.i.i.i.i
@@ -68217,7 +68217,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %9, %6
 
 25:                                               ; preds = %.lr.ph.i.i.i.i
   %26 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %27 = icmp ult i32 %.027.i.i.i.i, 24
+  %27 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %27, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %25
@@ -68470,7 +68470,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %8
   %20 = getelementptr inbounds i8, ptr %15, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
-  %23 = icmp ugt i64 %19, %22
+  %23 = icmp samesign ugt i64 %19, %22
   br i1 %23, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -68479,7 +68479,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %8
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %27
   %.027.i.i.i.i = phi i32 [ %28, %27 ], [ %21, %.preheader.i.i.i.i ]
-  %25 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %25 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %.lr.ph.i.i.i.i
@@ -68488,7 +68488,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %8
 
 27:                                               ; preds = %.lr.ph.i.i.i.i
   %28 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %29 = icmp ult i32 %.027.i.i.i.i, 24
+  %29 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %29, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %27
@@ -68585,7 +68585,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %8, %5
   %17 = getelementptr inbounds i8, ptr %12, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
-  %20 = icmp ugt i64 %16, %19
+  %20 = icmp samesign ugt i64 %16, %19
   br i1 %20, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -68594,7 +68594,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %8, %5
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %24
   %.027.i.i.i.i = phi i32 [ %25, %24 ], [ %18, %.preheader.i.i.i.i ]
-  %22 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %22 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %.lr.ph.i.i.i.i
@@ -68603,7 +68603,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %8, %5
 
 24:                                               ; preds = %.lr.ph.i.i.i.i
   %25 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %26 = icmp ult i32 %.027.i.i.i.i, 24
+  %26 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %26, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %24
@@ -68823,7 +68823,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %7, %4
   %16 = getelementptr inbounds i8, ptr %11, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
-  %19 = icmp ugt i64 %15, %18
+  %19 = icmp samesign ugt i64 %15, %18
   br i1 %19, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -68832,7 +68832,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %7, %4
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %23
   %.027.i.i.i.i = phi i32 [ %24, %23 ], [ %17, %.preheader.i.i.i.i ]
-  %21 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %21 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %.lr.ph.i.i.i.i
@@ -68841,7 +68841,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %7, %4
 
 23:                                               ; preds = %.lr.ph.i.i.i.i
   %24 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %25 = icmp ult i32 %.027.i.i.i.i, 24
+  %25 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %25, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %23
@@ -69109,7 +69109,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %6, %3
   %15 = getelementptr inbounds i8, ptr %10, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
-  %18 = icmp ugt i64 %14, %17
+  %18 = icmp samesign ugt i64 %14, %17
   br i1 %18, label %.preheader.i.i.i, label %compile_data_alloc_adjust.exit
 
 .preheader.i.i.i:                                 ; preds = %ISEQ_COMPILE_DATA.exit.i.i
@@ -69118,7 +69118,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %6, %3
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %22
   %.027.i.i.i = phi i32 [ %23, %22 ], [ %16, %.preheader.i.i.i ]
-  %20 = icmp ugt i32 %.027.i.i.i, 1073741822
+  %20 = icmp samesign ugt i32 %.027.i.i.i, 1073741822
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %.lr.ph.i.i.i
@@ -69127,7 +69127,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %6, %3
 
 22:                                               ; preds = %.lr.ph.i.i.i
   %23 = shl nuw nsw i32 %.027.i.i.i, 1
-  %24 = icmp ult i32 %.027.i.i.i, 20
+  %24 = icmp samesign ult i32 %.027.i.i.i, 20
   br i1 %24, label %.lr.ph.i.i.i, label %._crit_edge.i.i.loopexit.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i:                       ; preds = %22
@@ -69282,7 +69282,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %19, %16
   %27 = getelementptr inbounds i8, ptr %22, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %30 = icmp ugt i64 %26, %29
+  %30 = icmp samesign ugt i64 %26, %29
   br i1 %30, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -69291,7 +69291,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %19, %16
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %34
   %.027.i.i.i.i = phi i32 [ %35, %34 ], [ %28, %.preheader.i.i.i.i ]
-  %32 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %32 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %.lr.ph.i.i.i.i
@@ -69300,7 +69300,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %19, %16
 
 34:                                               ; preds = %.lr.ph.i.i.i.i
   %35 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %36 = icmp ult i32 %.027.i.i.i.i, 24
+  %36 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %36, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %34
@@ -69374,7 +69374,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i23:                   ; preds = %64, %new_label_body
   %72 = getelementptr inbounds i8, ptr %67, i64 12
   %73 = load i32, ptr %72, align 4
   %74 = zext i32 %73 to i64
-  %75 = icmp ugt i64 %71, %74
+  %75 = icmp samesign ugt i64 %71, %74
   br i1 %75, label %.preheader.i.i.i.i27, label %new_label_body.exit34
 
 .preheader.i.i.i.i27:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i23
@@ -69383,7 +69383,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i23:                   ; preds = %64, %new_label_body
 
 .lr.ph.i.i.i.i31:                                 ; preds = %.preheader.i.i.i.i27, %79
   %.027.i.i.i.i32 = phi i32 [ %80, %79 ], [ %73, %.preheader.i.i.i.i27 ]
-  %77 = icmp ugt i32 %.027.i.i.i.i32, 1073741822
+  %77 = icmp samesign ugt i32 %.027.i.i.i.i32, 1073741822
   br i1 %77, label %78, label %79
 
 78:                                               ; preds = %.lr.ph.i.i.i.i31
@@ -69392,7 +69392,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i23:                   ; preds = %64, %new_label_body
 
 79:                                               ; preds = %.lr.ph.i.i.i.i31
   %80 = shl nuw nsw i32 %.027.i.i.i.i32, 1
-  %81 = icmp ult i32 %.027.i.i.i.i32, 24
+  %81 = icmp samesign ult i32 %.027.i.i.i.i32, 24
   br i1 %81, label %.lr.ph.i.i.i.i31, label %._crit_edge.i.i.loopexit.i.i33, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i33:                   ; preds = %79
@@ -69468,7 +69468,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %110, %new_label_bod
   %118 = getelementptr inbounds i8, ptr %113, i64 12
   %119 = load i32, ptr %118, align 4
   %120 = zext i32 %119 to i64
-  %121 = icmp ugt i64 %117, %120
+  %121 = icmp samesign ugt i64 %117, %120
   br i1 %121, label %.preheader.i.i.i, label %compile_data_alloc.exit.i
 
 .preheader.i.i.i:                                 ; preds = %ISEQ_COMPILE_DATA.exit.i.i
@@ -69477,7 +69477,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %110, %new_label_bod
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %125
   %.027.i.i.i = phi i32 [ %126, %125 ], [ %119, %.preheader.i.i.i ]
-  %123 = icmp ugt i32 %.027.i.i.i, 1073741822
+  %123 = icmp samesign ugt i32 %.027.i.i.i, 1073741822
   br i1 %123, label %124, label %125
 
 124:                                              ; preds = %.lr.ph.i.i.i
@@ -69486,7 +69486,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %110, %new_label_bod
 
 125:                                              ; preds = %.lr.ph.i.i.i
   %126 = shl nuw nsw i32 %.027.i.i.i, 1
-  %127 = icmp ult i32 %.027.i.i.i, 12
+  %127 = icmp samesign ult i32 %.027.i.i.i, 12
   br i1 %127, label %.lr.ph.i.i.i, label %._crit_edge.i.i.loopexit.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i:                       ; preds = %125
@@ -71781,7 +71781,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %13, %10
   %22 = getelementptr inbounds i8, ptr %17, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
-  %25 = icmp ugt i64 %21, %24
+  %25 = icmp samesign ugt i64 %21, %24
   br i1 %25, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -71790,7 +71790,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %13, %10
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %29
   %.027.i.i.i.i = phi i32 [ %30, %29 ], [ %23, %.preheader.i.i.i.i ]
-  %27 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %27 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %.lr.ph.i.i.i.i
@@ -71799,7 +71799,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %13, %10
 
 29:                                               ; preds = %.lr.ph.i.i.i.i
   %30 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %31 = icmp ult i32 %.027.i.i.i.i, 24
+  %31 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %31, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %29
@@ -71874,7 +71874,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i38:                   ; preds = %60, %new_label_body
   %68 = getelementptr inbounds i8, ptr %63, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = zext i32 %69 to i64
-  %71 = icmp ugt i64 %67, %70
+  %71 = icmp samesign ugt i64 %67, %70
   br i1 %71, label %.preheader.i.i.i.i42, label %new_label_body.exit49
 
 .preheader.i.i.i.i42:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i38
@@ -71883,7 +71883,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i38:                   ; preds = %60, %new_label_body
 
 .lr.ph.i.i.i.i46:                                 ; preds = %.preheader.i.i.i.i42, %75
   %.027.i.i.i.i47 = phi i32 [ %76, %75 ], [ %69, %.preheader.i.i.i.i42 ]
-  %73 = icmp ugt i32 %.027.i.i.i.i47, 1073741822
+  %73 = icmp samesign ugt i32 %.027.i.i.i.i47, 1073741822
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %.lr.ph.i.i.i.i46
@@ -71892,7 +71892,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i38:                   ; preds = %60, %new_label_body
 
 75:                                               ; preds = %.lr.ph.i.i.i.i46
   %76 = shl nuw nsw i32 %.027.i.i.i.i47, 1
-  %77 = icmp ult i32 %.027.i.i.i.i47, 24
+  %77 = icmp samesign ult i32 %.027.i.i.i.i47, 24
   br i1 %77, label %.lr.ph.i.i.i.i46, label %._crit_edge.i.i.loopexit.i.i48, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i48:                   ; preds = %75
@@ -72159,7 +72159,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %27, %24
   %35 = getelementptr inbounds i8, ptr %30, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
-  %38 = icmp ugt i64 %34, %37
+  %38 = icmp samesign ugt i64 %34, %37
   br i1 %38, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -72168,7 +72168,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %27, %24
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %42
   %.027.i.i.i.i = phi i32 [ %43, %42 ], [ %36, %.preheader.i.i.i.i ]
-  %40 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %40 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %.lr.ph.i.i.i.i
@@ -72177,7 +72177,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %27, %24
 
 42:                                               ; preds = %.lr.ph.i.i.i.i
   %43 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %44 = icmp ult i32 %.027.i.i.i.i, 24
+  %44 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %44, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %42
@@ -72652,7 +72652,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i234:                  ; preds = %309, %306
   %318 = getelementptr inbounds i8, ptr %313, i64 12
   %319 = load i32, ptr %318, align 4
   %320 = zext i32 %319 to i64
-  %321 = icmp ugt i64 %317, %320
+  %321 = icmp samesign ugt i64 %317, %320
   br i1 %321, label %.preheader.i.i.i.i238, label %new_label_body.exit245
 
 .preheader.i.i.i.i238:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i234
@@ -72661,7 +72661,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i234:                  ; preds = %309, %306
 
 .lr.ph.i.i.i.i242:                                ; preds = %.preheader.i.i.i.i238, %325
   %.027.i.i.i.i243 = phi i32 [ %326, %325 ], [ %319, %.preheader.i.i.i.i238 ]
-  %323 = icmp ugt i32 %.027.i.i.i.i243, 1073741822
+  %323 = icmp samesign ugt i32 %.027.i.i.i.i243, 1073741822
   br i1 %323, label %324, label %325
 
 324:                                              ; preds = %.lr.ph.i.i.i.i242
@@ -72670,7 +72670,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i234:                  ; preds = %309, %306
 
 325:                                              ; preds = %.lr.ph.i.i.i.i242
   %326 = shl nuw nsw i32 %.027.i.i.i.i243, 1
-  %327 = icmp ult i32 %.027.i.i.i.i243, 24
+  %327 = icmp samesign ult i32 %.027.i.i.i.i243, 24
   br i1 %327, label %.lr.ph.i.i.i.i242, label %._crit_edge.i.i.loopexit.i.i244, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i244:                  ; preds = %325
@@ -72756,7 +72756,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i247:                  ; preds = %360, %357
   %369 = getelementptr inbounds i8, ptr %364, i64 12
   %370 = load i32, ptr %369, align 4
   %371 = zext i32 %370 to i64
-  %372 = icmp ugt i64 %368, %371
+  %372 = icmp samesign ugt i64 %368, %371
   br i1 %372, label %.preheader.i.i.i.i251, label %new_label_body.exit258
 
 .preheader.i.i.i.i251:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i247
@@ -72765,7 +72765,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i247:                  ; preds = %360, %357
 
 .lr.ph.i.i.i.i255:                                ; preds = %.preheader.i.i.i.i251, %376
   %.027.i.i.i.i256 = phi i32 [ %377, %376 ], [ %370, %.preheader.i.i.i.i251 ]
-  %374 = icmp ugt i32 %.027.i.i.i.i256, 1073741822
+  %374 = icmp samesign ugt i32 %.027.i.i.i.i256, 1073741822
   br i1 %374, label %375, label %376
 
 375:                                              ; preds = %.lr.ph.i.i.i.i255
@@ -72774,7 +72774,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i247:                  ; preds = %360, %357
 
 376:                                              ; preds = %.lr.ph.i.i.i.i255
   %377 = shl nuw nsw i32 %.027.i.i.i.i256, 1
-  %378 = icmp ult i32 %.027.i.i.i.i256, 24
+  %378 = icmp samesign ult i32 %.027.i.i.i.i256, 24
   br i1 %378, label %.lr.ph.i.i.i.i255, label %._crit_edge.i.i.loopexit.i.i257, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i257:                  ; preds = %376
@@ -73371,7 +73371,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %8, %5
   %17 = getelementptr inbounds i8, ptr %12, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
-  %20 = icmp ugt i64 %16, %19
+  %20 = icmp samesign ugt i64 %16, %19
   br i1 %20, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -73380,7 +73380,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %8, %5
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %24
   %.027.i.i.i.i = phi i32 [ %25, %24 ], [ %18, %.preheader.i.i.i.i ]
-  %22 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %22 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %.lr.ph.i.i.i.i
@@ -73389,7 +73389,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %8, %5
 
 24:                                               ; preds = %.lr.ph.i.i.i.i
   %25 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %26 = icmp ult i32 %.027.i.i.i.i, 24
+  %26 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %26, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %24
@@ -73509,7 +73509,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %10, %7
   %19 = getelementptr inbounds i8, ptr %14, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  %22 = icmp ugt i64 %18, %21
+  %22 = icmp samesign ugt i64 %18, %21
   br i1 %22, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -73518,7 +73518,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %10, %7
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %26
   %.027.i.i.i.i = phi i32 [ %27, %26 ], [ %20, %.preheader.i.i.i.i ]
-  %24 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %24 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %.lr.ph.i.i.i.i
@@ -73527,7 +73527,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %10, %7
 
 26:                                               ; preds = %.lr.ph.i.i.i.i
   %27 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %28 = icmp ult i32 %.027.i.i.i.i, 24
+  %28 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %28, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %26
@@ -73961,7 +73961,7 @@ define internal fastcc void @compile_builtin_mandatory_only_method(ptr noundef %
   %46 = getelementptr [0 x i64], ptr %36, i64 0, i64 %indvars.iv
   store i64 %45, ptr %46, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = icmp ult i64 %indvars.iv.next, %37
+  %47 = icmp samesign ult i64 %indvars.iv.next, %37
   br i1 %47, label %43, label %.preheader.loopexit, !llvm.loop !237
 
 48:                                               ; preds = %.lr.ph39, %48
@@ -74092,7 +74092,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %7, %3
   %16 = getelementptr inbounds i8, ptr %11, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
-  %19 = icmp ugt i64 %15, %18
+  %19 = icmp samesign ugt i64 %15, %18
   br i1 %19, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -74101,7 +74101,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %7, %3
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %23
   %.027.i.i.i.i = phi i32 [ %24, %23 ], [ %17, %.preheader.i.i.i.i ]
-  %21 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %21 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %.lr.ph.i.i.i.i
@@ -74110,7 +74110,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %7, %3
 
 23:                                               ; preds = %.lr.ph.i.i.i.i
   %24 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %25 = icmp ult i32 %.027.i.i.i.i, 24
+  %25 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %25, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %23
@@ -74185,7 +74185,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i79:                   ; preds = %54, %new_label_body
   %62 = getelementptr inbounds i8, ptr %57, i64 12
   %63 = load i32, ptr %62, align 4
   %64 = zext i32 %63 to i64
-  %65 = icmp ugt i64 %61, %64
+  %65 = icmp samesign ugt i64 %61, %64
   br i1 %65, label %.preheader.i.i.i.i83, label %new_label_body.exit90
 
 .preheader.i.i.i.i83:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i79
@@ -74194,7 +74194,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i79:                   ; preds = %54, %new_label_body
 
 .lr.ph.i.i.i.i87:                                 ; preds = %.preheader.i.i.i.i83, %69
   %.027.i.i.i.i88 = phi i32 [ %70, %69 ], [ %63, %.preheader.i.i.i.i83 ]
-  %67 = icmp ugt i32 %.027.i.i.i.i88, 1073741822
+  %67 = icmp samesign ugt i32 %.027.i.i.i.i88, 1073741822
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %.lr.ph.i.i.i.i87
@@ -74203,7 +74203,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i79:                   ; preds = %54, %new_label_body
 
 69:                                               ; preds = %.lr.ph.i.i.i.i87
   %70 = shl nuw nsw i32 %.027.i.i.i.i88, 1
-  %71 = icmp ult i32 %.027.i.i.i.i88, 24
+  %71 = icmp samesign ult i32 %.027.i.i.i.i88, 24
   br i1 %71, label %.lr.ph.i.i.i.i87, label %._crit_edge.i.i.loopexit.i.i89, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i89:                   ; preds = %69
@@ -76138,7 +76138,7 @@ ibf_dump_write_small_value.exit37.i:              ; preds = %.critedge.i31.i
   %523 = getelementptr inbounds i8, ptr %522, i64 128
   %524 = load i32, ptr %523, align 8
   %525 = zext i32 %524 to i64
-  %526 = icmp ult i64 %indvars.iv.next.i, %525
+  %526 = icmp samesign ult i64 %indvars.iv.next.i, %525
   br i1 %526, label %428, label %ibf_dump_insns_info_body.exit, !llvm.loop !247
 
 ibf_dump_insns_info_body.exit:                    ; preds = %ibf_dump_write_small_value.exit37.i, %ibf_dump_pos.exit.i
@@ -79909,7 +79909,7 @@ ibf_dump_iseq.exit:                               ; preds = %14, %18, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %.16.val.152.val, align 1
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %14, label %._crit_edge, !llvm.loop !254
 
 ._crit_edge:                                      ; preds = %ibf_dump_iseq.exit
@@ -80316,7 +80316,7 @@ ibf_dump_write_small_value.exit97:                ; preds = %.critedge.i91
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %243 = load i32, ptr %.16.val.152.val, align 1
   %244 = zext i32 %243 to i64
-  %245 = icmp ult i64 %indvars.iv.next42, %244
+  %245 = icmp samesign ult i64 %indvars.iv.next42, %244
   br i1 %245, label %56, label %ibf_dump_pos.exit98, !llvm.loop !255
 
 246:                                              ; preds = %1
@@ -82406,7 +82406,7 @@ define internal i64 @ibf_load_object_float(ptr nocapture noundef readonly %0, pt
   %9 = getelementptr inbounds i8, ptr %.val, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %.not.i = icmp ult i64 %7, %11
+  %.not.i = icmp samesign ult i64 %7, %11
   br i1 %.not.i, label %ibf_load_check_offset.exit, label %12
 
 12:                                               ; preds = %3
@@ -83140,7 +83140,7 @@ define internal i64 @ibf_load_object_struct(ptr noundef %0, ptr nocapture nounde
   %9 = getelementptr inbounds i8, ptr %.val, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %.not.i = icmp ult i64 %7, %11
+  %.not.i = icmp samesign ult i64 %7, %11
   br i1 %.not.i, label %ibf_load_check_offset.exit, label %12
 
 12:                                               ; preds = %3
@@ -83195,7 +83195,7 @@ define internal i64 @ibf_load_object_bignum(ptr nocapture noundef readonly %0, p
   %9 = getelementptr inbounds i8, ptr %.val, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %.not.i = icmp ult i64 %7, %11
+  %.not.i = icmp samesign ult i64 %7, %11
   br i1 %.not.i, label %ibf_load_check_offset.exit, label %12
 
 12:                                               ; preds = %3
@@ -83247,7 +83247,7 @@ define internal i64 @ibf_load_object_data(ptr nocapture noundef readonly %0, ptr
   %9 = getelementptr inbounds i8, ptr %.val, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %.not.i = icmp ult i64 %7, %11
+  %.not.i = icmp samesign ult i64 %7, %11
   br i1 %.not.i, label %ibf_load_check_offset.exit, label %12
 
 12:                                               ; preds = %3
@@ -83286,7 +83286,7 @@ define internal i64 @ibf_load_object_complex_rational(ptr noundef %0, ptr nocapt
   %9 = getelementptr inbounds i8, ptr %.val, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %.not.i = icmp ult i64 %7, %11
+  %.not.i = icmp samesign ult i64 %7, %11
   br i1 %.not.i, label %ibf_load_check_offset.exit, label %12
 
 12:                                               ; preds = %3
@@ -85224,7 +85224,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %14, %6
   %23 = getelementptr inbounds i8, ptr %18, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %26 = icmp ugt i64 %22, %25
+  %26 = icmp samesign ugt i64 %22, %25
   br i1 %26, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -85233,7 +85233,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %14, %6
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %30
   %.027.i.i.i.i = phi i32 [ %31, %30 ], [ %24, %.preheader.i.i.i.i ]
-  %28 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %28 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %.lr.ph.i.i.i.i
@@ -85242,7 +85242,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %14, %6
 
 30:                                               ; preds = %.lr.ph.i.i.i.i
   %31 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %32 = icmp ult i32 %.027.i.i.i.i, 24
+  %32 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %30
@@ -85317,7 +85317,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i83:                   ; preds = %61, %new_label_body
   %69 = getelementptr inbounds i8, ptr %64, i64 12
   %70 = load i32, ptr %69, align 4
   %71 = zext i32 %70 to i64
-  %72 = icmp ugt i64 %68, %71
+  %72 = icmp samesign ugt i64 %68, %71
   br i1 %72, label %.preheader.i.i.i.i87, label %new_label_body.exit94
 
 .preheader.i.i.i.i87:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i83
@@ -85326,7 +85326,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i83:                   ; preds = %61, %new_label_body
 
 .lr.ph.i.i.i.i91:                                 ; preds = %.preheader.i.i.i.i87, %76
   %.027.i.i.i.i92 = phi i32 [ %77, %76 ], [ %70, %.preheader.i.i.i.i87 ]
-  %74 = icmp ugt i32 %.027.i.i.i.i92, 1073741822
+  %74 = icmp samesign ugt i32 %.027.i.i.i.i92, 1073741822
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %.lr.ph.i.i.i.i91
@@ -85335,7 +85335,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i83:                   ; preds = %61, %new_label_body
 
 76:                                               ; preds = %.lr.ph.i.i.i.i91
   %77 = shl nuw nsw i32 %.027.i.i.i.i92, 1
-  %78 = icmp ult i32 %.027.i.i.i.i92, 24
+  %78 = icmp samesign ult i32 %.027.i.i.i.i92, 24
   br i1 %78, label %.lr.ph.i.i.i.i91, label %._crit_edge.i.i.loopexit.i.i93, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i93:                   ; preds = %76
@@ -85409,7 +85409,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i96:                   ; preds = %106, %new_label_bod
   %114 = getelementptr inbounds i8, ptr %109, i64 12
   %115 = load i32, ptr %114, align 4
   %116 = zext i32 %115 to i64
-  %117 = icmp ugt i64 %113, %116
+  %117 = icmp samesign ugt i64 %113, %116
   br i1 %117, label %.preheader.i.i.i.i100, label %new_label_body.exit107
 
 .preheader.i.i.i.i100:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i96
@@ -85418,7 +85418,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i96:                   ; preds = %106, %new_label_bod
 
 .lr.ph.i.i.i.i104:                                ; preds = %.preheader.i.i.i.i100, %121
   %.027.i.i.i.i105 = phi i32 [ %122, %121 ], [ %115, %.preheader.i.i.i.i100 ]
-  %119 = icmp ugt i32 %.027.i.i.i.i105, 1073741822
+  %119 = icmp samesign ugt i32 %.027.i.i.i.i105, 1073741822
   br i1 %119, label %120, label %121
 
 120:                                              ; preds = %.lr.ph.i.i.i.i104
@@ -85427,7 +85427,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i96:                   ; preds = %106, %new_label_bod
 
 121:                                              ; preds = %.lr.ph.i.i.i.i104
   %122 = shl nuw nsw i32 %.027.i.i.i.i105, 1
-  %123 = icmp ult i32 %.027.i.i.i.i105, 24
+  %123 = icmp samesign ult i32 %.027.i.i.i.i105, 24
   br i1 %123, label %.lr.ph.i.i.i.i104, label %._crit_edge.i.i.loopexit.i.i106, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i106:                  ; preds = %121
@@ -85771,7 +85771,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %12, %6
   %21 = getelementptr inbounds i8, ptr %16, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
-  %24 = icmp ugt i64 %20, %23
+  %24 = icmp samesign ugt i64 %20, %23
   br i1 %24, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -85780,7 +85780,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %12, %6
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %28
   %.027.i.i.i.i = phi i32 [ %29, %28 ], [ %22, %.preheader.i.i.i.i ]
-  %26 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %26 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %.lr.ph.i.i.i.i
@@ -85789,7 +85789,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %12, %6
 
 28:                                               ; preds = %.lr.ph.i.i.i.i
   %29 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %30 = icmp ult i32 %.027.i.i.i.i, 24
+  %30 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %30, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %28
@@ -85864,7 +85864,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i80:                   ; preds = %59, %new_label_body
   %67 = getelementptr inbounds i8, ptr %62, i64 12
   %68 = load i32, ptr %67, align 4
   %69 = zext i32 %68 to i64
-  %70 = icmp ugt i64 %66, %69
+  %70 = icmp samesign ugt i64 %66, %69
   br i1 %70, label %.preheader.i.i.i.i84, label %new_label_body.exit91
 
 .preheader.i.i.i.i84:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i80
@@ -85873,7 +85873,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i80:                   ; preds = %59, %new_label_body
 
 .lr.ph.i.i.i.i88:                                 ; preds = %.preheader.i.i.i.i84, %74
   %.027.i.i.i.i89 = phi i32 [ %75, %74 ], [ %68, %.preheader.i.i.i.i84 ]
-  %72 = icmp ugt i32 %.027.i.i.i.i89, 1073741822
+  %72 = icmp samesign ugt i32 %.027.i.i.i.i89, 1073741822
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %.lr.ph.i.i.i.i88
@@ -85882,7 +85882,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i80:                   ; preds = %59, %new_label_body
 
 74:                                               ; preds = %.lr.ph.i.i.i.i88
   %75 = shl nuw nsw i32 %.027.i.i.i.i89, 1
-  %76 = icmp ult i32 %.027.i.i.i.i89, 24
+  %76 = icmp samesign ult i32 %.027.i.i.i.i89, 24
   br i1 %76, label %.lr.ph.i.i.i.i88, label %._crit_edge.i.i.loopexit.i.i90, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i90:                   ; preds = %74
@@ -85956,7 +85956,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i93:                   ; preds = %104, %new_label_bod
   %112 = getelementptr inbounds i8, ptr %107, i64 12
   %113 = load i32, ptr %112, align 4
   %114 = zext i32 %113 to i64
-  %115 = icmp ugt i64 %111, %114
+  %115 = icmp samesign ugt i64 %111, %114
   br i1 %115, label %.preheader.i.i.i.i97, label %new_label_body.exit104
 
 .preheader.i.i.i.i97:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i93
@@ -85965,7 +85965,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i93:                   ; preds = %104, %new_label_bod
 
 .lr.ph.i.i.i.i101:                                ; preds = %.preheader.i.i.i.i97, %119
   %.027.i.i.i.i102 = phi i32 [ %120, %119 ], [ %113, %.preheader.i.i.i.i97 ]
-  %117 = icmp ugt i32 %.027.i.i.i.i102, 1073741822
+  %117 = icmp samesign ugt i32 %.027.i.i.i.i102, 1073741822
   br i1 %117, label %118, label %119
 
 118:                                              ; preds = %.lr.ph.i.i.i.i101
@@ -85974,7 +85974,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i93:                   ; preds = %104, %new_label_bod
 
 119:                                              ; preds = %.lr.ph.i.i.i.i101
   %120 = shl nuw nsw i32 %.027.i.i.i.i102, 1
-  %121 = icmp ult i32 %.027.i.i.i.i102, 24
+  %121 = icmp samesign ult i32 %.027.i.i.i.i102, 24
   br i1 %121, label %.lr.ph.i.i.i.i101, label %._crit_edge.i.i.loopexit.i.i103, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i103:                  ; preds = %119
@@ -86365,7 +86365,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %20, %17
   %28 = getelementptr inbounds i8, ptr %23, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
-  %31 = icmp ugt i64 %27, %30
+  %31 = icmp samesign ugt i64 %27, %30
   br i1 %31, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -86374,7 +86374,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %20, %17
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %35
   %.027.i.i.i.i = phi i32 [ %36, %35 ], [ %29, %.preheader.i.i.i.i ]
-  %33 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %33 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.lr.ph.i.i.i.i
@@ -86383,7 +86383,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %20, %17
 
 35:                                               ; preds = %.lr.ph.i.i.i.i
   %36 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %37 = icmp ult i32 %.027.i.i.i.i, 24
+  %37 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %37, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %35
@@ -86457,7 +86457,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i25:                   ; preds = %65, %new_label_body
   %73 = getelementptr inbounds i8, ptr %68, i64 12
   %74 = load i32, ptr %73, align 4
   %75 = zext i32 %74 to i64
-  %76 = icmp ugt i64 %72, %75
+  %76 = icmp samesign ugt i64 %72, %75
   br i1 %76, label %.preheader.i.i.i.i29, label %new_label_body.exit36
 
 .preheader.i.i.i.i29:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i25
@@ -86466,7 +86466,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i25:                   ; preds = %65, %new_label_body
 
 .lr.ph.i.i.i.i33:                                 ; preds = %.preheader.i.i.i.i29, %80
   %.027.i.i.i.i34 = phi i32 [ %81, %80 ], [ %74, %.preheader.i.i.i.i29 ]
-  %78 = icmp ugt i32 %.027.i.i.i.i34, 1073741822
+  %78 = icmp samesign ugt i32 %.027.i.i.i.i34, 1073741822
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %.lr.ph.i.i.i.i33
@@ -86475,7 +86475,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i25:                   ; preds = %65, %new_label_body
 
 80:                                               ; preds = %.lr.ph.i.i.i.i33
   %81 = shl nuw nsw i32 %.027.i.i.i.i34, 1
-  %82 = icmp ult i32 %.027.i.i.i.i34, 24
+  %82 = icmp samesign ult i32 %.027.i.i.i.i34, 24
   br i1 %82, label %.lr.ph.i.i.i.i33, label %._crit_edge.i.i.loopexit.i.i35, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i35:                   ; preds = %80
@@ -86551,7 +86551,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %111, %new_label_bod
   %119 = getelementptr inbounds i8, ptr %114, i64 12
   %120 = load i32, ptr %119, align 4
   %121 = zext i32 %120 to i64
-  %122 = icmp ugt i64 %118, %121
+  %122 = icmp samesign ugt i64 %118, %121
   br i1 %122, label %.preheader.i.i.i, label %compile_data_alloc.exit.i
 
 .preheader.i.i.i:                                 ; preds = %ISEQ_COMPILE_DATA.exit.i.i
@@ -86560,7 +86560,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %111, %new_label_bod
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %126
   %.027.i.i.i = phi i32 [ %127, %126 ], [ %120, %.preheader.i.i.i ]
-  %124 = icmp ugt i32 %.027.i.i.i, 1073741822
+  %124 = icmp samesign ugt i32 %.027.i.i.i, 1073741822
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %.lr.ph.i.i.i
@@ -86569,7 +86569,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %111, %new_label_bod
 
 126:                                              ; preds = %.lr.ph.i.i.i
   %127 = shl nuw nsw i32 %.027.i.i.i, 1
-  %128 = icmp ult i32 %.027.i.i.i, 12
+  %128 = icmp samesign ult i32 %.027.i.i.i, 12
   br i1 %128, label %.lr.ph.i.i.i, label %._crit_edge.i.i.loopexit.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i:                       ; preds = %126
@@ -86917,7 +86917,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %14, %11
   %23 = getelementptr inbounds i8, ptr %18, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %26 = icmp ugt i64 %22, %25
+  %26 = icmp samesign ugt i64 %22, %25
   br i1 %26, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -86926,7 +86926,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %14, %11
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %30
   %.027.i.i.i.i = phi i32 [ %31, %30 ], [ %24, %.preheader.i.i.i.i ]
-  %28 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %28 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %.lr.ph.i.i.i.i
@@ -86935,7 +86935,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %14, %11
 
 30:                                               ; preds = %.lr.ph.i.i.i.i
   %31 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %32 = icmp ult i32 %.027.i.i.i.i, 24
+  %32 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %30
@@ -87010,7 +87010,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i81:                   ; preds = %61, %new_label_body
   %69 = getelementptr inbounds i8, ptr %64, i64 12
   %70 = load i32, ptr %69, align 4
   %71 = zext i32 %70 to i64
-  %72 = icmp ugt i64 %68, %71
+  %72 = icmp samesign ugt i64 %68, %71
   br i1 %72, label %.preheader.i.i.i.i85, label %new_label_body.exit92
 
 .preheader.i.i.i.i85:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i81
@@ -87019,7 +87019,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i81:                   ; preds = %61, %new_label_body
 
 .lr.ph.i.i.i.i89:                                 ; preds = %.preheader.i.i.i.i85, %76
   %.027.i.i.i.i90 = phi i32 [ %77, %76 ], [ %70, %.preheader.i.i.i.i85 ]
-  %74 = icmp ugt i32 %.027.i.i.i.i90, 1073741822
+  %74 = icmp samesign ugt i32 %.027.i.i.i.i90, 1073741822
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %.lr.ph.i.i.i.i89
@@ -87028,7 +87028,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i81:                   ; preds = %61, %new_label_body
 
 76:                                               ; preds = %.lr.ph.i.i.i.i89
   %77 = shl nuw nsw i32 %.027.i.i.i.i90, 1
-  %78 = icmp ult i32 %.027.i.i.i.i90, 24
+  %78 = icmp samesign ult i32 %.027.i.i.i.i90, 24
   br i1 %78, label %.lr.ph.i.i.i.i89, label %._crit_edge.i.i.loopexit.i.i91, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i91:                   ; preds = %76
@@ -87130,7 +87130,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i94:                   ; preds = %123, %120
   %131 = getelementptr inbounds i8, ptr %126, i64 12
   %132 = load i32, ptr %131, align 4
   %133 = zext i32 %132 to i64
-  %134 = icmp ugt i64 %130, %133
+  %134 = icmp samesign ugt i64 %130, %133
   br i1 %134, label %.preheader.i.i.i.i98, label %new_label_body.exit105
 
 .preheader.i.i.i.i98:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i94
@@ -87139,7 +87139,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i94:                   ; preds = %123, %120
 
 .lr.ph.i.i.i.i102:                                ; preds = %.preheader.i.i.i.i98, %138
   %.027.i.i.i.i103 = phi i32 [ %139, %138 ], [ %132, %.preheader.i.i.i.i98 ]
-  %136 = icmp ugt i32 %.027.i.i.i.i103, 1073741822
+  %136 = icmp samesign ugt i32 %.027.i.i.i.i103, 1073741822
   br i1 %136, label %137, label %138
 
 137:                                              ; preds = %.lr.ph.i.i.i.i102
@@ -87148,7 +87148,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i94:                   ; preds = %123, %120
 
 138:                                              ; preds = %.lr.ph.i.i.i.i102
   %139 = shl nuw nsw i32 %.027.i.i.i.i103, 1
-  %140 = icmp ult i32 %.027.i.i.i.i103, 24
+  %140 = icmp samesign ult i32 %.027.i.i.i.i103, 24
   br i1 %140, label %.lr.ph.i.i.i.i102, label %._crit_edge.i.i.loopexit.i.i104, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i104:                  ; preds = %138
@@ -87659,7 +87659,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %47, %44
   %56 = getelementptr inbounds i8, ptr %51, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = zext i32 %57 to i64
-  %59 = icmp ugt i64 %55, %58
+  %59 = icmp samesign ugt i64 %55, %58
   br i1 %59, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -87668,7 +87668,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %47, %44
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %63
   %.027.i.i.i.i = phi i32 [ %64, %63 ], [ %57, %.preheader.i.i.i.i ]
-  %61 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %61 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %.lr.ph.i.i.i.i
@@ -87677,7 +87677,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %47, %44
 
 63:                                               ; preds = %.lr.ph.i.i.i.i
   %64 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %65 = icmp ult i32 %.027.i.i.i.i, 24
+  %65 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %65, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %63
@@ -87752,7 +87752,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i857:                  ; preds = %94, %new_label_body
   %102 = getelementptr inbounds i8, ptr %97, i64 12
   %103 = load i32, ptr %102, align 4
   %104 = zext i32 %103 to i64
-  %105 = icmp ugt i64 %101, %104
+  %105 = icmp samesign ugt i64 %101, %104
   br i1 %105, label %.preheader.i.i.i.i861, label %new_label_body.exit868
 
 .preheader.i.i.i.i861:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i857
@@ -87761,7 +87761,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i857:                  ; preds = %94, %new_label_body
 
 .lr.ph.i.i.i.i865:                                ; preds = %.preheader.i.i.i.i861, %109
   %.027.i.i.i.i866 = phi i32 [ %110, %109 ], [ %103, %.preheader.i.i.i.i861 ]
-  %107 = icmp ugt i32 %.027.i.i.i.i866, 1073741822
+  %107 = icmp samesign ugt i32 %.027.i.i.i.i866, 1073741822
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %.lr.ph.i.i.i.i865
@@ -87770,7 +87770,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i857:                  ; preds = %94, %new_label_body
 
 109:                                              ; preds = %.lr.ph.i.i.i.i865
   %110 = shl nuw nsw i32 %.027.i.i.i.i866, 1
-  %111 = icmp ult i32 %.027.i.i.i.i866, 24
+  %111 = icmp samesign ult i32 %.027.i.i.i.i866, 24
   br i1 %111, label %.lr.ph.i.i.i.i865, label %._crit_edge.i.i.loopexit.i.i867, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i867:                  ; preds = %109
@@ -87844,7 +87844,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i870:                  ; preds = %139, %new_label_bod
   %147 = getelementptr inbounds i8, ptr %142, i64 12
   %148 = load i32, ptr %147, align 4
   %149 = zext i32 %148 to i64
-  %150 = icmp ugt i64 %146, %149
+  %150 = icmp samesign ugt i64 %146, %149
   br i1 %150, label %.preheader.i.i.i.i874, label %new_label_body.exit881
 
 .preheader.i.i.i.i874:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i870
@@ -87853,7 +87853,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i870:                  ; preds = %139, %new_label_bod
 
 .lr.ph.i.i.i.i878:                                ; preds = %.preheader.i.i.i.i874, %154
   %.027.i.i.i.i879 = phi i32 [ %155, %154 ], [ %148, %.preheader.i.i.i.i874 ]
-  %152 = icmp ugt i32 %.027.i.i.i.i879, 1073741822
+  %152 = icmp samesign ugt i32 %.027.i.i.i.i879, 1073741822
   br i1 %152, label %153, label %154
 
 153:                                              ; preds = %.lr.ph.i.i.i.i878
@@ -87862,7 +87862,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i870:                  ; preds = %139, %new_label_bod
 
 154:                                              ; preds = %.lr.ph.i.i.i.i878
   %155 = shl nuw nsw i32 %.027.i.i.i.i879, 1
-  %156 = icmp ult i32 %.027.i.i.i.i879, 24
+  %156 = icmp samesign ult i32 %.027.i.i.i.i879, 24
   br i1 %156, label %.lr.ph.i.i.i.i878, label %._crit_edge.i.i.loopexit.i.i880, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i880:                  ; preds = %154
@@ -87936,7 +87936,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i883:                  ; preds = %184, %new_label_bod
   %192 = getelementptr inbounds i8, ptr %187, i64 12
   %193 = load i32, ptr %192, align 4
   %194 = zext i32 %193 to i64
-  %195 = icmp ugt i64 %191, %194
+  %195 = icmp samesign ugt i64 %191, %194
   br i1 %195, label %.preheader.i.i.i.i887, label %new_label_body.exit894
 
 .preheader.i.i.i.i887:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i883
@@ -87945,7 +87945,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i883:                  ; preds = %184, %new_label_bod
 
 .lr.ph.i.i.i.i891:                                ; preds = %.preheader.i.i.i.i887, %199
   %.027.i.i.i.i892 = phi i32 [ %200, %199 ], [ %193, %.preheader.i.i.i.i887 ]
-  %197 = icmp ugt i32 %.027.i.i.i.i892, 1073741822
+  %197 = icmp samesign ugt i32 %.027.i.i.i.i892, 1073741822
   br i1 %197, label %198, label %199
 
 198:                                              ; preds = %.lr.ph.i.i.i.i891
@@ -87954,7 +87954,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i883:                  ; preds = %184, %new_label_bod
 
 199:                                              ; preds = %.lr.ph.i.i.i.i891
   %200 = shl nuw nsw i32 %.027.i.i.i.i892, 1
-  %201 = icmp ult i32 %.027.i.i.i.i892, 24
+  %201 = icmp samesign ult i32 %.027.i.i.i.i892, 24
   br i1 %201, label %.lr.ph.i.i.i.i891, label %._crit_edge.i.i.loopexit.i.i893, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i893:                  ; preds = %199
@@ -88186,7 +88186,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1165:                 ; preds = %324, %298
   %332 = getelementptr inbounds i8, ptr %327, i64 12
   %333 = load i32, ptr %332, align 4
   %334 = zext i32 %333 to i64
-  %335 = icmp ugt i64 %331, %334
+  %335 = icmp samesign ugt i64 %331, %334
   br i1 %335, label %.preheader.i.i.i.i1169, label %new_label_body.exit1176
 
 .preheader.i.i.i.i1169:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1165
@@ -88195,7 +88195,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1165:                 ; preds = %324, %298
 
 .lr.ph.i.i.i.i1173:                               ; preds = %.preheader.i.i.i.i1169, %339
   %.027.i.i.i.i1174 = phi i32 [ %340, %339 ], [ %333, %.preheader.i.i.i.i1169 ]
-  %337 = icmp ugt i32 %.027.i.i.i.i1174, 1073741822
+  %337 = icmp samesign ugt i32 %.027.i.i.i.i1174, 1073741822
   br i1 %337, label %338, label %339
 
 338:                                              ; preds = %.lr.ph.i.i.i.i1173
@@ -88204,7 +88204,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1165:                 ; preds = %324, %298
 
 339:                                              ; preds = %.lr.ph.i.i.i.i1173
   %340 = shl nuw nsw i32 %.027.i.i.i.i1174, 1
-  %341 = icmp ult i32 %.027.i.i.i.i1174, 24
+  %341 = icmp samesign ult i32 %.027.i.i.i.i1174, 24
   br i1 %341, label %.lr.ph.i.i.i.i1173, label %._crit_edge.i.i.loopexit.i.i1175, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1175:                 ; preds = %339
@@ -88497,7 +88497,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1178:                 ; preds = %500, %463
   %508 = getelementptr inbounds i8, ptr %503, i64 12
   %509 = load i32, ptr %508, align 4
   %510 = zext i32 %509 to i64
-  %511 = icmp ugt i64 %507, %510
+  %511 = icmp samesign ugt i64 %507, %510
   br i1 %511, label %.preheader.i.i.i.i1182, label %new_label_body.exit1189
 
 .preheader.i.i.i.i1182:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1178
@@ -88506,7 +88506,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1178:                 ; preds = %500, %463
 
 .lr.ph.i.i.i.i1186:                               ; preds = %.preheader.i.i.i.i1182, %515
   %.027.i.i.i.i1187 = phi i32 [ %516, %515 ], [ %509, %.preheader.i.i.i.i1182 ]
-  %513 = icmp ugt i32 %.027.i.i.i.i1187, 1073741822
+  %513 = icmp samesign ugt i32 %.027.i.i.i.i1187, 1073741822
   br i1 %513, label %514, label %515
 
 514:                                              ; preds = %.lr.ph.i.i.i.i1186
@@ -88515,7 +88515,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1178:                 ; preds = %500, %463
 
 515:                                              ; preds = %.lr.ph.i.i.i.i1186
   %516 = shl nuw nsw i32 %.027.i.i.i.i1187, 1
-  %517 = icmp ult i32 %.027.i.i.i.i1187, 24
+  %517 = icmp samesign ult i32 %.027.i.i.i.i1187, 24
   br i1 %517, label %.lr.ph.i.i.i.i1186, label %._crit_edge.i.i.loopexit.i.i1188, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1188:                 ; preds = %515
@@ -88759,7 +88759,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i910:                  ; preds = %646, %641
   %655 = getelementptr inbounds i8, ptr %650, i64 12
   %656 = load i32, ptr %655, align 4
   %657 = zext i32 %656 to i64
-  %658 = icmp ugt i64 %654, %657
+  %658 = icmp samesign ugt i64 %654, %657
   br i1 %658, label %.preheader.i.i.i.i914, label %new_label_body.exit921
 
 .preheader.i.i.i.i914:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i910
@@ -88768,7 +88768,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i910:                  ; preds = %646, %641
 
 .lr.ph.i.i.i.i918:                                ; preds = %.preheader.i.i.i.i914, %662
   %.027.i.i.i.i919 = phi i32 [ %663, %662 ], [ %656, %.preheader.i.i.i.i914 ]
-  %660 = icmp ugt i32 %.027.i.i.i.i919, 1073741822
+  %660 = icmp samesign ugt i32 %.027.i.i.i.i919, 1073741822
   br i1 %660, label %661, label %662
 
 661:                                              ; preds = %.lr.ph.i.i.i.i918
@@ -88777,7 +88777,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i910:                  ; preds = %646, %641
 
 662:                                              ; preds = %.lr.ph.i.i.i.i918
   %663 = shl nuw nsw i32 %.027.i.i.i.i919, 1
-  %664 = icmp ult i32 %.027.i.i.i.i919, 24
+  %664 = icmp samesign ult i32 %.027.i.i.i.i919, 24
   br i1 %664, label %.lr.ph.i.i.i.i918, label %._crit_edge.i.i.loopexit.i.i920, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i920:                  ; preds = %662
@@ -88852,7 +88852,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i923:                  ; preds = %693, %new_label_bod
   %701 = getelementptr inbounds i8, ptr %696, i64 12
   %702 = load i32, ptr %701, align 4
   %703 = zext i32 %702 to i64
-  %704 = icmp ugt i64 %700, %703
+  %704 = icmp samesign ugt i64 %700, %703
   br i1 %704, label %.preheader.i.i.i.i927, label %new_label_body.exit934
 
 .preheader.i.i.i.i927:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i923
@@ -88861,7 +88861,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i923:                  ; preds = %693, %new_label_bod
 
 .lr.ph.i.i.i.i931:                                ; preds = %.preheader.i.i.i.i927, %708
   %.027.i.i.i.i932 = phi i32 [ %709, %708 ], [ %702, %.preheader.i.i.i.i927 ]
-  %706 = icmp ugt i32 %.027.i.i.i.i932, 1073741822
+  %706 = icmp samesign ugt i32 %.027.i.i.i.i932, 1073741822
   br i1 %706, label %707, label %708
 
 707:                                              ; preds = %.lr.ph.i.i.i.i931
@@ -88870,7 +88870,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i923:                  ; preds = %693, %new_label_bod
 
 708:                                              ; preds = %.lr.ph.i.i.i.i931
   %709 = shl nuw nsw i32 %.027.i.i.i.i932, 1
-  %710 = icmp ult i32 %.027.i.i.i.i932, 24
+  %710 = icmp samesign ult i32 %.027.i.i.i.i932, 24
   br i1 %710, label %.lr.ph.i.i.i.i931, label %._crit_edge.i.i.loopexit.i.i933, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i933:                  ; preds = %708
@@ -88944,7 +88944,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i936:                  ; preds = %738, %new_label_bod
   %746 = getelementptr inbounds i8, ptr %741, i64 12
   %747 = load i32, ptr %746, align 4
   %748 = zext i32 %747 to i64
-  %749 = icmp ugt i64 %745, %748
+  %749 = icmp samesign ugt i64 %745, %748
   br i1 %749, label %.preheader.i.i.i.i940, label %new_label_body.exit947
 
 .preheader.i.i.i.i940:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i936
@@ -88953,7 +88953,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i936:                  ; preds = %738, %new_label_bod
 
 .lr.ph.i.i.i.i944:                                ; preds = %.preheader.i.i.i.i940, %753
   %.027.i.i.i.i945 = phi i32 [ %754, %753 ], [ %747, %.preheader.i.i.i.i940 ]
-  %751 = icmp ugt i32 %.027.i.i.i.i945, 1073741822
+  %751 = icmp samesign ugt i32 %.027.i.i.i.i945, 1073741822
   br i1 %751, label %752, label %753
 
 752:                                              ; preds = %.lr.ph.i.i.i.i944
@@ -88962,7 +88962,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i936:                  ; preds = %738, %new_label_bod
 
 753:                                              ; preds = %.lr.ph.i.i.i.i944
   %754 = shl nuw nsw i32 %.027.i.i.i.i945, 1
-  %755 = icmp ult i32 %.027.i.i.i.i945, 24
+  %755 = icmp samesign ult i32 %.027.i.i.i.i945, 24
   br i1 %755, label %.lr.ph.i.i.i.i944, label %._crit_edge.i.i.loopexit.i.i946, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i946:                  ; preds = %753
@@ -89036,7 +89036,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i949:                  ; preds = %783, %new_label_bod
   %791 = getelementptr inbounds i8, ptr %786, i64 12
   %792 = load i32, ptr %791, align 4
   %793 = zext i32 %792 to i64
-  %794 = icmp ugt i64 %790, %793
+  %794 = icmp samesign ugt i64 %790, %793
   br i1 %794, label %.preheader.i.i.i.i953, label %new_label_body.exit960
 
 .preheader.i.i.i.i953:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i949
@@ -89045,7 +89045,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i949:                  ; preds = %783, %new_label_bod
 
 .lr.ph.i.i.i.i957:                                ; preds = %.preheader.i.i.i.i953, %798
   %.027.i.i.i.i958 = phi i32 [ %799, %798 ], [ %792, %.preheader.i.i.i.i953 ]
-  %796 = icmp ugt i32 %.027.i.i.i.i958, 1073741822
+  %796 = icmp samesign ugt i32 %.027.i.i.i.i958, 1073741822
   br i1 %796, label %797, label %798
 
 797:                                              ; preds = %.lr.ph.i.i.i.i957
@@ -89054,7 +89054,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i949:                  ; preds = %783, %new_label_bod
 
 798:                                              ; preds = %.lr.ph.i.i.i.i957
   %799 = shl nuw nsw i32 %.027.i.i.i.i958, 1
-  %800 = icmp ult i32 %.027.i.i.i.i958, 24
+  %800 = icmp samesign ult i32 %.027.i.i.i.i958, 24
   br i1 %800, label %.lr.ph.i.i.i.i957, label %._crit_edge.i.i.loopexit.i.i959, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i959:                  ; preds = %798
@@ -89200,7 +89200,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i963:                  ; preds = %870, %859
   %878 = getelementptr inbounds i8, ptr %873, i64 12
   %879 = load i32, ptr %878, align 4
   %880 = zext i32 %879 to i64
-  %881 = icmp ugt i64 %877, %880
+  %881 = icmp samesign ugt i64 %877, %880
   br i1 %881, label %.preheader.i.i.i.i967, label %new_label_body.exit974
 
 .preheader.i.i.i.i967:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i963
@@ -89209,7 +89209,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i963:                  ; preds = %870, %859
 
 .lr.ph.i.i.i.i971:                                ; preds = %.preheader.i.i.i.i967, %885
   %.027.i.i.i.i972 = phi i32 [ %886, %885 ], [ %879, %.preheader.i.i.i.i967 ]
-  %883 = icmp ugt i32 %.027.i.i.i.i972, 1073741822
+  %883 = icmp samesign ugt i32 %.027.i.i.i.i972, 1073741822
   br i1 %883, label %884, label %885
 
 884:                                              ; preds = %.lr.ph.i.i.i.i971
@@ -89218,7 +89218,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i963:                  ; preds = %870, %859
 
 885:                                              ; preds = %.lr.ph.i.i.i.i971
   %886 = shl nuw nsw i32 %.027.i.i.i.i972, 1
-  %887 = icmp ult i32 %.027.i.i.i.i972, 24
+  %887 = icmp samesign ult i32 %.027.i.i.i.i972, 24
   br i1 %887, label %.lr.ph.i.i.i.i971, label %._crit_edge.i.i.loopexit.i.i973, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i973:                  ; preds = %885
@@ -89292,7 +89292,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i976:                  ; preds = %915, %new_label_bod
   %923 = getelementptr inbounds i8, ptr %918, i64 12
   %924 = load i32, ptr %923, align 4
   %925 = zext i32 %924 to i64
-  %926 = icmp ugt i64 %922, %925
+  %926 = icmp samesign ugt i64 %922, %925
   br i1 %926, label %.preheader.i.i.i.i980, label %new_label_body.exit987
 
 .preheader.i.i.i.i980:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i976
@@ -89301,7 +89301,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i976:                  ; preds = %915, %new_label_bod
 
 .lr.ph.i.i.i.i984:                                ; preds = %.preheader.i.i.i.i980, %930
   %.027.i.i.i.i985 = phi i32 [ %931, %930 ], [ %924, %.preheader.i.i.i.i980 ]
-  %928 = icmp ugt i32 %.027.i.i.i.i985, 1073741822
+  %928 = icmp samesign ugt i32 %.027.i.i.i.i985, 1073741822
   br i1 %928, label %929, label %930
 
 929:                                              ; preds = %.lr.ph.i.i.i.i984
@@ -89310,7 +89310,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i976:                  ; preds = %915, %new_label_bod
 
 930:                                              ; preds = %.lr.ph.i.i.i.i984
   %931 = shl nuw nsw i32 %.027.i.i.i.i985, 1
-  %932 = icmp ult i32 %.027.i.i.i.i985, 24
+  %932 = icmp samesign ult i32 %.027.i.i.i.i985, 24
   br i1 %932, label %.lr.ph.i.i.i.i984, label %._crit_edge.i.i.loopexit.i.i986, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i986:                  ; preds = %930
@@ -89384,7 +89384,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i989:                  ; preds = %960, %new_label_bod
   %968 = getelementptr inbounds i8, ptr %963, i64 12
   %969 = load i32, ptr %968, align 4
   %970 = zext i32 %969 to i64
-  %971 = icmp ugt i64 %967, %970
+  %971 = icmp samesign ugt i64 %967, %970
   br i1 %971, label %.preheader.i.i.i.i993, label %new_label_body.exit1000
 
 .preheader.i.i.i.i993:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i989
@@ -89393,7 +89393,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i989:                  ; preds = %960, %new_label_bod
 
 .lr.ph.i.i.i.i997:                                ; preds = %.preheader.i.i.i.i993, %975
   %.027.i.i.i.i998 = phi i32 [ %976, %975 ], [ %969, %.preheader.i.i.i.i993 ]
-  %973 = icmp ugt i32 %.027.i.i.i.i998, 1073741822
+  %973 = icmp samesign ugt i32 %.027.i.i.i.i998, 1073741822
   br i1 %973, label %974, label %975
 
 974:                                              ; preds = %.lr.ph.i.i.i.i997
@@ -89402,7 +89402,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i989:                  ; preds = %960, %new_label_bod
 
 975:                                              ; preds = %.lr.ph.i.i.i.i997
   %976 = shl nuw nsw i32 %.027.i.i.i.i998, 1
-  %977 = icmp ult i32 %.027.i.i.i.i998, 24
+  %977 = icmp samesign ult i32 %.027.i.i.i.i998, 24
   br i1 %977, label %.lr.ph.i.i.i.i997, label %._crit_edge.i.i.loopexit.i.i999, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i999:                  ; preds = %975
@@ -89476,7 +89476,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1002:                 ; preds = %1005, %new_label_bo
   %1013 = getelementptr inbounds i8, ptr %1008, i64 12
   %1014 = load i32, ptr %1013, align 4
   %1015 = zext i32 %1014 to i64
-  %1016 = icmp ugt i64 %1012, %1015
+  %1016 = icmp samesign ugt i64 %1012, %1015
   br i1 %1016, label %.preheader.i.i.i.i1006, label %new_label_body.exit1013
 
 .preheader.i.i.i.i1006:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1002
@@ -89485,7 +89485,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1002:                 ; preds = %1005, %new_label_bo
 
 .lr.ph.i.i.i.i1010:                               ; preds = %.preheader.i.i.i.i1006, %1020
   %.027.i.i.i.i1011 = phi i32 [ %1021, %1020 ], [ %1014, %.preheader.i.i.i.i1006 ]
-  %1018 = icmp ugt i32 %.027.i.i.i.i1011, 1073741822
+  %1018 = icmp samesign ugt i32 %.027.i.i.i.i1011, 1073741822
   br i1 %1018, label %1019, label %1020
 
 1019:                                             ; preds = %.lr.ph.i.i.i.i1010
@@ -89494,7 +89494,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1002:                 ; preds = %1005, %new_label_bo
 
 1020:                                             ; preds = %.lr.ph.i.i.i.i1010
   %1021 = shl nuw nsw i32 %.027.i.i.i.i1011, 1
-  %1022 = icmp ult i32 %.027.i.i.i.i1011, 24
+  %1022 = icmp samesign ult i32 %.027.i.i.i.i1011, 24
   br i1 %1022, label %.lr.ph.i.i.i.i1010, label %._crit_edge.i.i.loopexit.i.i1012, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1012:                 ; preds = %1020
@@ -89727,7 +89727,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1191:                 ; preds = %1149, %1138
   %1157 = getelementptr inbounds i8, ptr %1152, i64 12
   %1158 = load i32, ptr %1157, align 4
   %1159 = zext i32 %1158 to i64
-  %1160 = icmp ugt i64 %1156, %1159
+  %1160 = icmp samesign ugt i64 %1156, %1159
   br i1 %1160, label %.preheader.i.i.i.i1195, label %new_label_body.exit1202
 
 .preheader.i.i.i.i1195:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1191
@@ -89736,7 +89736,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1191:                 ; preds = %1149, %1138
 
 .lr.ph.i.i.i.i1199:                               ; preds = %.preheader.i.i.i.i1195, %1164
   %.027.i.i.i.i1200 = phi i32 [ %1165, %1164 ], [ %1158, %.preheader.i.i.i.i1195 ]
-  %1162 = icmp ugt i32 %.027.i.i.i.i1200, 1073741822
+  %1162 = icmp samesign ugt i32 %.027.i.i.i.i1200, 1073741822
   br i1 %1162, label %1163, label %1164
 
 1163:                                             ; preds = %.lr.ph.i.i.i.i1199
@@ -89745,7 +89745,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1191:                 ; preds = %1149, %1138
 
 1164:                                             ; preds = %.lr.ph.i.i.i.i1199
   %1165 = shl nuw nsw i32 %.027.i.i.i.i1200, 1
-  %1166 = icmp ult i32 %.027.i.i.i.i1200, 24
+  %1166 = icmp samesign ult i32 %.027.i.i.i.i1200, 24
   br i1 %1166, label %.lr.ph.i.i.i.i1199, label %._crit_edge.i.i.loopexit.i.i1201, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1201:                 ; preds = %1164
@@ -90267,7 +90267,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1027:                 ; preds = %1474, %1468
   %1483 = getelementptr inbounds i8, ptr %1478, i64 12
   %1484 = load i32, ptr %1483, align 4
   %1485 = zext i32 %1484 to i64
-  %1486 = icmp ugt i64 %1482, %1485
+  %1486 = icmp samesign ugt i64 %1482, %1485
   br i1 %1486, label %.preheader.i.i.i.i1031, label %new_label_body.exit1038
 
 .preheader.i.i.i.i1031:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1027
@@ -90276,7 +90276,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1027:                 ; preds = %1474, %1468
 
 .lr.ph.i.i.i.i1035:                               ; preds = %.preheader.i.i.i.i1031, %1490
   %.027.i.i.i.i1036 = phi i32 [ %1491, %1490 ], [ %1484, %.preheader.i.i.i.i1031 ]
-  %1488 = icmp ugt i32 %.027.i.i.i.i1036, 1073741822
+  %1488 = icmp samesign ugt i32 %.027.i.i.i.i1036, 1073741822
   br i1 %1488, label %1489, label %1490
 
 1489:                                             ; preds = %.lr.ph.i.i.i.i1035
@@ -90285,7 +90285,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1027:                 ; preds = %1474, %1468
 
 1490:                                             ; preds = %.lr.ph.i.i.i.i1035
   %1491 = shl nuw nsw i32 %.027.i.i.i.i1036, 1
-  %1492 = icmp ult i32 %.027.i.i.i.i1036, 24
+  %1492 = icmp samesign ult i32 %.027.i.i.i.i1036, 24
   br i1 %1492, label %.lr.ph.i.i.i.i1035, label %._crit_edge.i.i.loopexit.i.i1037, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1037:                 ; preds = %1490
@@ -90360,7 +90360,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1040:                 ; preds = %1521, %new_label_bo
   %1529 = getelementptr inbounds i8, ptr %1524, i64 12
   %1530 = load i32, ptr %1529, align 4
   %1531 = zext i32 %1530 to i64
-  %1532 = icmp ugt i64 %1528, %1531
+  %1532 = icmp samesign ugt i64 %1528, %1531
   br i1 %1532, label %.preheader.i.i.i.i1044, label %new_label_body.exit1051
 
 .preheader.i.i.i.i1044:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1040
@@ -90369,7 +90369,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1040:                 ; preds = %1521, %new_label_bo
 
 .lr.ph.i.i.i.i1048:                               ; preds = %.preheader.i.i.i.i1044, %1536
   %.027.i.i.i.i1049 = phi i32 [ %1537, %1536 ], [ %1530, %.preheader.i.i.i.i1044 ]
-  %1534 = icmp ugt i32 %.027.i.i.i.i1049, 1073741822
+  %1534 = icmp samesign ugt i32 %.027.i.i.i.i1049, 1073741822
   br i1 %1534, label %1535, label %1536
 
 1535:                                             ; preds = %.lr.ph.i.i.i.i1048
@@ -90378,7 +90378,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1040:                 ; preds = %1521, %new_label_bo
 
 1536:                                             ; preds = %.lr.ph.i.i.i.i1048
   %1537 = shl nuw nsw i32 %.027.i.i.i.i1049, 1
-  %1538 = icmp ult i32 %.027.i.i.i.i1049, 24
+  %1538 = icmp samesign ult i32 %.027.i.i.i.i1049, 24
   br i1 %1538, label %.lr.ph.i.i.i.i1048, label %._crit_edge.i.i.loopexit.i.i1050, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1050:                 ; preds = %1536
@@ -90827,7 +90827,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1077:                 ; preds = %1772, %1769
   %1780 = getelementptr inbounds i8, ptr %1775, i64 12
   %1781 = load i32, ptr %1780, align 4
   %1782 = zext i32 %1781 to i64
-  %1783 = icmp ugt i64 %1779, %1782
+  %1783 = icmp samesign ugt i64 %1779, %1782
   br i1 %1783, label %.preheader.i.i.i.i1081, label %new_label_body.exit1088
 
 .preheader.i.i.i.i1081:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1077
@@ -90836,7 +90836,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1077:                 ; preds = %1772, %1769
 
 .lr.ph.i.i.i.i1085:                               ; preds = %.preheader.i.i.i.i1081, %1787
   %.027.i.i.i.i1086 = phi i32 [ %1788, %1787 ], [ %1781, %.preheader.i.i.i.i1081 ]
-  %1785 = icmp ugt i32 %.027.i.i.i.i1086, 1073741822
+  %1785 = icmp samesign ugt i32 %.027.i.i.i.i1086, 1073741822
   br i1 %1785, label %1786, label %1787
 
 1786:                                             ; preds = %.lr.ph.i.i.i.i1085
@@ -90845,7 +90845,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1077:                 ; preds = %1772, %1769
 
 1787:                                             ; preds = %.lr.ph.i.i.i.i1085
   %1788 = shl nuw nsw i32 %.027.i.i.i.i1086, 1
-  %1789 = icmp ult i32 %.027.i.i.i.i1086, 24
+  %1789 = icmp samesign ult i32 %.027.i.i.i.i1086, 24
   br i1 %1789, label %.lr.ph.i.i.i.i1085, label %._crit_edge.i.i.loopexit.i.i1087, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1087:                 ; preds = %1787
@@ -91128,7 +91128,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1204:                 ; preds = %1958, %1955
   %1966 = getelementptr inbounds i8, ptr %1961, i64 12
   %1967 = load i32, ptr %1966, align 4
   %1968 = zext i32 %1967 to i64
-  %1969 = icmp ugt i64 %1965, %1968
+  %1969 = icmp samesign ugt i64 %1965, %1968
   br i1 %1969, label %.preheader.i.i.i.i1208, label %new_label_body.exit1215
 
 .preheader.i.i.i.i1208:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1204
@@ -91137,7 +91137,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1204:                 ; preds = %1958, %1955
 
 .lr.ph.i.i.i.i1212:                               ; preds = %.preheader.i.i.i.i1208, %1973
   %.027.i.i.i.i1213 = phi i32 [ %1974, %1973 ], [ %1967, %.preheader.i.i.i.i1208 ]
-  %1971 = icmp ugt i32 %.027.i.i.i.i1213, 1073741822
+  %1971 = icmp samesign ugt i32 %.027.i.i.i.i1213, 1073741822
   br i1 %1971, label %1972, label %1973
 
 1972:                                             ; preds = %.lr.ph.i.i.i.i1212
@@ -91146,7 +91146,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1204:                 ; preds = %1958, %1955
 
 1973:                                             ; preds = %.lr.ph.i.i.i.i1212
   %1974 = shl nuw nsw i32 %.027.i.i.i.i1213, 1
-  %1975 = icmp ult i32 %.027.i.i.i.i1213, 24
+  %1975 = icmp samesign ult i32 %.027.i.i.i.i1213, 24
   br i1 %1975, label %.lr.ph.i.i.i.i1212, label %._crit_edge.i.i.loopexit.i.i1214, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1214:                 ; preds = %1973
@@ -91513,7 +91513,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1109:                 ; preds = %2185, %2182
   %2194 = getelementptr inbounds i8, ptr %2189, i64 12
   %2195 = load i32, ptr %2194, align 4
   %2196 = zext i32 %2195 to i64
-  %2197 = icmp ugt i64 %2193, %2196
+  %2197 = icmp samesign ugt i64 %2193, %2196
   br i1 %2197, label %.preheader.i.i.i.i1113, label %new_label_body.exit1120
 
 .preheader.i.i.i.i1113:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1109
@@ -91522,7 +91522,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1109:                 ; preds = %2185, %2182
 
 .lr.ph.i.i.i.i1117:                               ; preds = %.preheader.i.i.i.i1113, %2201
   %.027.i.i.i.i1118 = phi i32 [ %2202, %2201 ], [ %2195, %.preheader.i.i.i.i1113 ]
-  %2199 = icmp ugt i32 %.027.i.i.i.i1118, 1073741822
+  %2199 = icmp samesign ugt i32 %.027.i.i.i.i1118, 1073741822
   br i1 %2199, label %2200, label %2201
 
 2200:                                             ; preds = %.lr.ph.i.i.i.i1117
@@ -91531,7 +91531,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1109:                 ; preds = %2185, %2182
 
 2201:                                             ; preds = %.lr.ph.i.i.i.i1117
   %2202 = shl nuw nsw i32 %.027.i.i.i.i1118, 1
-  %2203 = icmp ult i32 %.027.i.i.i.i1118, 24
+  %2203 = icmp samesign ult i32 %.027.i.i.i.i1118, 24
   br i1 %2203, label %.lr.ph.i.i.i.i1117, label %._crit_edge.i.i.loopexit.i.i1119, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1119:                 ; preds = %2201
@@ -91621,7 +91621,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1217:                 ; preds = %2244, %new_label_bo
   %2252 = getelementptr inbounds i8, ptr %2247, i64 12
   %2253 = load i32, ptr %2252, align 4
   %2254 = zext i32 %2253 to i64
-  %2255 = icmp ugt i64 %2251, %2254
+  %2255 = icmp samesign ugt i64 %2251, %2254
   br i1 %2255, label %.preheader.i.i.i.i1221, label %new_label_body.exit1228
 
 .preheader.i.i.i.i1221:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1217
@@ -91630,7 +91630,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1217:                 ; preds = %2244, %new_label_bo
 
 .lr.ph.i.i.i.i1225:                               ; preds = %.preheader.i.i.i.i1221, %2259
   %.027.i.i.i.i1226 = phi i32 [ %2260, %2259 ], [ %2253, %.preheader.i.i.i.i1221 ]
-  %2257 = icmp ugt i32 %.027.i.i.i.i1226, 1073741822
+  %2257 = icmp samesign ugt i32 %.027.i.i.i.i1226, 1073741822
   br i1 %2257, label %2258, label %2259
 
 2258:                                             ; preds = %.lr.ph.i.i.i.i1225
@@ -91639,7 +91639,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1217:                 ; preds = %2244, %new_label_bo
 
 2259:                                             ; preds = %.lr.ph.i.i.i.i1225
   %2260 = shl nuw nsw i32 %.027.i.i.i.i1226, 1
-  %2261 = icmp ult i32 %.027.i.i.i.i1226, 24
+  %2261 = icmp samesign ult i32 %.027.i.i.i.i1226, 24
   br i1 %2261, label %.lr.ph.i.i.i.i1225, label %._crit_edge.i.i.loopexit.i.i1227, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1227:                 ; preds = %2259
@@ -91869,7 +91869,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1130:                 ; preds = %2371, %2368
   %2380 = getelementptr inbounds i8, ptr %2375, i64 12
   %2381 = load i32, ptr %2380, align 4
   %2382 = zext i32 %2381 to i64
-  %2383 = icmp ugt i64 %2379, %2382
+  %2383 = icmp samesign ugt i64 %2379, %2382
   br i1 %2383, label %.preheader.i.i.i.i1134, label %new_label_body.exit1141
 
 .preheader.i.i.i.i1134:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1130
@@ -91878,7 +91878,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1130:                 ; preds = %2371, %2368
 
 .lr.ph.i.i.i.i1138:                               ; preds = %.preheader.i.i.i.i1134, %2387
   %.027.i.i.i.i1139 = phi i32 [ %2388, %2387 ], [ %2381, %.preheader.i.i.i.i1134 ]
-  %2385 = icmp ugt i32 %.027.i.i.i.i1139, 1073741822
+  %2385 = icmp samesign ugt i32 %.027.i.i.i.i1139, 1073741822
   br i1 %2385, label %2386, label %2387
 
 2386:                                             ; preds = %.lr.ph.i.i.i.i1138
@@ -91887,7 +91887,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1130:                 ; preds = %2371, %2368
 
 2387:                                             ; preds = %.lr.ph.i.i.i.i1138
   %2388 = shl nuw nsw i32 %.027.i.i.i.i1139, 1
-  %2389 = icmp ult i32 %.027.i.i.i.i1139, 24
+  %2389 = icmp samesign ult i32 %.027.i.i.i.i1139, 24
   br i1 %2389, label %.lr.ph.i.i.i.i1138, label %._crit_edge.i.i.loopexit.i.i1140, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1140:                 ; preds = %2387
@@ -91962,7 +91962,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1143:                 ; preds = %2418, %new_label_bo
   %2426 = getelementptr inbounds i8, ptr %2421, i64 12
   %2427 = load i32, ptr %2426, align 4
   %2428 = zext i32 %2427 to i64
-  %2429 = icmp ugt i64 %2425, %2428
+  %2429 = icmp samesign ugt i64 %2425, %2428
   br i1 %2429, label %.preheader.i.i.i.i1147, label %new_label_body.exit1154
 
 .preheader.i.i.i.i1147:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1143
@@ -91971,7 +91971,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1143:                 ; preds = %2418, %new_label_bo
 
 .lr.ph.i.i.i.i1151:                               ; preds = %.preheader.i.i.i.i1147, %2433
   %.027.i.i.i.i1152 = phi i32 [ %2434, %2433 ], [ %2427, %.preheader.i.i.i.i1147 ]
-  %2431 = icmp ugt i32 %.027.i.i.i.i1152, 1073741822
+  %2431 = icmp samesign ugt i32 %.027.i.i.i.i1152, 1073741822
   br i1 %2431, label %2432, label %2433
 
 2432:                                             ; preds = %.lr.ph.i.i.i.i1151
@@ -91980,7 +91980,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1143:                 ; preds = %2418, %new_label_bo
 
 2433:                                             ; preds = %.lr.ph.i.i.i.i1151
   %2434 = shl nuw nsw i32 %.027.i.i.i.i1152, 1
-  %2435 = icmp ult i32 %.027.i.i.i.i1152, 24
+  %2435 = icmp samesign ult i32 %.027.i.i.i.i1152, 24
   br i1 %2435, label %.lr.ph.i.i.i.i1151, label %._crit_edge.i.i.loopexit.i.i1153, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1153:                 ; preds = %2433
@@ -92207,7 +92207,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1230:                 ; preds = %2549, %2546
   %2558 = getelementptr inbounds i8, ptr %2553, i64 12
   %2559 = load i32, ptr %2558, align 4
   %2560 = zext i32 %2559 to i64
-  %2561 = icmp ugt i64 %2557, %2560
+  %2561 = icmp samesign ugt i64 %2557, %2560
   br i1 %2561, label %.preheader.i.i.i.i1234, label %new_label_body.exit1241
 
 .preheader.i.i.i.i1234:                           ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i1230
@@ -92216,7 +92216,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1230:                 ; preds = %2549, %2546
 
 .lr.ph.i.i.i.i1238:                               ; preds = %.preheader.i.i.i.i1234, %2565
   %.027.i.i.i.i1239 = phi i32 [ %2566, %2565 ], [ %2559, %.preheader.i.i.i.i1234 ]
-  %2563 = icmp ugt i32 %.027.i.i.i.i1239, 1073741822
+  %2563 = icmp samesign ugt i32 %.027.i.i.i.i1239, 1073741822
   br i1 %2563, label %2564, label %2565
 
 2564:                                             ; preds = %.lr.ph.i.i.i.i1238
@@ -92225,7 +92225,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i1230:                 ; preds = %2549, %2546
 
 2565:                                             ; preds = %.lr.ph.i.i.i.i1238
   %2566 = shl nuw nsw i32 %.027.i.i.i.i1239, 1
-  %2567 = icmp ult i32 %.027.i.i.i.i1239, 24
+  %2567 = icmp samesign ult i32 %.027.i.i.i.i1239, 24
   br i1 %2567, label %.lr.ph.i.i.i.i1238, label %._crit_edge.i.i.loopexit.i.i1240, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i1240:                 ; preds = %2565
@@ -92467,7 +92467,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %4
   %20 = getelementptr inbounds i8, ptr %15, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
-  %23 = icmp ugt i64 %19, %22
+  %23 = icmp samesign ugt i64 %19, %22
   br i1 %23, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -92476,7 +92476,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %4
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %27
   %.027.i.i.i.i = phi i32 [ %28, %27 ], [ %21, %.preheader.i.i.i.i ]
-  %25 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %25 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %.lr.ph.i.i.i.i
@@ -92485,7 +92485,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %4
 
 27:                                               ; preds = %.lr.ph.i.i.i.i
   %28 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %29 = icmp ult i32 %.027.i.i.i.i, 24
+  %29 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %29, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %27
@@ -92560,7 +92560,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i76:                   ; preds = %58, %new_label_body
   %66 = getelementptr inbounds i8, ptr %61, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = zext i32 %67 to i64
-  %69 = icmp ugt i64 %65, %68
+  %69 = icmp samesign ugt i64 %65, %68
   br i1 %69, label %.preheader.i.i.i.i80, label %new_label_body.exit87
 
 .preheader.i.i.i.i80:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i76
@@ -92569,7 +92569,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i76:                   ; preds = %58, %new_label_body
 
 .lr.ph.i.i.i.i84:                                 ; preds = %.preheader.i.i.i.i80, %73
   %.027.i.i.i.i85 = phi i32 [ %74, %73 ], [ %67, %.preheader.i.i.i.i80 ]
-  %71 = icmp ugt i32 %.027.i.i.i.i85, 1073741822
+  %71 = icmp samesign ugt i32 %.027.i.i.i.i85, 1073741822
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %.lr.ph.i.i.i.i84
@@ -92578,7 +92578,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i76:                   ; preds = %58, %new_label_body
 
 73:                                               ; preds = %.lr.ph.i.i.i.i84
   %74 = shl nuw nsw i32 %.027.i.i.i.i85, 1
-  %75 = icmp ult i32 %.027.i.i.i.i85, 24
+  %75 = icmp samesign ult i32 %.027.i.i.i.i85, 24
   br i1 %75, label %.lr.ph.i.i.i.i84, label %._crit_edge.i.i.loopexit.i.i86, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i86:                   ; preds = %73
@@ -93294,7 +93294,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %14, %7
   %23 = getelementptr inbounds i8, ptr %18, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %26 = icmp ugt i64 %22, %25
+  %26 = icmp samesign ugt i64 %22, %25
   br i1 %26, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -93303,7 +93303,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %14, %7
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %30
   %.027.i.i.i.i = phi i32 [ %31, %30 ], [ %24, %.preheader.i.i.i.i ]
-  %28 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %28 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %.lr.ph.i.i.i.i
@@ -93312,7 +93312,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %14, %7
 
 30:                                               ; preds = %.lr.ph.i.i.i.i
   %31 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %32 = icmp ult i32 %.027.i.i.i.i, 24
+  %32 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %30
@@ -93556,7 +93556,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %12, %7
   %21 = getelementptr inbounds i8, ptr %16, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
-  %24 = icmp ugt i64 %20, %23
+  %24 = icmp samesign ugt i64 %20, %23
   br i1 %24, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -93565,7 +93565,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %12, %7
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %28
   %.027.i.i.i.i = phi i32 [ %29, %28 ], [ %22, %.preheader.i.i.i.i ]
-  %26 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %26 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %.lr.ph.i.i.i.i
@@ -93574,7 +93574,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %12, %7
 
 28:                                               ; preds = %.lr.ph.i.i.i.i
   %29 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %30 = icmp ult i32 %.027.i.i.i.i, 24
+  %30 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %30, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %28
@@ -93649,7 +93649,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i57:                   ; preds = %59, %new_label_body
   %67 = getelementptr inbounds i8, ptr %62, i64 12
   %68 = load i32, ptr %67, align 4
   %69 = zext i32 %68 to i64
-  %70 = icmp ugt i64 %66, %69
+  %70 = icmp samesign ugt i64 %66, %69
   br i1 %70, label %.preheader.i.i.i.i61, label %new_label_body.exit68
 
 .preheader.i.i.i.i61:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i57
@@ -93658,7 +93658,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i57:                   ; preds = %59, %new_label_body
 
 .lr.ph.i.i.i.i65:                                 ; preds = %.preheader.i.i.i.i61, %74
   %.027.i.i.i.i66 = phi i32 [ %75, %74 ], [ %68, %.preheader.i.i.i.i61 ]
-  %72 = icmp ugt i32 %.027.i.i.i.i66, 1073741822
+  %72 = icmp samesign ugt i32 %.027.i.i.i.i66, 1073741822
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %.lr.ph.i.i.i.i65
@@ -93667,7 +93667,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i57:                   ; preds = %59, %new_label_body
 
 74:                                               ; preds = %.lr.ph.i.i.i.i65
   %75 = shl nuw nsw i32 %.027.i.i.i.i66, 1
-  %76 = icmp ult i32 %.027.i.i.i.i66, 24
+  %76 = icmp samesign ult i32 %.027.i.i.i.i66, 24
   br i1 %76, label %.lr.ph.i.i.i.i65, label %._crit_edge.i.i.loopexit.i.i67, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i67:                   ; preds = %74
@@ -93783,7 +93783,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i70:                   ; preds = %121, %118
   %129 = getelementptr inbounds i8, ptr %124, i64 12
   %130 = load i32, ptr %129, align 4
   %131 = zext i32 %130 to i64
-  %132 = icmp ugt i64 %128, %131
+  %132 = icmp samesign ugt i64 %128, %131
   br i1 %132, label %.preheader.i.i.i.i74, label %new_label_body.exit81
 
 .preheader.i.i.i.i74:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i70
@@ -93792,7 +93792,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i70:                   ; preds = %121, %118
 
 .lr.ph.i.i.i.i78:                                 ; preds = %.preheader.i.i.i.i74, %136
   %.027.i.i.i.i79 = phi i32 [ %137, %136 ], [ %130, %.preheader.i.i.i.i74 ]
-  %134 = icmp ugt i32 %.027.i.i.i.i79, 1073741822
+  %134 = icmp samesign ugt i32 %.027.i.i.i.i79, 1073741822
   br i1 %134, label %135, label %136
 
 135:                                              ; preds = %.lr.ph.i.i.i.i78
@@ -93801,7 +93801,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i70:                   ; preds = %121, %118
 
 136:                                              ; preds = %.lr.ph.i.i.i.i78
   %137 = shl nuw nsw i32 %.027.i.i.i.i79, 1
-  %138 = icmp ult i32 %.027.i.i.i.i79, 24
+  %138 = icmp samesign ult i32 %.027.i.i.i.i79, 24
   br i1 %138, label %.lr.ph.i.i.i.i78, label %._crit_edge.i.i.loopexit.i.i80, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i80:                   ; preds = %136
@@ -94800,7 +94800,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %110, %78
   %119 = getelementptr inbounds i8, ptr %114, i64 12
   %120 = load i32, ptr %119, align 4
   %121 = zext i32 %120 to i64
-  %122 = icmp ugt i64 %118, %121
+  %122 = icmp samesign ugt i64 %118, %121
   br i1 %122, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -94809,7 +94809,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %110, %78
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %126
   %.027.i.i.i.i = phi i32 [ %127, %126 ], [ %120, %.preheader.i.i.i.i ]
-  %124 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %124 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %.lr.ph.i.i.i.i
@@ -94818,7 +94818,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %110, %78
 
 126:                                              ; preds = %.lr.ph.i.i.i.i
   %127 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %128 = icmp ult i32 %.027.i.i.i.i, 24
+  %128 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %128, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %126
@@ -94893,7 +94893,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i162:                  ; preds = %157, %new_label_bod
   %165 = getelementptr inbounds i8, ptr %160, i64 12
   %166 = load i32, ptr %165, align 4
   %167 = zext i32 %166 to i64
-  %168 = icmp ugt i64 %164, %167
+  %168 = icmp samesign ugt i64 %164, %167
   br i1 %168, label %.preheader.i.i.i.i166, label %new_label_body.exit173
 
 .preheader.i.i.i.i166:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i162
@@ -94902,7 +94902,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i162:                  ; preds = %157, %new_label_bod
 
 .lr.ph.i.i.i.i170:                                ; preds = %.preheader.i.i.i.i166, %172
   %.027.i.i.i.i171 = phi i32 [ %173, %172 ], [ %166, %.preheader.i.i.i.i166 ]
-  %170 = icmp ugt i32 %.027.i.i.i.i171, 1073741822
+  %170 = icmp samesign ugt i32 %.027.i.i.i.i171, 1073741822
   br i1 %170, label %171, label %172
 
 171:                                              ; preds = %.lr.ph.i.i.i.i170
@@ -94911,7 +94911,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i162:                  ; preds = %157, %new_label_bod
 
 172:                                              ; preds = %.lr.ph.i.i.i.i170
   %173 = shl nuw nsw i32 %.027.i.i.i.i171, 1
-  %174 = icmp ult i32 %.027.i.i.i.i171, 24
+  %174 = icmp samesign ult i32 %.027.i.i.i.i171, 24
   br i1 %174, label %.lr.ph.i.i.i.i170, label %._crit_edge.i.i.loopexit.i.i172, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i172:                  ; preds = %172
@@ -97533,7 +97533,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %129, %124
   %138 = getelementptr inbounds i8, ptr %133, i64 12
   %139 = load i32, ptr %138, align 4
   %140 = zext i32 %139 to i64
-  %141 = icmp ugt i64 %137, %140
+  %141 = icmp samesign ugt i64 %137, %140
   br i1 %141, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -97542,7 +97542,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %129, %124
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %145
   %.027.i.i.i.i = phi i32 [ %146, %145 ], [ %139, %.preheader.i.i.i.i ]
-  %143 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %143 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %143, label %144, label %145
 
 144:                                              ; preds = %.lr.ph.i.i.i.i
@@ -97551,7 +97551,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %129, %124
 
 145:                                              ; preds = %.lr.ph.i.i.i.i
   %146 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %147 = icmp ult i32 %.027.i.i.i.i, 24
+  %147 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %147, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %145
@@ -97626,7 +97626,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i82:                   ; preds = %176, %new_label_bod
   %184 = getelementptr inbounds i8, ptr %179, i64 12
   %185 = load i32, ptr %184, align 4
   %186 = zext i32 %185 to i64
-  %187 = icmp ugt i64 %183, %186
+  %187 = icmp samesign ugt i64 %183, %186
   br i1 %187, label %.preheader.i.i.i.i86, label %new_label_body.exit93
 
 .preheader.i.i.i.i86:                             ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i82
@@ -97635,7 +97635,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i82:                   ; preds = %176, %new_label_bod
 
 .lr.ph.i.i.i.i90:                                 ; preds = %.preheader.i.i.i.i86, %191
   %.027.i.i.i.i91 = phi i32 [ %192, %191 ], [ %185, %.preheader.i.i.i.i86 ]
-  %189 = icmp ugt i32 %.027.i.i.i.i91, 1073741822
+  %189 = icmp samesign ugt i32 %.027.i.i.i.i91, 1073741822
   br i1 %189, label %190, label %191
 
 190:                                              ; preds = %.lr.ph.i.i.i.i90
@@ -97644,7 +97644,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i82:                   ; preds = %176, %new_label_bod
 
 191:                                              ; preds = %.lr.ph.i.i.i.i90
   %192 = shl nuw nsw i32 %.027.i.i.i.i91, 1
-  %193 = icmp ult i32 %.027.i.i.i.i91, 24
+  %193 = icmp samesign ult i32 %.027.i.i.i.i91, 24
   br i1 %193, label %.lr.ph.i.i.i.i90, label %._crit_edge.i.i.loopexit.i.i92, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i92:                   ; preds = %191
@@ -97944,7 +97944,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %8, %11
   %26 = getelementptr inbounds i8, ptr %21, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
-  %29 = icmp ugt i64 %25, %28
+  %29 = icmp samesign ugt i64 %25, %28
   br i1 %29, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -97953,7 +97953,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %8, %11
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %33
   %.027.i.i.i.i = phi i32 [ %34, %33 ], [ %27, %.preheader.i.i.i.i ]
-  %31 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %31 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %.lr.ph.i.i.i.i
@@ -97962,7 +97962,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %8, %11
 
 33:                                               ; preds = %.lr.ph.i.i.i.i
   %34 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %35 = icmp ult i32 %.027.i.i.i.i, 24
+  %35 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %33
@@ -98044,7 +98044,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i154:                  ; preds = %68, %new_label_body
   %76 = getelementptr inbounds i8, ptr %71, i64 12
   %77 = load i32, ptr %76, align 4
   %78 = zext i32 %77 to i64
-  %79 = icmp ugt i64 %75, %78
+  %79 = icmp samesign ugt i64 %75, %78
   br i1 %79, label %.preheader.i.i.i.i158, label %new_label_body.exit165
 
 .preheader.i.i.i.i158:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i154
@@ -98053,7 +98053,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i154:                  ; preds = %68, %new_label_body
 
 .lr.ph.i.i.i.i162:                                ; preds = %.preheader.i.i.i.i158, %83
   %.027.i.i.i.i163 = phi i32 [ %84, %83 ], [ %77, %.preheader.i.i.i.i158 ]
-  %81 = icmp ugt i32 %.027.i.i.i.i163, 1073741822
+  %81 = icmp samesign ugt i32 %.027.i.i.i.i163, 1073741822
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %.lr.ph.i.i.i.i162
@@ -98062,7 +98062,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i154:                  ; preds = %68, %new_label_body
 
 83:                                               ; preds = %.lr.ph.i.i.i.i162
   %84 = shl nuw nsw i32 %.027.i.i.i.i163, 1
-  %85 = icmp ult i32 %.027.i.i.i.i163, 24
+  %85 = icmp samesign ult i32 %.027.i.i.i.i163, 24
   br i1 %85, label %.lr.ph.i.i.i.i162, label %._crit_edge.i.i.loopexit.i.i164, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i164:                  ; preds = %83
@@ -98143,7 +98143,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i170:                  ; preds = %117, %new_label_bod
   %125 = getelementptr inbounds i8, ptr %120, i64 12
   %126 = load i32, ptr %125, align 4
   %127 = zext i32 %126 to i64
-  %128 = icmp ugt i64 %124, %127
+  %128 = icmp samesign ugt i64 %124, %127
   br i1 %128, label %.preheader.i.i.i.i174, label %new_label_body.exit181
 
 .preheader.i.i.i.i174:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i170
@@ -98152,7 +98152,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i170:                  ; preds = %117, %new_label_bod
 
 .lr.ph.i.i.i.i178:                                ; preds = %.preheader.i.i.i.i174, %132
   %.027.i.i.i.i179 = phi i32 [ %133, %132 ], [ %126, %.preheader.i.i.i.i174 ]
-  %130 = icmp ugt i32 %.027.i.i.i.i179, 1073741822
+  %130 = icmp samesign ugt i32 %.027.i.i.i.i179, 1073741822
   br i1 %130, label %131, label %132
 
 131:                                              ; preds = %.lr.ph.i.i.i.i178
@@ -98161,7 +98161,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i170:                  ; preds = %117, %new_label_bod
 
 132:                                              ; preds = %.lr.ph.i.i.i.i178
   %133 = shl nuw nsw i32 %.027.i.i.i.i179, 1
-  %134 = icmp ult i32 %.027.i.i.i.i179, 24
+  %134 = icmp samesign ult i32 %.027.i.i.i.i179, 24
   br i1 %134, label %.lr.ph.i.i.i.i178, label %._crit_edge.i.i.loopexit.i.i180, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i180:                  ; preds = %132
@@ -98242,7 +98242,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i186:                  ; preds = %166, %new_label_bod
   %174 = getelementptr inbounds i8, ptr %169, i64 12
   %175 = load i32, ptr %174, align 4
   %176 = zext i32 %175 to i64
-  %177 = icmp ugt i64 %173, %176
+  %177 = icmp samesign ugt i64 %173, %176
   br i1 %177, label %.preheader.i.i.i.i190, label %new_label_body.exit197
 
 .preheader.i.i.i.i190:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i186
@@ -98251,7 +98251,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i186:                  ; preds = %166, %new_label_bod
 
 .lr.ph.i.i.i.i194:                                ; preds = %.preheader.i.i.i.i190, %181
   %.027.i.i.i.i195 = phi i32 [ %182, %181 ], [ %175, %.preheader.i.i.i.i190 ]
-  %179 = icmp ugt i32 %.027.i.i.i.i195, 1073741822
+  %179 = icmp samesign ugt i32 %.027.i.i.i.i195, 1073741822
   br i1 %179, label %180, label %181
 
 180:                                              ; preds = %.lr.ph.i.i.i.i194
@@ -98260,7 +98260,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i186:                  ; preds = %166, %new_label_bod
 
 181:                                              ; preds = %.lr.ph.i.i.i.i194
   %182 = shl nuw nsw i32 %.027.i.i.i.i195, 1
-  %183 = icmp ult i32 %.027.i.i.i.i195, 24
+  %183 = icmp samesign ult i32 %.027.i.i.i.i195, 24
   br i1 %183, label %.lr.ph.i.i.i.i194, label %._crit_edge.i.i.loopexit.i.i196, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i196:                  ; preds = %181
@@ -98334,7 +98334,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i199:                  ; preds = %211, %new_label_bod
   %219 = getelementptr inbounds i8, ptr %214, i64 12
   %220 = load i32, ptr %219, align 4
   %221 = zext i32 %220 to i64
-  %222 = icmp ugt i64 %218, %221
+  %222 = icmp samesign ugt i64 %218, %221
   br i1 %222, label %.preheader.i.i.i.i203, label %new_label_body.exit210
 
 .preheader.i.i.i.i203:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i199
@@ -98343,7 +98343,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i199:                  ; preds = %211, %new_label_bod
 
 .lr.ph.i.i.i.i207:                                ; preds = %.preheader.i.i.i.i203, %226
   %.027.i.i.i.i208 = phi i32 [ %227, %226 ], [ %220, %.preheader.i.i.i.i203 ]
-  %224 = icmp ugt i32 %.027.i.i.i.i208, 1073741822
+  %224 = icmp samesign ugt i32 %.027.i.i.i.i208, 1073741822
   br i1 %224, label %225, label %226
 
 225:                                              ; preds = %.lr.ph.i.i.i.i207
@@ -98352,7 +98352,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i199:                  ; preds = %211, %new_label_bod
 
 226:                                              ; preds = %.lr.ph.i.i.i.i207
   %227 = shl nuw nsw i32 %.027.i.i.i.i208, 1
-  %228 = icmp ult i32 %.027.i.i.i.i208, 24
+  %228 = icmp samesign ult i32 %.027.i.i.i.i208, 24
   br i1 %228, label %.lr.ph.i.i.i.i207, label %._crit_edge.i.i.loopexit.i.i209, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i209:                  ; preds = %226
@@ -98426,7 +98426,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i212:                  ; preds = %256, %new_label_bod
   %264 = getelementptr inbounds i8, ptr %259, i64 12
   %265 = load i32, ptr %264, align 4
   %266 = zext i32 %265 to i64
-  %267 = icmp ugt i64 %263, %266
+  %267 = icmp samesign ugt i64 %263, %266
   br i1 %267, label %.preheader.i.i.i.i216, label %new_label_body.exit223
 
 .preheader.i.i.i.i216:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i212
@@ -98435,7 +98435,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i212:                  ; preds = %256, %new_label_bod
 
 .lr.ph.i.i.i.i220:                                ; preds = %.preheader.i.i.i.i216, %271
   %.027.i.i.i.i221 = phi i32 [ %272, %271 ], [ %265, %.preheader.i.i.i.i216 ]
-  %269 = icmp ugt i32 %.027.i.i.i.i221, 1073741822
+  %269 = icmp samesign ugt i32 %.027.i.i.i.i221, 1073741822
   br i1 %269, label %270, label %271
 
 270:                                              ; preds = %.lr.ph.i.i.i.i220
@@ -98444,7 +98444,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i212:                  ; preds = %256, %new_label_bod
 
 271:                                              ; preds = %.lr.ph.i.i.i.i220
   %272 = shl nuw nsw i32 %.027.i.i.i.i221, 1
-  %273 = icmp ult i32 %.027.i.i.i.i221, 24
+  %273 = icmp samesign ult i32 %.027.i.i.i.i221, 24
   br i1 %273, label %.lr.ph.i.i.i.i220, label %._crit_edge.i.i.loopexit.i.i222, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i222:                  ; preds = %271
@@ -98523,7 +98523,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i225:                  ; preds = %303, %300
   %311 = getelementptr inbounds i8, ptr %306, i64 12
   %312 = load i32, ptr %311, align 4
   %313 = zext i32 %312 to i64
-  %314 = icmp ugt i64 %310, %313
+  %314 = icmp samesign ugt i64 %310, %313
   br i1 %314, label %.preheader.i.i.i.i229, label %new_label_body.exit236
 
 .preheader.i.i.i.i229:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i225
@@ -98532,7 +98532,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i225:                  ; preds = %303, %300
 
 .lr.ph.i.i.i.i233:                                ; preds = %.preheader.i.i.i.i229, %318
   %.027.i.i.i.i234 = phi i32 [ %319, %318 ], [ %312, %.preheader.i.i.i.i229 ]
-  %316 = icmp ugt i32 %.027.i.i.i.i234, 1073741822
+  %316 = icmp samesign ugt i32 %.027.i.i.i.i234, 1073741822
   br i1 %316, label %317, label %318
 
 317:                                              ; preds = %.lr.ph.i.i.i.i233
@@ -98541,7 +98541,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i225:                  ; preds = %303, %300
 
 318:                                              ; preds = %.lr.ph.i.i.i.i233
   %319 = shl nuw nsw i32 %.027.i.i.i.i234, 1
-  %320 = icmp ult i32 %.027.i.i.i.i234, 24
+  %320 = icmp samesign ult i32 %.027.i.i.i.i234, 24
   br i1 %320, label %.lr.ph.i.i.i.i233, label %._crit_edge.i.i.loopexit.i.i235, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i235:                  ; preds = %318
@@ -98737,7 +98737,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i240:                  ; preds = %404, %398
   %412 = getelementptr inbounds i8, ptr %407, i64 12
   %413 = load i32, ptr %412, align 4
   %414 = zext i32 %413 to i64
-  %415 = icmp ugt i64 %411, %414
+  %415 = icmp samesign ugt i64 %411, %414
   br i1 %415, label %.preheader.i.i.i.i244, label %new_adjust_body.exit
 
 .preheader.i.i.i.i244:                            ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i240
@@ -98746,7 +98746,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i240:                  ; preds = %404, %398
 
 .lr.ph.i.i.i.i248:                                ; preds = %.preheader.i.i.i.i244, %419
   %.027.i.i.i.i249 = phi i32 [ %420, %419 ], [ %413, %.preheader.i.i.i.i244 ]
-  %417 = icmp ugt i32 %.027.i.i.i.i249, 1073741822
+  %417 = icmp samesign ugt i32 %.027.i.i.i.i249, 1073741822
   br i1 %417, label %418, label %419
 
 418:                                              ; preds = %.lr.ph.i.i.i.i248
@@ -98755,7 +98755,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i240:                  ; preds = %404, %398
 
 419:                                              ; preds = %.lr.ph.i.i.i.i248
   %420 = shl nuw nsw i32 %.027.i.i.i.i249, 1
-  %421 = icmp ult i32 %.027.i.i.i.i249, 20
+  %421 = icmp samesign ult i32 %.027.i.i.i.i249, 20
   br i1 %421, label %.lr.ph.i.i.i.i248, label %._crit_edge.i.i.loopexit.i.i250, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i250:                  ; preds = %419
@@ -99085,7 +99085,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %19, %7
   %28 = getelementptr inbounds i8, ptr %23, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
-  %31 = icmp ugt i64 %27, %30
+  %31 = icmp samesign ugt i64 %27, %30
   br i1 %31, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -99094,7 +99094,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %19, %7
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %35
   %.027.i.i.i.i = phi i32 [ %36, %35 ], [ %29, %.preheader.i.i.i.i ]
-  %33 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %33 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.lr.ph.i.i.i.i
@@ -99103,7 +99103,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %19, %7
 
 35:                                               ; preds = %.lr.ph.i.i.i.i
   %36 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %37 = icmp ult i32 %.027.i.i.i.i, 24
+  %37 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %37, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %35
@@ -99628,7 +99628,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %12, %5
   %21 = getelementptr inbounds i8, ptr %16, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
-  %24 = icmp ugt i64 %20, %23
+  %24 = icmp samesign ugt i64 %20, %23
   br i1 %24, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -99637,7 +99637,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %12, %5
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %28
   %.027.i.i.i.i = phi i32 [ %29, %28 ], [ %22, %.preheader.i.i.i.i ]
-  %26 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %26 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %.lr.ph.i.i.i.i
@@ -99646,7 +99646,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %12, %5
 
 28:                                               ; preds = %.lr.ph.i.i.i.i
   %29 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %30 = icmp ult i32 %.027.i.i.i.i, 24
+  %30 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %30, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %28
@@ -99843,7 +99843,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %12, %9
   %21 = getelementptr inbounds i8, ptr %16, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
-  %24 = icmp ugt i64 %20, %23
+  %24 = icmp samesign ugt i64 %20, %23
   br i1 %24, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -99852,7 +99852,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %12, %9
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %28
   %.027.i.i.i.i = phi i32 [ %29, %28 ], [ %22, %.preheader.i.i.i.i ]
-  %26 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %26 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %.lr.ph.i.i.i.i
@@ -99861,7 +99861,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %12, %9
 
 28:                                               ; preds = %.lr.ph.i.i.i.i
   %29 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %30 = icmp ult i32 %.027.i.i.i.i, 24
+  %30 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %30, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %28
@@ -99962,7 +99962,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %4
   %20 = getelementptr inbounds i8, ptr %15, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
-  %23 = icmp ugt i64 %19, %22
+  %23 = icmp samesign ugt i64 %19, %22
   br i1 %23, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -99971,7 +99971,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %4
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %27
   %.027.i.i.i.i = phi i32 [ %28, %27 ], [ %21, %.preheader.i.i.i.i ]
-  %25 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %25 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %.lr.ph.i.i.i.i
@@ -99980,7 +99980,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %11, %4
 
 27:                                               ; preds = %.lr.ph.i.i.i.i
   %28 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %29 = icmp ult i32 %.027.i.i.i.i, 24
+  %29 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %29, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %27
@@ -100160,7 +100160,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %10, %3
   %19 = getelementptr inbounds i8, ptr %14, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  %22 = icmp ugt i64 %18, %21
+  %22 = icmp samesign ugt i64 %18, %21
   br i1 %22, label %.preheader.i.i.i.i, label %new_label_body.exit
 
 .preheader.i.i.i.i:                               ; preds = %ISEQ_COMPILE_DATA.exit.i.i.i
@@ -100169,7 +100169,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %10, %3
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %26
   %.027.i.i.i.i = phi i32 [ %27, %26 ], [ %20, %.preheader.i.i.i.i ]
-  %24 = icmp ugt i32 %.027.i.i.i.i, 1073741822
+  %24 = icmp samesign ugt i32 %.027.i.i.i.i, 1073741822
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %.lr.ph.i.i.i.i
@@ -100178,7 +100178,7 @@ ISEQ_COMPILE_DATA.exit.i.i.i:                     ; preds = %10, %3
 
 26:                                               ; preds = %.lr.ph.i.i.i.i
   %27 = shl nuw nsw i32 %.027.i.i.i.i, 1
-  %28 = icmp ult i32 %.027.i.i.i.i, 24
+  %28 = icmp samesign ult i32 %.027.i.i.i.i, 24
   br i1 %28, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %26

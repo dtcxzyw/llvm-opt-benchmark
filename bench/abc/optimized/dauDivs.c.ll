@@ -63,12 +63,12 @@ define noalias noundef ptr @Dau_DsdDivisors(ptr nocapture noundef readonly %0, i
   %indvars.iv109 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next110, %.loopexit ]
   %indvars.iv103 = phi i64 [ 1, %.lr.ph91 ], [ %indvars.iv.next104, %.loopexit ]
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %31 = icmp ult i64 %indvars.iv.next110, %29
+  %31 = icmp samesign ult i64 %indvars.iv.next110, %29
   br i1 %31, label %.lr.ph88, label %.loopexit
 
 .lr.ph88:                                         ; preds = %30
   %32 = icmp eq i64 %indvars.iv109, 0
-  %33 = icmp ult i64 %indvars.iv109, 6
+  %33 = icmp samesign ult i64 %indvars.iv109, 6
   %34 = add nsw i64 %indvars.iv109, -6
   %35 = trunc nsw i64 %34 to i32
   %36 = shl nuw i32 1, %35
@@ -213,7 +213,7 @@ Abc_TtSwapVars.exit.thread:                       ; preds = %50
   br label %Abc_TtSwapVars.exit70
 
 115:                                              ; preds = %96
-  %116 = icmp ult i64 %indvars.iv105, 6
+  %116 = icmp samesign ult i64 %indvars.iv105, 6
   br i1 %116, label %117, label %138
 
 117:                                              ; preds = %115

@@ -240,8 +240,8 @@ if.end51:                                         ; preds = %if.then40, %if.then
   %7 = load i32, ptr %arrayidx1.i, align 4
   %shr2.i = lshr i32 %7, 24
   %conv.i = zext i8 %b.0 to i32
-  %cmp.i = icmp ugt i32 %shr.i, %conv.i
-  %cmp4.i = icmp ult i32 %shr2.i, %conv.i
+  %cmp.i = icmp samesign ugt i32 %shr.i, %conv.i
+  %cmp4.i = icmp samesign ult i32 %shr2.i, %conv.i
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp4.i
   br i1 %or.cond.i, label %for.end, label %if.end.i
 
@@ -268,7 +268,7 @@ if.end18.i:                                       ; preds = %if.end12.i, %if.end
   %sub1546.i = phi i32 [ %sub15.i, %if.end41.i ], [ %shr, %if.end12.i ]
   %limit.045.i = phi i32 [ %div.limit.0.i, %if.end41.i ], [ %shr, %if.end12.i ]
   %start.044.i = phi i32 [ %start.0.div.i, %if.end41.i ], [ 0, %if.end12.i ]
-  %cmp19.i = icmp ult i32 %sub1546.i, 5
+  %cmp19.i = icmp samesign ult i32 %sub1546.i, 5
   br i1 %cmp19.i, label %if.then20.i, label %if.end41.i
 
 if.then20.i:                                      ; preds = %if.end18.i
@@ -340,7 +340,7 @@ _ZL15ucnv_extFindToUPKjih.exit:                   ; preds = %land.lhs.true49.i, 
   br i1 %cmp52, label %for.end, label %if.else54
 
 if.else54:                                        ; preds = %_ZL15ucnv_extFindToUPKjih.exit
-  %cmp55 = icmp ult i32 %retval.0.i, 2031616
+  %cmp55 = icmp samesign ult i32 %retval.0.i, 2031616
   br i1 %cmp55, label %for.cond, label %if.else57, !llvm.loop !8
 
 if.else57:                                        ; preds = %if.else54
@@ -605,7 +605,7 @@ if.then:                                          ; preds = %land.lhs.true2, %la
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i)
   %shr.i = lshr i32 %2, 24
   %and.i = and i32 %shr.i, 31
-  %cmp.i = icmp ult i32 %and.i, 4
+  %cmp.i = icmp samesign ult i32 %and.i, 4
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -662,8 +662,8 @@ if.then16.i:                                      ; preds = %if.end.i
 
 if.else21.i:                                      ; preds = %if.then16.i
   %cmp22.i = icmp eq i32 %9, 1
-  %cmp24.i = icmp ugt i32 %and.i, 1
-  %or.cond1.i = and i1 %cmp24.i, %cmp22.i
+  %cmp24.i = icmp samesign ugt i32 %and.i, 1
+  %or.cond1.i = select i1 %cmp22.i, i1 %cmp24.i, i1 false
   br i1 %or.cond1.i, label %if.then32.i, label %_ZL18ucnv_extWriteFromUP10UConverterPKijPPcPKcPPiiP10UErrorCode.exit
 
 if.then32.i:                                      ; preds = %if.else21.i, %if.then16.i
@@ -888,7 +888,7 @@ if.end.i:                                         ; preds = %if.end62, %if.end26
   %sub33.i = phi i32 [ %sub.i51, %if.end26.i ], [ %conv38, %if.end62 ]
   %limit.032.i = phi i32 [ %div.limit.0.i, %if.end26.i ], [ %conv38, %if.end62 ]
   %start.031.i = phi i32 [ %start.0.div.i, %if.end26.i ], [ 0, %if.end62 ]
-  %cmp1.i = icmp ult i32 %sub33.i, 5
+  %cmp1.i = icmp samesign ult i32 %sub33.i, 5
   br i1 %cmp1.i, label %if.then2.i, label %if.end26.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -1024,7 +1024,7 @@ if.then:                                          ; preds = %entry
   %0 = load i32, ptr %value, align 4
   %shr = lshr i32 %0, 24
   %and2 = and i32 %shr, 31
-  %cmp4 = icmp ult i32 %and2, 4
+  %cmp4 = icmp samesign ult i32 %and2, 4
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.then
@@ -1109,7 +1109,7 @@ if.end:                                           ; preds = %if.else, %if.then6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i)
   %shr.i = lshr i32 %11, 24
   %and.i = and i32 %shr.i, 31
-  %cmp.i = icmp ult i32 %and.i, 4
+  %cmp.i = icmp samesign ult i32 %and.i, 4
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
@@ -1166,8 +1166,8 @@ if.then16.i:                                      ; preds = %if.end.i
 
 if.else21.i:                                      ; preds = %if.then16.i
   %cmp22.i = icmp eq i32 %14, 1
-  %cmp24.i = icmp ugt i32 %and.i, 1
-  %or.cond1.i = and i1 %cmp24.i, %cmp22.i
+  %cmp24.i = icmp samesign ugt i32 %and.i, 1
+  %or.cond1.i = select i1 %cmp22.i, i1 %cmp24.i, i1 false
   br i1 %or.cond1.i, label %if.then32.i, label %_ZL18ucnv_extWriteFromUP10UConverterPKijPPcPKcPPiiP10UErrorCode.exit
 
 if.then32.i:                                      ; preds = %if.else21.i, %if.then16.i
@@ -1380,7 +1380,7 @@ if.else.i:                                        ; preds = %if.else58
 _ZL16extSetUseMapping20UConverterUnicodeSetij.exit: ; preds = %if.then.i, %if.else.i
   %shr.i = lshr i32 %9, 24
   %and8.i = and i32 %shr.i, 31
-  %cmp9.i.not = icmp ult i32 %and8.i, %minLength.0
+  %cmp9.i.not = icmp samesign ult i32 %and8.i, %minLength.0
   br i1 %cmp9.i.not, label %do.cond, label %if.then59
 
 if.then59:                                        ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit
@@ -1395,8 +1395,8 @@ sw.bb:                                            ; preds = %if.then59
   %13 = and i32 %9, 520093696
   %cmp62 = icmp eq i32 %13, 50331648
   %and63 = and i32 %9, 16711680
-  %cmp64 = icmp ult i32 %and63, 8585216
-  %or.cond53 = and i1 %cmp62, %cmp64
+  %cmp64 = icmp samesign ult i32 %and63, 8585216
+  %or.cond53 = select i1 %cmp62, i1 %cmp64, i1 false
   br i1 %or.cond53, label %sw.epilog, label %do.cond
 
 sw.bb67:                                          ; preds = %if.then59
@@ -1418,13 +1418,13 @@ sw.bb78:                                          ; preds = %if.then59
 land.lhs.true82:                                  ; preds = %sw.bb78
   %conv84 = add nuw nsw i32 %9, 24159
   %conv85 = and i32 %conv84, 65534
-  %cmp86 = icmp ult i32 %conv85, 23902
+  %cmp86 = icmp samesign ult i32 %conv85, 23902
   br i1 %cmp86, label %land.lhs.true87, label %do.cond
 
 land.lhs.true87:                                  ; preds = %land.lhs.true82
   %conv89 = add nuw nsw i32 %9, 95
   %conv90 = and i32 %conv89, 254
-  %cmp91 = icmp ult i32 %conv90, 94
+  %cmp91 = icmp samesign ult i32 %conv90, 94
   br i1 %cmp91, label %sw.epilog, label %do.cond
 
 sw.bb94:                                          ; preds = %if.then59
@@ -1435,13 +1435,13 @@ sw.bb94:                                          ; preds = %if.then59
 land.lhs.true98:                                  ; preds = %sw.bb94
   %conv101 = add nuw nsw i32 %9, 24159
   %conv102 = and i32 %conv101, 65534
-  %cmp103 = icmp ult i32 %conv102, 23646
+  %cmp103 = icmp samesign ult i32 %conv102, 23646
   br i1 %cmp103, label %land.lhs.true104, label %do.cond
 
 land.lhs.true104:                                 ; preds = %land.lhs.true98
   %conv106 = add nuw nsw i32 %9, 95
   %conv107 = and i32 %conv106, 254
-  %cmp108 = icmp ult i32 %conv107, 94
+  %cmp108 = icmp samesign ult i32 %conv107, 94
   br i1 %cmp108, label %sw.epilog, label %do.cond
 
 sw.epilog:                                        ; preds = %sw.bb, %if.then59, %land.lhs.true104, %land.lhs.true87, %land.lhs.true71
@@ -1514,7 +1514,7 @@ if.else.i:                                        ; preds = %entry
 _ZL16extSetUseMapping20UConverterUnicodeSetij.exit: ; preds = %if.then.i, %if.else.i
   %shr.i = lshr i32 %3, 24
   %and8.i = and i32 %shr.i, 31
-  %cmp9.i.not = icmp ult i32 %and8.i, %minLength
+  %cmp9.i.not = icmp samesign ult i32 %and8.i, %minLength
   br i1 %cmp9.i.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit
@@ -1605,7 +1605,7 @@ if.else25.us:                                     ; preds = %if.else21.us
 _ZL16extSetUseMapping20UConverterUnicodeSetij.exit47.us: ; preds = %if.else25.us
   %shr.i40.us = lshr i32 %8, 24
   %and8.i41.us = and i32 %shr.i40.us, 31
-  %cmp9.i42.not.us = icmp ult i32 %and8.i41.us, %minLength
+  %cmp9.i42.not.us = icmp samesign ult i32 %and8.i41.us, %minLength
   br i1 %cmp9.i42.not.us, label %for.inc.us, label %if.then28.us
 
 if.then28.us:                                     ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit47.us
@@ -1649,7 +1649,7 @@ if.else25:                                        ; preds = %if.else21
 _ZL16extSetUseMapping20UConverterUnicodeSetij.exit47: ; preds = %if.else25
   %shr.i40 = lshr i32 %12, 24
   %and8.i41 = and i32 %shr.i40, 31
-  %cmp9.i42.not = icmp ult i32 %and8.i41, %minLength
+  %cmp9.i42.not = icmp samesign ult i32 %and8.i41, %minLength
   br i1 %cmp9.i42.not, label %for.inc, label %if.then28
 
 if.then28:                                        ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit47

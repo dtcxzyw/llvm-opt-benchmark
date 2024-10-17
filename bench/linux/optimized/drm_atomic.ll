@@ -2461,7 +2461,7 @@ define dso_local i32 @drm_atomic_check_only(ptr noundef %0) #0 align 16 {
 
 431:                                              ; preds = %401, %406, %327
   %432 = add nuw nsw i64 %328, 1
-  %433 = icmp ult i64 %432, %51
+  %433 = icmp samesign ult i64 %432, %51
   br i1 %433, label %327, label %.loopexit57, !llvm.loop !60
 
 434:                                              ; preds = %.thread54, %325

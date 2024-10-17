@@ -65,11 +65,11 @@ define dso_local zeroext i1 @qid_lt(i64 %0, i64 %1) #0 align 16 {
   %5 = trunc nuw i64 %4 to i32
   %6 = trunc i64 %1 to i32
   %7 = lshr i64 %1, 32
-  %8 = icmp ult i64 %4, %7
+  %8 = icmp samesign ult i64 %4, %7
   br i1 %8, label %19, label %9
 
 9:                                                ; preds = %2
-  %10 = icmp ugt i64 %4, %7
+  %10 = icmp samesign ugt i64 %4, %7
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %9

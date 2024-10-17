@@ -3896,7 +3896,7 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   br i1 %83, label %84, label %153
 
 84:                                               ; preds = %78, %75
-  %85 = icmp ult i16 %62, 8
+  %85 = icmp samesign ult i16 %62, 8
   br i1 %85, label %92, label %86
 
 86:                                               ; preds = %84
@@ -10413,8 +10413,8 @@ define internal i32 @selinux_socket_bind(ptr nocapture noundef readonly %0, ptr 
 83:                                               ; preds = %74
   %84 = lshr i32 %78, 16
   %85 = and i32 %78, 65535
-  %86 = icmp ugt i32 %85, %79
-  %87 = icmp ult i32 %84, %79
+  %86 = icmp samesign ugt i32 %85, %79
+  %87 = icmp samesign ult i32 %84, %79
   %88 = or i1 %86, %87
   br i1 %88, label %89, label %102
 
@@ -14771,7 +14771,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
   %52 = shl i8 %51, 2
   %53 = and i8 %52, 60
   %54 = zext nneg i8 %53 to i32
-  %55 = icmp ult i8 %53, 20
+  %55 = icmp samesign ult i8 %53, 20
   br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %.thread13

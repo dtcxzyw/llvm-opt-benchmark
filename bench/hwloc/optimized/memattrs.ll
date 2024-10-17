@@ -224,7 +224,7 @@ hwloc__imi_destroy.exit.i:                        ; preds = %25, %19
   %28 = phi i32 [ %20, %19 ], [ %.pre.i, %25 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next.i, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next.i, %29
   br i1 %30, label %19, label %hwloc__imtg_destroy.exit, !llvm.loop !4
 
 hwloc__imtg_destroy.exit:                         ; preds = %hwloc__imi_destroy.exit.i, %12, %.preheader.i
@@ -234,7 +234,7 @@ hwloc__imtg_destroy.exit:                         ; preds = %hwloc__imi_destroy.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %8, align 4
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %12, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %hwloc__imtg_destroy.exit, %5
@@ -256,7 +256,7 @@ hwloc__imtg_destroy.exit:                         ; preds = %hwloc__imi_destroy.
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %44 = load i32, ptr %2, align 4
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next26, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next26, %45
   br i1 %46, label %5, label %._crit_edge21, !llvm.loop !7
 
 ._crit_edge21:                                    ; preds = %43, %1
@@ -484,21 +484,21 @@ hwloc_tma_malloc.exit99:                          ; preds = %70, %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %109 = load i32, ptr %65, align 8
   %110 = zext i32 %109 to i64
-  %111 = icmp ult i64 %indvars.iv.next, %110
+  %111 = icmp samesign ult i64 %indvars.iv.next, %110
   br i1 %111, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %108, %81, %.lr.ph119
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %112 = load i32, ptr %40, align 4
   %113 = zext i32 %112 to i64
-  %114 = icmp ult i64 %indvars.iv.next145, %113
+  %114 = icmp samesign ult i64 %indvars.iv.next145, %113
   br i1 %114, label %.lr.ph119, label %.loopexit100, !llvm.loop !9
 
 .loopexit100:                                     ; preds = %.loopexit, %54, %36
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %115 = load i32, ptr %5, align 4
   %116 = zext i32 %115 to i64
-  %117 = icmp ult i64 %indvars.iv.next148, %116
+  %117 = icmp samesign ult i64 %indvars.iv.next148, %116
   br i1 %117, label %.lr.ph122, label %.loopexit101, !llvm.loop !10
 
 118:                                              ; preds = %98, %76, %51, %34
@@ -760,7 +760,7 @@ define hidden void @hwloc_internal_memattrs_refresh(ptr noundef %0) local_unname
   %14 = phi i32 [ %6, %5 ], [ %.pre, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %5, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %13, %1
@@ -921,7 +921,7 @@ hwloc__imi_destroy.exit.i.i:                      ; preds = %64, %58
   %67 = phi i32 [ %59, %58 ], [ %.pre.i.i, %64 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %68 = zext i32 %67 to i64
-  %69 = icmp ult i64 %indvars.iv.next.i.i, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next.i.i, %68
   br i1 %69, label %58, label %hwloc__imtg_refresh.exit, !llvm.loop !4
 
 hwloc_get_numanode_obj_by_os_index.exit.thread70.i: ; preds = %49, %31, %hwloc_get_numanode_obj_by_os_index.exit.i
@@ -1025,7 +1025,7 @@ hwloc__imi_refresh.exit.thread.i:                 ; preds = %115, %105, %102, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %117 = load i32, ptr %74, align 8
   %118 = zext i32 %117 to i64
-  %119 = icmp ult i64 %indvars.iv.next.i, %118
+  %119 = icmp samesign ult i64 %indvars.iv.next.i, %118
   br i1 %119, label %77, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %hwloc__imi_refresh.exit.thread.i
@@ -1060,7 +1060,7 @@ hwloc__imtg_refresh.exit:                         ; preds = %hwloc__imi_destroy.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %131 = load i32, ptr %3, align 4
   %132 = zext i32 %131 to i64
-  %133 = icmp ult i64 %indvars.iv.next, %132
+  %133 = icmp samesign ult i64 %indvars.iv.next, %132
   br i1 %133, label %8, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %130, %2
@@ -1104,7 +1104,7 @@ define hidden void @hwloc_internal_memattrs_need_refresh(ptr nocapture noundef r
   %14 = phi i32 [ %6, %5 ], [ %.pre, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %5, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %13, %1
@@ -1321,7 +1321,7 @@ hwloc__memattr_get_convenience_value.exit:        ; preds = %70
 
 94:                                               ; preds = %.lr.ph.split.us, %91
   %.054.us = phi i64 [ %93, %91 ], [ 0, %.lr.ph.split.us ]
-  %95 = icmp ult i64 %indvars.iv119, %86
+  %95 = icmp samesign ult i64 %indvars.iv119, %86
   br i1 %95, label %96, label %101
 
 96:                                               ; preds = %94
@@ -1339,7 +1339,7 @@ hwloc__memattr_get_convenience_value.exit:        ; preds = %70
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %102 = load i32, ptr %82, align 4
   %103 = zext i32 %102 to i64
-  %104 = icmp ult i64 %indvars.iv.next120, %103
+  %104 = icmp samesign ult i64 %indvars.iv.next120, %103
   br i1 %104, label %.lr.ph.split.us, label %hwloc_get_obj_by_type.exit.thread.loopexit, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %125
@@ -1392,7 +1392,7 @@ hwloc__memattr_get_convenience_value.exit:        ; preds = %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %126 = load i32, ptr %82, align 4
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next, %127
   br i1 %128, label %.lr.ph.split, label %hwloc_get_obj_by_type.exit.thread, !llvm.loop !19
 
 hwloc_get_obj_by_type.exit.thread.loopexit:       ; preds = %101
@@ -1747,8 +1747,8 @@ from_internal_location.exit.us:                   ; preds = %96, %92, %88
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %98 = load i32, ptr %77, align 8
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %indvars.iv.next75, %99
-  %101 = icmp ult i64 %indvars.iv.next75, %83
+  %100 = icmp samesign ult i64 %indvars.iv.next75, %99
+  %101 = icmp samesign ult i64 %indvars.iv.next75, %83
   %102 = and i1 %101, %100
   br i1 %102, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !22
 
@@ -1796,8 +1796,8 @@ from_internal_location.exit:                      ; preds = %108, %112, %116
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %121 = load i32, ptr %77, align 8
   %122 = zext i32 %121 to i64
-  %123 = icmp ult i64 %indvars.iv.next, %122
-  %124 = icmp ult i64 %indvars.iv.next, %83
+  %123 = icmp samesign ult i64 %indvars.iv.next, %122
+  %124 = icmp samesign ult i64 %indvars.iv.next, %83
   %125 = and i1 %124, %123
   br i1 %125, label %.lr.ph.split, label %._crit_edge, !llvm.loop !22
 
@@ -2531,7 +2531,7 @@ hwloc__update_best_target.exit55:                 ; preds = %81, %80, %79, %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = load i32, ptr %59, align 4
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next, %83
   br i1 %84, label %63, label %hwloc_get_obj_by_type.exit.thread, !llvm.loop !23
 
 hwloc_get_obj_by_type.exit.thread:                ; preds = %hwloc_get_obj_by_type.exit.us94, %hwloc_get_obj_by_type.exit.us, %hwloc_get_obj_by_type.exit, %hwloc__update_best_target.exit55

@@ -1051,7 +1051,7 @@ while.body24.i95:                                 ; preds = %while.cond6.i83
 
 while.end26.i85:                                  ; preds = %while.cond6.i83, %while.cond6.i83, %while.cond6.i83, %while.cond6.i83, %while.cond6.i83
   %tobool27.not.i89 = icmp ne i64 %p.1.i84.idx, 1
-  %cmp29.not.i90 = icmp ult i64 %p.1.i84.idx, 11
+  %cmp29.not.i90 = icmp samesign ult i64 %p.1.i84.idx, 11
   %or.cond.i91 = and i1 %tobool27.not.i89, %cmp29.not.i90
   br i1 %or.cond.i91, label %getalnum.exit98.thread, label %return
 

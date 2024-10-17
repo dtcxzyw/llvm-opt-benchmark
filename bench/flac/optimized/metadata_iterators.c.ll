@@ -969,7 +969,7 @@ unpack_uint32_.exit.i53.i.i:                      ; preds = %for.body.i25.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %28 = load i32, ptr %data9.i.i, align 8
   %29 = zext i32 %28 to i64
-  %cmp12.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %29
+  %cmp12.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %29
   br i1 %cmp12.i.i.i, label %for.body.i.i.i, label %read_metadata_block_data_seektable_cb_.exit.i.i, !llvm.loop !8
 
 read_metadata_block_data_seektable_cb_.exit.i.i:  ; preds = %unpack_uint32_.exit.i53.i.i, %for.body.i.i.i, %if.end10.i.i.i, %if.else.i37.i.i, %sw.bb8.i.i
@@ -1270,7 +1270,7 @@ if.end63.i.i.i:                                   ; preds = %land.lhs.true.if.en
   %indvars.iv.next.i74.i.i = add nuw nsw i64 %indvars.iv.i71.i.i, 1
   %50 = load i32, ptr %num_comments.i.i.i, align 8
   %51 = zext i32 %50 to i64
-  %cmp45.i.i.i = icmp ult i64 %indvars.iv.next.i74.i.i, %51
+  %cmp45.i.i.i = icmp samesign ult i64 %indvars.iv.next.i74.i.i, %51
   br i1 %cmp45.i.i.i, label %for.body.i70.i.i, label %skip.i.i.i, !llvm.loop !10
 
 skip.i.i.i:                                       ; preds = %if.end63.i.i.i, %if.then56.i.i.i, %if.then30.i.i.i, %if.end43.thread.i.i.i, %if.end6.i57.i.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit78.thread85.i
@@ -1535,7 +1535,7 @@ for.cond.i.i.i.i:                                 ; preds = %unpack_uint32_.exit
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %83 = load i8, ptr %num_indices.i.i.i.i, align 1
   %84 = zext i8 %83 to i64
-  %cmp73.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i, %84
+  %cmp73.i.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i, %84
   br i1 %cmp73.i.i.i.i, label %for.body.i45.i.i.i, label %for.inc.i.i.i, !llvm.loop !11
 
 for.body.i45.i.i.i:                               ; preds = %if.else.i.i.i.i, %for.cond.i.i.i.i
@@ -1595,7 +1595,7 @@ for.inc.i.i.i:                                    ; preds = %for.cond.i.i.i.i, %
   %indvars.iv.next.i99.i.i = add nuw nsw i64 %indvars.iv.i97.i.i, 1
   %89 = load i32, ptr %num_tracks.i.i.i, align 4
   %90 = zext i32 %89 to i64
-  %cmp48.i.i.i = icmp ult i64 %indvars.iv.next.i99.i.i, %90
+  %cmp48.i.i.i = icmp samesign ult i64 %indvars.iv.next.i99.i.i, %90
   br i1 %cmp48.i.i.i, label %for.body.i96.i.i, label %read_metadata_block_data_cuesheet_cb_.exit.i.i, !llvm.loop !12
 
 read_metadata_block_data_cuesheet_cb_.exit.i.i:   ; preds = %for.inc.i.i.i, %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i, %if.else.i94.i.i, %unpack_uint32_.exit.i93.i.i, %unpack_uint32_.exit.thread.i.i.i, %if.end22.i.i.i, %unpack_uint64_.exit.i91.i.i, %if.end.i80.i.i, %sw.bb16.i.i
@@ -5423,7 +5423,7 @@ for.cond.i53.i.i:                                 ; preds = %pack_uint32_.exit.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %51 = load i32, ptr %data9.i.i, align 8
   %52 = zext i32 %51 to i64
-  %cmp.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %52
+  %cmp.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %52
   br i1 %cmp.i.i.i, label %for.body.i40.i.i, label %write_metadata_block_data_seektable_cb_.exit.i.i, !llvm.loop !23
 
 for.body.i40.i.i:                                 ; preds = %for.cond.i53.i.i, %for.body.lr.ph.i.i.i
@@ -5574,7 +5574,7 @@ for.cond.us.i.i.i:                                ; preds = %if.end39.us.i.i.i
   %indvars.iv.next132.i.i = add nuw nsw i64 %indvars.iv131.i.i, 1
   %63 = load i32, ptr %num_comments.i.i.i, align 8
   %64 = zext i32 %63 to i64
-  %cmp28.us.i.i.i = icmp ult i64 %indvars.iv.next132.i.i, %64
+  %cmp28.us.i.i.i = icmp samesign ult i64 %indvars.iv.next132.i.i, %64
   br i1 %cmp28.us.i.i.i, label %for.body.us.i.i.i, label %write_metadata_block_data_vorbis_comment_cb_.exit.i.i, !llvm.loop !26
 
 if.end39.us.i.i.i:                                ; preds = %for.body.us.i.i.i
@@ -5596,7 +5596,7 @@ for.cond.i69.i.i:                                 ; preds = %if.end39.i.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %70 = load i32, ptr %num_comments.i.i.i, align 8
   %71 = zext i32 %70 to i64
-  %cmp28.i.i.i = icmp ult i64 %indvars.iv.next.i.i, %71
+  %cmp28.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %71
   br i1 %cmp28.i.i.i, label %for.body.i67.i.i, label %write_metadata_block_data_vorbis_comment_cb_.exit.i.i, !llvm.loop !26
 
 for.body.i67.i.i:                                 ; preds = %for.cond.i69.i.i, %for.body.preheader.i.i.i
@@ -5830,7 +5830,7 @@ for.cond102.i.i.i:                                ; preds = %if.end132.i.i.i
   %indvars.iv.next.i93.i.i = add nuw nsw i64 %indvars.iv.i92.i.i, 1
   %91 = load i8, ptr %num_indices.i.i.i, align 1
   %92 = zext i8 %91 to i64
-  %cmp105.i.i.i = icmp ult i64 %indvars.iv.next.i93.i.i, %92
+  %cmp105.i.i.i = icmp samesign ult i64 %indvars.iv.next.i93.i.i, %92
   br i1 %cmp105.i.i.i, label %for.body107.i.i.i, label %for.inc144.i.i.i, !llvm.loop !27
 
 for.body107.i.i.i:                                ; preds = %for.cond102.i.i.i, %for.body107.lr.ph.i.i.i
@@ -5893,7 +5893,7 @@ for.inc144.i.i.i:                                 ; preds = %for.cond102.i.i.i, 
   %indvars.iv.next183.i.i.i = add nuw nsw i64 %indvars.iv182.i.i.i, 1
   %96 = load i32, ptr %num_tracks.i.i.i, align 4
   %97 = zext i32 %96 to i64
-  %cmp39.i.i.i = icmp ult i64 %indvars.iv.next183.i.i.i, %97
+  %cmp39.i.i.i = icmp samesign ult i64 %indvars.iv.next183.i.i.i, %97
   br i1 %cmp39.i.i.i, label %for.body.i91.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i.i, !llvm.loop !28
 
 write_metadata_block_data_cuesheet_cb_.exit.i.i:  ; preds = %for.inc144.i.i.i, %pack_uint32_.exit140.i.i.i, %if.end70.i.i.i, %if.end61.i.i.i, %pack_uint32_.exit126.i.i.i, %pack_uint64_.exit112.i.i.i, %if.end132.i.i.i, %pack_uint32_.exit168.i.i.i, %pack_uint64_.exit154.i.i.i, %for.cond.preheader.i89.i.i, %pack_uint32_.exit.i88.i.i, %if.end19.i.i.i, %pack_uint64_.exit.i87.i.i, %sw.bb14.i.i
@@ -8622,7 +8622,7 @@ unpack_uint32_.exit.i53.i:                        ; preds = %for.body.i25.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %67 = load i32, ptr %data9.i, align 8
   %68 = zext i32 %67 to i64
-  %cmp12.i.i = icmp ult i64 %indvars.iv.next.i.i, %68
+  %cmp12.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %68
   br i1 %cmp12.i.i, label %for.body.i.i47, label %read_metadata_block_data_seektable_cb_.exit.i, !llvm.loop !8
 
 read_metadata_block_data_seektable_cb_.exit.i:    ; preds = %unpack_uint32_.exit.i53.i, %for.body.i.i47, %if.end10.i.i, %if.else.i37.i, %sw.bb8.i
@@ -8736,7 +8736,7 @@ if.end63.i.i:                                     ; preds = %for.body.i70.i
   %indvars.iv.next.i74.i = add nuw nsw i64 %indvars.iv.i71.i, 1
   %76 = load i32, ptr %num_comments.i.i, align 8
   %77 = zext i32 %76 to i64
-  %cmp45.i.i = icmp ult i64 %indvars.iv.next.i74.i, %77
+  %cmp45.i.i = icmp samesign ult i64 %indvars.iv.next.i74.i, %77
   br i1 %cmp45.i.i, label %for.body.i70.i, label %skip.i.i, !llvm.loop !10
 
 skip.i.i:                                         ; preds = %if.end63.i.i, %if.then56.i.i, %if.then30.i.i, %if.end43.thread.i.i, %if.end6.i57.i, %sw.bb12.i
@@ -8940,7 +8940,7 @@ for.cond.i.i.i:                                   ; preds = %unpack_uint32_.exit
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %88 = load i8, ptr %num_indices.i.i.i, align 1
   %89 = zext i8 %88 to i64
-  %cmp73.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %89
+  %cmp73.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %89
   br i1 %cmp73.i.i.i, label %for.body.i45.i.i, label %for.inc.i.i, !llvm.loop !11
 
 for.body.i45.i.i:                                 ; preds = %if.else.i.i.i, %for.cond.i.i.i
@@ -9000,7 +9000,7 @@ for.inc.i.i:                                      ; preds = %for.cond.i.i.i, %if
   %indvars.iv.next.i99.i = add nuw nsw i64 %indvars.iv.i97.i, 1
   %94 = load i32, ptr %num_tracks.i.i, align 4
   %95 = zext i32 %94 to i64
-  %cmp48.i.i = icmp ult i64 %indvars.iv.next.i99.i, %95
+  %cmp48.i.i = icmp samesign ult i64 %indvars.iv.next.i99.i, %95
   br i1 %cmp48.i.i, label %for.body.i96.i, label %read_metadata_block_data_cuesheet_cb_.exit.i, !llvm.loop !12
 
 read_metadata_block_data_cuesheet_cb_.exit.i:     ; preds = %for.inc.i.i, %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i, %if.else.i94.i, %unpack_uint32_.exit.i93.i, %unpack_uint32_.exit.thread.i.i, %if.end22.i.i, %unpack_uint64_.exit.i91.i, %if.end.i80.i, %sw.bb16.i
@@ -10009,7 +10009,7 @@ for.cond.i53.i:                                   ; preds = %pack_uint32_.exit.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %14 = load i32, ptr %data9.i, align 8
   %15 = zext i32 %14 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %15
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %15
   br i1 %cmp.i.i, label %for.body.i40.i, label %write_metadata_block_data_seektable_cb_.exit.i, !llvm.loop !23
 
 for.body.i40.i:                                   ; preds = %for.cond.i53.i, %for.body.lr.ph.i.i
@@ -10168,7 +10168,7 @@ for.cond.us.i.i:                                  ; preds = %if.end39.us.i.i
   %indvars.iv.next132.i = add nuw nsw i64 %indvars.iv131.i, 1
   %28 = load i32, ptr %num_comments.i.i, align 8
   %29 = zext i32 %28 to i64
-  %cmp28.us.i.i = icmp ult i64 %indvars.iv.next132.i, %29
+  %cmp28.us.i.i = icmp samesign ult i64 %indvars.iv.next132.i, %29
   br i1 %cmp28.us.i.i, label %for.body.us.i.i, label %write_metadata_block_data_vorbis_comment_cb_.exit.i, !llvm.loop !26
 
 if.end39.us.i.i:                                  ; preds = %for.body.us.i.i
@@ -10190,7 +10190,7 @@ for.cond.i69.i:                                   ; preds = %if.end39.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = load i32, ptr %num_comments.i.i, align 8
   %36 = zext i32 %35 to i64
-  %cmp28.i.i = icmp ult i64 %indvars.iv.next.i, %36
+  %cmp28.i.i = icmp samesign ult i64 %indvars.iv.next.i, %36
   br i1 %cmp28.i.i, label %for.body.i67.i, label %write_metadata_block_data_vorbis_comment_cb_.exit.i, !llvm.loop !26
 
 for.body.i67.i:                                   ; preds = %for.cond.i69.i, %for.body.preheader.i.i
@@ -10490,7 +10490,7 @@ for.cond102.i.i:                                  ; preds = %if.end132.i.i
   %indvars.iv.next.i93.i = add nuw nsw i64 %indvars.iv.i92.i, 1
   %71 = load i8, ptr %num_indices.i.i, align 1
   %72 = zext i8 %71 to i64
-  %cmp105.i.i = icmp ult i64 %indvars.iv.next.i93.i, %72
+  %cmp105.i.i = icmp samesign ult i64 %indvars.iv.next.i93.i, %72
   br i1 %cmp105.i.i, label %for.body107.i.i, label %for.inc144.i.i, !llvm.loop !27
 
 for.body107.i.i:                                  ; preds = %for.cond102.i.i, %for.body107.lr.ph.i.i
@@ -10553,7 +10553,7 @@ for.inc144.i.i:                                   ; preds = %for.cond102.i.i, %f
   %indvars.iv.next183.i.i = add nuw nsw i64 %indvars.iv182.i.i, 1
   %76 = load i32, ptr %num_tracks.i.i, align 4
   %77 = zext i32 %76 to i64
-  %cmp39.i.i = icmp ult i64 %indvars.iv.next183.i.i, %77
+  %cmp39.i.i = icmp samesign ult i64 %indvars.iv.next183.i.i, %77
   br i1 %cmp39.i.i, label %for.body.i91.i, label %write_metadata_block_data_cuesheet_cb_.exit.i, !llvm.loop !28
 
 write_metadata_block_data_cuesheet_cb_.exit.i:    ; preds = %for.inc144.i.i, %pack_uint32_.exit140.i.i, %if.end70.i.i, %if.end61.i.i, %pack_uint32_.exit126.i.i, %pack_uint64_.exit112.i.i, %if.end132.i.i, %pack_uint32_.exit168.i.i, %pack_uint64_.exit154.i.i, %for.cond.preheader.i89.i, %pack_uint32_.exit.i88.i, %if.end19.i.i, %pack_uint64_.exit.i87.i, %sw.bb14.i
@@ -11228,7 +11228,7 @@ for.cond.i53:                                     ; preds = %pack_uint32_.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = load i32, ptr %data9, align 8
   %15 = zext i32 %14 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %15
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %15
   br i1 %cmp.i, label %for.body.i40, label %write_metadata_block_data_seektable_cb_.exit, !llvm.loop !23
 
 for.body.i40:                                     ; preds = %for.cond.i53, %for.body.lr.ph.i
@@ -11387,7 +11387,7 @@ for.cond.us.i:                                    ; preds = %if.end39.us.i
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %28 = load i32, ptr %num_comments.i, align 8
   %29 = zext i32 %28 to i64
-  %cmp28.us.i = icmp ult i64 %indvars.iv.next132, %29
+  %cmp28.us.i = icmp samesign ult i64 %indvars.iv.next132, %29
   br i1 %cmp28.us.i, label %for.body.us.i, label %write_metadata_block_data_vorbis_comment_cb_.exit, !llvm.loop !26
 
 if.end39.us.i:                                    ; preds = %for.body.us.i
@@ -11409,7 +11409,7 @@ for.cond.i69:                                     ; preds = %if.end39.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %num_comments.i, align 8
   %36 = zext i32 %35 to i64
-  %cmp28.i = icmp ult i64 %indvars.iv.next, %36
+  %cmp28.i = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %cmp28.i, label %for.body.i67, label %write_metadata_block_data_vorbis_comment_cb_.exit, !llvm.loop !26
 
 for.body.i67:                                     ; preds = %for.cond.i69, %for.body.preheader.i
@@ -11709,7 +11709,7 @@ for.cond102.i:                                    ; preds = %if.end132.i
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i92, 1
   %71 = load i8, ptr %num_indices.i, align 1
   %72 = zext i8 %71 to i64
-  %cmp105.i = icmp ult i64 %indvars.iv.next.i93, %72
+  %cmp105.i = icmp samesign ult i64 %indvars.iv.next.i93, %72
   br i1 %cmp105.i, label %for.body107.i, label %for.inc144.i, !llvm.loop !27
 
 for.body107.i:                                    ; preds = %for.cond102.i, %for.body107.lr.ph.i
@@ -11772,7 +11772,7 @@ for.inc144.i:                                     ; preds = %for.cond102.i, %for
   %indvars.iv.next183.i = add nuw nsw i64 %indvars.iv182.i, 1
   %76 = load i32, ptr %num_tracks.i, align 4
   %77 = zext i32 %76 to i64
-  %cmp39.i = icmp ult i64 %indvars.iv.next183.i, %77
+  %cmp39.i = icmp samesign ult i64 %indvars.iv.next183.i, %77
   br i1 %cmp39.i, label %for.body.i91, label %write_metadata_block_data_cuesheet_cb_.exit, !llvm.loop !28
 
 write_metadata_block_data_cuesheet_cb_.exit:      ; preds = %pack_uint64_.exit112.i, %pack_uint32_.exit126.i, %if.end61.i, %if.end70.i, %pack_uint32_.exit140.i, %for.inc144.i, %pack_uint64_.exit154.i, %pack_uint32_.exit168.i, %if.end132.i, %sw.bb14, %pack_uint64_.exit.i87, %if.end19.i, %pack_uint32_.exit.i88, %for.cond.preheader.i89

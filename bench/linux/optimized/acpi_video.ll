@@ -637,7 +637,7 @@ define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr nounde
   %111 = add nuw nsw i64 %32, 1
   %112 = load i8, ptr %17, align 8
   %113 = zext i8 %112 to i64
-  %114 = icmp ult i64 %111, %113
+  %114 = icmp samesign ult i64 %111, %113
   br i1 %114, label %31, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %110, %105, %16, %12, %4
@@ -2163,7 +2163,7 @@ define internal void @acpi_video_bus_notify(ptr nocapture readnone %0, i32 nound
   %39 = phi i8 [ %.pre, %36 ], [ %27, %.preheader ]
   %40 = add nuw nsw i64 %28, 1
   %41 = zext i8 %39 to i64
-  %42 = icmp ult i64 %40, %41
+  %42 = icmp samesign ult i64 %40, %41
   br i1 %42, label %.preheader, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %38, %.split
@@ -2687,7 +2687,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
   %106 = phi i8 [ %.pre, %103 ], [ %94, %93 ]
   %107 = add nuw nsw i64 %95, 1
   %108 = zext i8 %106 to i64
-  %109 = icmp ult i64 %107, %108
+  %109 = icmp samesign ult i64 %107, %108
   br i1 %109, label %93, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %105, %90
@@ -3393,7 +3393,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %.loopexit.i, %54, %
   %62 = add nuw nsw i64 %14, 1
   %63 = load i8, ptr %8, align 8
   %64 = zext i8 %63 to i64
-  %65 = icmp ult i64 %62, %64
+  %65 = icmp samesign ult i64 %62, %64
   br i1 %65, label %13, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %acpi_video_device_lcd_set_level.exit, %4, %3

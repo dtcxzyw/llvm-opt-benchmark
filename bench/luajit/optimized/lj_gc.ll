@@ -2618,7 +2618,7 @@ for.inc.i45:                                      ; preds = %if.then23.i, %for.b
   %77 = phi i8 [ %72, %for.body.i43 ], [ %.pre34.i, %if.then23.i ]
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %78 = zext i8 %77 to i64
-  %cmp16.i = icmp ult i64 %indvars.iv.next32.i, %78
+  %cmp16.i = icmp samesign ult i64 %indvars.iv.next32.i, %78
   br i1 %cmp16.i, label %for.body.i43, label %gc_traverse_func.exit, !llvm.loop !25
 
 for.body35.i:                                     ; preds = %for.inc57.i, %for.body35.lr.ph.i
@@ -2650,7 +2650,7 @@ for.inc57.i:                                      ; preds = %if.then50.i, %land.
   %85 = phi i8 [ %79, %for.body35.i ], [ %79, %land.lhs.true.i39 ], [ %.pre.i40, %if.then50.i ]
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %86 = zext i8 %85 to i64
-  %cmp33.i = icmp ult i64 %indvars.iv.next.i38, %86
+  %cmp33.i = icmp samesign ult i64 %indvars.iv.next.i38, %86
   br i1 %cmp33.i, label %for.body35.i, label %gc_traverse_func.exit, !llvm.loop !26
 
 gc_traverse_func.exit:                            ; preds = %for.inc57.i, %for.inc.i45, %for.cond30.preheader.i, %if.end14.i

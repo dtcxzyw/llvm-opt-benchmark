@@ -2132,7 +2132,7 @@ define internal void @rev_pr_ms_information(ptr noundef %0, ptr noundef %1, ptr 
   %14 = load i32, ptr @hf_ansi_801_ms_mode, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef 0) #6
   %16 = and i32 %11, 63
-  %17 = icmp ult i32 %16, 5
+  %17 = icmp samesign ult i32 %16, 5
   br i1 %17, label %switch.lookup, label %19
 
 switch.lookup:                                    ; preds = %9

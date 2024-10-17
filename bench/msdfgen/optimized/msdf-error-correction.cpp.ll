@@ -579,7 +579,7 @@ for.cond1.preheader.us.i:                         ; preds = %for.cond1.for.inc46
   %clashes.sroa.10.0588.us.i = phi ptr [ null, %for.cond1.preheader.us.preheader.i ], [ %clashes.sroa.10.2.us.i, %for.cond1.for.inc46_crit_edge.us.i ]
   %clashes.sroa.22.0587.us.i = phi ptr [ null, %for.cond1.preheader.us.preheader.i ], [ %clashes.sroa.22.2.us.i, %for.cond1.for.inc46_crit_edge.us.i ]
   %cmp21.not.us.i = icmp eq i64 %indvars.iv633.i, 0
-  %cmp33.us.i = icmp ult i64 %indvars.iv633.i, %3
+  %cmp33.us.i = icmp samesign ult i64 %indvars.iv633.i, %3
   %indvars.iv.next634.i = add nuw nsw i64 %indvars.iv633.i, 1
   %retval.sroa.2.0.insert.shift.i.us.i = shl nuw nsw i64 %indvars.iv633.i, 32
   %4 = trunc i64 %indvars.iv633.i to i32
@@ -673,7 +673,7 @@ _ZN7msdfgenL11detectClashEPKfS1_d.exit.us.i:      ; preds = %land.lhs.true.i.us.
   br i1 %cmp24.i.us.i, label %lor.lhs.false.us.i, label %invoke.cont43.us.i
 
 lor.lhs.false.us.i:                               ; preds = %_ZN7msdfgenL11detectClashEPKfS1_d.exit.us.i, %land.lhs.true.i.us.i, %if.end16.i.us.i, %for.body3.us.i
-  %cmp11.us.i = icmp ult i64 %indvars.iv.i, %2
+  %cmp11.us.i = icmp samesign ult i64 %indvars.iv.i, %2
   br i1 %cmp11.us.i, label %land.lhs.true12.us.i, label %lor.lhs.false20.us.i
 
 land.lhs.true12.us.i:                             ; preds = %lor.lhs.false.us.i
@@ -1038,7 +1038,7 @@ for.cond76.preheader.us.i:                        ; preds = %for.cond76.preheade
   %clashes.sroa.10.3611.us.i = phi ptr [ %clashes.sroa.10.5.us.i, %for.cond76.for.inc155_crit_edge.us.i ], [ %clashes.sroa.0.3.us.i, %for.cond76.preheader.us.i.preheader ]
   %clashes.sroa.22.3610.us.i = phi ptr [ %clashes.sroa.22.5.us.i, %for.cond76.for.inc155_crit_edge.us.i ], [ %clashes.sroa.22.2.us.i, %for.cond76.preheader.us.i.preheader ]
   %cmp81.us.i = icmp ne i64 %indvars.iv648.i, 0
-  %cmp115.us.i = icmp ult i64 %indvars.iv648.i, %3
+  %cmp115.us.i = icmp samesign ult i64 %indvars.iv648.i, %3
   %indvars.iv.next649.i = add nuw nsw i64 %indvars.iv648.i, 1
   %retval.sroa.2.0.insert.shift.i430.us.i = shl nuw nsw i64 %indvars.iv648.i, 32
   %73 = trunc i64 %indvars.iv648.i to i32
@@ -1138,7 +1138,7 @@ _ZN7msdfgenL11detectClashEPKfS1_d.exit281.us.i:   ; preds = %land.lhs.true.i268.
   br i1 %cmp24.i275.us.i, label %lor.lhs.false94.us.i, label %invoke.cont148.us.i
 
 lor.lhs.false94.us.i:                             ; preds = %_ZN7msdfgenL11detectClashEPKfS1_d.exit281.us.i, %land.lhs.true.i268.us.i, %if.end16.i260.us.i, %for.body78.us.i
-  %cmp96.us.i = icmp ult i64 %indvars.iv639.i, %2
+  %cmp96.us.i = icmp samesign ult i64 %indvars.iv639.i, %2
   %or.cond1.us.i = and i1 %cmp81.us.i, %cmp96.us.i
   br i1 %or.cond1.us.i, label %land.lhs.true99.us.i, label %lor.lhs.false111.us.i
 
@@ -1595,7 +1595,7 @@ for.cond1.preheader.us.i:                         ; preds = %for.cond1.for.inc42
   %clashes.sroa.10.0588.us.i = phi ptr [ null, %for.cond1.preheader.us.preheader.i ], [ %clashes.sroa.10.2.us.i, %for.cond1.for.inc42_crit_edge.us.i ]
   %clashes.sroa.22.0587.us.i = phi ptr [ null, %for.cond1.preheader.us.preheader.i ], [ %clashes.sroa.22.2.us.i, %for.cond1.for.inc42_crit_edge.us.i ]
   %cmp19.not.us.i = icmp eq i64 %indvars.iv633.i, 0
-  %cmp30.us.i = icmp ult i64 %indvars.iv633.i, %3
+  %cmp30.us.i = icmp samesign ult i64 %indvars.iv633.i, %3
   %indvars.iv.next634.i = add nuw nsw i64 %indvars.iv633.i, 1
   %retval.sroa.2.0.insert.shift.i.us.i = shl nuw nsw i64 %indvars.iv633.i, 32
   %4 = trunc i64 %indvars.iv633.i to i32
@@ -1689,7 +1689,7 @@ _ZN7msdfgenL11detectClashEPKfS1_d.exit.us.i:      ; preds = %land.lhs.true.i.us.
   br i1 %cmp24.i.us.i, label %lor.lhs.false.us.i, label %invoke.cont39.us.i
 
 lor.lhs.false.us.i:                               ; preds = %_ZN7msdfgenL11detectClashEPKfS1_d.exit.us.i, %land.lhs.true.i.us.i, %if.end16.i.us.i, %for.body3.us.i
-  %cmp10.us.i = icmp ult i64 %indvars.iv.i, %2
+  %cmp10.us.i = icmp samesign ult i64 %indvars.iv.i, %2
   br i1 %cmp10.us.i, label %land.lhs.true11.us.i, label %lor.lhs.false18.us.i
 
 land.lhs.true11.us.i:                             ; preds = %lor.lhs.false.us.i
@@ -2054,7 +2054,7 @@ for.cond72.preheader.us.i:                        ; preds = %for.cond72.preheade
   %clashes.sroa.10.3611.us.i = phi ptr [ %clashes.sroa.10.5.us.i, %for.cond72.for.inc147_crit_edge.us.i ], [ %clashes.sroa.0.3.us.i, %for.cond72.preheader.us.i.preheader ]
   %clashes.sroa.22.3610.us.i = phi ptr [ %clashes.sroa.22.5.us.i, %for.cond72.for.inc147_crit_edge.us.i ], [ %clashes.sroa.22.2.us.i, %for.cond72.preheader.us.i.preheader ]
   %cmp77.us.i = icmp ne i64 %indvars.iv648.i, 0
-  %cmp109.us.i = icmp ult i64 %indvars.iv648.i, %3
+  %cmp109.us.i = icmp samesign ult i64 %indvars.iv648.i, %3
   %indvars.iv.next649.i = add nuw nsw i64 %indvars.iv648.i, 1
   %retval.sroa.2.0.insert.shift.i430.us.i = shl nuw nsw i64 %indvars.iv648.i, 32
   %73 = trunc i64 %indvars.iv648.i to i32
@@ -2154,7 +2154,7 @@ _ZN7msdfgenL11detectClashEPKfS1_d.exit281.us.i:   ; preds = %land.lhs.true.i268.
   br i1 %cmp24.i275.us.i, label %lor.lhs.false89.us.i, label %invoke.cont140.us.i
 
 lor.lhs.false89.us.i:                             ; preds = %_ZN7msdfgenL11detectClashEPKfS1_d.exit281.us.i, %land.lhs.true.i268.us.i, %if.end16.i260.us.i, %for.body74.us.i
-  %cmp91.us.i = icmp ult i64 %indvars.iv639.i, %2
+  %cmp91.us.i = icmp samesign ult i64 %indvars.iv639.i, %2
   %or.cond1.us.i = and i1 %cmp77.us.i, %cmp91.us.i
   br i1 %or.cond1.us.i, label %land.lhs.true94.us.i, label %lor.lhs.false105.us.i
 

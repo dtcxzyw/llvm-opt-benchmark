@@ -752,7 +752,7 @@ define internal fastcc void @parse_subscription_options(ptr noundef %0, ptr noun
   br label %52
 
 52:                                               ; preds = %50, %48
-  %.not208 = icmp ult i32 %2, 32768
+  %.not208 = icmp samesign ult i32 %2, 32768
   br i1 %.not208, label %56, label %53
 
 53:                                               ; preds = %52

@@ -9762,7 +9762,7 @@ if.end54:                                         ; preds = %invoke.cont38
 
 invoke.cont56:                                    ; preds = %if.end54
   %day.sroa.0.0.extract.trunc = trunc i64 %call57 to i32
-  %tobool.i.i94.not186 = icmp ult i64 %call57, 4294967296
+  %tobool.i.i94.not186 = icmp samesign ult i64 %call57, 4294967296
   %cmp63 = icmp eq i32 %day.sroa.0.0.extract.trunc, 0
   %or.cond184 = or i1 %tobool.i.i94.not186, %cmp63
   br i1 %or.cond184, label %if.then64, label %if.end72
@@ -9777,7 +9777,7 @@ if.end72:                                         ; preds = %invoke.cont56
           to label %invoke.cont74 unwind label %lpad
 
 invoke.cont74:                                    ; preds = %if.end72
-  %tobool.i.i104.not = icmp ult i64 %call75, 4294967296
+  %tobool.i.i104.not = icmp samesign ult i64 %call75, 4294967296
   br i1 %tobool.i.i104.not, label %if.then79, label %if.end87
 
 if.then79:                                        ; preds = %invoke.cont74
@@ -9790,7 +9790,7 @@ if.end87:                                         ; preds = %invoke.cont74
           to label %invoke.cont89 unwind label %lpad
 
 invoke.cont89:                                    ; preds = %if.end87
-  %tobool.i.i114.not = icmp ult i64 %call90, 4294967296
+  %tobool.i.i114.not = icmp samesign ult i64 %call90, 4294967296
   br i1 %tobool.i.i114.not, label %if.then94, label %if.end102
 
 if.then94:                                        ; preds = %invoke.cont89
@@ -9803,7 +9803,7 @@ if.end102:                                        ; preds = %invoke.cont89
           to label %invoke.cont104 unwind label %lpad
 
 invoke.cont104:                                   ; preds = %if.end102
-  %tobool.i.i124.not = icmp ult i64 %call105, 4294967296
+  %tobool.i.i124.not = icmp samesign ult i64 %call105, 4294967296
   br i1 %tobool.i.i124.not, label %if.then109, label %if.end117
 
 if.then109:                                       ; preds = %invoke.cont104
@@ -9847,7 +9847,7 @@ if.end117:                                        ; preds = %invoke.cont104
 
 invoke.cont150:                                   ; preds = %if.end117
   %nanos.sroa.0.0.extract.trunc = trunc i64 %call151 to i32
-  %tobool.i.i132.not = icmp ult i64 %call151, 4294967296
+  %tobool.i.i132.not = icmp samesign ult i64 %call151, 4294967296
   br i1 %tobool.i.i132.not, label %if.then155, label %if.end163
 
 if.then155:                                       ; preds = %invoke.cont150
@@ -9899,8 +9899,8 @@ invoke.cont192:                                   ; preds = %invoke.cont188
           to label %invoke.cont197 unwind label %lpad
 
 invoke.cont197:                                   ; preds = %invoke.cont192
-  %tobool.i.i163.not = icmp ult i64 %call193, 4294967296
-  %tobool.i.i165.not = icmp ult i64 %call198, 4294967296
+  %tobool.i.i163.not = icmp samesign ult i64 %call193, 4294967296
+  %tobool.i.i165.not = icmp samesign ult i64 %call198, 4294967296
   %or.cond187 = select i1 %tobool.i.i163.not, i1 true, i1 %tobool.i.i165.not
   br i1 %or.cond187, label %if.then204, label %if.end212
 
@@ -23927,7 +23927,7 @@ if.end54:                                         ; preds = %invoke.cont38
 
 invoke.cont56:                                    ; preds = %if.end54
   %day.sroa.0.0.extract.trunc = trunc i64 %call57 to i32
-  %tobool.i.i94.not188 = icmp ult i64 %call57, 4294967296
+  %tobool.i.i94.not188 = icmp samesign ult i64 %call57, 4294967296
   %cmp63 = icmp eq i32 %day.sroa.0.0.extract.trunc, 0
   %or.cond186 = or i1 %tobool.i.i94.not188, %cmp63
   br i1 %or.cond186, label %if.then64, label %if.end72
@@ -23942,7 +23942,7 @@ if.end72:                                         ; preds = %invoke.cont56
           to label %invoke.cont74 unwind label %lpad
 
 invoke.cont74:                                    ; preds = %if.end72
-  %tobool.i.i104.not = icmp ult i64 %call75, 4294967296
+  %tobool.i.i104.not = icmp samesign ult i64 %call75, 4294967296
   br i1 %tobool.i.i104.not, label %if.then79, label %if.end87
 
 if.then79:                                        ; preds = %invoke.cont74
@@ -23955,7 +23955,7 @@ if.end87:                                         ; preds = %invoke.cont74
           to label %invoke.cont89 unwind label %lpad
 
 invoke.cont89:                                    ; preds = %if.end87
-  %tobool.i.i114.not = icmp ult i64 %call90, 4294967296
+  %tobool.i.i114.not = icmp samesign ult i64 %call90, 4294967296
   br i1 %tobool.i.i114.not, label %if.then94, label %if.end102
 
 if.then94:                                        ; preds = %invoke.cont89
@@ -23968,7 +23968,7 @@ if.end102:                                        ; preds = %invoke.cont89
           to label %invoke.cont104 unwind label %lpad
 
 invoke.cont104:                                   ; preds = %if.end102
-  %tobool.i.i124.not = icmp ult i64 %call105, 4294967296
+  %tobool.i.i124.not = icmp samesign ult i64 %call105, 4294967296
   br i1 %tobool.i.i124.not, label %if.then109, label %if.end117
 
 if.then109:                                       ; preds = %invoke.cont104
@@ -24012,7 +24012,7 @@ if.end117:                                        ; preds = %invoke.cont104
 
 invoke.cont150:                                   ; preds = %if.end117
   %nanos.sroa.0.0.extract.trunc = trunc i64 %call151 to i32
-  %tobool.i.i132.not = icmp ult i64 %call151, 4294967296
+  %tobool.i.i132.not = icmp samesign ult i64 %call151, 4294967296
   br i1 %tobool.i.i132.not, label %if.then155, label %if.end163
 
 if.then155:                                       ; preds = %invoke.cont150
@@ -24064,8 +24064,8 @@ invoke.cont192:                                   ; preds = %invoke.cont188
           to label %invoke.cont197 unwind label %lpad
 
 invoke.cont197:                                   ; preds = %invoke.cont192
-  %tobool.i.i163.not = icmp ult i64 %call193, 4294967296
-  %tobool.i.i165.not = icmp ult i64 %call198, 4294967296
+  %tobool.i.i163.not = icmp samesign ult i64 %call193, 4294967296
+  %tobool.i.i165.not = icmp samesign ult i64 %call198, 4294967296
   %or.cond189 = select i1 %tobool.i.i163.not, i1 true, i1 %tobool.i.i165.not
   br i1 %or.cond189, label %if.then204, label %if.end212
 

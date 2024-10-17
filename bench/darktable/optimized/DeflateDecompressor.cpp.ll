@@ -210,7 +210,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   tail call void @llvm.assume(i1 %37)
   %38 = icmp sgt i32 %34, -1
   tail call void @llvm.assume(i1 %38)
-  %39 = icmp ugt i64 %2, 4294967295
+  %39 = icmp samesign ugt i64 %2, 4294967295
   tail call void @llvm.assume(i1 %39)
   %40 = load ptr, ptr %0, align 8, !tbaa !91, !nonnull !92, !noundef !92
   %41 = getelementptr inbounds i8, ptr %0, i64 8
@@ -251,7 +251,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   call void @llvm.assume(i1 %67)
   %68 = icmp sgt i32 %63, -1
   call void @llvm.assume(i1 %68)
-  %69 = icmp uge i32 %63, %58
+  %69 = icmp samesign uge i32 %63, %58
   call void @llvm.assume(i1 %69)
   %70 = icmp eq i32 %58, 0
   %71 = icmp ne i32 %60, 0
@@ -266,16 +266,16 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %76 = icmp sgt i64 %3, -1
   call void @llvm.assume(i1 %76)
   %77 = add nuw nsw i32 %13, %10
-  %78 = icmp ule i32 %77, %58
+  %78 = icmp samesign ule i32 %77, %58
   call void @llvm.assume(i1 %78)
   %79 = add nuw nsw i32 %15, %12
-  %80 = icmp ule i32 %79, %60
+  %80 = icmp samesign ule i32 %79, %60
   call void @llvm.assume(i1 %80)
   %81 = icmp eq i32 %10, 0
-  %82 = icmp ugt i64 %3, 4294967295
+  %82 = icmp samesign ugt i64 %3, 4294967295
   %83 = xor i1 %82, %81
   call void @llvm.assume(i1 %83)
-  %.not = icmp ult i64 %3, 4294967296
+  %.not = icmp samesign ult i64 %3, 4294967296
   br i1 %.not, label %.loopexit20, label %84
 
 84:                                               ; preds = %49
@@ -321,7 +321,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %124 = shufflevector <16 x i64> %123, <16 x i64> poison, <16 x i32> zeroinitializer
   call void @llvm.assume(i1 %87)
   call void @llvm.assume(i1 %88)
-  %125 = icmp ult i64 %93, 8
+  %125 = icmp samesign ult i64 %93, 8
   %126 = and i64 %3, 7
   %127 = sub nsw i64 %93, %126
   %128 = insertelement <8 x i64> poison, i64 %86, i64 0
@@ -359,7 +359,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %153 = shl nuw nsw i64 %152, 2
   %154 = getelementptr i8, ptr %100, i64 %153
   %155 = getelementptr i8, ptr %103, i64 %153
-  %156 = icmp ult i64 %144, %8
+  %156 = icmp samesign ult i64 %144, %8
   call void @llvm.assume(i1 %156)
   %157 = trunc i64 %145 to i32
   %158 = add i32 %34, %157
@@ -791,7 +791,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
 
 .loopexit19:                                      ; preds = %392, %389, %303, %143
   %406 = add nuw nsw i64 %144, %14
-  %407 = icmp ult i64 %406, %96
+  %407 = icmp samesign ult i64 %406, %96
   call void @llvm.assume(i1 %407)
   %408 = trunc nuw nsw i64 %406 to i32
   %409 = mul nsw i32 %63, %408

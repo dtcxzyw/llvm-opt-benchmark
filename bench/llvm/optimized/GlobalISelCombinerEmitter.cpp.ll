@@ -2147,7 +2147,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit:    ; preds = %_ZN4llvm2gi17LLTOpe
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %79
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
 
 79:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -2363,7 +2363,7 @@ _ZNSt6vectorIPN4llvm2gi7MatcherESaIS3_EE9push_backEOS3_.exit.i: ; preds = %_ZNSt
   br i1 %.not.i.i.i.i.i.i21, label %select.unfold.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i.i.i
 
 select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i20
-  %.not10.i.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
+  %.not10.i.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
   br i1 %.not10.i.i.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i20, !llvm.loop !17
 
 .loopexit.i.i.i.i:                                ; preds = %select.unfold.i.i.i.i.i.i, %143
@@ -15097,7 +15097,7 @@ _ZN4llvm11raw_ostreamlsEc.exit91.i.i:             ; preds = %623, %621
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %626 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %463) #27
   %627 = and i64 %626, 4294967295
-  %628 = icmp ult i64 %indvars.iv.next.i.i, %627
+  %628 = icmp samesign ult i64 %indvars.iv.next.i.i, %627
   br i1 %628, label %468, label %._crit_edge.i.i, !llvm.loop !232
 
 ._crit_edge.i.i:                                  ; preds = %.critedge.i.i, %461
@@ -20333,7 +20333,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %28, align 8
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next, %43
   br i1 %44, label %33, label %._crit_edge, !llvm.loop !457
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit, %27
@@ -20464,7 +20464,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %116 = load ptr, ptr %115, align 8
   %117 = call noundef i32 %116(ptr noundef nonnull align 8 dereferenceable(328) %1) #27
   %118 = zext i32 %117 to i64
-  %119 = icmp ult i64 %indvars.iv.next56, %118
+  %119 = icmp samesign ult i64 %indvars.iv.next56, %118
   br i1 %119, label %88, label %._crit_edge52, !llvm.loop !459
 
 ._crit_edge52:                                    ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit35, %.loopexit

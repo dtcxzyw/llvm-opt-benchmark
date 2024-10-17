@@ -10235,7 +10235,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementW
   %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8, !noalias !159
   %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %12)
-  %.not.i.i.i = icmp ult i64 %13, 2
+  %.not.i.i.i = icmp samesign ult i64 %13, 2
   br i1 %.not.i.i.i, label %.split.us.i.i.i, label %.split.i.i.i
 
 .split.us.i.i.i:                                  ; preds = %10
@@ -10257,7 +10257,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementW
   %23 = load i64, ptr %22, align 8, !noalias !164
   %24 = trunc i64 %23 to i32
   %25 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %24)
-  %.not.i7.i.i = icmp ult i32 %25, 2
+  %.not.i7.i.i = icmp samesign ult i32 %25, 2
   br i1 %.not.i7.i.i, label %.split.us.i11.i.i, label %.split.i8.i.i
 
 .split.us.i11.i.i:                                ; preds = %20
@@ -10597,7 +10597,7 @@ _ZN7xgboost6common10StableSortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImE
   %62 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 24
   %63 = load i64, ptr %62, align 8, !noalias !168
   %64 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %63)
-  %.not.i.i.i.i.i = icmp ult i64 %64, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %64, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %61
@@ -10619,7 +10619,7 @@ _ZN7xgboost6common10StableSortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImE
   %74 = load i64, ptr %73, align 8, !noalias !173
   %75 = trunc i64 %74 to i32
   %76 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %75)
-  %.not.i7.i.i.i.i = icmp ult i32 %76, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %76, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %71
@@ -10680,7 +10680,7 @@ _ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EE
   %109 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i61, i64 24
   %110 = load i64, ptr %109, align 8, !noalias !176
   %111 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %110)
-  %.not.i.i.i.i.i70 = icmp ult i64 %111, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %111, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %108
@@ -10702,7 +10702,7 @@ _ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EE
   %121 = load i64, ptr %120, align 8, !noalias !181
   %122 = trunc i64 %121 to i32
   %123 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %122)
-  %.not.i7.i.i.i.i62 = icmp ult i32 %123, 2
+  %.not.i7.i.i.i.i62 = icmp samesign ult i32 %123, 2
   br i1 %.not.i7.i.i.i.i62, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i63
 
 .split.us.i11.i.i.i.i69:                          ; preds = %118
@@ -10851,7 +10851,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %182 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i83, i64 24
   %183 = load i64, ptr %182, align 8, !noalias !184
   %184 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %183)
-  %.not.i.i.i.i.i92 = icmp ult i64 %184, 2
+  %.not.i.i.i.i.i92 = icmp samesign ult i64 %184, 2
   br i1 %.not.i.i.i.i.i92, label %.split.us.i.i.i.i.i94, label %.split.i.i.i.i.i93
 
 .split.us.i.i.i.i.i94:                            ; preds = %181
@@ -10873,7 +10873,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %194 = load i64, ptr %193, align 8, !noalias !184
   %195 = trunc i64 %194 to i32
   %196 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %195)
-  %.not.i7.i.i.i.i84 = icmp ult i32 %196, 2
+  %.not.i7.i.i.i.i84 = icmp samesign ult i32 %196, 2
   br i1 %.not.i7.i.i.i.i84, label %.split.us.i11.i.i.i.i91, label %.split.i8.i.i.i.i85
 
 .split.us.i11.i.i.i.i91:                          ; preds = %191
@@ -10919,7 +10919,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 222:                                              ; preds = %205
   %223 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %206)
-  %.not.i.i.i.i.i107 = icmp ult i64 %223, 2
+  %.not.i.i.i.i.i107 = icmp samesign ult i64 %223, 2
   br i1 %.not.i.i.i.i.i107, label %.split.us.i.i.i.i.i109, label %.split.i.i.i.i.i108
 
 .split.us.i.i.i.i.i109:                           ; preds = %222
@@ -10939,7 +10939,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %231 = trunc nuw i64 %220 to i32
   %232 = trunc i64 %206 to i32
   %233 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %232)
-  %.not.i7.i.i.i.i99 = icmp ult i32 %233, 2
+  %.not.i7.i.i.i.i99 = icmp samesign ult i32 %233, 2
   br i1 %.not.i7.i.i.i.i99, label %.split.us.i11.i.i.i.i106, label %.split.i8.i.i.i.i100
 
 .split.us.i11.i.i.i.i106:                         ; preds = %230
@@ -11216,7 +11216,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET_S8_S8
   %86 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 24
   %87 = load i64, ptr %86, align 8, !noalias !187
   %88 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %87)
-  %.not.i.i.i.i.i = icmp ult i64 %88, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %88, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %85
@@ -11238,7 +11238,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET_S8_S8
   %98 = load i64, ptr %97, align 8, !noalias !192
   %99 = trunc i64 %98 to i32
   %100 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %99)
-  %.not.i7.i.i.i.i = icmp ult i32 %100, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %100, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %95
@@ -11987,14 +11987,14 @@ _ZNSt6vectorIPmSaIS0_EED2Ev.exit.thread:          ; preds = %._crit_edge
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %63 = load i16, ptr %2, align 8
   %64 = zext i16 %63 to i64
-  %65 = icmp ult i64 %indvars.iv.next108, %64
+  %65 = icmp samesign ult i64 %indvars.iv.next108, %64
   br i1 %65, label %.lr.ph94.split.us, label %._crit_edge95, !llvm.loop !203
 
 66:                                               ; preds = %.lr.ph92, %86
   %indvars.iv101 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next102, %86 ]
   %67 = phi i16 [ %52, %.lr.ph92 ], [ %91, %86 ]
   %68 = zext i16 %67 to i32
-  %69 = icmp ult i32 %invariant.op, %68
+  %69 = icmp samesign ult i32 %invariant.op, %68
   br i1 %69, label %70, label %79
 
 70:                                               ; preds = %66
@@ -12027,7 +12027,7 @@ _ZNSt6vectorIPmSaIS0_EED2Ev.exit.thread:          ; preds = %._crit_edge
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %91 = load i16, ptr %2, align 8
   %92 = zext i16 %91 to i64
-  %93 = icmp ult i64 %indvars.iv.next102, %92
+  %93 = icmp samesign ult i64 %indvars.iv.next102, %92
   br i1 %93, label %66, label %.preheader, !llvm.loop !204
 
 .lr.ph94.split:                                   ; preds = %.lr.ph94, %.lr.ph94.split
@@ -12044,7 +12044,7 @@ _ZNSt6vectorIPmSaIS0_EED2Ev.exit.thread:          ; preds = %._crit_edge
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %102 = load i16, ptr %2, align 8
   %103 = zext i16 %102 to i64
-  %104 = icmp ult i64 %indvars.iv.next105, %103
+  %104 = icmp samesign ult i64 %indvars.iv.next105, %103
   br i1 %104, label %.lr.ph94.split, label %._crit_edge95, !llvm.loop !203
 
 ._crit_edge95:                                    ; preds = %.lr.ph94.split, %.lr.ph94.split.us, %51, %.preheader
@@ -12115,7 +12115,7 @@ define linkonce_odr void @_ZSt13__stable_sortIPmN9__gnu_cxx5__ops15_Iter_comp_it
   br i1 %.not.i.i, label %select.unfold.i.i, label %_ZNSt17_Temporary_bufferIPmmEC2ES0_l.exit
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !205
 
 .loopexit:                                        ; preds = %select.unfold.i.i, %5
@@ -12274,7 +12274,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIPmN9__gnu_cxx5__ops15_Iter_comp
   %29 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 24
   %30 = load i64, ptr %29, align 8, !noalias !184
   %31 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %30)
-  %.not.i.i.i.i.i = icmp ult i64 %31, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %31, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %28
@@ -12296,7 +12296,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIPmN9__gnu_cxx5__ops15_Iter_comp
   %41 = load i64, ptr %40, align 8, !noalias !184
   %42 = trunc i64 %41 to i32
   %43 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %42)
-  %.not.i7.i.i.i.i = icmp ult i32 %43, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %43, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %38
@@ -12339,7 +12339,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 65:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %66 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %52)
-  %.not.i.i.i.i15.i = icmp ult i64 %66, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %66, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %65
@@ -12359,7 +12359,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %74 = trunc nuw i64 %63 to i32
   %75 = trunc i64 %52 to i32
   %76 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %75)
-  %.not.i7.i.i.i7.i = icmp ult i32 %76, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %76, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %73
@@ -12553,7 +12553,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN7xgboost6common8QuantileINS0_18Index
   %8 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 24
   %9 = load i64, ptr %8, align 8, !noalias !184
   %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
-  %.not.i.i.i.i = icmp ult i64 %10, 2
+  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
   br i1 %.not.i.i.i.i, label %.split.us.i.i.i.i, label %.split.i.i.i.i
 
 .split.us.i.i.i.i:                                ; preds = %7
@@ -12575,7 +12575,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN7xgboost6common8QuantileINS0_18Index
   %20 = load i64, ptr %19, align 8, !noalias !184
   %21 = trunc i64 %20 to i32
   %22 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %21)
-  %.not.i7.i.i.i = icmp ult i32 %22, 2
+  %.not.i7.i.i.i = icmp samesign ult i32 %22, 2
   br i1 %.not.i7.i.i.i, label %.split.us.i11.i.i.i, label %.split.i8.i.i.i
 
 .split.us.i11.i.i.i:                              ; preds = %17
@@ -12618,7 +12618,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 44:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit
   %45 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %31)
-  %.not.i.i.i.i15 = icmp ult i64 %45, 2
+  %.not.i.i.i.i15 = icmp samesign ult i64 %45, 2
   br i1 %.not.i.i.i.i15, label %.split.us.i.i.i.i17, label %.split.i.i.i.i16
 
 .split.us.i.i.i.i17:                              ; preds = %44
@@ -12638,7 +12638,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %53 = trunc nuw i64 %42 to i32
   %54 = trunc i64 %31 to i32
   %55 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %54)
-  %.not.i7.i.i.i7 = icmp ult i32 %55, 2
+  %.not.i7.i.i.i7 = icmp samesign ult i32 %55, 2
   br i1 %.not.i7.i.i.i7, label %.split.us.i11.i.i.i14, label %.split.i8.i.i.i8
 
 .split.us.i11.i.i.i14:                            ; preds = %52
@@ -13260,7 +13260,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPmS0_lN9__gnu_cxx5__ops15_Iter
   %19 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 24
   %20 = load i64, ptr %19, align 8, !noalias !184
   %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
-  %.not.i.i.i.i.i = icmp ult i64 %21, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %21, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %18
@@ -13282,7 +13282,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPmS0_lN9__gnu_cxx5__ops15_Iter
   %31 = load i64, ptr %30, align 8, !noalias !184
   %32 = trunc i64 %31 to i32
   %33 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %32)
-  %.not.i7.i.i.i.i = icmp ult i32 %33, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %33, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %28
@@ -13325,7 +13325,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 55:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %56 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %42)
-  %.not.i.i.i.i15.i = icmp ult i64 %56, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %56, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %55
@@ -13345,7 +13345,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %64 = trunc nuw i64 %53 to i32
   %65 = trunc i64 %42 to i32
   %66 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %65)
-  %.not.i7.i.i.i7.i = icmp ult i32 %66, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %66, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %63
@@ -13576,7 +13576,7 @@ define linkonce_odr void @_ZN14__gnu_parallel18multiseq_partitionIN9__gnu_cxx17_
   %.045.i = phi i64 [ %57, %.lr.ph.i ], [ %.0916.lcssa, %._crit_edge1032 ]
   %56 = add nuw nsw i64 %.06.i, 1
   %57 = lshr i64 %.045.i, 1
-  %58 = icmp ugt i64 %.045.i, 3
+  %58 = icmp samesign ugt i64 %.045.i, 3
   br i1 %58, label %.lr.ph.i, label %_ZN14__gnu_parallel9__rd_log2IlEET_S1_.exit.loopexit, !llvm.loop !223
 
 _ZN14__gnu_parallel9__rd_log2IlEET_S1_.exit.loopexit: ; preds = %.lr.ph.i
@@ -13894,7 +13894,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit254: ; preds = %_ZNSt6vector
   br label %161
 
 .preheader986:                                    ; preds = %161, %.critedge
-  %.not1097 = icmp ugt i64 %notmask, -3
+  %.not1097 = icmp samesign ugt i64 %notmask, -3
   br i1 %.not1097, label %.preheader968, label %.lr.ph1099
 
 .lr.ph1099:                                       ; preds = %.preheader986
@@ -13969,7 +13969,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit254: ; preds = %_ZNSt6vector
   %188 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 24
   %189 = load i64, ptr %188, align 8, !noalias !184
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %189)
-  %.not.i.i.i.i.i = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %187
@@ -13991,7 +13991,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit254: ; preds = %_ZNSt6vector
   %200 = load i64, ptr %199, align 8, !noalias !184
   %201 = trunc i64 %200 to i32
   %202 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %201)
-  %.not.i7.i.i.i.i = icmp ult i32 %202, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %202, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %197
@@ -14034,7 +14034,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 224:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %225 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %211)
-  %.not.i.i.i.i15.i = icmp ult i64 %225, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %225, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %224
@@ -14054,7 +14054,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %233 = trunc nuw i64 %222 to i32
   %234 = trunc i64 %211 to i32
   %235 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %234)
-  %.not.i7.i.i.i7.i = icmp ult i32 %235, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %235, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %232
@@ -14134,7 +14134,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %275 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i389, i64 24
   %276 = load i64, ptr %275, align 8, !noalias !184
   %277 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %276)
-  %.not.i.i.i.i.i410 = icmp ult i64 %277, 2
+  %.not.i.i.i.i.i410 = icmp samesign ult i64 %277, 2
   br i1 %.not.i.i.i.i.i410, label %.split.us.i.i.i.i.i412, label %.split.i.i.i.i.i411
 
 .split.us.i.i.i.i.i412:                           ; preds = %274
@@ -14156,7 +14156,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %287 = load i64, ptr %286, align 8, !noalias !184
   %288 = trunc i64 %287 to i32
   %289 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %288)
-  %.not.i7.i.i.i.i390 = icmp ult i32 %289, 2
+  %.not.i7.i.i.i.i390 = icmp samesign ult i32 %289, 2
   br i1 %.not.i7.i.i.i.i390, label %.split.us.i11.i.i.i.i409, label %.split.i8.i.i.i.i391
 
 .split.us.i11.i.i.i.i409:                         ; preds = %284
@@ -14199,14 +14199,14 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 311:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i395
   %312 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %298)
-  %.not.i.i.i.i15.i406 = icmp ult i64 %312, 2
+  %.not.i.i.i.i15.i406 = icmp samesign ult i64 %312, 2
   br i1 %.not.i.i.i.i15.i406, label %.noexc259, label %.noexc259.thread1173
 
 313:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i395
   %314 = trunc nuw i64 %309 to i32
   %315 = trunc i64 %298 to i32
   %316 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %315)
-  %.not.i7.i.i.i7.i398 = icmp ult i32 %316, 2
+  %.not.i7.i.i.i7.i398 = icmp samesign ult i32 %316, 2
   br i1 %.not.i7.i.i.i7.i398, label %.noexc259.thread, label %.noexc259.thread.thread
 
 .noexc259:                                        ; preds = %311
@@ -14308,7 +14308,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 376:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i368
   %377 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %298)
-  %.not.i.i.i.i15.i379 = icmp ult i64 %377, 2
+  %.not.i.i.i.i15.i379 = icmp samesign ult i64 %377, 2
   br i1 %.not.i.i.i.i15.i379, label %.split.us.i.i.i.i17.i381, label %.split.i.i.i.i16.i380
 
 .split.us.i.i.i.i17.i381:                         ; preds = %376
@@ -14328,7 +14328,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %385 = trunc nuw i64 %272 to i32
   %386 = trunc i64 %298 to i32
   %387 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %386)
-  %.not.i7.i.i.i7.i371 = icmp ult i32 %387, 2
+  %.not.i7.i.i.i7.i371 = icmp samesign ult i32 %387, 2
   br i1 %.not.i7.i.i.i7.i371, label %.split.us.i11.i.i.i14.i378, label %.split.i8.i.i.i8.i372
 
 .split.us.i11.i.i.i14.i378:                       ; preds = %384
@@ -14529,7 +14529,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorI
   %462 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i450, i64 24
   %463 = load i64, ptr %462, align 8, !noalias !184
   %464 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %463)
-  %.not.i.i.i.i.i471 = icmp ult i64 %464, 2
+  %.not.i.i.i.i.i471 = icmp samesign ult i64 %464, 2
   br i1 %.not.i.i.i.i.i471, label %.split.us.i.i.i.i.i473, label %.split.i.i.i.i.i472
 
 .split.us.i.i.i.i.i473:                           ; preds = %461
@@ -14551,7 +14551,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorI
   %474 = load i64, ptr %473, align 8, !noalias !184
   %475 = trunc i64 %474 to i32
   %476 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %475)
-  %.not.i7.i.i.i.i451 = icmp ult i32 %476, 2
+  %.not.i7.i.i.i.i451 = icmp samesign ult i32 %476, 2
   br i1 %.not.i7.i.i.i.i451, label %.split.us.i11.i.i.i.i470, label %.split.i8.i.i.i.i452
 
 .split.us.i11.i.i.i.i470:                         ; preds = %471
@@ -14594,14 +14594,14 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 498:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i456
   %499 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %485)
-  %.not.i.i.i.i15.i467 = icmp ult i64 %499, 2
+  %.not.i.i.i.i15.i467 = icmp samesign ult i64 %499, 2
   br i1 %.not.i.i.i.i15.i467, label %.noexc270, label %.noexc270.thread1191
 
 500:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i456
   %501 = trunc nuw i64 %496 to i32
   %502 = trunc i64 %485 to i32
   %503 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %502)
-  %.not.i7.i.i.i7.i459 = icmp ult i32 %503, 2
+  %.not.i7.i.i.i7.i459 = icmp samesign ult i32 %503, 2
   br i1 %.not.i7.i.i.i7.i459, label %.noexc270.thread, label %.noexc270.thread.thread
 
 .noexc270:                                        ; preds = %498
@@ -14708,7 +14708,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 563:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i429
   %564 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %485)
-  %.not.i.i.i.i15.i440 = icmp ult i64 %564, 2
+  %.not.i.i.i.i15.i440 = icmp samesign ult i64 %564, 2
   br i1 %.not.i.i.i.i15.i440, label %.split.us.i.i.i.i17.i442, label %.split.i.i.i.i16.i441
 
 .split.us.i.i.i.i17.i442:                         ; preds = %563
@@ -14728,7 +14728,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %572 = trunc nuw i64 %459 to i32
   %573 = trunc i64 %485 to i32
   %574 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %573)
-  %.not.i7.i.i.i7.i432 = icmp ult i32 %574, 2
+  %.not.i7.i.i.i7.i432 = icmp samesign ult i32 %574, 2
   br i1 %.not.i7.i.i.i7.i432, label %.split.us.i11.i.i.i14.i439, label %.split.i8.i.i.i8.i433
 
 .split.us.i11.i.i.i14.i439:                       ; preds = %571
@@ -14876,7 +14876,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EED2Ev.exit:        ; preds = %_ZNSt14priority_que
   %626 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i744, i64 24
   %627 = load i64, ptr %626, align 8, !noalias !184
   %628 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %627)
-  %.not.i.i.i.i.i765 = icmp ult i64 %628, 2
+  %.not.i.i.i.i.i765 = icmp samesign ult i64 %628, 2
   br i1 %.not.i.i.i.i.i765, label %.split.us.i.i.i.i.i767, label %.split.i.i.i.i.i766
 
 .split.us.i.i.i.i.i767:                           ; preds = %625
@@ -14898,7 +14898,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EED2Ev.exit:        ; preds = %_ZNSt14priority_que
   %638 = load i64, ptr %637, align 8, !noalias !184
   %639 = trunc i64 %638 to i32
   %640 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %639)
-  %.not.i7.i.i.i.i745 = icmp ult i32 %640, 2
+  %.not.i7.i.i.i.i745 = icmp samesign ult i32 %640, 2
   br i1 %.not.i7.i.i.i.i745, label %.split.us.i11.i.i.i.i764, label %.split.i8.i.i.i.i746
 
 .split.us.i11.i.i.i.i764:                         ; preds = %635
@@ -14941,14 +14941,14 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 662:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i750
   %663 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %649)
-  %.not.i.i.i.i15.i761 = icmp ult i64 %663, 2
+  %.not.i.i.i.i15.i761 = icmp samesign ult i64 %663, 2
   br i1 %.not.i.i.i.i15.i761, label %.noexc494, label %.noexc494.thread1198
 
 664:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i750
   %665 = trunc nuw i64 %660 to i32
   %666 = trunc i64 %649 to i32
   %667 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %666)
-  %.not.i7.i.i.i7.i753 = icmp ult i32 %667, 2
+  %.not.i7.i.i.i7.i753 = icmp samesign ult i32 %667, 2
   br i1 %.not.i7.i.i.i7.i753, label %.noexc494.thread, label %.noexc494.thread.thread
 
 .noexc494:                                        ; preds = %662
@@ -15050,7 +15050,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 727:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i723
   %728 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %649)
-  %.not.i.i.i.i15.i734 = icmp ult i64 %728, 2
+  %.not.i.i.i.i15.i734 = icmp samesign ult i64 %728, 2
   br i1 %.not.i.i.i.i15.i734, label %.split.us.i.i.i.i17.i736, label %.split.i.i.i.i16.i735
 
 .split.us.i.i.i.i17.i736:                         ; preds = %727
@@ -15070,7 +15070,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %736 = trunc nuw i64 %623 to i32
   %737 = trunc i64 %649 to i32
   %738 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %737)
-  %.not.i7.i.i.i7.i726 = icmp ult i32 %738, 2
+  %.not.i7.i.i.i7.i726 = icmp samesign ult i32 %738, 2
   br i1 %.not.i7.i.i.i7.i726, label %.split.us.i11.i.i.i14.i733, label %.split.i8.i.i.i8.i727
 
 .split.us.i11.i.i.i14.i733:                       ; preds = %735
@@ -15176,7 +15176,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel21_LexicographicReverseIml
   %788 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i690, i64 24
   %789 = load i64, ptr %788, align 8, !noalias !184
   %790 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %789)
-  %.not.i.i.i.i.i711 = icmp ult i64 %790, 2
+  %.not.i.i.i.i.i711 = icmp samesign ult i64 %790, 2
   br i1 %.not.i.i.i.i.i711, label %.split.us.i.i.i.i.i713, label %.split.i.i.i.i.i712
 
 .split.us.i.i.i.i.i713:                           ; preds = %787
@@ -15198,7 +15198,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel21_LexicographicReverseIml
   %800 = load i64, ptr %799, align 8, !noalias !184
   %801 = trunc i64 %800 to i32
   %802 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %801)
-  %.not.i7.i.i.i.i691 = icmp ult i32 %802, 2
+  %.not.i7.i.i.i.i691 = icmp samesign ult i32 %802, 2
   br i1 %.not.i7.i.i.i.i691, label %.split.us.i11.i.i.i.i710, label %.split.i8.i.i.i.i692
 
 .split.us.i11.i.i.i.i710:                         ; preds = %797
@@ -15241,14 +15241,14 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 824:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i696
   %825 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %811)
-  %.not.i.i.i.i15.i707 = icmp ult i64 %825, 2
+  %.not.i.i.i.i15.i707 = icmp samesign ult i64 %825, 2
   br i1 %.not.i.i.i.i15.i707, label %.noexc496, label %.noexc496.thread1205
 
 826:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i696
   %827 = trunc nuw i64 %822 to i32
   %828 = trunc i64 %811 to i32
   %829 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %828)
-  %.not.i7.i.i.i7.i699 = icmp ult i32 %829, 2
+  %.not.i7.i.i.i7.i699 = icmp samesign ult i32 %829, 2
   br i1 %.not.i7.i.i.i7.i699, label %.noexc496.thread, label %.noexc496.thread.thread
 
 .noexc496:                                        ; preds = %824
@@ -15355,7 +15355,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 889:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i669
   %890 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %811)
-  %.not.i.i.i.i15.i680 = icmp ult i64 %890, 2
+  %.not.i.i.i.i15.i680 = icmp samesign ult i64 %890, 2
   br i1 %.not.i.i.i.i15.i680, label %.split.us.i.i.i.i17.i682, label %.split.i.i.i.i16.i681
 
 .split.us.i.i.i.i17.i682:                         ; preds = %889
@@ -15375,7 +15375,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %898 = trunc nuw i64 %785 to i32
   %899 = trunc i64 %811 to i32
   %900 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %899)
-  %.not.i7.i.i.i7.i672 = icmp ult i32 %900, 2
+  %.not.i7.i.i.i7.i672 = icmp samesign ult i32 %900, 2
   br i1 %.not.i7.i.i.i7.i672, label %.split.us.i11.i.i.i14.i679, label %.split.i8.i.i.i8.i673
 
 .split.us.i11.i.i.i14.i679:                       ; preds = %897
@@ -15564,7 +15564,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit.i287: ; preds = %_ZNSt6vect
   %972 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i528, i64 24
   %973 = load i64, ptr %972, align 8, !noalias !184
   %974 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %973)
-  %.not.i.i.i.i.i549 = icmp ult i64 %974, 2
+  %.not.i.i.i.i.i549 = icmp samesign ult i64 %974, 2
   br i1 %.not.i.i.i.i.i549, label %.split.us.i.i.i.i.i551, label %.split.i.i.i.i.i550
 
 .split.us.i.i.i.i.i551:                           ; preds = %971
@@ -15586,7 +15586,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit.i287: ; preds = %_ZNSt6vect
   %984 = load i64, ptr %983, align 8, !noalias !184
   %985 = trunc i64 %984 to i32
   %986 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %985)
-  %.not.i7.i.i.i.i529 = icmp ult i32 %986, 2
+  %.not.i7.i.i.i.i529 = icmp samesign ult i32 %986, 2
   br i1 %.not.i7.i.i.i.i529, label %.split.us.i11.i.i.i.i548, label %.split.i8.i.i.i.i530
 
 .split.us.i11.i.i.i.i548:                         ; preds = %981
@@ -15629,14 +15629,14 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 1008:                                             ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i534
   %1009 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %995)
-  %.not.i.i.i.i15.i545 = icmp ult i64 %1009, 2
+  %.not.i.i.i.i15.i545 = icmp samesign ult i64 %1009, 2
   br i1 %.not.i.i.i.i15.i545, label %.noexc318, label %.noexc318.thread1212
 
 1010:                                             ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i534
   %1011 = trunc nuw i64 %1006 to i32
   %1012 = trunc i64 %995 to i32
   %1013 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1012)
-  %.not.i7.i.i.i7.i537 = icmp ult i32 %1013, 2
+  %.not.i7.i.i.i7.i537 = icmp samesign ult i32 %1013, 2
   br i1 %.not.i7.i.i.i7.i537, label %.noexc318.thread, label %.noexc318.thread.thread
 
 .noexc318:                                        ; preds = %1008
@@ -15743,7 +15743,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 1073:                                             ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i507
   %1074 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %995)
-  %.not.i.i.i.i15.i518 = icmp ult i64 %1074, 2
+  %.not.i.i.i.i15.i518 = icmp samesign ult i64 %1074, 2
   br i1 %.not.i.i.i.i15.i518, label %.split.us.i.i.i.i17.i520, label %.split.i.i.i.i16.i519
 
 .split.us.i.i.i.i17.i520:                         ; preds = %1073
@@ -15763,7 +15763,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %1082 = trunc nuw i64 %969 to i32
   %1083 = trunc i64 %995 to i32
   %1084 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1083)
-  %.not.i7.i.i.i7.i510 = icmp ult i32 %1084, 2
+  %.not.i7.i.i.i7.i510 = icmp samesign ult i32 %1084, 2
   br i1 %.not.i7.i.i.i7.i510, label %.split.us.i11.i.i.i14.i517, label %.split.i8.i.i.i8.i511
 
 .split.us.i11.i.i.i14.i517:                       ; preds = %1081
@@ -15982,7 +15982,7 @@ _ZNSt14priority_queueISt4pairImlESt6vectorIS1_SaIS1_EEN14__gnu_parallel21_Lexico
   br label %_ZNSt14priority_queueISt4pairImlESt6vectorIS1_SaIS1_EEN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common8QuantileINS8_18IndexTransformIterIZNS7_6linalg6cbeginIKfLi2EEEDaRKNSB_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS7_7ContextEdRKSF_SP_EUlmmE0_EEED2Ev.exit323
 
 _ZNSt14priority_queueISt4pairImlESt6vectorIS1_SaIS1_EEN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common8QuantileINS8_18IndexTransformIterIZNS7_6linalg6cbeginIKfLi2EEEDaRKNSB_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS7_7ContextEdRKSF_SP_EUlmmE0_EEED2Ev.exit323: ; preds = %_ZNSt14priority_queueISt4pairImlESt6vectorIS1_SaIS1_EEN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common8QuantileINS8_18IndexTransformIterIZNS7_6linalg6cbeginIKfLi2EEEDaRKNSB_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS7_7ContextEdRKSF_SP_EUlmmE0_EEED2Ev.exit323.sink.split, %._crit_edge1076.thread, %1165, %.critedge4, %1110
-  %.not = icmp ult i64 %.01931098, 2
+  %.not = icmp samesign ult i64 %.01931098, 2
   br i1 %.not, label %.preheader968, label %168, !llvm.loop !255
 
 .lr.ph1103:                                       ; preds = %.preheader968, %1207
@@ -16602,7 +16602,7 @@ define linkonce_odr ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_itera
 22:                                               ; preds = %18
   %23 = load i64, ptr %16, align 8, !noalias !184
   %24 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
-  %.not.i.i.i.i.i33 = icmp ult i64 %24, 2
+  %.not.i.i.i.i.i33 = icmp samesign ult i64 %24, 2
   br i1 %.not.i.i.i.i.i33, label %.split.us.i.i.i.i.i35, label %.split.i.i.i.i.i34
 
 .split.us.i.i.i.i.i35:                            ; preds = %22
@@ -16623,7 +16623,7 @@ define linkonce_odr ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_itera
   %33 = load i64, ptr %16, align 8, !noalias !184
   %34 = trunc i64 %33 to i32
   %35 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %34)
-  %.not.i7.i.i.i.i13 = icmp ult i32 %35, 2
+  %.not.i7.i.i.i.i13 = icmp samesign ult i32 %35, 2
   br i1 %.not.i7.i.i.i.i13, label %.split.us.i11.i.i.i.i32, label %.split.i8.i.i.i.i14
 
 .split.us.i11.i.i.i.i32:                          ; preds = %31
@@ -16659,13 +16659,13 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 50:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i18
   %51 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
-  %.not.i.i.i.i15.i29 = icmp ult i64 %51, 2
+  %.not.i.i.i.i15.i29 = icmp samesign ult i64 %51, 2
   br i1 %.not.i.i.i.i15.i29, label %_ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit36, label %_ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit36.thread118
 
 52:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i18
   %53 = trunc i64 %44 to i32
   %54 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %53)
-  %.not.i7.i.i.i7.i21 = icmp ult i32 %54, 2
+  %.not.i7.i.i.i7.i21 = icmp samesign ult i32 %54, 2
   br i1 %.not.i7.i.i.i7.i21, label %_ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit36.thread, label %_ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit36.thread.thread
 
 _ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit36: ; preds = %50
@@ -16767,7 +16767,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 115:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %116 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
-  %.not.i.i.i.i15.i = icmp ult i64 %116, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %116, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %115
@@ -16787,7 +16787,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %124 = trunc nuw i64 %20 to i32
   %125 = trunc i64 %44 to i32
   %126 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %125)
-  %.not.i7.i.i.i7.i = icmp ult i32 %126, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %126, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %123
@@ -16835,44 +16835,44 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel14_LexicographicImlZN7xgbo
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel14_LexicographicImlZN7xgboost6common8QuantileINS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi2EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS4_7ContextEdRKSC_SM_EUlmmE0_EEEclINS_17__normal_iteratorIPSt4pairImlESt6vectorIST_SaIST_EEEESY_EEbSC_T0_.exit.thread103: ; preds = %_ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel14_LexicographicImlZN7xgboost6common8QuantileINS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi2EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS4_7ContextEdRKSC_SM_EUlmmE0_EEEclINS_17__normal_iteratorIPSt4pairImlESt6vectorIST_SaIST_EEEESY_EEbSC_T0_.exit
   %146 = trunc i64 %44 to i32
   %147 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %146)
-  %.not.i7.i.i.i.i67 = icmp ult i32 %147, 2
+  %.not.i7.i.i.i.i67 = icmp samesign ult i32 %147, 2
   %148 = add i32 %146, -1
   %149 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
   %150 = lshr i32 %17, %149
   %151 = and i32 %148, %17
   %152 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
-  %.not.i.i.i.i.i87 = icmp ult i64 %152, 2
+  %.not.i.i.i.i.i87 = icmp samesign ult i64 %152, 2
   %153 = add i64 %44, -1
   %154 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %153)
   %155 = lshr i64 %14, %154
   %156 = and i64 %153, %14
   %157 = trunc i64 %44 to i32
   %158 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %157)
-  %.not.i7.i.i.i7.i75 = icmp ult i32 %158, 2
+  %.not.i7.i.i.i7.i75 = icmp samesign ult i32 %158, 2
   %159 = add i32 %157, -1
   %160 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %159)
   %161 = trunc i64 %44 to i32
   %162 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %161)
-  %.not.i7.i.i.i.i40 = icmp ult i32 %162, 2
+  %.not.i7.i.i.i.i40 = icmp samesign ult i32 %162, 2
   %163 = add i32 %161, -1
   %164 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %163)
   %165 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
-  %.not.i.i.i.i15.i83 = icmp ult i64 %165, 2
+  %.not.i.i.i.i15.i83 = icmp samesign ult i64 %165, 2
   %166 = add i64 %44, -1
   %167 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %166)
   %168 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
-  %.not.i.i.i.i.i60 = icmp ult i64 %168, 2
+  %.not.i.i.i.i.i60 = icmp samesign ult i64 %168, 2
   %169 = add i64 %44, -1
   %170 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %169)
   %171 = trunc i64 %44 to i32
   %172 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %171)
-  %.not.i7.i.i.i7.i48 = icmp ult i32 %172, 2
+  %.not.i7.i.i.i7.i48 = icmp samesign ult i32 %172, 2
   %173 = add i32 %171, -1
   %174 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %173)
   %175 = lshr i32 %17, %174
   %176 = and i32 %173, %17
   %177 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
-  %.not.i.i.i.i15.i56 = icmp ult i64 %177, 2
+  %.not.i.i.i.i15.i56 = icmp samesign ult i64 %177, 2
   %178 = add i64 %44, -1
   %179 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %178)
   %180 = lshr i64 %14, %179
@@ -17184,7 +17184,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel14_LexicographicImlZN7xgbo
   %36 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i11, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !184
   %38 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i32 = icmp ult i64 %38, 2
+  %.not.i.i.i.i.i32 = icmp samesign ult i64 %38, 2
   br i1 %.not.i.i.i.i.i32, label %.split.us.i.i.i.i.i34, label %.split.i.i.i.i.i33
 
 .split.us.i.i.i.i.i34:                            ; preds = %35
@@ -17206,7 +17206,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel14_LexicographicImlZN7xgbo
   %48 = load i64, ptr %47, align 8, !noalias !184
   %49 = trunc i64 %48 to i32
   %50 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %49)
-  %.not.i7.i.i.i.i12 = icmp ult i32 %50, 2
+  %.not.i7.i.i.i.i12 = icmp samesign ult i32 %50, 2
   br i1 %.not.i7.i.i.i.i12, label %.split.us.i11.i.i.i.i31, label %.split.i8.i.i.i.i13
 
 .split.us.i11.i.i.i.i31:                          ; preds = %45
@@ -17249,14 +17249,14 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 72:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i17
   %73 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %59)
-  %.not.i.i.i.i15.i28 = icmp ult i64 %73, 2
+  %.not.i.i.i.i15.i28 = icmp samesign ult i64 %73, 2
   br i1 %.not.i.i.i.i15.i28, label %_ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit35, label %_ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit35.thread60
 
 74:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i17
   %75 = trunc nuw i64 %70 to i32
   %76 = trunc i64 %59 to i32
   %77 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %76)
-  %.not.i7.i.i.i7.i20 = icmp ult i32 %77, 2
+  %.not.i7.i.i.i7.i20 = icmp samesign ult i32 %77, 2
   br i1 %.not.i7.i.i.i7.i20, label %_ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit35.thread, label %_ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit35.thread.thread
 
 _ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit35: ; preds = %72
@@ -17363,7 +17363,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 137:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %138 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %59)
-  %.not.i.i.i.i15.i = icmp ult i64 %138, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %138, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %137
@@ -17383,7 +17383,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %146 = trunc nuw i64 %33 to i32
   %147 = trunc i64 %59 to i32
   %148 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %147)
-  %.not.i7.i.i.i7.i = icmp ult i32 %148, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %148, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %145
@@ -17473,7 +17473,7 @@ define linkonce_odr void @_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal
   %10 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i7, i64 24
   %11 = load i64, ptr %10, align 8, !noalias !184
   %12 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %11)
-  %.not.i.i.i.i.i28 = icmp ult i64 %12, 2
+  %.not.i.i.i.i.i28 = icmp samesign ult i64 %12, 2
   br i1 %.not.i.i.i.i.i28, label %.split.us.i.i.i.i.i30, label %.split.i.i.i.i.i29
 
 .split.us.i.i.i.i.i30:                            ; preds = %9
@@ -17495,7 +17495,7 @@ define linkonce_odr void @_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal
   %22 = load i64, ptr %21, align 8, !noalias !184
   %23 = trunc i64 %22 to i32
   %24 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %23)
-  %.not.i7.i.i.i.i8 = icmp ult i32 %24, 2
+  %.not.i7.i.i.i.i8 = icmp samesign ult i32 %24, 2
   br i1 %.not.i7.i.i.i.i8, label %.split.us.i11.i.i.i.i27, label %.split.i8.i.i.i.i9
 
 .split.us.i11.i.i.i.i27:                          ; preds = %19
@@ -17538,14 +17538,14 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 46:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i13
   %47 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %33)
-  %.not.i.i.i.i15.i24 = icmp ult i64 %47, 2
+  %.not.i.i.i.i15.i24 = icmp samesign ult i64 %47, 2
   br i1 %.not.i.i.i.i15.i24, label %_ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit31, label %_ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit31.thread38
 
 48:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i13
   %49 = trunc nuw i64 %44 to i32
   %50 = trunc i64 %33 to i32
   %51 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %50)
-  %.not.i7.i.i.i7.i16 = icmp ult i32 %51, 2
+  %.not.i7.i.i.i7.i16 = icmp samesign ult i32 %51, 2
   br i1 %.not.i7.i.i.i7.i16, label %_ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit31.thread, label %_ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit31.thread.thread
 
 _ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS_7ContextEdRKS7_SH_ENKUlmmE0_clEmm.exit31: ; preds = %46
@@ -17652,7 +17652,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 111:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %112 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %33)
-  %.not.i.i.i.i15.i = icmp ult i64 %112, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %112, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %111
@@ -17672,7 +17672,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %120 = trunc nuw i64 %7 to i32
   %121 = trunc i64 %33 to i32
   %122 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %121)
-  %.not.i7.i.i.i7.i = icmp ult i32 %122, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %122, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %119
@@ -20682,7 +20682,7 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTrans
   %63 = load i32, ptr %21, align 4
   %64 = shl i32 %63, 1
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next.i, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next.i, %65
   br i1 %66, label %61, label %._crit_edge.i, !llvm.loop !279
 
 ._crit_edge.i:                                    ; preds = %61, %.preheader.i
@@ -20746,7 +20746,7 @@ _ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTrans
   %83 = load i32, ptr %21, align 4
   %84 = shl i32 %83, 1
   %85 = zext i32 %84 to i64
-  %86 = icmp ult i64 %indvars.iv.next.i39, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next.i39, %85
   br i1 %86, label %81, label %._crit_edge.i40, !llvm.loop !279
 
 ._crit_edge.i40:                                  ; preds = %81, %.preheader.i33
@@ -21027,7 +21027,7 @@ define linkonce_odr void @_ZSt13__stable_sortIN9__gnu_cxx17__normal_iteratorIPmS
   br i1 %.not.i.i, label %select.unfold.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC2ES6_l.exit
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !205
 
 .loopexit:                                        ; preds = %select.unfold.i.i, %5
@@ -21186,7 +21186,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   %28 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 24
   %29 = load i64, ptr %28, align 8, !noalias !184
   %30 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %29)
-  %.not.i.i.i.i.i9 = icmp ult i64 %30, 2
+  %.not.i.i.i.i.i9 = icmp samesign ult i64 %30, 2
   br i1 %.not.i.i.i.i.i9, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %27
@@ -21208,7 +21208,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   %40 = load i64, ptr %39, align 8, !noalias !184
   %41 = trunc i64 %40 to i32
   %42 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %41)
-  %.not.i7.i.i.i.i = icmp ult i32 %42, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %42, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %37
@@ -21251,7 +21251,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 64:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %65 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %51)
-  %.not.i.i.i.i15.i = icmp ult i64 %65, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %65, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %64
@@ -21271,7 +21271,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %73 = trunc nuw i64 %62 to i32
   %74 = trunc i64 %51 to i32
   %75 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %74)
-  %.not.i7.i.i.i7.i = icmp ult i32 %75, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %75, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %72
@@ -21870,7 +21870,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iterator
   %19 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 24
   %20 = load i64, ptr %19, align 8, !noalias !184
   %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
-  %.not.i.i.i.i.i = icmp ult i64 %21, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %21, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %18
@@ -21892,7 +21892,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iterator
   %31 = load i64, ptr %30, align 8, !noalias !184
   %32 = trunc i64 %31 to i32
   %33 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %32)
-  %.not.i7.i.i.i.i = icmp ult i32 %33, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %33, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %28
@@ -21935,7 +21935,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 55:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %56 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %42)
-  %.not.i.i.i.i15.i = icmp ult i64 %56, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %56, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %55
@@ -21955,7 +21955,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %64 = trunc nuw i64 %53 to i32
   %65 = trunc i64 %42 to i32
   %66 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %65)
-  %.not.i7.i.i.i7.i = icmp ult i32 %66, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %66, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %63
@@ -22132,7 +22132,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPmN9__gnu_cxx17__normal_iterat
   %19 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 24
   %20 = load i64, ptr %19, align 8, !noalias !184
   %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
-  %.not.i.i.i.i.i = icmp ult i64 %21, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %21, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %18
@@ -22154,7 +22154,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPmN9__gnu_cxx17__normal_iterat
   %31 = load i64, ptr %30, align 8, !noalias !184
   %32 = trunc i64 %31 to i32
   %33 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %32)
-  %.not.i7.i.i.i.i = icmp ult i32 %33, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %33, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %28
@@ -22197,7 +22197,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 55:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %56 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %42)
-  %.not.i.i.i.i15.i = icmp ult i64 %56, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %56, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %55
@@ -22217,7 +22217,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %64 = trunc nuw i64 %53 to i32
   %65 = trunc i64 %42 to i32
   %66 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %65)
-  %.not.i7.i.i.i7.i = icmp ult i32 %66, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %66, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %63
@@ -22783,14 +22783,14 @@ _ZNSt6vectorIPmSaIS0_EED2Ev.exit.thread:          ; preds = %._crit_edge
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %63 = load i16, ptr %2, align 8
   %64 = zext i16 %63 to i64
-  %65 = icmp ult i64 %indvars.iv.next108, %64
+  %65 = icmp samesign ult i64 %indvars.iv.next108, %64
   br i1 %65, label %.lr.ph94.split.us, label %._crit_edge95, !llvm.loop !298
 
 66:                                               ; preds = %.lr.ph92, %86
   %indvars.iv101 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next102, %86 ]
   %67 = phi i16 [ %52, %.lr.ph92 ], [ %91, %86 ]
   %68 = zext i16 %67 to i32
-  %69 = icmp ult i32 %invariant.op, %68
+  %69 = icmp samesign ult i32 %invariant.op, %68
   br i1 %69, label %70, label %79
 
 70:                                               ; preds = %66
@@ -22823,7 +22823,7 @@ _ZNSt6vectorIPmSaIS0_EED2Ev.exit.thread:          ; preds = %._crit_edge
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %91 = load i16, ptr %2, align 8
   %92 = zext i16 %91 to i64
-  %93 = icmp ult i64 %indvars.iv.next102, %92
+  %93 = icmp samesign ult i64 %indvars.iv.next102, %92
   br i1 %93, label %66, label %.preheader, !llvm.loop !299
 
 .lr.ph94.split:                                   ; preds = %.lr.ph94, %.lr.ph94.split
@@ -22840,7 +22840,7 @@ _ZNSt6vectorIPmSaIS0_EED2Ev.exit.thread:          ; preds = %._crit_edge
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %102 = load i16, ptr %2, align 8
   %103 = zext i16 %102 to i64
-  %104 = icmp ult i64 %indvars.iv.next105, %103
+  %104 = icmp samesign ult i64 %indvars.iv.next105, %103
   br i1 %104, label %.lr.ph94.split, label %._crit_edge95, !llvm.loop !298
 
 ._crit_edge95:                                    ; preds = %.lr.ph94.split, %.lr.ph94.split.us, %51, %.preheader
@@ -22908,7 +22908,7 @@ define linkonce_odr void @_ZSt13__stable_sortIPmN9__gnu_cxx5__ops15_Iter_comp_it
   br i1 %.not.i.i, label %select.unfold.i.i, label %_ZNSt17_Temporary_bufferIPmmEC2ES0_l.exit
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !205
 
 .loopexit:                                        ; preds = %select.unfold.i.i, %5
@@ -23067,7 +23067,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIPmN9__gnu_cxx5__ops15_Iter_comp
   %29 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 24
   %30 = load i64, ptr %29, align 8, !noalias !184
   %31 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %30)
-  %.not.i.i.i.i.i = icmp ult i64 %31, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %31, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %28
@@ -23089,7 +23089,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIPmN9__gnu_cxx5__ops15_Iter_comp
   %41 = load i64, ptr %40, align 8, !noalias !184
   %42 = trunc i64 %41 to i32
   %43 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %42)
-  %.not.i7.i.i.i.i = icmp ult i32 %43, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %43, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %38
@@ -23132,7 +23132,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 65:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %66 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %52)
-  %.not.i.i.i.i15.i = icmp ult i64 %66, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %66, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %65
@@ -23152,7 +23152,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %74 = trunc nuw i64 %63 to i32
   %75 = trunc i64 %52 to i32
   %76 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %75)
-  %.not.i7.i.i.i7.i = icmp ult i32 %76, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %76, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %73
@@ -23346,7 +23346,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN7xgboost6common16WeightedQuantileINS
   %8 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 24
   %9 = load i64, ptr %8, align 8, !noalias !184
   %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
-  %.not.i.i.i.i = icmp ult i64 %10, 2
+  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
   br i1 %.not.i.i.i.i, label %.split.us.i.i.i.i, label %.split.i.i.i.i
 
 .split.us.i.i.i.i:                                ; preds = %7
@@ -23368,7 +23368,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN7xgboost6common16WeightedQuantileINS
   %20 = load i64, ptr %19, align 8, !noalias !184
   %21 = trunc i64 %20 to i32
   %22 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %21)
-  %.not.i7.i.i.i = icmp ult i32 %22, 2
+  %.not.i7.i.i.i = icmp samesign ult i32 %22, 2
   br i1 %.not.i7.i.i.i, label %.split.us.i11.i.i.i, label %.split.i8.i.i.i
 
 .split.us.i11.i.i.i:                              ; preds = %17
@@ -23411,7 +23411,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 44:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit
   %45 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %31)
-  %.not.i.i.i.i15 = icmp ult i64 %45, 2
+  %.not.i.i.i.i15 = icmp samesign ult i64 %45, 2
   br i1 %.not.i.i.i.i15, label %.split.us.i.i.i.i17, label %.split.i.i.i.i16
 
 .split.us.i.i.i.i17:                              ; preds = %44
@@ -23431,7 +23431,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %53 = trunc nuw i64 %42 to i32
   %54 = trunc i64 %31 to i32
   %55 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %54)
-  %.not.i7.i.i.i7 = icmp ult i32 %55, 2
+  %.not.i7.i.i.i7 = icmp samesign ult i32 %55, 2
   br i1 %.not.i7.i.i.i7, label %.split.us.i11.i.i.i14, label %.split.i8.i.i.i8
 
 .split.us.i11.i.i.i14:                            ; preds = %52
@@ -23891,7 +23891,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPmS0_lN9__gnu_cxx5__ops15_Iter
   %19 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 24
   %20 = load i64, ptr %19, align 8, !noalias !184
   %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
-  %.not.i.i.i.i.i = icmp ult i64 %21, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %21, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %18
@@ -23913,7 +23913,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPmS0_lN9__gnu_cxx5__ops15_Iter
   %31 = load i64, ptr %30, align 8, !noalias !184
   %32 = trunc i64 %31 to i32
   %33 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %32)
-  %.not.i7.i.i.i.i = icmp ult i32 %33, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %33, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %28
@@ -23956,7 +23956,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 55:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %56 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %42)
-  %.not.i.i.i.i15.i = icmp ult i64 %56, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %56, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %55
@@ -23976,7 +23976,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %64 = trunc nuw i64 %53 to i32
   %65 = trunc i64 %42 to i32
   %66 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %65)
-  %.not.i7.i.i.i7.i = icmp ult i32 %66, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %66, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %63
@@ -24207,7 +24207,7 @@ define linkonce_odr void @_ZN14__gnu_parallel18multiseq_partitionIN9__gnu_cxx17_
   %.045.i = phi i64 [ %57, %.lr.ph.i ], [ %.0916.lcssa, %._crit_edge1032 ]
   %56 = add nuw nsw i64 %.06.i, 1
   %57 = lshr i64 %.045.i, 1
-  %58 = icmp ugt i64 %.045.i, 3
+  %58 = icmp samesign ugt i64 %.045.i, 3
   br i1 %58, label %.lr.ph.i, label %_ZN14__gnu_parallel9__rd_log2IlEET_S1_.exit.loopexit, !llvm.loop !223
 
 _ZN14__gnu_parallel9__rd_log2IlEET_S1_.exit.loopexit: ; preds = %.lr.ph.i
@@ -24525,7 +24525,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit254: ; preds = %_ZNSt6vector
   br label %161
 
 .preheader986:                                    ; preds = %161, %.critedge
-  %.not1097 = icmp ugt i64 %notmask, -3
+  %.not1097 = icmp samesign ugt i64 %notmask, -3
   br i1 %.not1097, label %.preheader968, label %.lr.ph1099
 
 .lr.ph1099:                                       ; preds = %.preheader986
@@ -24600,7 +24600,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit254: ; preds = %_ZNSt6vector
   %188 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 24
   %189 = load i64, ptr %188, align 8, !noalias !184
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %189)
-  %.not.i.i.i.i.i = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %187
@@ -24622,7 +24622,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit254: ; preds = %_ZNSt6vector
   %200 = load i64, ptr %199, align 8, !noalias !184
   %201 = trunc i64 %200 to i32
   %202 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %201)
-  %.not.i7.i.i.i.i = icmp ult i32 %202, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %202, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %197
@@ -24665,7 +24665,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 224:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %225 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %211)
-  %.not.i.i.i.i15.i = icmp ult i64 %225, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %225, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %224
@@ -24685,7 +24685,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %233 = trunc nuw i64 %222 to i32
   %234 = trunc i64 %211 to i32
   %235 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %234)
-  %.not.i7.i.i.i7.i = icmp ult i32 %235, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %235, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %232
@@ -24765,7 +24765,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %275 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i389, i64 24
   %276 = load i64, ptr %275, align 8, !noalias !184
   %277 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %276)
-  %.not.i.i.i.i.i410 = icmp ult i64 %277, 2
+  %.not.i.i.i.i.i410 = icmp samesign ult i64 %277, 2
   br i1 %.not.i.i.i.i.i410, label %.split.us.i.i.i.i.i412, label %.split.i.i.i.i.i411
 
 .split.us.i.i.i.i.i412:                           ; preds = %274
@@ -24787,7 +24787,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %287 = load i64, ptr %286, align 8, !noalias !184
   %288 = trunc i64 %287 to i32
   %289 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %288)
-  %.not.i7.i.i.i.i390 = icmp ult i32 %289, 2
+  %.not.i7.i.i.i.i390 = icmp samesign ult i32 %289, 2
   br i1 %.not.i7.i.i.i.i390, label %.split.us.i11.i.i.i.i409, label %.split.i8.i.i.i.i391
 
 .split.us.i11.i.i.i.i409:                         ; preds = %284
@@ -24830,14 +24830,14 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 311:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i395
   %312 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %298)
-  %.not.i.i.i.i15.i406 = icmp ult i64 %312, 2
+  %.not.i.i.i.i15.i406 = icmp samesign ult i64 %312, 2
   br i1 %.not.i.i.i.i15.i406, label %.noexc259, label %.noexc259.thread1173
 
 313:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i395
   %314 = trunc nuw i64 %309 to i32
   %315 = trunc i64 %298 to i32
   %316 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %315)
-  %.not.i7.i.i.i7.i398 = icmp ult i32 %316, 2
+  %.not.i7.i.i.i7.i398 = icmp samesign ult i32 %316, 2
   br i1 %.not.i7.i.i.i7.i398, label %.noexc259.thread, label %.noexc259.thread.thread
 
 .noexc259:                                        ; preds = %311
@@ -24939,7 +24939,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 376:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i368
   %377 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %298)
-  %.not.i.i.i.i15.i379 = icmp ult i64 %377, 2
+  %.not.i.i.i.i15.i379 = icmp samesign ult i64 %377, 2
   br i1 %.not.i.i.i.i15.i379, label %.split.us.i.i.i.i17.i381, label %.split.i.i.i.i16.i380
 
 .split.us.i.i.i.i17.i381:                         ; preds = %376
@@ -24959,7 +24959,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %385 = trunc nuw i64 %272 to i32
   %386 = trunc i64 %298 to i32
   %387 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %386)
-  %.not.i7.i.i.i7.i371 = icmp ult i32 %387, 2
+  %.not.i7.i.i.i7.i371 = icmp samesign ult i32 %387, 2
   br i1 %.not.i7.i.i.i7.i371, label %.split.us.i11.i.i.i14.i378, label %.split.i8.i.i.i8.i372
 
 .split.us.i11.i.i.i14.i378:                       ; preds = %384
@@ -25160,7 +25160,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorI
   %462 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i450, i64 24
   %463 = load i64, ptr %462, align 8, !noalias !184
   %464 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %463)
-  %.not.i.i.i.i.i471 = icmp ult i64 %464, 2
+  %.not.i.i.i.i.i471 = icmp samesign ult i64 %464, 2
   br i1 %.not.i.i.i.i.i471, label %.split.us.i.i.i.i.i473, label %.split.i.i.i.i.i472
 
 .split.us.i.i.i.i.i473:                           ; preds = %461
@@ -25182,7 +25182,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorI
   %474 = load i64, ptr %473, align 8, !noalias !184
   %475 = trunc i64 %474 to i32
   %476 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %475)
-  %.not.i7.i.i.i.i451 = icmp ult i32 %476, 2
+  %.not.i7.i.i.i.i451 = icmp samesign ult i32 %476, 2
   br i1 %.not.i7.i.i.i.i451, label %.split.us.i11.i.i.i.i470, label %.split.i8.i.i.i.i452
 
 .split.us.i11.i.i.i.i470:                         ; preds = %471
@@ -25225,14 +25225,14 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 498:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i456
   %499 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %485)
-  %.not.i.i.i.i15.i467 = icmp ult i64 %499, 2
+  %.not.i.i.i.i15.i467 = icmp samesign ult i64 %499, 2
   br i1 %.not.i.i.i.i15.i467, label %.noexc270, label %.noexc270.thread1191
 
 500:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i456
   %501 = trunc nuw i64 %496 to i32
   %502 = trunc i64 %485 to i32
   %503 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %502)
-  %.not.i7.i.i.i7.i459 = icmp ult i32 %503, 2
+  %.not.i7.i.i.i7.i459 = icmp samesign ult i32 %503, 2
   br i1 %.not.i7.i.i.i7.i459, label %.noexc270.thread, label %.noexc270.thread.thread
 
 .noexc270:                                        ; preds = %498
@@ -25339,7 +25339,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 563:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i429
   %564 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %485)
-  %.not.i.i.i.i15.i440 = icmp ult i64 %564, 2
+  %.not.i.i.i.i15.i440 = icmp samesign ult i64 %564, 2
   br i1 %.not.i.i.i.i15.i440, label %.split.us.i.i.i.i17.i442, label %.split.i.i.i.i16.i441
 
 .split.us.i.i.i.i17.i442:                         ; preds = %563
@@ -25359,7 +25359,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %572 = trunc nuw i64 %459 to i32
   %573 = trunc i64 %485 to i32
   %574 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %573)
-  %.not.i7.i.i.i7.i432 = icmp ult i32 %574, 2
+  %.not.i7.i.i.i7.i432 = icmp samesign ult i32 %574, 2
   br i1 %.not.i7.i.i.i7.i432, label %.split.us.i11.i.i.i14.i439, label %.split.i8.i.i.i8.i433
 
 .split.us.i11.i.i.i14.i439:                       ; preds = %571
@@ -25507,7 +25507,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EED2Ev.exit:        ; preds = %_ZNSt14priority_que
   %626 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i744, i64 24
   %627 = load i64, ptr %626, align 8, !noalias !184
   %628 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %627)
-  %.not.i.i.i.i.i765 = icmp ult i64 %628, 2
+  %.not.i.i.i.i.i765 = icmp samesign ult i64 %628, 2
   br i1 %.not.i.i.i.i.i765, label %.split.us.i.i.i.i.i767, label %.split.i.i.i.i.i766
 
 .split.us.i.i.i.i.i767:                           ; preds = %625
@@ -25529,7 +25529,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EED2Ev.exit:        ; preds = %_ZNSt14priority_que
   %638 = load i64, ptr %637, align 8, !noalias !184
   %639 = trunc i64 %638 to i32
   %640 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %639)
-  %.not.i7.i.i.i.i745 = icmp ult i32 %640, 2
+  %.not.i7.i.i.i.i745 = icmp samesign ult i32 %640, 2
   br i1 %.not.i7.i.i.i.i745, label %.split.us.i11.i.i.i.i764, label %.split.i8.i.i.i.i746
 
 .split.us.i11.i.i.i.i764:                         ; preds = %635
@@ -25572,14 +25572,14 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 662:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i750
   %663 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %649)
-  %.not.i.i.i.i15.i761 = icmp ult i64 %663, 2
+  %.not.i.i.i.i15.i761 = icmp samesign ult i64 %663, 2
   br i1 %.not.i.i.i.i15.i761, label %.noexc494, label %.noexc494.thread1198
 
 664:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i750
   %665 = trunc nuw i64 %660 to i32
   %666 = trunc i64 %649 to i32
   %667 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %666)
-  %.not.i7.i.i.i7.i753 = icmp ult i32 %667, 2
+  %.not.i7.i.i.i7.i753 = icmp samesign ult i32 %667, 2
   br i1 %.not.i7.i.i.i7.i753, label %.noexc494.thread, label %.noexc494.thread.thread
 
 .noexc494:                                        ; preds = %662
@@ -25681,7 +25681,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 727:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i723
   %728 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %649)
-  %.not.i.i.i.i15.i734 = icmp ult i64 %728, 2
+  %.not.i.i.i.i15.i734 = icmp samesign ult i64 %728, 2
   br i1 %.not.i.i.i.i15.i734, label %.split.us.i.i.i.i17.i736, label %.split.i.i.i.i16.i735
 
 .split.us.i.i.i.i17.i736:                         ; preds = %727
@@ -25701,7 +25701,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %736 = trunc nuw i64 %623 to i32
   %737 = trunc i64 %649 to i32
   %738 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %737)
-  %.not.i7.i.i.i7.i726 = icmp ult i32 %738, 2
+  %.not.i7.i.i.i7.i726 = icmp samesign ult i32 %738, 2
   br i1 %.not.i7.i.i.i7.i726, label %.split.us.i11.i.i.i14.i733, label %.split.i8.i.i.i8.i727
 
 .split.us.i11.i.i.i14.i733:                       ; preds = %735
@@ -25807,7 +25807,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel21_LexicographicReverseIml
   %788 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i690, i64 24
   %789 = load i64, ptr %788, align 8, !noalias !184
   %790 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %789)
-  %.not.i.i.i.i.i711 = icmp ult i64 %790, 2
+  %.not.i.i.i.i.i711 = icmp samesign ult i64 %790, 2
   br i1 %.not.i.i.i.i.i711, label %.split.us.i.i.i.i.i713, label %.split.i.i.i.i.i712
 
 .split.us.i.i.i.i.i713:                           ; preds = %787
@@ -25829,7 +25829,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel21_LexicographicReverseIml
   %800 = load i64, ptr %799, align 8, !noalias !184
   %801 = trunc i64 %800 to i32
   %802 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %801)
-  %.not.i7.i.i.i.i691 = icmp ult i32 %802, 2
+  %.not.i7.i.i.i.i691 = icmp samesign ult i32 %802, 2
   br i1 %.not.i7.i.i.i.i691, label %.split.us.i11.i.i.i.i710, label %.split.i8.i.i.i.i692
 
 .split.us.i11.i.i.i.i710:                         ; preds = %797
@@ -25872,14 +25872,14 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 824:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i696
   %825 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %811)
-  %.not.i.i.i.i15.i707 = icmp ult i64 %825, 2
+  %.not.i.i.i.i15.i707 = icmp samesign ult i64 %825, 2
   br i1 %.not.i.i.i.i15.i707, label %.noexc496, label %.noexc496.thread1205
 
 826:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i696
   %827 = trunc nuw i64 %822 to i32
   %828 = trunc i64 %811 to i32
   %829 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %828)
-  %.not.i7.i.i.i7.i699 = icmp ult i32 %829, 2
+  %.not.i7.i.i.i7.i699 = icmp samesign ult i32 %829, 2
   br i1 %.not.i7.i.i.i7.i699, label %.noexc496.thread, label %.noexc496.thread.thread
 
 .noexc496:                                        ; preds = %824
@@ -25986,7 +25986,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 889:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i669
   %890 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %811)
-  %.not.i.i.i.i15.i680 = icmp ult i64 %890, 2
+  %.not.i.i.i.i15.i680 = icmp samesign ult i64 %890, 2
   br i1 %.not.i.i.i.i15.i680, label %.split.us.i.i.i.i17.i682, label %.split.i.i.i.i16.i681
 
 .split.us.i.i.i.i17.i682:                         ; preds = %889
@@ -26006,7 +26006,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %898 = trunc nuw i64 %785 to i32
   %899 = trunc i64 %811 to i32
   %900 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %899)
-  %.not.i7.i.i.i7.i672 = icmp ult i32 %900, 2
+  %.not.i7.i.i.i7.i672 = icmp samesign ult i32 %900, 2
   br i1 %.not.i7.i.i.i7.i672, label %.split.us.i11.i.i.i14.i679, label %.split.i8.i.i.i8.i673
 
 .split.us.i11.i.i.i14.i679:                       ; preds = %897
@@ -26195,7 +26195,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit.i287: ; preds = %_ZNSt6vect
   %972 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i528, i64 24
   %973 = load i64, ptr %972, align 8, !noalias !184
   %974 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %973)
-  %.not.i.i.i.i.i549 = icmp ult i64 %974, 2
+  %.not.i.i.i.i.i549 = icmp samesign ult i64 %974, 2
   br i1 %.not.i.i.i.i.i549, label %.split.us.i.i.i.i.i551, label %.split.i.i.i.i.i550
 
 .split.us.i.i.i.i.i551:                           ; preds = %971
@@ -26217,7 +26217,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit.i287: ; preds = %_ZNSt6vect
   %984 = load i64, ptr %983, align 8, !noalias !184
   %985 = trunc i64 %984 to i32
   %986 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %985)
-  %.not.i7.i.i.i.i529 = icmp ult i32 %986, 2
+  %.not.i7.i.i.i.i529 = icmp samesign ult i32 %986, 2
   br i1 %.not.i7.i.i.i.i529, label %.split.us.i11.i.i.i.i548, label %.split.i8.i.i.i.i530
 
 .split.us.i11.i.i.i.i548:                         ; preds = %981
@@ -26260,14 +26260,14 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 1008:                                             ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i534
   %1009 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %995)
-  %.not.i.i.i.i15.i545 = icmp ult i64 %1009, 2
+  %.not.i.i.i.i15.i545 = icmp samesign ult i64 %1009, 2
   br i1 %.not.i.i.i.i15.i545, label %.noexc318, label %.noexc318.thread1212
 
 1010:                                             ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i534
   %1011 = trunc nuw i64 %1006 to i32
   %1012 = trunc i64 %995 to i32
   %1013 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1012)
-  %.not.i7.i.i.i7.i537 = icmp ult i32 %1013, 2
+  %.not.i7.i.i.i7.i537 = icmp samesign ult i32 %1013, 2
   br i1 %.not.i7.i.i.i7.i537, label %.noexc318.thread, label %.noexc318.thread.thread
 
 .noexc318:                                        ; preds = %1008
@@ -26374,7 +26374,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 1073:                                             ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i507
   %1074 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %995)
-  %.not.i.i.i.i15.i518 = icmp ult i64 %1074, 2
+  %.not.i.i.i.i15.i518 = icmp samesign ult i64 %1074, 2
   br i1 %.not.i.i.i.i15.i518, label %.split.us.i.i.i.i17.i520, label %.split.i.i.i.i16.i519
 
 .split.us.i.i.i.i17.i520:                         ; preds = %1073
@@ -26394,7 +26394,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %1082 = trunc nuw i64 %969 to i32
   %1083 = trunc i64 %995 to i32
   %1084 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1083)
-  %.not.i7.i.i.i7.i510 = icmp ult i32 %1084, 2
+  %.not.i7.i.i.i7.i510 = icmp samesign ult i32 %1084, 2
   br i1 %.not.i7.i.i.i7.i510, label %.split.us.i11.i.i.i14.i517, label %.split.i8.i.i.i8.i511
 
 .split.us.i11.i.i.i14.i517:                       ; preds = %1081
@@ -26613,7 +26613,7 @@ _ZNSt14priority_queueISt4pairImlESt6vectorIS1_SaIS1_EEN14__gnu_parallel21_Lexico
   br label %_ZNSt14priority_queueISt4pairImlESt6vectorIS1_SaIS1_EEN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common16WeightedQuantileINS8_18IndexTransformIterIZNS7_6linalg6cbeginIKfLi2EEEDaRKNSB_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPSD_S2_IfSaIfEEEEEEfPKNS7_7ContextEdSF_SF_T0_EUlmmE0_EEED2Ev.exit323
 
 _ZNSt14priority_queueISt4pairImlESt6vectorIS1_SaIS1_EEN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common16WeightedQuantileINS8_18IndexTransformIterIZNS7_6linalg6cbeginIKfLi2EEEDaRKNSB_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPSD_S2_IfSaIfEEEEEEfPKNS7_7ContextEdSF_SF_T0_EUlmmE0_EEED2Ev.exit323: ; preds = %_ZNSt14priority_queueISt4pairImlESt6vectorIS1_SaIS1_EEN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common16WeightedQuantileINS8_18IndexTransformIterIZNS7_6linalg6cbeginIKfLi2EEEDaRKNSB_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPSD_S2_IfSaIfEEEEEEfPKNS7_7ContextEdSF_SF_T0_EUlmmE0_EEED2Ev.exit323.sink.split, %._crit_edge1076.thread, %1165, %.critedge4, %1110
-  %.not = icmp ult i64 %.01931098, 2
+  %.not = icmp samesign ult i64 %.01931098, 2
   br i1 %.not, label %.preheader968, label %168, !llvm.loop !343
 
 .lr.ph1103:                                       ; preds = %.preheader968, %1207
@@ -27233,7 +27233,7 @@ define linkonce_odr ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_itera
 22:                                               ; preds = %18
   %23 = load i64, ptr %16, align 8, !noalias !184
   %24 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
-  %.not.i.i.i.i.i33 = icmp ult i64 %24, 2
+  %.not.i.i.i.i.i33 = icmp samesign ult i64 %24, 2
   br i1 %.not.i.i.i.i.i33, label %.split.us.i.i.i.i.i35, label %.split.i.i.i.i.i34
 
 .split.us.i.i.i.i.i35:                            ; preds = %22
@@ -27254,7 +27254,7 @@ define linkonce_odr ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_itera
   %33 = load i64, ptr %16, align 8, !noalias !184
   %34 = trunc i64 %33 to i32
   %35 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %34)
-  %.not.i7.i.i.i.i13 = icmp ult i32 %35, 2
+  %.not.i7.i.i.i.i13 = icmp samesign ult i32 %35, 2
   br i1 %.not.i7.i.i.i.i13, label %.split.us.i11.i.i.i.i32, label %.split.i8.i.i.i.i14
 
 .split.us.i11.i.i.i.i32:                          ; preds = %31
@@ -27290,13 +27290,13 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 50:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i18
   %51 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
-  %.not.i.i.i.i15.i29 = icmp ult i64 %51, 2
+  %.not.i.i.i.i15.i29 = icmp samesign ult i64 %51, 2
   br i1 %.not.i.i.i.i15.i29, label %_ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit36, label %_ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit36.thread118
 
 52:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i18
   %53 = trunc i64 %44 to i32
   %54 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %53)
-  %.not.i7.i.i.i7.i21 = icmp ult i32 %54, 2
+  %.not.i7.i.i.i7.i21 = icmp samesign ult i32 %54, 2
   br i1 %.not.i7.i.i.i7.i21, label %_ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit36.thread, label %_ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit36.thread.thread
 
 _ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit36: ; preds = %50
@@ -27398,7 +27398,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 115:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %116 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
-  %.not.i.i.i.i15.i = icmp ult i64 %116, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %116, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %115
@@ -27418,7 +27418,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %124 = trunc nuw i64 %20 to i32
   %125 = trunc i64 %44 to i32
   %126 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %125)
-  %.not.i7.i.i.i7.i = icmp ult i32 %126, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %126, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %123
@@ -27466,44 +27466,44 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel14_LexicographicImlZN7xgbo
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel14_LexicographicImlZN7xgboost6common16WeightedQuantileINS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi2EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EENS_17__normal_iteratorIPSA_St6vectorIfSaIfEEEEEEfPKNS4_7ContextEdSC_SC_T0_EUlmmE0_EEEclINSI_IPSt4pairImlESK_ISX_SaISX_EEEES11_EEbSC_SR_.exit.thread103: ; preds = %_ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel14_LexicographicImlZN7xgboost6common16WeightedQuantileINS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi2EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EENS_17__normal_iteratorIPSA_St6vectorIfSaIfEEEEEEfPKNS4_7ContextEdSC_SC_T0_EUlmmE0_EEEclINSI_IPSt4pairImlESK_ISX_SaISX_EEEES11_EEbSC_SR_.exit
   %146 = trunc i64 %44 to i32
   %147 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %146)
-  %.not.i7.i.i.i.i67 = icmp ult i32 %147, 2
+  %.not.i7.i.i.i.i67 = icmp samesign ult i32 %147, 2
   %148 = add i32 %146, -1
   %149 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
   %150 = lshr i32 %17, %149
   %151 = and i32 %148, %17
   %152 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
-  %.not.i.i.i.i.i87 = icmp ult i64 %152, 2
+  %.not.i.i.i.i.i87 = icmp samesign ult i64 %152, 2
   %153 = add i64 %44, -1
   %154 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %153)
   %155 = lshr i64 %14, %154
   %156 = and i64 %153, %14
   %157 = trunc i64 %44 to i32
   %158 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %157)
-  %.not.i7.i.i.i7.i75 = icmp ult i32 %158, 2
+  %.not.i7.i.i.i7.i75 = icmp samesign ult i32 %158, 2
   %159 = add i32 %157, -1
   %160 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %159)
   %161 = trunc i64 %44 to i32
   %162 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %161)
-  %.not.i7.i.i.i.i40 = icmp ult i32 %162, 2
+  %.not.i7.i.i.i.i40 = icmp samesign ult i32 %162, 2
   %163 = add i32 %161, -1
   %164 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %163)
   %165 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
-  %.not.i.i.i.i15.i83 = icmp ult i64 %165, 2
+  %.not.i.i.i.i15.i83 = icmp samesign ult i64 %165, 2
   %166 = add i64 %44, -1
   %167 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %166)
   %168 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
-  %.not.i.i.i.i.i60 = icmp ult i64 %168, 2
+  %.not.i.i.i.i.i60 = icmp samesign ult i64 %168, 2
   %169 = add i64 %44, -1
   %170 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %169)
   %171 = trunc i64 %44 to i32
   %172 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %171)
-  %.not.i7.i.i.i7.i48 = icmp ult i32 %172, 2
+  %.not.i7.i.i.i7.i48 = icmp samesign ult i32 %172, 2
   %173 = add i32 %171, -1
   %174 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %173)
   %175 = lshr i32 %17, %174
   %176 = and i32 %173, %17
   %177 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
-  %.not.i.i.i.i15.i56 = icmp ult i64 %177, 2
+  %.not.i.i.i.i15.i56 = icmp samesign ult i64 %177, 2
   %178 = add i64 %44, -1
   %179 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %178)
   %180 = lshr i64 %14, %179
@@ -27812,7 +27812,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel14_LexicographicImlZN7xgbo
   %36 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i11, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !184
   %38 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i32 = icmp ult i64 %38, 2
+  %.not.i.i.i.i.i32 = icmp samesign ult i64 %38, 2
   br i1 %.not.i.i.i.i.i32, label %.split.us.i.i.i.i.i34, label %.split.i.i.i.i.i33
 
 .split.us.i.i.i.i.i34:                            ; preds = %35
@@ -27834,7 +27834,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel14_LexicographicImlZN7xgbo
   %48 = load i64, ptr %47, align 8, !noalias !184
   %49 = trunc i64 %48 to i32
   %50 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %49)
-  %.not.i7.i.i.i.i12 = icmp ult i32 %50, 2
+  %.not.i7.i.i.i.i12 = icmp samesign ult i32 %50, 2
   br i1 %.not.i7.i.i.i.i12, label %.split.us.i11.i.i.i.i31, label %.split.i8.i.i.i.i13
 
 .split.us.i11.i.i.i.i31:                          ; preds = %45
@@ -27877,14 +27877,14 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 72:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i17
   %73 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %59)
-  %.not.i.i.i.i15.i28 = icmp ult i64 %73, 2
+  %.not.i.i.i.i15.i28 = icmp samesign ult i64 %73, 2
   br i1 %.not.i.i.i.i15.i28, label %_ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit35, label %_ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit35.thread60
 
 74:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i17
   %75 = trunc nuw i64 %70 to i32
   %76 = trunc i64 %59 to i32
   %77 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %76)
-  %.not.i7.i.i.i7.i20 = icmp ult i32 %77, 2
+  %.not.i7.i.i.i7.i20 = icmp samesign ult i32 %77, 2
   br i1 %.not.i7.i.i.i7.i20, label %_ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit35.thread, label %_ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit35.thread.thread
 
 _ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit35: ; preds = %72
@@ -27991,7 +27991,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 137:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %138 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %59)
-  %.not.i.i.i.i15.i = icmp ult i64 %138, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %138, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %137
@@ -28011,7 +28011,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %146 = trunc nuw i64 %33 to i32
   %147 = trunc i64 %59 to i32
   %148 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %147)
-  %.not.i7.i.i.i7.i = icmp ult i32 %148, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %148, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %145
@@ -28101,7 +28101,7 @@ define linkonce_odr void @_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal
   %10 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i7, i64 24
   %11 = load i64, ptr %10, align 8, !noalias !184
   %12 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %11)
-  %.not.i.i.i.i.i28 = icmp ult i64 %12, 2
+  %.not.i.i.i.i.i28 = icmp samesign ult i64 %12, 2
   br i1 %.not.i.i.i.i.i28, label %.split.us.i.i.i.i.i30, label %.split.i.i.i.i.i29
 
 .split.us.i.i.i.i.i30:                            ; preds = %9
@@ -28123,7 +28123,7 @@ define linkonce_odr void @_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal
   %22 = load i64, ptr %21, align 8, !noalias !184
   %23 = trunc i64 %22 to i32
   %24 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %23)
-  %.not.i7.i.i.i.i8 = icmp ult i32 %24, 2
+  %.not.i7.i.i.i.i8 = icmp samesign ult i32 %24, 2
   br i1 %.not.i7.i.i.i.i8, label %.split.us.i11.i.i.i.i27, label %.split.i8.i.i.i.i9
 
 .split.us.i11.i.i.i.i27:                          ; preds = %19
@@ -28166,14 +28166,14 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 46:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i13
   %47 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %33)
-  %.not.i.i.i.i15.i24 = icmp ult i64 %47, 2
+  %.not.i.i.i.i15.i24 = icmp samesign ult i64 %47, 2
   br i1 %.not.i.i.i.i15.i24, label %_ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit31, label %_ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit31.thread38
 
 48:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i13
   %49 = trunc nuw i64 %44 to i32
   %50 = trunc i64 %33 to i32
   %51 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %50)
-  %.not.i7.i.i.i7.i16 = icmp ult i32 %51, 2
+  %.not.i7.i.i.i7.i16 = icmp samesign ult i32 %51, 2
   br i1 %.not.i7.i.i.i7.i16, label %_ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit31.thread, label %_ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit31.thread.thread
 
 _ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIfSaIfEEEEEEfPKNS_7ContextEdS7_S7_T0_ENKUlmmE0_clEmm.exit31: ; preds = %46
@@ -28280,7 +28280,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 111:                                              ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %112 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %33)
-  %.not.i.i.i.i15.i = icmp ult i64 %112, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %112, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %111
@@ -28300,7 +28300,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %120 = trunc nuw i64 %7 to i32
   %121 = trunc i64 %33 to i32
   %122 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %121)
-  %.not.i7.i.i.i7.i = icmp ult i32 %122, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %122, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %119
@@ -31310,7 +31310,7 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18I
   %63 = load i32, ptr %21, align 4
   %64 = shl i32 %63, 1
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next.i, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next.i, %65
   br i1 %66, label %61, label %._crit_edge.i, !llvm.loop !365
 
 ._crit_edge.i:                                    ; preds = %61, %.preheader.i
@@ -31374,7 +31374,7 @@ _ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18I
   %83 = load i32, ptr %21, align 4
   %84 = shl i32 %83, 1
   %85 = zext i32 %84 to i64
-  %86 = icmp ult i64 %indvars.iv.next.i39, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next.i39, %85
   br i1 %86, label %81, label %._crit_edge.i40, !llvm.loop !365
 
 ._crit_edge.i40:                                  ; preds = %81, %.preheader.i33
@@ -31655,7 +31655,7 @@ define linkonce_odr void @_ZSt13__stable_sortIN9__gnu_cxx17__normal_iteratorIPmS
   br i1 %.not.i.i, label %select.unfold.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC2ES6_l.exit
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !205
 
 .loopexit:                                        ; preds = %select.unfold.i.i, %5
@@ -31814,7 +31814,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   %28 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 24
   %29 = load i64, ptr %28, align 8, !noalias !184
   %30 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %29)
-  %.not.i.i.i.i.i9 = icmp ult i64 %30, 2
+  %.not.i.i.i.i.i9 = icmp samesign ult i64 %30, 2
   br i1 %.not.i.i.i.i.i9, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %27
@@ -31836,7 +31836,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   %40 = load i64, ptr %39, align 8, !noalias !184
   %41 = trunc i64 %40 to i32
   %42 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %41)
-  %.not.i7.i.i.i.i = icmp ult i32 %42, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %42, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %37
@@ -31879,7 +31879,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 64:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %65 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %51)
-  %.not.i.i.i.i15.i = icmp ult i64 %65, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %65, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %64
@@ -31899,7 +31899,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %73 = trunc nuw i64 %62 to i32
   %74 = trunc i64 %51 to i32
   %75 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %74)
-  %.not.i7.i.i.i7.i = icmp ult i32 %75, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %75, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %72
@@ -32498,7 +32498,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iterator
   %19 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 24
   %20 = load i64, ptr %19, align 8, !noalias !184
   %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
-  %.not.i.i.i.i.i = icmp ult i64 %21, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %21, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %18
@@ -32520,7 +32520,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iterator
   %31 = load i64, ptr %30, align 8, !noalias !184
   %32 = trunc i64 %31 to i32
   %33 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %32)
-  %.not.i7.i.i.i.i = icmp ult i32 %33, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %33, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %28
@@ -32563,7 +32563,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 55:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %56 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %42)
-  %.not.i.i.i.i15.i = icmp ult i64 %56, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %56, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %55
@@ -32583,7 +32583,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %64 = trunc nuw i64 %53 to i32
   %65 = trunc i64 %42 to i32
   %66 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %65)
-  %.not.i7.i.i.i7.i = icmp ult i32 %66, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %66, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %63
@@ -32760,7 +32760,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPmN9__gnu_cxx17__normal_iterat
   %19 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 24
   %20 = load i64, ptr %19, align 8, !noalias !184
   %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
-  %.not.i.i.i.i.i = icmp ult i64 %21, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %21, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %18
@@ -32782,7 +32782,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPmN9__gnu_cxx17__normal_iterat
   %31 = load i64, ptr %30, align 8, !noalias !184
   %32 = trunc i64 %31 to i32
   %33 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %32)
-  %.not.i7.i.i.i.i = icmp ult i32 %33, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %33, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %28
@@ -32825,7 +32825,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
 
 55:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit.i
   %56 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %42)
-  %.not.i.i.i.i15.i = icmp ult i64 %56, 2
+  %.not.i.i.i.i15.i = icmp samesign ult i64 %56, 2
   br i1 %.not.i.i.i.i15.i, label %.split.us.i.i.i.i17.i, label %.split.i.i.i.i16.i
 
 .split.us.i.i.i.i17.i:                            ; preds = %55
@@ -32845,7 +32845,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %64 = trunc nuw i64 %53 to i32
   %65 = trunc i64 %42 to i32
   %66 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %65)
-  %.not.i7.i.i.i7.i = icmp ult i32 %66, 2
+  %.not.i7.i.i.i7.i = icmp samesign ult i32 %66, 2
   br i1 %.not.i7.i.i.i7.i, label %.split.us.i11.i.i.i14.i, label %.split.i8.i.i.i8.i
 
 .split.us.i11.i.i.i14.i:                          ; preds = %63

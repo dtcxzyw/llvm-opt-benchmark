@@ -124,7 +124,7 @@ if.end12:                                         ; preds = %if.else6, %if.else3
 
 if.end16:                                         ; preds = %if.end12
   %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %align_size.0)
-  %cmp.i = icmp ult i64 %1, 2
+  %cmp.i = icmp samesign ult i64 %1, 2
   %sub.i = add i64 %size, -1
   %add.i = add i64 %sub.i, %align_size.0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -237,7 +237,7 @@ if.end12.i:                                       ; preds = %if.else6.i, %if.els
 
 if.end16.i:                                       ; preds = %if.end12.i
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %align_size.0.i)
-  %cmp.i.i = icmp ult i64 %4, 2
+  %cmp.i.i = icmp samesign ult i64 %4, 2
   %sub.i.i = add i64 %size, -1
   %add.i.i = add i64 %sub.i.i, %align_size.0.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -403,7 +403,7 @@ _mi_os_good_alloc_size.exit.thread:               ; preds = %if.end12.i
 
 if.end16.i:                                       ; preds = %if.end12.i
   %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %align_size.0.i)
-  %cmp.i.i = icmp ult i64 %1, 2
+  %cmp.i.i = icmp samesign ult i64 %1, 2
   %sub.i.i = add i64 %size, -1
   %add.i.i = add i64 %sub.i.i, %align_size.0.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -522,7 +522,7 @@ if.end12.i:                                       ; preds = %if.else6.i, %if.els
 
 if.end16.i:                                       ; preds = %if.end12.i
   %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %align_size.0.i)
-  %cmp.i.i = icmp ult i64 %1, 2
+  %cmp.i.i = icmp samesign ult i64 %1, 2
   %sub.i.i = add i64 %size, -1
   %add.i.i = add i64 %sub.i.i, %align_size.0.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -541,7 +541,7 @@ _mi_os_good_alloc_size.exit:                      ; preds = %if.end12.i, %if.the
   %retval.0.i = phi i64 [ %size, %if.end12.i ], [ %and1.i.i, %if.then.i.i ], [ %mul.i.i, %if.else.i.i ]
   %3 = load i64, ptr @mi_os_mem_config, align 8
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
-  %cmp.i11 = icmp ult i64 %4, 2
+  %cmp.i11 = icmp samesign ult i64 %4, 2
   %sub.i10 = add i64 %alignment, -1
   %add.i = add i64 %sub.i10, %3
   br i1 %cmp.i11, label %if.then.i14, label %if.else.i12
@@ -562,7 +562,7 @@ _mi_align_up.exit:                                ; preds = %if.then.i14, %if.el
   %spec.select.i = and i1 %commit, %allow_large
   %cmp.not.i = icmp uge i64 %retval.0.i13, %3
   %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %retval.0.i13)
-  %cmp2.i = icmp ult i64 %6, 2
+  %cmp2.i = icmp samesign ult i64 %6, 2
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %if.end4.i, label %return
 
@@ -764,7 +764,7 @@ mi_align_up_ptr.exit99.i:                         ; preds = %mi_os_prim_alloc.ex
   %sub.ptr.sub.i = sub i64 %and1.i.i98.i, %16
   %18 = load i64, ptr @mi_os_mem_config, align 8
   %19 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %18)
-  %cmp.i101.i = icmp ult i64 %19, 2
+  %cmp.i101.i = icmp samesign ult i64 %19, 2
   %sub.i100.i = add i64 %retval.0.i.i, -1
   %add.i102.i = add i64 %sub.i100.i, %18
   br i1 %cmp.i101.i, label %if.then.i106.i, label %if.else.i103.i
@@ -852,7 +852,7 @@ if.then3:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %sub.i = add i64 %alignment, -1
   %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
-  %cmp.i = icmp ult i64 %0, 2
+  %cmp.i = icmp samesign ult i64 %0, 2
   %add.i = add i64 %sub.i, %offset
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -887,7 +887,7 @@ if.end4.i.i.i.i:                                  ; preds = %if.end11
   %3 = load i64, ptr @mi_os_mem_config, align 8
   %4 = ptrtoint ptr %call8 to i64
   %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
-  %cmp.i.i.i.i.i.i = icmp ult i64 %5, 2
+  %cmp.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
   %sub.i.i.i.i.i.i = add i64 %4, -1
   %add.i.i.i.i.i.i = add i64 %sub.i.i.i.i.i.i, %3
   %6 = ptrtoint ptr %add.ptr to i64
@@ -947,7 +947,7 @@ if.end4.i.i.i:                                    ; preds = %entry
   %0 = load i64, ptr @mi_os_mem_config, align 8
   %1 = ptrtoint ptr %addr to i64
   %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
-  %cmp.i.i.i.i.i = icmp ult i64 %2, 2
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %2, 2
   %sub.i.i.i.i.i = add i64 %1, -1
   %add.i.i.i.i.i = add i64 %sub.i.i.i.i.i, %0
   %add.ptr42.i.i.i = getelementptr inbounds i8, ptr %addr, i64 %size
@@ -1013,7 +1013,7 @@ if.end4.i:                                        ; preds = %if.end
   %0 = load i64, ptr @mi_os_mem_config, align 8
   %1 = ptrtoint ptr %addr to i64
   %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
-  %cmp.i.i.i = icmp ult i64 %2, 2
+  %cmp.i.i.i = icmp samesign ult i64 %2, 2
   %add.ptr1345.i = getelementptr inbounds i8, ptr %addr, i64 %size
   %3 = ptrtoint ptr %add.ptr1345.i to i64
   %sub.i.i2846.i = add i64 %3, -1
@@ -1086,7 +1086,7 @@ if.end4.i.i:                                      ; preds = %entry
   %0 = load i64, ptr @mi_os_mem_config, align 8
   %1 = ptrtoint ptr %addr to i64
   %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
-  %cmp.i.i.i.i = icmp ult i64 %2, 2
+  %cmp.i.i.i.i = icmp samesign ult i64 %2, 2
   %sub.i.i.i.i = add i64 %1, -1
   %add.i.i.i.i = add i64 %sub.i.i.i.i, %0
   %add.ptr42.i.i = getelementptr inbounds i8, ptr %addr, i64 %size
@@ -1166,7 +1166,7 @@ if.end4.i.i.i:                                    ; preds = %if.then3
   %0 = load i64, ptr @mi_os_mem_config, align 8
   %1 = ptrtoint ptr %p to i64
   %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
-  %cmp.i.i.i.i.i = icmp ult i64 %2, 2
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %2, 2
   %sub.i.i.i.i.i = add i64 %1, -1
   %add.i.i.i.i.i = add i64 %sub.i.i.i.i.i, %0
   %add.ptr42.i.i.i = getelementptr inbounds i8, ptr %p, i64 %size
@@ -1222,7 +1222,7 @@ if.end4.i.i.i10:                                  ; preds = %if.then6
   %7 = load i64, ptr @mi_os_mem_config, align 8
   %8 = ptrtoint ptr %p to i64
   %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %7)
-  %cmp.i.i.i.i.i11 = icmp ult i64 %9, 2
+  %cmp.i.i.i.i.i11 = icmp samesign ult i64 %9, 2
   %sub.i.i.i.i.i12 = add i64 %8, -1
   %add.i.i.i.i.i13 = add i64 %sub.i.i.i.i.i12, %7
   %add.ptr42.i.i.i14 = getelementptr inbounds i8, ptr %p, i64 %size
@@ -1291,7 +1291,7 @@ if.end4.i.i.i:                                    ; preds = %entry
   %0 = load i64, ptr @mi_os_mem_config, align 8
   %1 = ptrtoint ptr %addr to i64
   %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
-  %cmp.i.i.i.i.i = icmp ult i64 %2, 2
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %2, 2
   %sub.i.i.i.i.i = add i64 %1, -1
   %add.i.i.i.i.i = add i64 %sub.i.i.i.i.i, %0
   %add.ptr42.i.i.i = getelementptr inbounds i8, ptr %addr, i64 %size
@@ -1345,7 +1345,7 @@ if.end4.i.i.i:                                    ; preds = %entry
   %0 = load i64, ptr @mi_os_mem_config, align 8
   %1 = ptrtoint ptr %addr to i64
   %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
-  %cmp.i.i.i.i.i = icmp ult i64 %2, 2
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %2, 2
   %sub.i.i.i.i.i = add i64 %1, -1
   %add.i.i.i.i.i = add i64 %sub.i.i.i.i.i, %0
   %add.ptr42.i.i.i = getelementptr inbounds i8, ptr %addr, i64 %size

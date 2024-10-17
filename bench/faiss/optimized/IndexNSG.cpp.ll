@@ -553,7 +553,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %118, %_ZNSt12_Vecto
   %.150 = phi i32 [ %165, %162 ], [ %.049109, %.lr.ph111 ]
   %167 = icmp eq i32 %.150, %150
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not72 = icmp uge i64 %indvars.iv, %155
+  %.not72 = icmp samesign uge i64 %indvars.iv, %155
   %or.cond = or i1 %167, %.not72
   br i1 %or.cond, label %._crit_edge, label %.lr.ph111, !llvm.loop !5
 

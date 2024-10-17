@@ -3498,7 +3498,7 @@ _ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValB
   %174 = getelementptr inbounds i8, ptr %.04979, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %175 = icmp ne ptr %174, %18
-  %176 = icmp ult i64 %indvars.iv.next, %31
+  %176 = icmp samesign ult i64 %indvars.iv.next, %31
   %177 = select i1 %175, i1 %176, i1 false
   br i1 %177, label %32, label %._crit_edge, !llvm.loop !61
 
@@ -3577,7 +3577,7 @@ _ZNK5clang14IdentifierInfo5isStrILm15EEEbRAT__Kc.exit.thread: ; preds = %17, %_Z
   store ptr %31, ptr %2, align 8
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %22, ptr %32, align 8
-  %.not.i = icmp ult i64 %22, 6
+  %.not.i = icmp samesign ult i64 %22, 6
   br i1 %.not.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread64, label %_ZNK4llvm9StringRef9ends_withES0_.exit
 
 _ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %_ZNK5clang14IdentifierInfo5isStrILm15EEEbRAT__Kc.exit.thread
@@ -3588,7 +3588,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %_ZNK5clang14Identif
   br i1 %35, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread64:  ; preds = %_ZNK5clang14IdentifierInfo5isStrILm15EEEbRAT__Kc.exit.thread
-  %.not.i32 = icmp ult i64 %22, 2
+  %.not.i32 = icmp samesign ult i64 %22, 2
   br i1 %.not.i32, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread64
@@ -9751,7 +9751,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %15,
   %.0.i.i.i.i.i = phi ptr [ %14, %12 ], [ %16, %15 ]
   %17 = load i32, ptr %.0.i.i.i.i.i, align 8
   %18 = and i32 %17, 2147483647
-  %19 = icmp ult i32 %9, %18
+  %19 = icmp samesign ult i32 %9, %18
   br i1 %19, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %20
 
 20:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -9775,7 +9775,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %22
   %31 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %1, i32 noundef %11, ptr noundef null)
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 2147483647
-  %34 = icmp ult i32 %9, %33
+  %34 = icmp samesign ult i32 %9, %33
   br i1 %34, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %27, %20

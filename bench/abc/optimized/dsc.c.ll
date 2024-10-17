@@ -910,7 +910,7 @@ define range(i32 -1, 1) i32 @Dsc_Decompose(ptr noundef readonly %0, i32 noundef 
   br label %.lr.ph.i172.preheader
 
 39:                                               ; preds = %28
-  %40 = icmp ult i64 %indvars.iv, 6
+  %40 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %40, label %41, label %54
 
 41:                                               ; preds = %39
@@ -1021,7 +1021,7 @@ Abc_TtEqual.exit:                                 ; preds = %.lr.ph.i172
   br label %Abc_TtCofactor1p.exit
 
 89:                                               ; preds = %Abc_TtEqual.exit
-  %90 = icmp ult i64 %indvars.iv, 6
+  %90 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %90, label %.lr.ph.i187, label %.preheader.lr.ph.i177
 
 .lr.ph.i187:                                      ; preds = %89

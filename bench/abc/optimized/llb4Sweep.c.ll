@@ -53,7 +53,7 @@ define void @Llb_Nonlin4SweepOrder_rec(ptr noundef %0, ptr nocapture noundef %1,
   %27 = lshr i64 %26, 32
   %28 = trunc nuw i64 %27 to i32
   %29 = and i32 %28, 16777215
-  %30 = icmp ugt i32 %24, %29
+  %30 = icmp samesign ugt i32 %24, %29
   %. = select i1 %30, ptr %15, ptr %19
   %.57 = select i1 %30, ptr %19, ptr %15
   tail call void @Llb_Nonlin4SweepOrder_rec(ptr noundef nonnull %0, ptr noundef nonnull %., ptr noundef %2, ptr noundef %3, i32 noundef %4)

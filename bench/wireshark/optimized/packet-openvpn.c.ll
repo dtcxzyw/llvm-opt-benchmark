@@ -307,7 +307,7 @@ define internal fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr nound
   %53 = zext i1 %52 to i32
   %.2.i = add nuw nsw i32 %51, %53
   %.3.i = add nuw nsw i32 %.2.i, %.1.i
-  %54 = icmp ugt i32 %.3.i, 1
+  %54 = icmp samesign ugt i32 %.3.i, 1
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %42, %41

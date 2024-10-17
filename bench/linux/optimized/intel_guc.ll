@@ -621,7 +621,7 @@ define dso_local i32 @intel_guc_init(ptr noundef %0) local_unnamed_addr #0 align
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
   %108 = or disjoint i32 %104, %107
-  %109 = icmp ult i32 %108, 3122
+  %109 = icmp samesign ult i32 %108, 3122
   %110 = select i1 %109, i32 262144, i32 0
   br label %111
 

@@ -1433,7 +1433,7 @@ _ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit.thread: ; preds = %7, %3, %_ZN2c
   %.01727.i = phi ptr [ %17, %16 ], [ %.0.lcssa.i98, %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit.thread ]
   %13 = load i8, ptr %.01628.i, align 1
   %14 = icmp eq i8 %12, %13
-  %15 = icmp ult i32 %.029.i, 2
+  %15 = icmp samesign ult i32 %.029.i, 2
   %or.cond23.i = select i1 %14, i1 %15, i1 false
   br i1 %or.cond23.i, label %16, label %.critedge.thread.i
 
@@ -1486,7 +1486,7 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit: ; preds = %23, %.critedge.thr
   %.01727.i41 = phi ptr [ %41, %40 ], [ %.0.lcssa.i98, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit ]
   %37 = load i8, ptr %.01628.i40, align 1
   %38 = icmp eq i8 %36, %37
-  %39 = icmp ult i32 %.029.i39, 4
+  %39 = icmp samesign ult i32 %.029.i39, 4
   %or.cond23.i42 = select i1 %38, i1 %39, i1 false
   br i1 %or.cond23.i42, label %40, label %.critedge.thread.i43
 
@@ -1539,7 +1539,7 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit50: ; preds = %47, %.critedge.t
   %.01727.i56 = phi ptr [ %65, %64 ], [ %.0.lcssa.i98, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit50 ]
   %61 = load i8, ptr %.01628.i55, align 1
   %62 = icmp eq i8 %60, %61
-  %63 = icmp ult i32 %.029.i54, 9
+  %63 = icmp samesign ult i32 %.029.i54, 9
   %or.cond23.i57 = select i1 %62, i1 %63, i1 false
   br i1 %or.cond23.i57, label %64, label %.critedge.thread.i58
 
@@ -1594,7 +1594,7 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit65: ; preds = %71, %.critedge.t
   %.01727.i71 = phi ptr [ %90, %89 ], [ %.0.lcssa.i98, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit65 ]
   %86 = load i8, ptr %.01628.i70, align 1
   %87 = icmp eq i8 %85, %86
-  %88 = icmp ult i32 %.029.i69, 2
+  %88 = icmp samesign ult i32 %.029.i69, 2
   %or.cond23.i72 = select i1 %87, i1 %88, i1 false
   br i1 %or.cond23.i72, label %89, label %.critedge.thread.i73
 

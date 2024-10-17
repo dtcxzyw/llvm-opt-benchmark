@@ -1205,7 +1205,7 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   %409 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %408, ptr %409, align 1
   %410 = udiv i64 %.0751, 10
-  %.not938 = icmp ult i64 %.0751, 10
+  %.not938 = icmp samesign ult i64 %.0751, 10
   br i1 %.not938, label %411, label %405
 
 411:                                              ; preds = %405
@@ -2835,7 +2835,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   br i1 %197, label %php_url_scanner_reset_vars_impl.exit, label %198
 
 198:                                              ; preds = %196
-  %199 = icmp ult i64 %190, 1024
+  %199 = icmp samesign ult i64 %190, 1024
   %200 = icmp ult i64 %188, 9
   %201 = or i1 %200, %199
   br i1 %201, label %202, label %224
@@ -3030,7 +3030,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   br i1 %289, label %.thread610, label %290
 
 290:                                              ; preds = %288
-  %291 = icmp ult i64 %282, 1024
+  %291 = icmp samesign ult i64 %282, 1024
   %292 = icmp ult i64 %280, 9
   %293 = or i1 %292, %291
   br i1 %293, label %294, label %316

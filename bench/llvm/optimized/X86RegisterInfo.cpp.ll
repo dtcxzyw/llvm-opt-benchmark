@@ -1360,7 +1360,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18X86GenRegisterInfo24isGeneralPur
   %7 = lshr i32 %2, 3
   %8 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 2326), align 2
   %9 = zext i16 %8 to i32
-  %.not.i.i = icmp ult i32 %7, %9
+  %.not.i.i = icmp samesign ult i32 %7, %9
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %.thread21
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %6
@@ -1378,7 +1378,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %6
 .thread21:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, %6
   %18 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1142), align 2
   %19 = zext i16 %18 to i32
-  %.not.i.i9 = icmp ult i32 %7, %19
+  %.not.i.i9 = icmp samesign ult i32 %7, %19
   br i1 %.not.i.i9, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit10, label %.thread24
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit10: ; preds = %.thread21
@@ -1396,7 +1396,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit10: ; preds = %.thread
 .thread24:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit10, %.thread21
   %28 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 246), align 2
   %29 = zext i16 %28 to i32
-  %.not.i.i12 = icmp ult i32 %7, %29
+  %.not.i.i12 = icmp samesign ult i32 %7, %29
   br i1 %.not.i.i12, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit13, label %.thread27
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit13: ; preds = %.thread24
@@ -1414,7 +1414,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit13: ; preds = %.thread
 .thread27:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit13, %.thread24
   %38 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 22), align 2
   %39 = zext i16 %38 to i32
-  %.not.i.i15 = icmp ult i32 %7, %39
+  %.not.i.i15 = icmp samesign ult i32 %7, %39
   br i1 %.not.i.i15, label %40, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit16
 
 40:                                               ; preds = %.thread27
@@ -1489,7 +1489,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18X86GenRegisterInfo15isFixedRegis
   %7 = lshr i32 %2, 3
   %8 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1238), align 2
   %9 = zext i16 %8 to i32
-  %.not.i.i = icmp ult i32 %7, %9
+  %.not.i.i = icmp samesign ult i32 %7, %9
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %.thread63
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %6
@@ -1507,7 +1507,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %6
 .thread63:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, %6
   %18 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 2486), align 2
   %19 = zext i16 %18 to i32
-  %.not.i.i23 = icmp ult i32 %7, %19
+  %.not.i.i23 = icmp samesign ult i32 %7, %19
   br i1 %.not.i.i23, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit24, label %.thread66
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit24: ; preds = %.thread63
@@ -1525,7 +1525,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit24: ; preds = %.thread
 .thread66:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit24, %.thread63
   %28 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1942), align 2
   %29 = zext i16 %28 to i32
-  %.not.i.i26 = icmp ult i32 %7, %29
+  %.not.i.i26 = icmp samesign ult i32 %7, %29
   br i1 %.not.i.i26, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit27, label %.thread69
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit27: ; preds = %.thread66
@@ -1543,7 +1543,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit27: ; preds = %.thread
 .thread69:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit27, %.thread66
   %38 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 726), align 2
   %39 = zext i16 %38 to i32
-  %.not.i.i29 = icmp ult i32 %7, %39
+  %.not.i.i29 = icmp samesign ult i32 %7, %39
   br i1 %.not.i.i29, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30, label %.thread72
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30: ; preds = %.thread69
@@ -1561,7 +1561,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30: ; preds = %.thread
 .thread72:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30, %.thread69
   %48 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1974), align 2
   %49 = zext i16 %48 to i32
-  %.not.i.i32 = icmp ult i32 %7, %49
+  %.not.i.i32 = icmp samesign ult i32 %7, %49
   br i1 %.not.i.i32, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit33, label %.thread75
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit33: ; preds = %.thread72
@@ -1579,7 +1579,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit33: ; preds = %.thread
 .thread75:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit33, %.thread72
   %58 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 4278), align 2
   %59 = zext i16 %58 to i32
-  %.not.i.i35 = icmp ult i32 %7, %59
+  %.not.i.i35 = icmp samesign ult i32 %7, %59
   br i1 %.not.i.i35, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit36, label %.thread78
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit36: ; preds = %.thread75
@@ -1597,7 +1597,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit36: ; preds = %.thread
 .thread78:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit36, %.thread75
   %68 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 854), align 2
   %69 = zext i16 %68 to i32
-  %.not.i.i38 = icmp ult i32 %7, %69
+  %.not.i.i38 = icmp samesign ult i32 %7, %69
   br i1 %.not.i.i38, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit39, label %.thread81
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit39: ; preds = %.thread78
@@ -1615,7 +1615,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit39: ; preds = %.thread
 .thread81:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit39, %.thread78
   %78 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 886), align 2
   %79 = zext i16 %78 to i32
-  %.not.i.i41 = icmp ult i32 %7, %79
+  %.not.i.i41 = icmp samesign ult i32 %7, %79
   br i1 %.not.i.i41, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit42, label %.thread84
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit42: ; preds = %.thread81
@@ -1633,7 +1633,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit42: ; preds = %.thread
 .thread84:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit42, %.thread81
   %88 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 918), align 2
   %89 = zext i16 %88 to i32
-  %.not.i.i44 = icmp ult i32 %7, %89
+  %.not.i.i44 = icmp samesign ult i32 %7, %89
   br i1 %.not.i.i44, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit45, label %.thread87
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit45: ; preds = %.thread84
@@ -1651,7 +1651,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit45: ; preds = %.thread
 .thread87:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit45, %.thread84
   %98 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 950), align 2
   %99 = zext i16 %98 to i32
-  %.not.i.i47 = icmp ult i32 %7, %99
+  %.not.i.i47 = icmp samesign ult i32 %7, %99
   br i1 %.not.i.i47, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit48, label %.thread90
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit48: ; preds = %.thread87
@@ -1669,7 +1669,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit48: ; preds = %.thread
 .thread90:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit48, %.thread87
   %108 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 822), align 2
   %109 = zext i16 %108 to i32
-  %.not.i.i50 = icmp ult i32 %7, %109
+  %.not.i.i50 = icmp samesign ult i32 %7, %109
   br i1 %.not.i.i50, label %110, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit51
 
 110:                                              ; preds = %.thread90
@@ -4084,7 +4084,7 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i128.i.i.i.i.i.i: ; preds 
   %276 = lshr i32 %2, 3
   %277 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 2934), align 2
   %278 = zext i16 %277 to i32
-  %.not.i.i = icmp ult i32 %276, %278
+  %.not.i.i = icmp samesign ult i32 %276, %278
   br i1 %.not.i.i, label %279, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit
 
 279:                                              ; preds = %275
@@ -6352,7 +6352,7 @@ _ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit: ; preds = %16
   %76 = lshr i32 %.sroa.010.0.copyload, 3
   %77 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1142), align 2
   %78 = zext i16 %77 to i32
-  %.not.i.i = icmp ult i32 %76, %78
+  %.not.i.i = icmp samesign ult i32 %76, %78
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %75
@@ -7605,7 +7605,7 @@ _ZNK4llvm8SmallSetItLj4ESt4lessItEE3endEv.exit:   ; preds = %_ZN4llvm8SmallSetIt
   %188 = getelementptr inbounds nuw i8, ptr %186, i64 22
   %189 = load i16, ptr %188, align 2
   %190 = zext i16 %189 to i32
-  %.not.i.i85.us = icmp ult i32 %187, %190
+  %.not.i.i85.us = icmp samesign ult i32 %187, %190
   br i1 %.not.i.i85.us, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.us, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.us
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.us: ; preds = %185
@@ -7675,7 +7675,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.us: ; preds = 
   %226 = getelementptr inbounds nuw i8, ptr %224, i64 22
   %227 = load i16, ptr %226, align 2
   %228 = zext i16 %227 to i32
-  %.not.i.i85 = icmp ult i32 %225, %228
+  %.not.i.i85 = icmp samesign ult i32 %225, %228
   br i1 %.not.i.i85, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %223
@@ -7806,7 +7806,7 @@ _ZNK4llvm8SmallSetItLj4ESt4lessItEE5countERKt.exit.thread: ; preds = %272, %_ZNK
   %286 = getelementptr inbounds nuw i8, ptr %284, i64 22
   %287 = load i16, ptr %286, align 2
   %288 = zext i16 %287 to i32
-  %.not.i.i106 = icmp ult i32 %285, %288
+  %.not.i.i106 = icmp samesign ult i32 %285, %288
   br i1 %.not.i.i106, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit107, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit107.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit107: ; preds = %283

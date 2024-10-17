@@ -190,7 +190,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
   %67 = getelementptr inbounds float, ptr %66, i64 %65
   store float %56, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %68 = icmp ult i64 %indvars.iv.next, %58
+  %68 = icmp samesign ult i64 %indvars.iv.next, %58
   br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 69:                                               ; preds = %31, %29
@@ -358,7 +358,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 
 144:                                              ; preds = %131, %110
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 2
-  %145 = icmp ult i64 %indvars.iv.next75, %89
+  %145 = icmp samesign ult i64 %indvars.iv.next75, %89
   br i1 %145, label %110, label %._crit_edge68, !llvm.loop !6
 
 ._crit_edge68:                                    ; preds = %144, %.preheader

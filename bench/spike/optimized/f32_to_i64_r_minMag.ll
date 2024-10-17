@@ -12,7 +12,7 @@ define range(i64 -9223371487098961920, -9223372036854775807) i64 @f32_to_i64_r_m
   %5 = and i64 %4, 255
   %6 = and i64 %3, 8388607
   %7 = sub nsw i64 190, %5
-  %8 = icmp ult i64 %5, 127
+  %8 = icmp samesign ult i64 %5, 127
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %2
@@ -29,7 +29,7 @@ define range(i64 -9223371487098961920, -9223372036854775807) i64 @f32_to_i64_r_m
 
 14:                                               ; preds = %2
   %.not = icmp sgt i32 %0, -1
-  %15 = icmp ugt i64 %5, 189
+  %15 = icmp samesign ugt i64 %5, 189
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %14
@@ -49,8 +49,8 @@ define range(i64 -9223371487098961920, -9223372036854775807) i64 @f32_to_i64_r_m
   %24 = or disjoint i64 %6, 8388608
   %25 = shl nuw i64 %24, 40
   %26 = lshr i64 %25, %7
-  %27 = icmp ult i64 %5, 150
-  %or.cond3 = and i1 %1, %27
+  %27 = icmp samesign ult i64 %5, 150
+  %or.cond3 = select i1 %1, i1 %27, i1 false
   br i1 %or.cond3, label %28, label %36
 
 28:                                               ; preds = %23

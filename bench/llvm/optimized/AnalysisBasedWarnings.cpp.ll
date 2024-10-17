@@ -6770,7 +6770,7 @@ _ZNK5clang9UninitUse7getKindEv.exit8.i94.i:       ; preds = %103, %100, %97, %94
 
 _ZNK5clang9UninitUse7getKindEv.exit9.i95.i:       ; preds = %118, %114, %110, %_ZNK5clang9UninitUse7getKindEv.exit8.i94.i
   %123 = phi i32 [ 4, %_ZNK5clang9UninitUse7getKindEv.exit8.i94.i ], [ 3, %110 ], [ %122, %118 ], [ 2, %114 ]
-  %124 = icmp ugt i32 %107, %123
+  %124 = icmp samesign ugt i32 %107, %123
   br i1 %124, label %.lr.ph.i.i.preheader, label %._crit_edge.i.i
 
 _ZZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvENKUlRKN5clang9UninitUseES4_E_clES4_S4_.exit97.i: ; preds = %_ZNK5clang9UninitUse7getKindEv.exit7.i92.i
@@ -6891,7 +6891,7 @@ _ZNK5clang9UninitUse7getKindEv.exit8.i.i:         ; preds = %172, %169, %166, %1
 
 _ZNK5clang9UninitUse7getKindEv.exit9.i.i:         ; preds = %187, %183, %179, %_ZNK5clang9UninitUse7getKindEv.exit8.i.i
   %192 = phi i32 [ 4, %_ZNK5clang9UninitUse7getKindEv.exit8.i.i ], [ 3, %179 ], [ %191, %187 ], [ 2, %183 ]
-  %193 = icmp ugt i32 %176, %192
+  %193 = icmp samesign ugt i32 %176, %192
   br i1 %193, label %.lr.ph.i.i.backedge, label %._crit_edge.i.i
 
 _ZZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvENKUlRKN5clang9UninitUseES4_E_clES4_S4_.exit.i: ; preds = %_ZNK5clang9UninitUse7getKindEv.exit7.i.i
@@ -26686,7 +26686,7 @@ _ZNK5clang9UninitUse7getKindEv.exit8.i.i.i:       ; preds = %128, %124, %120, %1
 
 _ZNK5clang9UninitUse7getKindEv.exit9.i.i.i:       ; preds = %142, %139, %136, %_ZNK5clang9UninitUse7getKindEv.exit8.i.i.i
   %146 = phi i32 [ 4, %_ZNK5clang9UninitUse7getKindEv.exit8.i.i.i ], [ 3, %136 ], [ %145, %142 ], [ 2, %139 ]
-  %147 = icmp ugt i32 %133, %146
+  %147 = icmp samesign ugt i32 %133, %146
   br i1 %147, label %153, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_ZZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvENKUlRKN5clang9UninitUseES4_E_clES4_S4_.exit.i.i, %_ZNK5clang9UninitUse7getKindEv.exit9.i.i.i
@@ -26806,7 +26806,7 @@ _ZNK5clang9UninitUse7getKindEv.exit8.i18.i.i:     ; preds = %194, %191, %188, %1
 
 _ZNK5clang9UninitUse7getKindEv.exit9.i19.i.i:     ; preds = %209, %205, %201, %_ZNK5clang9UninitUse7getKindEv.exit8.i18.i.i
   %214 = phi i32 [ 4, %_ZNK5clang9UninitUse7getKindEv.exit8.i18.i.i ], [ 3, %201 ], [ %213, %209 ], [ 2, %205 ]
-  %215 = icmp ugt i32 %198, %214
+  %215 = icmp samesign ugt i32 %198, %214
   br i1 %215, label %.preheader.i.i.backedge, label %221
 
 _ZZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvENKUlRKN5clang9UninitUseES4_E_clES4_S4_.exit21.i.i: ; preds = %_ZNK5clang9UninitUse7getKindEv.exit7.i16.i.i
@@ -27078,7 +27078,7 @@ _ZNK5clang9UninitUse7getKindEv.exit8:             ; preds = %37, %40, %44, %48
 
 _ZNK5clang9UninitUse7getKindEv.exit9:             ; preds = %_ZNK5clang9UninitUse7getKindEv.exit8, %56, %60, %64
   %69 = phi i32 [ 4, %_ZNK5clang9UninitUse7getKindEv.exit8 ], [ 3, %56 ], [ %68, %64 ], [ 2, %60 ]
-  %70 = icmp ugt i32 %53, %69
+  %70 = icmp samesign ugt i32 %53, %69
   br label %77
 
 71:                                               ; preds = %_ZNK5clang9UninitUse7getKindEv.exit7
@@ -51798,7 +51798,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %30
   %43 = load i64, ptr %5, align 16
   %44 = lshr i64 %43, 38
   %45 = and i64 %44, 65535
-  %46 = icmp ult i64 %indvars.iv, %45
+  %46 = icmp samesign ult i64 %indvars.iv, %45
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %42
@@ -65124,7 +65124,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
@@ -65717,7 +65717,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread: ; preds = %2, %_
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread
@@ -70485,7 +70485,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %30
   %45 = load i64, ptr %5, align 16
   %46 = lshr i64 %45, 38
   %47 = and i64 %46, 65535
-  %48 = icmp ult i64 %indvars.iv, %47
+  %48 = icmp samesign ult i64 %indvars.iv, %47
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %44
@@ -96659,7 +96659,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv, %10
+  %11 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %11, label %12, label %36
 
 12:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -97107,7 +97107,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -97252,7 +97252,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread

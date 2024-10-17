@@ -752,7 +752,7 @@ define void @Fra_SmlCheckOutputSavePattern(ptr nocapture noundef readonly %0, pt
   %60 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv47
   store i32 %59, ptr %60, align 4
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %61 = icmp ult i64 %indvars.iv.next48, %49
+  %61 = icmp samesign ult i64 %indvars.iv.next48, %49
   br i1 %61, label %50, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %50, %30

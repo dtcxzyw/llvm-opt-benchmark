@@ -4152,7 +4152,7 @@ _getrecord_ex.exit:                               ; preds = %PyUnicode_READ.exit
 
 if.end77:                                         ; preds = %_getrecord_ex.exit
   %conv = zext i8 %48 to i32
-  %cmp78.not = icmp ult i32 %comb.0.ph253297, %conv
+  %cmp78.not = icmp samesign ult i32 %comb.0.ph253297, %conv
   br i1 %cmp78.not, label %if.end83, label %if.then80
 
 if.then80:                                        ; preds = %if.end77

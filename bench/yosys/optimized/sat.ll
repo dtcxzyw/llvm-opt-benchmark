@@ -3685,7 +3685,7 @@ _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit509: ; preds = %_ZN5YosysL6lo
 .thread:                                          ; preds = %.thread2285, %787, %.thread2287
   %narrow = add nuw nsw i8 %.0354.lcssa, %.0378.lcssa
   %narrow440 = add nuw nsw i8 %narrow, %.0352.lcssa
-  %791 = icmp ugt i8 %narrow440, 1
+  %791 = icmp samesign ugt i8 %narrow440, 1
   br i1 %791, label %.invoke, label %792
 
 792:                                              ; preds = %.thread
@@ -5555,7 +5555,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1588, %1586, %1557
           to label %1623 unwind label %.loopexit
 
 1623:                                             ; preds = %1622
-  %1624 = icmp ugt i32 %.03342010, 1
+  %1624 = icmp samesign ugt i32 %.03342010, 1
   br i1 %1624, label %1625, label %1626
 
 1625:                                             ; preds = %1623
@@ -5802,7 +5802,7 @@ _ZN12_GLOBAL__N_118print_proof_failedEv.exit:     ; preds = %.noexc661
           to label %1701 unwind label %.loopexit
 
 1701:                                             ; preds = %1700
-  %1702 = icmp ugt i32 %.03342010, 1
+  %1702 = icmp samesign ugt i32 %.03342010, 1
   br i1 %1702, label %1703, label %1704
 
 1703:                                             ; preds = %1701
@@ -6952,7 +6952,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   %2152 = sub i64 %2150, %2151
   %2153 = ashr exact i64 %2152, 2
   %2154 = lshr i64 %2153, 1
-  %2155 = icmp ult i64 %2147, %2154
+  %2155 = icmp samesign ult i64 %2147, %2154
   br i1 %2155, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !58
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i, %2040
@@ -7536,7 +7536,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i:         ; preds = %_ZNSt6vectorIiSaIiE
   %2352 = sub i64 %2350, %2351
   %2353 = ashr exact i64 %2352, 2
   %2354 = lshr i64 %2353, 1
-  %2355 = icmp ult i64 %2347, %2354
+  %2355 = icmp samesign ult i64 %2347, %2354
   br i1 %2355, label %2254, label %.loopexit.i732, !llvm.loop !59
 
 .lr.ph.i731:                                      ; preds = %.preheader123.i, %2422

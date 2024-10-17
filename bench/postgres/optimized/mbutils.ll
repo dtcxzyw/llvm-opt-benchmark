@@ -989,7 +989,7 @@ define internal fastcc ptr @perform_default_encoding_conversion(ptr noundef %0, 
   %13 = ptrtoint ptr %0 to i64
   %14 = ptrtoint ptr %10 to i64
   %15 = tail call i64 @FunctionCall6Coll(ptr noundef nonnull %.020, i32 noundef 0, i64 noundef %11, i64 noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %6, i64 noundef 0) #12
-  %16 = icmp ugt i32 %1, 1000000
+  %16 = icmp samesign ugt i32 %1, 1000000
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %5
@@ -1790,7 +1790,7 @@ define internal noundef zeroext i1 @pg_utf8_increment(ptr nocapture noundef %0, 
   %switch.selectcmp27 = icmp eq i8 %18, -19
   %switch.select28 = select i1 %switch.selectcmp27, i32 159, i32 %switch.select
   %19 = zext i8 %17 to i32
-  %20 = icmp ugt i32 %switch.select28, %19
+  %20 = icmp samesign ugt i32 %switch.select28, %19
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %15
@@ -2012,7 +2012,7 @@ define dso_local void @report_invalid_encoding(i32 noundef %0, ptr noundef %1, i
   %15 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.01921, ptr noundef nonnull @.str.17, i32 noundef %14) #12
   %16 = sext i32 %15 to i64
   %17 = getelementptr i8, ptr %.01921, i64 %16
-  %18 = icmp ult i64 %indvars.iv, %10
+  %18 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %11
@@ -2146,7 +2146,7 @@ define dso_local void @report_untranslatable_char(i32 noundef %0, i32 noundef %1
   %16 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.02022, ptr noundef nonnull @.str.17, i32 noundef %15) #12
   %17 = sext i32 %16 to i64
   %18 = getelementptr i8, ptr %.02022, i64 %17
-  %19 = icmp ult i64 %indvars.iv, %11
+  %19 = icmp samesign ult i64 %indvars.iv, %11
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %12

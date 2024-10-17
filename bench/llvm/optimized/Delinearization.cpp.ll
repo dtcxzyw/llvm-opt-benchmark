@@ -1650,7 +1650,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm26getIndexExpressionsFromGEPERNS_15
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 134217727
-  %8 = icmp ugt i32 %7, 1
+  %8 = icmp samesign ugt i32 %7, 1
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -1800,7 +1800,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %70, %77
   %87 = load i32, ptr %5, align 4
   %88 = and i32 %87, 134217727
   %89 = zext nneg i32 %88 to i64
-  %90 = icmp ult i64 %indvars.iv.next, %89
+  %90 = icmp samesign ult i64 %indvars.iv.next, %89
   br i1 %90, label %12, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %86, %4

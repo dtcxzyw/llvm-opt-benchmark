@@ -11102,13 +11102,13 @@ _ZNK4llvm8SmallSetINS_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEE5vfindE
   %43 = getelementptr i8, ptr %.04.i.i.i.i.i.i.i.i.i, i64 40
   %.val10.i.i.i.i.i.i.i.i.i = load i8, ptr %43, align 8
   %44 = and i8 %.val10.i.i.i.i.i.i.i.i.i, 1
-  %45 = icmp ult i8 %44, %41
+  %45 = icmp samesign ult i8 %44, %41
   br i1 %45, label %_ZNK12_GLOBAL__N_118TypeSizeComparatorclERKN4llvm8TypeSizeES4_.exit.thread.i.i.i.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_118TypeSizeComparatorclERKN4llvm8TypeSizeES4_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNK12_GLOBAL__N_118TypeSizeComparatorclERKN4llvm8TypeSizeES4_.exit.i.i.i.i.i.i.i.i.i: ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i.i.i.i.i.i, i64 32
   %.val.i.i.i.i.i.i.i.i.i = load i64, ptr %46, align 8
-  %47 = icmp uge i8 %41, %44
+  %47 = icmp samesign uge i8 %41, %44
   %48 = icmp ult i64 %.val.i.i.i.i.i.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %47, i1 %48, i1 false
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_118TypeSizeComparatorclERKN4llvm8TypeSizeES4_.exit.thread.i.i.i.i.i.i.i.i.i, label %49
@@ -11132,13 +11132,13 @@ _ZNKSt8_Rb_treeIN4llvm8TypeSizeES1_St9_IdentityIS1_EN12_GLOBAL__N_118TypeSizeCom
   %53 = getelementptr i8, ptr %.19.i.i.i.i.i.i.i.i.i, i64 40
   %.val5.i.i.i.i.i.i.i.i = load i8, ptr %53, align 8
   %54 = and i8 %.val5.i.i.i.i.i.i.i.i, 1
-  %55 = icmp ult i8 %41, %54
+  %55 = icmp samesign ult i8 %41, %54
   br i1 %55, label %"_ZNSt5_BindIFZN4llvm9TypeInfer15EnforceSameSizeERNS0_15TypeSetByHwModeES3_E3$_0NS0_8SmallSetINS0_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEEESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.thread", label %"_ZNSt5_BindIFZN4llvm9TypeInfer15EnforceSameSizeERNS0_15TypeSetByHwModeES3_E3$_0NS0_8SmallSetINS0_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEEESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit"
 
 "_ZNSt5_BindIFZN4llvm9TypeInfer15EnforceSameSizeERNS0_15TypeSetByHwModeES3_E3$_0NS0_8SmallSetINS0_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEEESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit": ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i.i.i.i, i64 32
   %.val4.i.i.i.i.i.i.i.i = load i64, ptr %56, align 8
-  %57 = icmp uge i8 %54, %41
+  %57 = icmp samesign uge i8 %54, %41
   %58 = icmp ult i64 %.sroa.0.0.copyload.i.i.i.i.i.i, %.val4.i.i.i.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i.i = select i1 %57, i1 %58, i1 false
   %.not7778 = icmp eq ptr %.19.i.i.i.i.i.i.i.i.i, %16
@@ -12299,7 +12299,7 @@ _ZNK4llvm15TreePredicateFn17getScalarMemoryVTEv.exit.thread: ; preds = %195, %_Z
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %79)
   %231 = zext i1 %.0.i.i95 to i32
   %232 = add nuw nsw i32 %224, %231
-  %233 = icmp ugt i32 %232, 1
+  %233 = icmp samesign ugt i32 %232, 1
   br i1 %233, label %234, label %243
 
 234:                                              ; preds = %_ZNK4llvm15TreePredicateFn17getScalarMemoryVTEv.exit.thread
@@ -13745,7 +13745,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit245:               ; preds = %950
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
   %1010 = zext i1 %.0.i.i255 to i32
   %1011 = add nuw nsw i32 %1003, %1010
-  %1012 = icmp ugt i32 %1011, 1
+  %1012 = icmp samesign ugt i32 %1011, 1
   br i1 %1012, label %1013, label %1022
 
 1013:                                             ; preds = %980
@@ -23387,7 +23387,7 @@ _ZNK4llvm18CodeGenDAGPatterns17operandHasDefaultEPNS_6RecordE.exit390.thread: ; 
   %891 = sub i64 %889, %890
   %892 = lshr exact i64 %891, 3
   %893 = and i64 %892, 4294967295
-  %.not268 = icmp ult i64 %indvars.iv661, %893
+  %.not268 = icmp samesign ult i64 %indvars.iv661, %893
   br i1 %.not268, label %900, label %894
 
 894:                                              ; preds = %.lr.ph565
@@ -23574,7 +23574,7 @@ _ZNK4llvm18CodeGenDAGPatterns17operandHasDefaultEPNS_6RecordE.exit390.thread: ; 
   %982 = sub i64 %980, %981
   %983 = lshr exact i64 %982, 3
   %984 = and i64 %983, 4294967295
-  %985 = icmp ult i64 %indvars.iv.next653, %984
+  %985 = icmp samesign ult i64 %indvars.iv.next653, %984
   br i1 %985, label %.lr.ph551, label %_ZNK4llvm9TypeInfer10isConcreteERKNS_15TypeSetByHwModeEb.exit, !llvm.loop !303
 
 986:                                              ; preds = %940
@@ -46355,13 +46355,13 @@ define internal fastcc { ptr, i8 } @_ZNSt3setIN4llvm8TypeSizeEN12_GLOBAL__N_118T
   %7 = getelementptr i8, ptr %.01620.i.i, i64 40
   %.val8.i.i = load i8, ptr %7, align 8
   %8 = and i8 %.val8.i.i, 1
-  %9 = icmp ult i8 %6, %8
+  %9 = icmp samesign ult i8 %6, %8
   br i1 %9, label %_ZNK12_GLOBAL__N_118TypeSizeComparatorclERKN4llvm8TypeSizeES4_.exit.thread.i.thread.i, label %_ZNK12_GLOBAL__N_118TypeSizeComparatorclERKN4llvm8TypeSizeES4_.exit.thread.i.i
 
 _ZNK12_GLOBAL__N_118TypeSizeComparatorclERKN4llvm8TypeSizeES4_.exit.thread.i.i: ; preds = %.backedge.i
   %10 = getelementptr inbounds nuw i8, ptr %.01620.i.i, i64 32
   %.val7.i.i = load i64, ptr %10, align 8
-  %11 = icmp uge i8 %8, %6
+  %11 = icmp samesign uge i8 %8, %6
   %12 = icmp ult i64 %.val.i, %.val7.i.i
   %spec.select.i.i.i = select i1 %11, i1 %12, i1 false
   %spec.select26.i.i = select i1 %spec.select.i.i.i, i64 16, i64 24
@@ -46403,13 +46403,13 @@ _ZNK12_GLOBAL__N_118TypeSizeComparatorclERKN4llvm8TypeSizeES4_.exit.thread.i.thr
   %.pre-phi.i = phi i8 [ %.pre.i, %17 ], [ %8, %._crit_edge.i.i ]
   %.015.lcssa24.i.i = phi ptr [ %.015.lcssa25.i.i, %17 ], [ %.01620.i.i, %._crit_edge.i.i ]
   %.sroa.01.0.i.i = phi ptr [ %18, %17 ], [ %.01620.i.i, %._crit_edge.i.i ]
-  %20 = icmp ult i8 %.pre-phi.i, %.pre-phi28.i
+  %20 = icmp samesign ult i8 %.pre-phi.i, %.pre-phi28.i
   br i1 %20, label %select.unfold.i, label %_ZNK12_GLOBAL__N_118TypeSizeComparatorclERKN4llvm8TypeSizeES4_.exit17.i.i
 
 _ZNK12_GLOBAL__N_118TypeSizeComparatorclERKN4llvm8TypeSizeES4_.exit17.i.i: ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i.i, i64 32
   %.val9.i.i = load i64, ptr %21, align 8
-  %22 = icmp uge i8 %.pre-phi28.i, %.pre-phi.i
+  %22 = icmp samesign uge i8 %.pre-phi28.i, %.pre-phi.i
   %23 = icmp ult i64 %.val9.i.i, %.val.i
   %spec.select.i16.i.i = select i1 %22, i1 %23, i1 false
   br i1 %spec.select.i16.i.i, label %select.unfold.i, label %_ZNSt8_Rb_treeIN4llvm8TypeSizeES1_St9_IdentityIS1_EN12_GLOBAL__N_118TypeSizeComparatorESaIS1_EE16_M_insert_uniqueIRKS1_EESt4pairISt17_Rb_tree_iteratorIS1_EbEOT_.exit
@@ -46424,13 +46424,13 @@ select.unfold.i:                                  ; preds = %_ZNK12_GLOBAL__N_11
   %.val12.i.i = load i8, ptr %26, align 8
   %27 = and i8 %.val5.i, 1
   %28 = and i8 %.val12.i.i, 1
-  %29 = icmp ult i8 %27, %28
+  %29 = icmp samesign ult i8 %27, %28
   br i1 %29, label %_ZNSt8_Rb_treeIN4llvm8TypeSizeES1_St9_IdentityIS1_EN12_GLOBAL__N_118TypeSizeComparatorESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i, label %30
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i, i64 32
   %.val11.i.i = load i64, ptr %31, align 8
-  %32 = icmp uge i8 %28, %27
+  %32 = icmp samesign uge i8 %28, %27
   %33 = icmp ult i64 %.val.i, %.val11.i.i
   %spec.select.i.i8.i = select i1 %32, i1 %33, i1 false
   br label %_ZNSt8_Rb_treeIN4llvm8TypeSizeES1_St9_IdentityIS1_EN12_GLOBAL__N_118TypeSizeComparatorESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i

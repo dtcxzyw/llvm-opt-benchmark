@@ -2964,7 +2964,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %mValue.i6 = getelementptr inbounds i8, ptr %first.sroa.0.039, i64 16
   %4 = load i8, ptr %mValue.i6, align 1
   %5 = and i8 %4, 1
-  %cmp7 = icmp ult i8 %3, %5
+  %cmp7 = icmp samesign ult i8 %3, %5
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %while.body
@@ -3168,7 +3168,7 @@ sw.bb2:                                           ; preds = %entry
   %5 = and i8 %4, 1
   %6 = load i8, ptr %mValue.i19, align 1
   %7 = and i8 %6, 1
-  %cmp.i = icmp ult i8 %5, %7
+  %cmp.i = icmp samesign ult i8 %5, %7
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb2
@@ -3214,7 +3214,7 @@ for.body:                                         ; preds = %sw.bb8, %for.inc
   %21 = and i8 %20, 1
   %22 = load i8, ptr %mValue.i25, align 1
   %23 = and i8 %22, 1
-  %cmp.i26 = icmp ult i8 %21, %23
+  %cmp.i26 = icmp samesign ult i8 %21, %23
   br i1 %cmp.i26, label %if.then13, label %for.inc
 
 if.then13:                                        ; preds = %for.body
@@ -3266,7 +3266,7 @@ if.end22:                                         ; preds = %if.else, %if.then17
   %37 = and i8 %36, 1
   %38 = load i8, ptr %mValue.i34, align 1
   %39 = and i8 %38, 1
-  %cmp.i35 = icmp ult i8 %37, %39
+  %cmp.i35 = icmp samesign ult i8 %37, %39
   br i1 %cmp.i35, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end22
@@ -3321,7 +3321,7 @@ _ZN5eastl4nextINS_12ListIteratorIbPbRbEEEET_S5_NS_15iterator_traitsIS5_E15differ
   %54 = and i8 %53, 1
   %55 = load i8, ptr %mValue.i41, align 1
   %56 = and i8 %55, 1
-  %cmp.i42 = icmp ult i8 %54, %56
+  %cmp.i42 = icmp samesign ult i8 %54, %56
   %57 = ptrtoint ptr %51 to i64
   br i1 %cmp.i42, label %while.cond.preheader, label %if.else48
 
@@ -3339,7 +3339,7 @@ land.rhs:                                         ; preds = %while.cond
   %mValue.i44 = getelementptr inbounds i8, ptr %ix.sroa.0.0, i64 16
   %59 = load i8, ptr %mValue.i44, align 1
   %60 = and i8 %59, 1
-  %cmp.i46 = icmp ult i8 %60, %56
+  %cmp.i46 = icmp samesign ult i8 %60, %56
   br i1 %cmp.i46, label %while.cond, label %while.end, !llvm.loop !94
 
 while.end:                                        ; preds = %while.cond, %land.rhs
@@ -3394,7 +3394,7 @@ for.body56:                                       ; preds = %land.rhs53
   %72 = and i8 %71, 1
   %73 = load i8, ptr %mValue.i52, align 1
   %74 = and i8 %73, 1
-  %cmp.i53 = icmp ult i8 %72, %74
+  %cmp.i53 = icmp samesign ult i8 %72, %74
   br i1 %cmp.i53, label %while.cond62, label %for.inc82
 
 while.cond62:                                     ; preds = %for.body56, %land.rhs64
@@ -3407,7 +3407,7 @@ land.rhs64:                                       ; preds = %while.cond62
   %mValue.i55 = getelementptr inbounds i8, ptr %ix61.sroa.0.0, i64 16
   %75 = load i8, ptr %mValue.i55, align 1
   %76 = and i8 %75, 1
-  %cmp.i57 = icmp ult i8 %76, %74
+  %cmp.i57 = icmp samesign ult i8 %76, %74
   br i1 %cmp.i57, label %while.cond62, label %while.end71, !llvm.loop !95
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
@@ -15068,7 +15068,7 @@ while.cond.i.i1054:                               ; preds = %while.cond.i.i1054,
   %i.0.i.i = phi i64 [ 0, %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit1053 ], [ %inc.i.i1056, %while.cond.i.i1054 ]
   %current.sroa.0.0.i.i = load ptr, ptr %current.sroa.0.0.in.i.i, align 8
   %cmp.i.i1055 = icmp ne ptr %current.sroa.0.0.i.i, %a655
-  %cmp3.i.i = icmp ult i64 %i.0.i.i, 10
+  %cmp3.i.i = icmp samesign ult i64 %i.0.i.i, 10
   %383 = select i1 %cmp.i.i1055, i1 %cmp3.i.i, i1 false
   %inc.i.i1056 = add nuw nsw i64 %i.0.i.i, 1
   br i1 %383, label %while.cond.i.i1054, label %while.end.i.i1057, !llvm.loop !122
@@ -15188,7 +15188,7 @@ while.cond.i1084:                                 ; preds = %while.cond.i1084, %
   %i.0.i = phi i64 [ 0, %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit1083 ], [ %inc.i1086, %while.cond.i1084 ]
   %current.sroa.0.0.i = load ptr, ptr %current.sroa.0.0.in.i, align 8
   %cmp.i1085 = icmp ne ptr %current.sroa.0.0.i, %a674
-  %cmp3.i = icmp ult i64 %i.0.i, 10
+  %cmp3.i = icmp samesign ult i64 %i.0.i, 10
   %400 = select i1 %cmp.i1085, i1 %cmp3.i, i1 false
   %inc.i1086 = add nuw nsw i64 %i.0.i, 1
   br i1 %400, label %while.cond.i1084, label %while.end.i1087, !llvm.loop !122

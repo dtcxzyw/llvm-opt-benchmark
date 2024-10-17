@@ -981,7 +981,7 @@ define internal fastcc void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Has
   %.016.i.i.i.i = select i1 %11, i64 %12, i64 0
   %.0.i.i.i.i = select i1 %11, i64 4, i64 0
   %13 = or disjoint i64 %.0.i.i.i.i, 1
-  %14 = icmp ult i64 %13, %.0.sroa.speculated.i.i.i.i
+  %14 = icmp samesign ult i64 %13, %.0.sroa.speculated.i.i.i.i
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %9
@@ -1100,14 +1100,14 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i.i.i: ; preds = %23, %21
 
 90:                                               ; preds = %._crit_edge.i.i.i, %38
   %.09.lcssa.i.i.i = phi i64 [ %72, %._crit_edge.i.i.i ], [ %.0.i.i.i, %38 ]
-  %91 = icmp ugt i64 %40, 3
+  %91 = icmp samesign ugt i64 %40, 3
   br i1 %91, label %95, label %92
 
 92:                                               ; preds = %95, %90
   %.016.i13.i.i.i = phi i64 [ %97, %95 ], [ 0, %90 ]
   %.0.i14.i.i.i = phi i64 [ 4, %95 ], [ 0, %90 ]
   %93 = or disjoint i64 %.0.i14.i.i.i, 1
-  %94 = icmp ult i64 %93, %40
+  %94 = icmp samesign ult i64 %93, %40
   br i1 %94, label %98, label %106
 
 95:                                               ; preds = %90

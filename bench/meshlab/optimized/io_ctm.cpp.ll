@@ -5649,7 +5649,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %._crit_edge, %._ZNS
   %168 = icmp ult i64 %164, 2305843009213693952
   call void @llvm.assume(i1 %168)
   %169 = xor i64 %164, 2305843009213693951
-  %170 = icmp ult i64 %169, %167
+  %170 = icmp samesign ult i64 %169, %167
   br i1 %170, label %171, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i
 
 171:                                              ; preds = %166

@@ -317,7 +317,7 @@ if.then76:                                        ; preds = %if.end73
 
 lor.lhs.false79:                                  ; preds = %if.then76
   %11 = load i8, ptr %src, align 1
-  %cmp4.i = icmp ugt i64 %srcSize, 1
+  %cmp4.i = icmp samesign ugt i64 %srcSize, 1
   br i1 %cmp4.i, label %for.body.i, label %if.then82
 
 for.cond.i:                                       ; preds = %for.body.i

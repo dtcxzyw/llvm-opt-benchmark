@@ -271,7 +271,7 @@ define internal fastcc void @nullify(ptr noundef %0, ptr nocapture noundef nonnu
   br label %10
 
 5:                                                ; preds = %3
-  %.not23 = icmp ult i32 %2, 4
+  %.not23 = icmp samesign ult i32 %2, 4
   br i1 %.not23, label %13, label %6
 
 6:                                                ; preds = %5
@@ -296,7 +296,7 @@ define internal fastcc void @nullify(ptr noundef %0, ptr nocapture noundef nonnu
   br label %19
 
 15:                                               ; preds = %13
-  %.not25 = icmp ult i32 %2, 4
+  %.not25 = icmp samesign ult i32 %2, 4
   br i1 %.not25, label %22, label %.thread33
 
 .thread33:                                        ; preds = %6, %15
@@ -802,7 +802,7 @@ define dso_local i32 @clamfi_eom(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %103 = load i32, ptr %95, align 4
   %104 = zext i32 %103 to i64
-  %105 = icmp ult i64 %indvars.iv.next249, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next249, %104
   br i1 %105, label %98, label %.loopexit
 
 106:                                              ; preds = %94, %81
@@ -842,7 +842,7 @@ define dso_local i32 @clamfi_eom(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %124 = load i32, ptr %116, align 4
   %125 = zext i32 %124 to i64
-  %126 = icmp ult i64 %indvars.iv.next252, %125
+  %126 = icmp samesign ult i64 %indvars.iv.next252, %125
   br i1 %126, label %119, label %.loopexit
 
 127:                                              ; preds = %115, %112

@@ -3783,7 +3783,7 @@ define hidden noundef ptr @_ZN6hermes2vm6GCBase14getObjectForIDEj(ptr noundef no
 entry:
   %idTracker_ = getelementptr inbounds i8, ptr %this, i64 488
   %call = tail call i64 @_ZN6hermes2vm6GCBase9IDTracker14getObjectForIDEj(ptr noundef nonnull align 8 dereferenceable(192) %idTracker_, i32 noundef %id)
-  %tobool.i.not = icmp ult i64 %call, 4294967296
+  %tobool.i.not = icmp samesign ult i64 %call, 4294967296
   %pointerBase_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %pointerBase_, align 8
   %1 = and i64 %call, 4294967295
@@ -7493,7 +7493,7 @@ for.cond3.preheader.i.i.i.i.i.i.i.i:              ; preds = %for.body.i.i.i.i.i.
   %endGCHermesValue.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i, i64 1
   %2 = load i8, ptr %endGCHermesValue.i.i.i.i.i.i.i.i, align 1
   %conv432.i.i.i.i.i.i.i.i = zext i8 %2 to i64
-  %cmp533.i.i.i.i.i.i.i.i = icmp ult i64 %i.0.lcssa.i.i.i.i.i.i.i.i, %conv432.i.i.i.i.i.i.i.i
+  %cmp533.i.i.i.i.i.i.i.i = icmp samesign ult i64 %i.0.lcssa.i.i.i.i.i.i.i.i, %conv432.i.i.i.i.i.i.i.i
   br i1 %cmp533.i.i.i.i.i.i.i.i, label %for.body6.lr.ph.i.i.i.i.i.i.i.i, label %for.cond15.preheader.i.i.i.i.i.i.i.i
 
 for.body6.lr.ph.i.i.i.i.i.i.i.i:                  ; preds = %for.cond3.preheader.i.i.i.i.i.i.i.i
@@ -7507,7 +7507,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %entry, %for.body.i.
   %inc.i.i.i.i.i.i.i.i = add nuw nsw i64 %i.031.i.i.i.i.i.i.i.i, 1
   %3 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8
   %conv.i.i.i.i.i.i.i.i = zext i8 %3 to i64
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i = icmp samesign ult i64 %inc.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %for.cond3.preheader.i.i.i.i.i.i.i.i, !llvm.loop !106
 
 for.cond15.preheader.i.i.i.i.i.i.i.i:             ; preds = %for.body6.i.i.i.i.i.i.i.i, %for.cond3.preheader.i.i.i.i.i.i.i.i
@@ -7515,7 +7515,7 @@ for.cond15.preheader.i.i.i.i.i.i.i.i:             ; preds = %for.body6.i.i.i.i.i
   %endGCSmallHermesValue.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i, i64 2
   %4 = load i8, ptr %endGCSmallHermesValue.i.i.i.i.i.i.i.i, align 2
   %conv1636.i.i.i.i.i.i.i.i = zext i8 %4 to i64
-  %cmp1737.i.i.i.i.i.i.i.i = icmp ult i64 %i.1.lcssa.i.i.i.i.i.i.i.i, %conv1636.i.i.i.i.i.i.i.i
+  %cmp1737.i.i.i.i.i.i.i.i = icmp samesign ult i64 %i.1.lcssa.i.i.i.i.i.i.i.i, %conv1636.i.i.i.i.i.i.i.i
   br i1 %cmp1737.i.i.i.i.i.i.i.i, label %for.body18.lr.ph.i.i.i.i.i.i.i.i, label %for.cond27.preheader.i.i.i.i.i.i.i.i
 
 for.body18.lr.ph.i.i.i.i.i.i.i.i:                 ; preds = %for.cond15.preheader.i.i.i.i.i.i.i.i
@@ -7546,7 +7546,7 @@ for.body6.i.i.i.i.i.i.i.i:                        ; preds = %for.body6.i.i.i.i.i
   %inc13.i.i.i.i.i.i.i.i = add nuw nsw i64 %i.134.i.i.i.i.i.i.i.i, 1
   %6 = load i8, ptr %endGCHermesValue.i.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i.i.i = zext i8 %6 to i64
-  %cmp5.i.i.i.i.i.i.i.i = icmp ult i64 %inc13.i.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i.i
+  %cmp5.i.i.i.i.i.i.i.i = icmp samesign ult i64 %inc13.i.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i.i
   br i1 %cmp5.i.i.i.i.i.i.i.i, label %for.body6.i.i.i.i.i.i.i.i, label %for.cond15.preheader.i.i.i.i.i.i.i.i, !llvm.loop !107
 
 for.cond27.preheader.i.i.i.i.i.i.i.i:             ; preds = %for.body18.i.i.i.i.i.i.i.i, %for.cond15.preheader.i.i.i.i.i.i.i.i
@@ -7554,7 +7554,7 @@ for.cond27.preheader.i.i.i.i.i.i.i.i:             ; preds = %for.body18.i.i.i.i.
   %endGCSymbolID.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i, i64 3
   %7 = load i8, ptr %endGCSymbolID.i.i.i.i.i.i.i.i, align 1
   %conv2840.i.i.i.i.i.i.i.i = zext i8 %7 to i64
-  %cmp2941.i.i.i.i.i.i.i.i = icmp ult i64 %i.2.lcssa.i.i.i.i.i.i.i.i, %conv2840.i.i.i.i.i.i.i.i
+  %cmp2941.i.i.i.i.i.i.i.i = icmp samesign ult i64 %i.2.lcssa.i.i.i.i.i.i.i.i, %conv2840.i.i.i.i.i.i.i.i
   br i1 %cmp2941.i.i.i.i.i.i.i.i, label %for.body30.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm11SlotVisitorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE11visitFieldsEPcRKNS0_8Metadata11SlotOffsetsE.exit.i.i.i.i.i.i.i
 
 for.body18.i.i.i.i.i.i.i.i:                       ; preds = %for.body18.i.i.i.i.i.i.i.i, %for.body18.lr.ph.i.i.i.i.i.i.i.i
@@ -7567,7 +7567,7 @@ for.body18.i.i.i.i.i.i.i.i:                       ; preds = %for.body18.i.i.i.i.
   %inc25.i.i.i.i.i.i.i.i = add nuw nsw i64 %i.238.i.i.i.i.i.i.i.i, 1
   %9 = load i8, ptr %endGCSmallHermesValue.i.i.i.i.i.i.i.i, align 2
   %conv16.i.i.i.i.i.i.i.i = zext i8 %9 to i64
-  %cmp17.i.i.i.i.i.i.i.i = icmp ult i64 %inc25.i.i.i.i.i.i.i.i, %conv16.i.i.i.i.i.i.i.i
+  %cmp17.i.i.i.i.i.i.i.i = icmp samesign ult i64 %inc25.i.i.i.i.i.i.i.i, %conv16.i.i.i.i.i.i.i.i
   br i1 %cmp17.i.i.i.i.i.i.i.i, label %for.body18.i.i.i.i.i.i.i.i, label %for.cond27.preheader.i.i.i.i.i.i.i.i, !llvm.loop !108
 
 for.body30.i.i.i.i.i.i.i.i:                       ; preds = %for.cond27.preheader.i.i.i.i.i.i.i.i, %for.body30.i.i.i.i.i.i.i.i
@@ -7576,7 +7576,7 @@ for.body30.i.i.i.i.i.i.i.i:                       ; preds = %for.cond27.preheade
   %inc37.i.i.i.i.i.i.i.i = add nuw nsw i64 %i.342.i.i.i.i.i.i.i.i, 1
   %10 = load i8, ptr %endGCSymbolID.i.i.i.i.i.i.i.i, align 1
   %conv28.i.i.i.i.i.i.i.i = zext i8 %10 to i64
-  %cmp29.i.i.i.i.i.i.i.i = icmp ult i64 %inc37.i.i.i.i.i.i.i.i, %conv28.i.i.i.i.i.i.i.i
+  %cmp29.i.i.i.i.i.i.i.i = icmp samesign ult i64 %inc37.i.i.i.i.i.i.i.i, %conv28.i.i.i.i.i.i.i.i
   br i1 %cmp29.i.i.i.i.i.i.i.i, label %for.body30.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm11SlotVisitorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE11visitFieldsEPcRKNS0_8Metadata11SlotOffsetsE.exit.i.i.i.i.i.i.i, !llvm.loop !109
 
 _ZN6hermes2vm11SlotVisitorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE11visitFieldsEPcRKNS0_8Metadata11SlotOffsetsE.exit.i.i.i.i.i.i.i: ; preds = %for.body30.i.i.i.i.i.i.i.i, %for.cond27.preheader.i.i.i.i.i.i.i.i
@@ -7805,7 +7805,7 @@ cleanup.done42.i.i.i:                             ; preds = %cleanup.action41.cr
   %37 = load i64, ptr %size49.i.i.i, align 8
   %add50.i.i.i = add i64 %cond.i.i.i, %37
   store i64 %add50.i.i.i, ptr %size49.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i32 %and.i.i.i.i, 8
+  %cmp.i.i.i = icmp samesign ult i32 %and.i.i.i.i, 8
   br i1 %cmp.i.i.i, label %if.then51.i.i.i, label %"_ZSt10__invoke_rIvRZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 if.then51.i.i.i:                                  ; preds = %cleanup.done42.i.i.i
@@ -7949,7 +7949,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %div.i3, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

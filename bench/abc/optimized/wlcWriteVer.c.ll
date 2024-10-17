@@ -285,7 +285,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.i
 
 31:                                               ; preds = %21, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = icmp ult i64 %indvars.iv.next, %18
+  %32 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %32, label %21, label %.critedge.preheader, !llvm.loop !6
 
 33:                                               ; preds = %.lr.ph48, %Wlc_ObjFanin0.exit
@@ -870,7 +870,7 @@ Wlc_ObjFanin1.exit:                               ; preds = %92, %Wlc_ObjHasArra
   %.0812.i = phi i32 [ %114, %.lr.ph.i919 ], [ %113, %.lr.ph.i919.preheader ]
   %114 = udiv i32 %.0812.i, 10
   %115 = add nuw nsw i32 %.013.i, 1
-  %.not.i920 = icmp ult i32 %.0812.i, 10
+  %.not.i920 = icmp samesign ult i32 %.0812.i, 10
   br i1 %.not.i920, label %Abc_Base10Log.exit, label %.lr.ph.i919, !llvm.loop !12
 
 Abc_Base10Log.exit:                               ; preds = %.lr.ph.i919, %108
@@ -889,7 +889,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i919, %108
   %.0812.i924 = phi i32 [ %121, %.lr.ph.i922 ], [ %120, %.lr.ph.i922.preheader ]
   %121 = udiv i32 %.0812.i924, 10
   %122 = add nuw nsw i32 %.013.i923, 1
-  %.not.i925 = icmp ult i32 %.0812.i924, 10
+  %.not.i925 = icmp samesign ult i32 %.0812.i924, 10
   br i1 %.not.i925, label %Abc_Base10Log.exit927, label %.lr.ph.i922, !llvm.loop !12
 
 Abc_Base10Log.exit927:                            ; preds = %.lr.ph.i922, %Abc_Base10Log.exit
@@ -1288,7 +1288,7 @@ Wlc_ObjFaninBitNum.exit:                          ; preds = %Wlc_ObjHasArray.exi
   %299 = call i32 @llvm.abs.i32(i32 %298, i1 true)
   %300 = add nuw nsw i32 %299, 4
   %301 = lshr i32 %300, 2
-  %302 = icmp ult i32 %297, %301
+  %302 = icmp samesign ult i32 %297, %301
   br i1 %302, label %.lr.ph1155, label %Abc_TtPrintHexArrayRev.exit, !llvm.loop !14
 
 303:                                              ; preds = %286
@@ -1336,7 +1336,7 @@ Wlc_ObjConstValue.exit:                           ; preds = %Wlc_ObjHasArray.exi
   %325 = lshr i64 %321, %324
   %326 = trunc i64 %325 to i32
   %327 = and i32 %326, 15
-  %328 = icmp ult i32 %327, 10
+  %328 = icmp samesign ult i32 %327, 10
   %329 = or disjoint i32 %327, 48
   %330 = add nuw nsw i32 %327, 87
   %.0.i.i = select i1 %328, i32 %329, i32 %330
@@ -1921,7 +1921,7 @@ Wlc_ObjFaninId.exit977:                           ; preds = %606, %Wlc_ObjHasArr
   %.val837 = load i32, ptr %117, align 4
   %618 = sub nsw i32 %.val836, %.val837
   %619 = call i32 @llvm.abs.i32(i32 %618, i1 true)
-  %.not1094.not = icmp ult i32 %.61129, %619
+  %.not1094.not = icmp samesign ult i32 %.61129, %619
   br i1 %.not1094.not, label %585, label %620, !llvm.loop !24
 
 620:                                              ; preds = %615
@@ -3200,7 +3200,7 @@ Abc_Base10Log.exit1063:                           ; preds = %.lr.ph.i1058, %1200
   %1251 = call i32 @llvm.abs.i32(i32 %1250, i1 true)
   %1252 = add nuw nsw i32 %1251, 4
   %1253 = lshr i32 %1252, 2
-  %1254 = icmp ult i32 %1249, %1253
+  %1254 = icmp samesign ult i32 %1249, %1253
   br i1 %1254, label %.lr.ph1174, label %.loopexit, !llvm.loop !31
 
 1255:                                             ; preds = %1240

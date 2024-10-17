@@ -909,7 +909,7 @@ define hidden noundef i32 @mbedtls_md5_finish(ptr nocapture noundef %0, ptr noca
   %6 = zext nneg i32 %4 to i64
   %7 = getelementptr inbounds [64 x i8], ptr %5, i64 0, i64 %6
   store i8 -128, ptr %7, align 1
-  %8 = icmp ult i32 %4, 56
+  %8 = icmp samesign ult i32 %4, 56
   %9 = zext nneg i32 %4 to i64
   %10 = getelementptr inbounds i8, ptr %5, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 1

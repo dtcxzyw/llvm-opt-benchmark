@@ -11,11 +11,11 @@ define i64 @f128_to_ui64(i64 %0, i64 %1, i8 noundef zeroext %2, i1 noundef zeroe
   %8 = and i64 %1, 281474976710655
   %.neg = add nuw nsw i64 %6, 17
   %9 = sub nsw i64 16431, %7
-  %10 = icmp ugt i64 %7, 16430
+  %10 = icmp samesign ugt i64 %7, 16430
   br i1 %10, label %11, label %28
 
 11:                                               ; preds = %4
-  %12 = icmp ugt i64 %7, 16446
+  %12 = icmp samesign ugt i64 %7, 16446
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11
@@ -49,7 +49,7 @@ define i64 @f128_to_ui64(i64 %0, i64 %1, i8 noundef zeroext %2, i1 noundef zeroe
   %.not = icmp eq i64 %7, 0
   %29 = or disjoint i64 %8, 281474976710656
   %spec.select = select i1 %.not, i64 %8, i64 %29
-  %30 = icmp ult i64 %9, 64
+  %30 = icmp samesign ult i64 %9, 64
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %28

@@ -953,7 +953,7 @@ define dso_local zeroext i1 @pcie_cap_has_lnkctl(ptr nocapture noundef readonly 
   %3 = load i16, ptr %2, align 2
   %4 = lshr i16 %3, 4
   %5 = and i16 %4, 15
-  %6 = icmp ult i16 %5, 2
+  %6 = icmp samesign ult i16 %5, 2
   %7 = and i16 %3, 192
   %8 = icmp eq i16 %7, 64
   %9 = or i1 %8, %6
@@ -1118,7 +1118,7 @@ define internal fastcc zeroext i1 @pcie_capability_reg_implemented(ptr nocapture
   %11 = load i16, ptr %10, align 2
   %12 = lshr i16 %11, 4
   %13 = and i16 %12, 15
-  %14 = icmp ult i16 %13, 2
+  %14 = icmp samesign ult i16 %13, 2
   %15 = and i16 %11, 192
   %16 = icmp eq i16 %15, 64
   %17 = or i1 %16, %14

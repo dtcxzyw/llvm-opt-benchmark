@@ -6808,7 +6808,7 @@ proto_item_set_generated.exit2558:                ; preds = %833, %830, %822, %p
   %938 = add i32 %.32592, 1
   %939 = add nuw nsw i32 %935, 1
   %940 = and i32 %939, 255
-  %941 = icmp ult i32 %940, %931
+  %941 = icmp samesign ult i32 %940, %931
   br i1 %941, label %.lr.ph2594, label %._crit_edge2595, !llvm.loop !9
 
 ._crit_edge2595:                                  ; preds = %.lr.ph2594, %923
@@ -6840,7 +6840,7 @@ proto_item_set_generated.exit2558:                ; preds = %833, %830, %822, %p
   %961 = tail call ptr @proto_tree_add_item(ptr noundef %956, i32 noundef %960, ptr noundef %0, i32 noundef %959, i32 noundef 2, i32 noundef -2147483648) #5
   %962 = add i32 %.42597, 4
   %963 = and i32 %953, 255
-  %964 = icmp ult i32 %963, %947
+  %964 = icmp samesign ult i32 %963, %947
   br i1 %964, label %.lr.ph2599, label %send_hci_summary_status_tap.exit, !llvm.loop !10
 
 965:                                              ; preds = %.critedge2566
@@ -7026,7 +7026,7 @@ proto_item_set_generated.exit2558:                ; preds = %833, %830, %822, %p
   %1103 = add i16 %.025002572, %1102
   %1104 = add i32 %.52573, 2
   %1105 = and i32 %1095, 255
-  %1106 = icmp ult i32 %1105, %1085
+  %1106 = icmp samesign ult i32 %1105, %1085
   br i1 %1106, label %.lr.ph2574, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph2574, %1077
@@ -7077,7 +7077,7 @@ proto_item_set_generated.exit2558:                ; preds = %833, %830, %822, %p
   %1132 = add i32 %.62580, 4
   %1133 = add nuw nsw i32 %1113, 1
   %1134 = and i32 %1133, 65535
-  %1135 = icmp ult i32 %1134, %1108
+  %1135 = icmp samesign ult i32 %1134, %1108
   br i1 %1135, label %.lr.ph2582, label %._crit_edge2583, !llvm.loop !12
 
 ._crit_edge2583:                                  ; preds = %1129, %._crit_edge
@@ -7124,7 +7124,7 @@ proto_item_set_generated.exit2558:                ; preds = %833, %830, %822, %p
   %1159 = add i32 %.72588, 4
   %1160 = add nuw nsw i32 %1140, 1
   %1161 = and i32 %1160, 65535
-  %1162 = icmp ult i32 %1161, %1108
+  %1162 = icmp samesign ult i32 %1161, %1108
   br i1 %1162, label %.lr.ph2590, label %send_hci_summary_status_tap.exit, !llvm.loop !13
 
 1163:                                             ; preds = %.critedge2566
@@ -9294,7 +9294,7 @@ define internal fastcc void @save_remote_device_name(ptr noundef %0, i32 noundef
 106:                                              ; preds = %49, %53
   %107 = add nuw nsw i32 %.041, 1
   %108 = add nuw nsw i32 %107, %47
-  %109 = icmp ult i32 %108, %24
+  %109 = icmp samesign ult i32 %108, %24
   br i1 %109, label %44, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %106, %44, %20, %6

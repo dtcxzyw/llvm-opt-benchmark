@@ -2675,7 +2675,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_reset_ioctl(ptr noca
   %34 = add nuw nsw i64 %31, 1
   %35 = load i32, ptr %19, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %34, %36
+  %37 = icmp samesign ult i64 %34, %36
   br i1 %37, label %.preheader, label %38, !llvm.loop !41
 
 38:                                               ; preds = %.preheader
@@ -2763,7 +2763,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_signal_ioctl(ptr noc
   %31 = add nuw nsw i64 %35, 1
   %32 = load i32, ptr %19, align 8
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %31, %33
+  %34 = icmp samesign ult i64 %31, %33
   br i1 %34, label %.preheader, label %.loopexit13, !llvm.loop !42
 
 .preheader:                                       ; preds = %27, %.thread
@@ -2971,7 +2971,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_timeline_signal_ioct
   %73 = add nuw nsw i64 %60, 1
   %74 = load i32, ptr %19, align 8
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %73, %75
+  %76 = icmp samesign ult i64 %73, %75
   br i1 %76, label %.preheader, label %56, !llvm.loop !44
 
 77:                                               ; preds = %.thread13, %58
@@ -3010,7 +3010,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_timeline_signal_ioct
   %95 = add nuw nsw i64 %78, 1
   %96 = load i32, ptr %19, align 8
   %97 = zext i32 %96 to i64
-  %98 = icmp ult i64 %95, %97
+  %98 = icmp samesign ult i64 %95, %97
   br i1 %98, label %77, label %.thread, !llvm.loop !45
 
 .thread:                                          ; preds = %.thread13, %.preheader33, %53, %65, %56
@@ -3122,7 +3122,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_query_ioctl(ptr noca
   %36 = add nuw nsw i64 %40, 1
   %37 = load i32, ptr %23, align 8
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %36, %38
+  %39 = icmp samesign ult i64 %36, %38
   br i1 %39, label %.preheader, label %.loopexit30, !llvm.loop !46
 
 .preheader:                                       ; preds = %31, %35

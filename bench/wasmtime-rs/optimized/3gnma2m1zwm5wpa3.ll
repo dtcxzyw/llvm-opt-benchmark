@@ -1641,7 +1641,7 @@ define hidden void @_ZN7tracing4span4Span3log17h23e1145dd3ff6f08E.llvm.111811201
   %16 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %17 = icmp ult i64 %16, 6
   tail call void @llvm.assume(i1 %17)
-  %.not96 = icmp ugt i64 %.0, %16
+  %.not96 = icmp samesign ugt i64 %.0, %16
   br i1 %.not96, label %18, label %19
 
 18:                                               ; preds = %13, %33, %5
@@ -22168,7 +22168,7 @@ common.ret:                                       ; preds = %649, %536, %"_ZN50_
 226:                                              ; preds = %220
   %227 = icmp eq i64 %221, %223
   %228 = zext i32 %222 to i64
-  %229 = icmp ugt i64 %224, %228
+  %229 = icmp samesign ugt i64 %224, %228
   %or.cond = select i1 %227, i1 %229, i1 false
   br i1 %or.cond, label %230, label %.thread
 

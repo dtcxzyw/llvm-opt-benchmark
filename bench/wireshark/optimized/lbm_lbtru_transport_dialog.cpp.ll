@@ -7286,7 +7286,7 @@ _ZN4QMapIjP19LBMLBTRUNCFSQNEntryE6insertERKjRKS1_.exit: ; preds = %243, %_ZN9QtP
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %263 = load i16, ptr %187, align 2
   %264 = zext i16 %263 to i64
-  %265 = icmp ult i64 %indvars.iv.next, %264
+  %265 = icmp samesign ult i64 %indvars.iv.next, %264
   br i1 %265, label %198, label %.loopexit, !llvm.loop !19
 
 266:                                              ; preds = %27
@@ -16333,7 +16333,7 @@ _ZN4QMapIjP16LBMLBTRUSQNEntryE6insertERKjRKS1_.exit: ; preds = %96, %_ZN9QtPriva
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = load i16, ptr %41, align 2
   %116 = zext i16 %115 to i64
-  %117 = icmp ult i64 %indvars.iv.next, %116
+  %117 = icmp samesign ult i64 %indvars.iv.next, %116
   br i1 %117, label %51, label %.loopexit, !llvm.loop !32
 
 118:                                              ; preds = %26

@@ -9854,7 +9854,7 @@ define void @Gia_RsbTestArray() local_unnamed_addr #4 {
 
 7:                                                ; preds = %Vec_IntPush.exit, %0
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_IntPush.exit ], [ 0, %0 ]
-  %8 = icmp ult i64 %indvars.iv, 50
+  %8 = icmp samesign ult i64 %indvars.iv, 50
   %.phi.trans.insert = getelementptr inbounds [1000 x i32], ptr @__const.Gia_RsbTestArray.Array, i64 0, i64 %indvars.iv
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br i1 %8, label %..critedge_crit_edge, label %9

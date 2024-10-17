@@ -18265,7 +18265,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit628:             ; preds = %849, %854, %861
 
 886:                                              ; preds = %.lr.ph1934, %981
   %indvars.iv2435 = phi i64 [ 1, %.lr.ph1934 ], [ %indvars.iv.next2436, %981 ]
-  %or.cond = icmp ult i64 %indvars.iv2435, 3
+  %or.cond = icmp samesign ult i64 %indvars.iv2435, 3
   %or.cond3 = and i1 %808, %or.cond
   br i1 %or.cond3, label %981, label %887
 
@@ -30904,7 +30904,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %26
   %.0.lcssa.i = phi i32 [ %4, %26 ], [ %31, %.lr.ph.i11 ]
-  %46 = icmp ugt i32 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %._crit_edge.i

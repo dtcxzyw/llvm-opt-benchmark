@@ -503,7 +503,7 @@ define dso_local range(i32 -2147483648, 1) i32 @acpi_map_cpu(ptr noundef %0, i32
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @acpi_register_lapic(i32 noundef range(i32 0, 65536) %0, i32 noundef range(i32 0, 256) %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #4 align 16 {
-  %4 = icmp ugt i32 %0, 32767
+  %4 = icmp samesign ugt i32 %0, 32767
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
@@ -2145,7 +2145,7 @@ define internal fastcc void @mp_config_acpi_legacy_irqs() unnamed_addr #0 sectio
   %13 = phi i64 [ 0, %5 ], [ %64, %.thread ]
   %14 = phi i32 [ %3, %5 ], [ %66, %.thread ]
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %13, %15
+  %16 = icmp samesign ult i64 %13, %15
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %12

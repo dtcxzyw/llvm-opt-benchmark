@@ -817,7 +817,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
   %indvars.iv74.i = phi i64 [ 0, %.lr.ph33.split.us.split.us.preheader.i ], [ %indvars.iv.next75.i, %..loopexit27_crit_edge.us.us.i ]
   %34 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv74.i
   %35 = load ptr, ptr %34, align 8
-  %36 = icmp ult i64 %indvars.iv74.i, 5
+  %36 = icmp samesign ult i64 %indvars.iv74.i, 5
   br i1 %36, label %.preheader.us.us.i, label %.preheader26.us.us.i
 
 37:                                               ; preds = %.preheader26.us.us.i, %37

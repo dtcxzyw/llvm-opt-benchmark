@@ -236,7 +236,7 @@ for.body10:                                       ; preds = %for.body10.lr.ph, %
   %arrayidx21 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %indvars.iv
   store i32 %bf.set19, ptr %arrayidx21, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp8 = icmp ult i64 %indvars.iv.next, %4
+  %cmp8 = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp8, label %for.body10, label %for.inc22, !llvm.loop !4
 
 for.inc22:                                        ; preds = %for.body10, %for.body3
@@ -334,7 +334,7 @@ stbcc__clump_union.exit:                          ; preds = %for.body59, %if.end
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %14 = load i8, ptr %num_adjacent, align 4
   %15 = zext i8 %14 to i64
-  %cmp57 = icmp ult i64 %indvars.iv.next93, %15
+  %cmp57 = icmp samesign ult i64 %indvars.iv.next93, %15
   br i1 %cmp57, label %for.body59, label %for.inc80.loopexit, !llvm.loop !8
 
 for.inc80.loopexit:                               ; preds = %stbcc__clump_union.exit
@@ -345,7 +345,7 @@ for.inc80:                                        ; preds = %for.inc80.loopexit,
   %16 = phi i8 [ %.pre, %for.inc80.loopexit ], [ %6, %for.body47 ]
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %17 = zext i8 %16 to i64
-  %cmp45 = icmp ult i64 %indvars.iv.next96, %17
+  %cmp45 = icmp samesign ult i64 %indvars.iv.next96, %17
   br i1 %cmp45, label %for.body47, label %for.inc83, !llvm.loop !9
 
 for.inc83:                                        ; preds = %for.inc80, %for.body35
@@ -387,7 +387,7 @@ for.body108:                                      ; preds = %for.body108.lr.ph, 
   %inc128 = add nuw nsw i32 %k.279, 1
   %26 = load i8, ptr %gep123, align 2
   %conv105 = zext i8 %26 to i32
-  %cmp106 = icmp ult i32 %inc128, %conv105
+  %cmp106 = icmp samesign ult i32 %inc128, %conv105
   br i1 %cmp106, label %for.body108, label %for.inc130, !llvm.loop !12
 
 for.inc130:                                       ; preds = %for.body108, %for.body96
@@ -602,7 +602,7 @@ for.body132:                                      ; preds = %for.body132.lr.ph, 
   store i8 0, ptr %num_adjacent, align 4
   %add151 = add nuw nsw i32 %spec.store.select, %total.489
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %cmp130 = icmp ult i64 %indvars.iv.next101, %26
+  %cmp130 = icmp samesign ult i64 %indvars.iv.next101, %26
   br i1 %cmp130, label %for.body132, label %for.end154, !llvm.loop !17
 
 for.end154:                                       ; preds = %for.body132, %if.end126
@@ -1922,7 +1922,7 @@ for.end.us:                                       ; preds = %for.body9.us
   %arrayidx20.us = getelementptr inbounds [1024 x [128 x i8]], ptr %map15, i64 0, i64 %indvars.iv71, i64 %3
   store i8 %c.1.us, ptr %arrayidx20.us, align 1
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 8
-  %cmp5.us = icmp ult i64 %indvars.iv.next67, %0
+  %cmp5.us = icmp samesign ult i64 %indvars.iv.next67, %0
   br i1 %cmp5.us, label %for.cond7.preheader.us, label %for.cond4.for.inc24_crit_edge.us, !llvm.loop !37
 
 for.body9.us:                                     ; preds = %for.cond7.preheader.us, %for.body9.us

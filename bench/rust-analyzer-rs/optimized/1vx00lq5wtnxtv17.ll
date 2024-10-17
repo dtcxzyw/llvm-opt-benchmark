@@ -145,7 +145,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h1ad649304f4d9bdaE(ptr noal
   %49 = sub nuw i64 %1, %.0109
   %50 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.0109
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %51 = icmp ult i64 %49, 2
+  %51 = icmp samesign ult i64 %49, 2
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %46
@@ -1439,7 +1439,7 @@ define hidden void @_ZN4core5slice4sort7recurse17he16c24f07e1454e4E.llvm.1301422
 .outer._crit_edge:                                ; preds = %.outer, %308, %5
   %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %309, %308 ], [ %.sroa.14.1, %.outer ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %310, %308 ], [ %.sroa.0.1, %.outer ]
-  %31 = icmp ugt i64 %.sroa.14.0.lcssa, 1
+  %31 = icmp samesign ugt i64 %.sroa.14.0.lcssa, 1
   br i1 %31, label %316, label %.loopexit
 
 32:                                               ; preds = %29

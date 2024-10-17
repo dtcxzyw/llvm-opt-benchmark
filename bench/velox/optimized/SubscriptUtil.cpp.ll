@@ -1763,7 +1763,7 @@ if.end.i.i.i.i.i:                                 ; preds = %land.rhs.i.i.i
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.end.i.i.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.body.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 64
-  %cmp19.not.i.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i.i, %98
+  %cmp19.not.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i.i, %98
   br i1 %cmp19.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
@@ -2188,7 +2188,7 @@ if.end.i.i.i.i205.i:                              ; preds = %land.rhs.i.i203.i
 for.cond.i.i.i.i206.i:                            ; preds = %for.body.i.i.i.i210.i, %if.end.i.i.i.i205.i
   %indvars.iv.i.i207.i = phi i64 [ %indvars.iv.next.i.i208.i, %for.body.i.i.i.i210.i ], [ 0, %if.end.i.i.i.i205.i ]
   %indvars.iv.next.i.i208.i = add nuw nsw i64 %indvars.iv.i.i207.i, 64
-  %cmp19.not.i.i.i.i209.i = icmp ugt i64 %indvars.iv.next.i.i208.i, %158
+  %cmp19.not.i.i.i.i209.i = icmp samesign ugt i64 %indvars.iv.next.i.i208.i, %158
   br i1 %cmp19.not.i.i.i.i209.i, label %for.end.i.i.i.i213.i, label %for.body.i.i.i.i210.i
 
 for.body.i.i.i.i210.i:                            ; preds = %for.cond.i.i.i.i206.i
@@ -4335,7 +4335,7 @@ if.end.i.i.i.i80.i:                               ; preds = %land.rhs.i.i.i
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.end.i.i.i.i80.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.body.i.i.i.i.i ], [ 0, %if.end.i.i.i.i80.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 64
-  %cmp19.not.i.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i.i, %101
+  %cmp19.not.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i.i, %101
   br i1 %cmp19.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
@@ -4697,7 +4697,7 @@ if.end.i.i.i.i183.i:                              ; preds = %land.rhs.i.i181.i
 for.cond.i.i.i.i184.i:                            ; preds = %for.body.i.i.i.i188.i, %if.end.i.i.i.i183.i
   %indvars.iv.i.i185.i = phi i64 [ %indvars.iv.next.i.i186.i, %for.body.i.i.i.i188.i ], [ 0, %if.end.i.i.i.i183.i ]
   %indvars.iv.next.i.i186.i = add nuw nsw i64 %indvars.iv.i.i185.i, 64
-  %cmp19.not.i.i.i.i187.i = icmp ugt i64 %indvars.iv.next.i.i186.i, %134
+  %cmp19.not.i.i.i.i187.i = icmp samesign ugt i64 %indvars.iv.next.i.i186.i, %134
   br i1 %cmp19.not.i.i.i.i187.i, label %for.end.i.i.i.i191.i, label %for.body.i.i.i.i188.i
 
 for.body.i.i.i.i188.i:                            ; preds = %for.cond.i.i.i.i184.i
@@ -6215,7 +6215,7 @@ if.end.i.i.i.i79.i:                               ; preds = %land.rhs.i.i.i333
 for.cond.i.i.i.i.i334:                            ; preds = %for.body.i.i.i.i.i338, %if.end.i.i.i.i79.i
   %indvars.iv.i.i.i335 = phi i64 [ %indvars.iv.next.i.i.i336, %for.body.i.i.i.i.i338 ], [ 0, %if.end.i.i.i.i79.i ]
   %indvars.iv.next.i.i.i336 = add nuw nsw i64 %indvars.iv.i.i.i335, 64
-  %cmp19.not.i.i.i.i.i337 = icmp ugt i64 %indvars.iv.next.i.i.i336, %378
+  %cmp19.not.i.i.i.i.i337 = icmp samesign ugt i64 %indvars.iv.next.i.i.i336, %378
   br i1 %cmp19.not.i.i.i.i.i337, label %for.end.i.i.i.i.i341, label %for.body.i.i.i.i.i338
 
 for.body.i.i.i.i.i338:                            ; preds = %for.cond.i.i.i.i.i334
@@ -6577,7 +6577,7 @@ if.end.i.i.i.i182.i:                              ; preds = %land.rhs.i.i180.i
 for.cond.i.i.i.i183.i:                            ; preds = %for.body.i.i.i.i187.i, %if.end.i.i.i.i182.i
   %indvars.iv.i.i184.i = phi i64 [ %indvars.iv.next.i.i185.i, %for.body.i.i.i.i187.i ], [ 0, %if.end.i.i.i.i182.i ]
   %indvars.iv.next.i.i185.i = add nuw nsw i64 %indvars.iv.i.i184.i, 64
-  %cmp19.not.i.i.i.i186.i = icmp ugt i64 %indvars.iv.next.i.i185.i, %411
+  %cmp19.not.i.i.i.i186.i = icmp samesign ugt i64 %indvars.iv.next.i.i185.i, %411
   br i1 %cmp19.not.i.i.i.i186.i, label %for.end.i.i.i.i190.i, label %for.body.i.i.i.i187.i
 
 for.body.i.i.i.i187.i:                            ; preds = %for.cond.i.i.i.i183.i
@@ -8065,7 +8065,7 @@ if.end.i.i.i.i79.i1163:                           ; preds = %land.rhs.i.i.i1161
 for.cond.i.i.i.i.i1164:                           ; preds = %for.body.i.i.i.i.i1168, %if.end.i.i.i.i79.i1163
   %indvars.iv.i.i.i1165 = phi i64 [ %indvars.iv.next.i.i.i1166, %for.body.i.i.i.i.i1168 ], [ 0, %if.end.i.i.i.i79.i1163 ]
   %indvars.iv.next.i.i.i1166 = add nuw nsw i64 %indvars.iv.i.i.i1165, 64
-  %cmp19.not.i.i.i.i.i1167 = icmp ugt i64 %indvars.iv.next.i.i.i1166, %655
+  %cmp19.not.i.i.i.i.i1167 = icmp samesign ugt i64 %indvars.iv.next.i.i.i1166, %655
   br i1 %cmp19.not.i.i.i.i.i1167, label %for.end.i.i.i.i.i1171, label %for.body.i.i.i.i.i1168
 
 for.body.i.i.i.i.i1168:                           ; preds = %for.cond.i.i.i.i.i1164
@@ -8427,7 +8427,7 @@ if.end.i.i.i.i182.i985:                           ; preds = %land.rhs.i.i180.i98
 for.cond.i.i.i.i183.i986:                         ; preds = %for.body.i.i.i.i187.i990, %if.end.i.i.i.i182.i985
   %indvars.iv.i.i184.i987 = phi i64 [ %indvars.iv.next.i.i185.i988, %for.body.i.i.i.i187.i990 ], [ 0, %if.end.i.i.i.i182.i985 ]
   %indvars.iv.next.i.i185.i988 = add nuw nsw i64 %indvars.iv.i.i184.i987, 64
-  %cmp19.not.i.i.i.i186.i989 = icmp ugt i64 %indvars.iv.next.i.i185.i988, %688
+  %cmp19.not.i.i.i.i186.i989 = icmp samesign ugt i64 %indvars.iv.next.i.i185.i988, %688
   br i1 %cmp19.not.i.i.i.i186.i989, label %for.end.i.i.i.i190.i993, label %for.body.i.i.i.i187.i990
 
 for.body.i.i.i.i187.i990:                         ; preds = %for.cond.i.i.i.i183.i986
@@ -9915,7 +9915,7 @@ if.end.i.i.i.i79.i1993:                           ; preds = %land.rhs.i.i.i1991
 for.cond.i.i.i.i.i1994:                           ; preds = %for.body.i.i.i.i.i1998, %if.end.i.i.i.i79.i1993
   %indvars.iv.i.i.i1995 = phi i64 [ %indvars.iv.next.i.i.i1996, %for.body.i.i.i.i.i1998 ], [ 0, %if.end.i.i.i.i79.i1993 ]
   %indvars.iv.next.i.i.i1996 = add nuw nsw i64 %indvars.iv.i.i.i1995, 64
-  %cmp19.not.i.i.i.i.i1997 = icmp ugt i64 %indvars.iv.next.i.i.i1996, %932
+  %cmp19.not.i.i.i.i.i1997 = icmp samesign ugt i64 %indvars.iv.next.i.i.i1996, %932
   br i1 %cmp19.not.i.i.i.i.i1997, label %for.end.i.i.i.i.i2001, label %for.body.i.i.i.i.i1998
 
 for.body.i.i.i.i.i1998:                           ; preds = %for.cond.i.i.i.i.i1994
@@ -10277,7 +10277,7 @@ if.end.i.i.i.i182.i1815:                          ; preds = %land.rhs.i.i180.i18
 for.cond.i.i.i.i183.i1816:                        ; preds = %for.body.i.i.i.i187.i1820, %if.end.i.i.i.i182.i1815
   %indvars.iv.i.i184.i1817 = phi i64 [ %indvars.iv.next.i.i185.i1818, %for.body.i.i.i.i187.i1820 ], [ 0, %if.end.i.i.i.i182.i1815 ]
   %indvars.iv.next.i.i185.i1818 = add nuw nsw i64 %indvars.iv.i.i184.i1817, 64
-  %cmp19.not.i.i.i.i186.i1819 = icmp ugt i64 %indvars.iv.next.i.i185.i1818, %965
+  %cmp19.not.i.i.i.i186.i1819 = icmp samesign ugt i64 %indvars.iv.next.i.i185.i1818, %965
   br i1 %cmp19.not.i.i.i.i186.i1819, label %for.end.i.i.i.i190.i1823, label %for.body.i.i.i.i187.i1820
 
 for.body.i.i.i.i187.i1820:                        ; preds = %for.cond.i.i.i.i183.i1816
@@ -11765,7 +11765,7 @@ if.end.i.i.i.i79.i2823:                           ; preds = %land.rhs.i.i.i2821
 for.cond.i.i.i.i.i2824:                           ; preds = %for.body.i.i.i.i.i2828, %if.end.i.i.i.i79.i2823
   %indvars.iv.i.i.i2825 = phi i64 [ %indvars.iv.next.i.i.i2826, %for.body.i.i.i.i.i2828 ], [ 0, %if.end.i.i.i.i79.i2823 ]
   %indvars.iv.next.i.i.i2826 = add nuw nsw i64 %indvars.iv.i.i.i2825, 64
-  %cmp19.not.i.i.i.i.i2827 = icmp ugt i64 %indvars.iv.next.i.i.i2826, %1209
+  %cmp19.not.i.i.i.i.i2827 = icmp samesign ugt i64 %indvars.iv.next.i.i.i2826, %1209
   br i1 %cmp19.not.i.i.i.i.i2827, label %for.end.i.i.i.i.i2831, label %for.body.i.i.i.i.i2828
 
 for.body.i.i.i.i.i2828:                           ; preds = %for.cond.i.i.i.i.i2824
@@ -12127,7 +12127,7 @@ if.end.i.i.i.i182.i2645:                          ; preds = %land.rhs.i.i180.i26
 for.cond.i.i.i.i183.i2646:                        ; preds = %for.body.i.i.i.i187.i2650, %if.end.i.i.i.i182.i2645
   %indvars.iv.i.i184.i2647 = phi i64 [ %indvars.iv.next.i.i185.i2648, %for.body.i.i.i.i187.i2650 ], [ 0, %if.end.i.i.i.i182.i2645 ]
   %indvars.iv.next.i.i185.i2648 = add nuw nsw i64 %indvars.iv.i.i184.i2647, 64
-  %cmp19.not.i.i.i.i186.i2649 = icmp ugt i64 %indvars.iv.next.i.i185.i2648, %1242
+  %cmp19.not.i.i.i.i186.i2649 = icmp samesign ugt i64 %indvars.iv.next.i.i185.i2648, %1242
   br i1 %cmp19.not.i.i.i.i186.i2649, label %for.end.i.i.i.i190.i2653, label %for.body.i.i.i.i187.i2650
 
 for.body.i.i.i.i187.i2650:                        ; preds = %for.cond.i.i.i.i183.i2646
@@ -13618,7 +13618,7 @@ if.end.i.i.i.i80.i3438:                           ; preds = %land.rhs.i.i.i3436
 for.cond.i.i.i.i.i3439:                           ; preds = %for.body.i.i.i.i.i3443, %if.end.i.i.i.i80.i3438
   %indvars.iv.i.i.i3440 = phi i64 [ %indvars.iv.next.i.i.i3441, %for.body.i.i.i.i.i3443 ], [ 0, %if.end.i.i.i.i80.i3438 ]
   %indvars.iv.next.i.i.i3441 = add nuw nsw i64 %indvars.iv.i.i.i3440, 64
-  %cmp19.not.i.i.i.i.i3442 = icmp ugt i64 %indvars.iv.next.i.i.i3441, %1486
+  %cmp19.not.i.i.i.i.i3442 = icmp samesign ugt i64 %indvars.iv.next.i.i.i3441, %1486
   br i1 %cmp19.not.i.i.i.i.i3442, label %for.end.i.i.i.i.i3446, label %for.body.i.i.i.i.i3443
 
 for.body.i.i.i.i.i3443:                           ; preds = %for.cond.i.i.i.i.i3439
@@ -13997,7 +13997,7 @@ if.end.i.i.i.i184.i:                              ; preds = %land.rhs.i.i182.i
 for.cond.i.i.i.i185.i:                            ; preds = %for.body.i.i.i.i189.i, %if.end.i.i.i.i184.i
   %indvars.iv.i.i186.i = phi i64 [ %indvars.iv.next.i.i187.i, %for.body.i.i.i.i189.i ], [ 0, %if.end.i.i.i.i184.i ]
   %indvars.iv.next.i.i187.i = add nuw nsw i64 %indvars.iv.i.i186.i, 64
-  %cmp19.not.i.i.i.i188.i = icmp ugt i64 %indvars.iv.next.i.i187.i, %1519
+  %cmp19.not.i.i.i.i188.i = icmp samesign ugt i64 %indvars.iv.next.i.i187.i, %1519
   br i1 %cmp19.not.i.i.i.i188.i, label %for.end.i.i.i.i192.i, label %for.body.i.i.i.i189.i
 
 for.body.i.i.i.i189.i:                            ; preds = %for.cond.i.i.i.i185.i
@@ -15509,7 +15509,7 @@ if.end.i.i.i.i79.i4261:                           ; preds = %land.rhs.i.i.i4259
 for.cond.i.i.i.i.i4262:                           ; preds = %for.body.i.i.i.i.i4266, %if.end.i.i.i.i79.i4261
   %indvars.iv.i.i.i4263 = phi i64 [ %indvars.iv.next.i.i.i4264, %for.body.i.i.i.i.i4266 ], [ 0, %if.end.i.i.i.i79.i4261 ]
   %indvars.iv.next.i.i.i4264 = add nuw nsw i64 %indvars.iv.i.i.i4263, 64
-  %cmp19.not.i.i.i.i.i4265 = icmp ugt i64 %indvars.iv.next.i.i.i4264, %1757
+  %cmp19.not.i.i.i.i.i4265 = icmp samesign ugt i64 %indvars.iv.next.i.i.i4264, %1757
   br i1 %cmp19.not.i.i.i.i.i4265, label %for.end.i.i.i.i.i4269, label %for.body.i.i.i.i.i4266
 
 for.body.i.i.i.i.i4266:                           ; preds = %for.cond.i.i.i.i.i4262
@@ -15871,7 +15871,7 @@ if.end.i.i.i.i182.i4086:                          ; preds = %land.rhs.i.i180.i40
 for.cond.i.i.i.i183.i4087:                        ; preds = %for.body.i.i.i.i187.i4091, %if.end.i.i.i.i182.i4086
   %indvars.iv.i.i184.i4088 = phi i64 [ %indvars.iv.next.i.i185.i4089, %for.body.i.i.i.i187.i4091 ], [ 0, %if.end.i.i.i.i182.i4086 ]
   %indvars.iv.next.i.i185.i4089 = add nuw nsw i64 %indvars.iv.i.i184.i4088, 64
-  %cmp19.not.i.i.i.i186.i4090 = icmp ugt i64 %indvars.iv.next.i.i185.i4089, %1790
+  %cmp19.not.i.i.i.i186.i4090 = icmp samesign ugt i64 %indvars.iv.next.i.i185.i4089, %1790
   br i1 %cmp19.not.i.i.i.i186.i4090, label %for.end.i.i.i.i190.i4094, label %for.body.i.i.i.i187.i4091
 
 for.body.i.i.i.i187.i4091:                        ; preds = %for.cond.i.i.i.i183.i4087
@@ -17359,7 +17359,7 @@ if.end.i.i.i.i79.i5091:                           ; preds = %land.rhs.i.i.i5089
 for.cond.i.i.i.i.i5092:                           ; preds = %for.body.i.i.i.i.i5096, %if.end.i.i.i.i79.i5091
   %indvars.iv.i.i.i5093 = phi i64 [ %indvars.iv.next.i.i.i5094, %for.body.i.i.i.i.i5096 ], [ 0, %if.end.i.i.i.i79.i5091 ]
   %indvars.iv.next.i.i.i5094 = add nuw nsw i64 %indvars.iv.i.i.i5093, 64
-  %cmp19.not.i.i.i.i.i5095 = icmp ugt i64 %indvars.iv.next.i.i.i5094, %2034
+  %cmp19.not.i.i.i.i.i5095 = icmp samesign ugt i64 %indvars.iv.next.i.i.i5094, %2034
   br i1 %cmp19.not.i.i.i.i.i5095, label %for.end.i.i.i.i.i5099, label %for.body.i.i.i.i.i5096
 
 for.body.i.i.i.i.i5096:                           ; preds = %for.cond.i.i.i.i.i5092
@@ -17721,7 +17721,7 @@ if.end.i.i.i.i182.i4913:                          ; preds = %land.rhs.i.i180.i49
 for.cond.i.i.i.i183.i4914:                        ; preds = %for.body.i.i.i.i187.i4918, %if.end.i.i.i.i182.i4913
   %indvars.iv.i.i184.i4915 = phi i64 [ %indvars.iv.next.i.i185.i4916, %for.body.i.i.i.i187.i4918 ], [ 0, %if.end.i.i.i.i182.i4913 ]
   %indvars.iv.next.i.i185.i4916 = add nuw nsw i64 %indvars.iv.i.i184.i4915, 64
-  %cmp19.not.i.i.i.i186.i4917 = icmp ugt i64 %indvars.iv.next.i.i185.i4916, %2067
+  %cmp19.not.i.i.i.i186.i4917 = icmp samesign ugt i64 %indvars.iv.next.i.i185.i4916, %2067
   br i1 %cmp19.not.i.i.i.i186.i4917, label %for.end.i.i.i.i190.i4921, label %for.body.i.i.i.i187.i4918
 
 for.body.i.i.i.i187.i4918:                        ; preds = %for.cond.i.i.i.i183.i4914
@@ -19211,7 +19211,7 @@ if.end.i.i.i.i79.i5815:                           ; preds = %land.rhs.i.i.i5813
 for.cond.i.i.i.i.i5816:                           ; preds = %for.body.i.i.i.i.i5820, %if.end.i.i.i.i79.i5815
   %indvars.iv.i.i.i5817 = phi i64 [ %indvars.iv.next.i.i.i5818, %for.body.i.i.i.i.i5820 ], [ 0, %if.end.i.i.i.i79.i5815 ]
   %indvars.iv.next.i.i.i5818 = add nuw nsw i64 %indvars.iv.i.i.i5817, 64
-  %cmp19.not.i.i.i.i.i5819 = icmp ugt i64 %indvars.iv.next.i.i.i5818, %2310
+  %cmp19.not.i.i.i.i.i5819 = icmp samesign ugt i64 %indvars.iv.next.i.i.i5818, %2310
   br i1 %cmp19.not.i.i.i.i.i5819, label %for.end.i.i.i.i.i5823, label %for.body.i.i.i.i.i5820
 
 for.body.i.i.i.i.i5820:                           ; preds = %for.cond.i.i.i.i.i5816
@@ -19573,7 +19573,7 @@ if.end.i.i.i.i184.i5671:                          ; preds = %land.rhs.i.i182.i56
 for.cond.i.i.i.i185.i5672:                        ; preds = %for.body.i.i.i.i189.i5676, %if.end.i.i.i.i184.i5671
   %indvars.iv.i.i186.i5673 = phi i64 [ %indvars.iv.next.i.i187.i5674, %for.body.i.i.i.i189.i5676 ], [ 0, %if.end.i.i.i.i184.i5671 ]
   %indvars.iv.next.i.i187.i5674 = add nuw nsw i64 %indvars.iv.i.i186.i5673, 64
-  %cmp19.not.i.i.i.i188.i5675 = icmp ugt i64 %indvars.iv.next.i.i187.i5674, %2343
+  %cmp19.not.i.i.i.i188.i5675 = icmp samesign ugt i64 %indvars.iv.next.i.i187.i5674, %2343
   br i1 %cmp19.not.i.i.i.i188.i5675, label %for.end.i.i.i.i192.i5679, label %for.body.i.i.i.i189.i5676
 
 for.body.i.i.i.i189.i5676:                        ; preds = %for.cond.i.i.i.i185.i5672
@@ -21075,7 +21075,7 @@ if.end.i.i.i.i79.i6651:                           ; preds = %land.rhs.i.i.i6649
 for.cond.i.i.i.i.i6652:                           ; preds = %for.body.i.i.i.i.i6656, %if.end.i.i.i.i79.i6651
   %indvars.iv.i.i.i6653 = phi i64 [ %indvars.iv.next.i.i.i6654, %for.body.i.i.i.i.i6656 ], [ 0, %if.end.i.i.i.i79.i6651 ]
   %indvars.iv.next.i.i.i6654 = add nuw nsw i64 %indvars.iv.i.i.i6653, 64
-  %cmp19.not.i.i.i.i.i6655 = icmp ugt i64 %indvars.iv.next.i.i.i6654, %2580
+  %cmp19.not.i.i.i.i.i6655 = icmp samesign ugt i64 %indvars.iv.next.i.i.i6654, %2580
   br i1 %cmp19.not.i.i.i.i.i6655, label %for.end.i.i.i.i.i6659, label %for.body.i.i.i.i.i6656
 
 for.body.i.i.i.i.i6656:                           ; preds = %for.cond.i.i.i.i.i6652
@@ -21437,7 +21437,7 @@ if.end.i.i.i.i184.i6469:                          ; preds = %land.rhs.i.i182.i64
 for.cond.i.i.i.i185.i6470:                        ; preds = %for.body.i.i.i.i189.i6474, %if.end.i.i.i.i184.i6469
   %indvars.iv.i.i186.i6471 = phi i64 [ %indvars.iv.next.i.i187.i6472, %for.body.i.i.i.i189.i6474 ], [ 0, %if.end.i.i.i.i184.i6469 ]
   %indvars.iv.next.i.i187.i6472 = add nuw nsw i64 %indvars.iv.i.i186.i6471, 64
-  %cmp19.not.i.i.i.i188.i6473 = icmp ugt i64 %indvars.iv.next.i.i187.i6472, %2613
+  %cmp19.not.i.i.i.i188.i6473 = icmp samesign ugt i64 %indvars.iv.next.i.i187.i6472, %2613
   br i1 %cmp19.not.i.i.i.i188.i6473, label %for.end.i.i.i.i192.i6477, label %for.body.i.i.i.i189.i6474
 
 for.body.i.i.i.i189.i6474:                        ; preds = %for.cond.i.i.i.i185.i6470
@@ -22939,7 +22939,7 @@ if.end.i.i.i.i79.i7498:                           ; preds = %land.rhs.i.i.i7496
 for.cond.i.i.i.i.i7499:                           ; preds = %for.body.i.i.i.i.i7503, %if.end.i.i.i.i79.i7498
   %indvars.iv.i.i.i7500 = phi i64 [ %indvars.iv.next.i.i.i7501, %for.body.i.i.i.i.i7503 ], [ 0, %if.end.i.i.i.i79.i7498 ]
   %indvars.iv.next.i.i.i7501 = add nuw nsw i64 %indvars.iv.i.i.i7500, 64
-  %cmp19.not.i.i.i.i.i7502 = icmp ugt i64 %indvars.iv.next.i.i.i7501, %2850
+  %cmp19.not.i.i.i.i.i7502 = icmp samesign ugt i64 %indvars.iv.next.i.i.i7501, %2850
   br i1 %cmp19.not.i.i.i.i.i7502, label %for.end.i.i.i.i.i7506, label %for.body.i.i.i.i.i7503
 
 for.body.i.i.i.i.i7503:                           ; preds = %for.cond.i.i.i.i.i7499
@@ -23301,7 +23301,7 @@ if.end.i.i.i.i184.i7317:                          ; preds = %land.rhs.i.i182.i73
 for.cond.i.i.i.i185.i7318:                        ; preds = %for.body.i.i.i.i189.i7322, %if.end.i.i.i.i184.i7317
   %indvars.iv.i.i186.i7319 = phi i64 [ %indvars.iv.next.i.i187.i7320, %for.body.i.i.i.i189.i7322 ], [ 0, %if.end.i.i.i.i184.i7317 ]
   %indvars.iv.next.i.i187.i7320 = add nuw nsw i64 %indvars.iv.i.i186.i7319, 64
-  %cmp19.not.i.i.i.i188.i7321 = icmp ugt i64 %indvars.iv.next.i.i187.i7320, %2883
+  %cmp19.not.i.i.i.i188.i7321 = icmp samesign ugt i64 %indvars.iv.next.i.i187.i7320, %2883
   br i1 %cmp19.not.i.i.i.i188.i7321, label %for.end.i.i.i.i192.i7325, label %for.body.i.i.i.i189.i7322
 
 for.body.i.i.i.i189.i7322:                        ; preds = %for.cond.i.i.i.i185.i7318
@@ -25617,7 +25617,7 @@ if.end.i.i.i:                                     ; preds = %_ZNSt6vectorImSaImE
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %9
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %9
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -26290,7 +26290,7 @@ if.then7:                                         ; preds = %while.end.i.i49, %i
 for.cond.i.i.i:                                   ; preds = %while.end.i.i.i, %if.then7
   %tries.i.i.0.i = phi i64 [ 0, %if.then7 ], [ %inc.i.i.i, %while.end.i.i.i ]
   %index.i.i.0.i = phi i64 [ %add.i12.i, %if.then7 ], [ %add.i.i.i, %while.end.i.i.i ]
-  %cmp.i.i.not.i = icmp ule i64 %tries.i.i.0.i, %conv.i.i.i59
+  %cmp.i.i.not.i = icmp samesign ule i64 %tries.i.i.0.i, %conv.i.i.i59
   call void @llvm.assume(i1 %cmp.i.i.not.i)
   %and.i.i.i = and i64 %index.i.i.0.i, %conv.i.i.i59
   %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %44, i64 %and.i.i.i
@@ -26417,7 +26417,7 @@ if.end:                                           ; preds = %while.body.i.i52, %
 for.cond.i.i.i90:                                 ; preds = %while.end.i.i.i111, %if.end
   %tries.i.i.0.i91 = phi i64 [ 0, %if.end ], [ %inc.i.i.i114, %while.end.i.i.i111 ]
   %index.i.i.0.i92 = phi i64 [ %add.i12.i, %if.end ], [ %add.i.i.i113, %while.end.i.i.i111 ]
-  %cmp.i.i.not.i93 = icmp ule i64 %tries.i.i.0.i91, %conv.i.i.i84.pre-phi
+  %cmp.i.i.not.i93 = icmp samesign ule i64 %tries.i.i.0.i91, %conv.i.i.i84.pre-phi
   call void @llvm.assume(i1 %cmp.i.i.not.i93)
   %and.i.i.i94 = and i64 %index.i.i.0.i92, %conv.i.i.i84.pre-phi
   %add.ptr.i.i.i95 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %68, i64 %and.i.i.i94
@@ -27948,7 +27948,7 @@ invoke.cont25:                                    ; preds = %if.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 4>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
   %shr.i.i = lshr i64 %conv2.i, 1
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %10 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %shr.i.i, %10
@@ -28997,7 +28997,7 @@ if.then7:                                         ; preds = %while.end.i.i49, %i
 for.cond.i.i.i:                                   ; preds = %while.end.i.i.i, %if.then7
   %tries.i.i.0.i = phi i64 [ 0, %if.then7 ], [ %inc.i.i.i, %while.end.i.i.i ]
   %index.i.i.0.i = phi i64 [ %add.i12.i, %if.then7 ], [ %add.i.i.i, %while.end.i.i.i ]
-  %cmp.i.i.not.i = icmp ule i64 %tries.i.i.0.i, %conv.i.i.i59
+  %cmp.i.i.not.i = icmp samesign ule i64 %tries.i.i.0.i, %conv.i.i.i59
   call void @llvm.assume(i1 %cmp.i.i.not.i)
   %and.i.i.i = and i64 %index.i.i.0.i, %conv.i.i.i59
   %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %43, i64 %and.i.i.i
@@ -29119,7 +29119,7 @@ if.end:                                           ; preds = %while.body.i.i52, %
 for.cond.i.i.i88:                                 ; preds = %while.end.i.i.i109, %if.end
   %tries.i.i.0.i89 = phi i64 [ 0, %if.end ], [ %inc.i.i.i112, %while.end.i.i.i109 ]
   %index.i.i.0.i90 = phi i64 [ %add.i12.i, %if.end ], [ %add.i.i.i111, %while.end.i.i.i109 ]
-  %cmp.i.i.not.i91 = icmp ule i64 %tries.i.i.0.i89, %conv.i.i.i82.pre-phi
+  %cmp.i.i.not.i91 = icmp samesign ule i64 %tries.i.i.0.i89, %conv.i.i.i82.pre-phi
   call void @llvm.assume(i1 %cmp.i.i.not.i91)
   %and.i.i.i92 = and i64 %index.i.i.0.i90, %conv.i.i.i82.pre-phi
   %add.ptr.i.i.i93 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %65, i64 %and.i.i.i92
@@ -30418,7 +30418,7 @@ invoke.cont25:                                    ; preds = %if.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 4>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
   %shr.i.i = lshr i64 %conv2.i, 1
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %10 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %shr.i.i, %10
@@ -31279,7 +31279,7 @@ if.then7:                                         ; preds = %while.end.i.i49, %i
 for.cond.i.i.i:                                   ; preds = %while.end.i.i.i, %if.then7
   %tries.i.i.0.i = phi i64 [ 0, %if.then7 ], [ %inc.i.i.i, %while.end.i.i.i ]
   %index.i.i.0.i = phi i64 [ %add.i12.i, %if.then7 ], [ %add.i.i.i, %while.end.i.i.i ]
-  %cmp.i.i.not.i = icmp ule i64 %tries.i.i.0.i, %conv.i.i.i59
+  %cmp.i.i.not.i = icmp samesign ule i64 %tries.i.i.0.i, %conv.i.i.i59
   call void @llvm.assume(i1 %cmp.i.i.not.i)
   %and.i.i.i = and i64 %index.i.i.0.i, %conv.i.i.i59
   %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %42, i64 %and.i.i.i
@@ -31401,7 +31401,7 @@ if.end:                                           ; preds = %while.body.i.i52, %
 for.cond.i.i.i88:                                 ; preds = %while.end.i.i.i109, %if.end
   %tries.i.i.0.i89 = phi i64 [ 0, %if.end ], [ %inc.i.i.i112, %while.end.i.i.i109 ]
   %index.i.i.0.i90 = phi i64 [ %add.i12.i, %if.end ], [ %add.i.i.i111, %while.end.i.i.i109 ]
-  %cmp.i.i.not.i91 = icmp ule i64 %tries.i.i.0.i89, %conv.i.i.i82.pre-phi
+  %cmp.i.i.not.i91 = icmp samesign ule i64 %tries.i.i.0.i89, %conv.i.i.i82.pre-phi
   call void @llvm.assume(i1 %cmp.i.i.not.i91)
   %and.i.i.i92 = and i64 %index.i.i.0.i90, %conv.i.i.i82.pre-phi
   %add.ptr.i.i.i93 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %64, i64 %and.i.i.i92
@@ -32700,7 +32700,7 @@ invoke.cont25:                                    ; preds = %if.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 4>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
   %shr.i.i = lshr i64 %conv2.i, 1
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %10 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %shr.i.i, %10
@@ -33561,7 +33561,7 @@ if.then7:                                         ; preds = %while.end.i.i49, %i
 for.cond.i.i.i:                                   ; preds = %while.end.i.i.i, %if.then7
   %tries.i.i.0.i = phi i64 [ 0, %if.then7 ], [ %inc.i.i.i, %while.end.i.i.i ]
   %index.i.i.0.i = phi i64 [ %add.i12.i, %if.then7 ], [ %add.i.i.i, %while.end.i.i.i ]
-  %cmp.i.i.not.i = icmp ule i64 %tries.i.i.0.i, %conv.i.i.i59
+  %cmp.i.i.not.i = icmp samesign ule i64 %tries.i.i.0.i, %conv.i.i.i59
   call void @llvm.assume(i1 %cmp.i.i.not.i)
   %and.i.i.i = and i64 %index.i.i.0.i, %conv.i.i.i59
   %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %43, i64 %and.i.i.i
@@ -33683,7 +33683,7 @@ if.end:                                           ; preds = %while.body.i.i52, %
 for.cond.i.i.i88:                                 ; preds = %while.end.i.i.i109, %if.end
   %tries.i.i.0.i89 = phi i64 [ 0, %if.end ], [ %inc.i.i.i112, %while.end.i.i.i109 ]
   %index.i.i.0.i90 = phi i64 [ %add.i12.i, %if.end ], [ %add.i.i.i111, %while.end.i.i.i109 ]
-  %cmp.i.i.not.i91 = icmp ule i64 %tries.i.i.0.i89, %conv.i.i.i82.pre-phi
+  %cmp.i.i.not.i91 = icmp samesign ule i64 %tries.i.i.0.i89, %conv.i.i.i82.pre-phi
   call void @llvm.assume(i1 %cmp.i.i.not.i91)
   %and.i.i.i92 = and i64 %index.i.i.0.i90, %conv.i.i.i82.pre-phi
   %add.ptr.i.i.i93 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %65, i64 %and.i.i.i92
@@ -34982,7 +34982,7 @@ invoke.cont25:                                    ; preds = %if.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 4>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
   %shr.i.i = lshr i64 %conv2.i, 1
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %10 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %shr.i.i, %10
@@ -35955,7 +35955,7 @@ if.then7:                                         ; preds = %while.end.i.i49, %i
 for.cond.i.i.i:                                   ; preds = %while.end.i.i.i, %if.then7
   %tries.i.i.0.i = phi i64 [ 0, %if.then7 ], [ %inc.i.i.i, %while.end.i.i.i ]
   %index.i.i.0.i = phi i64 [ %add.i12.i, %if.then7 ], [ %add.i.i.i, %while.end.i.i.i ]
-  %cmp.i.i.not.i = icmp ule i64 %tries.i.i.0.i, %conv.i.i.i59
+  %cmp.i.i.not.i = icmp samesign ule i64 %tries.i.i.0.i, %conv.i.i.i59
   call void @llvm.assume(i1 %cmp.i.i.not.i)
   %and.i.i.i = and i64 %index.i.i.0.i, %conv.i.i.i59
   %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %43, i64 %and.i.i.i
@@ -36076,7 +36076,7 @@ if.end:                                           ; preds = %while.body.i.i52, %
 for.cond.i.i.i88:                                 ; preds = %while.end.i.i.i109, %if.end
   %tries.i.i.0.i89 = phi i64 [ 0, %if.end ], [ %inc.i.i.i112, %while.end.i.i.i109 ]
   %index.i.i.0.i90 = phi i64 [ %add.i12.i, %if.end ], [ %add.i.i.i111, %while.end.i.i.i109 ]
-  %cmp.i.i.not.i91 = icmp ule i64 %tries.i.i.0.i89, %conv.i.i.i82.pre-phi
+  %cmp.i.i.not.i91 = icmp samesign ule i64 %tries.i.i.0.i89, %conv.i.i.i82.pre-phi
   call void @llvm.assume(i1 %cmp.i.i.not.i91)
   %and.i.i.i92 = and i64 %index.i.i.0.i90, %conv.i.i.i82.pre-phi
   %add.ptr.i.i.i93 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %65, i64 %and.i.i.i92
@@ -37332,7 +37332,7 @@ invoke.cont25:                                    ; preds = %if.end
   %rawItems_.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i.i.i, i64 16
   %arrayidx.i.i.i.i.i = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %10 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %conv2.i, %10
@@ -38220,7 +38220,7 @@ if.then8:                                         ; preds = %while.end.i.i37, %i
 for.cond.i.i.i:                                   ; preds = %while.end.i.i.i, %if.then8
   %tries.i.i.0.i = phi i64 [ 0, %if.then8 ], [ %inc.i.i.i, %while.end.i.i.i ]
   %index.i.i.0.i = phi i64 [ %add.i12.i, %if.then8 ], [ %add.i.i.i, %while.end.i.i.i ]
-  %cmp.i.i.not.i = icmp ule i64 %tries.i.i.0.i, %conv.i.i.i50
+  %cmp.i.i.not.i = icmp samesign ule i64 %tries.i.i.0.i, %conv.i.i.i50
   call void @llvm.assume(i1 %cmp.i.i.not.i)
   %and.i.i.i = and i64 %index.i.i.0.i, %conv.i.i.i50
   %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %40, i64 %and.i.i.i
@@ -38343,7 +38343,7 @@ if.end:                                           ; preds = %while.body.i.i42, %
 for.cond.i.i.i81:                                 ; preds = %while.end.i.i.i103, %if.end
   %tries.i.i.0.i82 = phi i64 [ 0, %if.end ], [ %inc.i.i.i106, %while.end.i.i.i103 ]
   %index.i.i.0.i83 = phi i64 [ %add.i12.i, %if.end ], [ %add.i.i.i105, %while.end.i.i.i103 ]
-  %cmp.i.i.not.i84 = icmp ule i64 %tries.i.i.0.i82, %conv.i.i.i75.pre-phi
+  %cmp.i.i.not.i84 = icmp samesign ule i64 %tries.i.i.0.i82, %conv.i.i.i75.pre-phi
   call void @llvm.assume(i1 %cmp.i.i.not.i84)
   %and.i.i.i85 = and i64 %index.i.i.0.i83, %conv.i.i.i75.pre-phi
   %add.ptr.i.i.i86 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %61, i64 %and.i.i.i85
@@ -40597,7 +40597,7 @@ if.then7:                                         ; preds = %while.end.i.i49, %i
 for.cond.i.i.i:                                   ; preds = %while.end.i.i.i, %if.then7
   %tries.i.i.0.i = phi i64 [ 0, %if.then7 ], [ %inc.i.i.i, %while.end.i.i.i ]
   %index.i.i.0.i = phi i64 [ %add.i12.i, %if.then7 ], [ %add.i.i.i, %while.end.i.i.i ]
-  %cmp.i.i.not.i = icmp ule i64 %tries.i.i.0.i, %conv.i.i.i59
+  %cmp.i.i.not.i = icmp samesign ule i64 %tries.i.i.0.i, %conv.i.i.i59
   call void @llvm.assume(i1 %cmp.i.i.not.i)
   %and.i.i.i = and i64 %index.i.i.0.i, %conv.i.i.i59
   %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %43, i64 %and.i.i.i
@@ -40737,7 +40737,7 @@ if.end:                                           ; preds = %while.body.i.i52, %
 for.cond.i.i.i88:                                 ; preds = %while.end.i.i.i109, %if.end
   %tries.i.i.0.i89 = phi i64 [ 0, %if.end ], [ %inc.i.i.i112, %while.end.i.i.i109 ]
   %index.i.i.0.i90 = phi i64 [ %add.i12.i, %if.end ], [ %add.i.i.i111, %while.end.i.i.i109 ]
-  %cmp.i.i.not.i91 = icmp ule i64 %tries.i.i.0.i89, %conv.i.i.i82.pre-phi
+  %cmp.i.i.not.i91 = icmp samesign ule i64 %tries.i.i.0.i89, %conv.i.i.i82.pre-phi
   call void @llvm.assume(i1 %cmp.i.i.not.i91)
   %and.i.i.i92 = and i64 %index.i.i.0.i90, %conv.i.i.i82.pre-phi
   %add.ptr.i.i.i93 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %67, i64 %and.i.i.i92
@@ -42057,7 +42057,7 @@ invoke.cont25:                                    ; preds = %if.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 4>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
   %shr.i.i = lshr i64 %conv2.i, 1
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %10 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %shr.i.i, %10
@@ -43050,7 +43050,7 @@ if.then7:                                         ; preds = %while.end.i.i49, %i
 for.cond.i.i.i:                                   ; preds = %while.end.i.i.i, %if.then7
   %tries.i.i.0.i = phi i64 [ 0, %if.then7 ], [ %inc.i.i.i, %while.end.i.i.i ]
   %index.i.i.0.i = phi i64 [ %add.i12.i, %if.then7 ], [ %add.i.i.i, %while.end.i.i.i ]
-  %cmp.i.i.not.i = icmp ule i64 %tries.i.i.0.i, %conv.i.i.i59
+  %cmp.i.i.not.i = icmp samesign ule i64 %tries.i.i.0.i, %conv.i.i.i59
   call void @llvm.assume(i1 %cmp.i.i.not.i)
   %and.i.i.i = and i64 %index.i.i.0.i, %conv.i.i.i59
   %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %43, i64 %and.i.i.i
@@ -43190,7 +43190,7 @@ if.end:                                           ; preds = %while.body.i.i52, %
 for.cond.i.i.i88:                                 ; preds = %while.end.i.i.i109, %if.end
   %tries.i.i.0.i89 = phi i64 [ 0, %if.end ], [ %inc.i.i.i112, %while.end.i.i.i109 ]
   %index.i.i.0.i90 = phi i64 [ %add.i12.i, %if.end ], [ %add.i.i.i111, %while.end.i.i.i109 ]
-  %cmp.i.i.not.i91 = icmp ule i64 %tries.i.i.0.i89, %conv.i.i.i82.pre-phi
+  %cmp.i.i.not.i91 = icmp samesign ule i64 %tries.i.i.0.i89, %conv.i.i.i82.pre-phi
   call void @llvm.assume(i1 %cmp.i.i.not.i91)
   %and.i.i.i92 = and i64 %index.i.i.0.i90, %conv.i.i.i82.pre-phi
   %add.ptr.i.i.i93 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %67, i64 %and.i.i.i92
@@ -44466,7 +44466,7 @@ invoke.cont25:                                    ; preds = %if.end
   %rawItems_.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i.i.i, i64 16
   %arrayidx.i.i.i.i.i = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %10 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %conv2.i, %10
@@ -45347,7 +45347,7 @@ if.then7:                                         ; preds = %while.end.i.i37, %i
 for.cond.i.i.i:                                   ; preds = %while.end.i.i.i, %if.then7
   %tries.i.i.0.i = phi i64 [ 0, %if.then7 ], [ %inc.i.i.i, %while.end.i.i.i ]
   %index.i.i.0.i = phi i64 [ %add.i12.i, %if.then7 ], [ %add.i.i.i, %while.end.i.i.i ]
-  %cmp.i.i.not.i = icmp ule i64 %tries.i.i.0.i, %conv.i.i.i50
+  %cmp.i.i.not.i = icmp samesign ule i64 %tries.i.i.0.i, %conv.i.i.i50
   call void @llvm.assume(i1 %cmp.i.i.not.i)
   %and.i.i.i = and i64 %index.i.i.0.i, %conv.i.i.i50
   %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %37, i64 %and.i.i.i
@@ -45483,7 +45483,7 @@ if.end:                                           ; preds = %while.body.i.i42, %
 for.cond.i.i.i82:                                 ; preds = %while.end.i.i.i104, %if.end
   %tries.i.i.0.i83 = phi i64 [ 0, %if.end ], [ %inc.i.i.i107, %while.end.i.i.i104 ]
   %index.i.i.0.i84 = phi i64 [ %add.i12.i, %if.end ], [ %add.i.i.i106, %while.end.i.i.i104 ]
-  %cmp.i.i.not.i85 = icmp ule i64 %tries.i.i.0.i83, %conv.i.i.i76.pre-phi
+  %cmp.i.i.not.i85 = icmp samesign ule i64 %tries.i.i.0.i83, %conv.i.i.i76.pre-phi
   call void @llvm.assume(i1 %cmp.i.i.not.i85)
   %and.i.i.i86 = and i64 %index.i.i.0.i84, %conv.i.i.i76.pre-phi
   %add.ptr.i.i.i87 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %61, i64 %and.i.i.i86
@@ -47815,7 +47815,7 @@ if.then7:                                         ; preds = %while.end.i.i37, %i
 for.cond.i.i.i:                                   ; preds = %while.end.i.i.i, %if.then7
   %tries.i.i.0.i = phi i64 [ 0, %if.then7 ], [ %inc.i.i.i, %while.end.i.i.i ]
   %index.i.i.0.i = phi i64 [ %add.i12.i, %if.then7 ], [ %add.i.i.i, %while.end.i.i.i ]
-  %cmp.i.i.not.i = icmp ule i64 %tries.i.i.0.i, %conv.i.i.i50
+  %cmp.i.i.not.i = icmp samesign ule i64 %tries.i.i.0.i, %conv.i.i.i50
   call void @llvm.assume(i1 %cmp.i.i.not.i)
   %and.i.i.i = and i64 %index.i.i.0.i, %conv.i.i.i50
   %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %37, i64 %and.i.i.i
@@ -47951,7 +47951,7 @@ if.end:                                           ; preds = %while.body.i.i42, %
 for.cond.i.i.i82:                                 ; preds = %while.end.i.i.i104, %if.end
   %tries.i.i.0.i83 = phi i64 [ 0, %if.end ], [ %inc.i.i.i107, %while.end.i.i.i104 ]
   %index.i.i.0.i84 = phi i64 [ %add.i12.i, %if.end ], [ %add.i.i.i106, %while.end.i.i.i104 ]
-  %cmp.i.i.not.i85 = icmp ule i64 %tries.i.i.0.i83, %conv.i.i.i76.pre-phi
+  %cmp.i.i.not.i85 = icmp samesign ule i64 %tries.i.i.0.i83, %conv.i.i.i76.pre-phi
   call void @llvm.assume(i1 %cmp.i.i.not.i85)
   %and.i.i.i86 = and i64 %index.i.i.0.i84, %conv.i.i.i76.pre-phi
   %add.ptr.i.i.i87 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %61, i64 %and.i.i.i86
@@ -48750,7 +48750,7 @@ if.then7:                                         ; preds = %while.end.i.i37, %i
 for.cond.i.i.i:                                   ; preds = %while.end.i.i.i, %if.then7
   %tries.i.i.0.i = phi i64 [ 0, %if.then7 ], [ %inc.i.i.i, %while.end.i.i.i ]
   %index.i.i.0.i = phi i64 [ %add.i12.i, %if.then7 ], [ %add.i.i.i, %while.end.i.i.i ]
-  %cmp.i.i.not.i = icmp ule i64 %tries.i.i.0.i, %conv.i.i.i50
+  %cmp.i.i.not.i = icmp samesign ule i64 %tries.i.i.0.i, %conv.i.i.i50
   call void @llvm.assume(i1 %cmp.i.i.not.i)
   %and.i.i.i = and i64 %index.i.i.0.i, %conv.i.i.i50
   %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %43, i64 %and.i.i.i
@@ -48884,7 +48884,7 @@ if.end:                                           ; preds = %while.body.i.i42, %
 for.cond.i.i.i81:                                 ; preds = %while.end.i.i.i103, %if.end
   %tries.i.i.0.i82 = phi i64 [ 0, %if.end ], [ %inc.i.i.i106, %while.end.i.i.i103 ]
   %index.i.i.0.i83 = phi i64 [ %add.i12.i, %if.end ], [ %add.i.i.i105, %while.end.i.i.i103 ]
-  %cmp.i.i.not.i84 = icmp ule i64 %tries.i.i.0.i82, %conv.i.i.i75.pre-phi
+  %cmp.i.i.not.i84 = icmp samesign ule i64 %tries.i.i.0.i82, %conv.i.i.i75.pre-phi
   call void @llvm.assume(i1 %cmp.i.i.not.i84)
   %and.i.i.i85 = and i64 %index.i.i.0.i83, %conv.i.i.i75.pre-phi
   %add.ptr.i.i.i86 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.115", ptr %66, i64 %and.i.i.i85

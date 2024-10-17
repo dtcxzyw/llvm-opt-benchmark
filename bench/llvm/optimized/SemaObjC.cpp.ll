@@ -4221,7 +4221,7 @@ _ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i: ; preds = %235, %22
   br i1 %239, label %_ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.thread.i, label %240
 
 240:                                              ; preds = %_ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i
-  %241 = icmp ult i64 %indvars.iv.i, %161
+  %241 = icmp samesign ult i64 %indvars.iv.i, %161
   br i1 %241, label %242, label %245
 
 242:                                              ; preds = %240

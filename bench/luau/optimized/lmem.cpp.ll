@@ -1103,7 +1103,7 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #7 section ".text.startup" {
   %5 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %4
   store i32 %.02530.i.i, ptr %5, align 4
   %6 = add nuw nsw i32 %.02530.i.i, 8
-  %7 = icmp ult i32 %.02530.i.i, 56
+  %7 = icmp samesign ult i32 %.02530.i.i, 56
   br i1 %7, label %1, label %.preheader29.i.i, !llvm.loop !8
 
 .preheader29.i.i:                                 ; preds = %1, %.preheader29.i.i
@@ -1115,7 +1115,7 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #7 section ".text.startup" {
   %11 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %10
   store i32 %.02431.i.i, ptr %11, align 4
   %12 = add nuw nsw i32 %.02431.i.i, 16
-  %13 = icmp ult i32 %.02431.i.i, 240
+  %13 = icmp samesign ult i32 %.02431.i.i, 240
   br i1 %13, label %.preheader29.i.i, label %.preheader28.i.i, !llvm.loop !9
 
 .preheader28.i.i:                                 ; preds = %.preheader29.i.i, %.preheader28.i.i
@@ -1127,7 +1127,7 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #7 section ".text.startup" {
   %17 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %16
   store i32 %.02332.i.i, ptr %17, align 4
   %18 = add nuw nsw i32 %.02332.i.i, 32
-  %19 = icmp ult i32 %.02332.i.i, 480
+  %19 = icmp samesign ult i32 %.02332.i.i, 480
   br i1 %19, label %.preheader28.i.i, label %.preheader27.i.i, !llvm.loop !10
 
 .preheader26.i.i:                                 ; preds = %.preheader27.i.i
@@ -1144,7 +1144,7 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #7 section ".text.startup" {
   %25 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %24
   store i32 %.02233.i.i, ptr %25, align 4
   %26 = add nuw nsw i32 %.02233.i.i, 64
-  %27 = icmp ult i32 %.02233.i.i, 961
+  %27 = icmp samesign ult i32 %.02233.i.i, 961
   br i1 %27, label %.preheader27.i.i, label %.preheader26.i.i, !llvm.loop !11
 
 .lr.ph.i.i:                                       ; preds = %.preheader26.i.i, %.lr.ph.i.i

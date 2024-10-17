@@ -4798,7 +4798,7 @@ define hidden void @zif_extract(ptr noundef %0, ptr nocapture noundef writeonly 
   %55 = load i64, ptr %3, align 8
   %56 = and i64 %55, 255
   store i64 %56, ptr %3, align 8
-  %57 = icmp ugt i64 %56, 6
+  %57 = icmp samesign ugt i64 %56, 6
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %54
@@ -10101,15 +10101,15 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
   br label %432
 
 88:                                               ; preds = %81
-  %89 = icmp ugt i8 %76, 5
-  %90 = icmp ugt i8 %83, 5
-  %or.cond8 = or i1 %89, %90
+  %89 = icmp samesign ugt i8 %76, 5
+  %90 = icmp samesign ugt i8 %83, 5
+  %or.cond8 = select i1 %89, i1 true, i1 %90
   br i1 %or.cond8, label %91, label %210
 
 91:                                               ; preds = %88
-  %92 = icmp ult i8 %76, 6
-  %93 = icmp ult i8 %83, 6
-  %94 = or i1 %92, %93
+  %92 = icmp samesign ult i8 %76, 6
+  %93 = icmp samesign ult i8 %83, 6
+  %94 = select i1 %92, i1 true, i1 %93
   br i1 %94, label %95, label %101
 
 95:                                               ; preds = %91
@@ -10998,7 +10998,7 @@ define noundef zeroext i1 @php_array_data_shuffle(ptr nocapture readonly %0, ptr
   %.1158 = phi i64 [ %.0157208, %51 ], [ %65, %64 ]
   %68 = add nuw nsw i64 %.0156209, 1
   %69 = zext i32 %67 to i64
-  %70 = icmp ult i64 %68, %69
+  %70 = icmp samesign ult i64 %68, %69
   br i1 %70, label %51, label %.loopexit192
 
 .loopexit192:                                     ; preds = %66, %46
@@ -11122,7 +11122,7 @@ define noundef zeroext i1 @php_array_data_shuffle(ptr nocapture readonly %0, ptr
   %.3 = phi i64 [ %.2200, %102 ], [ %126, %125 ]
   %129 = add nuw nsw i64 %.1202, 1
   %130 = zext i32 %128 to i64
-  %131 = icmp ult i64 %129, %130
+  %131 = icmp samesign ult i64 %129, %130
   br i1 %131, label %102, label %.loopexit195
 
 .loopexit195:                                     ; preds = %127, %95
@@ -11879,7 +11879,7 @@ define hidden void @zif_array_shift(ptr noundef %0, ptr nocapture noundef writeo
   %100 = getelementptr inbounds i8, ptr %99, i64 24
   %101 = load i32, ptr %100, align 8
   %102 = zext i32 %101 to i64
-  %103 = icmp ult i64 %indvars.iv.next300, %102
+  %103 = icmp samesign ult i64 %indvars.iv.next300, %102
   br i1 %103, label %.lr.ph277, label %.loopexit258
 
 104:                                              ; preds = %71
@@ -11956,7 +11956,7 @@ define hidden void @zif_array_shift(ptr noundef %0, ptr nocapture noundef writeo
   %138 = getelementptr inbounds i8, ptr %137, i64 24
   %139 = load i32, ptr %138, align 8
   %140 = zext i32 %139 to i64
-  %141 = icmp ult i64 %indvars.iv.next, %140
+  %141 = icmp samesign ult i64 %indvars.iv.next, %140
   br i1 %141, label %.lr.ph274, label %.loopexit258
 
 .loopexit258:                                     ; preds = %136, %98, %104, %.preheader257
@@ -12079,7 +12079,7 @@ define hidden void @zif_array_shift(ptr noundef %0, ptr nocapture noundef writeo
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
   %201 = load i32, ptr %185, align 8
   %202 = zext i32 %201 to i64
-  %203 = icmp ult i64 %indvars.iv.next303, %202
+  %203 = icmp samesign ult i64 %indvars.iv.next303, %202
   br i1 %203, label %.lr.ph285, label %._crit_edge
 
 .thread322:                                       ; preds = %194
@@ -12091,7 +12091,7 @@ define hidden void @zif_array_shift(ptr noundef %0, ptr nocapture noundef writeo
   %206 = getelementptr inbounds i8, ptr %.pre309, i64 24
   %207 = load i32, ptr %206, align 8
   %208 = zext i32 %207 to i64
-  %209 = icmp ult i64 %indvars.iv.next303325, %208
+  %209 = icmp samesign ult i64 %indvars.iv.next303325, %208
   br i1 %209, label %.lr.ph285.outer, label %._crit_edge.thread328
 
 ._crit_edge.thread328:                            ; preds = %.thread322
@@ -12689,7 +12689,7 @@ define hidden void @zif_array_splice(ptr noundef %0, ptr nocapture noundef write
   %.0326369.i = phi ptr [ %148, %.lr.ph.i ], [ %176, %175 ]
   %153 = load i32, ptr %149, align 8
   %154 = zext i32 %153 to i64
-  %155 = icmp ult i64 %indvars.iv.i, %154
+  %155 = icmp samesign ult i64 %indvars.iv.i, %154
   %156 = trunc nuw i64 %indvars.iv.i to i32
   br i1 %155, label %157, label %.critedge.i
 
@@ -12993,7 +12993,7 @@ define hidden void @zif_array_splice(ptr noundef %0, ptr nocapture noundef write
   %indvars.iv.next485.i = add nuw nsw i64 %indvars.iv484.i, 1
   %292 = getelementptr inbounds i8, ptr %.3329414.i, i64 16
   %293 = zext i32 %291 to i64
-  %294 = icmp ult i64 %indvars.iv.next485.i, %293
+  %294 = icmp samesign ult i64 %indvars.iv.next485.i, %293
   br i1 %294, label %270, label %php_splice.exit
 
 295:                                              ; preds = %140
@@ -13010,7 +13010,7 @@ define hidden void @zif_array_splice(ptr noundef %0, ptr nocapture noundef write
   %.11320422.i = phi i32 [ %112, %.lr.ph429.i ], [ %.12321.i, %327 ]
   %298 = load i32, ptr %149, align 8
   %299 = zext i32 %298 to i64
-  %300 = icmp ult i64 %indvars.iv488.i, %299
+  %300 = icmp samesign ult i64 %indvars.iv488.i, %299
   %301 = trunc nuw i64 %indvars.iv488.i to i32
   br i1 %300, label %302, label %.critedge6.i
 
@@ -13311,7 +13311,7 @@ define hidden void @zif_array_splice(ptr noundef %0, ptr nocapture noundef write
   %indvars.iv.next493.i = add nuw nsw i64 %indvars.iv492.i, 1
   %437 = getelementptr inbounds i8, ptr %.4471.i, i64 32
   %438 = zext i32 %436 to i64
-  %439 = icmp ult i64 %indvars.iv.next493.i, %438
+  %439 = icmp samesign ult i64 %indvars.iv.next493.i, %438
   br i1 %439, label %408, label %php_splice.exit
 
 php_splice.exit:                                  ; preds = %290, %435, %.loopexit366.i, %.loopexit363.i
@@ -13560,7 +13560,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %84 = getelementptr inbounds i8, ptr %78, i64 28
   %85 = load i32, ptr %84, align 4
   %86 = zext i32 %85 to i64
-  %87 = icmp ule i64 %82, %86
+  %87 = icmp samesign ule i64 %82, %86
   call void @llvm.assume(i1 %87)
   %88 = getelementptr inbounds i8, ptr %78, i64 24
   %89 = load i32, ptr %88, align 8
@@ -18800,7 +18800,7 @@ php_get_data_compare_func_unstable.exit:          ; preds = %104, %102, %100, %1
   %.1250 = phi i32 [ %.0249382, %.lr.ph ], [ %158, %149 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %160 = getelementptr inbounds i8, ptr %.0245383, i64 16
-  %161 = icmp ult i64 %indvars.iv.next, %145
+  %161 = icmp samesign ult i64 %indvars.iv.next, %145
   br i1 %161, label %.lr.ph, label %.loopexit
 
 162:                                              ; preds = %134
@@ -19100,7 +19100,7 @@ define internal fastcc void @php_array_intersect_key(i32 %.44.val, ptr nocapture
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %58 = load i32, ptr %3, align 4
   %59 = zext i32 %58 to i64
-  %.not97.us = icmp ult i64 %indvars.iv.next33, %59
+  %.not97.us = icmp samesign ult i64 %indvars.iv.next33, %59
   br i1 %.not97.us, label %.lr.ph9.split.us, label %.critedge105
 
 .preheader:                                       ; preds = %49
@@ -19122,7 +19122,7 @@ define internal fastcc void @php_array_intersect_key(i32 %.44.val, ptr nocapture
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %66 = load i32, ptr %3, align 4
   %67 = zext i32 %66 to i64
-  %.not101.us = icmp ult i64 %indvars.iv.next39, %67
+  %.not101.us = icmp samesign ult i64 %indvars.iv.next39, %67
   br i1 %.not101.us, label %.lr.ph12.split.us, label %.critedge
 
 .lr.ph12.split:                                   ; preds = %.lr.ph12, %75
@@ -19143,7 +19143,7 @@ define internal fastcc void @php_array_intersect_key(i32 %.44.val, ptr nocapture
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %76 = load i32, ptr %3, align 4
   %77 = zext i32 %76 to i64
-  %.not101 = icmp ult i64 %indvars.iv.next36, %77
+  %.not101 = icmp samesign ult i64 %indvars.iv.next36, %77
   br i1 %.not101, label %.lr.ph12.split, label %.critedge
 
 .critedge:                                        ; preds = %75, %65, %.preheader
@@ -19182,7 +19182,7 @@ define internal fastcc void @php_array_intersect_key(i32 %.44.val, ptr nocapture
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %95 = load i32, ptr %3, align 4
   %96 = zext i32 %95 to i64
-  %.not97 = icmp ult i64 %indvars.iv.next30, %96
+  %.not97 = icmp samesign ult i64 %indvars.iv.next30, %96
   br i1 %.not97, label %.lr.ph9.split, label %.critedge105
 
 .critedge105:                                     ; preds = %94, %57, %.preheader1
@@ -19316,7 +19316,7 @@ define internal fastcc void @php_array_intersect(ptr nocapture noundef readonly 
   br i1 %or.cond9, label %.sink.split, label %48
 
 48:                                               ; preds = %40
-  %49 = icmp ugt i32 %2, 1
+  %49 = icmp samesign ugt i32 %2, 1
   %50 = icmp ne i32 %4, 0
   %or.cond11 = and i1 %49, %50
   br i1 %or.cond11, label %.sink.split, label %51
@@ -19424,7 +19424,7 @@ define internal fastcc void @php_array_intersect(ptr nocapture noundef readonly 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %100 = getelementptr inbounds i8, ptr %.0258320, i64 16
   %101 = zext i32 %99 to i64
-  %102 = icmp ult i64 %indvars.iv.next, %101
+  %102 = icmp samesign ult i64 %indvars.iv.next, %101
   br i1 %102, label %.lr.ph, label %.loopexit313
 
 103:                                              ; preds = %75
@@ -19478,7 +19478,7 @@ define internal fastcc void @php_array_intersect(ptr nocapture noundef readonly 
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %124 = load i32, ptr %7, align 4
   %125 = zext i32 %124 to i64
-  %126 = icmp ult i64 %indvars.iv.next388, %125
+  %126 = icmp samesign ult i64 %indvars.iv.next388, %125
   br i1 %126, label %.lr.ph329, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %123, %51
@@ -19518,7 +19518,7 @@ define internal fastcc void @php_array_intersect(ptr nocapture noundef readonly 
   br i1 %.not283356, label %.loopexitthread-pre-split, label %.lr.ph359
 
 .lr.ph359:                                        ; preds = %138
-  %144 = icmp ugt i32 %2, 1
+  %144 = icmp samesign ugt i32 %2, 1
   %145 = icmp ne i32 %4, 0
   %or.cond13 = and i1 %144, %145
   %146 = and i32 %2, 1
@@ -19621,7 +19621,7 @@ define internal fastcc void @php_array_intersect(ptr nocapture noundef readonly 
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
   %185 = load i32, ptr %7, align 4
   %186 = zext i32 %185 to i64
-  %187 = icmp ult i64 %indvars.iv.next394, %186
+  %187 = icmp samesign ult i64 %indvars.iv.next394, %186
   br i1 %187, label %.lr.ph345.split.us, label %.preheader305
 
 .preheader303.us:                                 ; preds = %.lr.ph345.split.us
@@ -19719,7 +19719,7 @@ define internal fastcc void @php_array_intersect(ptr nocapture noundef readonly 
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %236 = load i32, ptr %7, align 4
   %237 = zext i32 %236 to i64
-  %238 = icmp ult i64 %indvars.iv.next391, %237
+  %238 = icmp samesign ult i64 %indvars.iv.next391, %237
   br i1 %238, label %.preheader304, label %.preheader305
 
 .thread300:                                       ; preds = %151
@@ -19856,7 +19856,7 @@ define internal fastcc void @php_array_intersect(ptr nocapture noundef readonly 
   %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
   %297 = load i32, ptr %7, align 4
   %298 = zext i32 %297 to i64
-  %299 = icmp ult i64 %indvars.iv.next398, %298
+  %299 = icmp samesign ult i64 %indvars.iv.next398, %298
   br i1 %299, label %.lr.ph363, label %._crit_edge364
 
 ._crit_edge364:                                   ; preds = %296, %.loopexit
@@ -20072,7 +20072,7 @@ define internal fastcc void @php_array_diff_key(i32 %.44.val, ptr nocapture noun
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %63 = load i32, ptr %3, align 4
   %64 = zext i32 %63 to i64
-  %.not96.us = icmp ult i64 %indvars.iv.next32, %64
+  %.not96.us = icmp samesign ult i64 %indvars.iv.next32, %64
   br i1 %.not96.us, label %.lr.ph8.split.us, label %.critedge106
 
 .preheader:                                       ; preds = %55
@@ -20094,7 +20094,7 @@ define internal fastcc void @php_array_diff_key(i32 %.44.val, ptr nocapture noun
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %70 = load i32, ptr %3, align 4
   %71 = zext i32 %70 to i64
-  %.not100.us = icmp ult i64 %indvars.iv.next38, %71
+  %.not100.us = icmp samesign ult i64 %indvars.iv.next38, %71
   br i1 %.not100.us, label %.lr.ph11.split.us, label %.critedge
 
 .lr.ph11.split:                                   ; preds = %.lr.ph11, %79
@@ -20115,7 +20115,7 @@ define internal fastcc void @php_array_diff_key(i32 %.44.val, ptr nocapture noun
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %80 = load i32, ptr %3, align 4
   %81 = zext i32 %80 to i64
-  %.not100 = icmp ult i64 %indvars.iv.next35, %81
+  %.not100 = icmp samesign ult i64 %indvars.iv.next35, %81
   br i1 %.not100, label %.lr.ph11.split, label %.critedge
 
 .critedge:                                        ; preds = %79, %69, %.preheader
@@ -20154,7 +20154,7 @@ define internal fastcc void @php_array_diff_key(i32 %.44.val, ptr nocapture noun
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %99 = load i32, ptr %3, align 4
   %100 = zext i32 %99 to i64
-  %.not96 = icmp ult i64 %indvars.iv.next29, %100
+  %.not96 = icmp samesign ult i64 %indvars.iv.next29, %100
   br i1 %.not96, label %.lr.ph8.split, label %.critedge106
 
 .critedge106:                                     ; preds = %98, %62, %.preheader1
@@ -20288,7 +20288,7 @@ define internal fastcc void @php_array_diff(ptr nocapture noundef readonly %0, p
   br i1 %or.cond9, label %.sink.split, label %48
 
 48:                                               ; preds = %40
-  %49 = icmp ugt i32 %2, 1
+  %49 = icmp samesign ugt i32 %2, 1
   %50 = icmp ne i32 %4, 0
   %or.cond11 = and i1 %49, %50
   br i1 %or.cond11, label %.sink.split, label %51
@@ -20396,7 +20396,7 @@ define internal fastcc void @php_array_diff(ptr nocapture noundef readonly %0, p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %100 = getelementptr inbounds i8, ptr %.0227288, i64 16
   %101 = zext i32 %99 to i64
-  %102 = icmp ult i64 %indvars.iv.next, %101
+  %102 = icmp samesign ult i64 %indvars.iv.next, %101
   br i1 %102, label %.lr.ph, label %.loopexit282
 
 103:                                              ; preds = %75
@@ -20450,7 +20450,7 @@ define internal fastcc void @php_array_diff(ptr nocapture noundef readonly %0, p
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %124 = load i32, ptr %7, align 4
   %125 = zext i32 %124 to i64
-  %126 = icmp ult i64 %indvars.iv.next345, %125
+  %126 = icmp samesign ult i64 %indvars.iv.next345, %125
   br i1 %126, label %.lr.ph297, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %123, %51
@@ -20467,7 +20467,7 @@ define internal fastcc void @php_array_diff(ptr nocapture noundef readonly %0, p
   br i1 %.not318, label %.loopexitthread-pre-split, label %.lr.ph320
 
 .lr.ph320:                                        ; preds = %._crit_edge
-  %134 = icmp ugt i32 %2, 1
+  %134 = icmp samesign ugt i32 %2, 1
   %135 = icmp ne i32 %4, 0
   %or.cond13 = and i1 %134, %135
   br label %136
@@ -20603,7 +20603,7 @@ define internal fastcc void @php_array_diff(ptr nocapture noundef readonly %0, p
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %178 = load i32, ptr %7, align 4
   %179 = zext i32 %178 to i64
-  %180 = icmp ult i64 %indvars.iv.next348, %179
+  %180 = icmp samesign ult i64 %indvars.iv.next348, %179
   br i1 %180, label %.lr.ph311, label %.loopexit280
 
 .loopexit280:                                     ; preds = %.critedge.thread358
@@ -20738,7 +20738,7 @@ define internal fastcc void @php_array_diff(ptr nocapture noundef readonly %0, p
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %235 = load i32, ptr %7, align 4
   %236 = zext i32 %235 to i64
-  %237 = icmp ult i64 %indvars.iv.next351, %236
+  %237 = icmp samesign ult i64 %indvars.iv.next351, %236
   br i1 %237, label %.lr.ph323, label %._crit_edge324
 
 ._crit_edge324:                                   ; preds = %234, %.loopexit
@@ -21877,7 +21877,7 @@ php_get_data_compare_func_unstable.exit269:       ; preds = %89, %92, %93, %96, 
   %161 = getelementptr inbounds i8, ptr %159, i64 24
   %162 = load i32, ptr %161, align 8
   %163 = zext i32 %162 to i64
-  %164 = icmp ult i64 %indvars.iv.next354, %163
+  %164 = icmp samesign ult i64 %indvars.iv.next354, %163
   br i1 %164, label %.lr.ph313, label %.loopexit281
 
 165:                                              ; preds = %.lr.ph320

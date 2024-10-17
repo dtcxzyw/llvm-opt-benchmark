@@ -894,7 +894,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit349:       ; preds = %238, %241
           to label %336 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 336:                                              ; preds = %332
-  %337 = icmp ult i64 %indvars.iv572, 99
+  %337 = icmp samesign ult i64 %indvars.iv572, 99
   br i1 %337, label %338, label %343
 
 338:                                              ; preds = %336
@@ -1022,7 +1022,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit352:      ; preds = %364
   %408 = call float @llvm.fmuladd.f32(float %384, float %399, float %407)
   store float %408, ptr %406, align 4
   %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
-  %409 = icmp ult i64 %indvars.iv.next580, %376
+  %409 = icmp samesign ult i64 %indvars.iv.next580, %376
   br i1 %409, label %388, label %._crit_edge502, !llvm.loop !14
 
 ._crit_edge502:                                   ; preds = %388
@@ -1134,7 +1134,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit367:       ; preds = %_ZNSt10filesystem7_
   %445 = fmul double %434, %444
   %446 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %421, ptr noundef nonnull @.str.53, double noundef %440, double noundef %445) #18
   %indvars.iv.next586 = add nuw nsw i64 %indvars.iv585, 1
-  %447 = icmp ult i64 %indvars.iv.next586, %427
+  %447 = icmp samesign ult i64 %indvars.iv.next586, %427
   br i1 %447, label %.lr.ph509, label %._crit_edge510, !llvm.loop !16
 
 448:                                              ; preds = %.noexc354, %413
@@ -1264,7 +1264,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit379:       ; preds = %466, %469
   %485 = fmul double %475, %484
   %486 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %465, ptr noundef nonnull @.str.53, double noundef %480, double noundef %485) #18
   %indvars.iv.next589 = add nuw nsw i64 %indvars.iv588, 1
-  %487 = icmp ult i64 %indvars.iv.next589, %427
+  %487 = icmp samesign ult i64 %indvars.iv.next589, %427
   br i1 %487, label %477, label %._crit_edge514, !llvm.loop !17
 
 488:                                              ; preds = %.noexc368, %457
@@ -1411,7 +1411,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit379:       ; preds = %466, %469
 _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit381:       ; preds = %542, %547
   %550 = phi i8 [ %.pre603, %542 ], [ %524, %547 ]
   %indvars.iv.next592 = add nuw nsw i64 %indvars.iv591, 1
-  %551 = icmp ult i64 %indvars.iv.next592, %522
+  %551 = icmp samesign ult i64 %indvars.iv.next592, %522
   br i1 %551, label %.lr.ph517, label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit381._crit_edge, !llvm.loop !18
 
 _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit381._crit_edge: ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit381
@@ -1441,7 +1441,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit381._crit_edge: ; preds = %_ZL13gmx_snew_
   %567 = fptrunc double %566 to float
   store float %567, ptr %563, align 4
   %indvars.iv.next595 = add nuw nsw i64 %indvars.iv594, 1
-  %568 = icmp ult i64 %indvars.iv.next595, %522
+  %568 = icmp samesign ult i64 %indvars.iv.next595, %522
   br i1 %568, label %561, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %561, %555
@@ -1799,7 +1799,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit398:       ; preds = %752, %755
   %804 = fdiv double %803, %760
   %805 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %751, ptr noundef nonnull @.str.82, double noundef %789, double noundef %794, double noundef %799, double noundef %804) #18
   %indvars.iv.next598 = add nuw nsw i64 %indvars.iv597, 1
-  %806 = icmp ult i64 %indvars.iv.next598, %522
+  %806 = icmp samesign ult i64 %indvars.iv.next598, %522
   br i1 %806, label %766, label %._crit_edge524, !llvm.loop !21
 
 807:                                              ; preds = %.noexc387, %738
@@ -1981,7 +1981,7 @@ _ZL7wEsolidff.exit:                               ; preds = %_ZL7wAsolidff.exit,
   %926 = getelementptr inbounds float, ptr %925, i64 %indvars.iv600
   store float %924, ptr %926, align 4
   %indvars.iv.next601 = add nuw nsw i64 %indvars.iv600, 1
-  %927 = icmp ult i64 %indvars.iv.next601, %522
+  %927 = icmp samesign ult i64 %indvars.iv.next601, %522
   br i1 %927, label %822, label %._crit_edge528, !llvm.loop !22
 
 ._crit_edge528:                                   ; preds = %_ZL7wEsolidff.exit

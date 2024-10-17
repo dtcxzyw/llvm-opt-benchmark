@@ -2283,7 +2283,7 @@ if.end.i.i144:                                    ; preds = %for.cond.i
 
 _ZNK6vectorISt4pairIj7obj_refI4expr11ast_managerEELb1EjE4sizeEv.exit.i: ; preds = %if.end.i.i144, %for.cond.i
   %retval.0.i.i146 = phi i64 [ %82, %if.end.i.i144 ], [ 0, %for.cond.i ]
-  %cmp.i147 = icmp ult i64 %indvars.iv.i142, %retval.0.i.i146
+  %cmp.i147 = icmp samesign ult i64 %indvars.iv.i142, %retval.0.i.i146
   br i1 %cmp.i147, label %for.body.i148, label %for.cond.i171
 
 for.body.i148:                                    ; preds = %_ZNK6vectorISt4pairIj7obj_refI4expr11ast_managerEELb1EjE4sizeEv.exit.i
@@ -2358,7 +2358,7 @@ if.end.i.i174:                                    ; preds = %for.cond.i171
 
 _ZNK6vectorISt4pairIj7obj_refI4expr11ast_managerEELb1EjE4sizeEv.exit.i176: ; preds = %if.end.i.i174, %for.cond.i171
   %retval.0.i.i177 = phi i64 [ %96, %if.end.i.i174 ], [ 0, %for.cond.i171 ]
-  %cmp.i178 = icmp ult i64 %indvars.iv.i172, %retval.0.i.i177
+  %cmp.i178 = icmp samesign ult i64 %indvars.iv.i172, %retval.0.i.i177
   br i1 %cmp.i178, label %for.body.i179, label %if.end73
 
 for.body.i179:                                    ; preds = %_ZNK6vectorISt4pairIj7obj_refI4expr11ast_managerEELb1EjE4sizeEv.exit.i176
@@ -2950,7 +2950,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9pu
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !16
 
@@ -4220,7 +4220,7 @@ invoke.cont59.thread:                             ; preds = %invoke.cont59.threa
   %arrayidx.i.i69 = getelementptr inbounds i8, ptr %52, i64 -4
   %53 = load i32, ptr %arrayidx.i.i69, align 4
   %54 = zext i32 %53 to i64
-  %cmp61348 = icmp ult i64 %indvars.iv, %54
+  %cmp61348 = icmp samesign ult i64 %indvars.iv, %54
   br i1 %cmp61348, label %invoke.cont66, label %invoke.cont100
 
 invoke.cont66:                                    ; preds = %invoke.cont59.thread

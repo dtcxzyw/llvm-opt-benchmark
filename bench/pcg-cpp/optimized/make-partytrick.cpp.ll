@@ -758,7 +758,7 @@ entry:
   %conv = zext i8 %shift to i32
   %mul = shl nuw nsw i32 %conv, 1
   %conv1 = zext i8 %bits to i32
-  %cmp.not = icmp ult i32 %mul, %conv1
+  %cmp.not = icmp samesign ult i32 %mul, %conv1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

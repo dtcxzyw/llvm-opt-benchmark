@@ -52,7 +52,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento5cocoa9isRefTypeENS_8QualType
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load i64, ptr %21, align 8
   %24 = and i64 %23, 4294967295
-  %.not.i14.old.us = icmp ult i64 %24, 3
+  %.not.i14.old.us = icmp samesign ult i64 %24, 3
   br i1 %.not.i14.old.us, label %_ZNK4llvm9StringRef11starts_withES0_.exit18.thread45.us, label %_ZNK4llvm9StringRef9ends_withES0_.exit.us
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.us:        ; preds = %.lr.ph.split.us
@@ -109,8 +109,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit18.thread45.us: ; preds = %.lr.ph.split
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %.lr.ph.split
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %48, ptr %1, i64 %.fr55)
   %51 = icmp ne i32 %bcmp.i, 0
-  %.not.i14 = icmp ult i64 %50, 3
-  %or.cond50 = or i1 %.not.i14, %51
+  %.not.i14 = icmp samesign ult i64 %50, 3
+  %or.cond50 = select i1 %51, i1 true, i1 %.not.i14
   br i1 %or.cond50, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread43, label %_ZNK4llvm9StringRef9ends_withES0_.exit
 
 _ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
@@ -121,7 +121,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %_ZNK4llvm9StringRef
   br i1 %54, label %.critedge, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread43
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread43: ; preds = %.lr.ph.split, %_ZNK4llvm9StringRef9ends_withES0_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit
-  %.not.i16 = icmp ult i64 %50, 4
+  %.not.i16 = icmp samesign ult i64 %50, 4
   br i1 %.not.i16, label %_ZNK4llvm9StringRef11starts_withES0_.exit18.thread45, label %_ZNK4llvm9StringRef11starts_withES0_.exit18
 
 _ZNK4llvm9StringRef11starts_withES0_.exit18:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread43

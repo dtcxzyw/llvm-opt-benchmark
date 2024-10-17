@@ -943,7 +943,7 @@ define internal noundef i32 @ext4_mb_seq_groups_show(ptr noundef %0, ptr noundef
 
 47:                                               ; preds = %53, %37
   %48 = phi i64 [ 0, %37 ], [ %55, %53 ]
-  %49 = icmp ugt i64 %48, %46
+  %49 = icmp samesign ugt i64 %48, %46
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %47
@@ -1718,7 +1718,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4_mb_init(ptr noundef %0) loc
   %77 = zext i8 %76 to i32
   %78 = add nuw nsw i32 %77, 2
   %79 = zext nneg i32 %78 to i64
-  %80 = icmp ult i64 %75, %79
+  %80 = icmp samesign ult i64 %75, %79
   br i1 %80, label %62, label %81, !llvm.loop !38
 
 81:                                               ; preds = %62
@@ -1758,7 +1758,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4_mb_init(ptr noundef %0) loc
   %104 = zext i8 %103 to i32
   %105 = add nuw nsw i32 %104, 2
   %106 = zext nneg i32 %105 to i64
-  %107 = icmp ult i64 %102, %106
+  %107 = icmp samesign ult i64 %102, %106
   br i1 %107, label %.preheader29, label %108, !llvm.loop !39
 
 108:                                              ; preds = %.preheader29
@@ -1797,7 +1797,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4_mb_init(ptr noundef %0) loc
   %130 = load i8, ptr %4, align 4
   %131 = zext i8 %130 to i64
   %132 = add nuw nsw i64 %131, 2
-  %133 = icmp ult i64 %129, %132
+  %133 = icmp samesign ult i64 %129, %132
   br i1 %133, label %.preheader28, label %134, !llvm.loop !40
 
 134:                                              ; preds = %.preheader28
@@ -1911,7 +1911,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4_mb_init(ptr noundef %0) loc
   store i32 0, ptr %201, align 8
   %202 = add nuw nsw i64 %182, 1
   %203 = and i64 %202, 127
-  %204 = icmp ult i64 %203, 64
+  %204 = icmp samesign ult i64 %203, 64
   br i1 %204, label %.preheader27, label %.thread20, !prof !43, !llvm.loop !44
 
 .thread20:                                        ; preds = %.preheader27, %200, %181
@@ -3431,7 +3431,7 @@ define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1,
   br i1 %211, label %212, label %218
 
 212:                                              ; preds = %208
-  %213 = icmp ult i32 %6, 2
+  %213 = icmp samesign ult i32 %6, 2
   br i1 %213, label %218, label %214
 
 214:                                              ; preds = %212
@@ -7850,7 +7850,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %207 = sext i32 %193 to i64
   %208 = icmp ne i32 %193, 0
   %209 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %207), !range !212
-  %210 = icmp ult i64 %209, 2
+  %210 = icmp samesign ult i64 %209, 2
   %211 = select i1 %208, i1 %210, i1 false
   br i1 %211, label %212, label %219
 
@@ -7956,10 +7956,10 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   br i1 %240, label %.thread66, label %.preheader87
 
 .preheader87:                                     ; preds = %.preheader89
-  %284 = icmp ugt i64 %indvars.iv326, 2
-  %285 = icmp ult i64 %indvars.iv326, 4
+  %284 = icmp samesign ugt i64 %indvars.iv326, 2
+  %285 = icmp samesign ult i64 %indvars.iv326, 4
   %286 = icmp eq i64 %indvars.iv326, 0
-  %287 = icmp ult i64 %indvars.iv326, 3
+  %287 = icmp samesign ult i64 %indvars.iv326, 3
   br label %288
 
 288:                                              ; preds = %.preheader87, %.loopexit77
@@ -8359,7 +8359,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %526 = load i8, ptr %525, align 4
   %527 = zext i8 %526 to i32
   %528 = add nuw nsw i32 %527, 2
-  %529 = icmp ugt i32 %528, %524
+  %529 = icmp samesign ugt i32 %528, %524
   br i1 %529, label %530, label %ext4_mb_simple_scan_group.exit
 
 530:                                              ; preds = %523
@@ -8391,7 +8391,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   unreachable
 
 548:                                              ; preds = %546
-  %549 = icmp ult i64 %538, %542
+  %549 = icmp samesign ult i64 %538, %542
   br i1 %549, label %.thread.i44, label %550
 
 550:                                              ; preds = %548
@@ -8496,7 +8496,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %613 = load i8, ptr %525, align 4
   %614 = zext i8 %613 to i64
   %615 = add nuw nsw i64 %614, 2
-  %616 = icmp ult i64 %612, %615
+  %616 = icmp samesign ult i64 %612, %615
   br i1 %616, label %541, label %ext4_mb_simple_scan_group.exit, !llvm.loop !226
 
 617:                                              ; preds = %514
@@ -9012,7 +9012,7 @@ select.unfold:                                    ; preds = %ext4_mb_simple_scan
   %922 = load i8, ptr %921, align 4
   %923 = zext i8 %922 to i32
   %924 = add nuw nsw i32 %923, 2
-  %925 = icmp ugt i32 %924, %920
+  %925 = icmp samesign ugt i32 %924, %920
   br i1 %925, label %926, label %.loopexit77
 
 926:                                              ; preds = %917
@@ -9089,7 +9089,7 @@ select.unfold:                                    ; preds = %ext4_mb_simple_scan
   %971 = load i8, ptr %970, align 4
   %972 = zext i8 %971 to i64
   %973 = add nuw nsw i64 %972, 2
-  %974 = icmp ult i64 %969, %973
+  %974 = icmp samesign ult i64 %969, %973
   br i1 %974, label %931, label %.loopexit77, !llvm.loop !245
 
 975:                                              ; preds = %903
@@ -9142,7 +9142,7 @@ ext4_mb_find_good_group_avg_frag_lists.exit.thread: ; preds = %.preheader78, %ex
   %1005 = load i8, ptr %1004, align 4
   %1006 = zext i8 %1005 to i64
   %1007 = add nuw nsw i64 %1006, 2
-  %1008 = icmp ult i64 %indvars.iv.next, %1007
+  %1008 = icmp samesign ult i64 %indvars.iv.next, %1007
   br i1 %1008, label %.preheader78, label %.loopexit79, !llvm.loop !246
 
 .preheader78:                                     ; preds = %.preheader78.preheader, %ext4_mb_find_good_group_avg_frag_lists.exit.thread
@@ -10217,7 +10217,7 @@ ext4_mb_discard_group_preallocations.exit:        ; preds = %49, %55, %62, %69, 
 204:                                              ; preds = %ext4_mb_discard_group_preallocations.exit
   %205 = icmp ne i32 %.6, 0
   %206 = select i1 %202, i1 %205, i1 false
-  %207 = icmp ult i32 %47, 2
+  %207 = icmp samesign ult i32 %47, 2
   %208 = select i1 %206, i1 %207, i1 false
   %209 = add nuw nsw i32 %47, 1
   br i1 %208, label %.preheader, label %.thread
@@ -10254,7 +10254,7 @@ ext4_mb_discard_group_preallocations.exit:        ; preds = %49, %55, %62, %69, 
   %229 = add i64 %228, %214
   %230 = add nuw nsw i64 %219, 1
   %231 = and i64 %230, 127
-  %232 = icmp ult i64 %231, 64
+  %232 = icmp samesign ult i64 %231, 64
   br i1 %232, label %212, label %.thread7, !prof !43, !llvm.loop !267
 
 .thread7:                                         ; preds = %212, %222, %218
@@ -11875,7 +11875,7 @@ define internal fastcc void @mb_free_blocks(ptr noundef readonly %0, ptr nocaptu
 303:                                              ; preds = %298
   %304 = load i16, ptr %221, align 8
   %305 = zext i16 %304 to i64
-  %306 = icmp ugt i64 %indvars.iv, %305
+  %306 = icmp samesign ugt i64 %indvars.iv, %305
   br i1 %306, label %.thread, label %307
 
 307:                                              ; preds = %303
@@ -12577,7 +12577,7 @@ define internal fastcc i32 @ext4_mb_init_cache(ptr noundef %0, ptr noundef %1, i
   %22 = lshr i32 2048, %18
   %23 = icmp ugt i8 %17, 11
   %24 = select i1 %23, i32 1, i32 %22
-  %25 = icmp ugt i32 %24, 1
+  %25 = icmp samesign ugt i32 %24, 1
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %3
@@ -12696,7 +12696,7 @@ define internal fastcc i32 @ext4_mb_init_cache(ptr noundef %0, ptr noundef %1, i
 97:                                               ; preds = %89, %87, %53
   %98 = add nuw nsw i64 %54, 1
   %99 = add nuw i32 %55, 1
-  %100 = icmp ult i64 %98, %49
+  %100 = icmp samesign ult i64 %98, %49
   %101 = icmp ult i32 %99, %15
   %102 = select i1 %100, i1 %101, i1 false
   br i1 %102, label %53, label %.loopexit33, !llvm.loop !307
@@ -14337,7 +14337,7 @@ define internal fastcc i32 @mb_mark_used(ptr nocapture noundef readonly %0, ptr 
 132:                                              ; preds = %.preheader
   %133 = zext i16 %127 to i64
   %134 = add nuw nsw i64 %133, 1
-  %135 = icmp ugt i64 %126, %134
+  %135 = icmp samesign ugt i64 %126, %134
   br i1 %135, label %147, label %136
 
 136:                                              ; preds = %132
@@ -14374,7 +14374,7 @@ define internal fastcc i32 @mb_mark_used(ptr nocapture noundef readonly %0, ptr 
   %162 = add nuw nsw i64 %126, 1
   %163 = load i16, ptr %104, align 8
   %164 = zext i16 %163 to i64
-  %165 = icmp ugt i64 %126, %164
+  %165 = icmp samesign ugt i64 %126, %164
   br i1 %165, label %mb_find_order_for_block.exit, label %.preheader, !llvm.loop !355
 
 mb_find_order_for_block.exit:                     ; preds = %161, %147, %105
@@ -14951,7 +14951,7 @@ define internal fastcc zeroext i1 @ext4_mb_good_group(ptr nocapture noundef nonn
   %53 = load i8, ptr %52, align 4
   %54 = zext i8 %53 to i32
   %55 = add nuw nsw i32 %54, 2
-  %56 = icmp ugt i32 %55, %50
+  %56 = icmp samesign ugt i32 %55, %50
   br i1 %56, label %57, label %71
 
 57:                                               ; preds = %49
@@ -15113,7 +15113,7 @@ define internal fastcc i32 @mb_find_extent(ptr nocapture noundef readonly %0, i3
 72:                                               ; preds = %.preheader10
   %73 = zext i16 %67 to i64
   %74 = add nuw nsw i64 %73, 1
-  %75 = icmp ugt i64 %66, %74
+  %75 = icmp samesign ugt i64 %66, %74
   br i1 %75, label %87, label %76
 
 76:                                               ; preds = %72
@@ -15150,7 +15150,7 @@ define internal fastcc i32 @mb_find_extent(ptr nocapture noundef readonly %0, i3
   %102 = add nuw nsw i64 %66, 1
   %103 = load i16, ptr %30, align 8
   %104 = zext i16 %103 to i64
-  %105 = icmp ugt i64 %66, %104
+  %105 = icmp samesign ugt i64 %66, %104
   br i1 %105, label %mb_find_order_for_block.exit, label %.preheader10, !llvm.loop !355
 
 mb_find_order_for_block.exit:                     ; preds = %87, %101
@@ -15286,7 +15286,7 @@ mb_find_order_for_block.exit:                     ; preds = %87, %101
 184:                                              ; preds = %.preheader
   %185 = zext i16 %179 to i64
   %186 = add nuw nsw i64 %185, 1
-  %187 = icmp ugt i64 %178, %186
+  %187 = icmp samesign ugt i64 %178, %186
   br i1 %187, label %199, label %188
 
 188:                                              ; preds = %184
@@ -15323,7 +15323,7 @@ mb_find_order_for_block.exit:                     ; preds = %87, %101
   %214 = add nuw nsw i64 %178, 1
   %215 = load i16, ptr %30, align 8
   %216 = zext i16 %215 to i64
-  %217 = icmp ugt i64 %178, %216
+  %217 = icmp samesign ugt i64 %178, %216
   br i1 %217, label %mb_find_order_for_block.exit7, label %.preheader, !llvm.loop !355
 
 mb_find_order_for_block.exit7:                    ; preds = %199, %213
@@ -16293,7 +16293,7 @@ define internal fastcc void @mb_regenerate_buddy(ptr nocapture noundef readonly 
   %13 = load i16, ptr %8, align 8
   %14 = zext i16 %13 to i64
   %15 = add nuw nsw i64 %14, 1
-  %16 = icmp ult i64 %15, %indvars.iv
+  %16 = icmp samesign ult i64 %15, %indvars.iv
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %10

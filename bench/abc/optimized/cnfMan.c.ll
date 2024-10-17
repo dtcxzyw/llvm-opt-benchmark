@@ -2374,7 +2374,7 @@ define range(i32 0, 2) i32 @Cnf_DataWriteOrClause(ptr noundef %0, ptr nocapture 
   %24 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
   store i32 %23, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = icmp ult i64 %indvars.iv.next, %14
+  %25 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %25, label %15, label %.critedge, !llvm.loop !49
 
 .critedge:                                        ; preds = %15, %2
@@ -2429,7 +2429,7 @@ define range(i32 0, 2) i32 @Cnf_DataWriteOrClause2(ptr noundef %0, ptr nocapture
   %24 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
   store i32 %23, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = icmp ult i64 %indvars.iv.next, %14
+  %25 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %25, label %15, label %.critedge, !llvm.loop !50
 
 .critedge:                                        ; preds = %15, %2

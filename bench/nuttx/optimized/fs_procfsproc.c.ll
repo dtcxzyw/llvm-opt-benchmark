@@ -511,7 +511,7 @@ proc_stack.exit:                                  ; preds = %131, %140, %149
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %220 = load i8, ptr %190, align 1
   %221 = zext i8 %220 to i64
-  %222 = icmp ult i64 %indvars.iv.next.i, %221
+  %222 = icmp samesign ult i64 %indvars.iv.next.i, %221
   br i1 %222, label %209, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %217, %204

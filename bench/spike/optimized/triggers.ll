@@ -966,7 +966,7 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %26, 
   store i8 %.0.i, ptr %32, align 2
   %.lhs.trunc = lshr i64 %2, 12
   %.zext = and i64 %.lhs.trunc, 63
-  %33 = icmp ugt i64 %.zext, 4
+  %33 = icmp samesign ugt i64 %.zext, 4
   %34 = icmp eq i64 %.zext, 1
   %35 = icmp ugt i64 %13, %10
   %or.cond = select i1 %34, i1 %35, i1 false
@@ -983,7 +983,7 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %26, 
   store i8 %44, ptr %43, align 1
   %45 = lshr i64 %2, 7
   %46 = and i64 %45, 15
-  %switch.i = icmp ult i64 %46, 6
+  %switch.i = icmp samesign ult i64 %46, 6
   %47 = trunc nuw nsw i64 %46 to i32
   %.0.i21 = select i1 %switch.i, i32 %47, i32 0
   %48 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1602,7 +1602,7 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %34, 
   store i8 %.0.i, ptr %40, align 2
   %41 = lshr i64 %2, 12
   %.zext = and i64 %41, 15
-  %42 = icmp ugt i64 %.zext, 4
+  %42 = icmp samesign ugt i64 %.zext, 4
   %43 = icmp eq i64 %.zext, 1
   %44 = icmp ugt i64 %13, %10
   %or.cond = select i1 %43, i1 %44, i1 false
@@ -1619,7 +1619,7 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %34, 
   store i8 %53, ptr %52, align 1
   %54 = lshr i64 %2, 7
   %55 = and i64 %54, 15
-  %switch.i = icmp ult i64 %55, 6
+  %switch.i = icmp samesign ult i64 %55, 6
   %56 = trunc nuw nsw i64 %55 to i32
   %.0.i23 = select i1 %switch.i, i32 %56, i32 0
   %57 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2100,7 +2100,7 @@ define void @_ZN8triggers8icount_t12tdata1_writeEP11processor_tmb(ptr nocapture 
   %62 = zext i1 %60 to i8
   store i8 %62, ptr %61, align 4
   %63 = and i64 %2, 63
-  %64 = icmp ugt i64 %63, 4
+  %64 = icmp samesign ugt i64 %63, 4
   br i1 %64, label %_ZN8triggers9trigger_t15legalize_actionEmmm.exit, label %65
 
 65:                                               ; preds = %._crit_edge
@@ -2298,7 +2298,7 @@ _ZN8triggers9trigger_t15legalize_actionEmmm.exit:
   %56 = zext i1 %54 to i8
   store i8 %56, ptr %55, align 4
   %57 = and i64 %2, 63
-  %58 = icmp ugt i64 %57, 4
+  %58 = icmp samesign ugt i64 %57, 4
   %59 = icmp eq i64 %57, 1
   %60 = icmp ugt i64 %12, %9
   %or.cond = select i1 %59, i1 %60, i1 false
@@ -2638,7 +2638,7 @@ _ZN8triggers9trigger_t15legalize_actionEmmm.exit:
   %52 = zext i1 %50 to i8
   store i8 %52, ptr %51, align 4
   %53 = and i64 %2, 63
-  %54 = icmp ugt i64 %53, 4
+  %54 = icmp samesign ugt i64 %53, 4
   %55 = icmp eq i64 %53, 1
   %56 = icmp ugt i64 %12, %9
   %or.cond = select i1 %55, i1 %56, i1 false

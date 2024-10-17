@@ -156,7 +156,7 @@ define double @jvp_strtod(ptr nocapture noundef %0, ptr noundef %1, ptr noundef 
   %.0416931 = phi i32 [ %.1417, %37 ], [ 0, %.loopexit791 ]
   %.0460930 = phi i32 [ %38, %37 ], [ 0, %.loopexit791 ]
   %.4744929 = phi ptr [ %39, %37 ], [ %.1741, %.loopexit791 ]
-  %26 = icmp ult i32 %.0460930, 9
+  %26 = icmp samesign ult i32 %.0460930, 9
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.lr.ph
@@ -166,7 +166,7 @@ define double @jvp_strtod(ptr nocapture noundef %0, ptr noundef %1, ptr noundef 
   br label %37
 
 31:                                               ; preds = %.lr.ph
-  %32 = icmp ult i32 %.0460930, 16
+  %32 = icmp samesign ult i32 %.0460930, 16
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %31
@@ -704,7 +704,7 @@ match.exit599:                                    ; preds = %162, %.preheader
   br i1 %.not548, label %412, label %262
 
 262:                                              ; preds = %259
-  %263 = icmp ugt i32 %261, 308
+  %263 = icmp samesign ugt i32 %261, 308
   br i1 %263, label %.loopexit, label %311
 
 .loopexit:                                        ; preds = %773, %bigcomp.exit, %662, %._crit_edge987, %262
@@ -867,7 +867,7 @@ Bfree.exit614:                                    ; preds = %297, %298
   %328 = phi double [ %316, %.lr.ph986 ], [ %321, %318 ]
   %indvars.iv.next1132 = add nuw nsw i64 %indvars.iv1131, 1
   %329 = lshr i32 %.0483983, 1
-  %330 = icmp ugt i32 %.0483983, 3
+  %330 = icmp samesign ugt i32 %.0483983, 3
   br i1 %330, label %.lr.ph986, label %._crit_edge987.loopexit, !llvm.loop !16
 
 ._crit_edge987.loopexit:                          ; preds = %325
@@ -890,11 +890,11 @@ Bfree.exit614:                                    ; preds = %297, %298
   %340 = lshr i64 %339, 32
   %341 = trunc nuw i64 %340 to i32
   %342 = and i32 %341, 2146435072
-  %343 = icmp ugt i32 %342, 2090860544
+  %343 = icmp samesign ugt i32 %342, 2090860544
   br i1 %343, label %.loopexit, label %344
 
 344:                                              ; preds = %._crit_edge987
-  %345 = icmp ugt i32 %342, 2089811968
+  %345 = icmp samesign ugt i32 %342, 2089811968
   br i1 %345, label %346, label %347
 
 346:                                              ; preds = %344
@@ -975,7 +975,7 @@ Bfree.exit614:                                    ; preds = %297, %298
   %386 = phi double [ %372, %.lr.ph980 ], [ %377, %374 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %387 = lshr i32 %.1484977, 1
-  %.not544 = icmp ult i32 %.1484977, 2
+  %.not544 = icmp samesign ult i32 %.1484977, 2
   br i1 %.not544, label %._crit_edge981, label %.lr.ph980, !llvm.loop !17
 
 ._crit_edge981:                                   ; preds = %382
@@ -987,20 +987,20 @@ Bfree.exit614:                                    ; preds = %297, %298
   %390 = lshr i32 %385, 20
   %391 = and i32 %390, 2047
   %392 = sub nsw i32 107, %391
-  %393 = icmp ult i32 %391, 107
+  %393 = icmp samesign ult i32 %391, 107
   br i1 %393, label %394, label %408
 
 394:                                              ; preds = %388
-  %395 = icmp ult i32 %391, 76
+  %395 = icmp samesign ult i32 %391, 76
   br i1 %395, label %396, label %405
 
 396:                                              ; preds = %394
-  %397 = icmp ult i32 %391, 53
+  %397 = icmp samesign ult i32 %391, 53
   br i1 %397, label %411, label %398
 
 398:                                              ; preds = %396
   store i32 0, ptr %10, align 8
-  %399 = icmp ult i32 %391, 55
+  %399 = icmp samesign ult i32 %391, 55
   br i1 %399, label %400, label %401
 
 400:                                              ; preds = %398
@@ -1132,7 +1132,7 @@ Bfree.exit614:                                    ; preds = %297, %298
   br i1 %448, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %449 = icmp ult i32 %.02839.i, 7
+  %449 = icmp samesign ult i32 %.02839.i, 7
   br i1 %449, label %._crit_edge.thread.i, label %455
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.loopexit785
@@ -1486,8 +1486,8 @@ cmp.exit.thread:                                  ; preds = %611
   %621 = and i32 %620, 1048575
   %.not565 = icmp ne i32 %621, 0
   %622 = and i32 %620, 2146435072
-  %623 = icmp ult i32 %622, 112197633
-  %or.cond581 = or i1 %.not565, %623
+  %623 = icmp samesign ult i32 %622, 112197633
+  %or.cond581 = select i1 %.not565, i1 true, i1 %623
   br i1 %or.cond581, label %cmp.exit636.thread, label %624
 
 624:                                              ; preds = %619
@@ -1553,7 +1553,7 @@ cmp.exit636:                                      ; preds = %628
 
 652:                                              ; preds = %650
   %653 = and i32 %646, 2146435072
-  %654 = icmp ult i32 %653, 111149057
+  %654 = icmp samesign ult i32 %653, 111149057
   br i1 %654, label %655, label %659
 
 655:                                              ; preds = %652
@@ -1591,12 +1591,12 @@ cmp.exit636.thread764:                            ; preds = %641, %668, %cmp.exi
   %672 = phi i32 [ %620, %cmp.exit636 ], [ %646, %668 ], [ %620, %641 ]
   %.4 = phi ptr [ %629, %cmp.exit636 ], [ %592, %668 ], [ %629, %641 ]
   %.pre1154 = and i32 %672, 2146435072
-  %673 = icmp ugt i32 %.pre1154, 112197632
-  %or.cond1337.not = or i1 %673, %504
+  %673 = icmp samesign ugt i32 %.pre1154, 112197632
+  %or.cond1337.not = select i1 %504, i1 true, i1 %673
   br i1 %or.cond1337.not, label %cmp.exit636.thread764._crit_edge, label %674
 
 674:                                              ; preds = %cmp.exit636.thread764
-  %675 = icmp ugt i32 %.pre1154, 57671680
+  %675 = icmp samesign ugt i32 %.pre1154, 57671680
   %brmerge = or i1 %500, %675
   br i1 %brmerge, label %cmp.exit636.thread, label %411
 
@@ -1635,7 +1635,7 @@ cmp.exit636.thread764._crit_edge:                 ; preds = %cmp.exit636.thread7
 687:                                              ; preds = %686
   %688 = lshr i32 %646, 20
   %689 = and i32 %688, 2047
-  %690 = icmp ugt i32 %689, 106
+  %690 = icmp samesign ugt i32 %689, 106
   br i1 %690, label %sulp.exit, label %691
 
 691:                                              ; preds = %687
@@ -1660,7 +1660,7 @@ sulp.exit:                                        ; preds = %686, %687, %691
 699:                                              ; preds = %698
   %700 = lshr i32 %646, 20
   %701 = and i32 %700, 2047
-  %702 = icmp ugt i32 %701, 106
+  %702 = icmp samesign ugt i32 %701, 106
   br i1 %702, label %sulp.exit645, label %703
 
 703:                                              ; preds = %699
@@ -1799,7 +1799,7 @@ ratio.exit:                                       ; preds = %724, %729
   %769 = lshr i64 %768, 32
   %770 = trunc nuw i64 %769 to i32
   %771 = and i32 %770, 2145386496
-  %772 = icmp ugt i32 %771, 2090860543
+  %772 = icmp samesign ugt i32 %771, 2090860543
   br i1 %772, label %773, label %775
 
 773:                                              ; preds = %762
@@ -1817,8 +1817,8 @@ ratio.exit:                                       ; preds = %724, %729
   br label %809
 
 777:                                              ; preds = %.thread766
-  %778 = icmp ult i32 %760, 111149057
-  %or.cond34 = and i1 %502, %778
+  %778 = icmp samesign ult i32 %760, 111149057
+  %or.cond34 = select i1 %502, i1 %778, i1 false
   br i1 %or.cond34, label %779, label %800
 
 779:                                              ; preds = %777
@@ -2488,7 +2488,7 @@ Bfree.exit167.i:                                  ; preds = %1047, %1046, %Bfree
 1059:                                             ; preds = %._crit_edge255.i
   %1060 = lshr i32 %.val160.i, 20
   %1061 = and i32 %1060, 2047
-  %1062 = icmp ugt i32 %1061, 106
+  %1062 = icmp samesign ugt i32 %1061, 106
   br i1 %1062, label %sulp.exit.i, label %1063
 
 1063:                                             ; preds = %1059
@@ -2525,7 +2525,7 @@ sulp.exit.i:                                      ; preds = %1063, %1059, %._cri
 1076:                                             ; preds = %._crit_edge251.i
   %1077 = lshr i32 %1071, 20
   %1078 = and i32 %1077, 2047
-  %1079 = icmp ugt i32 %1078, 106
+  %1079 = icmp samesign ugt i32 %1078, 106
   br i1 %1079, label %sulp.exit175.i, label %1080
 
 1080:                                             ; preds = %1076
@@ -2670,7 +2670,7 @@ Balloc.exit:                                      ; preds = %7, %9
   %19 = and i32 %17, 2147483647
   store i32 %19, ptr %16, align 4
   %20 = lshr i32 %19, 20
-  %.not = icmp ult i32 %19, 1048576
+  %.not = icmp samesign ult i32 %19, 1048576
   %21 = or disjoint i32 %18, 1048576
   %spec.select = select i1 %.not, i32 %18, i32 %21
   %22 = load i32, ptr %1, align 8
@@ -2902,7 +2902,7 @@ define internal fastcc ptr @pow5mult(ptr nocapture noundef %0, ptr noundef %1, i
 11:                                               ; preds = %5, %3
   %.028 = phi ptr [ %10, %5 ], [ %1, %3 ]
   %12 = lshr i32 %2, 2
-  %.not36 = icmp ult i32 %2, 4
+  %.not36 = icmp samesign ult i32 %2, 4
   br i1 %.not36, label %.loopexit, label %13
 
 13:                                               ; preds = %11
@@ -2987,7 +2987,7 @@ i2b.exit:                                         ; preds = %19, %21
 
 Bfree.exit:                                       ; preds = %37, %36, %30, %28
   %.2 = phi ptr [ %.129, %28 ], [ %31, %30 ], [ %31, %36 ], [ %31, %37 ]
-  %.not39 = icmp ult i32 %.030, 2
+  %.not39 = icmp samesign ult i32 %.030, 2
   br i1 %.not39, label %.loopexit, label %41
 
 41:                                               ; preds = %Bfree.exit
@@ -3793,7 +3793,7 @@ select.unfold:                                    ; preds = %112
   %.1462 = phi i32 [ %.0461, %132 ], [ %135, %134 ]
   %or.cond3 = icmp ugt i32 %2, 9
   %spec.store.select29 = select i1 %or.cond3, i32 0, i32 %2
-  %138 = icmp ult i32 %spec.store.select29, 6
+  %138 = icmp samesign ult i32 %spec.store.select29, 6
   %139 = add nsw i32 %spec.store.select29, -4
   %spec.select = select i1 %138, i32 %spec.store.select29, i32 %139
   switch i32 %spec.select, label %default.unreachable [
@@ -3832,7 +3832,7 @@ default.unreachable:                              ; preds = %137
   %.0500 = phi i32 [ %144, %143 ], [ %spec.store.select, %141 ]
   %.0477 = phi i32 [ %.2479, %143 ], [ %.1478, %141 ]
   %.0446 = phi i32 [ %3, %143 ], [ %spec.store.select, %141 ]
-  %.not9.i = icmp ult i32 %.1502, 28
+  %.not9.i = icmp samesign ult i32 %.1502, 28
   br i1 %.not9.i, label %._crit_edge.thread.i, label %.lr.ph.i616.preheader
 
 .lr.ph.i616.preheader:                            ; preds = %146
@@ -3848,7 +3848,7 @@ default.unreachable:                              ; preds = %137
   br i1 %.not.i617, label %._crit_edge.i618, label %.lr.ph.i616, !llvm.loop !35
 
 ._crit_edge.i618:                                 ; preds = %.lr.ph.i616
-  %149 = icmp ult i32 %.0810.i, 7
+  %149 = icmp samesign ult i32 %.0810.i, 7
   br i1 %149, label %._crit_edge.thread.i, label %155
 
 ._crit_edge.thread.i:                             ; preds = %137, %137, %._crit_edge.i618, %146
@@ -3945,7 +3945,7 @@ rv_alloc.exit:                                    ; preds = %153, %155
   %.1418 = phi double [ %184, %180 ], [ %.0417860, %.lr.ph861 ]
   %186 = lshr i32 %.1497859, 1
   %indvars.iv.next1014 = add nuw nsw i64 %indvars.iv1013, 1
-  %.not559 = icmp ult i32 %.1497859, 2
+  %.not559 = icmp samesign ult i32 %.1497859, 2
   br i1 %.not559, label %._crit_edge, label %.lr.ph861, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %185, %169
@@ -3993,7 +3993,7 @@ rv_alloc.exit:                                    ; preds = %153, %155
   %.5522 = phi i32 [ %200, %199 ], [ %.4521852, %.lr.ph ]
   %206 = lshr i32 %.2498854, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not556 = icmp ult i32 %.2498854, 2
+  %.not556 = icmp samesign ult i32 %.2498854, 2
   br i1 %.not556, label %.loopexit763, label %.lr.ph, !llvm.loop !37
 
 .loopexit763:                                     ; preds = %204, %190, %188, %._crit_edge
@@ -4086,7 +4086,7 @@ rv_alloc.exit:                                    ; preds = %153, %155
   %.sroa.0.1 = phi double [ %250, %247 ], [ %.sroa.0.0867, %.lr.ph869 ]
   %252 = lshr i32 %.3499866, 1
   %indvars.iv.next1017 = add nuw nsw i64 %indvars.iv1016, 1
-  %.not561 = icmp ult i32 %.3499866, 2
+  %.not561 = icmp samesign ult i32 %.3499866, 2
   br i1 %.not561, label %._crit_edge870, label %.lr.ph869, !llvm.loop !38
 
 ._crit_edge870:                                   ; preds = %251
@@ -5666,7 +5666,7 @@ define noundef ptr @jvp_dtoa_fmt(ptr nocapture noundef %0, ptr noundef returned 
   %52 = add i8 %51, 48
   %53 = getelementptr inbounds i8, ptr %.2, i64 3
   store i8 %52, ptr %.4, align 1
-  %54 = icmp ult i32 %.042, 2
+  %54 = icmp samesign ult i32 %.042, 2
   br i1 %54, label %.loopexit.sink.split, label %.lr.ph80
 
 .lr.ph80:                                         ; preds = %.preheader59, %.lr.ph80
@@ -5852,7 +5852,7 @@ define internal fastcc double @b2d(ptr noundef readonly %0, ptr nocapture nounde
   %.020.i = select i1 %.not241.i, i32 %.3.i, i32 %spec.select27.i
   %16 = sub nuw nsw i32 32, %.020.i
   store i32 %16, ptr %1, align 4
-  %17 = icmp ult i32 %.020.i, 11
+  %17 = icmp samesign ult i32 %.020.i, 11
   br i1 %17, label %18, label %31
 
 18:                                               ; preds = %2

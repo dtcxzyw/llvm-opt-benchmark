@@ -457,8 +457,8 @@ thread-pre-split.thread:                          ; preds = %8
   %15 = getelementptr inbounds i8, ptr %.val8.i, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1
   %17 = icmp ne i8 %16, 10
-  %18 = icmp ult i64 %.09.i.idx, 999
-  %19 = and i1 %18, %17
+  %18 = icmp samesign ult i64 %.09.i.idx, 999
+  %19 = select i1 %17, i1 %18, i1 false
   br i1 %19, label %.lr.ph.i, label %BacManReadBacLine.exit, !llvm.loop !4
 
 BacManReadBacLine.exit:                           ; preds = %.lr.ph.i
@@ -581,8 +581,8 @@ BacManReadBacLine.exit37.thread:                  ; preds = %Bac_ManNtk.exit
   %62 = getelementptr inbounds i8, ptr %.val8.i31, i64 %indvars.iv131
   %63 = load i8, ptr %62, align 1
   %64 = icmp ne i8 %63, 10
-  %65 = icmp ult i64 %.09.i35.idx, 999
-  %66 = and i1 %65, %64
+  %65 = icmp samesign ult i64 %.09.i35.idx, 999
+  %66 = select i1 %64, i1 %65, i1 false
   br i1 %66, label %.lr.ph.i34, label %BacManReadBacLine.exit37, !llvm.loop !4
 
 BacManReadBacLine.exit37:                         ; preds = %.lr.ph.i34

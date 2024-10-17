@@ -2937,7 +2937,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit131.i: ; pred
   %.sroa.0215.1264.i = phi ptr [ %.sroa.0215.0.i, %.lr.ph266.i ], [ %.sroa.0215.2.lcssa.i, %_ZN4llvm11SmallVectorIPKN5clang4ento7SymExprELj1024EED2Ev.exit180.i ]
   %138 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %30) #21
   %139 = zext i32 %138 to i64
-  %.not109.i = icmp ult i64 %indvars.iv.i, %139
+  %.not109.i = icmp samesign ult i64 %indvars.iv.i, %139
   br i1 %.not109.i, label %140, label %._crit_edge.i
 
 140:                                              ; preds = %137
@@ -3570,7 +3570,7 @@ _ZN4llvm11SmallVectorIPKN5clang4ento7SymExprELj1024EED2Ev.exit180.i: ; preds = %
   %380 = load ptr, ptr %379, align 8
   %381 = call noundef i32 %380(ptr noundef nonnull align 8 dereferenceable(72) %1) #21
   %382 = zext i32 %381 to i64
-  %383 = icmp ult i64 %indvars.iv.next.i, %382
+  %383 = icmp samesign ult i64 %indvars.iv.next.i, %382
   br i1 %383, label %137, label %._crit_edge.i, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm11SmallVectorIPKN5clang4ento7SymExprELj1024EED2Ev.exit180.i, %137, %122
@@ -4309,7 +4309,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %42, %_ZNK5clang9Nam
   br label %_ZN12_GLOBAL__N_126FuchsiaHandleSymbolVisitorD2Ev.exit
 
 57:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit
-  %58 = icmp ugt i32 %.0, 1
+  %58 = icmp samesign ugt i32 %.0, 1
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %57
@@ -5573,7 +5573,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBA
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit57: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit, %9
   %12 = phi i32 [ %11, %9 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit ]
   %13 = add nuw nsw i32 %12, 2
-  %14 = icmp ugt i32 %8, %13
+  %14 = icmp samesign ugt i32 %8, %13
   br i1 %14, label %15, label %38
 
 15:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit57
@@ -5603,7 +5603,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBA
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit63: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit60, %22
   %25 = phi i32 [ %24, %22 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit60 ]
-  %.not47 = icmp ult i32 %21, %25
+  %.not47 = icmp samesign ult i32 %21, %25
   br i1 %.not47, label %30, label %26
 
 26:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit63
@@ -5626,7 +5626,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBA
 
 38:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit57
   %39 = add nuw nsw i32 %8, 2
-  %40 = icmp ugt i32 %12, %39
+  %40 = icmp samesign ugt i32 %12, %39
   br i1 %40, label %41, label %64
 
 41:                                               ; preds = %38
@@ -5656,7 +5656,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBA
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit69: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit66, %48
   %51 = phi i32 [ %50, %48 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit66 ]
-  %.not = icmp ult i32 %47, %51
+  %.not = icmp samesign ult i32 %47, %51
   br i1 %.not, label %56, label %52
 
 52:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit69
@@ -7780,7 +7780,7 @@ _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12
   %indvars.iv.i = phi i64 [ 0, %.lr.ph151.i ], [ %indvars.iv.next.i, %167 ]
   %72 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %22) #21
   %73 = zext i32 %72 to i64
-  %.not57.i = icmp ult i64 %indvars.iv.i, %73
+  %.not57.i = icmp samesign ult i64 %indvars.iv.i, %73
   br i1 %.not57.i, label %74, label %._crit_edge.i
 
 74:                                               ; preds = %71
@@ -8031,7 +8031,7 @@ _ZN4llvm11SmallVectorIPKN5clang4ento7SymExprELj1024EED2Ev.exit.i: ; preds = %166
   %170 = load ptr, ptr %169, align 8
   %171 = call noundef i32 %170(ptr noundef nonnull align 8 dereferenceable(72) %1) #21
   %172 = zext i32 %171 to i64
-  %173 = icmp ult i64 %indvars.iv.next.i, %172
+  %173 = icmp samesign ult i64 %indvars.iv.next.i, %172
   br i1 %173, label %71, label %._crit_edge.i, !llvm.loop !179
 
 ._crit_edge.i:                                    ; preds = %167, %71, %.preheader146.i
@@ -9000,7 +9000,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit: ; pre
   %indvars.iv = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next, %_ZN4llvm11SmallVectorIPKN5clang4ento7SymExprELj1024EED2Ev.exit ]
   %35 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %spec.select.i.i.i) #21
   %36 = zext i32 %35 to i64
-  %.not50 = icmp ult i64 %indvars.iv, %36
+  %.not50 = icmp samesign ult i64 %indvars.iv, %36
   br i1 %.not50, label %37, label %.loopexit27
 
 37:                                               ; preds = %34
@@ -9522,7 +9522,7 @@ _ZN4llvm11SmallVectorIPKN5clang4ento7SymExprELj1024EED2Ev.exit: ; preds = %._cri
   %296 = load ptr, ptr %295, align 8
   %297 = call noundef i32 %296(ptr noundef nonnull align 8 dereferenceable(72) %3) #21
   %298 = zext i32 %297 to i64
-  %299 = icmp ult i64 %indvars.iv.next, %298
+  %299 = icmp samesign ult i64 %indvars.iv.next, %298
   br i1 %299, label %34, label %.loopexit27, !llvm.loop !221
 
 .loopexit27:                                      ; preds = %34, %_ZN4llvm11SmallVectorIPKN5clang4ento7SymExprELj1024EED2Ev.exit, %.preheader, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit

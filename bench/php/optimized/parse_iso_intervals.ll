@@ -841,11 +841,11 @@ add_error.exit601.i:                              ; preds = %204
 .lr.ph681.i:                                      ; preds = %.preheader619.i, %426
   %.0530680.i = phi i8 [ %427, %426 ], [ %416, %.preheader619.i ]
   %.17679.i = phi ptr [ %433, %426 ], [ %415, %.preheader619.i ]
-  %429 = icmp ult i8 %.0530680.i, 58
+  %429 = icmp samesign ult i8 %.0530680.i, 58
   br i1 %429, label %430, label %437
 
 430:                                              ; preds = %.lr.ph681.i
-  %431 = icmp ult i8 %.0530680.i, 48
+  %431 = icmp samesign ult i8 %.0530680.i, 48
   br i1 %431, label %.thread603.i, label %432
 
 432:                                              ; preds = %430
@@ -1607,7 +1607,7 @@ define internal fastcc i64 @timelib_get_unsigned_nr(ptr nocapture noundef nonnul
   %28 = load i8, ptr %26, align 1
   %29 = add i8 %28, -48
   %or.cond26.i = icmp ult i8 %29, 10
-  %30 = icmp ult i32 %27, %1
+  %30 = icmp samesign ult i32 %27, %1
   %or.cond27.i = select i1 %or.cond26.i, i1 %30, i1 false
   br i1 %or.cond27.i, label %.lr.ph.i, label %.critedge2.i
 
@@ -1667,7 +1667,7 @@ define internal fastcc i64 @timelib_get_nr(ptr nocapture noundef nonnull %0, i32
   %15 = load i8, ptr %13, align 1
   %16 = add i8 %15, -48
   %or.cond26 = icmp ult i8 %16, 10
-  %17 = icmp ult i32 %14, %1
+  %17 = icmp samesign ult i32 %14, %1
   %or.cond27 = select i1 %or.cond26, i1 %17, i1 false
   br i1 %or.cond27, label %.lr.ph, label %.critedge2
 

@@ -340,7 +340,7 @@ define internal fastcc void @raw_heap_insert(ptr nocapture noundef %0, ptr nound
   %23 = zext i32 %22 to i64
   %24 = add nuw nsw i64 %23, 7
   %25 = and i64 %24, 8589934584
-  %26 = icmp ugt i64 %25, 8160
+  %26 = icmp samesign ugt i64 %25, 8160
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %21

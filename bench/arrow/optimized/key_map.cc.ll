@@ -1994,7 +1994,7 @@ for.inc:                                          ; preds = %invoke.cont35, %if.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %inout_num_selected, align 4
   %35 = zext i32 %34 to i64
-  %cmp25 = icmp ult i64 %indvars.iv.next, %35
+  %cmp25 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %cmp25, label %for.body, label %for.end.loopexit, !llvm.loop !25
 
 for.end.loopexit:                                 ; preds = %for.inc

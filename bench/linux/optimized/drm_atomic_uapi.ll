@@ -1708,7 +1708,7 @@ define dso_local i32 @drm_atomic_connector_commit_dpms(ptr noundef %0, ptr nocap
 
 54:                                               ; preds = %50, %44, %38
   %55 = add nuw nsw i64 %39, 1
-  %56 = icmp ult i64 %55, %34
+  %56 = icmp samesign ult i64 %55, %34
   %57 = icmp eq i64 %55, %34
   br i1 %57, label %.loopexit.loopexit, label %38, !llvm.loop !23
 

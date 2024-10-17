@@ -1714,7 +1714,7 @@ cond.end26.us.i:                                  ; preds = %cond.false20.us.i, 
   store i64 %cond27.us.i, ptr %iov_len.us.i, align 8
   %add40.us.i = add i64 %cond27.us.i, %so_far.033.us.i
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %cmp14.us.i = icmp ult i64 %indvars.iv.next39.i, %18
+  %cmp14.us.i = icmp samesign ult i64 %indvars.iv.next39.i, %18
   %cmp15.us.i = icmp ult i64 %add40.us.i, %size
   %27 = select i1 %cmp14.us.i, i1 %cmp15.us.i, i1 false
   br i1 %27, label %for.body.us.i, label %for.end.loopexit.i, !llvm.loop !16
@@ -1981,7 +1981,7 @@ cond.end26.us:                                    ; preds = %for.body.us.cond.en
   %add40.us = add i64 %cond27.us, %so_far.033.us
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %chain.0.us = load ptr, ptr %chain.035.us, align 8
-  %cmp14.us = icmp ult i64 %indvars.iv.next39, %8
+  %cmp14.us = icmp samesign ult i64 %indvars.iv.next39, %8
   %cmp15.us = icmp ult i64 %add40.us, %howmuch
   %17 = select i1 %cmp14.us, i1 %cmp15.us, i1 false
   br i1 %17, label %for.body.us, label %for.end.loopexit, !llvm.loop !16
@@ -2031,7 +2031,7 @@ cond.end26:                                       ; preds = %for.body.cond.end26
   %add40 = add i64 %25, %so_far.033
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %chain.0 = load ptr, ptr %chain.035, align 8
-  %cmp14 = icmp ult i64 %indvars.iv.next, %8
+  %cmp14 = icmp samesign ult i64 %indvars.iv.next, %8
   %cmp15 = icmp ult i64 %add40, %howmuch
   %27 = select i1 %cmp14, i1 %cmp15, i1 false
   br i1 %27, label %for.body, label %for.end.loopexit36, !llvm.loop !16
@@ -5167,7 +5167,7 @@ cond.end26.i:                                     ; preds = %cond.false20.i, %fo
   store i64 %20, ptr %iov_len.i, align 8
   %add40.i = add i64 %20, %so_far.033.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp14.i = icmp ult i64 %indvars.iv.i, 3
+  %cmp14.i = icmp samesign ult i64 %indvars.iv.i, 3
   %cmp15.i = icmp ult i64 %add40.i, %conv21
   %22 = select i1 %cmp14.i, i1 %cmp15.i, i1 false
   br i1 %22, label %for.body.i, label %for.end.loopexit36.i, !llvm.loop !16
@@ -5382,7 +5382,7 @@ if.then15.i:                                      ; preds = %if.end12.i
   %sub.i = sub nuw i64 %howmuch.addr.027.i, %13
   %chain.0.i = load ptr, ptr %chain.029.i, align 8
   %cmp6.i = icmp ne ptr %chain.0.i, null
-  %cmp8.i = icmp ult i64 %indvars.iv.i, 127
+  %cmp8.i = icmp samesign ult i64 %indvars.iv.i, 127
   %or.cond1.i = select i1 %cmp6.i, i1 %cmp8.i, i1 false
   %tobool9.i = icmp ne i64 %sub.i, 0
   %or.cond2.i = select i1 %or.cond1.i, i1 %tobool9.i, i1 false

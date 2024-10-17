@@ -4132,7 +4132,7 @@ define range(i32 -1, -2147483648) i32 @H5T_set_loc(ptr noundef %0, ptr noundef %
   %110 = getelementptr inbounds i8, ptr %109, i64 52
   %111 = load i32, ptr %110, align 4
   %112 = zext i32 %111 to i64
-  %113 = icmp ult i64 %indvars.iv.next, %112
+  %113 = icmp samesign ult i64 %indvars.iv.next, %112
   br i1 %113, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %108
@@ -6331,7 +6331,7 @@ define i32 @H5T_cmp(ptr noundef readonly %0, ptr noundef readonly %1, i1 noundef
   %indvars.iv.next628 = add nuw nsw i64 %indvars.iv627, 1
   %62 = load i32, ptr %39, align 4
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next628, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next628, %63
   br i1 %64, label %.lr.ph563, label %._crit_edge564
 
 ._crit_edge564:                                   ; preds = %.lr.ph563
@@ -6460,7 +6460,7 @@ define i32 @H5T_cmp(ptr noundef readonly %0, ptr noundef readonly %1, i1 noundef
   %111 = getelementptr inbounds i8, ptr %110, i64 52
   %112 = load i32, ptr %111, align 4
   %113 = zext i32 %112 to i64
-  %114 = icmp ult i64 %indvars.iv.next649, %113
+  %114 = icmp samesign ult i64 %indvars.iv.next649, %113
   br i1 %114, label %.lr.ph581, label %.thread492
 
 .lr.ph581:                                        ; preds = %.loopexit506, %109
@@ -6583,7 +6583,7 @@ define i32 @H5T_cmp(ptr noundef readonly %0, ptr noundef readonly %1, i1 noundef
   %indvars.iv.next599 = add nuw nsw i64 %indvars.iv598, 1
   %190 = load i32, ptr %159, align 4
   %191 = zext i32 %190 to i64
-  %192 = icmp ult i64 %indvars.iv.next599, %191
+  %192 = icmp samesign ult i64 %indvars.iv.next599, %191
   br i1 %192, label %.lr.ph529, label %._crit_edge530
 
 ._crit_edge530:                                   ; preds = %.lr.ph529
@@ -6656,7 +6656,7 @@ define i32 @H5T_cmp(ptr noundef readonly %0, ptr noundef readonly %1, i1 noundef
   %216 = trunc nuw i64 %indvars.iv610 to i32
   store i32 %216, ptr %215, align 4
   %indvars.iv.next611 = add nuw nsw i64 %indvars.iv610, 1
-  %217 = icmp ult i64 %indvars.iv.next611, %214
+  %217 = icmp samesign ult i64 %indvars.iv.next611, %214
   br i1 %217, label %.lr.ph539, label %._crit_edge540
 
 ._crit_edge540:                                   ; preds = %.lr.ph539
@@ -10867,7 +10867,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__complete_copy(ptr noundef nonn
   %171 = getelementptr inbounds i8, ptr %170, i64 52
   %172 = load i32, ptr %171, align 4
   %173 = zext i32 %172 to i64
-  %174 = icmp ult i64 %indvars.iv.next176, %173
+  %174 = icmp samesign ult i64 %indvars.iv.next176, %173
   br i1 %174, label %.lr.ph163, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %169
@@ -10994,7 +10994,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__complete_copy(ptr noundef nonn
   %252 = getelementptr inbounds i8, ptr %251, i64 52
   %253 = load i32, ptr %252, align 4
   %254 = zext i32 %253 to i64
-  %255 = icmp ult i64 %indvars.iv.next, %254
+  %255 = icmp samesign ult i64 %indvars.iv.next, %254
   br i1 %255, label %.lr.ph, label %.loopexit
 
 256:                                              ; preds = %188
@@ -11440,7 +11440,7 @@ define range(i32 -1, 1) i32 @H5T__free(ptr noundef %0) local_unnamed_addr #0 {
   %59 = getelementptr inbounds i8, ptr %58, i64 52
   %60 = load i32, ptr %59, align 4
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %indvars.iv.next64, %61
+  %62 = icmp samesign ult i64 %indvars.iv.next64, %61
   br i1 %62, label %.lr.ph55, label %._crit_edge56
 
 ._crit_edge56:                                    ; preds = %56, %.preheader
@@ -11474,7 +11474,7 @@ define range(i32 -1, 1) i32 @H5T__free(ptr noundef %0) local_unnamed_addr #0 {
   %81 = getelementptr inbounds i8, ptr %80, i64 52
   %82 = load i32, ptr %81, align 4
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next, %83
   br i1 %84, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader50

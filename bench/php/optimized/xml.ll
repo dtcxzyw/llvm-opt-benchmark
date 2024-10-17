@@ -362,8 +362,8 @@ define internal void @xml_parser_free_obj(ptr noundef %0) #0 {
   %14 = load i32, ptr %8, align 8
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next.i, %15
-  %17 = icmp ult i64 %indvars.iv.i, 254
-  %18 = and i1 %17, %16
+  %17 = icmp samesign ult i64 %indvars.iv.i, 254
+  %18 = select i1 %16, i1 %17, i1 false
   br i1 %18, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i

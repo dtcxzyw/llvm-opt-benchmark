@@ -1985,7 +1985,7 @@ define internal void @dt_iop_levels_autoadjust_callback(ptr nocapture readnone %
 
 60:                                               ; preds = %55
   %61 = add nuw nsw i64 %16, 32
-  %62 = icmp ult i64 %56, 1017
+  %62 = icmp samesign ult i64 %56, 1017
   br i1 %62, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %60, %20

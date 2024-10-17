@@ -2667,7 +2667,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   %376 = phi ptr [ %370, %.lr.ph.i107 ], [ %382, %.noexc112 ]
   %377 = load i64, ptr %376, align 16, !range !9, !noundef !4
   %378 = or disjoint i64 %377, -8
-  %379 = icmp ult i64 %378, -6
+  %379 = icmp samesign ult i64 %378, -6
   %380 = icmp eq i64 %377, 3
   %381 = or i1 %380, %379
   br i1 %381, label %384, label %.backedge.i109
@@ -4428,7 +4428,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit79.i: ; pre
   %869 = phi ptr [ %853, %.lr.ph.i230 ], [ %875, %.noexc245 ]
   %870 = load i64, ptr %869, align 16, !range !9, !noundef !4
   %871 = or disjoint i64 %870, -8
-  %872 = icmp ult i64 %871, -6
+  %872 = icmp samesign ult i64 %871, -6
   %873 = icmp eq i64 %870, 3
   %874 = or i1 %873, %872
   br i1 %874, label %877, label %.backedge.i235
@@ -4888,7 +4888,7 @@ _ZN14cranelift_isle4sema4Term13has_extractor17h13ad1177cbfb9861E.exit.i: ; preds
   %1016 = phi ptr [ %1012, %.lr.ph.i263 ], [ %1022, %.noexc267 ]
   %1017 = load i64, ptr %1016, align 16, !range !9, !noundef !4
   %1018 = or disjoint i64 %1017, -8
-  %1019 = icmp ult i64 %1018, -6
+  %1019 = icmp samesign ult i64 %1018, -6
   %1020 = icmp eq i64 %1017, 3
   %1021 = or i1 %1020, %1019
   br i1 %1021, label %1024, label %.backedge.i264

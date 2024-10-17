@@ -6124,7 +6124,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
   br i1 %.not.i.i.i.i32, label %_ZSt8distanceISt23_Rb_tree_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i, label %.lr.ph.i.i.i.i31, !llvm.loop !40
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i: ; preds = %.lr.ph.i.i.i.i31
-  %141 = icmp ugt i64 %.06.i.i.i.i, 2305843009213693950
+  %141 = icmp samesign ugt i64 %.06.i.i.i.i, 2305843009213693950
   br i1 %141, label %142, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
 
 142:                                              ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i
@@ -6537,7 +6537,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit23:                  ; preds = %_ZNSt3setIiSt4lessI
   br i1 %.not.i.i.i.i24, label %_ZSt8distanceISt23_Rb_tree_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !40
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %89 = icmp ugt i64 %.06.i.i.i.i, 2305843009213693950
+  %89 = icmp samesign ugt i64 %.06.i.i.i.i, 2305843009213693950
   br i1 %89, label %90, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
 
 90:                                               ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i
@@ -7236,7 +7236,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %170, %.loopexit.spl
   br i1 %.not.i.i.i.i58, label %_ZSt8distanceISt23_Rb_tree_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i, label %.lr.ph.i.i.i.i57, !llvm.loop !40
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i: ; preds = %.lr.ph.i.i.i.i57
-  %233 = icmp ugt i64 %.06.i.i.i.i, 2305843009213693950
+  %233 = icmp samesign ugt i64 %.06.i.i.i.i, 2305843009213693950
   br i1 %233, label %234, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i59
 
 234:                                              ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i

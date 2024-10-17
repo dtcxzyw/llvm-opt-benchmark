@@ -7853,7 +7853,7 @@ _ZN4llvm8DebugLocD2Ev.exit51:                     ; preds = %_ZN4llvm10MIMetadat
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %111 = load i24, ptr %106, align 8
   %112 = zext i24 %111 to i64
-  %113 = icmp ult i64 %indvars.iv.next, %112
+  %113 = icmp samesign ult i64 %indvars.iv.next, %112
   br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !433
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4llvm8DebugLocD2Ev.exit51
@@ -8273,7 +8273,7 @@ _ZN4llvm8DebugLocD2Ev.exit75:                     ; preds = %_ZN4llvm10MIMetadat
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %155 = load i24, ptr %150, align 8
   %156 = zext i24 %155 to i64
-  %157 = icmp ult i64 %indvars.iv.next, %156
+  %157 = icmp samesign ult i64 %indvars.iv.next, %156
   br i1 %157, label %.lr.ph, label %._crit_edge, !llvm.loop !449
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4llvm8DebugLocD2Ev.exit75

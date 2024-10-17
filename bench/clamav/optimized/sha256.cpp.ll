@@ -220,7 +220,7 @@ define void @_Z11sha256_doneP14sha256_contextPh(ptr nocapture noundef %0, ptr no
   br i1 %.not, label %21, label %11
 
 11:                                               ; preds = %2
-  %12 = icmp ugt i32 %6, 55
+  %12 = icmp samesign ugt i32 %6, 55
   br i1 %12, label %.preheader, label %16
 
 .preheader:                                       ; preds = %11

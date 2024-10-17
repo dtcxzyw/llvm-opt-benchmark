@@ -1177,7 +1177,7 @@ define hidden noundef ptr @_ZN13MethodHandles22init_method_MemberNameE6HandleR8C
   %20 = add nsw i32 %15, 1
   %21 = icmp sgt i32 %15, -1
   %22 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %20)
-  %23 = icmp ult i32 %22, 2
+  %23 = icmp samesign ult i32 %22, 2
   %or.cond.i.i.i.i.i.i = select i1 %21, i1 %23, i1 false
   %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
   %25 = sub nuw nsw i32 32, %24
@@ -2712,7 +2712,7 @@ _ZNK6HandleclEv.exit115:                          ; preds = %.thread171
   br i1 %.not93, label %_ZNK6HandleclEv.exit116, label %130
 
 130:                                              ; preds = %128
-  %131 = icmp ult i32 %129, 398
+  %131 = icmp samesign ult i32 %129, 398
   %not. = xor i1 %127, %131
   br label %_ZNK6HandleclEv.exit116
 
@@ -3122,7 +3122,7 @@ _ZNK6HandleclEv.exit52:                           ; preds = %30, %31
   %47 = add nsw i32 %42, 1
   %48 = icmp sgt i32 %42, -1
   %49 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %47)
-  %50 = icmp ult i32 %49, 2
+  %50 = icmp samesign ult i32 %49, 2
   %or.cond.i.i.i.i.i.i = select i1 %48, i1 %50, i1 false
   %51 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %47, i1 true)
   %52 = sub nuw nsw i32 32, %51
@@ -6315,7 +6315,7 @@ define linkonce_odr hidden noundef ptr @_ZN12ConstantPool35resolve_possibly_cach
   %13 = add nsw i32 %8, 1
   %14 = icmp sgt i32 %8, -1
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %or.cond.i.i.i.i.i.i = select i1 %14, i1 %16, i1 false
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %18 = sub nuw nsw i32 32, %17
@@ -6381,7 +6381,7 @@ define linkonce_odr hidden void @_ZN12ConstantPool27copy_bootstrap_arguments_atE
   %19 = add nsw i32 %14, 1
   %20 = icmp sgt i32 %14, -1
   %21 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %19)
-  %22 = icmp ult i32 %21, 2
+  %22 = icmp samesign ult i32 %21, 2
   %or.cond.i.i.i.i.i.i = select i1 %20, i1 %22, i1 false
   %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %24 = sub nuw nsw i32 32, %23

@@ -544,7 +544,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
   %u32.0.copyload.i.i = load i32, ptr %add.ptr.i, align 1
   %conv.i = zext i32 %u32.0.copyload.i.i to i64
-  %cmp.not.i = icmp ult i64 %i.07, %conv.i
+  %cmp.not.i = icmp samesign ult i64 %i.07, %conv.i
   br i1 %cmp.not.i, label %_ZN6node_t7node_atEm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
@@ -672,7 +672,7 @@ for.body:                                         ; preds = %while.body, %for.in
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i64 %prefix_byte_index.270, 1
   %inc16 = add nuw i64 %key_byte_index.271, 1
-  %cmp8 = icmp ult i64 %inc, %conv
+  %cmp8 = icmp samesign ult i64 %inc, %conv
   %cmp9 = icmp ult i64 %inc16, %key_size_
   %6 = select i1 %cmp8, i1 %cmp9, i1 false
   br i1 %6, label %for.body, label %for.end, !llvm.loop !6
@@ -713,7 +713,7 @@ for.body32:                                       ; preds = %for.body32.lr.ph, %
   %i.076 = phi i64 [ 0, %for.body32.lr.ph ], [ %inc42, %for.inc41 ]
   %u32.0.copyload.i.i = load i32, ptr %add.ptr.i31, align 1
   %conv.i = zext i32 %u32.0.copyload.i.i to i64
-  %cmp.not.i = icmp ult i64 %i.076, %conv.i
+  %cmp.not.i = icmp samesign ult i64 %i.076, %conv.i
   br i1 %cmp.not.i, label %_ZN6node_t13first_byte_atEm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body32
@@ -739,7 +739,7 @@ if.then38:                                        ; preds = %_ZN6node_t13first_b
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
   %u32.0.copyload.i.i34 = load i32, ptr %add.ptr.i31, align 1
   %conv.i35 = zext i32 %u32.0.copyload.i.i34 to i64
-  %cmp.not.i36 = icmp ult i64 %i.076, %conv.i35
+  %cmp.not.i36 = icmp samesign ult i64 %i.076, %conv.i35
   br i1 %cmp.not.i36, label %for.end43, label %if.then.i37
 
 if.then.i37:                                      ; preds = %if.then38
@@ -1555,7 +1555,7 @@ for.inc:                                          ; preds = %invoke.cont
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 8
   %u32.0.copyload.i5 = load i32, ptr %add.ptr.i, align 1
   %conv = zext i32 %u32.0.copyload.i5 to i64
-  %cmp4 = icmp ult i64 %inc, %conv
+  %cmp4 = icmp samesign ult i64 %inc, %conv
   br i1 %cmp4, label %do.end.i, label %for.end, !llvm.loop !9
 
 lpad:                                             ; preds = %do.end.i, %invoke.cont
@@ -1763,7 +1763,7 @@ for.body:                                         ; preds = %if.end18, %_ZN6node
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
   %u32.0.copyload.i.i = load i32, ptr %add.ptr.i26, align 1
   %conv.i = zext i32 %u32.0.copyload.i.i to i64
-  %cmp.not.i = icmp ult i64 %i.040, %conv.i
+  %cmp.not.i = icmp samesign ult i64 %i.040, %conv.i
   br i1 %cmp.not.i, label %_ZN6node_t7node_atEm.exit, label %if.then.i28
 
 if.then.i28:                                      ; preds = %for.body

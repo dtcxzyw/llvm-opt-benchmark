@@ -130,7 +130,7 @@ define internal i32 @dissect_ssyncp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %10 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef 0, i32 noundef 0) #4
   %11 = lshr i64 %10, 63
   %12 = and i64 %10, 9223372036854775807
-  %13 = icmp ugt i64 %12, 34359738368
+  %13 = icmp samesign ugt i64 %12, 34359738368
   br i1 %13, label %201, label %14
 
 14:                                               ; preds = %9

@@ -574,7 +574,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont2
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont2 ], [ %div.i5, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -675,7 +675,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %add.ptr.i11.i.i = getelementptr inbounds %"struct.std::atomic.29", ptr %add.ptr.i.i.i, i64 %idx.neg.i.i.i
   store atomic i64 0, ptr %add.ptr.i11.i.i release, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %cmp8.i.i = icmp ult i64 %indvars.iv.i.i, 11
+  %cmp8.i.i = icmp samesign ult i64 %indvars.iv.i.i, 11
   br i1 %cmp8.i.i, label %for.body.i.i, label %invoke.cont, !llvm.loop !8
 
 invoke.cont:                                      ; preds = %for.body.i.i
@@ -1361,9 +1361,9 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   %inc.i.i = add nuw nsw i32 %height.06.i.i, 1
   %3 = load i16, ptr %skip_list_, align 8
   %conv.i.i = zext i16 %3 to i32
-  %cmp.i.i = icmp ult i32 %inc.i.i, %conv.i.i
-  %cmp2.i.i = icmp ult i32 %height.06.i.i, 31
-  %or.cond.i.i = and i1 %cmp2.i.i, %cmp.i.i
+  %cmp.i.i = icmp samesign ult i32 %inc.i.i, %conv.i.i
+  %cmp2.i.i = icmp samesign ult i32 %height.06.i.i, 31
+  %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp2.i.i, i1 false
   br i1 %or.cond.i.i, label %land.rhs.i.i, label %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE11AllocateKeyEm.exit, !llvm.loop !10
 
 _ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE11AllocateKeyEm.exit: ; preds = %land.rhs.i.i, %while.body.i.i, %entry

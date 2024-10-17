@@ -2916,7 +2916,7 @@ define noalias noundef ptr @Mio_ParseFormulaTruth(ptr noundef %0, ptr nocapture 
 
 27:                                               ; preds = %.loopexit.i, %.preheader187.i
   %indvars.iv238.i = phi i64 [ 0, %.preheader187.i ], [ %indvars.iv.next239.i, %.loopexit.i ]
-  %28 = icmp ult i64 %indvars.iv238.i, 6
+  %28 = icmp samesign ult i64 %indvars.iv238.i, 6
   br i1 %28, label %.preheader.i, label %.preheader185.i
 
 .preheader185.i:                                  ; preds = %27

@@ -183,7 +183,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %._crit_edge, %_ZL16
   %31 = trunc i64 %.0.i9 to i8
   %32 = and i8 %31, 127
   %33 = lshr i64 %.0.i9, 7
-  %.not.i10 = icmp ult i64 %.0.i9, 128
+  %.not.i10 = icmp samesign ult i64 %.0.i9, 128
   %masksel.i11 = select i1 %.not.i10, i8 0, i8 -128
   %storemerge.i12 = or disjoint i8 %32, %masksel.i11
   store i8 %storemerge.i12, ptr %4, align 1
@@ -5531,7 +5531,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:
   %11 = trunc i64 %.0.i6 to i8
   %12 = and i8 %11, 127
   %13 = lshr i64 %.0.i6, 7
-  %.not.i7 = icmp ult i64 %.0.i6, 128
+  %.not.i7 = icmp samesign ult i64 %.0.i6, 128
   %masksel.i8 = select i1 %.not.i7, i8 0, i8 -128
   %storemerge.i9 = or disjoint i8 %12, %masksel.i8
   store i8 %storemerge.i9, ptr %7, align 1
@@ -5580,7 +5580,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:
   %8 = trunc i64 %.0.i2 to i8
   %9 = and i8 %8, 127
   %10 = lshr i64 %.0.i2, 7
-  %.not.i3 = icmp ult i64 %.0.i2, 128
+  %.not.i3 = icmp samesign ult i64 %.0.i2, 128
   %masksel.i4 = select i1 %.not.i3, i8 0, i8 -128
   %storemerge.i5 = or disjoint i8 %9, %masksel.i4
   store i8 %storemerge.i5, ptr %4, align 1
@@ -5598,7 +5598,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit6:             ; preds = %7
   %13 = trunc i64 %.0.i7 to i8
   %14 = and i8 %13, 127
   %15 = lshr i64 %.0.i7, 7
-  %.not.i8 = icmp ult i64 %.0.i7, 128
+  %.not.i8 = icmp samesign ult i64 %.0.i7, 128
   %masksel.i9 = select i1 %.not.i8, i8 0, i8 -128
   %storemerge.i10 = or disjoint i8 %14, %masksel.i9
   store i8 %storemerge.i10, ptr %3, align 1
@@ -5768,7 +5768,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detai
   %73 = trunc i64 %.0.i2.i to i8
   %74 = and i8 %73, 127
   %75 = lshr i64 %.0.i2.i, 7
-  %.not.i3.i = icmp ult i64 %.0.i2.i, 128
+  %.not.i3.i = icmp samesign ult i64 %.0.i2.i, 128
   %masksel.i4.i = select i1 %.not.i3.i, i8 0, i8 -128
   %storemerge.i5.i = or disjoint i8 %74, %masksel.i4.i
   store i8 %storemerge.i5.i, ptr %8, align 1
@@ -5786,7 +5786,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit6.i:           ; preds = %72
   %78 = trunc i64 %.0.i7.i to i8
   %79 = and i8 %78, 127
   %80 = lshr i64 %.0.i7.i, 7
-  %.not.i8.i = icmp ult i64 %.0.i7.i, 128
+  %.not.i8.i = icmp samesign ult i64 %.0.i7.i, 128
   %masksel.i9.i = select i1 %.not.i8.i, i8 0, i8 -128
   %storemerge.i10.i = or disjoint i8 %79, %masksel.i9.i
   store i8 %storemerge.i10.i, ptr %7, align 1
@@ -5810,7 +5810,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %_ZN4llvm12DenseMapB
   %82 = trunc i64 %.0.i28 to i8
   %83 = and i8 %82, 127
   %84 = lshr i64 %.0.i28, 7
-  %.not.i29 = icmp ult i64 %.0.i28, 128
+  %.not.i29 = icmp samesign ult i64 %.0.i28, 128
   %masksel.i30 = select i1 %.not.i29, i8 0, i8 -128
   %storemerge.i31 = or disjoint i8 %83, %masksel.i30
   store i8 %storemerge.i31, ptr %5, align 1
@@ -5853,7 +5853,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:
   %12 = trunc i64 %.0.i12 to i8
   %13 = and i8 %12, 127
   %14 = lshr i64 %.0.i12, 7
-  %.not.i13 = icmp ult i64 %.0.i12, 128
+  %.not.i13 = icmp samesign ult i64 %.0.i12, 128
   %masksel.i14 = select i1 %.not.i13, i8 0, i8 -128
   %storemerge.i15 = or disjoint i8 %13, %masksel.i14
   store i8 %storemerge.i15, ptr %5, align 1
@@ -5964,7 +5964,7 @@ _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %41, %43
   %52 = trunc i64 %.0.i4.i to i8
   %53 = and i8 %52, 127
   %54 = lshr i64 %.0.i4.i, 7
-  %.not.i5.i = icmp ult i64 %.0.i4.i, 128
+  %.not.i5.i = icmp samesign ult i64 %.0.i4.i, 128
   %masksel.i6.i = select i1 %.not.i5.i, i8 0, i8 -128
   %storemerge.i7.i = or disjoint i8 %53, %masksel.i6.i
   store i8 %storemerge.i7.i, ptr %3, align 1
@@ -6086,7 +6086,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %_ZN4llvm12DenseMapB
   %45 = trunc i64 %.0.i6 to i8
   %46 = and i8 %45, 127
   %47 = lshr i64 %.0.i6, 7
-  %.not.i7 = icmp ult i64 %.0.i6, 128
+  %.not.i7 = icmp samesign ult i64 %.0.i6, 128
   %masksel.i8 = select i1 %.not.i7, i8 0, i8 -128
   %storemerge.i9 = or disjoint i8 %46, %masksel.i8
   store i8 %storemerge.i9, ptr %4, align 1
@@ -6216,7 +6216,7 @@ _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %select.unfold.i, %1
   %44 = trunc i64 %.0.i4.i to i8
   %45 = and i8 %44, 127
   %46 = lshr i64 %.0.i4.i, 7
-  %.not.i5.i = icmp ult i64 %.0.i4.i, 128
+  %.not.i5.i = icmp samesign ult i64 %.0.i4.i, 128
   %masksel.i6.i = select i1 %.not.i5.i, i8 0, i8 -128
   %storemerge.i7.i = or disjoint i8 %45, %masksel.i6.i
   store i8 %storemerge.i7.i, ptr %4, align 1
@@ -6275,7 +6275,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:
   %11 = trunc i64 %.0.i4 to i8
   %12 = and i8 %11, 127
   %13 = lshr i64 %.0.i4, 7
-  %.not.i5 = icmp ult i64 %.0.i4, 128
+  %.not.i5 = icmp samesign ult i64 %.0.i4, 128
   %masksel.i6 = select i1 %.not.i5, i8 0, i8 -128
   %storemerge.i7 = or disjoint i8 %12, %masksel.i6
   store i8 %storemerge.i7, ptr %5, align 1
@@ -6413,7 +6413,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %3
   %35 = trunc i64 %.0.i23 to i8
   %36 = and i8 %35, 127
   %37 = lshr i64 %.0.i23, 7
-  %.not.i24 = icmp ult i64 %.0.i23, 128
+  %.not.i24 = icmp samesign ult i64 %.0.i23, 128
   %masksel.i25 = select i1 %.not.i24, i8 0, i8 -128
   %storemerge.i26 = or disjoint i8 %36, %masksel.i25
   store i8 %storemerge.i26, ptr %21, align 1
@@ -6517,7 +6517,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit47:            ; preds = %3
   %64 = trunc i64 %.0.i48 to i8
   %65 = and i8 %64, 127
   %66 = lshr i64 %.0.i48, 7
-  %.not.i49 = icmp ult i64 %.0.i48, 128
+  %.not.i49 = icmp samesign ult i64 %.0.i48, 128
   %masksel.i50 = select i1 %.not.i49, i8 0, i8 -128
   %storemerge.i51 = or disjoint i8 %65, %masksel.i50
   store i8 %storemerge.i51, ptr %15, align 1
@@ -6573,7 +6573,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit62:            ; preds = %3
   %78 = trunc i64 %.0.i63 to i8
   %79 = and i8 %78, 127
   %80 = lshr i64 %.0.i63, 7
-  %.not.i64 = icmp ult i64 %.0.i63, 128
+  %.not.i64 = icmp samesign ult i64 %.0.i63, 128
   %masksel.i65 = select i1 %.not.i64, i8 0, i8 -128
   %storemerge.i66 = or disjoint i8 %79, %masksel.i65
   store i8 %storemerge.i66, ptr %11, align 1
@@ -6612,7 +6612,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit77:            ; preds = %3, %3, %3
   %85 = trunc i64 %.0.i78 to i8
   %86 = and i8 %85, 127
   %87 = lshr i64 %.0.i78, 7
-  %.not.i79 = icmp ult i64 %.0.i78, 128
+  %.not.i79 = icmp samesign ult i64 %.0.i78, 128
   %masksel.i80 = select i1 %.not.i79, i8 0, i8 -128
   %storemerge.i81 = or disjoint i8 %86, %masksel.i80
   store i8 %storemerge.i81, ptr %7, align 1
@@ -6649,7 +6649,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit82:            ; preds = %84
   %99 = trunc i64 %.0.i88 to i8
   %100 = and i8 %99, 127
   %101 = lshr i64 %.0.i88, 7
-  %.not.i89 = icmp ult i64 %.0.i88, 128
+  %.not.i89 = icmp samesign ult i64 %.0.i88, 128
   %masksel.i90 = select i1 %.not.i89, i8 0, i8 -128
   %storemerge.i91 = or disjoint i8 %100, %masksel.i90
   store i8 %storemerge.i91, ptr %5, align 1
@@ -6694,7 +6694,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %_ZN4llvm7DIEHash10a
   %117 = trunc i64 %.0.i95 to i8
   %118 = and i8 %117, 127
   %119 = lshr i64 %.0.i95, 7
-  %.not.i96 = icmp ult i64 %.0.i95, 128
+  %.not.i96 = icmp samesign ult i64 %.0.i95, 128
   %masksel.i97 = select i1 %.not.i96, i8 0, i8 -128
   %storemerge.i98 = or disjoint i8 %118, %masksel.i97
   store i8 %storemerge.i98, ptr %4, align 1

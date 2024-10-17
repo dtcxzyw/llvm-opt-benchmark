@@ -1343,7 +1343,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_init_replay(ptr nocapture n
   %10 = load i32, ptr %4, align 4
   %11 = zext i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 5
-  %13 = icmp ult i64 %12, %9
+  %13 = icmp samesign ult i64 %12, %9
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %6

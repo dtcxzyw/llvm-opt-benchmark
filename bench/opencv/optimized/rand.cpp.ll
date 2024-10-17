@@ -410,7 +410,7 @@ _ZNK2cv11_InputArray6getMatEi.exit481:            ; preds = %59, %62
 94:                                               ; preds = %85
   %95 = and i32 %70, 7
   %96 = icmp eq i32 %95, 6
-  %97 = icmp ult i32 %66, 4
+  %97 = icmp samesign ult i32 %66, 4
   %spec.select = select i1 %96, i1 %97, i1 false
   br i1 %spec.select, label %.critedge453, label %.critedge
 
@@ -495,7 +495,7 @@ _ZNK2cv11_InputArray6getMatEi.exit481:            ; preds = %59, %62
 135:                                              ; preds = %126
   %136 = and i32 %70, 7
   %137 = icmp eq i32 %136, 6
-  %138 = icmp ult i32 %66, 4
+  %138 = icmp samesign ult i32 %66, 4
   %or.cond7 = and i1 %138, %137
   br i1 %or.cond7, label %.critedge460, label %139
 
@@ -739,7 +739,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit:      ; preds = %.noexc486, %_ZN2cv1
 
 227:                                              ; preds = %206, %.loopexit636
   %.0389 = phi ptr [ %215, %.loopexit636 ], [ %179, %206 ]
-  %228 = icmp ult i32 %64, 5
+  %228 = icmp samesign ult i32 %64, 5
   %wide.trip.count706 = zext nneg i32 %67 to i64
   br i1 %228, label %229, label %314
 
@@ -1062,7 +1062,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit:      ; preds = %.noexc486, %_ZN2cv1
 _ZN2cv10AutoBufferIdLm136EE10deallocateEv.exit.i504: ; preds = %376, %371
   %377 = phi ptr [ %68, %376 ], [ %372, %371 ]
   store i64 %368, ptr %69, align 8
-  %378 = icmp ugt i32 %367, 136
+  %378 = icmp samesign ugt i32 %367, 136
   br i1 %378, label %379, label %_ZN2cv10AutoBufferIdLm136EE8allocateEm.exit506
 
 379:                                              ; preds = %_ZN2cv10AutoBufferIdLm136EE10deallocateEv.exit.i504
@@ -1368,7 +1368,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %480, %489
 
 _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit520:   ; preds = %500, %.noexc519
   %508 = phi ptr [ %507, %.noexc519 ], [ %497, %500 ]
-  %509 = icmp ult i32 %64, 5
+  %509 = icmp samesign ult i32 %64, 5
   %510 = icmp sgt i32 %499, 0
   br i1 %509, label %511, label %537
 
@@ -1443,7 +1443,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit520:   ; preds = %500, %.noexc519
 
 528:                                              ; preds = %519
   %indvars.iv.next738 = add nuw nsw i64 %indvars.iv737, %514
-  %529 = icmp ult i64 %indvars.iv.next738, %515
+  %529 = icmp samesign ult i64 %indvars.iv.next738, %515
   br i1 %529, label %.preheader624, label %.loopexit623, !llvm.loop !28
 
 .preheader621:                                    ; preds = %.preheader621.preheader, %535
@@ -1463,7 +1463,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit520:   ; preds = %500, %.noexc519
 
 535:                                              ; preds = %530
   %indvars.iv.next746 = add nuw nsw i64 %indvars.iv745, %517
-  %536 = icmp ult i64 %indvars.iv.next746, %518
+  %536 = icmp samesign ult i64 %indvars.iv.next746, %518
   br i1 %536, label %.preheader621, label %.loopexit623, !llvm.loop !30
 
 537:                                              ; preds = %_ZN2cv10AutoBufferIdLm136EE8allocateEm.exit520
@@ -1509,7 +1509,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit520:   ; preds = %500, %.noexc519
 
 549:                                              ; preds = %544
   %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, %539
-  %550 = icmp ult i64 %indvars.iv.next722, %540
+  %550 = icmp samesign ult i64 %indvars.iv.next722, %540
   br i1 %550, label %.preheader630, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %549, %.preheader631
@@ -1538,7 +1538,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit520:   ; preds = %500, %.noexc519
 
 560:                                              ; preds = %556
   %indvars.iv.next730 = add nuw nsw i64 %indvars.iv729, %542
-  %561 = icmp ult i64 %indvars.iv.next730, %543
+  %561 = icmp samesign ult i64 %indvars.iv.next730, %543
   br i1 %561, label %.preheader627, label %.loopexit623, !llvm.loop !34
 
 562:                                              ; preds = %_ZNK2cv3Mat8elemSizeEv.exit
@@ -4405,7 +4405,7 @@ define internal void @_ZN2cvL11randBits_8uEPhiPmPKNS_3VecIiLi2EEEPvb(ptr nocaptu
   %74 = getelementptr inbounds i8, ptr %0, i64 %60
   store i8 %73, ptr %74, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %.not.i = icmp ugt i64 %indvars.iv.next.i, %9
+  %.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %9
   br i1 %.not.i, label %.loopexit.loopexit118.i, label %.lr.ph.i, !llvm.loop !87
 
 .lr.ph111.i:                                      ; preds = %.lr.ph111.i, %.lr.ph111.preheader.i
@@ -4467,7 +4467,7 @@ define internal void @_ZN2cvL11randBits_8uEPhiPmPKNS_3VecIiLi2EEEPvb(ptr nocaptu
   %125 = getelementptr inbounds i8, ptr %0, i64 %111
   store i8 %124, ptr %125, align 1
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 4
-  %.not101.i = icmp ugt i64 %indvars.iv.next125.i, %11
+  %.not101.i = icmp samesign ugt i64 %indvars.iv.next125.i, %11
   br i1 %.not101.i, label %.loopexit.loopexit.i, label %.lr.ph111.i, !llvm.loop !88
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph111.i
@@ -4611,7 +4611,7 @@ define internal void @_ZN2cvL11randBits_8sEPaiPmPKNS_3VecIiLi2EEEPvb(ptr nocaptu
   %74 = getelementptr inbounds i8, ptr %0, i64 %60
   store i8 %73, ptr %74, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %.not.i = icmp ugt i64 %indvars.iv.next.i, %9
+  %.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %9
   br i1 %.not.i, label %.loopexit.loopexit118.i, label %.lr.ph.i, !llvm.loop !90
 
 .lr.ph111.i:                                      ; preds = %.lr.ph111.i, %.lr.ph111.preheader.i
@@ -4673,7 +4673,7 @@ define internal void @_ZN2cvL11randBits_8sEPaiPmPKNS_3VecIiLi2EEEPvb(ptr nocaptu
   %125 = getelementptr inbounds i8, ptr %0, i64 %111
   store i8 %124, ptr %125, align 1
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 4
-  %.not101.i = icmp ugt i64 %indvars.iv.next125.i, %11
+  %.not101.i = icmp samesign ugt i64 %indvars.iv.next125.i, %11
   br i1 %.not101.i, label %.loopexit.loopexit.i, label %.lr.ph111.i, !llvm.loop !91
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph111.i
@@ -4817,7 +4817,7 @@ define internal void @_ZN2cvL12randBits_16uEPtiPmPKNS_3VecIiLi2EEEPvb(ptr nocapt
   %74 = getelementptr inbounds i16, ptr %0, i64 %60
   store i16 %73, ptr %74, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %.not.i = icmp ugt i64 %indvars.iv.next.i, %9
+  %.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %9
   br i1 %.not.i, label %.loopexit.loopexit118.i, label %.lr.ph.i, !llvm.loop !93
 
 .lr.ph111.i:                                      ; preds = %.lr.ph111.i, %.lr.ph111.preheader.i
@@ -4879,7 +4879,7 @@ define internal void @_ZN2cvL12randBits_16uEPtiPmPKNS_3VecIiLi2EEEPvb(ptr nocapt
   %125 = getelementptr inbounds i16, ptr %0, i64 %111
   store i16 %124, ptr %125, align 2
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 4
-  %.not101.i = icmp ugt i64 %indvars.iv.next125.i, %11
+  %.not101.i = icmp samesign ugt i64 %indvars.iv.next125.i, %11
   br i1 %.not101.i, label %.loopexit.loopexit.i, label %.lr.ph111.i, !llvm.loop !94
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph111.i
@@ -5023,7 +5023,7 @@ define internal void @_ZN2cvL12randBits_16sEPsiPmPKNS_3VecIiLi2EEEPvb(ptr nocapt
   %74 = getelementptr inbounds i16, ptr %0, i64 %60
   store i16 %73, ptr %74, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %.not.i = icmp ugt i64 %indvars.iv.next.i, %9
+  %.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %9
   br i1 %.not.i, label %.loopexit.loopexit118.i, label %.lr.ph.i, !llvm.loop !96
 
 .lr.ph111.i:                                      ; preds = %.lr.ph111.i, %.lr.ph111.preheader.i
@@ -5085,7 +5085,7 @@ define internal void @_ZN2cvL12randBits_16sEPsiPmPKNS_3VecIiLi2EEEPvb(ptr nocapt
   %125 = getelementptr inbounds i16, ptr %0, i64 %111
   store i16 %124, ptr %125, align 2
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 4
-  %.not101.i = icmp ugt i64 %indvars.iv.next125.i, %11
+  %.not101.i = icmp samesign ugt i64 %indvars.iv.next125.i, %11
   br i1 %.not101.i, label %.loopexit.loopexit.i, label %.lr.ph111.i, !llvm.loop !97
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph111.i
@@ -5217,7 +5217,7 @@ define internal void @_ZN2cvL12randBits_32sEPiiPmPKNS_3VecIiLi2EEEPvb(ptr nocapt
   %62 = getelementptr inbounds i32, ptr %0, i64 %54
   store i32 %60, ptr %62, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %.not.i = icmp ugt i64 %indvars.iv.next.i, %9
+  %.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %9
   br i1 %.not.i, label %.loopexit.loopexit118.i, label %.lr.ph.i, !llvm.loop !99
 
 .lr.ph111.i:                                      ; preds = %.lr.ph111.i, %.lr.ph111.preheader.i
@@ -5267,7 +5267,7 @@ define internal void @_ZN2cvL12randBits_32sEPiiPmPKNS_3VecIiLi2EEEPvb(ptr nocapt
   %101 = getelementptr inbounds i32, ptr %0, i64 %93
   store i32 %99, ptr %101, align 4
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 4
-  %.not101.i = icmp ugt i64 %indvars.iv.next125.i, %11
+  %.not101.i = icmp samesign ugt i64 %indvars.iv.next125.i, %11
   br i1 %.not101.i, label %.loopexit.loopexit.i, label %.lr.ph111.i, !llvm.loop !100
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph111.i

@@ -3766,7 +3766,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %103 = phi i64 [ 0, %28 ], [ %104, %.loopexit43 ]
   %104 = add nuw nsw i64 %103, 1
   store i64 %104, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1639
-  %105 = icmp ult i64 %103, 2
+  %105 = icmp samesign ult i64 %103, 2
   call void @llvm.assume(i1 %105)
   %106 = getelementptr inbounds i64, ptr %15, i64 %103
   %107 = load i64, ptr %106, align 8, !alias.scope !1644, !noundef !4
@@ -4203,7 +4203,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 139:                                              ; preds = %95, %.loopexit
   %140 = phi i64 [ 0, %95 ], [ %141, %.loopexit ]
   %141 = add nuw nsw i64 %140, 1
-  %142 = icmp ult i64 %140, 2
+  %142 = icmp samesign ult i64 %140, 2
   tail call void @llvm.assume(i1 %142)
   %143 = getelementptr inbounds i64, ptr %6, i64 %140
   %144 = load i64, ptr %143, align 8, !alias.scope !1896, !noundef !4

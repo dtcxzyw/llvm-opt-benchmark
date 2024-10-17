@@ -316,7 +316,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento10CoreEngine15ExecuteWorkList
 
 _ZNK4llvm14SmallBitVector4sizeEv.exit.i:          ; preds = %44, %42
   %49 = phi i64 [ %43, %42 ], [ %48, %44 ]
-  %50 = icmp ult i64 %49, %39
+  %50 = icmp samesign ult i64 %49, %39
   br i1 %50, label %51, label %57
 
 51:                                               ; preds = %_ZNK4llvm14SmallBitVector4sizeEv.exit.i
@@ -978,7 +978,7 @@ define dso_local void @_ZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS_9BlockEd
 
 _ZNK4llvm14SmallBitVector4sizeEv.exit.i:          ; preds = %43, %41
   %48 = phi i64 [ %42, %41 ], [ %47, %43 ]
-  %49 = icmp ult i64 %48, %38
+  %49 = icmp samesign ult i64 %48, %38
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %_ZNK4llvm14SmallBitVector4sizeEv.exit.i

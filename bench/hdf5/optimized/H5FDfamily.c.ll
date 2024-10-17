@@ -1091,7 +1091,7 @@ define internal ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i64 nound
   %.1.us = phi i32 [ %.0113163.us, %.lr.ph.us ], [ %spec.select159.us, %232 ]
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %237 = zext i32 %236 to i64
-  %238 = icmp ult i64 %indvars.iv.next207, %237
+  %238 = icmp samesign ult i64 %indvars.iv.next207, %237
   br i1 %238, label %.lr.ph.us, label %._crit_edge.us
 
 .preheader.us:                                    ; preds = %.preheader160.split.thread, %224
@@ -1134,7 +1134,7 @@ define internal ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i64 nound
   %.1.us175.us = phi i32 [ %.0113163.us172.us, %.lr.ph.us177.us ], [ %spec.select159.us174.us, %250 ]
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %255 = zext i32 %254 to i64
-  %256 = icmp ult i64 %indvars.iv.next204, %255
+  %256 = icmp samesign ult i64 %indvars.iv.next204, %255
   br i1 %256, label %.lr.ph.us177.us.backedge, label %._crit_edge.us178.us
 
 .lr.ph.us177.us.backedge:                         ; preds = %253, %.preheader.us176.us
@@ -1194,7 +1194,7 @@ define internal ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i64 nound
   %.1.us190 = phi i32 [ %.0113163.us187, %.lr.ph.us191 ], [ %spec.select159.us189, %274 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %279 = zext i32 %278 to i64
-  %280 = icmp ult i64 %indvars.iv.next, %279
+  %280 = icmp samesign ult i64 %indvars.iv.next, %279
   br i1 %280, label %.lr.ph.us191.backedge, label %._crit_edge.us192
 
 .lr.ph.us191.backedge:                            ; preds = %277, %.preheader.us183
@@ -1285,7 +1285,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_close(ptr noundef %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %2, align 8
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %5, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %17
@@ -1812,7 +1812,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_flush(ptr nocapture noundef r
   %.1 = phi i32 [ %.01217, %7 ], [ %spec.select, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15
@@ -1863,7 +1863,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_truncate(ptr nocapture nounde
   %.1 = phi i32 [ %.01217, %7 ], [ %spec.select, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15
@@ -1911,7 +1911,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_lock(ptr nocapture noundef re
   %14 = phi i32 [ %7, %6 ], [ %.pre35.pre, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %6, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge34, %11
@@ -2000,7 +2000,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_unlock(ptr nocapture noundef 
   %18 = phi i32 [ %.pre, %._crit_edge ], [ %6, %5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %5, label %.loopexit
 
 .loopexit:                                        ; preds = %17, %1, %13

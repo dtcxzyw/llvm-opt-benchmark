@@ -7858,7 +7858,7 @@ define internal i32 @dissect_iphc_crtp_cs(ptr noundef %0, ptr nocapture noundef 
   %hf_iphc_crtp_cid8.val = load i32, ptr @hf_iphc_crtp_cid8, align 4
   %hf_iphc_crtp_cid16.val = load i32, ptr @hf_iphc_crtp_cid16, align 4
   %.0 = select i1 %19, i32 %hf_iphc_crtp_cid8.val, i32 %hf_iphc_crtp_cid16.val
-  %23 = icmp ugt i32 %.036, 2
+  %23 = icmp samesign ugt i32 %.036, 2
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph

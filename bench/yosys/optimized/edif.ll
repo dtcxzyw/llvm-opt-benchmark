@@ -10966,7 +10966,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE9do_lo
   %.not637 = icmp eq i32 %4335, 0
   %4336 = sub nsw i32 2147483647, %4335
   %4337 = select i1 %.not637, i32 0, i32 %4336
-  %4338 = icmp ugt i32 %4333, %4337
+  %4338 = icmp samesign ugt i32 %4333, %4337
   %4339 = select i1 %.not, i1 %4338, i1 false
   br i1 %4339, label %4340, label %_ZN5Yosys6SigMap3addERKNS_5RTLIL6SigBitE.exit
 
@@ -13238,7 +13238,7 @@ _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERK
   %5330 = getelementptr inbounds i8, ptr %.02332.i, i64 64
   %5331 = load i8, ptr %5330, align 8
   %5332 = and i8 %5331, 1
-  %5333 = icmp ult i8 %5329, %5332
+  %5333 = icmp samesign ult i8 %5329, %5332
   br i1 %5333, label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.thread.i, label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.thread.i.thread
 
 _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.thread.i: ; preds = %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.i2154, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i2152
@@ -13307,7 +13307,7 @@ _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERK
   %5355 = and i8 %5354, 1
   %5356 = load i8, ptr %3191, align 8
   %5357 = and i8 %5356, 1
-  %5358 = icmp ult i8 %5355, %5357
+  %5358 = icmp samesign ult i8 %5355, %5357
   br i1 %5358, label %5359, label %.noexc1282
 
 5359:                                             ; preds = %._crit_edge.thread.i, %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit7.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i5.i
@@ -13352,7 +13352,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit6
   %5377 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 64
   %5378 = load i8, ptr %5377, align 8
   %5379 = and i8 %5378, 1
-  %5380 = icmp ult i8 %5376, %5379
+  %5380 = icmp samesign ult i8 %5376, %5379
   br label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.i
 
 _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.i: ; preds = %5374, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit6.i.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i, %5359
@@ -15857,7 +15857,7 @@ _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERK
   %6376 = getelementptr inbounds i8, ptr %.02332.i2241, i64 64
   %6377 = load i8, ptr %6376, align 8
   %6378 = and i8 %6377, 1
-  %6379 = icmp ult i8 %6375, %6378
+  %6379 = icmp samesign ult i8 %6375, %6378
   br i1 %6379, label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.thread.i2246, label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.thread.i2246.thread
 
 _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.thread.i2246: ; preds = %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.i2244, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i2242
@@ -15926,7 +15926,7 @@ _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERK
   %6401 = and i8 %6400, 1
   %6402 = load i8, ptr %3242, align 8
   %6403 = and i8 %6402, 1
-  %6404 = icmp ult i8 %6401, %6403
+  %6404 = icmp samesign ult i8 %6401, %6403
   br i1 %6404, label %6405, label %.noexc1479
 
 6405:                                             ; preds = %._crit_edge.thread.i2261, %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit7.i2255, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i5.i2253
@@ -15971,7 +15971,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit6
   %6423 = getelementptr inbounds i8, ptr %.sroa.4.0.i2258.ph, i64 64
   %6424 = load i8, ptr %6423, align 8
   %6425 = and i8 %6424, 1
-  %6426 = icmp ult i8 %6422, %6425
+  %6426 = icmp samesign ult i8 %6422, %6425
   br label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.i2235
 
 _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.i2235: ; preds = %6420, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit6.i.i.i2234, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i2233, %6405
@@ -16583,7 +16583,7 @@ _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERK
   %6635 = getelementptr inbounds i8, ptr %.02332.i2298, i64 64
   %6636 = load i8, ptr %6635, align 8
   %6637 = and i8 %6636, 1
-  %6638 = icmp ult i8 %6634, %6637
+  %6638 = icmp samesign ult i8 %6634, %6637
   br i1 %6638, label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.thread.i2303, label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.thread.i2303.thread
 
 _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.thread.i2303: ; preds = %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.i2301, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i2299
@@ -16652,7 +16652,7 @@ _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERK
   %6660 = and i8 %6659, 1
   %6661 = load i8, ptr %3235, align 8
   %6662 = and i8 %6661, 1
-  %6663 = icmp ult i8 %6660, %6662
+  %6663 = icmp samesign ult i8 %6660, %6662
   br i1 %6663, label %6664, label %.noexc1553
 
 6664:                                             ; preds = %._crit_edge.thread.i2318, %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit7.i2312, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i5.i2310
@@ -16697,7 +16697,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit6
   %6682 = getelementptr inbounds i8, ptr %.sroa.4.0.i2315.ph, i64 64
   %6683 = load i8, ptr %6682, align 8
   %6684 = and i8 %6683, 1
-  %6685 = icmp ult i8 %6681, %6684
+  %6685 = icmp samesign ult i8 %6681, %6684
   br label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.i2292
 
 _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.i2292: ; preds = %6679, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit6.i.i.i2291, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i2290, %6664
@@ -83072,7 +83072,7 @@ _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERK
   %21 = getelementptr inbounds i8, ptr %.02332, i64 64
   %22 = load i8, ptr %21, align 8
   %23 = and i8 %22, 1
-  %24 = icmp ult i8 %20, %23
+  %24 = icmp samesign ult i8 %20, %23
   br i1 %24, label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.thread, label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.thread24
 
 _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit.thread24: ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit6.i.i, %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit
@@ -83140,7 +83140,7 @@ _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERK
   %48 = getelementptr inbounds i8, ptr %1, i64 32
   %49 = load i8, ptr %48, align 8
   %50 = and i8 %49, 1
-  %51 = icmp ult i8 %47, %50
+  %51 = icmp samesign ult i8 %47, %50
   br i1 %51, label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit7.thread, label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit7.thread25
 
 _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit7.thread25: ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit6.i.i6, %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit7
@@ -83200,7 +83200,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit6
   %25 = getelementptr inbounds i8, ptr %2, i64 64
   %26 = load i8, ptr %25, align 8
   %27 = and i8 %26, 1
-  %28 = icmp ult i8 %24, %27
+  %28 = icmp samesign ult i8 %24, %27
   br label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit
 
 _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEclERKS7_SA_.exit: ; preds = %21, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit6.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i, %5

@@ -157,11 +157,11 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   tail call void @llvm.assume(i1 %24)
   %25 = icmp sgt i32 %1, -1
   tail call void @llvm.assume(i1 %25)
-  %26 = icmp ugt i32 %17, %1
+  %26 = icmp samesign ugt i32 %17, %1
   tail call void @llvm.assume(i1 %26)
   %27 = shl nsw i32 %1, 17
   %28 = add nuw nsw i32 %27, 131072
-  %29 = icmp ule i32 %28, %23
+  %29 = icmp samesign ule i32 %28, %23
   tail call void @llvm.assume(i1 %29)
   %30 = zext nneg i32 %27 to i64
   %31 = getelementptr i16, ptr %22, i64 %30
@@ -1111,11 +1111,11 @@ define hidden { ptr, i32 } @_ZN8rawspeed11TableLookUp8getTableEi(ptr nocapture n
   tail call void @llvm.assume(i1 %10)
   %11 = icmp sgt i32 %1, -1
   tail call void @llvm.assume(i1 %11)
-  %12 = icmp ugt i32 %3, %1
+  %12 = icmp samesign ugt i32 %3, %1
   tail call void @llvm.assume(i1 %12)
   %13 = shl nsw i32 %1, 17
   %14 = add nuw nsw i32 %13, 131072
-  %15 = icmp ule i32 %14, %9
+  %15 = icmp samesign ule i32 %14, %9
   tail call void @llvm.assume(i1 %15)
   %16 = zext nneg i32 %13 to i64
   %17 = getelementptr inbounds i16, ptr %8, i64 %16
@@ -1174,11 +1174,11 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
   %37 = add i64 %2, 9223372036854775807
   %38 = and i64 %37, 9223372036854775807
   %39 = add nuw i64 %38, 1
-  %40 = icmp ult i64 %38, 7
+  %40 = icmp samesign ult i64 %38, 7
   br i1 %40, label %.preheader32, label %41
 
 41:                                               ; preds = %35
-  %42 = icmp ult i64 %38, 63
+  %42 = icmp samesign ult i64 %38, 63
   br i1 %42, label %63, label %43
 
 43:                                               ; preds = %41
@@ -1458,11 +1458,11 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
   %211 = add nuw i64 %2, 9223372036854775807
   %212 = and i64 %211, 9223372036854775807
   %213 = add nuw i64 %212, 1
-  %214 = icmp ult i64 %212, 7
+  %214 = icmp samesign ult i64 %212, 7
   br i1 %214, label %.preheader, label %215
 
 215:                                              ; preds = %206
-  %216 = icmp ult i64 %212, 63
+  %216 = icmp samesign ult i64 %212, 63
   br i1 %216, label %237, label %217
 
 217:                                              ; preds = %215

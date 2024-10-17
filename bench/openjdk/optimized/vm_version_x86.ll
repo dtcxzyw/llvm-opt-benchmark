@@ -460,7 +460,7 @@ define hidden void @_ZN10VM_Version22get_processor_featuresEv() local_unnamed_ad
   store i32 %13, ptr @_ZN10VM_Version6_modelE, align 4
   %14 = and i32 %3, 15
   store i32 %14, ptr @_ZN10VM_Version9_steppingE, align 4
-  %15 = icmp ugt i32 %8, 4
+  %15 = icmp samesign ugt i32 %8, 4
   br i1 %15, label %16, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %0
@@ -1697,7 +1697,7 @@ _ZN10VM_Version23os_supports_avx_vectorsEv.exit:  ; preds = %.preheader23.i, %.p
 528:                                              ; preds = %527, %524
   %529 = phi i64 [ 4, %527 ], [ %525, %524 ]
   %530 = zext nneg i32 %.067 to i64
-  %531 = icmp ugt i64 %529, %530
+  %531 = icmp samesign ugt i64 %529, %530
   br i1 %531, label %532, label %533
 
 532:                                              ; preds = %528
@@ -3062,7 +3062,7 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZNK10VM_Version9Cp
 19:                                               ; preds = %11, %17, %13
   %.3 = phi i64 [ %18, %17 ], [ %.2, %13 ], [ %.2, %11 ]
   %20 = tail call noundef i32 @_ZN10VM_Version16threads_per_coreEv()
-  %21 = icmp ugt i32 %20, 1
+  %21 = icmp samesign ugt i32 %20, 1
   %22 = or i64 %.3, 8
   %spec.select137 = select i1 %21, i64 %22, i64 %.3
   %23 = and i32 %3, 8388608
@@ -3980,7 +3980,7 @@ define hidden void @_ZN10VM_Version21check_virtualizationsEv() local_unnamed_add
 
 17:                                               ; preds = %7, %13, %16, %14, %10
   %18 = add nuw nsw i32 %.06, 256
-  %19 = icmp ult i32 %.06, 1073807104
+  %19 = icmp samesign ult i32 %.06, 1073807104
   br i1 %19, label %4, label %20, !llvm.loop !10
 
 20:                                               ; preds = %17
@@ -7932,7 +7932,7 @@ define hidden noundef ptr @_ZN10VM_Version21cpu_model_descriptionEv() local_unna
   %10 = lshr i32 %1, 4
   %11 = and i32 %10, 15
   %12 = or disjoint i32 %9, %11
-  %13 = icmp ugt i32 %12, 70
+  %13 = icmp samesign ugt i32 %12, 70
   br i1 %13, label %.loopexit, label %.loopexit.split.loop.exit10
 
 .loopexit.split.loop.exit10:                      ; preds = %.preheader.preheader
@@ -8326,7 +8326,7 @@ define hidden noundef ptr @_ZN10VM_Version22cpu_family_descriptionEv() local_unn
   %6 = add nuw nsw i32 %3, %5
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %8 = icmp eq i32 %7, 1752462657
-  %9 = icmp ult i32 %6, 24
+  %9 = icmp samesign ult i32 %6, 24
   %or.cond = and i1 %8, %9
   br i1 %or.cond, label %10, label %14
 
@@ -8350,7 +8350,7 @@ define hidden noundef ptr @_ZN10VM_Version22cpu_family_descriptionEv() local_unn
   %20 = lshr i32 %1, 4
   %21 = and i32 %20, 15
   %22 = or disjoint i32 %19, %21
-  %23 = icmp ugt i32 %22, 70
+  %23 = icmp samesign ugt i32 %22, 70
   br i1 %23, label %_ZN10VM_Version21cpu_model_descriptionEv.exit, label %.loopexit.split.loop.exit10.i
 
 .loopexit.split.loop.exit10.i:                    ; preds = %.preheader.preheader.i
@@ -8360,7 +8360,7 @@ define hidden noundef ptr @_ZN10VM_Version22cpu_family_descriptionEv() local_unn
   br label %_ZN10VM_Version21cpu_model_descriptionEv.exit
 
 27:                                               ; preds = %16
-  %28 = icmp ult i32 %6, 16
+  %28 = icmp samesign ult i32 %6, 16
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %27
@@ -8409,7 +8409,7 @@ define hidden noundef i32 @_ZN10VM_Version20cpu_type_descriptionEPcm(ptr noundef
   %15 = add nuw nsw i32 %12, %14
   %.fr = freeze i32 %15
   %16 = icmp eq i32 %3, 1752462657
-  %17 = icmp ult i32 %.fr, 24
+  %17 = icmp samesign ult i32 %.fr, 24
   %or.cond.i = and i1 %16, %17
   br i1 %or.cond.i, label %18, label %22
 
@@ -8432,7 +8432,7 @@ define hidden noundef i32 @_ZN10VM_Version20cpu_type_descriptionEPcm(ptr noundef
   %27 = lshr i32 %10, 4
   %28 = and i32 %27, 15
   %29 = or disjoint i32 %26, %28
-  %30 = icmp ugt i32 %29, 70
+  %30 = icmp samesign ugt i32 %29, 70
   br i1 %30, label %_ZN10VM_Version22cpu_family_descriptionEv.exit, label %.loopexit.split.loop.exit10.i.i
 
 .loopexit.split.loop.exit10.i.i:                  ; preds = %.preheader.preheader.i.i
@@ -8442,7 +8442,7 @@ define hidden noundef i32 @_ZN10VM_Version20cpu_type_descriptionEPcm(ptr noundef
   br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
 
 34:                                               ; preds = %23
-  %35 = icmp ult i32 %.fr, 16
+  %35 = icmp samesign ult i32 %.fr, 16
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %34
@@ -8535,7 +8535,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
 15:                                               ; preds = %12
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
   %17 = and i32 %16, 255
-  %18 = icmp ult i32 %17, 51
+  %18 = icmp samesign ult i32 %17, 51
   br i1 %18, label %37, label %19
 
 19:                                               ; preds = %8, %.preheader122, %12, %15
@@ -8766,7 +8766,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN10VM_Version24cpu_detailed_descri
   %9 = add nuw nsw i32 %6, %8
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %11 = icmp eq i32 %10, 1752462657
-  %12 = icmp ult i32 %9, 24
+  %12 = icmp samesign ult i32 %9, 24
   %or.cond.i = and i1 %11, %12
   br i1 %or.cond.i, label %13, label %17
 
@@ -8790,7 +8790,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN10VM_Version24cpu_detailed_descri
   %23 = lshr i32 %4, 4
   %24 = and i32 %23, 15
   %25 = or disjoint i32 %22, %24
-  %26 = icmp ugt i32 %25, 70
+  %26 = icmp samesign ugt i32 %25, 70
   br i1 %26, label %_ZN10VM_Version22cpu_family_descriptionEv.exit.thread, label %.loopexit.split.loop.exit10.i.i
 
 .loopexit.split.loop.exit10.i.i:                  ; preds = %.preheader.preheader.i.i
@@ -8800,7 +8800,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN10VM_Version24cpu_detailed_descri
   br label %_ZN10VM_Version22cpu_family_descriptionEv.exit.thread
 
 30:                                               ; preds = %19
-  %31 = icmp ult i32 %9, 16
+  %31 = icmp samesign ult i32 %9, 16
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %30
@@ -8838,7 +8838,7 @@ _ZN10VM_Version22cpu_family_descriptionEv.exit..preheader.preheader.i_crit_edge:
 .preheader.preheader.i:                           ; preds = %_ZN10VM_Version22cpu_family_descriptionEv.exit..preheader.preheader.i_crit_edge, %_ZN10VM_Version22cpu_family_descriptionEv.exit.thread
   %.pre-phi49 = phi i32 [ %.pre48, %_ZN10VM_Version22cpu_family_descriptionEv.exit..preheader.preheader.i_crit_edge ], [ %25, %_ZN10VM_Version22cpu_family_descriptionEv.exit.thread ]
   %spec.select37 = phi ptr [ %spec.select, %_ZN10VM_Version22cpu_family_descriptionEv.exit..preheader.preheader.i_crit_edge ], [ %spec.select35, %_ZN10VM_Version22cpu_family_descriptionEv.exit.thread ]
-  %41 = icmp ugt i32 %.pre-phi49, 70
+  %41 = icmp samesign ugt i32 %.pre-phi49, 70
   br i1 %41, label %_ZN10VM_Version21cpu_model_descriptionEv.exit, label %.loopexit.split.loop.exit10.i
 
 .loopexit.split.loop.exit10.i:                    ; preds = %.preheader.preheader.i
@@ -9182,7 +9182,7 @@ _ZN10VM_Version20is_intel_family_coreEv.exit:     ; preds = %0
   %13 = lshr i32 %3, 12
   %14 = and i32 %13, 240
   %15 = or disjoint i32 %12, %14
-  %16 = icmp ult i32 %15, 59
+  %16 = icmp samesign ult i32 %15, 59
   br i1 %16, label %switch.lookup, label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
 
 switch.lookup:                                    ; preds = %10

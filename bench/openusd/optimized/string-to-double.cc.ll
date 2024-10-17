@@ -2613,7 +2613,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   br i1 %or.cond19.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread, label %16
 
 16:                                               ; preds = %10
-  %17 = icmp ugt i32 %2, 10
+  %17 = icmp samesign ugt i32 %2, 10
   %18 = icmp sgt i8 %11, 96
   %or.cond3.i = and i1 %17, %18
   %19 = add nuw nsw i32 %2, 87
@@ -2662,7 +2662,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.th
   br i1 %or.cond19.i26, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread, label %41
 
 41:                                               ; preds = %36
-  %42 = icmp ugt i32 %2, 10
+  %42 = icmp samesign ugt i32 %2, 10
   %43 = icmp sgt i8 %37, 96
   %or.cond3.i27 = and i1 %42, %43
   %44 = add nuw nsw i32 %2, 87
@@ -3453,7 +3453,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_t
   %.0121388 = phi i32 [ %119, %.lr.ph390 ], [ %.us-phi358, %.preheader ]
   %118 = add nuw nsw i32 %.0120389, 1
   %119 = lshr i32 %.0121388, 1
-  %120 = icmp ugt i32 %.0121388, 3
+  %120 = icmp samesign ugt i32 %.0121388, 3
   br i1 %120, label %.lr.ph390, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph390, %.preheader
@@ -3890,7 +3890,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_t
   %.0106393 = phi i32 [ %.2, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit271.backedge ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit242 ]
   %253 = phi ptr [ %262, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit271.backedge ], [ %.promoted392, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit242 ]
   %254 = tail call i32 @llvm.abs.i32(i32 %.0106393, i1 true)
-  %255 = icmp ult i32 %254, 97201
+  %255 = icmp samesign ult i32 %254, 97201
   %256 = mul nsw i32 %.0106393, 10
   %257 = add i32 %256, -48
   %258 = add i32 %257, %252
@@ -4222,7 +4222,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPcEEbPT_ti
   %.0121205 = phi i32 [ %79, %.lr.ph207 ], [ %.us-phi198, %.preheader ]
   %78 = add nuw nsw i32 %.0120206, 1
   %79 = lshr i32 %.0121205, 1
-  %80 = icmp ugt i32 %.0121205, 3
+  %80 = icmp samesign ugt i32 %.0121205, 3
   br i1 %80, label %.lr.ph207, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph207, %.preheader
@@ -4676,16 +4676,16 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   %12 = add nsw i32 %11, -48
   %or.cond.i = icmp ult i32 %12, 10
   %13 = add nuw nsw i32 %2, 48
-  %14 = icmp ugt i32 %13, %11
+  %14 = icmp samesign ugt i32 %13, %11
   %or.cond19.i = select i1 %or.cond.i, i1 %14, i1 false
   br i1 %or.cond19.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread, label %15
 
 15:                                               ; preds = %9
-  %16 = icmp ugt i32 %2, 10
+  %16 = icmp samesign ugt i32 %2, 10
   %17 = icmp ugt i16 %10, 96
   %or.cond3.i = and i1 %16, %17
   %18 = add nuw nsw i32 %2, 87
-  %19 = icmp ugt i32 %18, %11
+  %19 = icmp samesign ugt i32 %18, %11
   %or.cond21.i = select i1 %or.cond3.i, i1 %19, i1 false
   br i1 %or.cond21.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread, label %20
 
@@ -4693,7 +4693,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   %21 = icmp ugt i16 %10, 64
   %or.cond5.i = and i1 %16, %21
   %22 = add nuw nsw i32 %2, 55
-  %23 = icmp ugt i32 %22, %11
+  %23 = icmp samesign ugt i32 %22, %11
   %or.cond = select i1 %or.cond5.i, i1 %23, i1 false
   br i1 %or.cond, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread1
 
@@ -4724,16 +4724,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.th
   %36 = zext i16 %35 to i32
   %37 = add nsw i32 %36, -48
   %or.cond.i25 = icmp ult i32 %37, 10
-  %38 = icmp ugt i32 %13, %36
+  %38 = icmp samesign ugt i32 %13, %36
   %or.cond19.i26 = select i1 %or.cond.i25, i1 %38, i1 false
   br i1 %or.cond19.i26, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread, label %39
 
 39:                                               ; preds = %34
-  %40 = icmp ugt i32 %2, 10
+  %40 = icmp samesign ugt i32 %2, 10
   %41 = icmp ugt i16 %35, 96
   %or.cond3.i27 = and i1 %40, %41
   %42 = add nuw nsw i32 %2, 87
-  %43 = icmp ugt i32 %42, %36
+  %43 = icmp samesign ugt i32 %42, %36
   %or.cond21.i28 = select i1 %or.cond3.i27, i1 %43, i1 false
   br i1 %or.cond21.i28, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread, label %44
 
@@ -4741,7 +4741,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.th
   %45 = icmp ugt i16 %35, 64
   %or.cond5.i29 = and i1 %40, %45
   %46 = add nuw nsw i32 %2, 55
-  %47 = icmp ugt i32 %46, %36
+  %47 = icmp samesign ugt i32 %46, %36
   %or.cond5 = select i1 %or.cond5.i29, i1 %47, i1 false
   br i1 %or.cond5, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2
 
@@ -5537,7 +5537,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
   %.0121400 = phi i32 [ %123, %.lr.ph402 ], [ %.us-phi370, %.preheader ]
   %122 = add nuw nsw i32 %.0120401, 1
   %123 = lshr i32 %.0121400, 1
-  %124 = icmp ugt i32 %.0121400, 3
+  %124 = icmp samesign ugt i32 %.0121400, 3
   br i1 %124, label %.lr.ph402, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph402, %.preheader
@@ -5986,7 +5986,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
   %.0106405 = phi i32 [ %.2, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit278.backedge ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit249 ]
   %260 = phi ptr [ %269, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit278.backedge ], [ %.promoted404, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit249 ]
   %261 = tail call i32 @llvm.abs.i32(i32 %.0106405, i1 true)
-  %262 = icmp ult i32 %261, 97201
+  %262 = icmp samesign ult i32 %261, 97201
   %263 = mul nsw i32 %.0106405, 10
   %264 = add i32 %263, -48
   %265 = add i32 %264, %259

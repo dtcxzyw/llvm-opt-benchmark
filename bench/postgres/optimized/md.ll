@@ -777,7 +777,7 @@ define internal fastcc ptr @_mdfd_getseg(ptr nocapture noundef %0, i32 noundef %
   br label %.loopexit
 
 18:                                               ; preds = %5
-  %.not = icmp ult i32 %4, 32
+  %.not = icmp samesign ult i32 %4, 32
   br i1 %.not, label %19, label %.loopexit
 
 19:                                               ; preds = %18
@@ -811,7 +811,7 @@ define internal fastcc ptr @_mdfd_getseg(ptr nocapture noundef %0, i32 noundef %
 .lr.ph:                                           ; preds = %29
   %31 = and i32 %4, 4
   %.not69 = icmp eq i32 %31, 0
-  %32 = icmp ult i32 %4, 16
+  %32 = icmp samesign ult i32 %4, 16
   br i1 %.not69, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -843,8 +843,8 @@ _mdnblocks.exit.us.us.us:                         ; preds = %.lr.ph.split.us.spl
 
 42:                                               ; preds = %.split.us.us.us
   %43 = add i32 %.05988.us.us.us, 1
-  %exitcond190.not = icmp eq i32 %.05988.us.us.us, %6
-  br i1 %exitcond190.not, label %.loopexit, label %.lr.ph.split.us.split.us.split.us, !llvm.loop !7
+  %exitcond191.not = icmp eq i32 %.05988.us.us.us, %6
+  br i1 %exitcond191.not, label %.loopexit, label %.lr.ph.split.us.split.us.split.us, !llvm.loop !7
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %53
   %.189.us.us = phi ptr [ %51, %53 ], [ %.058, %.lr.ph.split.us.split.us ]
@@ -861,8 +861,8 @@ _mdnblocks.exit.us.us:                            ; preds = %.lr.ph.split.us.spl
   br i1 %49, label %.split93.us, label %50
 
 50:                                               ; preds = %_mdnblocks.exit.us.us
-  %.not123 = icmp eq i32 %48, 131072
-  br i1 %.not123, label %.split.us.us, label %.split95.us
+  %.not124 = icmp eq i32 %48, 131072
+  br i1 %.not124, label %.split.us.us, label %.split95.us
 
 .split.us.us:                                     ; preds = %50
   %51 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us.us, i32 noundef 0)
@@ -871,8 +871,8 @@ _mdnblocks.exit.us.us:                            ; preds = %.lr.ph.split.us.spl
 
 53:                                               ; preds = %.split.us.us
   %54 = add i32 %.05988.us.us, 1
-  %exitcond191.not = icmp eq i32 %.05988.us.us, %6
-  br i1 %exitcond191.not, label %.loopexit, label %.lr.ph.split.us.split.us.split, !llvm.loop !7
+  %exitcond192.not = icmp eq i32 %.05988.us.us, %6
+  br i1 %exitcond192.not, label %.loopexit, label %.lr.ph.split.us.split.us.split, !llvm.loop !7
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
   br i1 %32, label %.lr.ph.split.us.split.split, label %.lr.ph.split.us.split.split.us
@@ -916,8 +916,8 @@ _mdnblocks.exit.us.us109:                         ; preds = %.lr.ph.split.us.spl
 
 71:                                               ; preds = %.split.us.us111
   %72 = add i32 %.05988.us.us108, 1
-  %exitcond188.not = icmp eq i32 %.05988.us.us108, %6
-  br i1 %exitcond188.not, label %.loopexit, label %.lr.ph.split.us.split.split.us, !llvm.loop !7
+  %exitcond189.not = icmp eq i32 %.05988.us.us108, %6
+  br i1 %exitcond189.not, label %.loopexit, label %.lr.ph.split.us.split.split.us, !llvm.loop !7
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %90
   %.189.us = phi ptr [ %88, %90 ], [ %.058, %.lr.ph.split.us.split ]
@@ -954,15 +954,15 @@ _mdnblocks.exit.us:                               ; preds = %.lr.ph.split.us.spl
   br label %.split.us
 
 .split.us:                                        ; preds = %83, %84, %82
-  %.sink255 = phi i32 [ 0, %82 ], [ 64, %84 ], [ 64, %83 ]
-  %88 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us, i32 noundef %.sink255)
+  %.sink256 = phi i32 [ 0, %82 ], [ 64, %84 ], [ 64, %83 ]
+  %88 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us, i32 noundef %.sink256)
   %89 = icmp eq ptr %88, null
   br i1 %89, label %.split99.us, label %90
 
 90:                                               ; preds = %.split.us
   %91 = add i32 %.05988.us, 1
-  %exitcond189.not = icmp eq i32 %.05988.us, %6
-  br i1 %exitcond189.not, label %.loopexit, label %.lr.ph.split.us.split.split, !llvm.loop !7
+  %exitcond190.not = icmp eq i32 %.05988.us, %6
+  br i1 %exitcond190.not, label %.loopexit, label %.lr.ph.split.us.split.split, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %130
   %.189 = phi ptr [ %110, %130 ], [ %.058, %.lr.ph ]
@@ -1285,7 +1285,7 @@ define dso_local void @mdreadv(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   %16 = load ptr, ptr %.05079, align 8
   store ptr %16, ptr %6, align 16
   store i64 8192, ptr %7, align 8
-  %17 = icmp ugt i32 %14, 1
+  %17 = icmp samesign ugt i32 %14, 1
   br i1 %17, label %.lr.ph.preheader.i, label %buffers_to_iovec.exit
 
 .lr.ph.preheader.i:                               ; preds = %8
@@ -1458,7 +1458,7 @@ define dso_local void @mdwritev(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %18 = load ptr, ptr %.04264, align 8
   store ptr %18, ptr %7, align 16
   store i64 8192, ptr %8, align 8
-  %19 = icmp ugt i32 %16, 1
+  %19 = icmp samesign ugt i32 %16, 1
   br i1 %19, label %.lr.ph.preheader.i, label %buffers_to_iovec.exit
 
 .lr.ph.preheader.i:                               ; preds = %10

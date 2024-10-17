@@ -1828,7 +1828,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
   %741 = getelementptr double, ptr %694, i64 %709
   store double %738, ptr %741, align 8, !tbaa !63
   %742 = add nuw nsw i64 %709, 1
-  %743 = icmp ult i64 %742, %685
+  %743 = icmp samesign ult i64 %742, %685
   br i1 %743, label %708, label %705
 
 .loopexit98:                                      ; preds = %763, %695
@@ -3632,7 +3632,7 @@ define internal fastcc range(i32 0, 2) i32 @gauss_make_triangular(ptr nocapture 
   %43 = getelementptr i8, ptr %40, i64 %42
   %44 = getelementptr i8, ptr %28, i64 %41
   %45 = add nuw nsw i64 %14, 1
-  %46 = icmp ult i64 %45, %7
+  %46 = icmp samesign ult i64 %45, %7
   br i1 %46, label %47, label %.loopexit19
 
 47:                                               ; preds = %13
@@ -4086,7 +4086,7 @@ define internal fastcc range(i32 0, 2) i32 @gauss_make_triangular(ptr nocapture 
 
 363:                                              ; preds = %.loopexit10, %.loopexit19
   %364 = phi i64 [ %7, %.loopexit10 ], [ %14, %.loopexit19 ]
-  %365 = icmp uge i64 %364, %7
+  %365 = icmp samesign uge i64 %364, %7
   %366 = zext i1 %365 to i32
   ret i32 %366
 }

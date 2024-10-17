@@ -1410,7 +1410,7 @@ define hidden range(i32 2, 33) i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr
   %61 = load i32, ptr @hf_extended_uiuc_ie_mini_subchannel_alloc_repetition, align 4
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %61, ptr noundef %2, i32 noundef %58, i32 noundef 3, i32 noundef 0) #2
   %63 = add i32 %.1206.us, 5
-  %64 = icmp ult i32 %.0207.us, %47
+  %64 = icmp samesign ult i32 %.0207.us, %47
   br i1 %64, label %69, label %65
 
 65:                                               ; preds = %.split.us
@@ -1435,7 +1435,7 @@ define hidden range(i32 2, 33) i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr
 78:                                               ; preds = %69, %66, %65
   %.2.us = phi i32 [ %77, %69 ], [ %63, %66 ], [ %63, %65 ]
   %79 = add nuw nsw i32 %.0207.us, 2
-  %80 = icmp ult i32 %79, %.0202
+  %80 = icmp samesign ult i32 %79, %.0202
   br i1 %80, label %.split.us, label %.loopexit, !llvm.loop !6
 
 .split:                                           ; preds = %.split.preheader, %103
@@ -1448,7 +1448,7 @@ define hidden range(i32 2, 33) i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr
   %85 = add i32 %.1206, 2
   %86 = load i32, ptr @hf_extended_uiuc_ie_mini_subchannel_alloc_repetition_1, align 4
   %87 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %86, ptr noundef %2, i32 noundef %85, i32 noundef 4, i32 noundef 0) #2
-  %88 = icmp ult i32 %.0207, %47
+  %88 = icmp samesign ult i32 %.0207, %47
   br i1 %88, label %89, label %99
 
 89:                                               ; preds = %.split
@@ -1474,7 +1474,7 @@ define hidden range(i32 2, 33) i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr
 103:                                              ; preds = %99, %100, %89
   %.2 = phi i32 [ %98, %89 ], [ %85, %100 ], [ %85, %99 ]
   %104 = add nuw nsw i32 %.0207, 2
-  %105 = icmp ult i32 %104, %.0202
+  %105 = icmp samesign ult i32 %104, %.0202
   br i1 %105, label %.split, label %.loopexit, !llvm.loop !6
 
 106:                                              ; preds = %28

@@ -483,7 +483,7 @@ define void @_Z8av_hblenP8_IO_FILES0_S0_S0_S0_S0_fiP4t_bb(ptr nocapture noundef 
   %26 = add nsw i32 %.05359, 1
   %27 = load float, ptr %22, align 4
   %28 = fadd float %.04662, %27
-  %29 = icmp ult i64 %indvars.iv, %14
+  %29 = icmp samesign ult i64 %indvars.iv, %14
   br i1 %29, label %30, label %38
 
 30:                                               ; preds = %21

@@ -191,8 +191,8 @@ define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0
   %27 = add nuw nsw i64 %.015.i, 1
   %28 = getelementptr inbounds i8, ptr %5, i64 %.015.i
   store i8 %.0.i, ptr %28, align 1
-  %29 = icmp ult i64 %.015.i, 7
-  %30 = and i1 %26, %29
+  %29 = icmp samesign ult i64 %.015.i, 7
+  %30 = select i1 %26, i1 %29, i1 false
   br i1 %30, label %22, label %31, !llvm.loop !4
 
 31:                                               ; preds = %22
@@ -295,7 +295,7 @@ flex_unpack_integer.exit:                         ; preds = %33, %.lr.ph.prehead
   %41 = zext i1 %40 to i64
   %42 = add nuw nsw i64 %38, %41
   store i64 %.135.i, ptr %4, align 8
-  %43 = icmp ult i64 %switch.load, %42
+  %43 = icmp samesign ult i64 %switch.load, %42
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %flex_unpack_integer.exit

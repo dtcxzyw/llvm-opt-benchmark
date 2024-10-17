@@ -3655,7 +3655,7 @@ for.body.i:                                       ; preds = %for.end, %_ZN5eastl
   %21 = load i64, ptr %first.coerce, align 8
   store i64 %21, ptr %add.ptr.i.i.i3, align 8
   %sub.i.i4 = add nsw i64 %sub.ptr.div.i7.i, -1
-  %cmp26.i.i.i.i = icmp ugt i64 %sub.ptr.div.i7.i, 3
+  %cmp26.i.i.i.i = icmp samesign ugt i64 %sub.ptr.div.i7.i, 3
   br i1 %cmp26.i.i.i.i, label %for.body.i.i.i.i10, label %for.end.i.i.i.i
 
 for.body.i.i.i.i10:                               ; preds = %for.body.i, %for.body.i.i.i.i10
@@ -4060,7 +4060,7 @@ for.body.i:                                       ; preds = %for.end, %_ZN5eastl
   store i64 %20, ptr %add.ptr.i.i14, align 8
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub8.i, 3
   %sub.i.i15 = add nsw i64 %sub.ptr.div.i.i, -1
-  %cmp22.i.i.i.i = icmp ugt i64 %sub.ptr.sub8.i, 24
+  %cmp22.i.i.i.i = icmp samesign ugt i64 %sub.ptr.sub8.i, 24
   br i1 %cmp22.i.i.i.i, label %for.body.i.i.i.i20, label %for.end.i.i.i.i
 
 for.body.i.i.i.i20:                               ; preds = %for.body.i, %for.body.i.i.i.i20

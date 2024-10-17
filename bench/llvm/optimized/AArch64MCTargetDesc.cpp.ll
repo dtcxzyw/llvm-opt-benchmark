@@ -1968,8 +1968,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC17isExynosArithFastERKN
 11:                                               ; preds = %3
   %12 = and i32 %8, 48
   %switch = icmp eq i32 %12, 16
-  %switch26 = icmp ult i32 %9, 4
-  %spec.select = and i1 %switch, %switch26
+  %switch26 = icmp samesign ult i32 %9, 4
+  %spec.select = select i1 %switch, i1 %switch26, i1 false
   br label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
 
 13:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1
@@ -1985,8 +1985,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC17isExynosArithFastERKN
 21:                                               ; preds = %13
   %22 = and i32 %18, 448
   %cond = icmp eq i32 %22, 0
-  %switch28 = icmp ult i32 %19, 4
-  %spec.select30 = and i1 %cond, %switch28
+  %switch28 = icmp samesign ult i32 %19, 4
+  %spec.select30 = select i1 %cond, i1 %switch28, i1 false
   br label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
 
 23:                                               ; preds = %1
@@ -2225,8 +2225,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC17isExynosLogicFastERKN
 11:                                               ; preds = %3
   %12 = and i32 %8, 448
   %cond = icmp eq i32 %12, 0
-  %switch = icmp ult i32 %9, 4
-  %spec.select = and i1 %cond, %switch
+  %switch = icmp samesign ult i32 %9, 4
+  %spec.select = select i1 %cond, i1 %switch, i1 false
   br label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
 
 13:                                               ; preds = %1
@@ -2895,7 +2895,7 @@ define dso_local noundef range(i32 0, 1739) i32 @_ZN4llvm10AArch64_MC28resolveVa
   %16 = and i32 %15, 448
   %cond4251 = icmp eq i32 %16, 0
   %17 = and i32 %15, 63
-  %switch = icmp ult i32 %17, 5
+  %switch = icmp samesign ult i32 %17, 5
   %or.cond4291 = and i1 %cond4251, %switch
   %spec.select4586 = select i1 %or.cond4291, i32 1574, i32 1575
   br label %.critedge14
@@ -2909,7 +2909,7 @@ define dso_local noundef range(i32 0, 1739) i32 @_ZN4llvm10AArch64_MC28resolveVa
   %24 = and i32 %23, 448
   %cond4250 = icmp eq i32 %24, 0
   %25 = and i32 %23, 63
-  %switch4292 = icmp ult i32 %25, 5
+  %switch4292 = icmp samesign ult i32 %25, 5
   %or.cond4293 = and i1 %cond4250, %switch4292
   %spec.select4587 = select i1 %or.cond4293, i32 1576, i32 1577
   br label %.critedge14
@@ -2923,7 +2923,7 @@ define dso_local noundef range(i32 0, 1739) i32 @_ZN4llvm10AArch64_MC28resolveVa
   %32 = and i32 %31, 448
   %cond4249 = icmp eq i32 %32, 0
   %33 = and i32 %31, 63
-  %switch4294 = icmp ult i32 %33, 5
+  %switch4294 = icmp samesign ult i32 %33, 5
   %or.cond4295 = and i1 %cond4249, %switch4294
   %spec.select4588 = select i1 %or.cond4295, i32 1578, i32 1579
   br label %.critedge14
@@ -2937,7 +2937,7 @@ define dso_local noundef range(i32 0, 1739) i32 @_ZN4llvm10AArch64_MC28resolveVa
   %40 = and i32 %39, 448
   %cond4248 = icmp eq i32 %40, 0
   %41 = and i32 %39, 63
-  %switch4296 = icmp ult i32 %41, 5
+  %switch4296 = icmp samesign ult i32 %41, 5
   %or.cond4297 = and i1 %cond4248, %switch4296
   %spec.select4589 = select i1 %or.cond4297, i32 1580, i32 1581
   br label %.critedge14
@@ -3319,7 +3319,7 @@ define dso_local noundef range(i32 0, 1739) i32 @_ZN4llvm10AArch64_MC28resolveVa
   %186 = and i32 %185, 448
   %cond4247 = icmp eq i32 %186, 0
   %187 = and i32 %185, 63
-  %switch4315 = icmp ult i32 %187, 5
+  %switch4315 = icmp samesign ult i32 %187, 5
   %or.cond4316 = and i1 %cond4247, %switch4315
   %spec.select4590 = select i1 %or.cond4316, i32 1645, i32 1646
   br label %.critedge14
@@ -3337,7 +3337,7 @@ define dso_local noundef range(i32 0, 1739) i32 @_ZN4llvm10AArch64_MC28resolveVa
   %196 = and i32 %195, 448
   %cond4246 = icmp eq i32 %196, 0
   %197 = and i32 %195, 63
-  %switch4317 = icmp ult i32 %197, 5
+  %switch4317 = icmp samesign ult i32 %197, 5
   %or.cond4318 = and i1 %cond4246, %switch4317
   %spec.select4591 = select i1 %or.cond4318, i32 1648, i32 1649
   br label %.critedge14
@@ -3371,7 +3371,7 @@ define dso_local noundef range(i32 0, 1739) i32 @_ZN4llvm10AArch64_MC28resolveVa
   %212 = and i32 %211, 448
   %cond4245 = icmp eq i32 %212, 0
   %213 = and i32 %211, 63
-  %switch4319 = icmp ult i32 %213, 5
+  %switch4319 = icmp samesign ult i32 %213, 5
   %or.cond4320 = and i1 %cond4245, %switch4319
   %spec.select4592 = select i1 %or.cond4320, i32 1574, i32 1575
   br label %.critedge14
@@ -3385,7 +3385,7 @@ define dso_local noundef range(i32 0, 1739) i32 @_ZN4llvm10AArch64_MC28resolveVa
   %220 = and i32 %219, 448
   %cond4244 = icmp eq i32 %220, 0
   %221 = and i32 %219, 63
-  %switch4321 = icmp ult i32 %221, 5
+  %switch4321 = icmp samesign ult i32 %221, 5
   %or.cond4322 = and i1 %cond4244, %switch4321
   %spec.select4593 = select i1 %or.cond4322, i32 1652, i32 1653
   br label %.critedge14
@@ -3426,7 +3426,7 @@ define dso_local noundef range(i32 0, 1739) i32 @_ZN4llvm10AArch64_MC28resolveVa
   %240 = and i32 %239, 448
   %cond4243 = icmp eq i32 %240, 0
   %241 = and i32 %239, 63
-  %switch4323 = icmp ult i32 %241, 5
+  %switch4323 = icmp samesign ult i32 %241, 5
   %or.cond4324 = and i1 %cond4243, %switch4323
   %spec.select4594 = select i1 %or.cond4324, i32 1650, i32 1651
   br label %.critedge14
@@ -3440,7 +3440,7 @@ define dso_local noundef range(i32 0, 1739) i32 @_ZN4llvm10AArch64_MC28resolveVa
   %248 = and i32 %247, 448
   %cond4242 = icmp eq i32 %248, 0
   %249 = and i32 %247, 63
-  %switch4325 = icmp ult i32 %249, 5
+  %switch4325 = icmp samesign ult i32 %249, 5
   %or.cond4326 = and i1 %cond4242, %switch4325
   %spec.select4595 = select i1 %or.cond4326, i32 1580, i32 1581
   br label %.critedge14
@@ -5487,7 +5487,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1043 = and i32 %1042, 448
   %cond4241 = icmp eq i32 %1043, 0
   %1044 = and i32 %1042, 63
-  %switch4355 = icmp ult i32 %1044, 5
+  %switch4355 = icmp samesign ult i32 %1044, 5
   %or.cond4356 = and i1 %cond4241, %switch4355
   %spec.select4596 = select i1 %or.cond4356, i32 1645, i32 1646
   br label %.critedge14
@@ -5505,7 +5505,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1053 = and i32 %1052, 448
   %cond4240 = icmp eq i32 %1053, 0
   %1054 = and i32 %1052, 63
-  %switch4357 = icmp ult i32 %1054, 5
+  %switch4357 = icmp samesign ult i32 %1054, 5
   %or.cond4358 = and i1 %cond4240, %switch4357
   %spec.select4597 = select i1 %or.cond4358, i32 1648, i32 1649
   br label %.critedge14
@@ -5617,7 +5617,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1100 = and i32 %1099, 448
   %cond4237 = icmp eq i32 %1100, 0
   %1101 = and i32 %1099, 63
-  %switch4360 = icmp ult i32 %1101, 5
+  %switch4360 = icmp samesign ult i32 %1101, 5
   %or.cond4361 = and i1 %cond4237, %switch4360
   %spec.select4598 = select i1 %or.cond4361, i32 1645, i32 1646
   br label %.critedge14
@@ -5635,7 +5635,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1110 = and i32 %1109, 448
   %cond4236 = icmp eq i32 %1110, 0
   %1111 = and i32 %1109, 63
-  %switch4362 = icmp ult i32 %1111, 5
+  %switch4362 = icmp samesign ult i32 %1111, 5
   %or.cond4363 = and i1 %cond4236, %switch4362
   %spec.select4599 = select i1 %or.cond4363, i32 1648, i32 1649
   br label %.critedge14
@@ -5745,7 +5745,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1157 = and i32 %1156, 448
   %cond4233 = icmp eq i32 %1157, 0
   %1158 = and i32 %1156, 63
-  %switch4366 = icmp ult i32 %1158, 5
+  %switch4366 = icmp samesign ult i32 %1158, 5
   %or.cond4367 = and i1 %cond4233, %switch4366
   %spec.select4600 = select i1 %or.cond4367, i32 1728, i32 1729
   br label %.critedge14
@@ -5763,7 +5763,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1167 = and i32 %1166, 448
   %cond4232 = icmp eq i32 %1167, 0
   %1168 = and i32 %1166, 63
-  %switch4368 = icmp ult i32 %1168, 5
+  %switch4368 = icmp samesign ult i32 %1168, 5
   %or.cond4369 = and i1 %cond4232, %switch4368
   %spec.select4601 = select i1 %or.cond4369, i32 1648, i32 1649
   br label %.critedge14
@@ -5853,7 +5853,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1202 = and i32 %1201, 448
   %cond4231 = icmp eq i32 %1202, 0
   %1203 = and i32 %1201, 63
-  %switch4370 = icmp ult i32 %1203, 5
+  %switch4370 = icmp samesign ult i32 %1203, 5
   %or.cond4371 = and i1 %cond4231, %switch4370
   %spec.select4602 = select i1 %or.cond4371, i32 1728, i32 1729
   br label %.critedge14
@@ -5871,7 +5871,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1212 = and i32 %1211, 448
   %cond4230 = icmp eq i32 %1212, 0
   %1213 = and i32 %1211, 63
-  %switch4372 = icmp ult i32 %1213, 5
+  %switch4372 = icmp samesign ult i32 %1213, 5
   %or.cond4373 = and i1 %cond4230, %switch4372
   %spec.select4603 = select i1 %or.cond4373, i32 1648, i32 1649
   br label %.critedge14
@@ -5961,7 +5961,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1247 = and i32 %1246, 448
   %cond4229 = icmp eq i32 %1247, 0
   %1248 = and i32 %1246, 63
-  %switch4374 = icmp ult i32 %1248, 5
+  %switch4374 = icmp samesign ult i32 %1248, 5
   %or.cond4375 = and i1 %cond4229, %switch4374
   %spec.select4604 = select i1 %or.cond4375, i32 1728, i32 1729
   br label %.critedge14
@@ -5979,7 +5979,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1257 = and i32 %1256, 448
   %cond4228 = icmp eq i32 %1257, 0
   %1258 = and i32 %1256, 63
-  %switch4376 = icmp ult i32 %1258, 5
+  %switch4376 = icmp samesign ult i32 %1258, 5
   %or.cond4377 = and i1 %cond4228, %switch4376
   %spec.select4605 = select i1 %or.cond4377, i32 1648, i32 1649
   br label %.critedge14
@@ -6113,7 +6113,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1309 = and i32 %1308, 448
   %cond4227 = icmp eq i32 %1309, 0
   %1310 = and i32 %1308, 63
-  %switch4378 = icmp ult i32 %1310, 5
+  %switch4378 = icmp samesign ult i32 %1310, 5
   %or.cond4379 = and i1 %cond4227, %switch4378
   %spec.select4606 = select i1 %or.cond4379, i32 1728, i32 1729
   br label %.critedge14
@@ -6131,7 +6131,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1319 = and i32 %1318, 448
   %cond4226 = icmp eq i32 %1319, 0
   %1320 = and i32 %1318, 63
-  %switch4380 = icmp ult i32 %1320, 5
+  %switch4380 = icmp samesign ult i32 %1320, 5
   %or.cond4381 = and i1 %cond4226, %switch4380
   %spec.select4607 = select i1 %or.cond4381, i32 1648, i32 1649
   br label %.critedge14
@@ -6320,7 +6320,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1404 = and i32 %1403, 448
   %cond4225 = icmp eq i32 %1404, 0
   %1405 = and i32 %1403, 63
-  %switch4386 = icmp ult i32 %1405, 5
+  %switch4386 = icmp samesign ult i32 %1405, 5
   %or.cond4387 = and i1 %cond4225, %switch4386
   %spec.select4608 = select i1 %or.cond4387, i32 1645, i32 1646
   br label %.critedge14
@@ -6338,7 +6338,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1414 = and i32 %1413, 448
   %cond4224 = icmp eq i32 %1414, 0
   %1415 = and i32 %1413, 63
-  %switch4388 = icmp ult i32 %1415, 5
+  %switch4388 = icmp samesign ult i32 %1415, 5
   %or.cond4389 = and i1 %cond4224, %switch4388
   %spec.select4609 = select i1 %or.cond4389, i32 1648, i32 1649
   br label %.critedge14
@@ -6372,7 +6372,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1430 = and i32 %1429, 448
   %cond4223 = icmp eq i32 %1430, 0
   %1431 = and i32 %1429, 63
-  %switch4390 = icmp ult i32 %1431, 5
+  %switch4390 = icmp samesign ult i32 %1431, 5
   %or.cond4391 = and i1 %cond4223, %switch4390
   %spec.select4610 = select i1 %or.cond4391, i32 1574, i32 1575
   br label %.critedge14
@@ -6386,7 +6386,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1438 = and i32 %1437, 448
   %cond4222 = icmp eq i32 %1438, 0
   %1439 = and i32 %1437, 63
-  %switch4392 = icmp ult i32 %1439, 5
+  %switch4392 = icmp samesign ult i32 %1439, 5
   %or.cond4393 = and i1 %cond4222, %switch4392
   %spec.select4611 = select i1 %or.cond4393, i32 1652, i32 1653
   br label %.critedge14
@@ -6427,7 +6427,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1458 = and i32 %1457, 448
   %cond4221 = icmp eq i32 %1458, 0
   %1459 = and i32 %1457, 63
-  %switch4394 = icmp ult i32 %1459, 5
+  %switch4394 = icmp samesign ult i32 %1459, 5
   %or.cond4395 = and i1 %cond4221, %switch4394
   %spec.select4612 = select i1 %or.cond4395, i32 1650, i32 1651
   br label %.critedge14
@@ -6441,7 +6441,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1466 = and i32 %1465, 448
   %cond4220 = icmp eq i32 %1466, 0
   %1467 = and i32 %1465, 63
-  %switch4396 = icmp ult i32 %1467, 5
+  %switch4396 = icmp samesign ult i32 %1467, 5
   %or.cond4397 = and i1 %cond4220, %switch4396
   %spec.select4613 = select i1 %or.cond4397, i32 1580, i32 1581
   br label %.critedge14
@@ -6484,7 +6484,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1481 = and i32 %1480, 448
   %cond4219 = icmp eq i32 %1481, 0
   %1482 = and i32 %1480, 63
-  %switch4398 = icmp ult i32 %1482, 5
+  %switch4398 = icmp samesign ult i32 %1482, 5
   %or.cond4399 = and i1 %cond4219, %switch4398
   %spec.select4614 = select i1 %or.cond4399, i32 1645, i32 1646
   br label %.critedge14
@@ -6502,7 +6502,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1491 = and i32 %1490, 448
   %cond4218 = icmp eq i32 %1491, 0
   %1492 = and i32 %1490, 63
-  %switch4400 = icmp ult i32 %1492, 5
+  %switch4400 = icmp samesign ult i32 %1492, 5
   %or.cond4401 = and i1 %cond4218, %switch4400
   %spec.select4615 = select i1 %or.cond4401, i32 1648, i32 1649
   br label %.critedge14
@@ -6553,7 +6553,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1515 = and i32 %1514, 448
   %cond4217 = icmp eq i32 %1515, 0
   %1516 = and i32 %1514, 63
-  %switch4402 = icmp ult i32 %1516, 5
+  %switch4402 = icmp samesign ult i32 %1516, 5
   %or.cond4403 = and i1 %cond4217, %switch4402
   %spec.select4616 = select i1 %or.cond4403, i32 1650, i32 1651
   br label %.critedge14
@@ -6596,7 +6596,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1530 = and i32 %1529, 448
   %cond4216 = icmp eq i32 %1530, 0
   %1531 = and i32 %1529, 63
-  %switch4404 = icmp ult i32 %1531, 5
+  %switch4404 = icmp samesign ult i32 %1531, 5
   %or.cond4405 = and i1 %cond4216, %switch4404
   %spec.select4617 = select i1 %or.cond4405, i32 1645, i32 1646
   br label %.critedge14
@@ -6614,7 +6614,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1540 = and i32 %1539, 448
   %cond4215 = icmp eq i32 %1540, 0
   %1541 = and i32 %1539, 63
-  %switch4406 = icmp ult i32 %1541, 5
+  %switch4406 = icmp samesign ult i32 %1541, 5
   %or.cond4407 = and i1 %cond4215, %switch4406
   %spec.select4618 = select i1 %or.cond4407, i32 1648, i32 1649
   br label %.critedge14
@@ -6665,7 +6665,7 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3578: ; preds = %39
   %1564 = and i32 %1563, 448
   %cond4214 = icmp eq i32 %1564, 0
   %1565 = and i32 %1563, 63
-  %switch4408 = icmp ult i32 %1565, 5
+  %switch4408 = icmp samesign ult i32 %1565, 5
   %or.cond4409 = and i1 %cond4214, %switch4408
   %spec.select4619 = select i1 %or.cond4409, i32 1650, i32 1651
   br label %.critedge14
@@ -7675,7 +7675,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %1979 = and i32 %1978, 448
   %cond4213 = icmp eq i32 %1979, 0
   %1980 = and i32 %1978, 63
-  %switch4430 = icmp ult i32 %1980, 5
+  %switch4430 = icmp samesign ult i32 %1980, 5
   %or.cond4431 = and i1 %cond4213, %switch4430
   %spec.select4620 = select i1 %or.cond4431, i32 1645, i32 1646
   br label %.critedge14
@@ -7693,7 +7693,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %1989 = and i32 %1988, 448
   %cond4212 = icmp eq i32 %1989, 0
   %1990 = and i32 %1988, 63
-  %switch4432 = icmp ult i32 %1990, 5
+  %switch4432 = icmp samesign ult i32 %1990, 5
   %or.cond4433 = and i1 %cond4212, %switch4432
   %spec.select4621 = select i1 %or.cond4433, i32 1648, i32 1649
   br label %.critedge14
@@ -7809,7 +7809,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2038 = and i32 %2037, 448
   %cond4209 = icmp eq i32 %2038, 0
   %2039 = and i32 %2037, 63
-  %switch4436 = icmp ult i32 %2039, 5
+  %switch4436 = icmp samesign ult i32 %2039, 5
   %or.cond4437 = and i1 %cond4209, %switch4436
   %spec.select4622 = select i1 %or.cond4437, i32 1645, i32 1646
   br label %.critedge14
@@ -7827,7 +7827,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2048 = and i32 %2047, 448
   %cond4208 = icmp eq i32 %2048, 0
   %2049 = and i32 %2047, 63
-  %switch4438 = icmp ult i32 %2049, 5
+  %switch4438 = icmp samesign ult i32 %2049, 5
   %or.cond4439 = and i1 %cond4208, %switch4438
   %spec.select4623 = select i1 %or.cond4439, i32 1648, i32 1649
   br label %.critedge14
@@ -7937,7 +7937,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2095 = and i32 %2094, 448
   %cond4205 = icmp eq i32 %2095, 0
   %2096 = and i32 %2094, 63
-  %switch4442 = icmp ult i32 %2096, 5
+  %switch4442 = icmp samesign ult i32 %2096, 5
   %or.cond4443 = and i1 %cond4205, %switch4442
   %spec.select4624 = select i1 %or.cond4443, i32 1728, i32 1729
   br label %.critedge14
@@ -7955,7 +7955,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2105 = and i32 %2104, 448
   %cond4204 = icmp eq i32 %2105, 0
   %2106 = and i32 %2104, 63
-  %switch4444 = icmp ult i32 %2106, 5
+  %switch4444 = icmp samesign ult i32 %2106, 5
   %or.cond4445 = and i1 %cond4204, %switch4444
   %spec.select4625 = select i1 %or.cond4445, i32 1648, i32 1649
   br label %.critedge14
@@ -8045,7 +8045,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2140 = and i32 %2139, 448
   %cond4203 = icmp eq i32 %2140, 0
   %2141 = and i32 %2139, 63
-  %switch4446 = icmp ult i32 %2141, 5
+  %switch4446 = icmp samesign ult i32 %2141, 5
   %or.cond4447 = and i1 %cond4203, %switch4446
   %spec.select4626 = select i1 %or.cond4447, i32 1728, i32 1729
   br label %.critedge14
@@ -8063,7 +8063,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2150 = and i32 %2149, 448
   %cond4202 = icmp eq i32 %2150, 0
   %2151 = and i32 %2149, 63
-  %switch4448 = icmp ult i32 %2151, 5
+  %switch4448 = icmp samesign ult i32 %2151, 5
   %or.cond4449 = and i1 %cond4202, %switch4448
   %spec.select4627 = select i1 %or.cond4449, i32 1648, i32 1649
   br label %.critedge14
@@ -8153,7 +8153,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2185 = and i32 %2184, 448
   %cond4201 = icmp eq i32 %2185, 0
   %2186 = and i32 %2184, 63
-  %switch4450 = icmp ult i32 %2186, 5
+  %switch4450 = icmp samesign ult i32 %2186, 5
   %or.cond4451 = and i1 %cond4201, %switch4450
   %spec.select4628 = select i1 %or.cond4451, i32 1728, i32 1729
   br label %.critedge14
@@ -8171,7 +8171,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2195 = and i32 %2194, 448
   %cond4200 = icmp eq i32 %2195, 0
   %2196 = and i32 %2194, 63
-  %switch4452 = icmp ult i32 %2196, 5
+  %switch4452 = icmp samesign ult i32 %2196, 5
   %or.cond4453 = and i1 %cond4200, %switch4452
   %spec.select4629 = select i1 %or.cond4453, i32 1648, i32 1649
   br label %.critedge14
@@ -8262,7 +8262,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2230 = and i32 %2229, 448
   %cond4199 = icmp eq i32 %2230, 0
   %2231 = and i32 %2229, 63
-  %switch4454 = icmp ult i32 %2231, 5
+  %switch4454 = icmp samesign ult i32 %2231, 5
   %or.cond4455 = and i1 %cond4199, %switch4454
   %spec.select4630 = select i1 %or.cond4455, i32 1728, i32 1729
   br label %.critedge14
@@ -8280,7 +8280,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2240 = and i32 %2239, 448
   %cond4198 = icmp eq i32 %2240, 0
   %2241 = and i32 %2239, 63
-  %switch4456 = icmp ult i32 %2241, 5
+  %switch4456 = icmp samesign ult i32 %2241, 5
   %or.cond4457 = and i1 %cond4198, %switch4456
   %spec.select4631 = select i1 %or.cond4457, i32 1648, i32 1649
   br label %.critedge14
@@ -8516,7 +8516,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2344 = and i32 %2343, 448
   %cond4197 = icmp eq i32 %2344, 0
   %2345 = and i32 %2343, 63
-  %switch4462 = icmp ult i32 %2345, 5
+  %switch4462 = icmp samesign ult i32 %2345, 5
   %or.cond4463 = and i1 %cond4197, %switch4462
   %spec.select4632 = select i1 %or.cond4463, i32 1728, i32 1729
   br label %.critedge14
@@ -8534,7 +8534,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2354 = and i32 %2353, 448
   %cond4196 = icmp eq i32 %2354, 0
   %2355 = and i32 %2353, 63
-  %switch4464 = icmp ult i32 %2355, 5
+  %switch4464 = icmp samesign ult i32 %2355, 5
   %or.cond4465 = and i1 %cond4196, %switch4464
   %spec.select4633 = select i1 %or.cond4465, i32 1648, i32 1649
   br label %.critedge14
@@ -8568,7 +8568,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2370 = and i32 %2369, 448
   %cond4195 = icmp eq i32 %2370, 0
   %2371 = and i32 %2369, 63
-  %switch4466 = icmp ult i32 %2371, 5
+  %switch4466 = icmp samesign ult i32 %2371, 5
   %or.cond4467 = and i1 %cond4195, %switch4466
   %spec.select4634 = select i1 %or.cond4467, i32 1574, i32 1575
   br label %.critedge14
@@ -8582,7 +8582,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2378 = and i32 %2377, 448
   %cond4194 = icmp eq i32 %2378, 0
   %2379 = and i32 %2377, 63
-  %switch4468 = icmp ult i32 %2379, 5
+  %switch4468 = icmp samesign ult i32 %2379, 5
   %or.cond4469 = and i1 %cond4194, %switch4468
   %spec.select4635 = select i1 %or.cond4469, i32 1576, i32 1577
   br label %.critedge14
@@ -8623,7 +8623,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2398 = and i32 %2397, 448
   %cond4193 = icmp eq i32 %2398, 0
   %2399 = and i32 %2397, 63
-  %switch4470 = icmp ult i32 %2399, 5
+  %switch4470 = icmp samesign ult i32 %2399, 5
   %or.cond4471 = and i1 %cond4193, %switch4470
   %spec.select4636 = select i1 %or.cond4471, i32 1578, i32 1579
   br label %.critedge14
@@ -8637,7 +8637,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2406 = and i32 %2405, 448
   %cond4192 = icmp eq i32 %2406, 0
   %2407 = and i32 %2405, 63
-  %switch4472 = icmp ult i32 %2407, 5
+  %switch4472 = icmp samesign ult i32 %2407, 5
   %or.cond4473 = and i1 %cond4192, %switch4472
   %spec.select4637 = select i1 %or.cond4473, i32 1580, i32 1581
   br label %.critedge14
@@ -8680,7 +8680,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2421 = and i32 %2420, 448
   %cond4191 = icmp eq i32 %2421, 0
   %2422 = and i32 %2420, 63
-  %switch4474 = icmp ult i32 %2422, 5
+  %switch4474 = icmp samesign ult i32 %2422, 5
   %or.cond4475 = and i1 %cond4191, %switch4474
   %spec.select4638 = select i1 %or.cond4475, i32 1728, i32 1729
   br label %.critedge14
@@ -8698,7 +8698,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2431 = and i32 %2430, 448
   %cond4190 = icmp eq i32 %2431, 0
   %2432 = and i32 %2430, 63
-  %switch4476 = icmp ult i32 %2432, 5
+  %switch4476 = icmp samesign ult i32 %2432, 5
   %or.cond4477 = and i1 %cond4190, %switch4476
   %spec.select4639 = select i1 %or.cond4477, i32 1648, i32 1649
   br label %.critedge14
@@ -8788,7 +8788,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2466 = and i32 %2465, 448
   %cond4189 = icmp eq i32 %2466, 0
   %2467 = and i32 %2465, 63
-  %switch4478 = icmp ult i32 %2467, 5
+  %switch4478 = icmp samesign ult i32 %2467, 5
   %or.cond4479 = and i1 %cond4189, %switch4478
   %spec.select4640 = select i1 %or.cond4479, i32 1728, i32 1729
   br label %.critedge14
@@ -8806,7 +8806,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2476 = and i32 %2475, 448
   %cond4188 = icmp eq i32 %2476, 0
   %2477 = and i32 %2475, 63
-  %switch4480 = icmp ult i32 %2477, 5
+  %switch4480 = icmp samesign ult i32 %2477, 5
   %or.cond4481 = and i1 %cond4188, %switch4480
   %spec.select4641 = select i1 %or.cond4481, i32 1648, i32 1649
   br label %.critedge14
@@ -8896,7 +8896,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2511 = and i32 %2510, 448
   %cond4187 = icmp eq i32 %2511, 0
   %2512 = and i32 %2510, 63
-  %switch4482 = icmp ult i32 %2512, 5
+  %switch4482 = icmp samesign ult i32 %2512, 5
   %or.cond4483 = and i1 %cond4187, %switch4482
   %spec.select4642 = select i1 %or.cond4483, i32 1728, i32 1729
   br label %.critedge14
@@ -8914,7 +8914,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2521 = and i32 %2520, 448
   %cond4186 = icmp eq i32 %2521, 0
   %2522 = and i32 %2520, 63
-  %switch4484 = icmp ult i32 %2522, 5
+  %switch4484 = icmp samesign ult i32 %2522, 5
   %or.cond4485 = and i1 %cond4186, %switch4484
   %spec.select4643 = select i1 %or.cond4485, i32 1648, i32 1649
   br label %.critedge14
@@ -9004,7 +9004,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2556 = and i32 %2555, 448
   %cond4185 = icmp eq i32 %2556, 0
   %2557 = and i32 %2555, 63
-  %switch4486 = icmp ult i32 %2557, 5
+  %switch4486 = icmp samesign ult i32 %2557, 5
   %or.cond4487 = and i1 %cond4185, %switch4486
   %spec.select4644 = select i1 %or.cond4487, i32 1728, i32 1729
   br label %.critedge14
@@ -9022,7 +9022,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2566 = and i32 %2565, 448
   %cond4184 = icmp eq i32 %2566, 0
   %2567 = and i32 %2565, 63
-  %switch4488 = icmp ult i32 %2567, 5
+  %switch4488 = icmp samesign ult i32 %2567, 5
   %or.cond4489 = and i1 %cond4184, %switch4488
   %spec.select4645 = select i1 %or.cond4489, i32 1648, i32 1649
   br label %.critedge14
@@ -9117,7 +9117,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2601 = and i32 %2600, 448
   %cond4183 = icmp eq i32 %2601, 0
   %2602 = and i32 %2600, 63
-  %switch4490 = icmp ult i32 %2602, 5
+  %switch4490 = icmp samesign ult i32 %2602, 5
   %or.cond4491 = and i1 %cond4183, %switch4490
   %spec.select4646 = select i1 %or.cond4491, i32 1728, i32 1729
   br label %.critedge14
@@ -9135,7 +9135,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2611 = and i32 %2610, 448
   %cond4182 = icmp eq i32 %2611, 0
   %2612 = and i32 %2610, 63
-  %switch4492 = icmp ult i32 %2612, 5
+  %switch4492 = icmp samesign ult i32 %2612, 5
   %or.cond4493 = and i1 %cond4182, %switch4492
   %spec.select4647 = select i1 %or.cond4493, i32 1648, i32 1649
   br label %.critedge14
@@ -9169,7 +9169,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2627 = and i32 %2626, 448
   %cond4181 = icmp eq i32 %2627, 0
   %2628 = and i32 %2626, 63
-  %switch4494 = icmp ult i32 %2628, 5
+  %switch4494 = icmp samesign ult i32 %2628, 5
   %or.cond4495 = and i1 %cond4181, %switch4494
   %spec.select4648 = select i1 %or.cond4495, i32 1574, i32 1575
   br label %.critedge14
@@ -9183,7 +9183,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2635 = and i32 %2634, 448
   %cond4180 = icmp eq i32 %2635, 0
   %2636 = and i32 %2634, 63
-  %switch4496 = icmp ult i32 %2636, 5
+  %switch4496 = icmp samesign ult i32 %2636, 5
   %or.cond4497 = and i1 %cond4180, %switch4496
   %spec.select4649 = select i1 %or.cond4497, i32 1576, i32 1577
   br label %.critedge14
@@ -9224,7 +9224,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2655 = and i32 %2654, 448
   %cond4179 = icmp eq i32 %2655, 0
   %2656 = and i32 %2654, 63
-  %switch4498 = icmp ult i32 %2656, 5
+  %switch4498 = icmp samesign ult i32 %2656, 5
   %or.cond4499 = and i1 %cond4179, %switch4498
   %spec.select4650 = select i1 %or.cond4499, i32 1578, i32 1579
   br label %.critedge14
@@ -9238,7 +9238,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2663 = and i32 %2662, 448
   %cond4178 = icmp eq i32 %2663, 0
   %2664 = and i32 %2662, 63
-  %switch4500 = icmp ult i32 %2664, 5
+  %switch4500 = icmp samesign ult i32 %2664, 5
   %or.cond4501 = and i1 %cond4178, %switch4500
   %spec.select4651 = select i1 %or.cond4501, i32 1580, i32 1581
   br label %.critedge14
@@ -9587,7 +9587,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2794 = and i32 %2793, 448
   %cond4177 = icmp eq i32 %2794, 0
   %2795 = and i32 %2793, 63
-  %switch4506 = icmp ult i32 %2795, 5
+  %switch4506 = icmp samesign ult i32 %2795, 5
   %or.cond4507 = and i1 %cond4177, %switch4506
   %spec.select4652 = select i1 %or.cond4507, i32 1728, i32 1729
   br label %.critedge14
@@ -9605,7 +9605,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2804 = and i32 %2803, 448
   %cond4176 = icmp eq i32 %2804, 0
   %2805 = and i32 %2803, 63
-  %switch4508 = icmp ult i32 %2805, 5
+  %switch4508 = icmp samesign ult i32 %2805, 5
   %or.cond4509 = and i1 %cond4176, %switch4508
   %spec.select4653 = select i1 %or.cond4509, i32 1648, i32 1649
   br label %.critedge14
@@ -9639,7 +9639,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2820 = and i32 %2819, 448
   %cond4175 = icmp eq i32 %2820, 0
   %2821 = and i32 %2819, 63
-  %switch4510 = icmp ult i32 %2821, 5
+  %switch4510 = icmp samesign ult i32 %2821, 5
   %or.cond4511 = and i1 %cond4175, %switch4510
   %spec.select4654 = select i1 %or.cond4511, i32 1574, i32 1575
   br label %.critedge14
@@ -9653,7 +9653,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2828 = and i32 %2827, 448
   %cond4174 = icmp eq i32 %2828, 0
   %2829 = and i32 %2827, 63
-  %switch4512 = icmp ult i32 %2829, 5
+  %switch4512 = icmp samesign ult i32 %2829, 5
   %or.cond4513 = and i1 %cond4174, %switch4512
   %spec.select4655 = select i1 %or.cond4513, i32 1576, i32 1577
   br label %.critedge14
@@ -9694,7 +9694,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2848 = and i32 %2847, 448
   %cond4173 = icmp eq i32 %2848, 0
   %2849 = and i32 %2847, 63
-  %switch4514 = icmp ult i32 %2849, 5
+  %switch4514 = icmp samesign ult i32 %2849, 5
   %or.cond4515 = and i1 %cond4173, %switch4514
   %spec.select4656 = select i1 %or.cond4515, i32 1578, i32 1579
   br label %.critedge14
@@ -9708,7 +9708,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2856 = and i32 %2855, 448
   %cond4172 = icmp eq i32 %2856, 0
   %2857 = and i32 %2855, 63
-  %switch4516 = icmp ult i32 %2857, 5
+  %switch4516 = icmp samesign ult i32 %2857, 5
   %or.cond4517 = and i1 %cond4172, %switch4516
   %spec.select4657 = select i1 %or.cond4517, i32 1580, i32 1581
   br label %.critedge14
@@ -9756,7 +9756,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2871 = and i32 %2870, 448
   %cond4171 = icmp eq i32 %2871, 0
   %2872 = and i32 %2870, 63
-  %switch4518 = icmp ult i32 %2872, 5
+  %switch4518 = icmp samesign ult i32 %2872, 5
   %or.cond4519 = and i1 %cond4171, %switch4518
   %spec.select4658 = select i1 %or.cond4519, i32 1728, i32 1729
   br label %.critedge14
@@ -9774,7 +9774,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2881 = and i32 %2880, 448
   %cond4170 = icmp eq i32 %2881, 0
   %2882 = and i32 %2880, 63
-  %switch4520 = icmp ult i32 %2882, 5
+  %switch4520 = icmp samesign ult i32 %2882, 5
   %or.cond4521 = and i1 %cond4170, %switch4520
   %spec.select4659 = select i1 %or.cond4521, i32 1648, i32 1649
   br label %.critedge14
@@ -9808,7 +9808,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2897 = and i32 %2896, 448
   %cond4169 = icmp eq i32 %2897, 0
   %2898 = and i32 %2896, 63
-  %switch4522 = icmp ult i32 %2898, 5
+  %switch4522 = icmp samesign ult i32 %2898, 5
   %or.cond4523 = and i1 %cond4169, %switch4522
   %spec.select4660 = select i1 %or.cond4523, i32 1574, i32 1575
   br label %.critedge14
@@ -9822,7 +9822,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2905 = and i32 %2904, 448
   %cond4168 = icmp eq i32 %2905, 0
   %2906 = and i32 %2904, 63
-  %switch4524 = icmp ult i32 %2906, 5
+  %switch4524 = icmp samesign ult i32 %2906, 5
   %or.cond4525 = and i1 %cond4168, %switch4524
   %spec.select4661 = select i1 %or.cond4525, i32 1576, i32 1577
   br label %.critedge14
@@ -9863,7 +9863,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2925 = and i32 %2924, 448
   %cond4167 = icmp eq i32 %2925, 0
   %2926 = and i32 %2924, 63
-  %switch4526 = icmp ult i32 %2926, 5
+  %switch4526 = icmp samesign ult i32 %2926, 5
   %or.cond4527 = and i1 %cond4167, %switch4526
   %spec.select4662 = select i1 %or.cond4527, i32 1578, i32 1579
   br label %.critedge14
@@ -9877,7 +9877,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2933 = and i32 %2932, 448
   %cond4166 = icmp eq i32 %2933, 0
   %2934 = and i32 %2932, 63
-  %switch4528 = icmp ult i32 %2934, 5
+  %switch4528 = icmp samesign ult i32 %2934, 5
   %or.cond4529 = and i1 %cond4166, %switch4528
   %spec.select4663 = select i1 %or.cond4529, i32 1580, i32 1581
   br label %.critedge14
@@ -9925,7 +9925,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2948 = and i32 %2947, 448
   %cond4165 = icmp eq i32 %2948, 0
   %2949 = and i32 %2947, 63
-  %switch4530 = icmp ult i32 %2949, 5
+  %switch4530 = icmp samesign ult i32 %2949, 5
   %or.cond4531 = and i1 %cond4165, %switch4530
   %spec.select4664 = select i1 %or.cond4531, i32 1645, i32 1646
   br label %.critedge14
@@ -9943,7 +9943,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2958 = and i32 %2957, 448
   %cond4164 = icmp eq i32 %2958, 0
   %2959 = and i32 %2957, 63
-  %switch4532 = icmp ult i32 %2959, 5
+  %switch4532 = icmp samesign ult i32 %2959, 5
   %or.cond4533 = and i1 %cond4164, %switch4532
   %spec.select4665 = select i1 %or.cond4533, i32 1648, i32 1649
   br label %.critedge14
@@ -9977,7 +9977,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2974 = and i32 %2973, 448
   %cond4163 = icmp eq i32 %2974, 0
   %2975 = and i32 %2973, 63
-  %switch4534 = icmp ult i32 %2975, 5
+  %switch4534 = icmp samesign ult i32 %2975, 5
   %or.cond4535 = and i1 %cond4163, %switch4534
   %spec.select4666 = select i1 %or.cond4535, i32 1574, i32 1575
   br label %.critedge14
@@ -9991,7 +9991,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %2982 = and i32 %2981, 448
   %cond4162 = icmp eq i32 %2982, 0
   %2983 = and i32 %2981, 63
-  %switch4536 = icmp ult i32 %2983, 5
+  %switch4536 = icmp samesign ult i32 %2983, 5
   %or.cond4537 = and i1 %cond4162, %switch4536
   %spec.select4667 = select i1 %or.cond4537, i32 1652, i32 1653
   br label %.critedge14
@@ -10032,7 +10032,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %3002 = and i32 %3001, 448
   %cond4161 = icmp eq i32 %3002, 0
   %3003 = and i32 %3001, 63
-  %switch4538 = icmp ult i32 %3003, 5
+  %switch4538 = icmp samesign ult i32 %3003, 5
   %or.cond4539 = and i1 %cond4161, %switch4538
   %spec.select4668 = select i1 %or.cond4539, i32 1650, i32 1651
   br label %.critedge14
@@ -10046,7 +10046,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %3010 = and i32 %3009, 448
   %cond4160 = icmp eq i32 %3010, 0
   %3011 = and i32 %3009, 63
-  %switch4540 = icmp ult i32 %3011, 5
+  %switch4540 = icmp samesign ult i32 %3011, 5
   %or.cond4541 = and i1 %cond4160, %switch4540
   %spec.select4669 = select i1 %or.cond4541, i32 1580, i32 1581
   br label %.critedge14
@@ -10094,7 +10094,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %3025 = and i32 %3024, 448
   %cond4159 = icmp eq i32 %3025, 0
   %3026 = and i32 %3024, 63
-  %switch4542 = icmp ult i32 %3026, 5
+  %switch4542 = icmp samesign ult i32 %3026, 5
   %or.cond4543 = and i1 %cond4159, %switch4542
   %spec.select4670 = select i1 %or.cond4543, i32 1645, i32 1646
   br label %.critedge14
@@ -10112,7 +10112,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %3035 = and i32 %3034, 448
   %cond4158 = icmp eq i32 %3035, 0
   %3036 = and i32 %3034, 63
-  %switch4544 = icmp ult i32 %3036, 5
+  %switch4544 = icmp samesign ult i32 %3036, 5
   %or.cond4545 = and i1 %cond4158, %switch4544
   %spec.select4671 = select i1 %or.cond4545, i32 1648, i32 1649
   br label %.critedge14
@@ -10146,7 +10146,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %3051 = and i32 %3050, 448
   %cond4157 = icmp eq i32 %3051, 0
   %3052 = and i32 %3050, 63
-  %switch4546 = icmp ult i32 %3052, 5
+  %switch4546 = icmp samesign ult i32 %3052, 5
   %or.cond4547 = and i1 %cond4157, %switch4546
   %spec.select4672 = select i1 %or.cond4547, i32 1574, i32 1575
   br label %.critedge14
@@ -10160,7 +10160,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %3059 = and i32 %3058, 448
   %cond4156 = icmp eq i32 %3059, 0
   %3060 = and i32 %3058, 63
-  %switch4548 = icmp ult i32 %3060, 5
+  %switch4548 = icmp samesign ult i32 %3060, 5
   %or.cond4549 = and i1 %cond4156, %switch4548
   %spec.select4673 = select i1 %or.cond4549, i32 1652, i32 1653
   br label %.critedge14
@@ -10201,7 +10201,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %3079 = and i32 %3078, 448
   %cond4155 = icmp eq i32 %3079, 0
   %3080 = and i32 %3078, 63
-  %switch4550 = icmp ult i32 %3080, 5
+  %switch4550 = icmp samesign ult i32 %3080, 5
   %or.cond4551 = and i1 %cond4155, %switch4550
   %spec.select4674 = select i1 %or.cond4551, i32 1650, i32 1651
   br label %.critedge14
@@ -10215,7 +10215,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %3087 = and i32 %3086, 448
   %cond4154 = icmp eq i32 %3087, 0
   %3088 = and i32 %3086, 63
-  %switch4552 = icmp ult i32 %3088, 5
+  %switch4552 = icmp samesign ult i32 %3088, 5
   %or.cond4553 = and i1 %cond4154, %switch4552
   %spec.select4675 = select i1 %or.cond4553, i32 1580, i32 1581
   br label %.critedge14
@@ -10258,7 +10258,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %3102 = and i32 %3101, 448
   %cond4153 = icmp eq i32 %3102, 0
   %3103 = and i32 %3101, 63
-  %switch4554 = icmp ult i32 %3103, 5
+  %switch4554 = icmp samesign ult i32 %3103, 5
   %or.cond4555 = and i1 %cond4153, %switch4554
   %spec.select4676 = select i1 %or.cond4555, i32 1645, i32 1646
   br label %.critedge14
@@ -10276,7 +10276,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %3112 = and i32 %3111, 448
   %cond4152 = icmp eq i32 %3112, 0
   %3113 = and i32 %3111, 63
-  %switch4556 = icmp ult i32 %3113, 5
+  %switch4556 = icmp samesign ult i32 %3113, 5
   %or.cond4557 = and i1 %cond4152, %switch4556
   %spec.select4677 = select i1 %or.cond4557, i32 1648, i32 1649
   br label %.critedge14
@@ -10327,7 +10327,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %3136 = and i32 %3135, 448
   %cond4151 = icmp eq i32 %3136, 0
   %3137 = and i32 %3135, 63
-  %switch4558 = icmp ult i32 %3137, 5
+  %switch4558 = icmp samesign ult i32 %3137, 5
   %or.cond4559 = and i1 %cond4151, %switch4558
   %spec.select4678 = select i1 %or.cond4559, i32 1650, i32 1651
   br label %.critedge14
@@ -10370,7 +10370,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %3151 = and i32 %3150, 448
   %cond4150 = icmp eq i32 %3151, 0
   %3152 = and i32 %3150, 63
-  %switch4560 = icmp ult i32 %3152, 5
+  %switch4560 = icmp samesign ult i32 %3152, 5
   %or.cond4561 = and i1 %cond4150, %switch4560
   %spec.select4679 = select i1 %or.cond4561, i32 1645, i32 1646
   br label %.critedge14
@@ -10388,7 +10388,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %3161 = and i32 %3160, 448
   %cond4149 = icmp eq i32 %3161, 0
   %3162 = and i32 %3160, 63
-  %switch4562 = icmp ult i32 %3162, 5
+  %switch4562 = icmp samesign ult i32 %3162, 5
   %or.cond4563 = and i1 %cond4149, %switch4562
   %spec.select4680 = select i1 %or.cond4563, i32 1648, i32 1649
   br label %.critedge14
@@ -10439,7 +10439,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3653: ; preds = %1788
   %3185 = and i32 %3184, 448
   %cond4148 = icmp eq i32 %3185, 0
   %3186 = and i32 %3184, 63
-  %switch4564 = icmp ult i32 %3186, 5
+  %switch4564 = icmp samesign ult i32 %3186, 5
   %or.cond4565 = and i1 %cond4148, %switch4564
   %spec.select4681 = select i1 %or.cond4565, i32 1650, i32 1651
   br label %.critedge14
@@ -11162,7 +11162,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3791: ; preds = %3378
   %3425 = and i32 %3424, 448
   %cond4147 = icmp eq i32 %3425, 0
   %3426 = and i32 %3424, 63
-  %switch4566 = icmp ult i32 %3426, 5
+  %switch4566 = icmp samesign ult i32 %3426, 5
   %or.cond4567 = and i1 %cond4147, %switch4566
   %spec.select4682 = select i1 %or.cond4567, i32 1728, i32 1729
   br label %.critedge14
@@ -11180,7 +11180,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3791: ; preds = %3378
   %3435 = and i32 %3434, 448
   %cond4146 = icmp eq i32 %3435, 0
   %3436 = and i32 %3434, 63
-  %switch4568 = icmp ult i32 %3436, 5
+  %switch4568 = icmp samesign ult i32 %3436, 5
   %or.cond4569 = and i1 %cond4146, %switch4568
   %spec.select4683 = select i1 %or.cond4569, i32 1648, i32 1649
   br label %.critedge14
@@ -11259,7 +11259,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3791: ; preds = %3378
   %3466 = and i32 %3465, 448
   %cond4145 = icmp eq i32 %3466, 0
   %3467 = and i32 %3465, 63
-  %switch4570 = icmp ult i32 %3467, 5
+  %switch4570 = icmp samesign ult i32 %3467, 5
   %or.cond4571 = and i1 %cond4145, %switch4570
   %spec.select4684 = select i1 %or.cond4571, i32 1728, i32 1729
   br label %.critedge14
@@ -11277,7 +11277,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3791: ; preds = %3378
   %3476 = and i32 %3475, 448
   %cond4144 = icmp eq i32 %3476, 0
   %3477 = and i32 %3475, 63
-  %switch4572 = icmp ult i32 %3477, 5
+  %switch4572 = icmp samesign ult i32 %3477, 5
   %or.cond4573 = and i1 %cond4144, %switch4572
   %spec.select4685 = select i1 %or.cond4573, i32 1648, i32 1649
   br label %.critedge14
@@ -11356,7 +11356,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3791: ; preds = %3378
   %3507 = and i32 %3506, 448
   %cond4143 = icmp eq i32 %3507, 0
   %3508 = and i32 %3506, 63
-  %switch4574 = icmp ult i32 %3508, 5
+  %switch4574 = icmp samesign ult i32 %3508, 5
   %or.cond4575 = and i1 %cond4143, %switch4574
   %spec.select4686 = select i1 %or.cond4575, i32 1728, i32 1729
   br label %.critedge14
@@ -11374,7 +11374,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3791: ; preds = %3378
   %3517 = and i32 %3516, 448
   %cond4142 = icmp eq i32 %3517, 0
   %3518 = and i32 %3516, 63
-  %switch4576 = icmp ult i32 %3518, 5
+  %switch4576 = icmp samesign ult i32 %3518, 5
   %or.cond4577 = and i1 %cond4142, %switch4576
   %spec.select4687 = select i1 %or.cond4577, i32 1648, i32 1649
   br label %.critedge14
@@ -11453,7 +11453,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3791: ; preds = %3378
   %3548 = and i32 %3547, 448
   %cond4141 = icmp eq i32 %3548, 0
   %3549 = and i32 %3547, 63
-  %switch4578 = icmp ult i32 %3549, 5
+  %switch4578 = icmp samesign ult i32 %3549, 5
   %or.cond4579 = and i1 %cond4141, %switch4578
   %spec.select4688 = select i1 %or.cond4579, i32 1728, i32 1729
   br label %.critedge14
@@ -11471,7 +11471,7 @@ _ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6MCInstE.exit3791: ; preds = %3378
   %3558 = and i32 %3557, 448
   %cond = icmp eq i32 %3558, 0
   %3559 = and i32 %3557, 63
-  %switch4580 = icmp ult i32 %3559, 5
+  %switch4580 = icmp samesign ult i32 %3559, 5
   %or.cond4581 = and i1 %cond, %switch4580
   %spec.select4689 = select i1 %or.cond4581, i32 1648, i32 1649
   br label %.critedge14
@@ -14450,7 +14450,7 @@ _ZN4llvm5APInt12clearAllBitsEv.exit:              ; preds = %23, %24
   %45 = getelementptr inbounds %"class.llvm::MCOperand", ptr %44, i64 %indvars.iv, i32 1
   %46 = load i32, ptr %45, align 8
   %47 = lshr i32 %46, 3
-  %.not.i.i = icmp ult i32 %47, %30
+  %.not.i.i = icmp samesign ult i32 %47, %30
   br i1 %.not.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i: ; preds = %43
@@ -14465,7 +14465,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i: ; preds = %43
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i, label %_ZZNK12_GLOBAL__N_122AArch64MCInstrAnalysis20clearsSuperRegistersERKN4llvm14MCRegisterInfoERKNS1_6MCInstERNS1_5APIntEENKUljE_clEj.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %43
-  %.not.i7.i = icmp ult i32 %47, %31
+  %.not.i7.i = icmp samesign ult i32 %47, %31
   br i1 %.not.i7.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.thread.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
@@ -14480,7 +14480,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.i: ; preds = %_ZNK4ll
   br i1 %.not32.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.thread.i, label %_ZZNK12_GLOBAL__N_122AArch64MCInstrAnalysis20clearsSuperRegistersERKN4llvm14MCRegisterInfoERKNS1_6MCInstERNS1_5APIntEENKUljE_clEj.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
-  %.not.i10.i = icmp ult i32 %47, %32
+  %.not.i10.i = icmp samesign ult i32 %47, %32
   br i1 %.not.i10.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.thread.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.thread.i
@@ -14495,7 +14495,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.i: ; preds = %_ZNK4l
   br i1 %.not33.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.thread.i, label %_ZZNK12_GLOBAL__N_122AArch64MCInstrAnalysis20clearsSuperRegistersERKN4llvm14MCRegisterInfoERKNS1_6MCInstERNS1_5APIntEENKUljE_clEj.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.thread.i
-  %.not.i13.i = icmp ult i32 %47, %33
+  %.not.i13.i = icmp samesign ult i32 %47, %33
   br i1 %.not.i13.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.thread.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.thread.i
@@ -14510,7 +14510,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.i: ; preds = %_ZNK4l
   br i1 %.not34.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.thread.i, label %_ZZNK12_GLOBAL__N_122AArch64MCInstrAnalysis20clearsSuperRegistersERKN4llvm14MCRegisterInfoERKNS1_6MCInstERNS1_5APIntEENKUljE_clEj.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.thread.i
-  %.not.i16.i = icmp ult i32 %47, %34
+  %.not.i16.i = icmp samesign ult i32 %47, %34
   br i1 %.not.i16.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.thread.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.thread.i
@@ -14525,7 +14525,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.i: ; preds = %_ZNK4l
   br i1 %.not35.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.thread.i, label %_ZZNK12_GLOBAL__N_122AArch64MCInstrAnalysis20clearsSuperRegistersERKN4llvm14MCRegisterInfoERKNS1_6MCInstERNS1_5APIntEENKUljE_clEj.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.thread.i
-  %.not.i19.i = icmp ult i32 %47, %35
+  %.not.i19.i = icmp samesign ult i32 %47, %35
   br i1 %.not.i19.i, label %_ZZNK12_GLOBAL__N_122AArch64MCInstrAnalysis20clearsSuperRegistersERKN4llvm14MCRegisterInfoERKNS1_6MCInstERNS1_5APIntEENKUljE_clEj.exit, label %_ZN4llvm5APInt6setBitEj.exit
 
 _ZZNK12_GLOBAL__N_122AArch64MCInstrAnalysis20clearsSuperRegistersERKN4llvm14MCRegisterInfoERKNS1_6MCInstERNS1_5APIntEENKUljE_clEj.exit: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.thread.i
@@ -14582,7 +14582,7 @@ _ZN4llvm5APInt6setBitEj.exit:                     ; preds = %_ZNK4llvm15MCRegist
   %114 = load i16, ptr %113, align 2
   %115 = zext i16 %114 to i32
   %116 = lshr i32 %115, 3
-  %.not.i.i40 = icmp ult i32 %116, %36
+  %.not.i.i40 = icmp samesign ult i32 %116, %36
   br i1 %.not.i.i40, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i60, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i60: ; preds = %104
@@ -14597,7 +14597,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i60: ; preds = %104
   br i1 %.not.i61, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41, label %_ZZNK12_GLOBAL__N_122AArch64MCInstrAnalysis20clearsSuperRegistersERKN4llvm14MCRegisterInfoERKNS1_6MCInstERNS1_5APIntEENKUljE_clEj.exit62.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i60, %104
-  %.not.i7.i42 = icmp ult i32 %116, %37
+  %.not.i7.i42 = icmp samesign ult i32 %116, %37
   br i1 %.not.i7.i42, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.i58, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.thread.i43
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.i58: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41
@@ -14612,7 +14612,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.i58: ; preds = %_ZNK4
   br i1 %.not32.i59, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.thread.i43, label %_ZZNK12_GLOBAL__N_122AArch64MCInstrAnalysis20clearsSuperRegistersERKN4llvm14MCRegisterInfoERKNS1_6MCInstERNS1_5APIntEENKUljE_clEj.exit62.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.thread.i43: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.i58, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41
-  %.not.i10.i44 = icmp ult i32 %116, %38
+  %.not.i10.i44 = icmp samesign ult i32 %116, %38
   br i1 %.not.i10.i44, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.i56, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.thread.i45
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.i56: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.thread.i43
@@ -14627,7 +14627,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.i56: ; preds = %_ZNK
   br i1 %.not33.i57, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.thread.i45, label %_ZZNK12_GLOBAL__N_122AArch64MCInstrAnalysis20clearsSuperRegistersERKN4llvm14MCRegisterInfoERKNS1_6MCInstERNS1_5APIntEENKUljE_clEj.exit62.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.thread.i45: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.i56, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit9.thread.i43
-  %.not.i13.i46 = icmp ult i32 %116, %39
+  %.not.i13.i46 = icmp samesign ult i32 %116, %39
   br i1 %.not.i13.i46, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.i54, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.thread.i47
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.i54: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.thread.i45
@@ -14642,7 +14642,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.i54: ; preds = %_ZNK
   br i1 %.not34.i55, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.thread.i47, label %_ZZNK12_GLOBAL__N_122AArch64MCInstrAnalysis20clearsSuperRegistersERKN4llvm14MCRegisterInfoERKNS1_6MCInstERNS1_5APIntEENKUljE_clEj.exit62.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.thread.i47: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.i54, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit12.thread.i45
-  %.not.i16.i48 = icmp ult i32 %116, %40
+  %.not.i16.i48 = icmp samesign ult i32 %116, %40
   br i1 %.not.i16.i48, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.i52, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.thread.i49
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.i52: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.thread.i47
@@ -14657,7 +14657,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.i52: ; preds = %_ZNK
   br i1 %.not35.i53, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.thread.i49, label %_ZZNK12_GLOBAL__N_122AArch64MCInstrAnalysis20clearsSuperRegistersERKN4llvm14MCRegisterInfoERKNS1_6MCInstERNS1_5APIntEENKUljE_clEj.exit62.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.thread.i49: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.i52, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit15.thread.i47
-  %.not.i19.i50 = icmp ult i32 %116, %41
+  %.not.i19.i50 = icmp samesign ult i32 %116, %41
   br i1 %.not.i19.i50, label %_ZZNK12_GLOBAL__N_122AArch64MCInstrAnalysis20clearsSuperRegistersERKN4llvm14MCRegisterInfoERKNS1_6MCInstERNS1_5APIntEENKUljE_clEj.exit62, label %_ZN4llvm5APInt6setBitEj.exit63
 
 _ZZNK12_GLOBAL__N_122AArch64MCInstrAnalysis20clearsSuperRegistersERKN4llvm14MCRegisterInfoERKNS1_6MCInstERNS1_5APIntEENKUljE_clEj.exit62: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit18.thread.i49

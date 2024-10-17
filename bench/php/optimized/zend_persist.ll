@@ -2179,7 +2179,7 @@ zend_persist_property_info.exit:                  ; preds = %752, %755
   %indvars.iv.next1324 = add nuw nsw i64 %indvars.iv1323, 1
   %1063 = load i32, ptr %924, align 8
   %1064 = zext i32 %1063 to i64
-  %1065 = icmp ult i64 %indvars.iv.next1324, %1064
+  %1065 = icmp samesign ult i64 %indvars.iv.next1324, %1064
   br i1 %1065, label %930, label %._crit_edge1281
 
 ._crit_edge1281:                                  ; preds = %1062
@@ -2430,7 +2430,7 @@ zend_persist_property_info.exit:                  ; preds = %752, %755
   %indvars.iv.next1327 = add nuw nsw i64 %indvars.iv1326, 1
   %1208 = load i32, ptr %1072, align 4
   %1209 = zext i32 %1208 to i64
-  %1210 = icmp ult i64 %indvars.iv.next1327, %1209
+  %1210 = icmp samesign ult i64 %indvars.iv.next1327, %1209
   br i1 %1210, label %1075, label %._crit_edge1284
 
 ._crit_edge1284:                                  ; preds = %1207
@@ -3278,7 +3278,7 @@ zend_persist_property_info.exit:                  ; preds = %752, %755
   %1718 = getelementptr inbounds i8, ptr %1717, i64 16
   %1719 = load i32, ptr %1718, align 8
   %1720 = zext i32 %1719 to i64
-  %1721 = icmp ult i64 %indvars.iv.next1330, %1720
+  %1721 = icmp samesign ult i64 %indvars.iv.next1330, %1720
   br i1 %1721, label %.lr.ph1294, label %._crit_edge1295.loopexit
 
 ._crit_edge1295.loopexit:                         ; preds = %1714
@@ -3570,7 +3570,7 @@ define internal fastcc void @zend_hash_persist(ptr nocapture noundef %0) unnamed
   %155 = phi i32 [ %135, %.lr.ph ], [ %.pre125, %141 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %156 = zext i32 %155 to i64
-  %157 = icmp ult i64 %indvars.iv.next, %156
+  %157 = icmp samesign ult i64 %indvars.iv.next, %156
   br i1 %157, label %.lr.ph, label %.loopexit
 
 ._crit_edge:                                      ; preds = %79
@@ -4363,7 +4363,7 @@ define internal fastcc ptr @zend_persist_attributes(ptr noundef nonnull %0) unna
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %193 = load i32, ptr %135, align 4
   %194 = zext i32 %193 to i64
-  %195 = icmp ult i64 %indvars.iv.next, %194
+  %195 = icmp samesign ult i64 %indvars.iv.next, %194
   br i1 %195, label %138, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %191, %134
@@ -4526,7 +4526,7 @@ define hidden void @zend_update_parent_ce(ptr noundef %0) local_unnamed_addr #0 
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
   %63 = load i32, ptr %43, align 8
   %64 = zext i32 %63 to i64
-  %65 = icmp ult i64 %indvars.iv.next309, %64
+  %65 = icmp samesign ult i64 %indvars.iv.next309, %64
   br i1 %65, label %.lr.ph305, label %.loopexit
 
 .loopexit:                                        ; preds = %62, %45, %.critedge
@@ -5523,7 +5523,7 @@ define hidden ptr @zend_accel_script_persist(ptr noundef %0, i32 noundef %1) loc
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %212 = load i32, ptr %203, align 4
   %213 = zext i32 %212 to i64
-  %214 = icmp ult i64 %indvars.iv.next.i, %213
+  %214 = icmp samesign ult i64 %indvars.iv.next.i, %213
   br i1 %214, label %206, label %.loopexit191.i
 
 .loopexit191.i:                                   ; preds = %206, %200, %196, %192, %188, %.lr.ph206.i
@@ -7425,7 +7425,7 @@ define internal fastcc void @zend_persist_op_array_ex(ptr noundef %0, ptr nounde
   %indvars.iv.next643 = add nuw nsw i64 %indvars.iv642, 1
   %631 = load i32, ptr %614, align 4
   %632 = zext i32 %631 to i64
-  %633 = icmp ult i64 %indvars.iv.next643, %632
+  %633 = icmp samesign ult i64 %indvars.iv.next643, %632
   br i1 %633, label %624, label %.sink.split
 
 .sink.split:                                      ; preds = %624, %.loopexit614, %616, %159, %162
@@ -7512,7 +7512,7 @@ define internal fastcc ptr @zend_persist_ast(ptr noundef %0) unnamed_addr #0 {
   %26 = phi i32 [ %20, %19 ], [ %.pre, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %19, label %.loopexit
 
 29:                                               ; preds = %8

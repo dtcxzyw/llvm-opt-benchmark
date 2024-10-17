@@ -1886,7 +1886,7 @@ for.inc:                                          ; preds = %_ZN4pstd3pmr21polym
   %sub.ptr.sub.i31 = sub i64 %sub.ptr.lhs.cast.i29, %sub.ptr.rhs.cast.i30
   %sub.ptr.div.i32 = ashr exact i64 %sub.ptr.sub.i31, 2
   %div11 = lshr i64 %sub.ptr.div.i32, 1
-  %cmp11 = icmp ult i64 %inc, %div11
+  %cmp11 = icmp samesign ult i64 %inc, %div11
   br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %if.end

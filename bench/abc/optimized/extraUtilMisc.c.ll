@@ -2913,7 +2913,7 @@ define void @Extra_TruthPerm6One(ptr nocapture noundef readonly %0, i32 noundef 
   %24 = phi i32 [ 0, %21 ], [ %69, %68 ]
   %25 = phi i32 [ 0, %21 ], [ %70, %68 ]
   %.04759 = phi i32 [ 0, %21 ], [ %71, %68 ]
-  %26 = icmp ult i32 %.04759, 32
+  %26 = icmp samesign ult i32 %.04759, 32
   br i1 %26, label %27, label %47
 
 27:                                               ; preds = %23
@@ -3768,7 +3768,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
   %32 = phi i32 [ 0, %30 ], [ %75, %74 ]
   %33 = phi i32 [ 0, %30 ], [ %76, %74 ]
   %.04759.i = phi i32 [ 0, %30 ], [ %77, %74 ]
-  %34 = icmp ult i32 %.04759.i, 32
+  %34 = icmp samesign ult i32 %.04759.i, 32
   br i1 %34, label %35, label %54
 
 35:                                               ; preds = %31
@@ -4411,7 +4411,7 @@ define noundef i64 @Extra_Truth6MinimumHeuristic(i64 noundef %0) local_unnamed_a
   %22 = lshr i64 %21, 32
   %23 = add nuw nsw i64 %22, %21
   %24 = trunc i64 %23 to i32
-  %25 = icmp ult i32 %24, 32
+  %25 = icmp samesign ult i32 %24, 32
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %1
@@ -5008,7 +5008,7 @@ define void @Extra_NtkPowerTest() local_unnamed_addr #22 {
 
 1:                                                ; preds = %.preheader, %Extra_NtkPrintBin.exit15
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %Extra_NtkPrintBin.exit15 ]
-  %2 = icmp ugt i64 %indvars.iv, 1
+  %2 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %2, label %.lr.ph, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %1
@@ -5115,7 +5115,7 @@ define void @Extra_Transpose32(ptr nocapture noundef %0) local_unnamed_addr #8 {
   %27 = zext nneg i32 %26 to i64
   %28 = shl i64 %.02326, %27
   %29 = xor i64 %28, %.02326
-  %.not = icmp ult i32 %.027, 2
+  %.not = icmp samesign ult i32 %.027, 2
   br i1 %.not, label %30, label %.preheader, !llvm.loop !89
 
 30:                                               ; preds = %25
@@ -5161,7 +5161,7 @@ define void @Extra_Transpose64(ptr nocapture noundef %0) local_unnamed_addr #8 {
   %22 = zext nneg i32 %21 to i64
   %23 = shl i64 %.032, %22
   %24 = xor i64 %23, %.032
-  %.not = icmp ult i32 %.02831, 2
+  %.not = icmp samesign ult i32 %.02831, 2
   br i1 %.not, label %25, label %.preheader, !llvm.loop !91
 
 25:                                               ; preds = %20
@@ -5211,7 +5211,7 @@ define void @Extra_Transpose64p(ptr nocapture noundef readonly %0) local_unnamed
   %26 = zext nneg i32 %25 to i64
   %27 = shl i64 %.032, %26
   %28 = xor i64 %27, %.032
-  %.not = icmp ult i32 %.02831, 2
+  %.not = icmp samesign ult i32 %.02831, 2
   br i1 %.not, label %29, label %.preheader, !llvm.loop !93
 
 29:                                               ; preds = %24
@@ -5281,7 +5281,7 @@ define void @Extra_BitMatrixTransposeP(ptr nocapture noundef readonly %0, i32 no
   %37 = zext nneg i32 %36 to i64
   %38 = shl i64 %.032.i.us, %37
   %39 = xor i64 %38, %.032.i.us
-  %.not.i.us = icmp ult i32 %.02831.i.us, 2
+  %.not.i.us = icmp samesign ult i32 %.02831.i.us, 2
   br i1 %.not.i.us, label %Extra_Transpose64p.exit.us, label %.preheader.i.us, !llvm.loop !93
 
 Extra_Transpose64p.exit.us:                       ; preds = %35
@@ -5388,7 +5388,7 @@ define void @Extra_BitMatrixTransposePP(ptr nocapture noundef readonly %0, i32 n
   %36 = zext nneg i32 %35 to i64
   %37 = shl i64 %.032.i.us, %36
   %38 = xor i64 %37, %.032.i.us
-  %.not.i.us = icmp ult i32 %.02831.i.us, 2
+  %.not.i.us = icmp samesign ult i32 %.02831.i.us, 2
   br i1 %.not.i.us, label %Extra_Transpose64p.exit.us, label %.preheader.i.us, !llvm.loop !93
 
 Extra_Transpose64p.exit.us:                       ; preds = %34
@@ -5626,7 +5626,7 @@ Vec_WrdStartRandom.exit:                          ; preds = %10
   %38 = zext nneg i32 %37 to i64
   %39 = shl i64 %.032.i.us.i, %38
   %40 = xor i64 %39, %.032.i.us.i
-  %.not.i.us.i = icmp ult i32 %.02831.i.us.i, 2
+  %.not.i.us.i = icmp samesign ult i32 %.02831.i.us.i, 2
   br i1 %.not.i.us.i, label %Extra_Transpose64p.exit.us.i, label %.preheader.i.us.i, !llvm.loop !93
 
 Extra_Transpose64p.exit.us.i:                     ; preds = %36

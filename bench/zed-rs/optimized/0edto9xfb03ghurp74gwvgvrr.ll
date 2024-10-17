@@ -3774,7 +3774,7 @@ _ZN3log13__private_api3log17h69e473a6e14bc12eE.exit.i: ; preds = %179
   br i1 %196, label %343, label %219
 
 197:                                              ; preds = %162
-  %switch.i99.i = icmp ugt i64 %167, 2
+  %switch.i99.i = icmp samesign ugt i64 %167, 2
   br i1 %switch.i99.i, label %198, label %215
 
 198:                                              ; preds = %197
@@ -5043,7 +5043,7 @@ _ZN3log13__private_api3log17h69e473a6e14bc12eE.exit.i: ; preds = %163
   br i1 %180, label %360, label %202
 
 181:                                              ; preds = %146
-  %switch.i107.i = icmp ugt i64 %151, 2
+  %switch.i107.i = icmp samesign ugt i64 %151, 2
   br i1 %switch.i107.i, label %182, label %199
 
 182:                                              ; preds = %181
@@ -6355,7 +6355,7 @@ _ZN3log13__private_api3log17h69e473a6e14bc12eE.exit.i: ; preds = %181
   br i1 %198, label %360, label %220
 
 199:                                              ; preds = %164
-  %switch.i107.i = icmp ugt i64 %169, 2
+  %switch.i107.i = icmp samesign ugt i64 %169, 2
   br i1 %switch.i107.i, label %200, label %217
 
 200:                                              ; preds = %199
@@ -7799,7 +7799,7 @@ _ZN3log13__private_api3log17h69e473a6e14bc12eE.exit.i: ; preds = %201
   br i1 %218, label %365, label %241
 
 219:                                              ; preds = %184
-  %switch.i99.i = icmp ugt i64 %189, 2
+  %switch.i99.i = icmp samesign ugt i64 %189, 2
   br i1 %switch.i99.i, label %220, label %237
 
 220:                                              ; preds = %219

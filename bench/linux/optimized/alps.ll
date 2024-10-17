@@ -2371,7 +2371,7 @@ define internal void @alps_process_packet_v1_v2(ptr nocapture noundef readonly %
 137:                                              ; preds = %136, %132, %124
   %138 = getelementptr inbounds i8, ptr %2, i64 264
   store i32 %99, ptr %138, align 8
-  %139 = icmp ugt i32 %130, 30
+  %139 = icmp samesign ugt i32 %130, 30
   br i1 %139, label %.thread, label %140
 
 .thread:                                          ; preds = %137
@@ -2379,7 +2379,7 @@ define internal void @alps_process_packet_v1_v2(ptr nocapture noundef readonly %
   br label %.thread1
 
 140:                                              ; preds = %137
-  %141 = icmp ult i32 %130, 25
+  %141 = icmp samesign ult i32 %130, 25
   br i1 %141, label %142, label %.thread1
 
 142:                                              ; preds = %140
@@ -4468,7 +4468,7 @@ define internal range(i32 -1, 1) i32 @alps_hw_init_v6(ptr noundef %0) #0 align 1
   %73 = icmp eq i32 %72, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
   %74 = add nuw nsw i32 %59, 4
-  %75 = icmp ult i32 %59, 5
+  %75 = icmp samesign ult i32 %59, 5
   %76 = and i1 %75, %73
   br i1 %76, label %.preheader3, label %77, !llvm.loop !23
 
@@ -4491,7 +4491,7 @@ define internal range(i32 -1, 1) i32 @alps_hw_init_v6(ptr noundef %0) #0 align 1
   %88 = icmp eq i32 %87, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
   %89 = add nuw nsw i32 %78, 4
-  %90 = icmp ult i32 %78, 5
+  %90 = icmp samesign ult i32 %78, 5
   %91 = select i1 %88, i1 %90, i1 false
   br i1 %91, label %.preheader2, label %92, !llvm.loop !23
 
@@ -4518,7 +4518,7 @@ define internal range(i32 -1, 1) i32 @alps_hw_init_v6(ptr noundef %0) #0 align 1
   %107 = icmp eq i32 %106, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
   %108 = add nuw nsw i32 %93, 4
-  %109 = icmp ult i32 %93, 5
+  %109 = icmp samesign ult i32 %93, 5
   %110 = and i1 %109, %107
   br i1 %110, label %.preheader, label %111, !llvm.loop !23
 
@@ -7269,7 +7269,7 @@ define internal fastcc void @alps_report_semi_mt_data(ptr nocapture %.0.val, ptr
   %19 = tail call zeroext i1 @input_mt_report_slot_state(ptr noundef %.8.val, i32 noundef 0, i1 noundef zeroext true) #14
   tail call void @input_event(ptr noundef %.8.val, i32 noundef 3, i32 noundef 53, i32 noundef %17) #14
   tail call void @input_event(ptr noundef %.8.val, i32 noundef 3, i32 noundef 54, i32 noundef %18) #14
-  %20 = icmp ugt i32 %16, 1
+  %20 = icmp samesign ugt i32 %16, 1
   br i1 %20, label %21, label %.thread1
 
 21:                                               ; preds = %.thread

@@ -1646,7 +1646,7 @@ define hidden void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h4070a03fe92e6b87E.llvm.2903763967427937413"(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 %1)
   %6 = load i64, ptr %4, align 8, !range !418, !noundef !4
-  %.not = icmp ult i64 %6, 2
+  %.not = icmp samesign ult i64 %6, 2
   %7 = add nsw i64 %6, -1
   %8 = select i1 %.not, i64 0, i64 %7
   switch i64 %8, label %9 [
@@ -11512,7 +11512,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr124dro
 64:                                               ; preds = %.noexc54
   %.sroa.8.0.copyload92 = load i64, ptr %.sroa.8.0..sroa_idx91, align 4, !noalias !2228
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !2224
-  %or.cond.not = icmp ult i32 %60, 2
+  %or.cond.not = icmp samesign ult i32 %60, 2
   br i1 %or.cond.not, label %77, label %.loopexit
 
 .loopexit:                                        ; preds = %64, %.thread

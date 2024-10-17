@@ -1252,7 +1252,7 @@ define hidden void @_ZN11opencv_test20Size_MatType_pyrDown12PerfTestBodyEv(ptr n
   %15 = tail call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEE8GetParamEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 7
-  %18 = icmp ugt i32 %17, 4
+  %18 = icmp samesign ugt i32 %17, 4
   %19 = select i1 %18, double 1.000000e-05, double 1.000000e+00
   %20 = zext i1 %18 to i32
   %.sroa.3.0.insert.ext = zext i32 %.sroa.3.0.copyload to i64
@@ -1894,7 +1894,7 @@ define hidden void @_ZN11opencv_test33Size_MatType_DISABLED_pyrDown_ovx12PerfTes
   %15 = tail call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEE8GetParamEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 7
-  %18 = icmp ugt i32 %17, 4
+  %18 = icmp samesign ugt i32 %17, 4
   %19 = select i1 %18, double 1.000000e-05, double 1.000000e+00
   %20 = zext i1 %18 to i32
   %.sroa.3.0.insert.ext = zext i32 %.sroa.3.0.copyload to i64
@@ -2473,7 +2473,7 @@ define hidden void @_ZN11opencv_test18Size_MatType_pyrUp12PerfTestBodyEv(ptr nou
   %15 = tail call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEE8GetParamEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 7
-  %18 = icmp ugt i32 %17, 4
+  %18 = icmp samesign ugt i32 %17, 4
   %19 = select i1 %18, double 1.000000e-05, double 1.000000e+00
   %20 = zext i1 %18 to i32
   %.sroa.3.0.insert.ext = zext i32 %.sroa.3.0.copyload to i64
@@ -3062,7 +3062,7 @@ define hidden void @_ZN11opencv_test25Size_MatType_buildPyramid12PerfTestBodyEv(
   %30 = tail call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEE8GetParamEv(ptr noundef nonnull align 8 dereferenceable(8) %27)
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 7
-  %33 = icmp ugt i32 %32, 4
+  %33 = icmp samesign ugt i32 %32, 4
   %34 = select i1 %33, double 1.000000e-05, double 1.000000e+00
   %35 = zext i1 %33 to i32
   call void @_ZN2cv3MatC1ENS_5Size_IiEEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i64 %.sroa.016.0.copyload, i32 noundef %31)

@@ -22665,7 +22665,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123LValueExprEvaluato
   %5 = load i32, ptr %1, align 8
   %6 = lshr i32 %5, 18
   %7 = and i32 %6, 63
-  %switch = icmp ult i32 %7, 2
+  %switch = icmp samesign ult i32 %7, 2
   br i1 %switch, label %38, label %8
 
 8:                                                ; preds = %2
@@ -22854,7 +22854,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119LValueExprEvaluato
   %73 = load i32, ptr %1, align 8
   %74 = lshr i32 %73, 18
   %75 = and i32 %74, 63
-  %76 = icmp ugt i32 %75, 28
+  %76 = icmp samesign ugt i32 %75, 28
   %.0.v.i = select i1 %76, i32 -13, i32 -20
   %.0.i = add nsw i32 %.0.v.i, %75
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
@@ -23376,7 +23376,7 @@ _ZNK5clang17ConstantArrayType7getSizeEv.exit.thread.i.i: ; preds = %318
   %329 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 40
   %330 = load i64, ptr %329, align 8, !noalias !238
   store i32 %328, ptr %180, align 8, !alias.scope !238
-  %331 = icmp ult i32 %328, 65
+  %331 = icmp samesign ult i32 %328, 65
   br i1 %331, label %332, label %340
 
 332:                                              ; preds = %326
@@ -26573,7 +26573,7 @@ _ZNK5clang17ConstantArrayType7getSizeEv.exit.thread.i: ; preds = %517
   %528 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %529 = load i64, ptr %528, align 8, !noalias !264
   store i32 %527, ptr %227, align 8, !alias.scope !264
-  %530 = icmp ult i32 %527, 65
+  %530 = icmp samesign ult i32 %527, 65
   br i1 %530, label %531, label %539
 
 531:                                              ; preds = %525
@@ -27774,7 +27774,7 @@ _ZNK5clang17ConstantArrayType7getSizeEv.exit.thread.i.i: ; preds = %315
   %326 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 40
   %327 = load i64, ptr %326, align 8, !noalias !268
   store i32 %325, ptr %128, align 8, !alias.scope !268
-  %328 = icmp ult i32 %325, 65
+  %328 = icmp samesign ult i32 %325, 65
   br i1 %328, label %329, label %337
 
 329:                                              ; preds = %323
@@ -31213,7 +31213,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKN5cl
 .lr.ph:                                           ; preds = %2, %5
   %.02059 = phi ptr [ %18, %5 ], [ %0, %2 ]
   %.044.idx58 = phi i64 [ %.044.add, %5 ], [ 0, %2 ]
-  %.not53 = icmp ugt i64 %.044.idx58, 56
+  %.not53 = icmp samesign ugt i64 %.044.idx58, 56
   br i1 %.not53, label %.critedge, label %5
 
 5:                                                ; preds = %.lr.ph
@@ -31327,8 +31327,8 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKN5cl
   store i64 %64, ptr %.246.ptr63, align 8
   %65 = getelementptr inbounds i8, ptr %.262, i64 8
   %.not23 = icmp eq ptr %65, %1
-  %.not54 = icmp ugt i64 %.246.idx61, 48
-  %or.cond = or i1 %.not23, %.not54
+  %.not54 = icmp samesign ugt i64 %.246.idx61, 48
+  %or.cond = select i1 %.not23, i1 true, i1 %.not54
   br i1 %or.cond, label %.critedge2, label %52, !llvm.loop !289
 
 .critedge2:                                       ; preds = %52
@@ -32432,7 +32432,7 @@ define linkonce_odr hidden void @_ZNK5clang17ConstantArrayType7getSizeEv(ptr dea
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %18, ptr %21, align 8
-  %22 = icmp ult i32 %18, 65
+  %22 = icmp samesign ult i32 %18, 65
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %16
@@ -34354,7 +34354,7 @@ _ZNK5clang17ConstantArrayType7getSizeEv.exit.thread.i: ; preds = %286
   %297 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %298 = load i64, ptr %297, align 8, !noalias !304
   store i32 %296, ptr %133, align 8, !alias.scope !304
-  %299 = icmp ult i32 %296, 65
+  %299 = icmp samesign ult i32 %296, 65
   br i1 %299, label %300, label %308
 
 300:                                              ; preds = %294
@@ -65772,7 +65772,7 @@ _ZNK5clang17ConstantArrayType7getSizeEv.exit.thread.i: ; preds = %292
   %303 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %304 = load i64, ptr %303, align 8, !noalias !571
   store i32 %302, ptr %122, align 8, !alias.scope !571
-  %305 = icmp ult i32 %302, 65
+  %305 = icmp samesign ult i32 %302, 65
   br i1 %305, label %306, label %314
 
 306:                                              ; preds = %300
@@ -70289,7 +70289,7 @@ _ZNK5clang17ConstantArrayType7getSizeEv.exit.thread: ; preds = %278
   %289 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %290 = load i64, ptr %289, align 8, !noalias !588
   store i32 %288, ptr %119, align 8, !alias.scope !588
-  %291 = icmp ult i32 %288, 65
+  %291 = icmp samesign ult i32 %288, 65
   br i1 %291, label %292, label %300
 
 292:                                              ; preds = %286
@@ -73164,7 +73164,7 @@ _ZNK5clang17ConstantArrayType7getSizeEv.exit.thread.i: ; preds = %359
   %370 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %371 = load i64, ptr %370, align 8, !noalias !615
   store i32 %369, ptr %208, align 8, !alias.scope !615
-  %372 = icmp ult i32 %369, 65
+  %372 = icmp samesign ult i32 %369, 65
   br i1 %372, label %373, label %381
 
 373:                                              ; preds = %367
@@ -95423,7 +95423,7 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit:         ; preds = %_ZNK5clang4Type16is
   %264 = and i32 %263, 65535
   %265 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %264, ptr %265, align 8
-  %266 = icmp ult i32 %264, 65
+  %266 = icmp samesign ult i32 %264, 65
   br i1 %266, label %_ZN4llvm5APIntC2Ejmbb.exit.thread.i105, label %_ZN4llvm5APIntC2Ejmbb.exit.i97
 
 _ZN4llvm5APIntC2Ejmbb.exit.thread.i105:           ; preds = %260
@@ -95485,7 +95485,7 @@ _ZN4llvm12APFixedPointC2EmRKNS_19FixedPointSemanticsE.exit107: ; preds = %_ZN4ll
   %285 = and i32 %284, 65535
   %286 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %285, ptr %286, align 8
-  %287 = icmp ult i32 %285, 65
+  %287 = icmp samesign ult i32 %285, 65
   br i1 %287, label %_ZN4llvm5APIntC2Ejmbb.exit.thread.i, label %_ZN4llvm5APIntC2Ejmbb.exit.i
 
 _ZN4llvm5APIntC2Ejmbb.exit.thread.i:              ; preds = %_ZN4llvm12APFixedPointC2EmRKNS_19FixedPointSemanticsE.exit107
@@ -99807,7 +99807,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   %102 = load i64, ptr %101, align 8, !noalias !845
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %100, ptr %103, align 8, !alias.scope !845
-  %104 = icmp ult i32 %100, 65
+  %104 = icmp samesign ult i32 %100, 65
   br i1 %104, label %105, label %113
 
 105:                                              ; preds = %98
@@ -107567,7 +107567,7 @@ _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_23FixedPointExprEvaluatorEE19VisitBinary
   %109 = and i32 %108, 65535
   %110 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %109, ptr %110, align 8
-  %111 = icmp ult i32 %109, 65
+  %111 = icmp samesign ult i32 %109, 65
   br i1 %111, label %_ZN4llvm5APIntC2Ejmbb.exit.thread.i, label %_ZN4llvm5APIntC2Ejmbb.exit.i
 
 _ZN4llvm5APIntC2Ejmbb.exit.thread.i:              ; preds = %94
@@ -107638,7 +107638,7 @@ _ZN4llvm12APFixedPointC2EmRKNS_19FixedPointSemanticsE.exit: ; preds = %_ZN4llvm1
   %136 = and i32 %135, 65535
   %137 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %136, ptr %137, align 8
-  %138 = icmp ult i32 %136, 65
+  %138 = icmp samesign ult i32 %136, 65
   br i1 %138, label %_ZN4llvm5APIntC2Ejmbb.exit.thread.i65, label %_ZN4llvm5APIntC2Ejmbb.exit.i57
 
 _ZN4llvm5APIntC2Ejmbb.exit.thread.i65:            ; preds = %130
@@ -107706,7 +107706,7 @@ _ZN4llvm12APFixedPointC2EmRKNS_19FixedPointSemanticsE.exit67: ; preds = %_ZN4llv
   %158 = and i32 %.sroa.0.0.copyload.i33, 65535
   %159 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %158, ptr %159, align 8
-  %160 = icmp ult i32 %158, 65
+  %160 = icmp samesign ult i32 %158, 65
   br i1 %160, label %_ZN4llvm12APFixedPointC2ERKNS_5APIntERKNS_19FixedPointSemanticsE.exit.i72.thread, label %_ZN4llvm5APIntC2Ejmbb.exit.i68
 
 _ZN4llvm12APFixedPointC2ERKNS_5APIntERKNS_19FixedPointSemanticsE.exit.i72.thread: ; preds = %157
@@ -109459,7 +109459,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123FixedPointExprEvaluator7SuccessE
   %10 = and i32 %9, 65535
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %10, ptr %11, align 8
-  %12 = icmp ult i32 %10, 65
+  %12 = icmp samesign ult i32 %10, 65
   br i1 %12, label %_ZN4llvm5APIntC2Ejmbb.exit.thread.i, label %_ZN4llvm5APIntC2Ejmbb.exit.i
 
 _ZN4llvm5APIntC2Ejmbb.exit.thread.i:              ; preds = %2
@@ -109598,7 +109598,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123FixedPointExprEval
   %47 = and i32 %46, 65535
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %47, ptr %48, align 8
-  %49 = icmp ult i32 %47, 65
+  %49 = icmp samesign ult i32 %47, 65
   br i1 %49, label %_ZN4llvm5APIntC2Ejmbb.exit.thread.i, label %_ZN4llvm5APIntC2Ejmbb.exit.i
 
 _ZN4llvm5APIntC2Ejmbb.exit.thread.i:              ; preds = %41
@@ -117895,7 +117895,7 @@ _ZL15EvaluateIntegerPKN5clang4ExprERN4llvm6APSIntERN12_GLOBAL__N_18EvalInfoE.exi
   %154 = and i32 %153, 65535
   %155 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %154, ptr %155, align 8
-  %156 = icmp ult i32 %154, 65
+  %156 = icmp samesign ult i32 %154, 65
   br i1 %156, label %_ZN4llvm5APIntC2Ejmbb.exit.thread.i, label %_ZN4llvm5APIntC2Ejmbb.exit.i
 
 _ZN4llvm5APIntC2Ejmbb.exit.thread.i:              ; preds = %148
@@ -141124,7 +141124,7 @@ _ZNSt8optionalIN5clang7APValueEED2Ev.exit:        ; preds = %210, %213, %215
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %216 = load i32, ptr %33, align 4
   %217 = zext i32 %216 to i64
-  %.not = icmp ult i64 %indvars.iv.next, %217
+  %.not = icmp samesign ult i64 %indvars.iv.next, %217
   br i1 %.not, label %50, label %._crit_edge, !llvm.loop !1002
 
 ._crit_edge:                                      ; preds = %_ZNSt8optionalIN5clang7APValueEED2Ev.exit, %31
@@ -141677,10 +141677,10 @@ _ZNK4llvm6APSInt11getExtValueEv.exit.thread:      ; preds = %60, %_ZNK4llvm6APSI
   call void @llvm.assume(i1 %92)
   %93 = add i32 %47, %46
   %94 = zext i32 %93 to i64
-  %.not.i = icmp ult i64 %91, %94
+  %.not.i = icmp samesign ult i64 %91, %94
   call void @llvm.assume(i1 %.not.i)
   %95 = zext i32 %46 to i64
-  %.not22.i = icmp ult i64 %91, %95
+  %.not22.i = icmp samesign ult i64 %91, %95
   br i1 %.not22.i, label %103, label %96
 
 96:                                               ; preds = %_ZNK4llvm6APSInt11getExtValueEv.exit.thread
@@ -156761,7 +156761,7 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit:         ; preds = %_ZNK5clang4Type16is
   %840 = and i32 %839, 65535
   %841 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %840, ptr %841, align 8
-  %842 = icmp ult i32 %840, 65
+  %842 = icmp samesign ult i32 %840, 65
   br i1 %842, label %_ZN4llvm5APIntC2Ejmbb.exit.thread.i204, label %_ZN4llvm5APIntC2Ejmbb.exit.i196
 
 _ZN4llvm5APIntC2Ejmbb.exit.thread.i204:           ; preds = %836
@@ -156823,7 +156823,7 @@ _ZN4llvm12APFixedPointC2EmRKNS_19FixedPointSemanticsE.exit206: ; preds = %_ZN4ll
   %861 = and i32 %860, 65535
   %862 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %861, ptr %862, align 8
-  %863 = icmp ult i32 %861, 65
+  %863 = icmp samesign ult i32 %861, 65
   br i1 %863, label %_ZN4llvm5APIntC2Ejmbb.exit.thread.i, label %_ZN4llvm5APIntC2Ejmbb.exit.i
 
 _ZN4llvm5APIntC2Ejmbb.exit.thread.i:              ; preds = %_ZN4llvm12APFixedPointC2EmRKNS_19FixedPointSemanticsE.exit206
@@ -161120,7 +161120,7 @@ _ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit: ; preds = %_Z
   %159 = and i32 %158, 65535
   %160 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %159, ptr %160, align 8
-  %161 = icmp ult i32 %159, 65
+  %161 = icmp samesign ult i32 %159, 65
   br i1 %161, label %_ZN4llvm5APIntC2Ejmbb.exit.thread.i, label %_ZN4llvm5APIntC2Ejmbb.exit.i
 
 _ZN4llvm5APIntC2Ejmbb.exit.thread.i:              ; preds = %154
@@ -166662,7 +166662,7 @@ _ZL15EvaluateIntegerPKN5clang4ExprERN4llvm6APSIntERN12_GLOBAL__N_18EvalInfoE.exi
   %.0.in.i426 = select i1 %2212, ptr %151, ptr %2213
   %.0.i427 = load i64, ptr %.0.in.i426, align 8
   %2214 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i427)
-  %2215 = icmp ult i64 %2214, 2
+  %2215 = icmp samesign ult i64 %2214, 2
   br i1 %2215, label %2216, label %_ZN5clang4Expr10EvalResultD2Ev.exit
 
 2216:                                             ; preds = %2210
@@ -186192,7 +186192,7 @@ _ZNK5clang17ConstantArrayType7getSizeEv.exit.thread.i: ; preds = %647
   %658 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i233, i64 40
   %659 = load i64, ptr %658, align 8, !noalias !1183
   store i32 %657, ptr %494, align 8, !alias.scope !1183
-  %660 = icmp ult i32 %657, 65
+  %660 = icmp samesign ult i32 %657, 65
   br i1 %660, label %661, label %669
 
 661:                                              ; preds = %655

@@ -510,7 +510,7 @@ wmem_block_pop_master.exit:                       ; preds = %32, %35
   %54 = getelementptr inbounds i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = lshr i32 %55, 3
-  %57 = icmp ugt i32 %52, %56
+  %57 = icmp samesign ugt i32 %52, %56
   br i1 %57, label %.sink.split.i, label %wmem_block_add_to_recycler.exit
 
 .sink.split.i:                                    ; preds = %44, %43
@@ -574,7 +574,7 @@ wmem_block_new_block.exit:                        ; preds = %wmem_block_add_to_b
   %78 = getelementptr inbounds i8, ptr %70, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = lshr i32 %79, 3
-  %81 = icmp ult i32 %77, %80
+  %81 = icmp samesign ult i32 %77, %80
   br i1 %81, label %82, label %93
 
 82:                                               ; preds = %72
@@ -726,7 +726,7 @@ wmem_block_realloc_jumbo.exit:                    ; preds = %17, %19
   %65 = getelementptr inbounds i8, ptr %57, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = lshr i32 %66, 3
-  %68 = icmp ult i32 %64, %67
+  %68 = icmp samesign ult i32 %64, %67
   br i1 %68, label %69, label %80
 
 69:                                               ; preds = %59
@@ -812,7 +812,7 @@ wmem_block_free_jumbo.exit.i:                     ; preds = %98, %97
   %111 = getelementptr inbounds i8, ptr %103, i64 4
   %112 = load i32, ptr %111, align 4
   %113 = lshr i32 %112, 3
-  %114 = icmp ult i32 %110, %113
+  %114 = icmp samesign ult i32 %110, %113
   br i1 %114, label %115, label %126
 
 115:                                              ; preds = %105
@@ -900,7 +900,7 @@ wmem_block_split_used_chunk.exit:                 ; preds = %129, %156
   %166 = getelementptr inbounds i8, ptr %158, i64 4
   %167 = load i32, ptr %166, align 4
   %168 = lshr i32 %167, 3
-  %169 = icmp ult i32 %165, %168
+  %169 = icmp samesign ult i32 %165, %168
   br i1 %169, label %170, label %181
 
 170:                                              ; preds = %160
@@ -988,7 +988,7 @@ wmem_block_free_jumbo.exit:                       ; preds = %14, %15
   %29 = getelementptr inbounds i8, ptr %21, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = lshr i32 %30, 3
-  %32 = icmp ult i32 %28, %31
+  %32 = icmp samesign ult i32 %28, %31
   br i1 %32, label %33, label %44
 
 33:                                               ; preds = %23
@@ -1692,7 +1692,7 @@ wmem_block_remove_from_recycler.exit:             ; preds = %74, %._crit_edge.i,
   %121 = getelementptr inbounds i8, ptr %120, i64 4
   %122 = load i32, ptr %121, align 4
   %123 = lshr i32 %122, 3
-  %124 = icmp ugt i32 %119, %123
+  %124 = icmp samesign ugt i32 %119, %123
   br i1 %124, label %.sink.split.i, label %wmem_block_add_to_recycler.exit
 
 .sink.split.i:                                    ; preds = %111, %110

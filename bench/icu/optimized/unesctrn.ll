@@ -1172,7 +1172,7 @@ for.end71:                                        ; preds = %if.end62, %if.end57
   %u.1 = phi i32 [ %u.0, %if.then52 ], [ %add66, %if.end62 ], [ %u.0, %if.end57 ]
   %digitCount.1 = phi i32 [ %digitCount.0, %if.then52 ], [ %conv28, %if.end62 ], [ %digitCount.0, %if.end57 ]
   %s.3 = phi i32 [ %s.2, %if.then52 ], [ %add64, %if.end62 ], [ %s.2, %if.end57 ]
-  %cmp72.not = icmp ult i32 %digitCount.1, %conv23
+  %cmp72.not = icmp samesign ult i32 %digitCount.1, %conv23
   br i1 %cmp72.not, label %if.end111, label %for.cond76.preheader
 
 for.cond76.preheader:                             ; preds = %for.end71

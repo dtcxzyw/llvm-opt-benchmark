@@ -242,7 +242,7 @@ define noundef float @_Z22gmx_sparsematrix_valueP16gmx_sparsematrixii(ptr nocapt
 
 21:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = icmp ult i64 %indvars.iv.next, %14
+  %22 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %22, label %15, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %21, %.thread, %3

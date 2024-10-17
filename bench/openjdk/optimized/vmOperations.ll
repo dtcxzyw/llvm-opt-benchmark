@@ -909,7 +909,7 @@ _ZN18ObjectMonitorsDumpC2Ev.exit:                 ; preds = %24, %28
   %78 = getelementptr inbounds i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = zext i32 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next41, %80
+  %81 = icmp samesign ult i64 %indvars.iv.next41, %80
   br i1 %81, label %47, label %.loopexit, !llvm.loop !10
 
 82:                                               ; preds = %.lr.ph, %123
@@ -1126,7 +1126,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1031EPvPN18ObjectMo
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader
   %.0.add.i.i = add nuw nsw i64 %.0.idx11.i.i, 8
-  %32 = icmp ult i64 %.0.idx11.i.i, 8240
+  %32 = icmp samesign ult i64 %.0.idx11.i.i, 8240
   br i1 %32, label %.preheader, label %_ZN17ResourceHashtableIPvPN18ObjectMonitorsDump23ObjectMonitorLinkedListELj1031ELN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZNS1_8ptr_hashERKS0_EEXadL_Z16primitive_equalsIS0_EbRKT_SC_EEED2Ev.exit, !llvm.loop !15
 
 _ZN17ResourceHashtableIPvPN18ObjectMonitorsDump23ObjectMonitorLinkedListELj1031ELN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZNS1_8ptr_hashERKS0_EEXadL_Z16primitive_equalsIS0_EbRKT_SC_EEED2Ev.exit: ; preds = %._crit_edge.i.i
@@ -1300,7 +1300,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %.022.lcssa.ph = phi i32 [ %.02234, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit ], [ %.1, %44 ]
   %49 = icmp ne i32 %.022.lcssa.ph, 0
   %50 = icmp ne i32 %.023.lcssa.ph, 0
-  %51 = icmp ult i32 %.02147, 1000
+  %51 = icmp samesign ult i32 %.02147, 1000
   %or.cond31.not45 = select i1 %50, i1 %51, i1 false
   %.not26 = icmp slt i32 %.02147, %6
   %or.cond = select i1 %49, i1 true, i1 %.not26

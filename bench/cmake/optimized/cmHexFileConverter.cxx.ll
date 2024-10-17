@@ -230,7 +230,7 @@ _ZL11ChompStrlenPKc.exit.i.us:                    ; preds = %39, %34
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i8 0, ptr %22, align 1
-  %49 = icmp ult i32 %.0.i.us, %48
+  %49 = icmp samesign ult i32 %.0.i.us, %48
   br i1 %49, label %.lr.ph.i.i.us, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us
 
 .lr.ph.i.i.us:                                    ; preds = %47

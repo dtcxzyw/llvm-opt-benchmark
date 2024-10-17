@@ -3228,7 +3228,7 @@ define range(i32 -41, 1) i32 @mriStep_CheckCoupling(ptr noundef %0) local_unname
   %61 = tail call double @llvm.fabs.f64(double %60)
   %62 = fadd double %.2140.us, %61
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
-  %63 = icmp ult i64 %indvars.iv.next217, %54
+  %63 = icmp samesign ult i64 %indvars.iv.next217, %54
   br i1 %63, label %58, label %57
 
 .preheader135.us:                                 ; preds = %.preheader136.us, %57
@@ -3280,7 +3280,7 @@ define range(i32 -41, 1) i32 @mriStep_CheckCoupling(ptr noundef %0) local_unname
   %indvars.iv225 = phi i64 [ 1, %.preheader133.us ], [ %indvars.iv.next226, %.loopexit.us ]
   %.198150.us = phi double [ %.097154.us, %.preheader133.us ], [ %.299.lcssa.us, %.loopexit.us ]
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
-  %74 = icmp ult i64 %indvars.iv.next233, %71
+  %74 = icmp samesign ult i64 %indvars.iv.next233, %71
   br i1 %74, label %.lr.ph.us, label %.loopexit.us
 
 75:                                               ; preds = %.lr.ph.us, %75

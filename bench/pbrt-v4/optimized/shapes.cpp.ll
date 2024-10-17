@@ -7464,7 +7464,7 @@ if.end:                                           ; preds = %entry
   %shr.i = lshr i32 %0, 23
   %sub.i = add nsw i32 %shr.i, -127
   %and.i = and i32 %0, 8388607
-  %cmp3 = icmp ugt i32 %and.i, 3474674
+  %cmp3 = icmp samesign ugt i32 %and.i, 3474674
   %cond = zext i1 %cmp3 to i32
   %add = add nsw i32 %sub.i, %cond
   br label %common.ret4
@@ -9916,7 +9916,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   unreachable
 
 _ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEED2Ev.exit: ; preds = %invoke.cont292, %if.end.i.i.i.i
-  %cmp206 = icmp ult i64 %indvars.iv.next, %64
+  %cmp206 = icmp samesign ult i64 %indvars.iv.next, %64
   br i1 %cmp206, label %arrayinit.body.i.preheader, label %cleanup, !llvm.loop !43
 
 lpad285:                                          ; preds = %invoke.cont284

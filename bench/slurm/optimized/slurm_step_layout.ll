@@ -146,7 +146,7 @@ define void @pack_slurm_step_layout(ptr noundef readonly %0, ptr noundef %1, i16
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %42 = load i32, ptr %23, align 8
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next103, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next103, %43
   br i1 %44, label %34, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %34, %22
@@ -258,7 +258,7 @@ define void @pack_slurm_step_layout(ptr noundef readonly %0, ptr noundef %1, i16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = load i32, ptr %79, align 8
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %indvars.iv.next, %99
+  %100 = icmp samesign ult i64 %indvars.iv.next, %99
   br i1 %100, label %90, label %.loopexit, !llvm.loop !8
 
 101:                                              ; preds = %61
@@ -396,7 +396,7 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %64 = load i32, ptr %27, align 8
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next150, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next150, %65
   br i1 %66, label %55, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %59, %.thread155, %51
@@ -561,7 +561,7 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %137 = load i32, ptr %100, align 8
   %138 = zext i32 %137 to i64
-  %139 = icmp ult i64 %indvars.iv.next, %138
+  %139 = icmp samesign ult i64 %indvars.iv.next, %138
   br i1 %139, label %128, label %.loopexit140, !llvm.loop !10
 
 140:                                              ; preds = %86
@@ -905,7 +905,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   %121 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv89.i113
   %122 = load i16, ptr %121, align 2
   %123 = zext i16 %122 to i32
-  %124 = icmp ult i32 %.05175.i, %123
+  %124 = icmp samesign ult i32 %.05175.i, %123
   br i1 %124, label %125, label %149
 
 125:                                              ; preds = %.lr.ph
@@ -933,7 +933,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   %146 = load i16, ptr %145, align 2
   %147 = add i16 %146, 1
   store i16 %147, ptr %145, align 2
-  %148 = icmp ult i32 %.pre94.i, %123
+  %148 = icmp samesign ult i32 %.pre94.i, %123
   %spec.select.us.i = select i1 %148, i1 true, i1 %.065.us.i114
   %.pre.i = load i32, ptr %8, align 8
   br label %149
@@ -945,7 +945,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   %.1.us.i = phi i1 [ %spec.select.us.i, %125 ], [ %.065.us.i114, %.lr.ph ]
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i113, 1
   %152 = zext i32 %151 to i64
-  %153 = icmp ult i64 %indvars.iv.next90.i, %152
+  %153 = icmp samesign ult i64 %indvars.iv.next90.i, %152
   br i1 %153, label %.lr.ph66.split.us.i, label %.critedge.i, !llvm.loop !13
 
 .lr.ph66.split.i:                                 ; preds = %187
@@ -961,7 +961,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   %157 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv91.i125
   %158 = load i16, ptr %157, align 2
   %159 = zext i16 %158 to i32
-  %160 = icmp ult i32 %.05175.i, %159
+  %160 = icmp samesign ult i32 %.05175.i, %159
   %161 = add nsw i32 %.05097.i, %159
   %162 = icmp slt i32 %.05175.i, %161
   %or.cond.i = select i1 %160, i1 true, i1 %162
@@ -992,7 +992,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   %184 = load i16, ptr %183, align 2
   %185 = add i16 %184, 1
   store i16 %185, ptr %183, align 2
-  %186 = icmp ult i32 %.pre94.i, %159
+  %186 = icmp samesign ult i32 %.pre94.i, %159
   %spec.select.i = select i1 %186, i1 true, i1 %.065.i126
   %.pre93.i = load i32, ptr %8, align 8
   br label %187
@@ -1003,7 +1003,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   %.1.i = phi i1 [ %spec.select.i, %163 ], [ %.065.i126, %.lr.ph128 ]
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i125, 1
   %189 = zext i32 %188 to i64
-  %190 = icmp ult i64 %indvars.iv.next92.i, %189
+  %190 = icmp samesign ult i64 %indvars.iv.next92.i, %189
   br i1 %190, label %.lr.ph66.split.i, label %.critedge.i, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %.lr.ph66.split.us.i, %149, %.lr.ph66.split.i, %187, %.lr.ph66.split.us.i.preheader, %.lr.ph66.split.i.preheader, %.preheader.i
@@ -1295,7 +1295,7 @@ define noundef i32 @slurm_step_layout_destroy(ptr noundef %0) local_unnamed_addr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %10, align 8
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %13, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %13, %3
@@ -1395,7 +1395,7 @@ define ptr @fake_slurm_step_layout_create(ptr noundef %0, ptr noundef readonly %
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %49 = load i32, ptr %18, align 8
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %indvars.iv.next117, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next117, %50
   br i1 %51, label %.lr.ph103.split.us, label %.loopexit94, !llvm.loop !21
 
 .lr.ph98.us:                                      ; preds = %.lr.ph103.split.us, %.lr.ph98.us
@@ -1413,7 +1413,7 @@ define ptr @fake_slurm_step_layout_create(ptr noundef %0, ptr noundef readonly %
   %59 = getelementptr inbounds i16, ptr %58, i64 %indvars.iv116
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i64
-  %62 = icmp ult i64 %indvars.iv.next114, %61
+  %62 = icmp samesign ult i64 %indvars.iv.next114, %61
   br i1 %62, label %.lr.ph98.us, label %._crit_edge.us, !llvm.loop !22
 
 .lr.ph103.split:                                  ; preds = %.lr.ph103, %.loopexit
@@ -1477,14 +1477,14 @@ define ptr @fake_slurm_step_layout_create(ptr noundef %0, ptr noundef readonly %
 
 94:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %95 = icmp ult i64 %indvars.iv.next, %78
+  %95 = icmp samesign ult i64 %indvars.iv.next, %78
   br i1 %95, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %94, %69, %89, %64
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %96 = load i32, ptr %18, align 8
   %97 = zext i32 %96 to i64
-  %98 = icmp ult i64 %indvars.iv.next111, %97
+  %98 = icmp samesign ult i64 %indvars.iv.next111, %97
   br i1 %98, label %.lr.ph103.split, label %.loopexit94, !llvm.loop !21
 
 .loopexit94:                                      ; preds = %.loopexit, %._crit_edge.us, %14, %12
@@ -1608,7 +1608,7 @@ define ptr @slurm_step_layout_copy(ptr noundef readonly %0) local_unnamed_addr #
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = load i32, ptr %17, align 8
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %indvars.iv.next, %75
+  %76 = icmp samesign ult i64 %indvars.iv.next, %75
   br i1 %76, label %55, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %55, %48, %1
@@ -1709,7 +1709,7 @@ define void @slurm_step_layout_merge(ptr noundef %0, ptr nocapture noundef reado
   %59 = getelementptr inbounds i16, ptr %58, i64 %indvars.iv61
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i64
-  %62 = icmp ult i64 %indvars.iv.next, %61
+  %62 = icmp samesign ult i64 %indvars.iv.next, %61
   br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %29
@@ -2073,7 +2073,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv251, 1
   %37 = load i32, ptr %3, align 8
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next, %38
   br i1 %39, label %.lr.ph, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph253, %.lr.ph.preheader, %.lr.ph143
@@ -2115,7 +2115,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   %.1.lcssa.us = phi i1 [ %.0129.us, %44 ], [ %.1.lcssa.us.ph, %.critedge4.us.loopexit ]
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next182, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next182, %48
   br i1 %49, label %.lr.ph130.split.us, label %.critedge2, !llvm.loop !31
 
 .lr.ph118.us:                                     ; preds = %44
@@ -2146,7 +2146,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   %65 = add nuw nsw i32 %.097115.us.us, 1
   %66 = load i16, ptr %17, align 8
   %67 = zext i16 %66 to i32
-  %68 = icmp ult i32 %65, %67
+  %68 = icmp samesign ult i32 %65, %67
   br i1 %68, label %51, label %.critedge4.us.loopexit, !llvm.loop !32
 
 .lr.ph130.split:                                  ; preds = %.lr.ph130, %.critedge4
@@ -2204,7 +2204,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   %.2 = phi i1 [ %spec.select, %85 ], [ %.1117, %80 ]
   %95 = add nuw nsw i32 %.097115, 1
   %96 = zext i16 %94 to i32
-  %97 = icmp ult i32 %95, %96
+  %97 = icmp samesign ult i32 %95, %96
   br i1 %97, label %76, label %.critedge4.loopexit, !llvm.loop !32
 
 .critedge4.loopexit:                              ; preds = %76, %93
@@ -2220,7 +2220,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   %.1.lcssa = phi i1 [ %.0129, %72 ], [ %.1.lcssa.ph, %.critedge4.loopexit ]
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %indvars.iv.next180, %99
+  %100 = icmp samesign ult i64 %indvars.iv.next180, %99
   br i1 %100, label %.lr.ph130.split, label %.critedge2, !llvm.loop !31
 
 .critedge2:                                       ; preds = %.lr.ph130.split, %.critedge4, %.lr.ph130.split.us, %.critedge4.us, %.preheader108, %.critedge
@@ -2270,7 +2270,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %115 = load i32, ptr %3, align 8
   %116 = zext i32 %115 to i64
-  %117 = icmp ult i64 %indvars.iv.next184, %116
+  %117 = icmp samesign ult i64 %indvars.iv.next184, %116
   br i1 %117, label %106, label %.preheader106, !llvm.loop !34
 
 .preheader105:                                    ; preds = %.preheader105.lr.ph, %.critedge6
@@ -2328,7 +2328,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   %143 = add nuw nsw i32 %.198147, 1
   %144 = load i16, ptr %17, align 8
   %145 = zext i16 %144 to i32
-  %146 = icmp ult i32 %143, %145
+  %146 = icmp samesign ult i32 %143, %145
   br i1 %146, label %.lr.ph149, label %.critedge8.loopexit, !llvm.loop !35
 
 .critedge8.loopexit:                              ; preds = %132, %135, %.lr.ph149
@@ -2341,7 +2341,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   %.8.lcssa = phi i32 [ %.7155259, %.preheader ], [ %.8.lcssa.ph, %.critedge8.loopexit ]
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186257, 1
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next187, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next187, %148
   %150 = load i32, ptr %24, align 8
   %151 = icmp ult i32 %.8.lcssa, %150
   %or.cond = select i1 %149, i1 %151, i1 false
@@ -2399,8 +2399,8 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   %15 = getelementptr inbounds i8, ptr %0, i64 72
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
-  %.not150 = icmp eq i32 %17, 0
-  br i1 %.not150, label %.critedge2, label %.lr.ph
+  %.not149 = icmp eq i32 %17, 0
+  br i1 %.not149, label %.critedge2, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge96
   %18 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2435,14 +2435,14 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   %.185 = phi i32 [ %32, %30 ], [ %.084104, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %36, label %19, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %19, %33
   %37 = phi i32 [ %20, %19 ], [ %34, %33 ]
   %.084.lcssa = phi i32 [ %.084104, %19 ], [ %.185, %33 ]
-  %.not151 = icmp eq i32 %37, 0
-  br i1 %.not151, label %.critedge2, label %.lr.ph114
+  %.not150 = icmp eq i32 %37, 0
+  br i1 %.not150, label %.critedge2, label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %.critedge
   %38 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2450,16 +2450,16 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
 
 39:                                               ; preds = %.lr.ph114, %.critedge4
   %40 = phi i32 [ %37, %.lr.ph114 ], [ %61, %.critedge4 ]
-  %indvars.iv165 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next166, %.critedge4 ]
+  %indvars.iv164 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next165, %.critedge4 ]
   %.2113 = phi i32 [ %.084.lcssa, %.lr.ph114 ], [ %.3.lcssa, %.critedge4 ]
   %41 = load i32, ptr %15, align 8
   %42 = icmp ult i32 %.2113, %41
   br i1 %42, label %.preheader102, label %.critedge2
 
 .preheader102:                                    ; preds = %39
-  %43 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv165
+  %43 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv164
   %44 = load ptr, ptr %38, align 8
-  %45 = getelementptr inbounds i16, ptr %44, i64 %indvars.iv165
+  %45 = getelementptr inbounds i16, ptr %44, i64 %indvars.iv164
   %46 = load i16, ptr %45, align 2
   %47 = load i16, ptr %43, align 2
   %48 = icmp ult i16 %46, %47
@@ -2478,7 +2478,7 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   store i16 %54, ptr %50, align 2
   %55 = add nuw nsw i32 %.3107, 1
   %56 = load ptr, ptr %38, align 8
-  %57 = getelementptr inbounds i16, ptr %56, i64 %indvars.iv165
+  %57 = getelementptr inbounds i16, ptr %56, i64 %indvars.iv164
   %58 = load i16, ptr %57, align 2
   %59 = load i16, ptr %43, align 2
   %60 = icmp ult i16 %58, %59
@@ -2486,15 +2486,15 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
 
 .critedge4.loopexit:                              ; preds = %.lr.ph108, %53
   %.3.lcssa.ph = phi i32 [ %55, %53 ], [ %.3107, %.lr.ph108 ]
-  %.pre181 = load i32, ptr %16, align 8
+  %.pre180 = load i32, ptr %16, align 8
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.preheader102
-  %61 = phi i32 [ %40, %.preheader102 ], [ %.pre181, %.critedge4.loopexit ]
+  %61 = phi i32 [ %40, %.preheader102 ], [ %.pre180, %.critedge4.loopexit ]
   %.3.lcssa = phi i32 [ %.2113, %.preheader102 ], [ %.3.lcssa.ph, %.critedge4.loopexit ]
-  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %62 = zext i32 %61 to i64
-  %63 = icmp ult i64 %indvars.iv.next166, %62
+  %63 = icmp samesign ult i64 %indvars.iv.next165, %62
   br i1 %63, label %39, label %.critedge2, !llvm.loop !40
 
 .critedge2:                                       ; preds = %39, %.critedge4, %.critedge96, %.critedge
@@ -2506,8 +2506,8 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
 
 .preheader100.lr.ph:                              ; preds = %.critedge2
   %67 = getelementptr inbounds i8, ptr %0, i64 64
-  %.not152 = icmp eq i32 %64, 0
-  br i1 %.not152, label %.preheader100.us, label %.preheader100
+  %.not151 = icmp eq i32 %64, 0
+  br i1 %.not151, label %.preheader100.us, label %.preheader100
 
 .preheader100.us:                                 ; preds = %.preheader100.lr.ph, %.preheader100.us
   br label %.preheader100.us
@@ -2517,8 +2517,8 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   %69 = phi i32 [ %84, %.critedge6 ], [ %65, %.preheader100.lr.ph ]
   %70 = phi i32 [ %85, %.critedge6 ], [ %64, %.preheader100.lr.ph ]
   %.4124 = phi i32 [ %.5.lcssa, %.critedge6 ], [ %.2.lcssa, %.preheader100.lr.ph ]
-  %.not153 = icmp eq i32 %70, 0
-  br i1 %.not153, label %.critedge6, label %.lr.ph120.preheader
+  %.not152 = icmp eq i32 %70, 0
+  br i1 %.not152, label %.critedge6, label %.lr.ph120.preheader
 
 .lr.ph120.preheader:                              ; preds = %.preheader100
   %71 = load i32, ptr %15, align 8
@@ -2527,17 +2527,17 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
 
 .lr.ph23:                                         ; preds = %.lr.ph120.preheader, %.lr.ph23
   %.511922 = phi i32 [ %77, %.lr.ph23 ], [ %.4124, %.lr.ph120.preheader ]
-  %indvars.iv16821 = phi i64 [ %indvars.iv.next169, %.lr.ph23 ], [ 0, %.lr.ph120.preheader ]
+  %indvars.iv16721 = phi i64 [ %indvars.iv.next168, %.lr.ph23 ], [ 0, %.lr.ph120.preheader ]
   %73 = load ptr, ptr %67, align 8
-  %74 = getelementptr inbounds i16, ptr %73, i64 %indvars.iv16821
+  %74 = getelementptr inbounds i16, ptr %73, i64 %indvars.iv16721
   %75 = load i16, ptr %74, align 2
   %76 = add i16 %75, 1
   store i16 %76, ptr %74, align 2
   %77 = add nuw nsw i32 %.511922, 1
-  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv16821, 1
+  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv16721, 1
   %78 = load i32, ptr %16, align 8
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %indvars.iv.next169, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next168, %79
   %81 = load i32, ptr %15, align 8
   %82 = icmp ult i32 %77, %81
   %or.cond51 = select i1 %80, i1 %82, i1 false
@@ -2554,19 +2554,19 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
 .critedge98:                                      ; preds = %12
   %87 = getelementptr inbounds i8, ptr %0, i64 72
   %88 = load i32, ptr %87, align 8
-  %.not154 = icmp eq i32 %88, 0
+  %.not153 = icmp eq i32 %88, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 40
-  br i1 %.not154, label %.critedge98..loopexit_crit_edge, label %.preheader.lr.ph
+  br i1 %.not153, label %.critedge98..loopexit_crit_edge, label %.preheader.lr.ph
 
 .critedge98..loopexit_crit_edge:                  ; preds = %.critedge98
-  %.pre184 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre183 = load i32, ptr %.phi.trans.insert, align 8
   br label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %.critedge98
   %89 = getelementptr inbounds i8, ptr %0, i64 64
   %90 = load i32, ptr %.phi.trans.insert, align 8
-  %.not155 = icmp eq i32 %90, 0
-  br i1 %.not155, label %.preheader.us, label %.preheader
+  %.not154 = icmp eq i32 %90, 0
+  br i1 %.not154, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %.preheader.us
   br label %.preheader.us
@@ -2574,17 +2574,17 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge8
   %91 = phi i32 [ %129, %.critedge8 ], [ %90, %.preheader.lr.ph ]
   %92 = phi i32 [ %130, %.critedge8 ], [ %90, %.preheader.lr.ph ]
-  %.081140 = phi i1 [ %spec.select99, %.critedge8 ], [ false, %.preheader.lr.ph ]
-  %.6139 = phi i32 [ %.7.lcssa, %.critedge8 ], [ 0, %.preheader.lr.ph ]
-  %.086137 = phi i32 [ %.pre187, %.critedge8 ], [ 0, %.preheader.lr.ph ]
-  %.081.fr = freeze i1 %.081140
-  %.not157 = icmp eq i32 %92, 0
-  %.pre187 = add nuw nsw i32 %.086137, 1
-  br i1 %.not157, label %.critedge8, label %.lr.ph128
+  %.081139 = phi i1 [ %spec.select99, %.critedge8 ], [ false, %.preheader.lr.ph ]
+  %.6138 = phi i32 [ %.7.lcssa, %.critedge8 ], [ 0, %.preheader.lr.ph ]
+  %.086137 = phi i32 [ %.pre186, %.critedge8 ], [ 0, %.preheader.lr.ph ]
+  %.081.fr = freeze i1 %.081139
+  %.not156 = icmp eq i32 %92, 0
+  %.pre186 = add nuw nsw i32 %.086137, 1
+  br i1 %.not156, label %.critedge8, label %.lr.ph128
 
 .lr.ph128:                                        ; preds = %.preheader
   %93 = load i32, ptr %87, align 8
-  %94 = icmp ult i32 %.6139, %93
+  %94 = icmp ult i32 %.6138, %93
   br i1 %.081.fr, label %.lr.ph128.split.us.preheader, label %.lr.ph128.split.preheader
 
 .lr.ph128.split.preheader:                        ; preds = %.lr.ph128
@@ -2599,24 +2599,24 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   br i1 %96, label %.lr.ph42, label %.critedge8, !llvm.loop !43
 
 .lr.ph42:                                         ; preds = %.lr.ph128.split.us.preheader, %.lr.ph128.split.us
-  %.7126.us41 = phi i32 [ %102, %.lr.ph128.split.us ], [ %.6139, %.lr.ph128.split.us.preheader ]
+  %.7126.us41 = phi i32 [ %102, %.lr.ph128.split.us ], [ %.6138, %.lr.ph128.split.us.preheader ]
   %.0127.us40 = phi i1 [ %spec.select.us, %.lr.ph128.split.us ], [ false, %.lr.ph128.split.us.preheader ]
-  %indvars.iv17339 = phi i64 [ %indvars.iv.next174, %.lr.ph128.split.us ], [ 0, %.lr.ph128.split.us.preheader ]
-  %97 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv17339
+  %indvars.iv17239 = phi i64 [ %indvars.iv.next173, %.lr.ph128.split.us ], [ 0, %.lr.ph128.split.us.preheader ]
+  %97 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv17239
   %98 = load ptr, ptr %89, align 8
-  %99 = getelementptr inbounds i16, ptr %98, i64 %indvars.iv17339
+  %99 = getelementptr inbounds i16, ptr %98, i64 %indvars.iv17239
   %100 = load i16, ptr %99, align 2
   %101 = add i16 %100, 1
   store i16 %101, ptr %99, align 2
   %102 = add nuw nsw i32 %.7126.us41, 1
   %103 = load i16, ptr %97, align 2
   %104 = zext i16 %103 to i32
-  %105 = icmp ult i32 %.pre187, %104
+  %105 = icmp samesign ult i32 %.pre186, %104
   %spec.select.us = select i1 %105, i1 true, i1 %.0127.us40
-  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv17339, 1
+  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv17239, 1
   %106 = load i32, ptr %.phi.trans.insert, align 8
   %107 = zext i32 %106 to i64
-  %108 = icmp ult i64 %indvars.iv.next174, %107
+  %108 = icmp samesign ult i64 %indvars.iv.next173, %107
   br i1 %108, label %.lr.ph128.split.us, label %.critedge8, !llvm.loop !43
 
 .lr.ph128.split:                                  ; preds = %125
@@ -2625,43 +2625,43 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   br i1 %110, label %.lr.ph30, label %.critedge8, !llvm.loop !43
 
 .lr.ph30:                                         ; preds = %.lr.ph128.split.preheader, %.lr.ph128.split
-  %.712629 = phi i32 [ %.8, %.lr.ph128.split ], [ %.6139, %.lr.ph128.split.preheader ]
+  %.712629 = phi i32 [ %.8, %.lr.ph128.split ], [ %.6138, %.lr.ph128.split.preheader ]
   %.012728 = phi i1 [ %.1, %.lr.ph128.split ], [ false, %.lr.ph128.split.preheader ]
-  %indvars.iv17127 = phi i64 [ %indvars.iv.next172, %.lr.ph128.split ], [ 0, %.lr.ph128.split.preheader ]
+  %indvars.iv17027 = phi i64 [ %indvars.iv.next171, %.lr.ph128.split ], [ 0, %.lr.ph128.split.preheader ]
   %111 = phi i32 [ %126, %.lr.ph128.split ], [ %91, %.lr.ph128.split.preheader ]
-  %112 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv17127
+  %112 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv17027
   %113 = load i16, ptr %112, align 2
   %114 = zext i16 %113 to i32
-  %115 = icmp ult i32 %.086137, %114
+  %115 = icmp samesign ult i32 %.086137, %114
   br i1 %115, label %116, label %125
 
 116:                                              ; preds = %.lr.ph30
   %117 = load ptr, ptr %89, align 8
-  %118 = getelementptr inbounds i16, ptr %117, i64 %indvars.iv17127
+  %118 = getelementptr inbounds i16, ptr %117, i64 %indvars.iv17027
   %119 = load i16, ptr %118, align 2
   %120 = add i16 %119, 1
   store i16 %120, ptr %118, align 2
   %121 = add nuw nsw i32 %.712629, 1
   %122 = load i16, ptr %112, align 2
   %123 = zext i16 %122 to i32
-  %124 = icmp ult i32 %.pre187, %123
+  %124 = icmp samesign ult i32 %.pre186, %123
   %spec.select = select i1 %124, i1 true, i1 %.012728
-  %.pre183 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre182 = load i32, ptr %.phi.trans.insert, align 8
   br label %125
 
 125:                                              ; preds = %.lr.ph30, %116
-  %126 = phi i32 [ %.pre183, %116 ], [ %111, %.lr.ph30 ]
+  %126 = phi i32 [ %.pre182, %116 ], [ %111, %.lr.ph30 ]
   %.8 = phi i32 [ %121, %116 ], [ %.712629, %.lr.ph30 ]
   %.1 = phi i1 [ %spec.select, %116 ], [ %.012728, %.lr.ph30 ]
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv17127, 1
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv17027, 1
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next172, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next171, %127
   br i1 %128, label %.lr.ph128.split, label %.critedge8, !llvm.loop !43
 
 .critedge8:                                       ; preds = %125, %.lr.ph128.split, %.lr.ph42, %.lr.ph128.split.us, %.lr.ph128.split.preheader, %.lr.ph128.split.us.preheader, %.preheader
   %129 = phi i32 [ %91, %.preheader ], [ %91, %.lr.ph128.split.us.preheader ], [ %91, %.lr.ph128.split.preheader ], [ %106, %.lr.ph128.split.us ], [ %106, %.lr.ph42 ], [ %126, %.lr.ph128.split ], [ %126, %125 ]
   %130 = phi i32 [ 0, %.preheader ], [ %92, %.lr.ph128.split.us.preheader ], [ %92, %.lr.ph128.split.preheader ], [ %106, %.lr.ph128.split.us ], [ %106, %.lr.ph42 ], [ %126, %.lr.ph128.split ], [ %126, %125 ]
-  %.7.lcssa = phi i32 [ %.6139, %.preheader ], [ %.6139, %.lr.ph128.split.us.preheader ], [ %.6139, %.lr.ph128.split.preheader ], [ %102, %.lr.ph128.split.us ], [ %102, %.lr.ph42 ], [ %.8, %.lr.ph128.split ], [ %.8, %125 ]
+  %.7.lcssa = phi i32 [ %.6138, %.preheader ], [ %.6138, %.lr.ph128.split.us.preheader ], [ %.6138, %.lr.ph128.split.preheader ], [ %102, %.lr.ph128.split.us ], [ %102, %.lr.ph42 ], [ %.8, %.lr.ph128.split ], [ %.8, %125 ]
   %.0.lcssa = phi i1 [ false, %.preheader ], [ false, %.lr.ph128.split.us.preheader ], [ false, %.lr.ph128.split.preheader ], [ %spec.select.us, %.lr.ph128.split.us ], [ %spec.select.us, %.lr.ph42 ], [ %.1, %.lr.ph128.split ], [ %.1, %125 ]
   %not..0.lcssa = xor i1 %.0.lcssa, true
   %spec.select99 = or i1 %.081.fr, %not..0.lcssa
@@ -2670,61 +2670,61 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   br i1 %132, label %.preheader, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.critedge6, %.critedge8, %.critedge98..loopexit_crit_edge, %.critedge2
-  %133 = phi i32 [ %.pre184, %.critedge98..loopexit_crit_edge ], [ %64, %.critedge2 ], [ %129, %.critedge8 ], [ %83, %.critedge6 ]
+  %133 = phi i32 [ %.pre183, %.critedge98..loopexit_crit_edge ], [ %64, %.critedge2 ], [ %129, %.critedge8 ], [ %83, %.critedge6 ]
   %134 = getelementptr inbounds i8, ptr %0, i64 40
-  %.not158 = icmp eq i32 %133, 0
-  br i1 %.not158, label %._crit_edge149, label %.lr.ph148
+  %.not157 = icmp eq i32 %133, 0
+  br i1 %.not157, label %._crit_edge148, label %.lr.ph147
 
-.lr.ph148:                                        ; preds = %.loopexit
+.lr.ph147:                                        ; preds = %.loopexit
   %135 = getelementptr inbounds i8, ptr %0, i64 64
   %136 = getelementptr inbounds i8, ptr %0, i64 80
-  %.pre185 = load ptr, ptr %135, align 8
+  %.pre184 = load ptr, ptr %135, align 8
   br label %137
 
-137:                                              ; preds = %.lr.ph148, %._crit_edge
-  %138 = phi ptr [ %.pre185, %.lr.ph148 ], [ %158, %._crit_edge ]
-  %indvars.iv178 = phi i64 [ 0, %.lr.ph148 ], [ %indvars.iv.next179, %._crit_edge ]
-  %.9146 = phi i32 [ 0, %.lr.ph148 ], [ %.10.lcssa, %._crit_edge ]
-  %139 = getelementptr inbounds i16, ptr %138, i64 %indvars.iv178
+137:                                              ; preds = %.lr.ph147, %._crit_edge
+  %138 = phi ptr [ %.pre184, %.lr.ph147 ], [ %158, %._crit_edge ]
+  %indvars.iv177 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next178, %._crit_edge ]
+  %.9145 = phi i32 [ 0, %.lr.ph147 ], [ %.10.lcssa, %._crit_edge ]
+  %139 = getelementptr inbounds i16, ptr %138, i64 %indvars.iv177
   %140 = load i16, ptr %139, align 2
   %141 = zext i16 %140 to i64
   %142 = tail call ptr @slurm_xcalloc(i64 noundef %141, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 817, ptr noundef nonnull @__func__._task_layout_block) #7
   %143 = load ptr, ptr %136, align 8
-  %144 = getelementptr inbounds ptr, ptr %143, i64 %indvars.iv178
+  %144 = getelementptr inbounds ptr, ptr %143, i64 %indvars.iv177
   store ptr %142, ptr %144, align 8
   %145 = load ptr, ptr %135, align 8
-  %146 = getelementptr inbounds i16, ptr %145, i64 %indvars.iv178
+  %146 = getelementptr inbounds i16, ptr %145, i64 %indvars.iv177
   %147 = load i16, ptr %146, align 2
-  %.not159 = icmp eq i16 %147, 0
-  br i1 %.not159, label %._crit_edge, label %.lr.ph143
+  %.not158 = icmp eq i16 %147, 0
+  br i1 %.not158, label %._crit_edge, label %.lr.ph142
 
-.lr.ph143:                                        ; preds = %137, %.lr.ph143
-  %indvars.iv175 = phi i64 [ %indvars.iv.next176, %.lr.ph143 ], [ 0, %137 ]
-  %.10142 = phi i32 [ %152, %.lr.ph143 ], [ %.9146, %137 ]
+.lr.ph142:                                        ; preds = %137, %.lr.ph142
+  %indvars.iv174 = phi i64 [ %indvars.iv.next175, %.lr.ph142 ], [ 0, %137 ]
+  %.10141 = phi i32 [ %152, %.lr.ph142 ], [ %.9145, %137 ]
   %148 = load ptr, ptr %136, align 8
-  %149 = getelementptr inbounds ptr, ptr %148, i64 %indvars.iv178
+  %149 = getelementptr inbounds ptr, ptr %148, i64 %indvars.iv177
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i32, ptr %150, i64 %indvars.iv175
-  store i32 %.10142, ptr %151, align 4
-  %152 = add nsw i32 %.10142, 1
-  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
+  %151 = getelementptr inbounds i32, ptr %150, i64 %indvars.iv174
+  store i32 %.10141, ptr %151, align 4
+  %152 = add nsw i32 %.10141, 1
+  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %153 = load ptr, ptr %135, align 8
-  %154 = getelementptr inbounds i16, ptr %153, i64 %indvars.iv178
+  %154 = getelementptr inbounds i16, ptr %153, i64 %indvars.iv177
   %155 = load i16, ptr %154, align 2
   %156 = zext i16 %155 to i64
-  %157 = icmp ult i64 %indvars.iv.next176, %156
-  br i1 %157, label %.lr.ph143, label %._crit_edge, !llvm.loop !45
+  %157 = icmp samesign ult i64 %indvars.iv.next175, %156
+  br i1 %157, label %.lr.ph142, label %._crit_edge, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %.lr.ph143, %137
-  %158 = phi ptr [ %145, %137 ], [ %153, %.lr.ph143 ]
-  %.10.lcssa = phi i32 [ %.9146, %137 ], [ %152, %.lr.ph143 ]
-  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
+._crit_edge:                                      ; preds = %.lr.ph142, %137
+  %158 = phi ptr [ %145, %137 ], [ %153, %.lr.ph142 ]
+  %.10.lcssa = phi i32 [ %.9145, %137 ], [ %152, %.lr.ph142 ]
+  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %159 = load i32, ptr %134, align 8
   %160 = zext i32 %159 to i64
-  %161 = icmp ult i64 %indvars.iv.next179, %160
-  br i1 %161, label %137, label %._crit_edge149, !llvm.loop !46
+  %161 = icmp samesign ult i64 %indvars.iv.next178, %160
+  br i1 %161, label %137, label %._crit_edge148, !llvm.loop !46
 
-._crit_edge149:                                   ; preds = %._crit_edge, %.loopexit
+._crit_edge148:                                   ; preds = %._crit_edge, %.loopexit
   ret void
 }
 

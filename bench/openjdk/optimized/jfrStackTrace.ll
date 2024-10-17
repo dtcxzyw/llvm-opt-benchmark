@@ -1359,7 +1359,7 @@ define hidden noundef zeroext i1 @_ZN13JfrStackTrace12record_asyncEP10JavaThread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %130 ]
   %28 = load i32, ptr %14, align 4
   %29 = zext i32 %28 to i64
-  %.not = icmp ult i64 %indvars.iv, %29
+  %.not = icmp samesign ult i64 %indvars.iv, %29
   br i1 %.not, label %32, label %30
 
 30:                                               ; preds = %27
@@ -1674,7 +1674,7 @@ _ZN15JfrVframeStream11next_vframeEv.exit:         ; preds = %_ZN18vframeStreamCo
 .lr.ph51.split.us:                                ; preds = %.lr.ph51
   %35 = load i32, ptr %25, align 4
   %36 = zext i32 %35 to i64
-  %.not.us = icmp ult i64 %indvars.iv, %36
+  %.not.us = icmp samesign ult i64 %indvars.iv, %36
   br i1 %.not.us, label %.split54.us, label %.split.us
 
 .split54.us:                                      ; preds = %.lr.ph51.split.us
@@ -1684,7 +1684,7 @@ _ZN15JfrVframeStream11next_vframeEv.exit:         ; preds = %_ZN18vframeStreamCo
 .lr.ph51.split:                                   ; preds = %.lr.ph51, %_ZN15JfrVframeStream11next_vframeEv.exit32
   %38 = load i32, ptr %25, align 4
   %39 = zext i32 %38 to i64
-  %.not = icmp ult i64 %indvars.iv, %39
+  %.not = icmp samesign ult i64 %indvars.iv, %39
   br i1 %.not, label %40, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph51.split.us, %.lr.ph51.split
@@ -1990,7 +1990,7 @@ define hidden void @_ZNK13JfrStackTrace15resolve_linenosEv(ptr nocapture noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %2, align 8
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %5, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %5, %1

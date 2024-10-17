@@ -1393,7 +1393,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @lg4ff_switch_compatibility
   %40 = add nuw nsw i64 %27, 1
   %41 = load i8, ptr %1, align 1
   %42 = zext i8 %41 to i64
-  %43 = icmp ult i64 %40, %42
+  %43 = icmp samesign ult i64 %40, %42
   br i1 %43, label %26, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %38, %14

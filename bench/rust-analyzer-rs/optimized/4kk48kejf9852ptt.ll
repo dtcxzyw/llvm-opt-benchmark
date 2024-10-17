@@ -2714,7 +2714,7 @@ define hidden void @"_ZN4core3ptr108drop_in_place$LT$$LP$alloc..vec..Vec$LT$sals
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !409)
   %24 = load i64, ptr %23, align 8, !range !412, !alias.scope !409, !noundef !13
-  %switch.i = icmp ult i64 %24, 2
+  %switch.i = icmp samesign ult i64 %24, 2
   br i1 %switch.i, label %"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17h8a8cf4893269b441E.llvm.3757412271146049409.exit", label %25
 
 25:                                               ; preds = %22
@@ -2974,7 +2974,7 @@ define hidden void @"_ZN4core3ptr456drop_in_place$LT$alloc..vec..Vec$LT$alloc..s
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17h8a8cf4893269b441E.llvm.3757412271146049409"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !412, !noundef !13
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h741c9f66975094baE.exit", label %3
 
 3:                                                ; preds = %1
@@ -6672,9 +6672,9 @@ define void @_ZN7base_db6change10FileChange5apply17h3e7fe7fca5386fb5E(ptr noalia
   br label %.body80
 
 27:                                               ; preds = %3
-  %28 = icmp ult i64 %21, 5
+  %28 = icmp samesign ult i64 %21, 5
   tail call void @llvm.assume(i1 %28)
-  %29 = icmp ult i64 %21, 3
+  %29 = icmp samesign ult i64 %21, 3
   br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %27

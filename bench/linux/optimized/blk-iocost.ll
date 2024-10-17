@@ -3453,7 +3453,7 @@ define internal fastcc i32 @blk_iocost_init(ptr noundef %0) unnamed_addr #1 alig
   store volatile i64 0, ptr %28, align 8
   %29 = add nuw nsw i64 %15, 1
   %30 = and i64 %29, 127
-  %31 = icmp ugt i64 %30, 63
+  %31 = icmp samesign ugt i64 %30, 63
   br i1 %31, label %.thread, label %.preheader, !prof !44, !llvm.loop !45
 
 .thread:                                          ; preds = %.preheader, %.critedge, %14
@@ -3664,7 +3664,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   store i64 %50, ptr %51, align 8
   %55 = add nuw nsw i64 %18, 1
   %56 = and i64 %55, 127
-  %57 = icmp ugt i64 %56, 63
+  %57 = icmp samesign ugt i64 %56, 63
   br i1 %57, label %.preheader178, label %10, !prof !44, !llvm.loop !47
 
 58:                                               ; preds = %.preheader178, %72
@@ -4289,7 +4289,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %458 = add i64 %457, %441
   %459 = add nuw nsw i64 %446, 1
   %460 = and i64 %459, 127
-  %461 = icmp ugt i64 %460, 63
+  %461 = icmp samesign ugt i64 %460, 63
   br i1 %461, label %.thread111, label %439, !prof !44, !llvm.loop !63
 
 .thread111:                                       ; preds = %439, %449, %445

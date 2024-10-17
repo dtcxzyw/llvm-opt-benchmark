@@ -1571,7 +1571,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
   %797 = load i32, ptr %8, align 4
   %798 = zext i32 %797 to i64
-  %799 = icmp ult i64 %indvars.iv.next401, %798
+  %799 = icmp samesign ult i64 %indvars.iv.next401, %798
   br i1 %799, label %.lr.ph388, label %._crit_edge389
 
 ._crit_edge389:                                   ; preds = %.lr.ph388

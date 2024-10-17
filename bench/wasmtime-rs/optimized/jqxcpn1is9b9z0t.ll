@@ -4572,7 +4572,7 @@ default.unreachable12:                            ; preds = %2
   %19 = trunc nuw i8 %18 to i1
   %20 = getelementptr inbounds i8, ptr %3, i64 16
   %21 = load i8, ptr %20, align 8, !range !596, !noalias !589
-  %or.cond.i.i = icmp ult i8 %21, 5
+  %or.cond.i.i = icmp samesign ult i8 %21, 5
   %.0.i.i = select i1 %19, i1 true, i1 %or.cond.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !589
   br i1 %.0.i.i, label %24, label %22
@@ -4879,7 +4879,7 @@ default.unreachable39:                            ; preds = %3
   %25 = trunc nuw i8 %24 to i1
   %26 = getelementptr inbounds i8, ptr %6, i64 16
   %27 = load i8, ptr %26, align 8, !range !596, !noalias !616
-  %or.cond.i.i.i = icmp ult i8 %27, 5
+  %or.cond.i.i.i = icmp samesign ult i8 %27, 5
   %.0.i.i.i = select i1 %25, i1 true, i1 %or.cond.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !616
   br i1 %.0.i.i.i, label %28, label %46

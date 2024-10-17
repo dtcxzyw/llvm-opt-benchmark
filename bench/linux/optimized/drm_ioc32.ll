@@ -45,7 +45,7 @@ define dso_local i64 @drm_compat_ioctl(ptr noundef %0, i32 noundef %1, i64 nound
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp ugt i32 %4, 184
+  %11 = icmp samesign ugt i32 %4, 184
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %3

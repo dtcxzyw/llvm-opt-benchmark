@@ -6414,7 +6414,7 @@ zend_allocate_mutable_data.exit:                  ; preds = %26, %28
   %199 = phi i32 [ %.pre287, %._crit_edge286 ], [ %188, %187 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %200 = zext i32 %199 to i64
-  %201 = icmp ult i64 %indvars.iv.next, %200
+  %201 = icmp samesign ult i64 %indvars.iv.next, %200
   br i1 %201, label %187, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %198, %.preheader

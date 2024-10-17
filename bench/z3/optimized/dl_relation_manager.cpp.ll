@@ -9579,7 +9579,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %2, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0EjE4sizeEv.exit
@@ -10687,7 +10687,7 @@ for.cond48:                                       ; preds = %invoke.cont60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %m_col_cnt, align 8
   %31 = zext i32 %30 to i64
-  %cmp.not = icmp ult i64 %indvars.iv.next, %31
+  %cmp.not = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %cmp.not, label %for.body49, label %if.end66, !llvm.loop !35
 
 for.body49:                                       ; preds = %for.cond48.preheader, %for.cond48
@@ -16355,7 +16355,7 @@ for.cond.i:                                       ; preds = %call2.i.noexc
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = load i32, ptr %m_joined_col_cnt.i, align 8
   %13 = zext i32 %12 to i64
-  %cmp.not.i = icmp ult i64 %indvars.iv.next.i, %13
+  %cmp.not.i = icmp samesign ult i64 %indvars.iv.next.i, %13
   br i1 %cmp.not.i, label %for.body.i, label %cleanup, !llvm.loop !52
 
 for.body.i:                                       ; preds = %invoke.cont8, %for.cond.i
@@ -16503,7 +16503,7 @@ for.body.i23:                                     ; preds = %for.body.i23, %for.
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i24, 1
   %42 = load i32, ptr %m_joined_col_cnt.i19, align 8
   %43 = zext i32 %42 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i28, %43
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i28, %43
   br i1 %cmp.i, label %for.body.i23, label %_ZNK7datalog17tr_infrastructureINS_12table_traitsEE29convenient_negation_filter_fn17make_neg_bindingsI7svectorImjES6_EEvRT_RKT0_.exit, !llvm.loop !53
 
 _ZNK7datalog17tr_infrastructureINS_12table_traitsEE29convenient_negation_filter_fn17make_neg_bindingsI7svectorImjES6_EEvRT_RKT0_.exit: ; preds = %for.body.i23, %if.else
@@ -17600,7 +17600,7 @@ for.inc:                                          ; preds = %if.end, %if.then
   %r_i.1 = phi i32 [ %inc, %if.then ], [ %r_i.018, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = zext i32 %12 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %13
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !55
 
 for.end:                                          ; preds = %for.inc, %entry

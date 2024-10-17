@@ -233,7 +233,7 @@ ScalePlaneBox.exit:                               ; preds = %51, %._crit_edge.i
   tail call void @ScaleRowUp2_Bilinear_Any_C(ptr noundef %.0120, i64 noundef 0, ptr noundef %4, i64 noundef 0, i32 noundef %6) #8
   %123 = sext i32 %5 to i64
   %124 = getelementptr inbounds i8, ptr %4, i64 %123
-  %125 = icmp ugt i32 %.0122, 1
+  %125 = icmp samesign ugt i32 %.0122, 1
   br i1 %125, label %.lr.ph.i147, label %._crit_edge.i145
 
 .lr.ph.i147:                                      ; preds = %122
@@ -315,7 +315,7 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp(i32 noundef %0,
   %15 = add i32 %14, -65536
   call void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
   %16 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %0, i1 true)
-  %17 = icmp ugt i32 %16, 32767
+  %17 = icmp samesign ugt i32 %16, 32767
   %spec.select = select i1 %17, ptr @ScaleFilterCols64_C, ptr @ScaleFilterCols_C
   %18 = load i32, ptr %11, align 4
   %19 = icmp sgt i32 %18, %15
@@ -349,7 +349,7 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp(i32 noundef %0,
   %39 = load i32, ptr %10, align 4
   %40 = load i32, ptr %12, align 4
   call void %spec.select(ptr noundef nonnull %33, ptr noundef %38, i32 noundef %2, i32 noundef %39, i32 noundef %40) #8, !callees !10
-  %41 = icmp ugt i32 %1, 1
+  %41 = icmp samesign ugt i32 %1, 1
   %spec.select98.idx = select i1 %41, i64 %23, i64 0
   %spec.select98 = getelementptr inbounds i8, ptr %38, i64 %spec.select98.idx
   %42 = sext i32 %34 to i64
@@ -357,7 +357,7 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp(i32 noundef %0,
   %44 = load i32, ptr %10, align 4
   %45 = load i32, ptr %12, align 4
   call void %spec.select(ptr noundef nonnull %43, ptr noundef %spec.select98, i32 noundef %2, i32 noundef %44, i32 noundef %45) #8, !callees !10
-  %46 = icmp ugt i32 %1, 2
+  %46 = icmp samesign ugt i32 %1, 2
   %.187.idx = select i1 %46, i64 %23, i64 0
   %.187 = getelementptr inbounds i8, ptr %spec.select98, i64 %.187.idx
   %47 = ashr exact i32 %15, 16
@@ -872,7 +872,7 @@ ScalePlaneBox_16.exit:                            ; preds = %51, %._crit_edge.i
   tail call void @ScaleRowUp2_Bilinear_16_Any_C(ptr noundef %.0120, i64 noundef 0, ptr noundef %4, i64 noundef 0, i32 noundef %6) #8
   %122 = sext i32 %5 to i64
   %123 = getelementptr inbounds i16, ptr %4, i64 %122
-  %124 = icmp ugt i32 %.0122, 1
+  %124 = icmp samesign ugt i32 %.0122, 1
   br i1 %124, label %.lr.ph.i147, label %._crit_edge.i145
 
 .lr.ph.i147:                                      ; preds = %121
@@ -948,7 +948,7 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef 
   %15 = add i32 %14, -65536
   call void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
   %16 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %0, i1 true)
-  %17 = icmp ugt i32 %16, 32767
+  %17 = icmp samesign ugt i32 %16, 32767
   %spec.select = select i1 %17, ptr @ScaleFilterCols64_16_C, ptr @ScaleFilterCols_16_C
   %18 = load i32, ptr %11, align 4
   %19 = icmp sgt i32 %18, %15
@@ -982,7 +982,7 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef 
   %39 = load i32, ptr %10, align 4
   %40 = load i32, ptr %12, align 4
   call void %spec.select(ptr noundef nonnull %34, ptr noundef %38, i32 noundef %2, i32 noundef %39, i32 noundef %40) #8, !callees !20
-  %41 = icmp ugt i32 %1, 1
+  %41 = icmp samesign ugt i32 %1, 1
   %spec.select98.idx = select i1 %41, i64 %23, i64 0
   %spec.select98 = getelementptr inbounds i16, ptr %38, i64 %spec.select98.idx
   %42 = sext i32 %25 to i64
@@ -990,7 +990,7 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef 
   %44 = load i32, ptr %10, align 4
   %45 = load i32, ptr %12, align 4
   call void %spec.select(ptr noundef nonnull %43, ptr noundef %spec.select98, i32 noundef %2, i32 noundef %44, i32 noundef %45) #8, !callees !20
-  %46 = icmp ugt i32 %1, 2
+  %46 = icmp samesign ugt i32 %1, 2
   %.187.idx = select i1 %46, i64 %23, i64 0
   %.187 = getelementptr inbounds i16, ptr %spec.select98, i64 %.187.idx
   %47 = ashr exact i32 %15, 16
@@ -1359,7 +1359,7 @@ define hidden range(i32 0, 2) i32 @ScalePlane_12(ptr noundef %0, i32 noundef %1,
   tail call void @ScaleRowUp2_Bilinear_16_Any_C(ptr noundef %.048, i64 noundef 0, ptr noundef %4, i64 noundef 0, i32 noundef %6) #8
   %54 = sext i32 %5 to i64
   %55 = getelementptr inbounds i16, ptr %4, i64 %54
-  %56 = icmp ugt i32 %.050, 1
+  %56 = icmp samesign ugt i32 %.050, 1
   br i1 %56, label %.lr.ph.i56, label %._crit_edge.i
 
 .lr.ph.i56:                                       ; preds = %53

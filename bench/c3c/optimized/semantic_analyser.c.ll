@@ -869,7 +869,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
 
 .preheader74:                                     ; preds = %.preheader74.preheader, %93
   %.04476 = phi i32 [ %94, %93 ], [ 1, %.preheader74.preheader ]
-  %95 = icmp ult i32 %.04476, 3
+  %95 = icmp samesign ult i32 %.04476, 3
   br i1 %95, label %96, label %.loopexit.i
 
 96:                                               ; preds = %.preheader74

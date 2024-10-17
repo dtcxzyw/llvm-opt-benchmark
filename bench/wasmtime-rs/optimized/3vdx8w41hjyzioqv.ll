@@ -6949,7 +6949,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 54:                                               ; preds = %49
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1525)
   %55 = load i64, ptr %53, align 8, !range !1528, !alias.scope !1529, !noundef !4
-  %switch.i.i = icmp ult i64 %55, 6
+  %switch.i.i = icmp samesign ult i64 %55, 6
   br i1 %switch.i.i, label %"_ZN4core3ptr49drop_in_place$LT$cpp_demangle..ast..LocalName$GT$17hc737991c288da2b5E.exit", label %56
 
 56:                                               ; preds = %54
@@ -6979,7 +6979,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 66:                                               ; preds = %49
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1541)
   %67 = load i64, ptr %53, align 8, !range !1528, !alias.scope !1544, !noundef !4
-  %switch.i1.i = icmp ult i64 %67, 6
+  %switch.i1.i = icmp samesign ult i64 %67, 6
   br i1 %switch.i1.i, label %"_ZN4core3ptr49drop_in_place$LT$cpp_demangle..ast..LocalName$GT$17hc737991c288da2b5E.exit", label %68
 
 68:                                               ; preds = %66
@@ -22432,7 +22432,7 @@ define void @_ZN8wasmtime7runtime11code_memory10CodeMemory3new17hf21561e61274d49
   %229 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %230 = icmp ult i64 %229, 6
   call void @llvm.assume(i1 %230)
-  %231 = icmp ugt i64 %229, 3
+  %231 = icmp samesign ugt i64 %229, 3
   br i1 %231, label %232, label %234
 
 232:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit226.thread"
@@ -24242,7 +24242,7 @@ define noundef ptr @_ZN8wasmtime7runtime6module6Module8validate17h091469e70ea9c6
 
 50:                                               ; preds = %41, %41
   %51 = load i32, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8, !range !5484, !alias.scope !5485, !noalias !5488, !noundef !4
-  %switch.i.i = icmp ult i32 %51, 2
+  %switch.i.i = icmp samesign ult i32 %51, 2
   %52 = load i32, ptr %.sroa.3.0..sroa_idx.i, align 4, !alias.scope !5485, !noalias !5488
   %53 = load i32, ptr %29, align 8, !alias.scope !5485, !noalias !5488
   %.sroa.7.0.i.i = select i1 %switch.i.i, i32 undef, i32 %53
@@ -24281,7 +24281,7 @@ define noundef ptr @_ZN8wasmtime7runtime6module6Module8validate17h091469e70ea9c6
   %64 = load i64, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !5490, !noalias !5493, !noundef !4
   %65 = add i64 %64, 1
   store i64 %65, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !5490, !noalias !5493
-  %switch.i13.i = icmp ult i32 %.sroa.7.sroa.0.0.copyload.i, 2
+  %switch.i13.i = icmp samesign ult i32 %.sroa.7.sroa.0.0.copyload.i, 2
   %.sroa.7.0.i14.i = select i1 %switch.i13.i, i32 undef, i32 %.sroa.7.sroa.5.0.copyload.i
   %.sroa.6.0.i15.i = select i1 %switch.i13.i, i32 undef, i32 %.sroa.7.sroa.4.0.copyload.i
   store i64 %45, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !5471, !noalias !5476
@@ -28047,7 +28047,7 @@ _ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.34589438163313283
 
 144:                                              ; preds = %137
   %145 = load i64, ptr %9, align 8, !range !607, !noundef !4
-  %switch71.not = icmp ult i64 %145, 2
+  %switch71.not = icmp samesign ult i64 %145, 2
   br i1 %switch71.not, label %151, label %146
 
 146:                                              ; preds = %144
@@ -33403,7 +33403,7 @@ default.unreachable:                              ; preds = %tailrecurse
   br i1 %47, label %241, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 48:                                               ; preds = %tailrecurse
-  %49 = icmp ult i32 %5, 3
+  %49 = icmp samesign ult i32 %5, 3
   br i1 %49, label %251, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 50:                                               ; preds = %6

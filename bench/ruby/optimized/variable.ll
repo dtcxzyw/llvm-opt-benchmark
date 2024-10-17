@@ -2207,7 +2207,7 @@ define dso_local void @rb_mark_generic_ivar(i64 noundef %0) local_unnamed_addr #
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %6, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %11, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %11, %.preheader, %9, %1
@@ -2253,7 +2253,7 @@ define dso_local void @rb_ref_update_generic_ivar(i64 noundef %0) local_unnamed_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %6, align 8
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %11, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %11, %.preheader, %9, %1
@@ -4103,7 +4103,7 @@ rb_obj_write.exit:                                ; preds = %63, %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = load i32, ptr %29, align 8
   %73 = zext i32 %72 to i64
-  %74 = icmp ult i64 %indvars.iv.next, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next, %73
   br i1 %74, label %63, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %rb_obj_write.exit, %gen_ivtbl_resize.exit, %47

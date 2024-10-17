@@ -2458,27 +2458,27 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   br label %110
 
 26:                                               ; preds = %22
-  %27 = icmp ugt i32 %18, 16
+  %27 = icmp samesign ugt i32 %18, 16
   %28 = select i1 %27, i32 11, i32 12
-  %29 = icmp ugt i32 %18, 32
+  %29 = icmp samesign ugt i32 %18, 32
   %.neg = sext i1 %29 to i32
   %30 = add nsw i32 %28, %.neg
-  %31 = icmp ugt i32 %18, 64
+  %31 = icmp samesign ugt i32 %18, 64
   %.neg90 = sext i1 %31 to i32
   %32 = add nsw i32 %30, %.neg90
-  %33 = icmp ugt i32 %18, 128
+  %33 = icmp samesign ugt i32 %18, 128
   %.neg91 = sext i1 %33 to i32
   %34 = add nsw i32 %32, %.neg91
-  %35 = icmp ugt i32 %18, 256
+  %35 = icmp samesign ugt i32 %18, 256
   %.neg92 = sext i1 %35 to i32
   %36 = add nsw i32 %34, %.neg92
-  %37 = icmp ugt i32 %18, 512
+  %37 = icmp samesign ugt i32 %18, 512
   %.neg93 = sext i1 %37 to i32
   %38 = add nsw i32 %36, %.neg93
-  %39 = icmp ugt i32 %18, 1024
+  %39 = icmp samesign ugt i32 %18, 1024
   %.neg94 = sext i1 %39 to i32
   %40 = add nsw i32 %38, %.neg94
-  %41 = icmp ugt i32 %18, 2048
+  %41 = icmp samesign ugt i32 %18, 2048
   %.neg95 = sext i1 %41 to i32
   %42 = add nsw i32 %40, %.neg95
   %43 = load i16, ptr %5, align 2
@@ -2494,9 +2494,9 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   %52 = zext nneg i16 %48 to i32
   %53 = add i32 %51, %52
   %54 = and i32 %53, 4095
-  %55 = icmp ult i32 %54, %18
+  %55 = icmp samesign ult i32 %54, %18
   %56 = add nuw nsw i32 %18, %52
-  %57 = icmp ult i32 %56, 4096
+  %57 = icmp samesign ult i32 %56, 4096
   %or.cond98 = select i1 %55, i1 %57, i1 false
   br i1 %or.cond98, label %58, label %.preheader122
 
@@ -2506,7 +2506,7 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
 58:                                               ; preds = %26
   %59 = and i32 %51, 4095
   %60 = add nuw nsw i32 %59, %52
-  %61 = icmp ult i32 %60, 4096
+  %61 = icmp samesign ult i32 %60, 4096
   br i1 %61, label %62, label %.preheader122
 
 62:                                               ; preds = %58
@@ -2573,7 +2573,7 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
 .loopexit:                                        ; preds = %69, %89, %62
   %.3 = phi i32 [ %68, %62 ], [ %spec.select, %89 ], [ %76, %69 ]
   %95 = shl nuw nsw i32 %.075111, 1
-  %96 = icmp ult i32 %.075111, 128
+  %96 = icmp samesign ult i32 %.075111, 128
   br i1 %96, label %17, label %.loopexit101
 
 .loopexit101:                                     ; preds = %.loopexit, %87
@@ -3209,7 +3209,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   %207 = add nuw nsw i32 %.0109216, 1
   %208 = load i16, ptr %4, align 2
   %209 = zext i16 %208 to i64
-  %210 = icmp ult i64 %indvars.iv.next, %209
+  %210 = icmp samesign ult i64 %indvars.iv.next, %209
   br i1 %210, label %123, label %read_uint16.exit156.thread
 
 read_uint16.exit156.thread.loopexit.split.loop.exit: ; preds = %193
@@ -3259,7 +3259,7 @@ read_uint16.exit156.thread.thread:                ; preds = %.preheader, %219, %
   %220 = call i32 @close(i32 noundef %24) #17
   %221 = load i16, ptr %4, align 2
   %222 = zext i16 %221 to i32
-  %223 = icmp ult i32 %.0109215259, %222
+  %223 = icmp samesign ult i32 %.0109215259, %222
   br i1 %223, label %224, label %232
 
 224:                                              ; preds = %read_uint16.exit156.thread.thread
@@ -3645,7 +3645,7 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly %0, i32 nounde
 
 43:                                               ; preds = %37
   %44 = add nuw nsw i64 %indvars.iv, 1
-  %.not68 = icmp ult i64 %44, %22
+  %.not68 = icmp samesign ult i64 %44, %22
   br i1 %.not68, label %45, label %._crit_edge
 
 45:                                               ; preds = %43
@@ -3688,7 +3688,7 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly %0, i32 nounde
   %.1.pn = phi ptr [ %.1, %68 ], [ %.05673, %34 ]
   %.2 = getelementptr inbounds i8, ptr %.1.pn, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %21
-  %70 = icmp ult i64 %indvars.iv.next, %22
+  %70 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %70, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %69, %43, %19
@@ -4723,7 +4723,7 @@ word_read_macro_info.exit:                        ; preds = %word_skip_macro_int
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %220 = load i16, ptr %29, align 8
   %221 = zext i16 %220 to i64
-  %222 = icmp ult i64 %indvars.iv.next, %221
+  %222 = icmp samesign ult i64 %indvars.iv.next, %221
   br i1 %222, label %207, label %.loopexit
 
 223:                                              ; preds = %192

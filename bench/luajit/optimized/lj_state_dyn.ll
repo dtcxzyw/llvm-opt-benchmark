@@ -685,7 +685,7 @@ for.cond:                                         ; preds = %for.cond.outer, %fo
   br i1 %cmp, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.cond
-  %cmp12 = icmp ugt i32 %i.0.ph, 8
+  %cmp12 = icmp samesign ugt i32 %i.0.ph, 8
   br i1 %cmp12, label %for.end, label %if.end
 
 if.end:                                           ; preds = %if.then

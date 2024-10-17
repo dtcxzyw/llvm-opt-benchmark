@@ -198,7 +198,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
 
 .thread:                                          ; preds = %93, %.thread.sink.split, %94
   %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
-  %97 = icmp ult i64 %indvars.iv.next326, %57
+  %97 = icmp samesign ult i64 %indvars.iv.next326, %57
   br i1 %97, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !7
 
 ._crit_edge288.us:                                ; preds = %._crit_edge.us
@@ -348,7 +348,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
 
 181:                                              ; preds = %180, %170, %164, %145
   %indvars.iv.next338 = add nuw nsw i64 %indvars.iv337, 1
-  %182 = icmp ult i64 %indvars.iv.next338, %188
+  %182 = icmp samesign ult i64 %indvars.iv.next338, %188
   br i1 %182, label %110, label %._crit_edge.us301, !llvm.loop !10
 
 .lr.ph.us300:                                     ; preds = %105
@@ -512,7 +512,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
 
 277:                                              ; preds = %276, %266, %261, %242
   %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
-  %278 = icmp ult i64 %indvars.iv.next352, %285
+  %278 = icmp samesign ult i64 %indvars.iv.next352, %285
   br i1 %278, label %204, label %.loopexit.us, !llvm.loop !12
 
 .loopexit.us:                                     ; preds = %277, %199
@@ -553,7 +553,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
   %295 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv365
   %296 = load i8, ptr %295, align 1
   %297 = zext i8 %296 to i32
-  %298 = icmp ugt i32 %291, %297
+  %298 = icmp samesign ugt i32 %291, %297
   br i1 %298, label %299, label %302
 
 299:                                              ; preds = %293
@@ -869,7 +869,7 @@ _ZL10insertSortPhi.exit.us:                       ; preds = %.critedge.i.us
   %141 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv120
   store i8 %.sink, ptr %141, align 1
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %142 = icmp ult i64 %indvars.iv.next121, %58
+  %142 = icmp samesign ult i64 %indvars.iv.next121, %58
   br i1 %142, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !20
 
 ._crit_edge113.us:                                ; preds = %._crit_edge.us
@@ -1064,7 +1064,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %10, %14
 
 96:                                               ; preds = %90, %.lr.ph, %95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %97 = icmp ult i64 %indvars.iv.next, %83
+  %97 = icmp samesign ult i64 %indvars.iv.next, %83
   br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %96, %73
@@ -1347,7 +1347,7 @@ _ZL11pointInPolyiPKfS0_.exit.us.us.us:            ; preds = %140
 
 _ZL11pointInPolyiPKfS0_.exit.thread.us.us.us:     ; preds = %142, %_ZL11pointInPolyiPKfS0_.exit.us.us.us, %105, %100
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %143 = icmp ult i64 %indvars.iv.next163, %99
+  %143 = icmp samesign ult i64 %indvars.iv.next163, %99
   br i1 %143, label %100, label %._crit_edge141.split.us.us.us, !llvm.loop !28
 
 ._crit_edge145.split.us.us:                       ; preds = %._crit_edge141.split.us.us.us
@@ -1732,7 +1732,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %11, %15
 
 116:                                              ; preds = %110, %115, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %117 = icmp ult i64 %indvars.iv.next, %105
+  %117 = icmp samesign ult i64 %indvars.iv.next, %105
   br i1 %117, label %.lr.ph, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %116, %78

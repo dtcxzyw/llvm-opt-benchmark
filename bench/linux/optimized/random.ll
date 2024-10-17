@@ -2409,7 +2409,7 @@ define internal fastcc void @extract_entropy(ptr noundef %0) unnamed_addr #0 ali
 
 16:                                               ; preds = %29, %10, %.critedge3
   %17 = add nuw nsw i64 %8, 1
-  %18 = icmp ult i64 %8, 3
+  %18 = icmp samesign ult i64 %8, 3
   br i1 %18, label %7, label %36, !llvm.loop !76
 
 .critedge:                                        ; preds = %7, %10

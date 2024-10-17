@@ -9369,7 +9369,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$3pop1
   br i1 %29, label %51, label %48
 
 30:                                               ; preds = %24
-  %31 = icmp ult i32 %.sroa.0.0, 7
+  %31 = icmp samesign ult i32 %.sroa.0.0, 7
   br i1 %31, label %.preheader.i, label %32
 
 32:                                               ; preds = %30
@@ -9377,7 +9377,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$3pop1
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %32
-  %33 = icmp ult i32 %.sroa.0.0, 11
+  %33 = icmp samesign ult i32 %.sroa.0.0, 11
   %34 = load atomic i64, ptr %1 monotonic, align 128
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hc680cc0f9f4862f8E.exit16
 
@@ -9400,7 +9400,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$3pop1
   br label %43
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17hc680cc0f9f4862f8E.exit: ; preds = %43
-  %41 = icmp ult i32 %.sroa.0.0, 7
+  %41 = icmp samesign ult i32 %.sroa.0.0, 7
   %42 = load atomic i64, ptr %1 monotonic, align 128
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hc680cc0f9f4862f8E.exit16
 
@@ -9443,7 +9443,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hc680cc0f9f4862f8E.exit16: ; preds = 
   br label %56
 
 54:                                               ; preds = %56
-  %55 = icmp ult i32 %.sroa.0.0, 7
+  %55 = icmp samesign ult i32 %.sroa.0.0, 7
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hc680cc0f9f4862f8E.exit16
 
 56:                                               ; preds = %56, %53
@@ -11198,7 +11198,7 @@ define hidden void @"_ZN84_$LT$postage..channels..dispatch..Sender$LT$T$GT$$u20$
   br i1 %45, label %53, label %46
 
 46:                                               ; preds = %42
-  %47 = icmp ult i32 %.sroa.022.0.i, 7
+  %47 = icmp samesign ult i32 %.sroa.022.0.i, 7
   br i1 %47, label %.preheader.i.i, label %48
 
 48:                                               ; preds = %46
@@ -11206,7 +11206,7 @@ define hidden void @"_ZN84_$LT$postage..channels..dispatch..Sender$LT$T$GT$$u20$
           to label %.loopexit.i.i unwind label %78, !noalias !2268
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %48
-  %49 = icmp ult i32 %.sroa.022.0.i, 11
+  %49 = icmp samesign ult i32 %.sroa.022.0.i, 11
   %50 = load atomic i64, ptr %13 monotonic, align 8, !noalias !2268
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hc680cc0f9f4862f8E.exit21.i
 
@@ -11243,7 +11243,7 @@ define hidden void @"_ZN84_$LT$postage..channels..dispatch..Sender$LT$T$GT$$u20$
   br label %61
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17hc680cc0f9f4862f8E.exit.i: ; preds = %61
-  %59 = icmp ult i32 %.sroa.022.0.i, 7
+  %59 = icmp samesign ult i32 %.sroa.022.0.i, 7
   %60 = load atomic i64, ptr %13 monotonic, align 8, !noalias !2268
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hc680cc0f9f4862f8E.exit21.i
 
@@ -11279,7 +11279,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hc680cc0f9f4862f8E.exit21.i: ; preds 
   br label %74
 
 72:                                               ; preds = %74
-  %73 = icmp ult i32 %.sroa.022.0.i, 7
+  %73 = icmp samesign ult i32 %.sroa.022.0.i, 7
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hc680cc0f9f4862f8E.exit21.i
 
 74:                                               ; preds = %74, %71

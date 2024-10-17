@@ -555,7 +555,7 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %16, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %.03440, align 8
   %96 = zext i32 %95 to i64
-  %97 = icmp ult i64 %indvars.iv.next, %96
+  %97 = icmp samesign ult i64 %indvars.iv.next, %96
   br i1 %97, label %54, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %85, %.preheader

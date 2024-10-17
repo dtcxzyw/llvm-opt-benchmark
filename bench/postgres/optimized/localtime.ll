@@ -790,7 +790,7 @@ detzcode.exit487.i:                               ; preds = %267
   %.2.i = phi i32 [ %.0343611.i, %._crit_edge608.i ], [ %354, %.sink.split ]
   %.1342.i = phi i32 [ %.0341612.i, %._crit_edge608.i ], [ %.1342.i.ph, %.sink.split ]
   %indvars.iv.next718.i = add nuw nsw i64 %indvars.iv717.i, 1
-  %356 = icmp ult i64 %indvars.iv.next718.i, %332
+  %356 = icmp samesign ult i64 %indvars.iv.next718.i, %332
   br i1 %356, label %333, label %._crit_edge615.i, !llvm.loop !17
 
 ._crit_edge615.i:                                 ; preds = %355, %325

@@ -328,7 +328,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %num_irqs, align 4
   %7 = zext i32 %6 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %7
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !7
 
 if.end:                                           ; preds = %for.body, %for.cond.preheader, %entry
@@ -460,7 +460,7 @@ if.then3.us:                                      ; preds = %if.end.us
   %num_children.us = getelementptr inbounds i8, ptr %opaque.tr87.us93, i64 1320
   %3 = load i16, ptr %num_children.us, align 8
   %conv.us = zext i16 %3 to i32
-  %cmp5.us = icmp ult i32 %and4.us, %conv.us
+  %cmp5.us = icmp samesign ult i32 %and4.us, %conv.us
   br i1 %cmp5.us, label %if.then7.us, label %if.end74
 
 if.then7.us:                                      ; preds = %if.then3.us
@@ -759,7 +759,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %17 = load i32, ptr %num_irqs.i, align 4
   %18 = zext i32 %17 to i64
-  %cmp1.not.i = icmp ult i64 %16, %18
+  %cmp1.not.i = icmp samesign ult i64 %16, %18
   br i1 %cmp1.not.i, label %if.end.i, label %for.inc.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
@@ -810,7 +810,7 @@ for.body.i86:                                     ; preds = %for.inc.i92, %if.th
 lor.lhs.false.i90:                                ; preds = %for.body.i86
   %25 = load i32, ptr %num_irqs.i84, align 4
   %26 = zext i32 %25 to i64
-  %cmp1.not.i91 = icmp ult i64 %24, %26
+  %cmp1.not.i91 = icmp samesign ult i64 %24, %26
   br i1 %cmp1.not.i91, label %if.end.i96, label %for.inc.i92
 
 if.end.i96:                                       ; preds = %lor.lhs.false.i90
@@ -862,7 +862,7 @@ for.body.i104:                                    ; preds = %for.inc.i110, %if.t
 lor.lhs.false.i108:                               ; preds = %for.body.i104
   %33 = load i32, ptr %num_irqs.i102, align 4
   %34 = zext i32 %33 to i64
-  %cmp1.not.i109 = icmp ult i64 %32, %34
+  %cmp1.not.i109 = icmp samesign ult i64 %32, %34
   br i1 %cmp1.not.i109, label %if.end.i114, label %for.inc.i110
 
 if.end.i114:                                      ; preds = %lor.lhs.false.i108
@@ -1556,7 +1556,7 @@ riscv_aplic_msi_irq_update.exit:                  ; preds = %for.body, %lor.lhs.
   %61 = phi i32 [ %53, %for.body ], [ %53, %lor.lhs.false1.i ], [ %53, %if.end.i180 ], [ %.pre, %if.end6.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = zext i32 %61 to i64
-  %cmp319 = icmp ult i64 %indvars.iv.next, %62
+  %cmp319 = icmp samesign ult i64 %indvars.iv.next, %62
   br i1 %cmp319, label %for.body, label %do.end, !llvm.loop !12
 
 if.else321:                                       ; preds = %if.end314
@@ -1964,7 +1964,7 @@ for.body:                                         ; preds = %entry, %for.inc
 lor.lhs.false:                                    ; preds = %for.body
   %2 = load i32, ptr %num_irqs, align 4
   %3 = zext i32 %2 to i64
-  %cmp1.not = icmp ult i64 %1, %3
+  %cmp1.not = icmp samesign ult i64 %1, %3
   br i1 %cmp1.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -2082,7 +2082,7 @@ for.body:                                         ; preds = %entry, %for.inc
 lor.lhs.false:                                    ; preds = %for.body
   %2 = load i32, ptr %num_irqs, align 4
   %3 = zext i32 %2 to i64
-  %cmp1.not = icmp ult i64 %1, %3
+  %cmp1.not = icmp samesign ult i64 %1, %3
   br i1 %cmp1.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %lor.lhs.false

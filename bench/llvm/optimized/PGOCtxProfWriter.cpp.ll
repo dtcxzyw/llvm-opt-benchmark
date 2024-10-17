@@ -802,7 +802,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %2, %15
   %25 = or i32 %.pre21.i, %24
   store i32 %25, ptr %10, align 4
   %26 = add nuw nsw i32 %storemerge6.i.i, 6
-  %27 = icmp ult i32 %storemerge6.i.i, 26
+  %27 = icmp samesign ult i32 %storemerge6.i.i, 26
   br i1 %27, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit, label %28
 
 28:                                               ; preds = %_ZN4llvm15BitstreamWriter8EmitCodeEj.exit
@@ -845,7 +845,7 @@ _ZN4llvm15BitstreamWriter7EmitVBREjj.exit:        ; preds = %_ZN4llvm15Bitstream
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i32, ptr %37, align 8
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next, %45
   br i1 %46, label %41, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %41, %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit
@@ -1141,7 +1141,7 @@ _ZN4llvm11SmallVectorImLj1EED2Ev.exit10:          ; preds = %23, %16, %_ZN4llvm1
   %36 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %29, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next, %37
   br i1 %38, label %28, label %._crit_edge22, !llvm.loop !10
 
 ._crit_edge22:                                    ; preds = %._crit_edge, %_ZN4llvm11SmallVectorImLj1EED2Ev.exit10

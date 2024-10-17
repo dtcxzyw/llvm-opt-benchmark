@@ -38,11 +38,11 @@ define noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7
   %6 = and i32 %5, 255
   %7 = add nsw i32 %6, -112
   %8 = and i32 %0, 8388607
-  %9 = icmp ult i32 %6, 113
+  %9 = icmp samesign ult i32 %6, 113
   br i1 %9, label %10, label %26
 
 10:                                               ; preds = %1
-  %11 = icmp ult i32 %6, 102
+  %11 = icmp samesign ult i32 %6, 102
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
@@ -79,7 +79,7 @@ define noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7
 
 33:                                               ; preds = %28
   %34 = lshr i32 %8, 13
-  %35 = icmp ult i32 %8, 8192
+  %35 = icmp samesign ult i32 %8, 8192
   %36 = zext i1 %35 to i32
   %37 = or i32 %34, %36
   %38 = or disjoint i32 %37, %4

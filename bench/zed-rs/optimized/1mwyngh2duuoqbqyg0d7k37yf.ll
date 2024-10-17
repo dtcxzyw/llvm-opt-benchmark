@@ -1402,7 +1402,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %26 = ptrtoint ptr %.val.i.i to i64
   %27 = sub nuw i64 %25, %26
   %28 = udiv exact i64 %27, 24
-  %29 = icmp ugt i64 %28, %17
+  %29 = icmp samesign ugt i64 %28, %17
   br i1 %29, label %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hff334378b08d4544E.exit.i"
 
 30:                                               ; preds = %19
@@ -1712,7 +1712,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !11
   %16 = lshr i64 %15, 1
-  %.not27 = icmp ult i64 %13, %16
+  %.not27 = icmp samesign ult i64 %13, %16
   br i1 %.not27, label %17, label %41
 
 17:                                               ; preds = %8

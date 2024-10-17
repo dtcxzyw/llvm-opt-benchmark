@@ -2117,8 +2117,8 @@ for.inc:                                          ; preds = %if.then8.for.inc_cr
   %arrayidx = getelementptr i32, ptr %7, i64 %indvars.iv
   %8 = load i32, ptr %arrayidx, align 4
   %tobool = icmp ne i32 %8, 0
-  %cmp2 = icmp ult i32 %j.015, 31
-  %9 = and i1 %tobool, %cmp2
+  %cmp2 = icmp samesign ult i32 %j.015, 31
+  %9 = select i1 %tobool, i1 %cmp2, i1 false
   br i1 %9, label %for.body3, label %for.inc19, !llvm.loop !12
 
 for.inc19:                                        ; preds = %for.inc, %for.cond1.preheader

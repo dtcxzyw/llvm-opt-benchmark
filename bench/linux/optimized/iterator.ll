@@ -205,7 +205,7 @@ define dso_local i64 @netfs_limit_iter(ptr nocapture noundef readonly %0, i64 no
   %24 = phi i64 [ 0, %21 ], [ %38, %35 ]
   %25 = phi i64 [ %14, %21 ], [ %37, %35 ]
   %26 = phi i64 [ %17, %21 ], [ %36, %35 ]
-  %27 = icmp ult i64 %24, %22
+  %27 = icmp samesign ult i64 %24, %22
   %28 = icmp ne i64 %26, 0
   %29 = select i1 %27, i1 %28, i1 false
   br i1 %29, label %30, label %40
@@ -257,7 +257,7 @@ define dso_local i64 @netfs_limit_iter(ptr nocapture noundef readonly %0, i64 no
   %64 = add nuw nsw i64 %46, 1
   %65 = sub i64 %49, %56
   %66 = icmp ne i64 %65, 0
-  %67 = icmp ult i64 %64, %22
+  %67 = icmp samesign ult i64 %64, %22
   %68 = select i1 %66, i1 %67, i1 false
   br i1 %68, label %45, label %.thread19, !llvm.loop !21
 

@@ -9759,7 +9759,7 @@ define linkonce_odr void @_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved
   br i1 %.not.i.i.i, label %_ZSt8distanceINSt8__detail20_Node_const_iteratorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_7TfTokenEELb0ELb1EEEENSt15iterator_traitsIT_E15difference_typeESA_SA_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !96
 
 _ZSt8distanceINSt8__detail20_Node_const_iteratorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_7TfTokenEELb0ELb1EEEENSt15iterator_traitsIT_E15difference_typeESA_SA_.exit.i: ; preds = %.lr.ph.i.i.i
-  %7 = icmp ugt i64 %.06.i.i.i, 576460752303423486
+  %7 = icmp samesign ugt i64 %.06.i.i.i, 576460752303423486
   br i1 %7, label %8, label %_ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_7TfTokenEESaIS4_EE11_M_allocateEm.exit.i
 
 8:                                                ; preds = %_ZSt8distanceINSt8__detail20_Node_const_iteratorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_7TfTokenEELb0ELb1EEEENSt15iterator_traitsIT_E15difference_typeESA_SA_.exit.i

@@ -295,7 +295,7 @@ if.end:                                           ; preds = %if.then
   %call7 = tail call i64 @blk_getlength(ptr noundef %2) #18
   %cmp = icmp slt i64 %call7, 1
   %3 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %call7)
-  %tobool1.not.i = icmp ult i64 %3, 2
+  %tobool1.not.i = icmp samesign ult i64 %3, 2
   %or.cond = select i1 %cmp, i1 true, i1 %tobool1.not.i
   br i1 %or.cond, label %if.end14, label %if.then10
 
@@ -3252,7 +3252,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.end:                                           ; preds = %for.body
   %1 = load i32, ptr %wp_group_bits, align 8
   %2 = zext i32 %1 to i64
-  %cmp4 = icmp ult i64 %indvars.iv, %2
+  %cmp4 = icmp samesign ult i64 %indvars.iv, %2
   br i1 %cmp4, label %if.end7, label %if.else
 
 if.else:                                          ; preds = %if.end
@@ -3365,7 +3365,7 @@ if.end27:                                         ; preds = %if.end
   store i8 %14, ptr %arrayidx, align 2
   %data = getelementptr inbounds i8, ptr %sd, i64 396
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %data, i8 -1, i64 512, i1 false)
-  %cmp34.not37 = icmp ugt i64 %erase_start.0, %erase_end.0
+  %cmp34.not37 = icmp samesign ugt i64 %erase_start.0, %erase_end.0
   br i1 %cmp34.not37, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end27
@@ -3405,14 +3405,14 @@ if.end50.us:                                      ; preds = %if.end43.us
 
 for.inc.us:                                       ; preds = %if.end50.us, %if.then46.us
   %add.us = add nuw nsw i64 %erase_addr.038.us, 512
-  %cmp34.not.us = icmp ugt i64 %add.us, %erase_end.0
+  %cmp34.not.us = icmp samesign ugt i64 %add.us, %erase_end.0
   br i1 %cmp34.not.us, label %for.end, label %for.body.us, !llvm.loop !12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %erase_addr.038 = phi i64 [ %add, %for.body ], [ %mul, %for.body.lr.ph ]
   tail call fastcc void @sd_blk_write(ptr noundef %sd, i64 noundef %erase_addr.038, i32 noundef 512)
   %add = add nuw nsw i64 %erase_addr.038, 512
-  %cmp34.not = icmp ugt i64 %add, %erase_end.0
+  %cmp34.not = icmp samesign ugt i64 %add, %erase_end.0
   br i1 %cmp34.not, label %for.end, label %for.body, !llvm.loop !12
 
 if.else:                                          ; preds = %for.body.us

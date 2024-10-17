@@ -1461,7 +1461,7 @@ _ZNSt6vectorIPKiSaIS1_EED2Ev.exit73:              ; preds = %52
   store ptr %80, ptr %.sroa.3.0..sroa_idx, align 8
   %84 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %82, ptr %84, align 8
-  %85 = icmp ugt i32 %18, 2
+  %85 = icmp samesign ugt i32 %18, 2
   br i1 %85, label %86, label %96
 
 86:                                               ; preds = %68
@@ -2291,7 +2291,7 @@ define hidden noundef zeroext i1 @_ZN2cv16Jpeg2KOpjEncoder5writeERKNS_3MatERKSt6
   %49 = lshr i32 %48, 3
   %50 = and i32 %49, 511
   %51 = add nuw nsw i32 %50, 1
-  %52 = icmp ugt i32 %50, 3
+  %52 = icmp samesign ugt i32 %50, 3
   br i1 %52, label %53, label %61
 
 53:                                               ; preds = %47
@@ -2540,7 +2540,7 @@ _ZNSt6vectorI19opj_image_comptparmSaIS0_EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.
   br label %_ZNSt6vectorI19opj_image_comptparmSaIS0_EED2Ev.exit111
 
 149:                                              ; preds = %137
-  %150 = icmp ugt i32 %50, 1
+  %150 = icmp samesign ugt i32 %50, 1
   %151 = select i1 %150, i32 1, i32 2
   %152 = invoke ptr @opj_image_create(i32 noundef %51, ptr noundef nonnull %125, i32 noundef %151)
           to label %153 unwind label %147

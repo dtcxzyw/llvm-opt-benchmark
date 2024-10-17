@@ -52183,7 +52183,7 @@ _ZNSt12_Vector_baseIN27RecordingSceneIndexObserver5EventESaIS1_EE11_M_allocateEm
   br i1 %.not.i.i, label %_ZSt8distanceINSt8__detail20_Node_const_iteratorIN27RecordingSceneIndexObserver5EventELb1ELb1EEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit, label %.lr.ph.i.i, !llvm.loop !292
 
 _ZSt8distanceINSt8__detail20_Node_const_iteratorIN27RecordingSceneIndexObserver5EventELb1ELb1EEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit: ; preds = %.lr.ph.i.i
-  %7 = icmp ugt i64 %.06.i.i, 115292150460684696
+  %7 = icmp samesign ugt i64 %.06.i.i, 115292150460684696
   br i1 %7, label %8, label %_ZNSt12_Vector_baseIN27RecordingSceneIndexObserver5EventESaIS1_EE11_M_allocateEm.exit
 
 8:                                                ; preds = %_ZSt8distanceINSt8__detail20_Node_const_iteratorIN27RecordingSceneIndexObserver5EventELb1ELb1EEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit

@@ -2253,7 +2253,7 @@ define dso_local void @__cfg80211_send_event_skb(ptr noundef %0, i32 noundef %1)
   %43 = select i1 %42, i32 4, i32 6
   %44 = load i8, ptr getelementptr inbounds (i8, ptr @nl80211_fam, i64 32), align 8
   %45 = zext i8 %44 to i32
-  %46 = icmp ult i32 %43, %45
+  %46 = icmp samesign ult i32 %43, %45
   br i1 %46, label %48, label %47, !prof !6
 
 47:                                               ; preds = %39
@@ -2281,7 +2281,7 @@ define dso_local void @__cfg80211_send_event_skb(ptr noundef %0, i32 noundef %1)
 define internal fastcc void @genlmsg_multicast_netns(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i32 noundef range(i32 3, 6) %2, i32 noundef %3) unnamed_addr #7 align 16 {
   %5 = load i8, ptr getelementptr inbounds (i8, ptr @nl80211_fam, i64 32), align 8
   %6 = zext i8 %5 to i32
-  %7 = icmp ult i32 %2, %6
+  %7 = icmp samesign ult i32 %2, %6
   br i1 %7, label %9, label %8, !prof !6
 
 8:                                                ; preds = %4
@@ -3514,7 +3514,7 @@ define internal fastcc range(i32 -105, 1) i32 @nl80211_send_wiphy(ptr noundef %0
   %indvars.iv = phi i64 [ %indvars.iv.next, %412 ], [ %297, %294 ]
   %300 = phi i1 [ %415, %412 ], [ %291, %294 ]
   %301 = phi i32 [ %414, %412 ], [ %288, %294 ]
-  %302 = icmp ult i64 %indvars.iv, 2
+  %302 = icmp samesign ult i64 %indvars.iv, 2
   %303 = or i1 %300, %302
   %304 = trunc nuw i64 %indvars.iv to i32
   br i1 %303, label %305, label %.loopexit
@@ -3673,7 +3673,7 @@ split:                                            ; preds = %367, %._crit_edge11
   %414 = add nuw nsw i32 %301, 1
   %415 = icmp ne i8 %413, 0
   %416 = select i1 %415, i64 6, i64 3
-  %417 = icmp ult i64 %indvars.iv.next, %416
+  %417 = icmp samesign ult i64 %indvars.iv.next, %416
   br i1 %417, label %298, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %298, %412, %407, %285
@@ -4222,7 +4222,7 @@ split:                                            ; preds = %367, %._crit_edge11
   %746 = phi i64 [ 0, %743 ], [ %751, %750 ]
   %747 = load i16, ptr %729, align 2
   %748 = zext i16 %747 to i64
-  %749 = icmp ult i64 %746, %748
+  %749 = icmp samesign ult i64 %746, %748
   br i1 %749, label %750, label %757
 
 750:                                              ; preds = %745
@@ -5266,7 +5266,7 @@ define internal fastcc range(i32 -90, 1) i32 @nl80211_send_iface(ptr noundef %0,
   %indvars.iv.next.pre-phi = phi i64 [ %.pre16, %._crit_edge ], [ %194, %220 ]
   %230 = phi i16 [ %186, %._crit_edge ], [ %.pre14, %220 ]
   %231 = icmp eq i16 %230, 0
-  %232 = icmp ugt i64 %indvars.iv, 13
+  %232 = icmp samesign ugt i64 %indvars.iv, 13
   %233 = select i1 %231, i1 true, i1 %232
   br i1 %233, label %234, label %185, !llvm.loop !77
 
@@ -6856,7 +6856,7 @@ define dso_local void @nl80211_send_connect_result(ptr nocapture noundef readonl
   %244 = phi i32 [ %241, %232 ], [ %185, %186 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %245 = icmp eq i16 %243, 0
-  %246 = icmp ugt i64 %indvars.iv, 13
+  %246 = icmp samesign ugt i64 %indvars.iv, 13
   %247 = select i1 %245, i1 true, i1 %246
   br i1 %247, label %248, label %182, !llvm.loop !96
 
@@ -7231,7 +7231,7 @@ define dso_local void @nl80211_send_roamed(ptr nocapture noundef readonly %0, pt
   %225 = phi i32 [ %222, %213 ], [ %171, %172 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %226 = icmp eq i16 %224, 0
-  %227 = icmp ugt i64 %indvars.iv, 13
+  %227 = icmp samesign ugt i64 %indvars.iv, 13
   %228 = select i1 %226, i1 true, i1 %227
   br i1 %228, label %229, label %168, !llvm.loop !98
 
@@ -15609,7 +15609,7 @@ define internal noundef range(i32 -22, 1) i32 @validate_beacon_head(ptr noundef 
   %10 = and i16 %9, 252
   %11 = icmp eq i16 %10, 28
   %12 = select i1 %11, i32 15, i32 36
-  %13 = icmp ugt i32 %12, %6
+  %13 = icmp samesign ugt i32 %12, %6
   br i1 %13, label %41, label %14
 
 14:                                               ; preds = %8
@@ -15635,7 +15635,7 @@ define internal noundef range(i32 -22, 1) i32 @validate_beacon_head(ptr noundef 
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
   %31 = add nuw nsw i64 %30, 2
-  %32 = icmp ult i64 %26, %31
+  %32 = icmp samesign ult i64 %26, %31
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %.preheader
@@ -15687,7 +15687,7 @@ define internal noundef range(i32 -22, 1) i32 @validate_ie_attr(ptr noundef %0, 
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
   %15 = add nuw nsw i64 %14, 2
-  %16 = icmp ult i64 %10, %15
+  %16 = icmp samesign ult i64 %10, %15
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %.preheader
@@ -16759,7 +16759,7 @@ define internal i32 @nl80211_set_wiphy(ptr nocapture readnone %0, ptr nocapture 
   %91 = load i16, ptr %89, align 2
   %92 = icmp ult i16 %91, 4
   %93 = zext i16 %91 to i32
-  %.not = icmp ult i32 %90, %93
+  %.not = icmp samesign ult i32 %90, %93
   %or.cond = or i1 %92, %.not
   br i1 %or.cond, label %.critedge.loopexit, label %94
 
@@ -19795,7 +19795,7 @@ define internal i32 @nl80211_start_ap(ptr nocapture readnone %0, ptr nocapture n
   %129 = icmp ne i32 %121, 4
   %130 = or i1 %129, %128
   %131 = or disjoint i32 %121, -8
-  %132 = icmp ult i32 %131, -3
+  %132 = icmp samesign ult i32 %131, -3
   %133 = select i1 %130, i1 %132, i1 false
   br i1 %133, label %136, label %.thread
 
@@ -21136,7 +21136,7 @@ define internal i32 @nl80211_set_station(ptr nocapture readnone %0, ptr nocaptur
   %358 = zext i8 %321 to i64
   %359 = zext nneg i8 %350 to i64
   %360 = add nuw nsw i64 %359, 2
-  %361 = icmp ugt i64 %360, %358
+  %361 = icmp samesign ugt i64 %360, %358
   br i1 %361, label %.thread36, label %362
 
 362:                                              ; preds = %357
@@ -21628,7 +21628,7 @@ define internal i32 @nl80211_new_station(ptr nocapture readnone %0, ptr nocaptur
   %208 = zext i8 %171 to i64
   %209 = zext nneg i8 %200 to i64
   %210 = add nuw nsw i64 %209, 2
-  %211 = icmp ugt i64 %210, %208
+  %211 = icmp samesign ugt i64 %210, %208
   br i1 %211, label %.thread, label %212
 
 212:                                              ; preds = %207
@@ -23772,7 +23772,7 @@ define internal i32 @nl80211_set_reg(ptr nocapture readnone %0, ptr nocapture no
   %32 = load i16, ptr %30, align 2
   %33 = icmp ult i16 %32, 4
   %34 = zext i16 %32 to i32
-  %.not = icmp ult i32 %31, %34
+  %.not = icmp samesign ult i32 %31, %34
   %or.cond = or i1 %33, %.not
   br i1 %or.cond, label %.critedge, label %35
 
@@ -23852,7 +23852,7 @@ define internal i32 @nl80211_set_reg(ptr nocapture readnone %0, ptr nocapture no
   %83 = load i16, ptr %80, align 2
   %84 = icmp ult i16 %83, 4
   %85 = zext i16 %83 to i32
-  %.not18 = icmp ult i32 %81, %85
+  %.not18 = icmp samesign ult i32 %81, %85
   %or.cond21 = or i1 %84, %.not18
   br i1 %or.cond21, label %.critedge20, label %86
 
@@ -24796,7 +24796,7 @@ define internal i32 @nl80211_trigger_scan(ptr nocapture readnone %0, ptr nocaptu
   %60 = load i16, ptr %58, align 2
   %61 = icmp ult i16 %60, 4
   %62 = zext i16 %60 to i32
-  %.not = icmp ult i32 %59, %62
+  %.not = icmp samesign ult i32 %59, %62
   %or.cond = or i1 %61, %.not
   br i1 %or.cond, label %.critedge, label %63
 
@@ -24913,7 +24913,7 @@ define internal i32 @nl80211_trigger_scan(ptr nocapture readnone %0, ptr nocaptu
   %132 = load i16, ptr %130, align 2
   %133 = icmp ult i16 %132, 4
   %134 = zext i16 %132 to i32
-  %.not40 = icmp ult i32 %131, %134
+  %.not40 = icmp samesign ult i32 %131, %134
   %or.cond49 = or i1 %133, %.not40
   br i1 %or.cond49, label %.critedge44, label %135
 
@@ -25063,7 +25063,7 @@ define internal i32 @nl80211_trigger_scan(ptr nocapture readnone %0, ptr nocaptu
   %232 = add nuw nsw i64 %208, 1
   %233 = load i16, ptr %197, align 8
   %234 = icmp eq i16 %233, 0
-  %235 = icmp ugt i64 %208, 13
+  %235 = icmp samesign ugt i64 %208, 13
   %236 = select i1 %234, i1 true, i1 %235
   br i1 %236, label %237, label %207, !llvm.loop !390
 
@@ -25111,7 +25111,7 @@ select.unfold:                                    ; preds = %243, %240, %237, %1
   %260 = load i16, ptr %258, align 2
   %261 = icmp ult i16 %260, 4
   %262 = zext i16 %260 to i32
-  %.not41 = icmp ult i32 %259, %262
+  %.not41 = icmp samesign ult i32 %259, %262
   %or.cond50 = or i1 %261, %.not41
   br i1 %or.cond50, label %.critedge46.loopexit, label %263
 
@@ -25218,7 +25218,7 @@ select.unfold:                                    ; preds = %243, %240, %237, %1
   %329 = load i16, ptr %327, align 2
   %330 = icmp ult i16 %329, 4
   %331 = zext i16 %329 to i32
-  %.not42 = icmp ult i32 %328, %331
+  %.not42 = icmp samesign ult i32 %328, %331
   %or.cond51 = or i1 %330, %.not42
   br i1 %or.cond51, label %.critedge48.loopexit, label %332
 
@@ -25226,7 +25226,7 @@ select.unfold:                                    ; preds = %243, %240, %237, %1
   %333 = getelementptr inbounds i8, ptr %327, i64 2
   %334 = load i16, ptr %333, align 2
   %335 = and i16 %334, 16383
-  %336 = icmp ugt i16 %335, 5
+  %336 = icmp samesign ugt i16 %335, 5
   br i1 %336, label %.loopexit, label %337
 
 337:                                              ; preds = %332
@@ -26028,7 +26028,7 @@ define internal i32 @nl80211_dump_scan(ptr noundef %0, ptr nocapture noundef %1)
   %320 = phi i16 [ %.pre46, %._crit_edge ], [ %294, %302 ], [ %294, %297 ]
   %321 = add nuw nsw i64 %295, 1
   %322 = icmp eq i16 %320, 0
-  %323 = icmp ugt i64 %295, 13
+  %323 = icmp samesign ugt i64 %295, 13
   %324 = select i1 %322, i1 true, i1 %323
   br i1 %324, label %.loopexit, label %293, !llvm.loop !404
 
@@ -26623,7 +26623,7 @@ define internal i32 @nl80211_authenticate(ptr nocapture readnone %0, ptr nocaptu
   %145 = and i8 %144, 2
   %146 = icmp ne i8 %145, 0
   %147 = or disjoint i32 %133, -8
-  %148 = icmp ult i32 %147, -3
+  %148 = icmp samesign ult i32 %147, -3
   %149 = select i1 %146, i1 true, i1 %148
   br i1 %149, label %150, label %.thread14
 
@@ -27128,7 +27128,7 @@ define internal i32 @nl80211_associate(ptr nocapture readnone %0, ptr nocapture 
   %242 = load i16, ptr %240, align 2
   %243 = icmp ult i16 %242, 4
   %244 = zext i16 %242 to i32
-  %.not = icmp ult i32 %241, %244
+  %.not = icmp samesign ult i32 %241, %244
   %or.cond = or i1 %243, %.not
   br i1 %or.cond, label %.critedge.loopexit, label %245
 
@@ -27408,7 +27408,7 @@ define internal i32 @nl80211_associate(ptr nocapture readnone %0, ptr nocapture 
   %405 = load i16, ptr %403, align 2
   %406 = icmp ult i16 %405, 4
   %407 = zext i16 %405 to i32
-  %.not37 = icmp ult i32 %404, %407
+  %.not37 = icmp samesign ult i32 %404, %407
   %or.cond40 = or i1 %406, %.not37
   br i1 %or.cond40, label %.critedge39, label %408
 
@@ -31375,7 +31375,7 @@ define internal i32 @nl80211_set_cqm(ptr nocapture readnone %0, ptr nocapture no
   br i1 %71, label %72, label %.loopexit
 
 72:                                               ; preds = %65
-  %73 = icmp ugt i32 %66, 1
+  %73 = icmp samesign ugt i32 %66, 1
   br i1 %73, label %74, label %84
 
 74:                                               ; preds = %72
@@ -32636,7 +32636,7 @@ define internal i32 @nl80211_set_wowlan(ptr nocapture readnone %0, ptr nocapture
   %154 = load i16, ptr %152, align 2
   %155 = icmp ult i16 %154, 4
   %156 = zext i16 %154 to i32
-  %.not = icmp ult i32 %153, %156
+  %.not = icmp samesign ult i32 %153, %156
   %or.cond = or i1 %155, %.not
   br i1 %or.cond, label %.critedge, label %157
 
@@ -32698,7 +32698,7 @@ define internal i32 @nl80211_set_wowlan(ptr nocapture readnone %0, ptr nocapture
   %194 = load i16, ptr %191, align 2
   %195 = icmp ult i16 %194, 4
   %196 = zext i16 %194 to i32
-  %.not29 = icmp ult i32 %193, %196
+  %.not29 = icmp samesign ult i32 %193, %196
   %or.cond32 = or i1 %195, %.not29
   br i1 %or.cond32, label %.critedge31.thread36, label %197
 
@@ -34603,7 +34603,7 @@ define internal i32 @nl80211_nan_add_func(ptr nocapture readnone %0, ptr nocaptu
   %206 = load i16, ptr %204, align 2
   %207 = icmp ult i16 %206, 4
   %208 = zext i16 %206 to i32
-  %.not = icmp ult i32 %205, %208
+  %.not = icmp samesign ult i32 %205, %208
   %or.cond = or i1 %207, %.not
   br i1 %or.cond, label %.critedge, label %209
 
@@ -36314,7 +36314,7 @@ cfg80211_rdev_free_coalesce.exit:                 ; preds = %23, %.loopexit2.i
   %65 = load i16, ptr %62, align 2
   %66 = icmp ult i16 %65, 4
   %67 = zext i16 %65 to i32
-  %.not = icmp ult i32 %64, %67
+  %.not = icmp samesign ult i32 %64, %67
   %or.cond = or i1 %66, %.not
   br i1 %or.cond, label %.critedge, label %68
 
@@ -36376,7 +36376,7 @@ cfg80211_rdev_free_coalesce.exit:                 ; preds = %23, %.loopexit2.i
   %105 = load i16, ptr %102, align 2
   %106 = icmp ult i16 %105, 4
   %107 = zext i16 %105 to i32
-  %.not28 = icmp ult i32 %104, %107
+  %.not28 = icmp samesign ult i32 %104, %107
   %or.cond37 = or i1 %106, %.not28
   br i1 %or.cond37, label %.critedge32, label %108
 
@@ -36454,7 +36454,7 @@ cfg80211_rdev_free_coalesce.exit:                 ; preds = %23, %.loopexit2.i
   %149 = load i16, ptr %147, align 2
   %150 = icmp ult i16 %149, 4
   %151 = zext i16 %149 to i32
-  %.not29 = icmp ult i32 %148, %151
+  %.not29 = icmp samesign ult i32 %148, %151
   %or.cond38 = or i1 %150, %.not29
   br i1 %or.cond38, label %.critedge34, label %152
 
@@ -36518,7 +36518,7 @@ cfg80211_rdev_free_coalesce.exit:                 ; preds = %23, %.loopexit2.i
   %187 = load i16, ptr %184, align 2
   %188 = icmp ult i16 %187, 4
   %189 = zext i16 %187 to i32
-  %.not30 = icmp ult i32 %186, %189
+  %.not30 = icmp samesign ult i32 %186, %189
   %or.cond39 = or i1 %188, %.not30
   br i1 %or.cond39, label %._crit_edge, label %190
 
@@ -36883,7 +36883,7 @@ define internal i32 @nl80211_channel_switch(ptr nocapture readnone %0, ptr nocap
   %118 = load i8, ptr %117, align 2
   %119 = icmp ne i8 %118, 0
   %120 = zext i8 %118 to i64
-  %121 = icmp ugt i64 %114, %120
+  %121 = icmp samesign ugt i64 %114, %120
   %122 = select i1 %119, i1 %121, i1 false
   br i1 %122, label %.thread20, label %123
 
@@ -36940,7 +36940,7 @@ define internal i32 @nl80211_channel_switch(ptr nocapture readnone %0, ptr nocap
   %158 = trunc nuw nsw i64 %157 to i32
   %159 = getelementptr inbounds i8, ptr %3, i64 220
   store i32 %158, ptr %159, align 4
-  %160 = icmp ugt i64 %157, %120
+  %160 = icmp samesign ugt i64 %157, %120
   %161 = select i1 %119, i1 %160, i1 false
   br i1 %161, label %.thread20, label %162
 
@@ -37139,7 +37139,7 @@ define internal i32 @nl80211_vendor_cmd(ptr nocapture readnone %0, ptr noundef %
 
 47:                                               ; preds = %50, %55
   %48 = add nuw nsw i64 %51, 1
-  %49 = icmp ult i64 %48, %46
+  %49 = icmp samesign ult i64 %48, %46
   br i1 %49, label %50, label %.thread16, !llvm.loop !567
 
 50:                                               ; preds = %47, %43
@@ -40034,7 +40034,7 @@ define internal i32 @nl80211_set_tid_config(ptr nocapture readnone %0, ptr nocap
   %36 = load i16, ptr %34, align 2
   %37 = icmp ult i16 %36, 4
   %38 = zext i16 %36 to i32
-  %.not = icmp ult i32 %35, %38
+  %.not = icmp samesign ult i32 %35, %38
   %or.cond = or i1 %37, %.not
   br i1 %or.cond, label %.critedge, label %39
 
@@ -40105,7 +40105,7 @@ define internal i32 @nl80211_set_tid_config(ptr nocapture readnone %0, ptr nocap
   %86 = load i16, ptr %84, align 2
   %87 = icmp ult i16 %86, 4
   %88 = zext i16 %86 to i32
-  %.not25 = icmp ult i32 %85, %88
+  %.not25 = icmp samesign ult i32 %85, %88
   %or.cond28 = or i1 %87, %.not25
   br i1 %or.cond28, label %.critedge27, label %89
 
@@ -40601,7 +40601,7 @@ define internal i32 @nl80211_set_sar_specs(ptr nocapture readnone %0, ptr nounde
   %50 = load i16, ptr %48, align 2
   %51 = icmp ult i16 %50, 4
   %52 = zext i16 %50 to i32
-  %.not = icmp ult i32 %49, %52
+  %.not = icmp samesign ult i32 %49, %52
   %or.cond = or i1 %51, %.not
   br i1 %or.cond, label %.critedge, label %53
 
@@ -40658,7 +40658,7 @@ define internal i32 @nl80211_set_sar_specs(ptr nocapture readnone %0, ptr nounde
   %83 = load i16, ptr %81, align 2
   %84 = icmp ult i16 %83, 4
   %85 = zext i16 %83 to i32
-  %.not15.us = icmp ult i32 %82, %85
+  %.not15.us = icmp samesign ult i32 %82, %85
   %or.cond18.us = or i1 %84, %.not15.us
   br i1 %or.cond18.us, label %.critedge17, label %86
 
@@ -42844,7 +42844,7 @@ define internal fastcc i32 @nl80211_parse_key(ptr nocapture noundef readonly %0,
   %118 = load i8, ptr %117, align 2, !range !60, !noundef !61
   %119 = icmp eq i8 %118, 0
   %120 = add nuw nsw i8 %116, %118
-  %121 = icmp ugt i8 %120, 1
+  %121 = icmp samesign ugt i8 %120, 1
   br i1 %121, label %122, label %127
 
 122:                                              ; preds = %.thread
@@ -43890,7 +43890,7 @@ define internal fastcc i32 @nl80211_parse_beacon(ptr nocapture noundef readonly 
   %189 = load i16, ptr %187, align 2
   %190 = icmp ult i16 %189, 4
   %191 = zext i16 %189 to i32
-  %.not = icmp ult i32 %188, %191
+  %.not = icmp samesign ult i32 %188, %191
   %or.cond = or i1 %190, %.not
   br i1 %or.cond, label %.critedge, label %192
 
@@ -43936,7 +43936,7 @@ define internal fastcc i32 @nl80211_parse_beacon(ptr nocapture noundef readonly 
   %216 = load i16, ptr %214, align 2
   %217 = icmp ult i16 %216, 4
   %218 = zext i16 %216 to i32
-  %.not33 = icmp ult i32 %215, %218
+  %.not33 = icmp samesign ult i32 %215, %218
   %or.cond42 = or i1 %217, %.not33
   br i1 %or.cond42, label %.critedge37, label %219
 
@@ -43999,7 +43999,7 @@ define internal fastcc i32 @nl80211_parse_beacon(ptr nocapture noundef readonly 
   %256 = load i16, ptr %254, align 2
   %257 = icmp ult i16 %256, 4
   %258 = zext i16 %256 to i32
-  %.not34 = icmp ult i32 %255, %258
+  %.not34 = icmp samesign ult i32 %255, %258
   %or.cond43 = or i1 %257, %.not34
   br i1 %or.cond43, label %.critedge39, label %259
 
@@ -44019,7 +44019,7 @@ define internal fastcc i32 @nl80211_parse_beacon(ptr nocapture noundef readonly 
   %269 = load i8, ptr %268, align 1
   %270 = zext i8 %269 to i64
   %271 = add nuw nsw i64 %270, 2
-  %272 = icmp ult i64 %266, %271
+  %272 = icmp samesign ult i64 %266, %271
   br i1 %272, label %.loopexit, label %273
 
 273:                                              ; preds = %.preheader
@@ -44083,7 +44083,7 @@ define internal fastcc i32 @nl80211_parse_beacon(ptr nocapture noundef readonly 
   %306 = load i16, ptr %304, align 2
   %307 = icmp ult i16 %306, 4
   %308 = zext i16 %306 to i32
-  %.not35 = icmp ult i32 %305, %308
+  %.not35 = icmp samesign ult i32 %305, %308
   %or.cond44 = or i1 %307, %.not35
   br i1 %or.cond44, label %.critedge41, label %309
 
@@ -44431,7 +44431,7 @@ define internal fastcc range(i32 -95, 1) i32 @nl80211_crypto_settings(ptr nounde
   store i32 %77, ptr %78, align 8
   %79 = and i64 %75, 3
   %80 = icmp ne i64 %79, 0
-  %81 = icmp ult i32 %3, %77
+  %81 = icmp samesign ult i32 %3, %77
   %82 = or i1 %80, %81
   br i1 %82, label %select.unfold, label %83
 
@@ -44522,7 +44522,7 @@ define internal fastcc range(i32 -95, 1) i32 @nl80211_crypto_settings(ptr nounde
   %133 = getelementptr inbounds i8, ptr %0, i64 2250
   %134 = load i16, ptr %133, align 2
   %135 = zext i16 %134 to i64
-  %136 = icmp ugt i64 %127, %135
+  %136 = icmp samesign ugt i64 %127, %135
   br i1 %136, label %select.unfold, label %137
 
 137:                                              ; preds = %132
@@ -44860,7 +44860,7 @@ default.unreachable113:                           ; preds = %101, %285, %376
   %142 = load i16, ptr %140, align 2
   %143 = icmp ult i16 %142, 4
   %144 = zext i16 %142 to i32
-  %.not = icmp ult i32 %141, %144
+  %.not = icmp samesign ult i32 %141, %144
   %or.cond = or i1 %143, %.not
   br i1 %or.cond, label %.critedge, label %145
 
@@ -44868,7 +44868,7 @@ default.unreachable113:                           ; preds = %101, %285, %376
   %146 = getelementptr inbounds i8, ptr %140, i64 2
   %147 = load i16, ptr %146, align 2
   %148 = and i16 %147, 16383
-  %149 = icmp ugt i16 %148, 5
+  %149 = icmp samesign ugt i16 %148, 5
   br i1 %149, label %.critedge, label %150
 
 150:                                              ; preds = %145
@@ -45044,7 +45044,7 @@ default.unreachable113:                           ; preds = %101, %285, %376
   br i1 %272, label %.critedge49, label %245, !llvm.loop !687
 
 273:                                              ; preds = %249, %245
-  %.not14 = icmp ult i64 %271, %230
+  %.not14 = icmp samesign ult i64 %271, %230
   br i1 %.not14, label %.critedge, label %.critedge49
 
 .critedge49:                                      ; preds = %.preheader19, %218, %273, %215
@@ -45665,7 +45665,7 @@ define internal fastcc ptr @parse_acl_data(i16 %.82.val, ptr nocapture noundef r
   %26 = load i16, ptr %24, align 2
   %27 = icmp ult i16 %26, 4
   %28 = zext i16 %26 to i32
-  %.not = icmp ult i32 %25, %28
+  %.not = icmp samesign ult i32 %25, %28
   %or.cond = or i1 %27, %.not
   br i1 %or.cond, label %.critedge, label %29
 
@@ -45719,7 +45719,7 @@ define internal fastcc ptr @parse_acl_data(i16 %.82.val, ptr nocapture noundef r
   %57 = load i16, ptr %55, align 2
   %58 = icmp ult i16 %57, 4
   %59 = zext i16 %57 to i32
-  %.not10 = icmp ult i32 %56, %59
+  %.not10 = icmp samesign ult i32 %56, %59
   %or.cond13 = or i1 %58, %.not10
   br i1 %or.cond13, label %.critedge12, label %60
 
@@ -46078,7 +46078,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nl80211_calculate_ap_param
   %42 = add nuw nsw i64 %24, 1
   %43 = load i8, ptr %14, align 1
   %44 = zext i8 %43 to i64
-  %45 = icmp ult i64 %42, %44
+  %45 = icmp samesign ult i64 %42, %44
   br i1 %45, label %23, label %.loopexit17, !llvm.loop !699
 
 .loopexit17:                                      ; preds = %41, %13, %1
@@ -46145,7 +46145,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nl80211_calculate_ap_param
   %77 = add nuw nsw i64 %59, 1
   %78 = load i8, ptr %49, align 1
   %79 = zext i8 %78 to i64
-  %80 = icmp ult i64 %77, %79
+  %80 = icmp samesign ult i64 %77, %79
   br i1 %80, label %58, label %.loopexit, !llvm.loop !699
 
 .loopexit:                                        ; preds = %76, %48, %.loopexit17
@@ -46292,7 +46292,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nl80211_calculate_ap_param
   %169 = zext i8 %133 to i64
   %170 = zext nneg i8 %161 to i64
   %171 = add nuw nsw i64 %170, 2
-  %172 = icmp ugt i64 %171, %169
+  %172 = icmp samesign ugt i64 %171, %169
   br i1 %172, label %.thread, label %173
 
 173:                                              ; preds = %168
@@ -46349,7 +46349,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nl80211_calculate_ap_param
   %210 = and i32 %207, 2
   %211 = or disjoint i32 %210, 8
   %212 = select i1 %209, i32 5, i32 %211
-  %213 = icmp ugt i32 %212, %205
+  %213 = icmp samesign ugt i32 %212, %205
   br i1 %213, label %.thread, label %214
 
 214:                                              ; preds = %204, %191
@@ -46755,7 +46755,7 @@ define internal fastcc i32 @validate_acl_mac_addrs(ptr nocapture noundef nonnull
   %10 = load i16, ptr %8, align 2
   %11 = icmp ult i16 %10, 4
   %12 = zext i16 %10 to i32
-  %.not = icmp ult i32 %9, %12
+  %.not = icmp samesign ult i32 %9, %12
   %or.cond = or i1 %11, %.not
   br i1 %or.cond, label %.critedge, label %13
 
@@ -47976,7 +47976,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @nl80211_put_regdom(ptr nou
   %112 = add nuw nsw i64 %44, 1
   %113 = load i32, ptr %38, align 8
   %114 = zext i32 %113 to i64
-  %115 = icmp ult i64 %112, %114
+  %115 = icmp samesign ult i64 %112, %114
   br i1 %115, label %43, label %.loopexit5, !llvm.loop !717
 
 .loopexit5:                                       ; preds = %103, %37
@@ -48720,7 +48720,7 @@ define internal fastcc i32 @validate_scan_freqs(ptr noundef nonnull readonly %0)
   %9 = load i16, ptr %7, align 2
   %10 = icmp ult i16 %9, 4
   %11 = zext i16 %9 to i32
-  %.not = icmp ult i32 %8, %11
+  %.not = icmp samesign ult i32 %8, %11
   %or.cond24 = or i1 %10, %.not
   br i1 %or.cond24, label %.lr.ph20.split.us.preheader, label %12
 
@@ -48744,7 +48744,7 @@ define internal fastcc i32 @validate_scan_freqs(ptr noundef nonnull readonly %0)
   %21 = load i16, ptr %19, align 2
   %22 = icmp ult i16 %21, 4
   %23 = zext i16 %21 to i32
-  %.not7.us = icmp ult i32 %20, %23
+  %.not7.us = icmp samesign ult i32 %20, %23
   %or.cond.us = or i1 %22, %.not7.us
   br i1 %or.cond.us, label %.critedge10, label %.lr.ph18.us
 
@@ -48759,7 +48759,7 @@ define internal fastcc i32 @validate_scan_freqs(ptr noundef nonnull readonly %0)
   %29 = load i16, ptr %27, align 2
   %30 = icmp ult i16 %29, 4
   %31 = zext i16 %29 to i32
-  %.not8.us = icmp ult i32 %28, %31
+  %.not8.us = icmp samesign ult i32 %28, %31
   %or.cond13.us = or i1 %30, %.not8.us
   br i1 %or.cond13.us, label %.critedge12.us, label %32
 
@@ -48849,7 +48849,7 @@ define internal fastcc zeroext i1 @cfg80211_off_channel_oper_allowed(ptr noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i16, ptr %4, align 8
   %32 = icmp eq i16 %31, 0
-  %33 = icmp ugt i64 %indvars.iv, 13
+  %33 = icmp samesign ugt i64 %indvars.iv, 13
   %34 = select i1 %32, i1 true, i1 %33
   br i1 %34, label %35, label %7, !llvm.loop !390
 
@@ -49165,7 +49165,7 @@ define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef
   %17 = load i16, ptr %15, align 2
   %18 = icmp ult i16 %17, 4
   %19 = zext i16 %17 to i32
-  %.not = icmp ult i32 %16, %19
+  %.not = icmp samesign ult i32 %16, %19
   %or.cond158 = or i1 %18, %.not
   br i1 %or.cond158, label %.lr.ph131.preheader, label %20
 
@@ -49189,7 +49189,7 @@ define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef
   %29 = load i16, ptr %27, align 2
   %30 = icmp ult i16 %29, 4
   %31 = zext i16 %29 to i32
-  %.not54 = icmp ult i32 %28, %31
+  %.not54 = icmp samesign ult i32 %28, %31
   %or.cond = or i1 %30, %.not54
   br i1 %or.cond, label %.critedge63, label %.lr.ph129.preheader
 
@@ -49204,7 +49204,7 @@ define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef
   %36 = load i16, ptr %34, align 2
   %37 = icmp ult i16 %36, 4
   %38 = zext i16 %36 to i32
-  %.not55 = icmp ult i32 %35, %38
+  %.not55 = icmp samesign ult i32 %35, %38
   %or.cond78 = or i1 %37, %.not55
   br i1 %or.cond78, label %.critedge65, label %39
 
@@ -49271,7 +49271,7 @@ define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef
   %76 = load i16, ptr %73, align 2
   %77 = icmp ult i16 %76, 4
   %78 = zext i16 %76 to i32
-  %.not56 = icmp ult i32 %75, %78
+  %.not56 = icmp samesign ult i32 %75, %78
   %or.cond79 = or i1 %77, %.not56
   br i1 %or.cond79, label %.critedge67, label %79
 
@@ -49322,7 +49322,7 @@ define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef
   %108 = load i16, ptr %104, align 2
   %109 = icmp ult i16 %108, 4
   %110 = zext i16 %108 to i32
-  %.not57 = icmp ult i32 %107, %110
+  %.not57 = icmp samesign ult i32 %107, %110
   %or.cond80 = or i1 %109, %.not57
   br i1 %or.cond80, label %.critedge69, label %111
 
@@ -49434,7 +49434,7 @@ define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef
   %180 = load i16, ptr %177, align 2
   %181 = icmp ult i16 %180, 4
   %182 = zext i16 %180 to i32
-  %.not58 = icmp ult i32 %179, %182
+  %.not58 = icmp samesign ult i32 %179, %182
   %or.cond81 = or i1 %181, %.not58
   br i1 %or.cond81, label %.critedge71, label %183
 
@@ -49643,7 +49643,7 @@ define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef
   %310 = load i16, ptr %307, align 2
   %311 = icmp ult i16 %310, 4
   %312 = zext i16 %310 to i32
-  %.not59 = icmp ult i32 %309, %312
+  %.not59 = icmp samesign ult i32 %309, %312
   %or.cond82 = or i1 %311, %.not59
   br i1 %or.cond82, label %.critedge73, label %313
 
@@ -49759,7 +49759,7 @@ define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef
   %384 = load i16, ptr %381, align 2
   %385 = icmp ult i16 %384, 4
   %386 = zext i16 %384 to i32
-  %.not60 = icmp ult i32 %383, %386
+  %.not60 = icmp samesign ult i32 %383, %386
   %or.cond83 = or i1 %385, %.not60
   br i1 %or.cond83, label %.critedge75, label %387
 
@@ -49821,7 +49821,7 @@ define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef
   %428 = load i16, ptr %425, align 2
   %429 = icmp ult i16 %428, 4
   %430 = zext i16 %428 to i32
-  %.not61 = icmp ult i32 %427, %430
+  %.not61 = icmp samesign ult i32 %427, %430
   %or.cond84 = or i1 %429, %.not61
   br i1 %or.cond84, label %.critedge77.loopexit, label %431
 
@@ -50149,7 +50149,7 @@ define internal fastcc noundef range(i32 -95, 1) i32 @nl80211_parse_sched_scan_p
   %30 = load i16, ptr %28, align 2
   %31 = icmp ult i16 %30, 4
   %32 = zext i16 %30 to i32
-  %.not = icmp ult i32 %29, %32
+  %.not = icmp samesign ult i32 %29, %32
   %or.cond = or i1 %31, %.not
   br i1 %or.cond, label %.critedge, label %33
 
@@ -50157,7 +50157,7 @@ define internal fastcc noundef range(i32 -95, 1) i32 @nl80211_parse_sched_scan_p
   %34 = getelementptr inbounds i8, ptr %28, i64 2
   %35 = load i16, ptr %34, align 2
   %36 = and i16 %35, 16383
-  %37 = icmp ult i16 %36, 6
+  %37 = icmp samesign ult i16 %36, 6
   br i1 %37, label %38, label %.critedge
 
 38:                                               ; preds = %33
@@ -50251,7 +50251,7 @@ define internal fastcc i32 @nl80211_parse_sched_scan_plans(ptr nocapture noundef
   %45 = load i16, ptr %43, align 2
   %46 = icmp ult i16 %45, 4
   %47 = zext i16 %45 to i32
-  %.not = icmp ult i32 %44, %47
+  %.not = icmp samesign ult i32 %44, %47
   %or.cond = or i1 %46, %.not
   br i1 %or.cond, label %.critedge, label %48
 
@@ -50560,7 +50560,7 @@ define internal fastcc ptr @nl80211_parse_connkeys(ptr noundef %0, ptr nocapture
   %40 = load i16, ptr %38, align 2
   %41 = icmp ult i16 %40, 4
   %42 = zext i16 %40 to i32
-  %.not = icmp ult i32 %39, %42
+  %.not = icmp samesign ult i32 %39, %42
   %or.cond = or i1 %41, %.not
   br i1 %or.cond, label %.critedge, label %43
 
@@ -52239,7 +52239,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @handle_nan_filter(ptr noun
   %13 = load i16, ptr %11, align 2
   %14 = icmp ult i16 %13, 4
   %15 = zext i16 %13 to i32
-  %.not = icmp ult i32 %12, %15
+  %.not = icmp samesign ult i32 %12, %15
   %or.cond = or i1 %14, %.not
   br i1 %or.cond, label %.critedge.loopexit, label %16
 
@@ -52291,7 +52291,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @handle_nan_filter(ptr noun
   %41 = load i16, ptr %39, align 2
   %42 = icmp ult i16 %41, 4
   %43 = zext i16 %41 to i32
-  %.not8 = icmp ult i32 %40, %43
+  %.not8 = icmp samesign ult i32 %40, %43
   %or.cond14 = or i1 %42, %.not8
   br i1 %or.cond14, label %.critedge11, label %44
 
@@ -52357,7 +52357,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @handle_nan_filter(ptr noun
   %80 = load i16, ptr %78, align 2
   %81 = icmp ult i16 %80, 4
   %82 = zext i16 %80 to i32
-  %.not9 = icmp ult i32 %79, %82
+  %.not9 = icmp samesign ult i32 %79, %82
   %or.cond15 = or i1 %81, %.not9
   br i1 %or.cond15, label %.critedge13, label %83
 
@@ -53712,7 +53712,7 @@ define internal fastcc i32 @nl80211_add_mod_link_station(ptr nocapture noundef r
   %143 = zext i8 %106 to i64
   %144 = zext nneg i8 %135 to i64
   %145 = add nuw nsw i64 %144, 2
-  %146 = icmp ugt i64 %145, %143
+  %146 = icmp samesign ugt i64 %145, %143
   br i1 %146, label %.thread15, label %147
 
 147:                                              ; preds = %142
@@ -54553,7 +54553,7 @@ define internal fastcc range(i32 -105, 1) i32 @nl80211_send_band_rateinfo(ptr no
   %230 = getelementptr %struct.ieee80211_sband_iftype_data, ptr %229, i64 %72
   %231 = load i16, ptr %48, align 4
   %232 = zext i16 %231 to i64
-  %233 = icmp ult i64 %72, %232
+  %233 = icmp samesign ult i64 %72, %232
   br i1 %233, label %69, label %.loopexit19, !llvm.loop !821
 
 .loopexit19:                                      ; preds = %220, %62
@@ -55842,7 +55842,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @nl80211_put_iface_combina
   store i16 %108, ptr %55, align 2
   %109 = load i8, ptr %48, align 2
   %110 = zext i8 %109 to i64
-  %111 = icmp ult i64 %51, %110
+  %111 = icmp samesign ult i64 %51, %110
   br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !823
 
 ._crit_edge:                                      ; preds = %.loopexit, %47

@@ -1673,7 +1673,7 @@ _ZL8containsPKjij.exit:                           ; preds = %.lr.ph.i, %.loopexi
   %119 = phi i8 [ %100, %.lr.ph113.split ], [ %.pre145, %_ZL8containsPKjij.exit ]
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %120 = zext i8 %119 to i64
-  %121 = icmp ult i64 %indvars.iv.next132, %120
+  %121 = icmp samesign ult i64 %indvars.iv.next132, %120
   br i1 %121, label %.lr.ph113.splitthread-pre-split, label %.loopexit102, !llvm.loop !15
 
 122:                                              ; preds = %36
@@ -1750,7 +1750,7 @@ _ZL8containsPKjij.exit95:                         ; preds = %.lr.ph.i91, %.loope
   %151 = phi i8 [ %132, %.lr.ph.split ], [ %.pre143, %_ZL8containsPKjij.exit95 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %152 = zext i8 %151 to i64
-  %153 = icmp ult i64 %indvars.iv.next, %152
+  %153 = icmp samesign ult i64 %indvars.iv.next, %152
   br i1 %153, label %.lr.ph.splitthread-pre-split, label %.loopexit102, !llvm.loop !17
 
 .loopexit102:                                     ; preds = %150, %118, %.lr.ph, %.lr.ph113, %122, %_ZNK11dtTileCache17getObstacleBoundsEPK19dtTileCacheObstaclePfS3_.exit, %36, %28, %22

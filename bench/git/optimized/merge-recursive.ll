@@ -668,7 +668,7 @@ for.inc.i:                                        ; preds = %if.end8.i, %for.bod
   %72 = phi i32 [ %62, %for.body.i ], [ %.pre20.i, %if.end8.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %73 = zext i32 %72 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %73
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %73
   br i1 %cmp.i, label %for.body.i, label %get_unmerged.exit, !llvm.loop !5
 
 get_unmerged.exit:                                ; preds = %for.inc.i, %if.then31
@@ -8601,7 +8601,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %merges, align 8
   %42 = zext i32 %41 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %42
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %42
   br i1 %cmp, label %for.body, label %sw.epilog, !llvm.loop !35
 
 sw.epilog:                                        ; preds = %for.body, %_.exit160, %_.exit155, %_.exit140
@@ -8856,7 +8856,7 @@ for.inc:                                          ; preds = %land.lhs.true.for.i
   %7 = phi i32 [ %.pre, %land.lhs.true.for.inc_crit_edge ], [ %4, %for.body24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = zext i32 %7 to i64
-  %cmp22.not = icmp ult i64 %indvars.iv.next, %8
+  %cmp22.not = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp22.not, label %for.body24, label %if.then36.loopexit, !llvm.loop !37
 
 if.then36.loopexit:                               ; preds = %for.inc
@@ -8874,7 +8874,7 @@ for.inc42:                                        ; preds = %land.lhs.true, %if.
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %10 = load i32, ptr %merges, align 8
   %11 = zext i32 %10 to i64
-  %cmp18 = icmp ult i64 %indvars.iv.next23, %11
+  %cmp18 = icmp samesign ult i64 %indvars.iv.next23, %11
   br i1 %cmp18, label %for.body, label %for.end44, !llvm.loop !38
 
 for.end44:                                        ; preds = %for.inc42, %while.end

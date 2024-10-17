@@ -1461,7 +1461,7 @@ _ZN12_GLOBAL__N_116TypeStreamMerger14remapTypeIndexERN4llvm8codeview9TypeIndexE.
   %47 = add nuw nsw i64 %.03345.i, 1
   %48 = load i32, ptr %27, align 4
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %47, %49
+  %50 = icmp samesign ult i64 %47, %49
   br i1 %50, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !86
 
 ._crit_edge.i:                                    ; preds = %46, %22

@@ -111,7 +111,7 @@ if.then:                                          ; preds = %for.body
   %shl = shl nuw nsw i32 %and2, %shift.016
   %or = or i32 %shl, %result.015
   %add = add nuw nsw i32 %shift.016, 7
-  %cmp = icmp ult i32 %shift.016, 22
+  %cmp = icmp samesign ult i32 %shift.016, 22
   %cmp1 = icmp ult ptr %incdec.ptr, %limit
   %1 = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %1, label %for.body, label %return, !llvm.loop !4
@@ -148,7 +148,7 @@ if.then:                                          ; preds = %for.body
   %shl = shl nuw nsw i64 %and2, %indvars.iv
   %or = or i64 %shl, %result.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 7
-  %cmp = icmp ult i64 %indvars.iv, 57
+  %cmp = icmp samesign ult i64 %indvars.iv, 57
   %cmp1 = icmp ult ptr %incdec.ptr, %limit
   %1 = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %1, label %for.body, label %return, !llvm.loop !6

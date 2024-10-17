@@ -2258,7 +2258,7 @@ _ZN16wasmtime_runtime8instance8Instance10global_ptr17hb96321fb9af6f666E.exit.i.i
 
 341:                                              ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h3bb8fb2a9faaa040E.exit.i.i"
   %342 = load i32, ptr %9, align 4, !range !224, !noalias !282, !noundef !4
-  %343 = icmp ult i32 %342, 10
+  %343 = icmp samesign ult i32 %342, 10
   br i1 %343, label %441, label %.noexc69
 
 .noexc58:                                         ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h3bb8fb2a9faaa040E.exit.i.i"
@@ -5708,7 +5708,7 @@ _ZN16wasmtime_runtime8instance8Instance9wasm_data17hf24029735212abb4E.exit: ; pr
   %86 = sub nuw nsw i64 %72, %71
   %87 = zext i32 %5 to i64
   %88 = add nuw nsw i64 %80, %87
-  %89 = icmp ugt i64 %88, %86
+  %89 = icmp samesign ugt i64 %88, %86
   br i1 %89, label %_ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread, label %90
 
 90:                                               ; preds = %85

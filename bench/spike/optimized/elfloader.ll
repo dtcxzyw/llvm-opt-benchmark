@@ -526,7 +526,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %196, %_ZNSt12_Vecto
   %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
   %208 = load i16, ptr %143, align 4
   %209 = zext i16 %208 to i64
-  %210 = icmp ult i64 %indvars.iv.next357, %209
+  %210 = icmp samesign ult i64 %indvars.iv.next357, %209
   br i1 %210, label %.lr.ph329, label %._crit_edge330, !llvm.loop !4
 
 ._crit_edge330:                                   ; preds = %207, %135
@@ -650,7 +650,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %271 = load i32, ptr %252, align 4
   %272 = lshr i32 %271, 4
   %273 = zext nneg i32 %272 to i64
-  %274 = icmp ult i64 %indvars.iv.next365, %273
+  %274 = icmp samesign ult i64 %indvars.iv.next365, %273
   br i1 %274, label %256, label %.loopexit, !llvm.loop !7
 
 275:                                              ; preds = %256
@@ -832,7 +832,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit270:            ; preds = %341, %_ZNSt12_Vecto
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %352 = load i16, ptr %286, align 8
   %353 = zext i16 %352 to i64
-  %354 = icmp ult i64 %indvars.iv.next, %353
+  %354 = icmp samesign ult i64 %indvars.iv.next, %353
   br i1 %354, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %351, %280
@@ -952,7 +952,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit273: ; preds = %_Z
   %412 = zext i32 %411 to i64
   %413 = load i64, ptr %392, align 8
   %414 = udiv i64 %413, 24
-  %415 = icmp ugt i64 %414, %412
+  %415 = icmp samesign ugt i64 %414, %412
   br i1 %415, label %396, label %.loopexit, !llvm.loop !10
 
 416:                                              ; preds = %396

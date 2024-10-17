@@ -2587,7 +2587,7 @@ define dso_local range(i32 0, 65547) i32 @vprintk_store(i32 noundef %0, i32 noun
 117:                                              ; preds = %._crit_edge
   %118 = load i32, ptr @log_buf_len, align 4
   %119 = lshr i32 %118, 2
-  %120 = icmp ult i32 %119, %.pre
+  %120 = icmp samesign ult i32 %119, %.pre
   %121 = trunc i32 %119 to i16
   %122 = select i1 %120, i16 %121, i16 %52
   %123 = icmp ult i16 %122, 11

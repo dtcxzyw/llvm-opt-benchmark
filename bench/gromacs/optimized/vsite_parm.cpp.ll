@@ -541,7 +541,7 @@ _ZL17make_at2vsitebondiN3gmx8ArrayRefI18InteractionsOfTypeEE.exit.preheader: ; p
   %198 = load float, ptr %197, align 4
   %199 = fcmp une float %198, -4.092030e+05
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %200 = icmp ult i64 %indvars.iv.next, %196
+  %200 = icmp samesign ult i64 %indvars.iv.next, %196
   %201 = select i1 %200, i1 %199, i1 false
   br i1 %201, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
@@ -6367,14 +6367,14 @@ _ZNSt6vectorI16VsiteAtomMappingSaIS0_EE6resizeEm.exit: ; preds = %_ZNSt6vectorIS
   %435 = load i32, ptr %434, align 4
   %436 = icmp eq i32 %432, %435
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
-  %437 = icmp uge i64 %indvars.iv.next.i100, %430
+  %437 = icmp samesign uge i64 %indvars.iv.next.i100, %430
   %.not175.i = select i1 %437, i1 true, i1 %436
   br i1 %.not175.i, label %._crit_edge.i, label %433, !llvm.loop !59
 
 ._crit_edge.i:                                    ; preds = %433
   %spec.select179.i = select i1 %436, i8 %.1142269.i, i8 1
   %indvars.iv.next325.i = add nuw nsw i64 %indvars.iv324.i, 1
-  %438 = icmp uge i64 %indvars.iv.next325.i, %430
+  %438 = icmp samesign uge i64 %indvars.iv.next325.i, %430
   %439 = trunc nuw i8 %spec.select179.i to i1
   %.not173.i = select i1 %438, i1 true, i1 %439
   br i1 %.not173.i, label %.loopexit262.i, label %.lr.ph.i98, !llvm.loop !60
@@ -6439,8 +6439,8 @@ _ZNSt6vectorI16VsiteAtomMappingSaIS0_EE6resizeEm.exit: ; preds = %_ZNSt6vectorIS
   %461 = load i32, ptr %460, align 4
   %462 = icmp eq i32 %455, %461
   %463 = trunc nuw i8 %.1135281.i to i1
-  %464 = icmp ult i64 %indvars.iv328.i, 2
-  %465 = and i1 %464, %463
+  %464 = icmp samesign ult i64 %indvars.iv328.i, 2
+  %465 = select i1 %463, i1 %464, i1 false
   %466 = zext i1 %465 to i8
   %.2136.i = select i1 %462, i8 %466, i8 %.1135281.i
   %indvars.iv.next329.i = add nuw nsw i64 %indvars.iv328.i, 1
@@ -6582,7 +6582,7 @@ _ZNSt6vectorI16VsiteAtomMappingSaIS0_EE6resizeEm.exit: ; preds = %_ZNSt6vectorIS
 517:                                              ; preds = %.loopexit.i94
   %518 = trunc nuw i8 %.2126.i to i1
   %spec.select182.i = select i1 %518, i8 %.8304.i, i8 1
-  %519 = icmp uge i64 %indvars.iv.next335.i, %476
+  %519 = icmp samesign uge i64 %indvars.iv.next335.i, %476
   %520 = trunc nuw i8 %spec.select182.i to i1
   %.not167.i = select i1 %519, i1 true, i1 %520
   br i1 %.not167.i, label %.loopexit263.i, label %.lr.ph307.i, !llvm.loop !66
@@ -7013,14 +7013,14 @@ _ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IK16VsiteAtomMapp
   %719 = load i32, ptr %718, align 4
   %720 = icmp eq i32 %716, %719
   %indvars.iv.next.i131 = add nuw nsw i64 %indvars.iv.i130, 1
-  %721 = icmp uge i64 %indvars.iv.next.i131, %714
+  %721 = icmp samesign uge i64 %indvars.iv.next.i131, %714
   %.not122.i = select i1 %721, i1 true, i1 %720
   br i1 %.not122.i, label %._crit_edge.i132, label %717, !llvm.loop !69
 
 ._crit_edge.i132:                                 ; preds = %717
   %spec.select123.i = select i1 %720, i8 %.18538.i, i8 1
   %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
-  %722 = icmp uge i64 %indvars.iv.next93.i, %714
+  %722 = icmp samesign uge i64 %indvars.iv.next93.i, %714
   %723 = trunc nuw i8 %spec.select123.i to i1
   %.not120.i = select i1 %722, i1 true, i1 %723
   br i1 %.not120.i, label %.loopexit.i109, label %.lr.ph.i129, !llvm.loop !70
@@ -7032,7 +7032,7 @@ _ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IK16VsiteAtomMapp
   %.183.i = phi ptr [ %701, %693 ], [ %.08245.i, %675 ], [ %.08245.i, %675 ], [ %.08245.i, %.preheader32.i ], [ %.08245.i, %._crit_edge.i132 ]
   %.1.i = phi i32 [ %692, %693 ], [ %.046.i, %675 ], [ %.046.i, %675 ], [ %.046.i, %.preheader32.i ], [ %.046.i, %._crit_edge.i132 ]
   %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
-  %724 = icmp ugt i64 %indvars.iv94.i, 1
+  %724 = icmp samesign ugt i64 %indvars.iv94.i, 1
   %725 = trunc nuw i8 %.3.i to i1
   %.not110.i = select i1 %724, i1 true, i1 %725
   br i1 %.not110.i, label %.loopexit.thread.i, label %675, !llvm.loop !71
@@ -7069,7 +7069,7 @@ _ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IK16VsiteAtomMapp
   %736 = icmp eq i32 %735, -409203
   %spec.select83.i = select i1 %736, i8 1, i8 %.556.us.i
   %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
-  %737 = icmp ugt i64 %indvars.iv100.i, 1
+  %737 = icmp samesign ugt i64 %indvars.iv100.i, 1
   %738 = trunc nuw i8 %spec.select83.i to i1
   %.not112.us.i = select i1 %737, i1 true, i1 %738
   br i1 %.not112.us.i, label %._crit_edge59.i, label %.lr.ph58.split.us.i, !llvm.loop !72
@@ -7093,12 +7093,12 @@ _ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IK16VsiteAtomMapp
   %746 = load i32, ptr %745, align 4
   %747 = icmp eq i32 %740, %746
   %748 = trunc nuw i8 %.19747.i to i1
-  %749 = icmp ult i64 %indvars.iv96.i, 2
-  %750 = and i1 %749, %748
+  %749 = icmp samesign ult i64 %indvars.iv96.i, 2
+  %750 = select i1 %748, i1 %749, i1 false
   %751 = zext i1 %750 to i8
   %.298.i = select i1 %747, i8 %751, i8 %.19747.i
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
-  %752 = icmp uge i64 %indvars.iv.next97.i, %730
+  %752 = icmp samesign uge i64 %indvars.iv.next97.i, %730
   %.not116.i = select i1 %752, i1 true, i1 %747
   br i1 %.not116.i, label %._crit_edge51.i, label %.preheader.i128, !llvm.loop !73
 
@@ -7110,7 +7110,7 @@ _ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IK16VsiteAtomMapp
   %.399.i = phi i8 [ %.09654.i, %.lr.ph58.split.i ], [ %.298.i, %._crit_edge51.i ]
   %.6.i = phi i8 [ %.556.i, %.lr.ph58.split.i ], [ %spec.select125.i, %._crit_edge51.i ]
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
-  %754 = icmp ugt i64 %indvars.iv98.i, 1
+  %754 = icmp samesign ugt i64 %indvars.iv98.i, 1
   %755 = trunc nuw i8 %.6.i to i1
   %.not112.i = select i1 %754, i1 true, i1 %755
   br i1 %.not112.i, label %._crit_edge59.loopexit86.i, label %.lr.ph58.split.i, !llvm.loop !72
@@ -7256,7 +7256,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.e
   %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %801 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %812, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit ], [ %813, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit423 ], [ %814, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit425 ], [ %.sroa.032.051.i.i.i.i, %781 ]
   %.not31.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %774
   %.9.i = select i1 %.not31.i, i8 1, i8 %.873.i
-  %815 = icmp uge i64 %indvars.iv.next103.i, %762
+  %815 = icmp samesign uge i64 %indvars.iv.next103.i, %762
   %816 = trunc nuw i8 %.9.i to i1
   %.not114.i = select i1 %815, i1 true, i1 %816
   br i1 %.not114.i, label %.loopexit33.i, label %.lr.ph75.i, !llvm.loop !75
@@ -7505,14 +7505,14 @@ _ZL18clean_vsite_anglesN3gmx8ArrayRefI18InteractionsOfTypeEENS0_I16VsiteAtomMapp
   %933 = load i32, ptr %932, align 4
   %934 = icmp eq i32 %930, %933
   %indvars.iv.next.i159 = add nuw nsw i64 %indvars.iv.i158, 1
-  %935 = icmp uge i64 %indvars.iv.next.i159, %928
+  %935 = icmp samesign uge i64 %indvars.iv.next.i159, %928
   %.not89.i = select i1 %935, i1 true, i1 %934
   br i1 %.not89.i, label %._crit_edge.i160, label %931, !llvm.loop !77
 
 ._crit_edge.i160:                                 ; preds = %931
   %spec.select90.i = select i1 %934, i8 %.271128.i, i8 1
   %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
-  %936 = icmp uge i64 %indvars.iv.next160.i, %928
+  %936 = icmp samesign uge i64 %indvars.iv.next160.i, %928
   %937 = trunc nuw i8 %spec.select90.i to i1
   %.not87.i = select i1 %936, i1 true, i1 %937
   br i1 %.not87.i, label %.loopexit.i161, label %.lr.ph.i157, !llvm.loop !78
@@ -7531,7 +7531,7 @@ _ZL18clean_vsite_anglesN3gmx8ArrayRefI18InteractionsOfTypeEENS0_I16VsiteAtomMapp
   %.261.i = phi ptr [ %.160.i, %.loopexit.i161 ], [ %.059134.i, %892 ], [ %.059134.i, %892 ]
   %.2.i = phi i32 [ %939, %.loopexit.i161 ], [ %.0135.i, %892 ], [ %.0135.i, %892 ]
   %indvars.iv.next162.i = add nuw nsw i64 %indvars.iv161.i, 1
-  %941 = icmp ugt i64 %indvars.iv161.i, 2
+  %941 = icmp samesign ugt i64 %indvars.iv161.i, 2
   %942 = trunc nuw i8 %.4.i135 to i1
   %.not79.i = select i1 %941, i1 true, i1 %942
   br i1 %.not79.i, label %943, label %892, !llvm.loop !79
@@ -7561,7 +7561,7 @@ _ZL18clean_vsite_anglesN3gmx8ArrayRefI18InteractionsOfTypeEENS0_I16VsiteAtomMapp
   %953 = icmp eq i32 %952, -409203
   %spec.select153.i = select i1 %953, i8 1, i8 %.6141.us.i
   %indvars.iv.next168.i = add nuw nsw i64 %indvars.iv167.i, 1
-  %954 = icmp ugt i64 %indvars.iv167.i, 2
+  %954 = icmp samesign ugt i64 %indvars.iv167.i, 2
   %955 = trunc nuw i8 %spec.select153.i to i1
   %.not81.us.i = select i1 %954, i1 true, i1 %955
   br i1 %.not81.us.i, label %._crit_edge145.i, label %.lr.ph144.split.us.i, !llvm.loop !80
@@ -7583,7 +7583,7 @@ _ZL18clean_vsite_anglesN3gmx8ArrayRefI18InteractionsOfTypeEENS0_I16VsiteAtomMapp
   %963 = load i32, ptr %962, align 4
   %964 = icmp eq i32 %957, %963
   %indvars.iv.next164.i = add nuw nsw i64 %indvars.iv163.i, 1
-  %965 = icmp uge i64 %indvars.iv.next164.i, %947
+  %965 = icmp samesign uge i64 %indvars.iv.next164.i, %947
   %.not83.i = select i1 %965, i1 true, i1 %964
   br i1 %.not83.i, label %._crit_edge139.i, label %.preheader.i155, !llvm.loop !81
 
@@ -7594,7 +7594,7 @@ _ZL18clean_vsite_anglesN3gmx8ArrayRefI18InteractionsOfTypeEENS0_I16VsiteAtomMapp
 966:                                              ; preds = %._crit_edge139.i, %.lr.ph144.split.i
   %.7.i136 = phi i8 [ %.6141.i, %.lr.ph144.split.i ], [ %spec.select93.i, %._crit_edge139.i ]
   %indvars.iv.next166.i = add nuw nsw i64 %indvars.iv165.i, 1
-  %967 = icmp ugt i64 %indvars.iv165.i, 2
+  %967 = icmp samesign ugt i64 %indvars.iv165.i, 2
   %968 = trunc nuw i8 %.7.i136 to i1
   %.not81.i = select i1 %967, i1 true, i1 %968
   br i1 %.not81.i, label %._crit_edge145.i, label %.lr.ph144.split.i, !llvm.loop !80

@@ -1760,8 +1760,8 @@ define internal fastcc noundef ptr @bucket_table_alloc(i64 noundef range(i64 0, 
 8:                                                ; preds = %2
   %9 = and i32 %1, 32767
   %10 = icmp eq i32 %9, 3264
-  %11 = icmp ult i64 %0, 1024
-  %or.cond = or i1 %11, %10
+  %11 = icmp samesign ult i64 %0, 1024
+  %or.cond = select i1 %10, i1 true, i1 %11
   br i1 %or.cond, label %.thread6, label %12
 
 12:                                               ; preds = %8
@@ -2272,7 +2272,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
   %233 = add nuw nsw i64 %89, 1
   %234 = load i32, ptr %74, align 64
   %235 = zext i32 %234 to i64
-  %236 = icmp ult i64 %233, %235
+  %236 = icmp samesign ult i64 %233, %235
   br i1 %236, label %88, label %.loopexit20, !llvm.loop !64
 
 .loopexit20:                                      ; preds = %231, %78
@@ -2506,7 +2506,7 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
   %119 = add nuw nsw i64 %39, 1
   %120 = load i32, ptr %32, align 64
   %121 = zext i32 %120 to i64
-  %122 = icmp ult i64 %119, %121
+  %122 = icmp samesign ult i64 %119, %121
   br i1 %122, label %38, label %.loopexit9, !llvm.loop !70
 
 .loopexit9:                                       ; preds = %.thread, %.split
@@ -2929,7 +2929,7 @@ define internal fastcc void @nested_table_free(ptr nocapture noundef readonly %0
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = icmp ugt i32 %1, 512
+  %6 = icmp samesign ugt i32 %1, 512
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %5

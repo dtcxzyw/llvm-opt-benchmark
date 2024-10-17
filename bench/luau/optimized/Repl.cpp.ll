@@ -2305,7 +2305,7 @@ _ZL22completePartialMatchesP9lua_StatebRKNSt7__cxx1112basic_stringIcSt11char_tra
   %93 = tail call noundef i32 @_Z10lua_rawgetP9lua_Statei(ptr noundef %0, i32 noundef -2)
   %94 = tail call noundef i32 @_Z8lua_typeP9lua_Statei(ptr noundef %0, i32 noundef -1)
   %95 = icmp ne i32 %94, 0
-  %96 = icmp ugt i32 %.016.i.i, 48
+  %96 = icmp samesign ugt i32 %.016.i.i, 48
   %or.cond.i20.i = select i1 %95, i1 true, i1 %96
   br i1 %or.cond.i20.i, label %_ZL12safeGetTableP9lua_Statei.exit.i, label %.lr.ph.i18.i, !llvm.loop !20
 

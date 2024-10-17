@@ -978,7 +978,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i150 = icmp ult i64 %indvars.iv.next.i, %61
+  %cmp.i150 = icmp samesign ult i64 %indvars.iv.next.i, %61
   br i1 %cmp.i150, label %for.body.i, label %if.end.i, !llvm.loop !12
 
 if.end.i:                                         ; preds = %for.inc.i, %cleanup.if.end.i_crit_edge, %for.cond.preheader.i
@@ -1584,7 +1584,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i134 = icmp ult i64 %indvars.iv.next.i, %58
+  %cmp.i134 = icmp samesign ult i64 %indvars.iv.next.i, %58
   br i1 %cmp.i134, label %for.body.i, label %if.end.i, !llvm.loop !12
 
 if.end.i:                                         ; preds = %for.inc.i, %cleanup.if.end.i_crit_edge, %for.cond.preheader.i

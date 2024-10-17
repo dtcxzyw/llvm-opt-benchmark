@@ -23,7 +23,7 @@ define internal void @Ppmd7_Construct(ptr nocapture noundef writeonly %0) #0 {
 5:                                                ; preds = %1, %17
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %17 ]
   %.03138 = phi i32 [ 0, %1 ], [ %13, %17 ]
-  %6 = icmp ugt i64 %indvars.iv, 11
+  %6 = icmp samesign ugt i64 %indvars.iv, 11
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = lshr i32 %7, 2
   %9 = add nuw nsw i32 %8, 1
@@ -312,7 +312,7 @@ define internal range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr n
   %33 = getelementptr inbounds i8, ptr %32, i64 2
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
-  %36 = icmp ugt i32 %31, %35
+  %36 = icmp samesign ugt i32 %31, %35
   %37 = zext i1 %36 to i32
   %38 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %37, ptr %38, align 8
@@ -739,7 +739,7 @@ Ppmd7_UpdateBin.exit:                             ; preds = %237, %239
   %322 = load i16, ptr %321, align 2
   %323 = zext i16 %322 to i32
   %324 = mul nuw nsw i32 %282, 11
-  %325 = icmp ugt i32 %324, %323
+  %325 = icmp samesign ugt i32 %324, %323
   %326 = select i1 %325, i64 2, i64 0
   %327 = getelementptr inbounds %struct.CPpmd_See, ptr %320, i64 %326
   %328 = icmp ult i32 %287, %268
@@ -1028,7 +1028,7 @@ RangeEnc_Encode.exit:                             ; preds = %RangeEnc_ShiftLow.e
   %66 = getelementptr inbounds i8, ptr %65, i64 2
   %67 = load i16, ptr %66, align 2
   %68 = zext i16 %67 to i32
-  %69 = icmp ugt i32 %64, %68
+  %69 = icmp samesign ugt i32 %64, %68
   %70 = zext i1 %69 to i32
   %71 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %70, ptr %71, align 8
@@ -1685,7 +1685,7 @@ RangeEnc_Encode.exit179:                          ; preds = %RangeEnc_ShiftLow.e
   %477 = load i16, ptr %476, align 2
   %478 = zext i16 %477 to i32
   %479 = mul nuw nsw i32 %458, 11
-  %480 = icmp ugt i32 %479, %478
+  %480 = icmp samesign ugt i32 %479, %478
   %481 = select i1 %480, i64 2, i64 0
   %482 = getelementptr inbounds %struct.CPpmd_See, ptr %475, i64 %481
   %483 = icmp ult i32 %459, %443
@@ -2087,7 +2087,7 @@ define internal fastcc void @RestartModel(ptr nocapture noundef %0) unnamed_addr
   %67 = getelementptr inbounds i16, ptr %59, i64 %indvars.iv77
   store i16 %65, ptr %67, align 2
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 8
-  %68 = icmp ult i64 %indvars.iv77, 56
+  %68 = icmp samesign ult i64 %indvars.iv77, 56
   br i1 %68, label %66, label %69, !llvm.loop !28
 
 69:                                               ; preds = %66
@@ -2451,7 +2451,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
   %44 = getelementptr inbounds i8, ptr %.187, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
-  %47 = icmp ugt i32 %41, %46
+  %47 = icmp samesign ugt i32 %41, %46
   br i1 %47, label %48, label %56
 
 48:                                               ; preds = %34
@@ -2470,7 +2470,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
 52:                                               ; preds = %50
   %53 = getelementptr inbounds i8, ptr %.089, i64 -11
   %54 = load i8, ptr %53, align 1
-  %55 = icmp ult i8 %54, %42
+  %55 = icmp samesign ult i8 %54, %42
   br i1 %55, label %50, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %50, %52
@@ -3116,13 +3116,13 @@ AllocUnits.exit._crit_edge:                       ; preds = %AllocUnits.exit
   %228 = load i16, ptr %227, align 2
   %229 = zext i16 %228 to i32
   %230 = shl nuw nsw i32 %158, 1
-  %231 = icmp ult i32 %230, %133
+  %231 = icmp samesign ult i32 %230, %133
   %232 = zext i1 %231 to i16
   %233 = add i16 %228, %232
   %234 = shl nuw nsw i32 %158, 2
-  %235 = icmp ule i32 %234, %133
+  %235 = icmp samesign ule i32 %234, %133
   %236 = shl nuw nsw i32 %158, 3
-  %237 = icmp uge i32 %236, %229
+  %237 = icmp samesign uge i32 %236, %229
   %238 = and i1 %235, %237
   %239 = select i1 %238, i16 2, i16 0
   %240 = add i16 %233, %239
@@ -3626,7 +3626,7 @@ define internal fastcc ptr @AllocUnitsRare(ptr nocapture noundef %0, i32 noundef
   %59 = add nuw nsw i32 %58, %53
   %60 = load i16, ptr %55, align 4
   %61 = icmp ne i16 %60, 0
-  %62 = icmp ugt i32 %59, 65535
+  %62 = icmp samesign ugt i32 %59, 65535
   %or.cond102.i = select i1 %61, i1 true, i1 %62
   br i1 %or.cond102.i, label %._crit_edge105.i, label %.lr.ph104.i
 
@@ -3660,7 +3660,7 @@ define internal fastcc ptr @AllocUnitsRare(ptr nocapture noundef %0, i32 noundef
   %86 = add nuw nsw i32 %63, %85
   %87 = load i16, ptr %82, align 4
   %88 = icmp ne i16 %87, 0
-  %89 = icmp ugt i32 %86, 65535
+  %89 = icmp samesign ugt i32 %86, 65535
   %or.cond.i = select i1 %88, i1 true, i1 %89
   br i1 %or.cond.i, label %._crit_edge105.i, label %.lr.ph104.i
 

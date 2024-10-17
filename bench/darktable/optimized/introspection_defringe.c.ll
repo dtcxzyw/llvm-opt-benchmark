@@ -166,23 +166,23 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   call void @dt_gaussian_blur_4c(ptr noundef nonnull %47, ptr noundef %2, ptr noundef %3) #15
   call void @dt_gaussian_free(ptr noundef nonnull %47) #15
   %50 = mul nsw i32 %33, %33
-  %51 = icmp ugt i32 %50, 89
+  %51 = icmp samesign ugt i32 %50, 89
   br i1 %51, label %61, label %52
 
 52:                                               ; preds = %49
-  %53 = icmp ugt i32 %50, 55
+  %53 = icmp samesign ugt i32 %50, 55
   br i1 %53, label %61, label %54
 
 54:                                               ; preds = %52
-  %55 = icmp ugt i32 %50, 34
+  %55 = icmp samesign ugt i32 %50, 34
   br i1 %55, label %61, label %56
 
 56:                                               ; preds = %54
-  %57 = icmp ugt i32 %50, 21
+  %57 = icmp samesign ugt i32 %50, 21
   br i1 %57, label %61, label %58
 
 58:                                               ; preds = %56
-  %59 = icmp ugt i32 %50, 13
+  %59 = icmp samesign ugt i32 %50, 13
   %60 = select i1 %59, i32 8, i32 7
   br label %61
 

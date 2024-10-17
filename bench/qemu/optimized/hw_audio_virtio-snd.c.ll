@@ -521,7 +521,7 @@ for.inc:                                          ; preds = %for.body, %virtio_s
   %28 = phi i32 [ %10, %for.body ], [ %.pre, %virtio_snd_pcm_close.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = zext i32 %28 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %29
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !9
 
 for.end.loopexit:                                 ; preds = %for.inc
@@ -2901,7 +2901,7 @@ for.inc33:                                        ; preds = %qemu_lockable_auto_
   %22 = phi i32 [ %.pre, %qemu_lockable_auto_unlock.exit ], [ %1, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = zext i32 %22 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %23
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %cmp, label %for.body, label %for.end34, !llvm.loop !19
 
 for.end34:                                        ; preds = %for.inc33, %entry

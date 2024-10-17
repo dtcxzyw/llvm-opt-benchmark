@@ -514,7 +514,7 @@ define void @_ZN9CryptData14EncryptBlock20EPh(ptr nocapture noundef nonnull alig
   %133 = xor i32 %132, %106
   store i32 %133, ptr %19, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %134 = icmp ult i64 %indvars.iv.i, 12
+  %134 = icmp samesign ult i64 %indvars.iv.i, 12
   br i1 %134, label %102, label %_ZN9CryptData9UpdKeys20EPh.exit, !llvm.loop !14
 
 _ZN9CryptData9UpdKeys20EPh.exit:                  ; preds = %102
@@ -572,7 +572,7 @@ define void @_ZN9CryptData9UpdKeys20EPh(ptr nocapture noundef nonnull align 8 de
   %39 = xor i32 %12, %38
   store i32 %39, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %40 = icmp ult i64 %indvars.iv, 12
+  %40 = icmp samesign ult i64 %indvars.iv, 12
   br i1 %40, label %8, label %41, !llvm.loop !14
 
 41:                                               ; preds = %8
@@ -736,7 +736,7 @@ define void @_ZN9CryptData14DecryptBlock20EPh(ptr nocapture noundef nonnull alig
   %133 = load i32, ptr %132, align 4
   %134 = xor i32 %133, %107
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %135 = icmp ult i64 %indvars.iv.i, 12
+  %135 = icmp samesign ult i64 %indvars.iv.i, 12
   br i1 %135, label %103, label %_ZN9CryptData9UpdKeys20EPh.exit, !llvm.loop !14
 
 _ZN9CryptData9UpdKeys20EPh.exit:                  ; preds = %103
@@ -1085,7 +1085,7 @@ define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_
   br i1 %.not61, label %.lr.ph54.preheader, label %.lr.ph
 
 .preheader51:                                     ; preds = %.lr.ph
-  %23 = icmp ult i64 %.043, 64
+  %23 = icmp samesign ult i64 %.043, 64
   br i1 %23, label %.lr.ph54.preheader, label %._crit_edge
 
 .lr.ph54.preheader:                               ; preds = %22, %.preheader51
@@ -1144,7 +1144,7 @@ define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_
   br i1 %.not62, label %.lr.ph59.preheader, label %.lr.ph57
 
 .preheader:                                       ; preds = %.lr.ph57
-  %39 = icmp ult i64 %.043, 64
+  %39 = icmp samesign ult i64 %.043, 64
   br i1 %39, label %.lr.ph59.preheader, label %._crit_edge60
 
 .lr.ph59.preheader:                               ; preds = %38, %.preheader

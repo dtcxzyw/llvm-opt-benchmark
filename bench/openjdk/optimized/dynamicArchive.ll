@@ -813,7 +813,7 @@ define hidden void @_ZN21DynamicArchiveBuilder20gather_array_klassesEv(ptr nocap
   %37 = add nsw i32 %32, 1
   %38 = icmp sgt i32 %32, -1
   %39 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %37)
-  %40 = icmp ult i32 %39, 2
+  %40 = icmp samesign ult i32 %39, 2
   %or.cond.i.i.i.i.i = select i1 %38, i1 %40, i1 false
   %41 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %37, i1 true)
   %42 = sub nuw nsw i32 32, %41
@@ -906,7 +906,7 @@ define hidden void @_ZN14DynamicArchive18append_array_klassEP13ObjArrayKlass(ptr
   %20 = add nsw i32 %15, 1
   %21 = icmp sgt i32 %15, -1
   %22 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %20)
-  %23 = icmp ult i32 %22, 2
+  %23 = icmp samesign ult i32 %22, 2
   %or.cond.i.i.i.i = select i1 %21, i1 %23, i1 false
   %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
   %25 = sub nuw nsw i32 32, %24

@@ -6078,7 +6078,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us: ; pred
   %.sroa.031.2.us = phi ptr [ %.sroa.031.0.us, %.preheader.split.us ], [ %spec.select.us, %11 ]
   %.0.i.i.i.i.us = phi i32 [ %.sroa.11.0.us, %.preheader.split.us ], [ %12, %11 ]
   %14 = icmp eq i32 %.0.i.i.i.i.us, -1
-  %15 = icmp ult i64 %.0.us, 15
+  %15 = icmp samesign ult i64 %.0.us, 15
   %16 = select i1 %14, i1 %15, i1 false
   br i1 %16, label %17, label %.split.us
 
@@ -6143,7 +6143,7 @@ _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   %.0.i.i4.i.i = phi i1 [ true, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %35, %32 ]
   %36 = icmp eq i32 %.0.i.i.i.i, -1
   %37 = xor i1 %36, %.0.i.i4.i.i
-  %38 = icmp ult i64 %.0, 15
+  %38 = icmp samesign ult i64 %.0, 15
   %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %40, label %.split.us
 
@@ -12686,7 +12686,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson8internal11StrtodDiyFpI
   %14 = and i64 %13, 4294967295
   %15 = add i64 %14, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = icmp uge i64 %indvars.iv.next, %6
+  %16 = icmp samesign uge i64 %indvars.iv.next, %6
   %17 = icmp ugt i64 %15, 1844674407370955161
   %or.cond = select i1 %16, i1 true, i1 %17
   br i1 %or.cond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !110
@@ -13506,7 +13506,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(3336) ptr @_ZN3pxr9r
 
 .preheader:                                       ; preds = %_ZN3pxr9rapidjson8internal10BigIntegermLEm.exit, %.preheader22
   %.0.lcssa = phi i32 [ %1, %.preheader22 ], [ %42, %_ZN3pxr9rapidjson8internal10BigIntegermLEm.exit ]
-  %6 = icmp ugt i32 %.0.lcssa, 12
+  %6 = icmp samesign ugt i32 %.0.lcssa, 12
   br i1 %6, label %.lr.ph31, label %._crit_edge
 
 .lr.ph31:                                         ; preds = %.preheader
@@ -13620,7 +13620,7 @@ _ZN3pxr9rapidjson8internal10BigIntegermLEm.exit:  ; preds = %.preheader.i, %14, 
   br i1 %66, label %.lr.ph.i11, label %._crit_edge.i12, !llvm.loop !119
 
 ._crit_edge.i12:                                  ; preds = %.lr.ph.i11
-  %.not.i13 = icmp ult i64 %59, 4294967296
+  %.not.i13 = icmp samesign ult i64 %59, 4294967296
   br i1 %.not.i13, label %_ZN3pxr9rapidjson8internal10BigIntegermLEj.exit, label %67
 
 67:                                               ; preds = %._crit_edge.i12

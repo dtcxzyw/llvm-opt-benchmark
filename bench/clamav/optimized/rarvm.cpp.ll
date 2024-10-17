@@ -76,7 +76,7 @@ define void @_ZN5RarVM7ExecuteEP18VM_PreparedProgram(ptr nocapture noundef nonnu
   br i1 %switch, label %14, label %19
 
 14:                                               ; preds = %7
-  %15 = icmp ult i32 %11, 131073
+  %15 = icmp samesign ult i32 %11, 131073
   %brmerge.not = and i1 %8, %15
   %16 = load ptr, ptr %0, align 8
   %17 = zext nneg i32 %11 to i64
@@ -209,7 +209,7 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   %.0235328 = phi i32 [ %96, %.loopexit282 ], [ 0, %.lr.ph332.preheader ]
   %47 = load i8, ptr %.0226330, align 1
   %48 = and i8 %47, 31
-  %49 = icmp ugt i8 %48, 15
+  %49 = icmp samesign ugt i8 %48, 15
   br i1 %49, label %50, label %.loopexit282
 
 50:                                               ; preds = %.lr.ph332
@@ -370,7 +370,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %.preheader, %6
   %indvars.iv357 = phi i64 [ %indvars.iv.next358, %156 ], [ %indvars.iv355, %.preheader287 ]
   %.1244308 = phi ptr [ %157, %156 ], [ %.0243313, %.preheader287 ]
   %.0246307 = phi i32 [ %161, %156 ], [ 0, %.preheader287 ]
-  %.not = icmp ult i64 %indvars.iv357, %139
+  %.not = icmp samesign ult i64 %indvars.iv357, %139
   br i1 %.not, label %156, label %141
 
 141:                                              ; preds = %.lr.ph309
@@ -388,13 +388,13 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %.preheader, %6
   %152 = tail call i32 @llvm.abs.i32(i32 %151, i1 true)
   %153 = sub nsw i32 %148, %146
   %154 = tail call i32 @llvm.abs.i32(i32 %153, i1 true)
-  %.not264 = icmp ugt i32 %150, %152
-  %.not265 = icmp ugt i32 %150, %154
+  %.not264 = icmp samesign ugt i32 %150, %152
+  %.not265 = icmp samesign ugt i32 %150, %154
   %or.cond274 = select i1 %.not264, i1 true, i1 %.not265
   br i1 %or.cond274, label %155, label %156
 
 155:                                              ; preds = %141
-  %.not266 = icmp ugt i32 %152, %154
+  %.not266 = icmp samesign ugt i32 %152, %154
   %. = select i1 %.not266, i32 %146, i32 %143
   br label %156
 
@@ -408,7 +408,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %.preheader, %6
   %162 = getelementptr inbounds i8, ptr %136, i64 %indvars.iv357
   store i8 %160, ptr %162, align 1
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 3
-  %163 = icmp ult i64 %indvars.iv.next358, %135
+  %163 = icmp samesign ult i64 %indvars.iv.next358, %135
   br i1 %163, label %.lr.ph309, label %._crit_edge310, !llvm.loop !11
 
 ._crit_edge310:                                   ; preds = %156, %.preheader287
@@ -440,7 +440,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %.preheader, %6
   %176 = add i8 %175, %171
   store i8 %176, ptr %174, align 1
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 3
-  %177 = icmp ult i64 %indvars.iv.next363, %168
+  %177 = icmp samesign ult i64 %indvars.iv.next363, %168
   br i1 %177, label %.lr.ph316, label %.loopexit, !llvm.loop !13
 
 178:                                              ; preds = %2
@@ -618,7 +618,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %.preheader, %6
   %.1221 = phi i32 [ %.0220300, %253 ], [ %.0220300, %.lr.ph ], [ %.0220300, %254 ], [ %.0220300, %257 ], [ %.0220300, %260 ], [ %.0220300, %263 ], [ %spec.select280, %266 ], [ %spec.select281, %269 ]
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, %195
   %274 = add i32 %.0218302, 1
-  %275 = icmp ult i64 %indvars.iv.next351, %184
+  %275 = icmp samesign ult i64 %indvars.iv.next351, %184
   br i1 %275, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %272, %196

@@ -543,7 +543,7 @@ define hidden void @_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType(p
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %10 = load i32, ptr %6, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next19, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next19, %11
   br i1 %12, label %.lr.ph13, label %.loopexit, !llvm.loop !9
 
 13:                                               ; preds = %2
@@ -569,7 +569,7 @@ define hidden void @_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType(p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %15, align 4
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %18, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %18, %.lr.ph13, %.preheader9, %.preheader, %13, %4
@@ -1428,7 +1428,7 @@ _ZN16JfrThreadSampler18get_enqueue_bufferEv.exit: ; preds = %50, %_ZN16JfrThread
 
 _ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit: ; preds = %.split51.us, %122
   %124 = phi ptr [ %123, %122 ], [ %.0.ph68, %.split51.us ]
-  %125 = icmp ult i32 %spec.select28, %39
+  %125 = icmp samesign ult i32 %spec.select28, %39
   br i1 %125, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !20
 
 .outer._crit_edge:                                ; preds = %.lr.ph.split.us, %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit, %84
@@ -1478,7 +1478,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %.outer._crit_edge, 
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
   %139 = load i32, ptr %36, align 8
   %140 = zext i32 %139 to i64
-  %141 = icmp ult i64 %indvars.iv.next19.i, %140
+  %141 = icmp samesign ult i64 %indvars.iv.next19.i, %140
   br i1 %141, label %.lr.ph13.i, label %_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit, !llvm.loop !9
 
 142:                                              ; preds = %133
@@ -1497,7 +1497,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %.outer._crit_edge, 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %147 = load i32, ptr %37, align 4
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next.i, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next.i, %148
   br i1 %149, label %.lr.ph.i, label %_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit, !llvm.loop !11
 
 _ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit: ; preds = %.lr.ph.i, %.lr.ph13.i, %142, %134, %132
@@ -3087,7 +3087,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25

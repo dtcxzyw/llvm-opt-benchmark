@@ -151,7 +151,7 @@ if.then24.i:                                      ; preds = %if.end.i
 sleep_and_try_again.i:                            ; preds = %if.then24.i, %if.then14.i, %if.then4.i
   tail call void @sleep_millisec(i32 noundef 50) #12
   %add.i = add nuw nsw i32 %k.07.i, 50
-  %cmp.i = icmp ult i32 %k.07.i, 950
+  %cmp.i = icmp samesign ult i32 %k.07.i, 950
   br i1 %cmp.i, label %for.body.i, label %connect_to_server.exit, !llvm.loop !5
 
 connect_to_server.exit:                           ; preds = %for.body.i, %if.end.i, %if.then4.i, %if.then14.i, %if.then24.i, %sleep_and_try_again.i

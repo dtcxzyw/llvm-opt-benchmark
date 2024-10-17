@@ -6366,7 +6366,7 @@ if.then:                                          ; preds = %while.body
   %__value.sroa.0.0.copyload10.i.i.i = load i64, ptr %add.ptr9.i.i.i, align 1
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
   %div.i13.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %cmp23.i.i.i.i = icmp ult i64 %div13.i.i.i, %div.i13.i.i.i
+  %cmp23.i.i.i.i = icmp samesign ult i64 %div13.i.i.i, %div.i13.i.i.i
   br i1 %cmp23.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then, %while.body.i.i.i.i

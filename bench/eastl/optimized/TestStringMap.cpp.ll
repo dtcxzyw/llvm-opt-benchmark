@@ -2049,7 +2049,7 @@ if.end16.i:                                       ; preds = %_ZN5eastl19rb_base_
 
 invoke.cont136:                                   ; preds = %while.body.i.i14.i, %if.end16.i, %_ZN5eastl19rb_base_compare_eboINS_8str_lessIPKcEELb1EE7compareIS3_EEbRKT_S9_.exit22.i
   %storemerge.i = phi ptr [ %stringMap76, %if.end16.i ], [ %71, %_ZN5eastl19rb_base_compare_eboINS_8str_lessIPKcEELb1EE7compareIS3_EEbRKT_S9_.exit22.i ], [ %71, %while.body.i.i14.i ]
-  %cmp137 = icmp ult i64 %indvars.iv, 10
+  %cmp137 = icmp samesign ult i64 %indvars.iv, 10
   br i1 %cmp137, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont136

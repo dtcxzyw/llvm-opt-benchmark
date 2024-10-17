@@ -13924,7 +13924,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit577: ; pre
   br i1 %.not.i.i.i.i.i.i600, label %_ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__39PcpNodeRef_PrivateChildrenConstIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i, label %.lr.ph.split.i.i.i.i.i.i, !llvm.loop !67
 
 _ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__39PcpNodeRef_PrivateChildrenConstIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i: ; preds = %.lr.ph.split.i.i.i.i.i.i
-  %2795 = icmp ugt i64 %.03.i.i.i.i.i.i, 576460752303423486
+  %2795 = icmp samesign ugt i64 %.03.i.i.i.i.i.i, 576460752303423486
   br i1 %2795, label %.noexc.i.i.i613, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10PcpNodeRefESaIS1_EE11_M_allocateEm.exit.i.i.i.i
 
 .noexc.i.i.i613:                                  ; preds = %_ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__39PcpNodeRef_PrivateChildrenConstIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i
@@ -25992,7 +25992,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i.i: ; preds = %15
   %17 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %18 = icmp ult i64 %17, 2
+  %18 = icmp samesign ult i64 %17, 2
   br i1 %18, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit.i, label %19
 
 19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i.i
@@ -26005,7 +26005,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2
   %22 = lshr i64 %.01114.i.i.i, %.015.i.i.i
   %23 = or i64 %22, %.01114.i.i.i
   %24 = shl nuw nsw i64 %.015.i.i.i, 1
-  %25 = icmp ult i64 %.015.i.i.i, 32
+  %25 = icmp samesign ult i64 %.015.i.i.i, 32
   br i1 %25, label %21, label %26, !llvm.loop !285
 
 26:                                               ; preds = %21
@@ -47629,7 +47629,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14TaskD2Ev.exit: ; preds = %53
   br i1 %.not.i.i.i.i.i, label %_ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__39PcpNodeRef_PrivateChildrenConstIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i, label %.lr.ph.split.i.i.i.i.i, !llvm.loop !67
 
 _ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__39PcpNodeRef_PrivateChildrenConstIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i: ; preds = %.lr.ph.split.i.i.i.i.i
-  %97 = icmp ugt i64 %.03.i.i.i.i.i, 576460752303423486
+  %97 = icmp samesign ugt i64 %.03.i.i.i.i.i, 576460752303423486
   br i1 %97, label %.noexc.i.i, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10PcpNodeRefESaIS1_EE11_M_allocateEm.exit.i.i.i
 
 .noexc.i.i:                                       ; preds = %_ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__39PcpNodeRef_PrivateChildrenConstIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i
@@ -48661,7 +48661,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_23PCP_CHANGES__DebugC
   br i1 %.not.i.i.i.i.i, label %_ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__39PcpNodeRef_PrivateChildrenConstIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i, label %.lr.ph.split.i.i.i.i.i, !llvm.loop !67
 
 _ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__39PcpNodeRef_PrivateChildrenConstIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i: ; preds = %.lr.ph.split.i.i.i.i.i
-  %82 = icmp ugt i64 %.03.i.i.i.i.i, 576460752303423486
+  %82 = icmp samesign ugt i64 %.03.i.i.i.i.i, 576460752303423486
   br i1 %82, label %.noexc.i.i, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10PcpNodeRefESaIS1_EE11_M_allocateEm.exit.i.i.i
 
 .noexc.i.i:                                       ; preds = %_ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__39PcpNodeRef_PrivateChildrenConstIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i
@@ -48753,7 +48753,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_PropagateA
   br i1 %.not.i.i.i.i.i, label %_ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__39PcpNodeRef_PrivateChildrenConstIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i, label %.lr.ph.split.i.i.i.i.i, !llvm.loop !67
 
 _ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__39PcpNodeRef_PrivateChildrenConstIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i: ; preds = %.lr.ph.split.i.i.i.i.i
-  %26 = icmp ugt i64 %.03.i.i.i.i.i, 576460752303423486
+  %26 = icmp samesign ugt i64 %.03.i.i.i.i.i, 576460752303423486
   br i1 %26, label %.noexc.i.i, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10PcpNodeRefESaIS1_EE11_M_allocateEm.exit.i.i.i
 
 .noexc.i.i:                                       ; preds = %_ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__39PcpNodeRef_PrivateChildrenConstIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i
@@ -49119,7 +49119,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L31_PropagateS
   br i1 %.not.i.i.i.i.i, label %_ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__39PcpNodeRef_PrivateChildrenConstIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i, label %.lr.ph.split.i.i.i.i.i, !llvm.loop !67
 
 _ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__39PcpNodeRef_PrivateChildrenConstIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i: ; preds = %.lr.ph.split.i.i.i.i.i
-  %26 = icmp ugt i64 %.03.i.i.i.i.i, 576460752303423486
+  %26 = icmp samesign ugt i64 %.03.i.i.i.i.i, 576460752303423486
   br i1 %26, label %.noexc.i.i, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10PcpNodeRefESaIS1_EE11_M_allocateEm.exit.i.i.i
 
 .noexc.i.i:                                       ; preds = %_ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__39PcpNodeRef_PrivateChildrenConstIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i
@@ -56297,7 +56297,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %14
   %16 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %17 = icmp ult i64 %16, 2
+  %17 = icmp samesign ult i64 %16, 2
   br i1 %17, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %18
 
 18:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i
@@ -56310,7 +56310,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2
   %21 = lshr i64 %.01114.i.i, %.015.i.i
   %22 = or i64 %21, %.01114.i.i
   %23 = shl nuw nsw i64 %.015.i.i, 1
-  %24 = icmp ult i64 %.015.i.i, 32
+  %24 = icmp samesign ult i64 %.015.i.i, 32
   br i1 %24, label %20, label %25, !llvm.loop !285
 
 25:                                               ; preds = %20

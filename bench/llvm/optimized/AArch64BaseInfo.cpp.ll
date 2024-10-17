@@ -3981,7 +3981,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %66 = getelementptr inbounds i8, ptr %.111.i19, i64 -1
   store i8 %65, ptr %66, align 1, !noalias !52
   %67 = udiv i64 %.0810.i20, 10
-  %.not.i21 = icmp ult i64 %.0810.i20, 10
+  %.not.i21 = icmp samesign ult i64 %.0810.i20, 10
   br i1 %.not.i21, label %_ZN4llvm6utostrB5cxx11Emb.exit24, label %.lr.ph.i18, !llvm.loop !55
 
 _ZN4llvm6utostrB5cxx11Emb.exit24:                 ; preds = %.lr.ph.i18, %.thread.i23
@@ -4045,7 +4045,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %89 = getelementptr inbounds i8, ptr %.111.i29, i64 -1
   store i8 %88, ptr %89, align 1, !noalias !62
   %90 = udiv i64 %.0810.i30, 10
-  %.not.i31 = icmp ult i64 %.0810.i30, 10
+  %.not.i31 = icmp samesign ult i64 %.0810.i30, 10
   br i1 %.not.i31, label %_ZN4llvm6utostrB5cxx11Emb.exit34, label %.lr.ph.i28, !llvm.loop !55
 
 _ZN4llvm6utostrB5cxx11Emb.exit34:                 ; preds = %.lr.ph.i28, %.thread.i33

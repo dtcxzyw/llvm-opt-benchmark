@@ -1283,7 +1283,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen12EHScopeStack10pushFilterEj(ptr 
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %.0.i = phi i32 [ %10, %.preheader.i ], [ 1024, %2 ]
   %8 = zext i32 %.0.i to i64
-  %9 = icmp ugt i64 %6, %8
+  %9 = icmp samesign ugt i64 %6, %8
   %10 = shl i32 %.0.i, 1
   br i1 %9, label %.preheader.i, label %11, !llvm.loop !19
 
@@ -1319,7 +1319,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen12EHScopeStack10pushFilterEj(ptr 
   %.024.i = phi i32 [ %27, %22 ], [ %32, %31 ]
   %32 = shl i32 %.024.i, 1
   %33 = zext i32 %32 to i64
-  %34 = icmp ugt i64 %30, %33
+  %34 = icmp samesign ugt i64 %30, %33
   br i1 %34, label %31, label %35, !llvm.loop !21
 
 35:                                               ; preds = %31
@@ -1393,7 +1393,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen12EHScopeStack9pushCatchEj(ptr no
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %.0.i = phi i32 [ %10, %.preheader.i ], [ 1024, %2 ]
   %8 = zext i32 %.0.i to i64
-  %9 = icmp ugt i64 %6, %8
+  %9 = icmp samesign ugt i64 %6, %8
   %10 = shl i32 %.0.i, 1
   br i1 %9, label %.preheader.i, label %11, !llvm.loop !19
 
@@ -1429,7 +1429,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen12EHScopeStack9pushCatchEj(ptr no
   %.024.i = phi i32 [ %27, %22 ], [ %32, %31 ]
   %32 = shl i32 %.024.i, 1
   %33 = zext i32 %32 to i64
-  %34 = icmp ugt i64 %30, %33
+  %34 = icmp samesign ugt i64 %30, %33
   br i1 %34, label %31, label %35, !llvm.loop !21
 
 35:                                               ; preds = %31
@@ -1512,7 +1512,7 @@ define dso_local void @_ZN5clang7CodeGen12EHScopeStack13pushTerminateEv(ptr noca
   %.024.i = phi i32 [ %18, %13 ], [ %23, %22 ]
   %23 = shl i32 %.024.i, 1
   %24 = zext i32 %23 to i64
-  %25 = icmp ugt i64 %21, %24
+  %25 = icmp samesign ugt i64 %21, %24
   br i1 %25, label %22, label %26, !llvm.loop !21
 
 26:                                               ; preds = %22
@@ -2510,7 +2510,7 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit: ; preds = %185
   %190 = lshr i16 %189, 1
   %191 = and i16 %190, 4095
   %192 = zext nneg i16 %191 to i64
-  %193 = icmp ult i16 %191, 65
+  %193 = icmp samesign ult i16 %191, 65
   br i1 %193, label %195, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit: ; preds = %187
@@ -3880,7 +3880,7 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit397: ; preds = %_ZN4llv
   %.024.i.i = phi i32 [ %746, %741 ], [ %751, %750 ]
   %751 = shl i32 %.024.i.i, 1
   %752 = zext i32 %751 to i64
-  %753 = icmp ugt i64 %749, %752
+  %753 = icmp samesign ugt i64 %749, %752
   br i1 %753, label %750, label %754, !llvm.loop !21
 
 754:                                              ; preds = %750

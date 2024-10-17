@@ -2957,7 +2957,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit434.i:    ; preds = %989
   br i1 %.not81218.i, label %._crit_edge248.i, label %.lr.ph247.i
 
 .lr.ph247.i:                                      ; preds = %.preheader135.i119
-  %994 = icmp ult i64 %indvars.iv393.i, 2
+  %994 = icmp samesign ult i64 %indvars.iv393.i, 2
   %cond.i = icmp eq i64 %indvars.iv393.i, 2
   %995 = getelementptr inbounds %"class.std::map.76", ptr %868, i64 %indvars.iv393.i
   %996 = getelementptr inbounds i8, ptr %995, i64 16
@@ -3865,9 +3865,9 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %1341 = icmp eq i64 %indvars.iv455.i, 2
   %or.cond5.us.i = and i1 %1341, %808
   %or.cond382.us.i = or i1 %or.cond5.us.i, %or.cond381.us.i
-  %1342 = icmp ugt i64 %indvars.iv455.i, 2
-  %or.cond7.us.i = and i1 %253, %1342
-  %or.cond383.us.i = or i1 %or.cond7.us.i, %or.cond382.us.i
+  %1342 = icmp samesign ugt i64 %indvars.iv455.i, 2
+  %or.cond7.us.i = select i1 %253, i1 %1342, i1 false
+  %or.cond383.us.i = select i1 %or.cond382.us.i, i1 true, i1 %or.cond7.us.i
   br i1 %or.cond383.us.i, label %1343, label %.critedge.us.i
 
 1343:                                             ; preds = %1338

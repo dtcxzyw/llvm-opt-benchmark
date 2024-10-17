@@ -46,7 +46,7 @@ define dso_local i32 @mls_compute_context_len(ptr nocapture noundef readonly %0,
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = tail call i64 @_find_first_bit(ptr noundef %30, i64 noundef 384) #10
   %32 = and i64 %31, 4294967168
-  %33 = icmp ult i64 %32, 384
+  %33 = icmp samesign ult i64 %32, 384
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %.preheader11
@@ -112,7 +112,7 @@ define dso_local i32 @mls_compute_context_len(ptr nocapture noundef readonly %0,
   %78 = zext i32 %77 to i64
   %79 = tail call i64 @_find_next_bit(ptr noundef %73, i64 noundef 384, i64 noundef %78) #10
   %80 = and i64 %79, 4294967168
-  %81 = icmp ult i64 %80, 384
+  %81 = icmp samesign ult i64 %80, 384
   br i1 %81, label %82, label %.preheader
 
 82:                                               ; preds = %70
@@ -131,7 +131,7 @@ define dso_local i32 @mls_compute_context_len(ptr nocapture noundef readonly %0,
   %90 = getelementptr inbounds i8, ptr %87, i64 8
   %91 = tail call i64 @_find_first_bit(ptr noundef %90, i64 noundef 384) #10
   %92 = and i64 %91, 4294967168
-  %93 = icmp ult i64 %92, 384
+  %93 = icmp samesign ult i64 %92, 384
   br i1 %93, label %94, label %.preheader, !llvm.loop !8
 
 94:                                               ; preds = %89
@@ -246,7 +246,7 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = tail call i64 @_find_first_bit(ptr noundef %32, i64 noundef 384) #10
   %34 = and i64 %33, 4294967168
-  %35 = icmp ult i64 %34, 384
+  %35 = icmp samesign ult i64 %34, 384
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %.preheader13
@@ -320,7 +320,7 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
   %87 = zext i32 %86 to i64
   %88 = tail call i64 @_find_next_bit(ptr noundef %82, i64 noundef 384, i64 noundef %87) #10
   %89 = and i64 %88, 4294967168
-  %90 = icmp ult i64 %89, 384
+  %90 = icmp samesign ult i64 %89, 384
   br i1 %90, label %91, label %.preheader
 
 91:                                               ; preds = %79
@@ -339,7 +339,7 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
   %99 = getelementptr inbounds i8, ptr %96, i64 8
   %100 = tail call i64 @_find_first_bit(ptr noundef %99, i64 noundef 384) #10
   %101 = and i64 %100, 4294967168
-  %102 = icmp ult i64 %101, 384
+  %102 = icmp samesign ult i64 %101, 384
   br i1 %102, label %103, label %.preheader, !llvm.loop !8
 
 103:                                              ; preds = %98
@@ -771,7 +771,7 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
   %102 = add nuw nsw i64 %107, 1
   %103 = load i32, ptr %93, align 4
   %104 = zext i32 %103 to i64
-  %105 = icmp ult i64 %102, %104
+  %105 = icmp samesign ult i64 %102, %104
   br i1 %105, label %106, label %.loopexit20, !llvm.loop !15
 
 106:                                              ; preds = %101, %99
@@ -1089,7 +1089,7 @@ define dso_local i32 @mls_convert_context(ptr nocapture noundef readonly %0, ptr
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = tail call i64 @_find_first_bit(ptr noundef %37, i64 noundef 384) #10
   %39 = and i64 %38, 4294967168
-  %40 = icmp ult i64 %39, 384
+  %40 = icmp samesign ult i64 %39, 384
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %.preheader12
@@ -1140,7 +1140,7 @@ define dso_local i32 @mls_convert_context(ptr nocapture noundef readonly %0, ptr
   %74 = zext i32 %73 to i64
   %75 = tail call i64 @_find_next_bit(ptr noundef %69, i64 noundef 384, i64 noundef %74) #10
   %76 = and i64 %75, 4294967168
-  %77 = icmp ult i64 %76, 384
+  %77 = icmp samesign ult i64 %76, 384
   br i1 %77, label %78, label %.preheader
 
 78:                                               ; preds = %68
@@ -1159,7 +1159,7 @@ define dso_local i32 @mls_convert_context(ptr nocapture noundef readonly %0, ptr
   %86 = getelementptr inbounds i8, ptr %83, i64 8
   %87 = tail call i64 @_find_first_bit(ptr noundef %86, i64 noundef 384) #10
   %88 = and i64 %87, 4294967168
-  %89 = icmp ult i64 %88, 384
+  %89 = icmp samesign ult i64 %88, 384
   br i1 %89, label %90, label %.preheader, !llvm.loop !8
 
 90:                                               ; preds = %85

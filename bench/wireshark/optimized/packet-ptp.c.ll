@@ -3387,7 +3387,7 @@ define internal fastcc void @dissect_ptp_v2(ptr noundef %0, ptr noundef %1, ptr 
   %625 = call ptr @proto_tree_add_item(ptr noundef %528, i32 noundef %623, ptr noundef %0, i32 noundef %624, i32 noundef 8, i32 noundef 0) #9
   %626 = add nuw nsw i32 %622, 8
   %627 = and i32 %626, 65535
-  %628 = icmp ult i32 %627, %523
+  %628 = icmp samesign ult i32 %627, %523
   br i1 %628, label %.lr.ph1631, label %.loopexit, !llvm.loop !6
 
 629:                                              ; preds = %.lr.ph1633

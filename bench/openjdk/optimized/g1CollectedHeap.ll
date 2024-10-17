@@ -11093,7 +11093,7 @@ _ZNK12G1HeapRegion12block_is_objEPKP12HeapWordImplPS1_.exit: ; preds = %3
   %37 = sub i64 %36, %11
   %38 = lshr i64 %37, 3
   %39 = lshr i64 %38, %16
-  %40 = icmp ult i64 %35, %39
+  %40 = icmp samesign ult i64 %35, %39
   br i1 %40, label %41, label %.loopexit.i.i.i.i.i
 
 41:                                               ; preds = %25
@@ -11118,7 +11118,7 @@ _ZNK12G1HeapRegion12block_is_objEPKP12HeapWordImplPS1_.exit: ; preds = %3
 53:                                               ; preds = %56, %50
   %.025.i.i.i.i.i = phi i64 [ %42, %50 ], [ %54, %56 ]
   %54 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %55 = icmp ult i64 %54, %52
+  %55 = icmp samesign ult i64 %54, %52
   br i1 %55, label %56, label %.loopexit.i.i.i.i.i
 
 56:                                               ; preds = %53
@@ -17235,7 +17235,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -17478,7 +17478,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i

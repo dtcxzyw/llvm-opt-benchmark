@@ -543,7 +543,7 @@ define dso_local i32 @put_cmsg(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %51 = phi ptr [ %49, %48 ], [ %60, %59 ]
   %52 = phi ptr [ %4, %48 ], [ %61, %59 ]
   %53 = phi i64 [ %37, %48 ], [ %62, %59 ]
-  %54 = icmp ugt i64 %53, 3
+  %54 = icmp samesign ugt i64 %53, 3
   br i1 %54, label %69, label %64
 
 .preheader:                                       ; preds = %48, %59

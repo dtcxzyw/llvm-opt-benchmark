@@ -5377,7 +5377,7 @@ define hidden void @_ZN5osgeo4proj12GTiffDataset8nextGridEv(ptr dead_on_unwind n
   %.2 = phi i1 [ %.178119, %163 ], [ %.178119, %160 ], [ %.178119, %156 ], [ %spec.select, %167 ]
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 4
   %173 = or disjoint i64 %indvars.iv.next125, 3
-  %174 = icmp ult i64 %173, %155
+  %174 = icmp samesign ult i64 %173, %155
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   br i1 %174, label %156, label %.loopexit, !llvm.loop !35
 
@@ -6273,7 +6273,7 @@ _ZNSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EED2Ev.exit.threa
   %90 = add nuw nsw i32 %.041167, 1
   %91 = load i16, ptr %57, align 8
   %92 = zext i16 %91 to i32
-  %93 = icmp ult i32 %90, %92
+  %93 = icmp samesign ult i32 %90, %92
   br i1 %93, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %89
@@ -10994,7 +10994,7 @@ _ZNSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EED2Ev.exit.threa
   %95 = add nuw nsw i32 %.075209, 1
   %96 = load i16, ptr %69, align 8
   %97 = zext i16 %96 to i32
-  %98 = icmp ult i32 %95, %97
+  %98 = icmp samesign ult i32 %95, %97
   br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %94

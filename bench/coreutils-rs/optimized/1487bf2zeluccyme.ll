@@ -2202,7 +2202,7 @@ define void @_ZN7uu_sort14GlobalSettings16init_precomputed17h4afa389121559b16E(p
   %.016.i25 = phi i64 [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h26f272f443cd5b99E.exit" ], [ %28, %24 ]
   %25 = getelementptr { { [16 x i8], i8, [7 x i8] }, { i64, i64, i8, [7 x i8] }, { i8, i8, i8, i8, i8, i8 }, i8, i8 }, ptr %3, i64 %.016.i25, i32 2, i32 5
   %.val.i26 = load i8, ptr %25, align 1, !range !358, !alias.scope !359, !noundef !4
-  %switch.i.i.i.i = icmp ult i8 %.val.i26, 2
+  %switch.i.i.i.i = icmp samesign ult i8 %.val.i26, 2
   %26 = zext i1 %switch.i.i.i.i to i64
   %27 = add i64 %.017.i24, %26
   %28 = add nuw i64 %.016.i25, 1
@@ -2274,7 +2274,7 @@ define internal fastcc void @_ZN7uu_sort11KeySettings19check_compatibility17h83c
   %10 = alloca i32, align 4
   %11 = alloca [2 x { ptr, ptr }], align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %switch = icmp ult i8 %1, 4
+  %switch = icmp samesign ult i8 %1, 4
   br i1 %switch, label %14, label %13
 
 13:                                               ; preds = %15, %4
@@ -3462,7 +3462,7 @@ define internal fastcc void @_ZN7uu_sort13FieldSelector17split_key_options17he61
   br i1 %or.cond3.i.i.i.i, label %"_ZN7uu_sort13FieldSelector17split_key_options28_$u7b$$u7b$closure$u7d$$u7d$17hc7352679baed0f78E.exit.thread.i.i", label %51
 
 51:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread14.i"
-  %52 = icmp ugt i32 %.sroa.4.0.i.ph10.i17.i, 127
+  %52 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i17.i, 127
   br i1 %52, label %"_ZN7uu_sort13FieldSelector17split_key_options28_$u7b$$u7b$closure$u7d$$u7d$17hc7352679baed0f78E.exit.i.i", label %.backedge
 
 "_ZN7uu_sort13FieldSelector17split_key_options28_$u7b$$u7b$closure$u7d$$u7d$17hc7352679baed0f78E.exit.i.i": ; preds = %51
@@ -3905,8 +3905,8 @@ _ZN7uu_sort13FieldSelector18parse_with_options17h6d08f08160314d92E.exit: ; preds
   %or.cond.not.i.i29 = or i1 %.not.i.i28, %110
   %.not18.i.i30 = icmp ne i8 %.sroa.65.sroa.7.0.ph.i, 2
   %or.cond20.i.i31 = select i1 %or.cond.not.i.i29, i1 true, i1 %.not18.i.i30
-  %switch.i.i32 = icmp ult i8 %91, 2
-  %or.cond21.i.i33 = or i1 %or.cond20.i.i31, %switch.i.i32
+  %switch.i.i32 = icmp samesign ult i8 %91, 2
+  %or.cond21.i.i33 = select i1 %or.cond20.i.i31, i1 true, i1 %switch.i.i32
   br i1 %or.cond21.i.i33, label %113, label %111
 
 111:                                              ; preds = %109
@@ -4259,7 +4259,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %66
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5.i)
   %75 = load i8, ptr %23, align 1, !range !358, !alias.scope !640, !noalias !643, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !645
-  %switch.i.i = icmp ult i8 %75, 4
+  %switch.i.i = icmp samesign ult i8 %75, 4
   br i1 %switch.i.i, label %switch.lookup, label %_ZN7uu_sort11KeySettings19check_compatibility17h83c517b8dd1a6a91E.exit.thread.i
 
 _ZN7uu_sort11KeySettings19check_compatibility17h83c517b8dd1a6a91E.exit.thread.i: ; preds = %74
@@ -4904,16 +4904,16 @@ default.unreachable:                              ; preds = %5
 76:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit17.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit13.i"
   %.sroa.4.0.i.ph = phi i32 [ %54, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit13.i" ], [ %64, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit15.i" ], [ %75, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit17.i" ]
   %77 = icmp eq i32 %.sroa.4.0.i.ph, 1114112
-  %78 = icmp ult i32 %.sroa.4.0.i.ph, 128
-  %or.cond.i = or i1 %77, %78
+  %78 = icmp samesign ult i32 %.sroa.4.0.i.ph, 128
+  %or.cond.i = select i1 %77, i1 true, i1 %78
   br i1 %or.cond.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h6b513b0ea80d69a0E.exit", label %79
 
 79:                                               ; preds = %76
-  %80 = icmp ult i32 %.sroa.4.0.i.ph, 2048
+  %80 = icmp samesign ult i32 %.sroa.4.0.i.ph, 2048
   br i1 %80, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h6b513b0ea80d69a0E.exit", label %81
 
 81:                                               ; preds = %79
-  %82 = icmp ult i32 %.sroa.4.0.i.ph, 65536
+  %82 = icmp samesign ult i32 %.sroa.4.0.i.ph, 65536
   %..i.i.i = select i1 %82, i64 3, i64 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h6b513b0ea80d69a0E.exit"
 
@@ -5134,7 +5134,7 @@ define internal fastcc { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range13resol
   ]
 
 109:                                              ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.i"
-  %110 = icmp ugt i32 %.sroa.4.0.i.ph10.i.i, 127
+  %110 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i.i, 127
   br i1 %110, label %111, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0773e7eb51c8a39eE.exit
 
 111:                                              ; preds = %109
@@ -10923,7 +10923,7 @@ switch.lookup:                                    ; preds = %_ZN7uu_sort15numeri
   br i1 %or.cond1.i, label %165, label %168
 
 163:                                              ; preds = %149
-  %164 = icmp ult i8 %154, %156
+  %164 = icmp samesign ult i8 %154, %156
   %.3.i = select i1 %164, i8 -1, i8 1
   br label %_ZN7uu_sort15numeric_str_cmp15numeric_str_cmp17h1701ac4d36d8ec85E.exit.thread
 
@@ -11170,7 +11170,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hceb624fbec26a58cE.exit129: ; p
   br i1 %299, label %.preheader179, label %.thread
 
 300:                                              ; preds = %255
-  %301 = icmp ult i32 %.0.i118, %.0.i125
+  %301 = icmp samesign ult i32 %.0.i118, %.0.i125
   br i1 %301, label %.thread, label %343
 
 .preheader179:                                    ; preds = %298, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i138"

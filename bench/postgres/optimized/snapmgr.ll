@@ -2997,7 +2997,7 @@ define dso_local noundef zeroext i1 @XidInMVCCSnapshot(i32 noundef %0, ptr nocap
 
 48:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 16
-  %49 = icmp ult i64 %indvars.iv.next.i, %26
+  %49 = icmp samesign ult i64 %indvars.iv.next.i, %26
   br i1 %49, label %.lr.ph.i, label %.preheader.loopexit.i, !llvm.loop !16
 
 50:                                               ; preds = %.lr.ph45.i
@@ -3081,7 +3081,7 @@ pg_lfind32.exit:                                  ; preds = %50, %.pg_lfind32.ex
 
 85:                                               ; preds = %.lr.ph.i25
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i26, 16
-  %86 = icmp ult i64 %indvars.iv.next.i33, %63
+  %86 = icmp samesign ult i64 %indvars.iv.next.i33, %63
   br i1 %86, label %.lr.ph.i25, label %.preheader.loopexit.i34, !llvm.loop !16
 
 .lr.ph45.i38:                                     ; preds = %.lr.ph45.i38, %.lr.ph45.preheader.i37
@@ -3162,7 +3162,7 @@ pg_lfind32.exit:                                  ; preds = %50, %.pg_lfind32.ex
 
 125:                                              ; preds = %.lr.ph.i46
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i47, 16
-  %126 = icmp ult i64 %indvars.iv.next.i54, %103
+  %126 = icmp samesign ult i64 %indvars.iv.next.i54, %103
   br i1 %126, label %.lr.ph.i46, label %.preheader.loopexit.i55, !llvm.loop !16
 
 .lr.ph45.i59:                                     ; preds = %.lr.ph45.i59, %.lr.ph45.preheader.i58

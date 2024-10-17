@@ -1101,7 +1101,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z21checkChessboardBinaryRKN2cv3MatER
 
 _ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit:        ; preds = %64, %66
   %67 = add nuw nsw i32 %.043, 1
-  %68 = icmp ugt i32 %.043, 2
+  %68 = icmp samesign ugt i32 %.043, 2
   %or.cond = or i1 %63, %68
   br i1 %or.cond, label %73, label %53, !llvm.loop !37
 

@@ -393,7 +393,7 @@ _ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EEixEm.exit125: ; pre
   %sub.i128 = add i64 %38, %total.0154
   %add = sub i64 %sub.i128, %39
   %inc = add nuw nsw i64 %i.0152, 1
-  %cmp = icmp ult i64 %i.0152, 1023
+  %cmp = icmp samesign ult i64 %i.0152, 1023
   %cmp2 = icmp ult i64 %add, %len
   %40 = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %40, label %while.end12, label %for.cond.cleanup, !llvm.loop !46

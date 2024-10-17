@@ -394,7 +394,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit: 
 
 92:                                               ; preds = %86
   %93 = select i1 %.not102, i32 1, i32 2
-  %.not107 = icmp ugt i32 %93, %67
+  %.not107 = icmp samesign ugt i32 %93, %67
   br i1 %.not107, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %92
@@ -565,7 +565,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit: ; 
   %.pn = phi double [ %173, %170 ], [ %166, %162 ]
   %.sink.i = phi double [ %177, %170 ], [ %169, %162 ]
   %178 = select i1 %.not102, i32 1, i32 2
-  %.not43110 = icmp ugt i32 %178, %67
+  %.not43110 = icmp samesign ugt i32 %178, %67
   br i1 %.not43110, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %_ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit

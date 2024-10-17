@@ -4104,8 +4104,8 @@ define void @PMIx_Multicluster_nspace_parse(ptr nocapture noundef readonly %0, p
   %5 = phi i8 [ %12, %8 ], [ %4, %3 ]
   %.0242.i = phi i64 [ %10, %8 ], [ 0, %3 ]
   %6 = icmp ne i8 %5, 58
-  %7 = icmp ult i64 %.0242.i, 255
-  %or.cond.i = and i1 %6, %7
+  %7 = icmp samesign ult i64 %.0242.i, 255
+  %or.cond.i = select i1 %6, i1 %7, i1 false
   br i1 %or.cond.i, label %8, label %.critedge.i
 
 8:                                                ; preds = %.lr.ph.i
@@ -4119,7 +4119,7 @@ define void @PMIx_Multicluster_nspace_parse(ptr nocapture noundef readonly %0, p
 
 .critedge.i:                                      ; preds = %8, %.lr.ph.i
   %.024.lcssa.i = phi i64 [ %10, %8 ], [ %.0242.i, %.lr.ph.i ]
-  %13 = icmp ult i64 %.024.lcssa.i, 254
+  %13 = icmp samesign ult i64 %.024.lcssa.i, 254
   br i1 %13, label %.lr.ph8.preheader.i, label %pmix_bfrops_base_tma_multicluster_nspace_parse.exit
 
 .lr.ph8.preheader.i:                              ; preds = %.critedge.i, %3

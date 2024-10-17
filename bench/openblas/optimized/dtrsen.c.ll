@@ -355,7 +355,7 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 209:                                              ; preds = %206, %.thread, %189, %167
   %210 = phi i32 [ 1, %206 ], [ 0, %.thread ], [ %191, %189 ], [ 0, %167 ]
   %211 = add nuw nsw i64 %168, 1
-  %212 = icmp ult i64 %168, %166
+  %212 = icmp samesign ult i64 %168, %166
   br i1 %212, label %167, label %.loopexit22, !llvm.loop !12
 
 .loopexit22:                                      ; preds = %209, %162

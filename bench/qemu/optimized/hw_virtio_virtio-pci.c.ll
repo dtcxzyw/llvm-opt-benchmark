@@ -3145,7 +3145,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %21 = load i32, ptr %size.i.i, align 4
   %add7.i.i = add i32 %21, %20
   %conv8.i.i = zext i32 %add7.i.i to i64
-  %cmp9.not.i.i = icmp ugt i64 %add.i.i45, %conv8.i.i
+  %cmp9.not.i.i = icmp samesign ugt i64 %add.i.i45, %conv8.i.i
   br i1 %cmp9.not.i.i, label %for.inc.i.i, label %virtio_address_space_lookup.exit.i
 
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
@@ -3264,7 +3264,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %6 = load i32, ptr %size.i.i, align 4
   %add7.i.i = add i32 %6, %5
   %conv8.i.i = zext i32 %add7.i.i to i64
-  %cmp9.not.i.i = icmp ugt i64 %add.i.i15, %conv8.i.i
+  %cmp9.not.i.i = icmp samesign ugt i64 %add.i.i15, %conv8.i.i
   br i1 %cmp9.not.i.i, label %for.inc.i.i, label %virtio_address_space_lookup.exit.i
 
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i

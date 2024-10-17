@@ -1755,7 +1755,7 @@ define dso_local noundef range(i32 -110, 1) i32 @xhci_suspend(ptr noundef %0, i1
   %253 = phi i16 [ %.pre, %219 ], [ %213, %212 ]
   %254 = add nuw nsw i64 %214, 1
   %255 = zext i16 %253 to i64
-  %256 = icmp ult i64 %254, %255
+  %256 = icmp samesign ult i64 %254, %255
   br i1 %256, label %212, label %.loopexit12, !llvm.loop !32
 
 .loopexit12:                                      ; preds = %252, %149
@@ -2048,7 +2048,7 @@ define dso_local i32 @xhci_resume(ptr noundef %0, i32 %1) #0 align 16 {
   %130 = phi i16 [ %.pre, %100 ], [ %94, %93 ]
   %131 = add nuw nsw i64 %95, 1
   %132 = zext i16 %130 to i64
-  %133 = icmp ult i64 %131, %132
+  %133 = icmp samesign ult i64 %131, %132
   br i1 %133, label %93, label %.loopexit32, !llvm.loop !33
 
 .loopexit32:                                      ; preds = %129, %68
@@ -5380,7 +5380,7 @@ define dso_local i32 @xhci_gen_setup(ptr noundef %0, ptr noundef readonly %1) #0
   %102 = zext i16 %99 to i32
   %103 = lshr i32 %.pre, 8
   %104 = and i32 %103, 2047
-  %105 = icmp ult i32 %104, %102
+  %105 = icmp samesign ult i32 %104, %102
   br i1 %105, label %106, label %109
 
 106:                                              ; preds = %._crit_edge, %101
@@ -9675,7 +9675,7 @@ define internal range(i32 -108, 65536) i32 @xhci_enable_usb3_lpm_timeout(ptr nou
   %126 = add i32 %125, 999
   %127 = udiv i32 %126, 1000
   %128 = zext nneg i32 %127 to i64
-  %129 = icmp ult i64 %124, %128
+  %129 = icmp samesign ult i64 %124, %128
   br i1 %129, label %.loopexit, label %130
 
 130:                                              ; preds = %121
@@ -9683,7 +9683,7 @@ define internal range(i32 -108, 65536) i32 @xhci_enable_usb3_lpm_timeout(ptr nou
   %132 = add i32 %131, 999
   %133 = udiv i32 %132, 1000
   %134 = zext nneg i32 %133 to i64
-  %135 = icmp ult i64 %124, %134
+  %135 = icmp samesign ult i64 %124, %134
   br i1 %135, label %.loopexit, label %136
 
 136:                                              ; preds = %130
@@ -9724,7 +9724,7 @@ define internal range(i32 -108, 65536) i32 @xhci_enable_usb3_lpm_timeout(ptr nou
 
 .thread13:                                        ; preds = %157, %141, %137, %101
   %159 = add nuw nsw i64 %102, 1
-  %160 = icmp ult i64 %159, %98
+  %160 = icmp samesign ult i64 %159, %98
   br i1 %160, label %101, label %.loopexit15, !llvm.loop !125
 
 .loopexit15:                                      ; preds = %.thread13, %87
@@ -9779,7 +9779,7 @@ define internal range(i32 -108, 65536) i32 @xhci_enable_usb3_lpm_timeout(ptr nou
 197:                                              ; preds = %191, %183
   %198 = phi i64 [ %196, %191 ], [ 0, %183 ]
   %199 = tail call i64 @llvm.umax.i64(i64 %184, i64 %198)
-  %200 = icmp ugt i64 %199, 65535
+  %200 = icmp samesign ugt i64 %199, 65535
   br i1 %200, label %201, label %203
 
 201:                                              ; preds = %197
@@ -9880,7 +9880,7 @@ define internal noundef range(i32 -108, 1) i32 @xhci_disable_usb3_lpm_timeout(pt
 51:                                               ; preds = %45, %39
   %52 = phi i64 [ %50, %45 ], [ 0, %39 ]
   %53 = tail call i64 @llvm.umax.i64(i64 %40, i64 %52)
-  %54 = icmp ugt i64 %53, 65535
+  %54 = icmp samesign ugt i64 %53, 65535
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %51

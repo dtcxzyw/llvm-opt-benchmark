@@ -279,7 +279,7 @@ define void @_ZN12SubAllocator16InitSubAllocatorEv(ptr nocapture noundef nonnull
   %45 = load i8, ptr %44, align 1
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %46 = zext i8 %45 to i64
-  %47 = icmp uge i64 %indvars.iv77, %46
+  %47 = icmp samesign uge i64 %indvars.iv77, %46
   %48 = zext i1 %47 to i32
   %49 = add nuw nsw i32 %.459, %48
   %50 = trunc i32 %49 to i8
@@ -527,7 +527,7 @@ define linkonce_odr void @_ZN12SubAllocator14GlueFreeBlocksEv(ptr noundef nonnul
   %43 = load i16, ptr %42, align 1
   %44 = zext i16 %43 to i32
   %45 = add nuw nsw i32 %41, %44
-  %46 = icmp ult i32 %45, 65536
+  %46 = icmp samesign ult i32 %45, 65536
   br i1 %46, label %47, label %.critedge
 
 47:                                               ; preds = %.lr.ph46
@@ -742,7 +742,7 @@ define void @_ZN8ModelPPM16RestartModelRareEv(ptr noundef nonnull align 8 derefe
   %45 = load i8, ptr %44, align 1
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %46 = zext i8 %45 to i64
-  %47 = icmp uge i64 %indvars.iv77.i, %46
+  %47 = icmp samesign uge i64 %indvars.iv77.i, %46
   %48 = zext i1 %47 to i32
   %49 = add nuw nsw i32 %.459.i, %48
   %50 = trunc i32 %49 to i8
@@ -930,7 +930,7 @@ _ZN12SubAllocator10AllocUnitsEi.exit:             ; preds = %90, %98
   %139 = getelementptr inbounds [128 x [64 x i16]], ptr %113, i64 0, i64 %indvars.iv52, i64 %138
   store i16 %136, ptr %139, align 2
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 8
-  %140 = icmp ult i64 %indvars.iv45, 56
+  %140 = icmp samesign ult i64 %indvars.iv45, 56
   br i1 %140, label %137, label %141, !llvm.loop !19
 
 141:                                              ; preds = %137
@@ -1486,7 +1486,7 @@ _ZN10RangeCoder11InitDecoderEP6Unpack.exit:       ; preds = %23
 30:                                               ; preds = %_ZN10RangeCoder11InitDecoderEP6Unpack.exit
   %31 = and i32 %4, 31
   %32 = add nuw nsw i32 %31, 1
-  %33 = icmp ugt i32 %31, 15
+  %33 = icmp samesign ugt i32 %31, 15
   %34 = mul nuw nsw i32 %31, 3
   %35 = add nsw i32 %34, -29
   %.017 = select i1 %33, i32 %35, i32 %32
@@ -1972,7 +1972,7 @@ define linkonce_odr noundef zeroext i1 @_ZN14RARPPM_CONTEXT13decodeSymbol1EP8Mod
   %26 = getelementptr inbounds i8, ptr %1, i64 19096
   store i32 %23, ptr %26, align 4
   %27 = shl nuw nsw i32 %23, 1
-  %28 = icmp ugt i32 %27, %6
+  %28 = icmp samesign ugt i32 %27, %6
   %29 = zext i1 %28 to i8
   %30 = getelementptr inbounds i8, ptr %1, i64 2689
   store i8 %29, ptr %30, align 1
@@ -2269,7 +2269,7 @@ define linkonce_odr noundef zeroext i1 @_ZN14RARPPM_CONTEXT13decodeSymbol2EP8Mod
   %27 = load i16, ptr %26, align 1
   %28 = zext i16 %27 to i32
   %29 = mul nuw nsw i32 %5, 11
-  %30 = icmp ugt i32 %29, %28
+  %30 = icmp samesign ugt i32 %29, %28
   %31 = select i1 %30, i64 2, i64 0
   %32 = getelementptr inbounds %struct.RARPPM_SEE2_CONTEXT, ptr %25, i64 %31
   %33 = icmp sgt i32 %7, %8
@@ -2326,7 +2326,7 @@ _ZN14RARPPM_CONTEXT12makeEscFreq2EP8ModelPPMi.exit: ; preds = %9, %49
   br i1 %65, label %59, label %66, !llvm.loop !36
 
 66:                                               ; preds = %59
-  %.not = icmp ult i64 %.048.idx, 2048
+  %.not = icmp samesign ult i64 %.048.idx, 2048
   br i1 %.not, label %67, label %.loopexit
 
 67:                                               ; preds = %66
@@ -2384,7 +2384,7 @@ _ZN14RARPPM_CONTEXT12makeEscFreq2EP8ModelPPMi.exit: ; preds = %9, %49
 .lr.ph:                                           ; preds = %.preheader, %90
   %95 = phi i32 [ %94, %90 ], [ %89, %.preheader ]
   %.149.idx88 = phi i64 [ %.149.add, %90 ], [ 0, %.preheader ]
-  %.not69 = icmp ult i64 %.149.idx88, 2040
+  %.not69 = icmp samesign ult i64 %.149.idx88, 2040
   br i1 %.not69, label %90, label %.loopexit
 
 ._crit_edge:                                      ; preds = %90, %.preheader
@@ -2463,7 +2463,7 @@ _ZN14RARPPM_CONTEXT7update2EP8ModelPPMP12RARPPM_STATE.exit: ; preds = %_ZN19RARP
 136:                                              ; preds = %137, %130
   %.153 = phi i32 [ %135, %130 ], [ %142, %137 ]
   %.250.idx = phi i64 [ 0, %130 ], [ %.250.add, %137 ]
-  %.not66 = icmp ult i64 %.250.idx, 2048
+  %.not66 = icmp samesign ult i64 %.250.idx, 2048
   br i1 %.not66, label %137, label %.loopexit
 
 137:                                              ; preds = %136
@@ -2771,15 +2771,15 @@ _ZN12SubAllocator11ExpandUnitsEPvi.exit:          ; preds = %105
 
 141:                                              ; preds = %_ZN12SubAllocator11ExpandUnitsEPvi.exit.thread112, %_ZN12SubAllocator11ExpandUnitsEPvi.exit, %102
   %142 = shl nuw nsw i32 %101, 1
-  %143 = icmp ult i32 %142, %82
+  %143 = icmp samesign ult i32 %142, %82
   %144 = zext i1 %143 to i16
   %145 = shl nuw nsw i32 %101, 2
-  %146 = icmp ule i32 %145, %82
+  %146 = icmp samesign ule i32 %145, %82
   %147 = getelementptr inbounds i8, ptr %.081125, i64 2
   %148 = load i16, ptr %147, align 1
   %149 = zext i16 %148 to i32
   %150 = shl nuw nsw i32 %101, 3
-  %151 = icmp uge i32 %150, %149
+  %151 = icmp samesign uge i32 %150, %149
   %152 = and i1 %146, %151
   %153 = select i1 %152, i16 2, i16 0
   %154 = add i16 %148, %144
@@ -3705,7 +3705,7 @@ define void @_ZN6Unpack11GetFlagsBufEv(ptr noundef nonnull align 8 dereferenceab
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = tail call noundef i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
   %4 = and i32 %3, 65520
-  %.not18.i = icmp ult i32 %4, 4096
+  %.not18.i = icmp samesign ult i32 %4, 4096
   br i1 %.not18.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %1
@@ -3896,7 +3896,7 @@ define void @_ZN6Unpack10HuffDecodeEv(ptr noundef nonnull align 8 dereferenceabl
 
 7:                                                ; preds = %1
   %8 = and i32 %3, 65520
-  %.not18.i = icmp ult i32 %8, 65280
+  %.not18.i = icmp samesign ult i32 %8, 65280
   br i1 %.not18.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %7
@@ -3932,7 +3932,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit:                ; preds = %._crit_edge.thread.
 
 19:                                               ; preds = %17
   %20 = and i32 %3, 65520
-  %.not18.i31 = icmp ult i32 %20, 2048
+  %.not18.i31 = icmp samesign ult i32 %20, 2048
   br i1 %.not18.i31, label %._crit_edge.thread.i39, label %.lr.ph.i32
 
 ._crit_edge.thread.i39:                           ; preds = %19
@@ -3968,7 +3968,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit40:              ; preds = %._crit_edge.thread.
 
 31:                                               ; preds = %29
   %32 = and i32 %3, 65520
-  %.not18.i41 = icmp ult i32 %32, 4096
+  %.not18.i41 = icmp samesign ult i32 %32, 4096
   br i1 %.not18.i41, label %._crit_edge.thread.i49, label %.lr.ph.i42
 
 ._crit_edge.thread.i49:                           ; preds = %31
@@ -4004,7 +4004,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit50:              ; preds = %._crit_edge.thread.
   br i1 %42, label %44, label %53
 
 44:                                               ; preds = %41
-  %.not18.i51 = icmp ult i32 %43, 8192
+  %.not18.i51 = icmp samesign ult i32 %43, 8192
   br i1 %.not18.i51, label %._crit_edge.thread.i59, label %.lr.ph.i52
 
 ._crit_edge.thread.i59:                           ; preds = %44
@@ -4035,7 +4035,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit60:              ; preds = %._crit_edge.thread.
   br label %62
 
 53:                                               ; preds = %41
-  %.not18.i61 = icmp ult i32 %43, 32768
+  %.not18.i61 = icmp samesign ult i32 %43, 32768
   br i1 %.not18.i61, label %._crit_edge.thread.i69, label %.lr.ph.i62
 
 ._crit_edge.thread.i69:                           ; preds = %53
@@ -4110,7 +4110,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit70:              ; preds = %._crit_edge.thread.
   tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 1)
   %86 = tail call noundef i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
   %87 = and i32 %86, 65520
-  %.not18.i71 = icmp ult i32 %87, 4096
+  %.not18.i71 = icmp samesign ult i32 %87, 4096
   br i1 %.not18.i71, label %._crit_edge.thread.i79, label %.lr.ph.i72
 
 ._crit_edge.thread.i79:                           ; preds = %83
@@ -4250,7 +4250,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit80:              ; preds = %._crit_edge.thread.
   %174 = add i8 %173, 1
   store i8 %174, ptr %172, align 1
   %175 = and i32 %169, 254
-  %176 = icmp ugt i32 %175, 161
+  %176 = icmp samesign ugt i32 %175, 161
   br i1 %176, label %.preheader.i, label %._crit_edge
 
 .preheader.i:                                     ; preds = %150, %.preheader.i.backedge
@@ -4307,7 +4307,7 @@ _ZN6Unpack8CorrHuffEPtPh.exit:                    ; preds = %187
   %198 = add i8 %197, 1
   store i8 %198, ptr %196, align 1
   %199 = and i32 %193, 254
-  %200 = icmp ugt i32 %199, 161
+  %200 = icmp samesign ugt i32 %199, 161
   br i1 %200, label %.preheader.i.backedge, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN6Unpack8CorrHuffEPtPh.exit, %150
@@ -4355,7 +4355,7 @@ define void @_ZN6Unpack6LongLZEv(ptr noundef nonnull align 8 dereferenceable(596
 
 18:                                               ; preds = %11
   %19 = and i32 %15, 65520
-  %.not18.i = icmp ult i32 %19, 40960
+  %.not18.i = icmp samesign ult i32 %19, 40960
   br i1 %.not18.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %18
@@ -4397,7 +4397,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit:                ; preds = %._crit_edge.thread.
 
 36:                                               ; preds = %34
   %37 = and i32 %15, 65520
-  %.not18.i50 = icmp ult i32 %37, 32768
+  %.not18.i50 = icmp samesign ult i32 %37, 32768
   br i1 %.not18.i50, label %._crit_edge.thread.i58, label %.lr.ph.i51
 
 ._crit_edge.thread.i58:                           ; preds = %36
@@ -4468,7 +4468,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit59:              ; preds = %._crit_edge.thread.
 
 69:                                               ; preds = %60
   %70 = and i32 %65, 65520
-  %.not18.i60 = icmp ult i32 %70, 4096
+  %.not18.i60 = icmp samesign ult i32 %70, 4096
   br i1 %.not18.i60, label %._crit_edge.thread.i68, label %.lr.ph.i61
 
 ._crit_edge.thread.i68:                           ; preds = %69
@@ -4504,7 +4504,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit69:              ; preds = %._crit_edge.thread.
   br i1 %80, label %82, label %91
 
 82:                                               ; preds = %79
-  %.not18.i70 = icmp ult i32 %81, 8192
+  %.not18.i70 = icmp samesign ult i32 %81, 8192
   br i1 %.not18.i70, label %._crit_edge.thread.i78, label %.lr.ph.i71
 
 ._crit_edge.thread.i78:                           ; preds = %82
@@ -4535,7 +4535,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit79:              ; preds = %._crit_edge.thread.
   br label %100
 
 91:                                               ; preds = %79
-  %.not18.i80 = icmp ult i32 %81, 32768
+  %.not18.i80 = icmp samesign ult i32 %81, 32768
   br i1 %.not18.i80, label %._crit_edge.thread.i88, label %.lr.ph.i81
 
 ._crit_edge.thread.i88:                           ; preds = %91
@@ -4709,7 +4709,7 @@ _ZN6Unpack8CorrHuffEPtPh.exit:                    ; preds = %135
   %.not48 = icmp ult i32 %156, %171
   %spec.select.v = select i1 %.not48, i32 3, i32 4
   %spec.select = add i32 %spec.select.v, %.0
-  %172 = icmp ult i32 %156, 257
+  %172 = icmp samesign ult i32 %156, 257
   %173 = add i32 %spec.select, 8
   %.3 = select i1 %172, i32 %173, i32 %spec.select
   %174 = icmp ugt i32 %158, 176
@@ -4968,7 +4968,7 @@ define void @_ZN6Unpack7ShortLZEv(ptr noundef nonnull align 8 dereferenceable(59
   store i32 0, ptr %5, align 8
   %102 = tail call noundef i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   %103 = and i32 %102, 65520
-  %.not18.i = icmp ult i32 %103, 40960
+  %.not18.i = icmp samesign ult i32 %103, 40960
   br i1 %.not18.i, label %._crit_edge.thread.i, label %.lr.ph.i65
 
 ._crit_edge.thread.i:                             ; preds = %101
@@ -5061,7 +5061,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit:                ; preds = %._crit_edge.thread.
   %154 = load i32, ptr %153, align 4
   %155 = tail call noundef i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   %156 = and i32 %155, 65520
-  %.not18.i75 = icmp ult i32 %156, 32768
+  %.not18.i75 = icmp samesign ult i32 %156, 32768
   br i1 %.not18.i75, label %._crit_edge.thread.i83, label %.lr.ph.i76
 
 ._crit_edge.thread.i83:                           ; preds = %146
@@ -5176,7 +5176,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit84:              ; preds = %._crit_edge.thread.
   store i32 %218, ptr %41, align 8
   %219 = tail call noundef i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   %220 = and i32 %219, 65520
-  %.not18.i93 = icmp ult i32 %220, 4096
+  %.not18.i93 = icmp samesign ult i32 %220, 4096
   br i1 %.not18.i93, label %._crit_edge.thread.i101, label %.lr.ph.i94
 
 ._crit_edge.thread.i101:                          ; preds = %214
@@ -5538,7 +5538,7 @@ define linkonce_odr void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 
   %53 = load i8, ptr %52, align 1
   %54 = getelementptr inbounds i8, ptr %.0.lcssa, i64 1
   store i8 %53, ptr %54, align 1
-  %55 = icmp ugt i32 %.049.lcssa, 2
+  %55 = icmp samesign ugt i32 %.049.lcssa, 2
   br i1 %55, label %56, label %.loopexit
 
 56:                                               ; preds = %51
@@ -5554,7 +5554,7 @@ define linkonce_odr void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 
   %62 = load i8, ptr %61, align 1
   %63 = getelementptr inbounds i8, ptr %.0.lcssa, i64 3
   store i8 %62, ptr %63, align 1
-  %64 = icmp ugt i32 %.049.lcssa, 4
+  %64 = icmp samesign ugt i32 %.049.lcssa, 4
   br i1 %64, label %65, label %.loopexit
 
 65:                                               ; preds = %60
@@ -7051,7 +7051,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %181, %.prehea
   store i8 %251, ptr %252, align 1
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %253 = icmp ne i32 %247, 0
-  %254 = icmp ult i64 %indvars.iv.next79, %119
+  %254 = icmp samesign ult i64 %indvars.iv.next79, %119
   %255 = select i1 %253, i1 %254, i1 false
   br i1 %255, label %.lr.ph, label %.loopexit60.loopexit75, !llvm.loop !62
 
@@ -7096,7 +7096,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %181, %.prehea
   %272 = add nsw i32 %.168, -1
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %273 = icmp ne i32 %272, 0
-  %274 = icmp ult i64 %indvars.iv.next82, %119
+  %274 = icmp samesign ult i64 %indvars.iv.next82, %119
   %275 = select i1 %273, i1 %274, i1 false
   br i1 %275, label %.lr.ph69, label %.loopexit60.loopexit, !llvm.loop !63
 
@@ -7145,7 +7145,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %181, %.prehea
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %294 = load i32, ptr %286, align 4
   %295 = zext i32 %294 to i64
-  %296 = icmp ult i64 %indvars.iv.next85, %295
+  %296 = icmp samesign ult i64 %indvars.iv.next85, %295
   br i1 %296, label %289, label %.loopexit, !llvm.loop !65
 
 297:                                              ; preds = %283
@@ -9095,8 +9095,8 @@ _ZN6Unpack12UnpReadBuf30Ev.exit:                  ; preds = %23
   %75 = add nsw i32 %.04161, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = icmp ne i32 %75, 0
-  %77 = icmp ult i64 %indvars.iv, 19
-  %78 = and i1 %76, %77
+  %77 = icmp samesign ult i64 %indvars.iv, 19
+  %78 = select i1 %76, i1 %77, i1 false
   br i1 %78, label %.lr.ph, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -9302,7 +9302,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %146, %.prehea
   br i1 %199, label %_ZN6Unpack12UnpReadBuf30Ev.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %195
-  %200 = icmp ult i32 %.03673, 404
+  %200 = icmp samesign ult i32 %.03673, 404
   br i1 %200, label %.lr.ph71.preheader, label %.loopexit.thread
 
 .lr.ph71.preheader:                               ; preds = %.preheader
@@ -9319,15 +9319,15 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %146, %.prehea
   store i8 %load_initial, ptr %203, align 1
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %204 = icmp ne i32 %202, 0
-  %205 = icmp ult i64 %indvars.iv85, 403
-  %206 = and i1 %204, %205
+  %205 = icmp samesign ult i64 %indvars.iv85, 403
+  %206 = select i1 %204, i1 %205, i1 false
   br i1 %206, label %.lr.ph71, label %.loopexit.loopexit, !llvm.loop !79
 
 207:                                              ; preds = %192
   %208 = icmp eq i16 %.0.in.i, 18
   %.102 = select i1 %208, i32 3, i32 7
   tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.102)
-  %209 = icmp ult i32 %.03673, 404
+  %209 = icmp samesign ult i32 %.03673, 404
   br i1 %209, label %.lr.ph67.preheader, label %.loopexit.thread
 
 .lr.ph67.preheader:                               ; preds = %207
@@ -9351,8 +9351,8 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %146, %.prehea
   %217 = add nsw i32 %.165, -1
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %218 = icmp ne i32 %217, 0
-  %219 = icmp ult i64 %indvars.iv80, 403
-  %220 = and i1 %218, %219
+  %219 = icmp samesign ult i64 %indvars.iv80, 403
+  %220 = select i1 %218, i1 %219, i1 false
   br i1 %220, label %.lr.ph67, label %.loopexit.loopexit74, !llvm.loop !80
 
 .loopexit.loopexit:                               ; preds = %.lr.ph71
@@ -9450,7 +9450,7 @@ define void @_ZN6Unpack13UnpWriteBuf30Ev(ptr noundef nonnull align 8 dereference
   %35 = load i64, ptr %6, align 8
   %36 = and i64 %35, %34
   %37 = zext i32 %.073122 to i64
-  %38 = icmp ult i64 %36, %37
+  %38 = icmp samesign ult i64 %36, %37
   br i1 %38, label %39, label %154
 
 39:                                               ; preds = %29
@@ -10022,7 +10022,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %.thread, %45
 _ZN6Unpack12UnpReadBuf30Ev.exit:                  ; preds = %77, %54
   %81 = phi i32 [ %78, %77 ], [ %51, %54 ]
   %.0.i = phi i1 [ %80, %77 ], [ true, %54 ]
-  %82 = icmp ult i64 %indvars.iv, %49
+  %82 = icmp samesign ult i64 %indvars.iv, %49
   %or.cond = and i1 %82, %.0.i
   br i1 %or.cond, label %.loopexit30, label %_ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge
 
@@ -12716,8 +12716,8 @@ _ZN6Unpack10UnpReadBufEv.exit:                    ; preds = %.thread.i, %58
   %79 = add nsw i32 %.06486, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = icmp ne i32 %79, 0
-  %81 = icmp ult i64 %indvars.iv, 19
-  %82 = and i1 %80, %81
+  %81 = icmp samesign ult i64 %indvars.iv, 19
+  %82 = select i1 %80, i1 %81, i1 false
   br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -12956,7 +12956,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %167, %.prehea
   br i1 %216, label %_ZN6Unpack10UnpReadBufEv.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %212
-  %217 = icmp ult i32 %.05998, 430
+  %217 = icmp samesign ult i32 %.05998, 430
   br i1 %217, label %.lr.ph96.preheader, label %.loopexit.thread
 
 .lr.ph96.preheader:                               ; preds = %.preheader
@@ -12973,15 +12973,15 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %167, %.prehea
   store i8 %load_initial, ptr %220, align 1
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %221 = icmp ne i32 %219, 0
-  %222 = icmp ult i64 %indvars.iv110, 429
-  %223 = and i1 %221, %222
+  %222 = icmp samesign ult i64 %indvars.iv110, 429
+  %223 = select i1 %221, i1 %222, i1 false
   br i1 %223, label %.lr.ph96, label %.loopexit.loopexit, !llvm.loop !100
 
 224:                                              ; preds = %209
   %225 = icmp eq i16 %.0.in.i, 18
   %.128 = select i1 %225, i32 3, i32 7
   tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.128)
-  %226 = icmp ult i32 %.05998, 430
+  %226 = icmp samesign ult i32 %.05998, 430
   br i1 %226, label %.lr.ph92.preheader, label %.loopexit.thread
 
 .lr.ph92.preheader:                               ; preds = %224
@@ -13005,8 +13005,8 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %167, %.prehea
   %234 = add nsw i32 %.190, -1
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %235 = icmp ne i32 %234, 0
-  %236 = icmp ult i64 %indvars.iv105, 429
-  %237 = and i1 %235, %236
+  %236 = icmp samesign ult i64 %indvars.iv105, 429
+  %237 = select i1 %235, i1 %236, i1 false
   br i1 %237, label %.lr.ph92, label %.loopexit.loopexit99, !llvm.loop !101
 
 .loopexit.loopexit:                               ; preds = %.lr.ph96
@@ -14294,7 +14294,7 @@ define noundef ptr @_ZN6Unpack11ApplyFilterEPhjP12UnpackFilter(ptr nocapture nou
 64:                                               ; preds = %.lr.ph83, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %65 = or disjoint i64 %indvars.iv.next, 3
-  %66 = icmp ult i64 %65, %41
+  %66 = icmp samesign ult i64 %65, %41
   br i1 %66, label %.lr.ph83, label %.loopexit, !llvm.loop !109
 
 67:                                               ; preds = %4
@@ -14572,8 +14572,8 @@ _ZN16FragmentedWindow5ResetEv.exit:               ; preds = %.lr.ph
   store i64 %18, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = icmp ult i64 %18, %1
-  %21 = icmp ult i64 %indvars.iv, 31
-  %22 = and i1 %20, %21
+  %21 = icmp samesign ult i64 %indvars.iv, 31
+  %22 = select i1 %20, i1 %21, i1 false
   br i1 %22, label %9, label %_ZN16FragmentedWindow5ResetEv.exit._crit_edge, !llvm.loop !114
 
 _ZN16FragmentedWindow5ResetEv.exit._crit_edge:    ; preds = %_ZN16FragmentedWindow5ResetEv.exit

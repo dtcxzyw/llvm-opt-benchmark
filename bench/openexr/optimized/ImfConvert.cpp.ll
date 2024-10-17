@@ -54,8 +54,8 @@ return:                                           ; preds = %if.end, %entry, %lo
 define noundef i32 @_ZN7Imf_3_211floatToUintEf(float noundef %f) local_unnamed_addr #4 {
 entry:
   %0 = bitcast float %f to i32
-  %cmp.i5 = icmp ugt i32 %0, 2139095040
-  br i1 %cmp.i5, label %return, label %if.end
+  %or.cond7 = icmp ugt i32 %0, 2139095040
+  br i1 %or.cond7, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %cmp.i6 = fcmp oeq float %f, 0x7FF0000000000000
@@ -82,11 +82,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = bitcast float %conv to i32
-  %cmp.i.i = icmp ugt i32 %2, 947912703
+  %cmp.i.i = icmp samesign ugt i32 %2, 947912703
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end37.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %cmp2.i.i = icmp ugt i32 %2, 2139095039
+  %cmp2.i.i = icmp samesign ugt i32 %2, 2139095039
   br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end20.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
@@ -104,7 +104,7 @@ if.end.i.i:                                       ; preds = %if.then4.i.i
   br label %return
 
 if.end20.i.i:                                     ; preds = %if.then.i.i
-  %cmp21.i.i = icmp ugt i32 %2, 1199566847
+  %cmp21.i.i = icmp samesign ugt i32 %2, 1199566847
   br i1 %cmp21.i.i, label %return, label %if.end27.i.i
 
 if.end27.i.i:                                     ; preds = %if.end20.i.i
@@ -117,7 +117,7 @@ if.end27.i.i:                                     ; preds = %if.end20.i.i
   br label %return
 
 if.end37.i.i:                                     ; preds = %if.end
-  %cmp38.i.i = icmp ult i32 %2, 855638017
+  %cmp38.i.i = icmp samesign ult i32 %2, 855638017
   br i1 %cmp38.i.i, label %return, label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.end37.i.i
@@ -174,11 +174,11 @@ if.end15:                                         ; preds = %if.end, %entry
   %shr.i.i = lshr i32 %4, 16
   %5 = trunc nuw i32 %shr.i.i to i16
   %conv.i.i = and i16 %5, -32768
-  %cmp.i.i = icmp ugt i32 %and.i.i, 947912703
+  %cmp.i.i = icmp samesign ugt i32 %and.i.i, 947912703
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end37.i.i
 
 if.then.i.i:                                      ; preds = %if.end15
-  %cmp2.i.i = icmp ugt i32 %and.i.i, 2139095039
+  %cmp2.i.i = icmp samesign ugt i32 %and.i.i, 2139095039
   br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end20.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
@@ -197,7 +197,7 @@ if.end.i.i:                                       ; preds = %if.then4.i.i
   br label %return
 
 if.end20.i.i:                                     ; preds = %if.then.i.i
-  %cmp21.i.i = icmp ugt i32 %and.i.i, 1199566847
+  %cmp21.i.i = icmp samesign ugt i32 %and.i.i, 1199566847
   br i1 %cmp21.i.i, label %if.then23.i.i, label %if.end27.i.i
 
 if.then23.i.i:                                    ; preds = %if.end20.i.i
@@ -216,7 +216,7 @@ if.end27.i.i:                                     ; preds = %if.end20.i.i
   br label %return
 
 if.end37.i.i:                                     ; preds = %if.end15
-  %cmp38.i.i = icmp ult i32 %and.i.i, 855638017
+  %cmp38.i.i = icmp samesign ult i32 %and.i.i, 855638017
   br i1 %cmp38.i.i, label %return, label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.end37.i.i

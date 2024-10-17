@@ -1789,7 +1789,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
 353:                                              ; preds = %351, %348
   %354 = phi ptr [ %352, %351 ], [ @.str.5, %348 ]
   %355 = call i32 @fputs(ptr noundef %354, ptr noundef %.2618)
-  %356 = icmp ult i64 %indvars.iv767, %301
+  %356 = icmp samesign ult i64 %indvars.iv767, %301
   %or.cond555 = select i1 %294, i1 %356, i1 false
   br i1 %or.cond555, label %357, label %.thread623
 
@@ -1802,7 +1802,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   %indvars.iv.next768 = add nuw nsw i64 %indvars.iv767, 1
   %360 = load i32, ptr %28, align 8
   %361 = zext i32 %360 to i64
-  %362 = icmp ult i64 %indvars.iv.next768, %361
+  %362 = icmp samesign ult i64 %indvars.iv.next768, %361
   br i1 %362, label %309, label %._crit_edge689, !llvm.loop !20
 
 ._crit_edge689:                                   ; preds = %.thread623, %306
@@ -1912,7 +1912,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   %409 = getelementptr %struct.lineptr, ptr %405, i64 %408
   %410 = getelementptr i32, ptr %.0458815, i64 %indvars.iv775
   %411 = load i32, ptr %410, align 4
-  %412 = icmp ult i64 %indvars.iv775, %385
+  %412 = icmp samesign ult i64 %indvars.iv775, %385
   %413 = select i1 %374, i1 true, i1 %412
   br i1 %.not537, label %414, label %425
 
@@ -3004,7 +3004,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %93 = load i32, ptr %81, align 8
   %94 = zext i32 %93 to i64
-  %95 = icmp ult i64 %indvars.iv.next, %94
+  %95 = icmp samesign ult i64 %indvars.iv.next, %94
   br i1 %95, label %84, label %._crit_edge.loopexit, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %84
@@ -5168,7 +5168,7 @@ define internal fastcc void @print_latex_text(ptr nocapture noundef readonly %0,
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %36 = load i32, ptr %28, align 8
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next105, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next105, %37
   br i1 %38, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !57
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %50
@@ -5181,7 +5181,7 @@ define internal fastcc void @print_latex_text(ptr nocapture noundef readonly %0,
   %44 = load i32, ptr %28, align 8
   %45 = add i32 %44, -1
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv, %46
+  %47 = icmp samesign ult i64 %indvars.iv, %46
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %.lr.ph.split
@@ -5193,7 +5193,7 @@ define internal fastcc void @print_latex_text(ptr nocapture noundef readonly %0,
   %51 = phi i32 [ %44, %.lr.ph.split ], [ %.pre, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = zext i32 %51 to i64
-  %53 = icmp ult i64 %indvars.iv.next, %52
+  %53 = icmp samesign ult i64 %indvars.iv.next, %52
   br i1 %53, label %.lr.ph.split, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %50, %.lr.ph.split.us, %27
@@ -5419,7 +5419,7 @@ define internal fastcc void @print_latex_longtable_text(ptr nocapture noundef re
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %30 = load i32, ptr %22, align 8
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next170, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next170, %31
   br i1 %32, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !61
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %44
@@ -5432,7 +5432,7 @@ define internal fastcc void @print_latex_longtable_text(ptr nocapture noundef re
   %38 = load i32, ptr %22, align 8
   %39 = add i32 %38, -1
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv166, %40
+  %41 = icmp samesign ult i64 %indvars.iv166, %40
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %.lr.ph.split.us.split
@@ -5444,7 +5444,7 @@ define internal fastcc void @print_latex_longtable_text(ptr nocapture noundef re
   %45 = phi i32 [ %.pre173, %42 ], [ %38, %.lr.ph.split.us.split ]
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next167, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next167, %46
   br i1 %47, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !61
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %80
@@ -5499,7 +5499,7 @@ define internal fastcc void @print_latex_longtable_text(ptr nocapture noundef re
   %.pre172 = load i32, ptr %22, align 8
   %75 = add i32 %.pre172, -1
   %76 = zext i32 %75 to i64
-  %77 = icmp ult i64 %indvars.iv, %76
+  %77 = icmp samesign ult i64 %indvars.iv, %76
   %or.cond = select i1 %.not136, i1 %77, i1 false
   br i1 %or.cond, label %78, label %80
 
@@ -5512,7 +5512,7 @@ define internal fastcc void @print_latex_longtable_text(ptr nocapture noundef re
   %81 = phi i32 [ %.pre172, %74 ], [ %.pre, %78 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %indvars.iv.next, %82
+  %83 = icmp samesign ult i64 %indvars.iv.next, %82
   br i1 %83, label %.lr.ph.split, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %80, %.lr.ph.split.us.split.us, %44, %21
@@ -6131,7 +6131,7 @@ troff_ms_escaped_print.exit:                      ; preds = %21
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %47 = load i32, ptr %39, align 8
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next100, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next100, %48
   br i1 %49, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !68
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %61
@@ -6144,7 +6144,7 @@ troff_ms_escaped_print.exit:                      ; preds = %21
   %55 = load i32, ptr %39, align 8
   %56 = add i32 %55, -1
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %indvars.iv, %57
+  %58 = icmp samesign ult i64 %indvars.iv, %57
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %.lr.ph.split
@@ -6156,7 +6156,7 @@ troff_ms_escaped_print.exit:                      ; preds = %21
   %62 = phi i32 [ %55, %.lr.ph.split ], [ %.pre, %59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %64, label %.lr.ph.split, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %61, %.lr.ph.split.us, %38
@@ -7042,7 +7042,7 @@ define internal fastcc void @_print_horizontal_line(i32 noundef range(i32 0, -21
   br i1 %.not40, label %._crit_edge.us, label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %.preheader.us
-  %28 = icmp ult i64 %indvars.iv43, %25
+  %28 = icmp samesign ult i64 %indvars.iv43, %25
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %._crit_edge.us
@@ -7080,7 +7080,7 @@ define internal fastcc void @_print_horizontal_line(i32 noundef range(i32 0, -21
   br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %44 = icmp ult i64 %indvars.iv, %25
+  %44 = icmp samesign ult i64 %indvars.iv, %25
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %._crit_edge
@@ -7335,7 +7335,7 @@ define internal fastcc void @print_aligned_vertical_line(ptr nocapture noundef r
   %. = tail call i32 @llvm.umin.i32(i32 %3, i32 %93)
   %spec.store.select1147 = tail call i32 @llvm.smax.i32(i32 %.2, i32 0)
   %spec.select118148 = tail call i32 @llvm.umax.i32(i32 %., i32 %spec.store.select1147)
-  %94 = icmp ugt i32 %., %spec.store.select1147
+  %94 = icmp samesign ugt i32 %., %spec.store.select1147
   br i1 %94, label %.lr.ph124.split.us.preheader, label %._crit_edge125
 
 .lr.ph124:                                        ; preds = %.thread120

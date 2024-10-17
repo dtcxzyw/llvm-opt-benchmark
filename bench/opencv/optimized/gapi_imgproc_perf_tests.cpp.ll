@@ -37520,9 +37520,9 @@ define linkonce_odr hidden void @_ZN11opencv_test14TestFunctional15initMatrixRan
   %23 = and i32 %3, 7
   %24 = icmp slt i32 %3, 0
   %25 = select i1 %24, i32 %22, i32 %23
-  %26 = icmp ugt i32 %22, 4
-  %27 = icmp ugt i32 %25, 4
-  %or.cond = or i1 %26, %27
+  %26 = icmp samesign ugt i32 %22, 4
+  %27 = icmp samesign ugt i32 %25, 4
+  %or.cond = select i1 %26, i1 true, i1 %27
   br i1 %or.cond, label %54, label %30
 
 28:                                               ; preds = %5
@@ -37554,7 +37554,7 @@ define linkonce_odr hidden void @_ZN11opencv_test14TestFunctional15initMatrixRan
   %50 = getelementptr inbounds i8, ptr %0, i64 392
   %51 = getelementptr inbounds i8, ptr %0, i64 400
   %52 = getelementptr inbounds i8, ptr %0, i64 408
-  %53 = icmp ult i32 %22, 4
+  %53 = icmp samesign ult i32 %22, 4
   br i1 %53, label %switch.lookup, label %.thread.sink.split
 
 54:                                               ; preds = %21
@@ -37574,7 +37574,7 @@ define linkonce_odr hidden void @_ZN11opencv_test14TestFunctional15initMatrixRan
   %64 = load double, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %0, i64 408
   store double %64, ptr %65, align 8
-  %66 = icmp ult i32 %22, 5
+  %66 = icmp samesign ult i32 %22, 5
   br i1 %66, label %.thread, label %89
 
 switch.lookup:                                    ; preds = %30
@@ -75075,7 +75075,7 @@ _ZNSt8functionIFbRKN2cv3MatES3_EEC2ERKS5_.exit:   ; preds = %1, %34
   %161 = getelementptr inbounds i8, ptr %86, i64 %160
   store i8 %159, ptr %161, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
-  %162 = icmp ult i64 %indvars.iv.next.i.i, %91
+  %162 = icmp samesign ult i64 %indvars.iv.next.i.i, %91
   br i1 %162, label %.lr.ph.i.i, label %_ZN11opencv_test12_GLOBAL__N_18rgb2yuyvEPKhPhi.exit.loopexit.i, !llvm.loop !618
 
 _ZN11opencv_test12_GLOBAL__N_18rgb2yuyvEPKhPhi.exit.loopexit.i: ; preds = %.lr.ph.i.i
@@ -81042,9 +81042,9 @@ define linkonce_odr hidden void @_ZN11opencv_test14TestFunctional13initMatsRandU
   %25 = and i32 %3, 7
   %26 = icmp slt i32 %3, 0
   %27 = select i1 %26, i32 %24, i32 %25
-  %28 = icmp ugt i32 %24, 4
-  %29 = icmp ugt i32 %27, 4
-  %or.cond = or i1 %28, %29
+  %28 = icmp samesign ugt i32 %24, 4
+  %29 = icmp samesign ugt i32 %27, 4
+  %or.cond = select i1 %28, i1 true, i1 %29
   br i1 %or.cond, label %30, label %46
 
 30:                                               ; preds = %23

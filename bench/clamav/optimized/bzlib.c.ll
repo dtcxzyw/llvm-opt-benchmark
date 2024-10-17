@@ -2365,7 +2365,7 @@ makeMaps_d.exit.i:                                ; preds = %881
   %1347 = getelementptr inbounds [6 x [258 x i32]], ptr %34, i64 0, i64 %indvars.iv1747.i
   %1348 = getelementptr inbounds [6 x [258 x i32]], ptr %35, i64 0, i64 %indvars.iv1747.i
   %1349 = getelementptr inbounds [6 x [258 x i8]], ptr %32, i64 0, i64 %indvars.iv1747.i
-  %.not72.i.i = icmp ugt i32 %.1.i45, %spec.select.i
+  %.not72.i.i = icmp samesign ugt i32 %.1.i45, %spec.select.i
   br i1 %.not72.i.i, label %.preheader68.i.i, label %.preheader69.us.i.i
 
 .preheader69.us.i.i:                              ; preds = %._crit_edge1553.i, %._crit_edge.us.i.i
@@ -2452,7 +2452,7 @@ makeMaps_d.exit.i:                                ; preds = %881
   br label %.lr.ph82.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph82.i.i, %.preheader65.preheader.i.i
-  %.not63.not83.i.i = icmp ult i32 %.0941.lcssa1928.i, %.0944.lcssa1926.i
+  %.not63.not83.i.i = icmp samesign ult i32 %.0941.lcssa1928.i, %.0944.lcssa1926.i
   br i1 %.not63.not83.i.i, label %.lr.ph85.preheader.i.i, label %CreateDecodeTables.exit.i
 
 .lr.ph85.preheader.i.i:                           ; preds = %.preheader.i.i

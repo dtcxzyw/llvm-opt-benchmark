@@ -343,7 +343,7 @@ define hidden ptr @phpdbg_compile_stackframe(ptr noundef %0) local_unnamed_addr 
   %150 = getelementptr inbounds i8, ptr %.0268, i64 -1
   store i8 %149, ptr %150, align 1
   %151 = udiv i64 %.0269, 10
-  %.not332 = icmp ult i64 %.0269, 10
+  %.not332 = icmp samesign ult i64 %.0269, 10
   br i1 %.not332, label %152, label %146
 
 152:                                              ; preds = %146

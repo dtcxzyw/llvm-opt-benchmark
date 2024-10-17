@@ -3535,8 +3535,8 @@ priv_destroy_scratch.exit101.i:                   ; preds = %214, %210
 
 236:                                              ; preds = %219
   %.not74.i = icmp eq i8 %231, 0
-  %.not75.i = icmp ult i32 %.0119123.i, 4096
-  %or.cond.i = and i1 %.not75.i, %.not74.i
+  %.not75.i = icmp samesign ult i32 %.0119123.i, 4096
+  %or.cond.i = select i1 %.not74.i, i1 %.not75.i, i1 false
   br i1 %or.cond.i, label %249, label %237
 
 237:                                              ; preds = %236
@@ -9838,7 +9838,7 @@ exr_get_level_sizes.exit:                         ; preds = %151, %163
 
 228:                                              ; preds = %._crit_edge.us
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
-  %229 = icmp ult i64 %indvars.iv.next175, %224
+  %229 = icmp samesign ult i64 %indvars.iv.next175, %224
   br i1 %229, label %230, label %.loopexit149.us, !llvm.loop !40
 
 230:                                              ; preds = %.preheader.us, %228
@@ -10366,7 +10366,7 @@ exr_decoding_update.exit.us:                      ; preds = %466, %463, %457, %4
 
 .loopexit149.us:                                  ; preds = %228, %exr_read_tile_chunk_info.exit.us, %474, %476, %exr_decoding_update.exit.us, %._crit_edge.us, %exr_read_tile_chunk_info.exit.thread.us
   %.3.us = phi i32 [ %.0.i103.ph.us, %exr_read_tile_chunk_info.exit.thread.us ], [ %487, %._crit_edge.us ], [ %.0.i107.us, %exr_decoding_update.exit.us ], [ %477, %476 ], [ %475, %474 ], [ %.0.i103.us, %exr_read_tile_chunk_info.exit.us ], [ 0, %228 ]
-  %488 = icmp ult i64 %indvars.iv.next178, %225
+  %488 = icmp samesign ult i64 %indvars.iv.next178, %225
   br i1 %488, label %.preheader.us, label %exr_get_level_sizes.exit.thread, !llvm.loop !42
 
 .lr.ph.us:                                        ; preds = %478, %.loopexit.us
@@ -17282,7 +17282,7 @@ define internal fastcc i32 @validate_tile_data(ptr noundef %0, ptr nocapture nou
   br label %.loopexit
 
 51:                                               ; preds = %44
-  %52 = icmp ugt i32 %26, 2
+  %52 = icmp samesign ugt i32 %26, 2
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %51
@@ -17691,7 +17691,7 @@ define internal fastcc i32 @internal_exr_compute_tile_information(ptr noundef %0
   %.045.i = phi i64 [ %61, %.lr.ph.i ], [ %57, %59 ]
   %60 = add nuw nsw i32 %.06.i, 1
   %61 = lshr i64 %.045.i, 1
-  %62 = icmp ugt i64 %.045.i, 3
+  %62 = icmp samesign ugt i64 %.045.i, 3
   br i1 %62, label %.lr.ph.i, label %floor_log2.exit.loopexit, !llvm.loop !82
 
 floor_log2.exit.loopexit:                         ; preds = %.lr.ph.i
@@ -17710,7 +17710,7 @@ floor_log2.exit.loopexit:                         ; preds = %.lr.ph.i
   %spec.select.i = select i1 %.not.i, i32 %.010.i, i32 1
   %66 = add nuw nsw i32 %.069.i, 1
   %67 = lshr i64 %.078.i, 1
-  %68 = icmp ugt i64 %.078.i, 3
+  %68 = icmp samesign ugt i64 %.078.i, 3
   br i1 %68, label %.lr.ph.i126, label %._crit_edge.loopexit.i, !llvm.loop !83
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i126
@@ -17731,7 +17731,7 @@ floor_log2.exit.loopexit:                         ; preds = %.lr.ph.i
   %.045.i130 = phi i64 [ %76, %.lr.ph.i128 ], [ %36, %74 ]
   %75 = add nuw nsw i32 %.06.i129, 1
   %76 = lshr i64 %.045.i130, 1
-  %77 = icmp ugt i64 %.045.i130, 3
+  %77 = icmp samesign ugt i64 %.045.i130, 3
   br i1 %77, label %.lr.ph.i128, label %floor_log2.exit131.loopexit, !llvm.loop !82
 
 floor_log2.exit131.loopexit:                      ; preds = %.lr.ph.i128
@@ -17748,7 +17748,7 @@ floor_log2.exit131:                               ; preds = %floor_log2.exit131.
   %.045.i135 = phi i64 [ %81, %.lr.ph.i133 ], [ %40, %floor_log2.exit131 ]
   %80 = add nuw nsw i32 %.06.i134, 1
   %81 = lshr i64 %.045.i135, 1
-  %82 = icmp ugt i64 %.045.i135, 3
+  %82 = icmp samesign ugt i64 %.045.i135, 3
   br i1 %82, label %.lr.ph.i133, label %floor_log2.exit136.loopexit, !llvm.loop !82
 
 floor_log2.exit136.loopexit:                      ; preds = %.lr.ph.i133
@@ -17767,7 +17767,7 @@ floor_log2.exit136.loopexit:                      ; preds = %.lr.ph.i133
   %spec.select.i142 = select i1 %.not.i141, i32 %.010.i138, i32 1
   %86 = add nuw nsw i32 %.069.i139, 1
   %87 = lshr i64 %.078.i140, 1
-  %88 = icmp ugt i64 %.078.i140, 3
+  %88 = icmp samesign ugt i64 %.078.i140, 3
   br i1 %88, label %.lr.ph.i137, label %._crit_edge.loopexit.i143, !llvm.loop !83
 
 ._crit_edge.loopexit.i143:                        ; preds = %.lr.ph.i137
@@ -17789,7 +17789,7 @@ ceil_log2.exit144:                                ; preds = %84, %._crit_edge.lo
   %spec.select.i150 = select i1 %.not.i149, i32 %.010.i146, i32 1
   %94 = add nuw nsw i32 %.069.i147, 1
   %95 = lshr i64 %.078.i148, 1
-  %96 = icmp ugt i64 %.078.i148, 3
+  %96 = icmp samesign ugt i64 %.078.i148, 3
   br i1 %96, label %.lr.ph.i145, label %._crit_edge.loopexit.i151, !llvm.loop !83
 
 ._crit_edge.loopexit.i151:                        ; preds = %.lr.ph.i145
@@ -17982,7 +17982,7 @@ scratch_attr_too_big.exit:                        ; preds = %22
   br label %42
 
 31:                                               ; preds = %13, %18, %22
-  %32 = icmp ugt i32 %3, 1
+  %32 = icmp samesign ugt i32 %3, 1
   br i1 %32, label %33, label %42
 
 33:                                               ; preds = %31
@@ -18623,7 +18623,7 @@ exr_attr_float_vector_destroy.exit:               ; preds = %check_bad_attrsz.ex
 50:                                               ; preds = %exr_attr_float_vector_destroy.exit
   %51 = zext nneg i32 %.0 to i64
   %52 = shl nuw nsw i64 %51, 2
-  %53 = icmp ugt i32 %.0, 536870911
+  %53 = icmp samesign ugt i32 %.0, 536870911
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %50
@@ -19322,7 +19322,7 @@ define internal fastcc i32 @extract_attr_tiledesc(ptr noundef %0, ptr noundef no
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = and i32 %22, 15
-  %24 = icmp ugt i32 %23, 2
+  %24 = icmp samesign ugt i32 %23, 2
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %19
@@ -19722,7 +19722,7 @@ define internal fastcc i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr 
   br label %115
 
 39:                                               ; preds = %34
-  %or.cond7 = icmp ugt i32 %5, 1
+  %or.cond7 = icmp samesign ugt i32 %5, 1
   br i1 %or.cond7, label %40, label %44
 
 40:                                               ; preds = %39
@@ -23238,11 +23238,11 @@ define internal range(i32 0, 4) i32 @default_pack(ptr nocapture noundef %0) #29 
   %77 = lshr i32 %74, 16
   %78 = trunc nuw i32 %77 to i16
   %79 = and i16 %78, -32768
-  %80 = icmp ugt i32 %76, 947912703
+  %80 = icmp samesign ugt i32 %76, 947912703
   br i1 %80, label %81, label %107
 
 81:                                               ; preds = %72
-  %82 = icmp ugt i32 %76, 2139095039
+  %82 = icmp samesign ugt i32 %76, 2139095039
   br i1 %82, label %83, label %94
 
 83:                                               ; preds = %81
@@ -23261,7 +23261,7 @@ define internal range(i32 0, 4) i32 @default_pack(ptr nocapture noundef %0) #29 
   br label %float_to_half.exit
 
 94:                                               ; preds = %81
-  %95 = icmp ugt i32 %76, 1199566847
+  %95 = icmp samesign ugt i32 %76, 1199566847
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %94
@@ -23280,7 +23280,7 @@ define internal range(i32 0, 4) i32 @default_pack(ptr nocapture noundef %0) #29 
   br label %float_to_half.exit
 
 107:                                              ; preds = %72
-  %108 = icmp ult i32 %76, 855638017
+  %108 = icmp samesign ult i32 %76, 855638017
   br i1 %108, label %float_to_half.exit, label %109
 
 109:                                              ; preds = %107
@@ -23328,11 +23328,11 @@ float_to_half.exit:                               ; preds = %83, %86, %96, %98, 
 132:                                              ; preds = %129
   %133 = uitofp nneg i32 %130 to float
   %134 = bitcast float %133 to i32
-  %135 = icmp ugt i32 %134, 947912703
+  %135 = icmp samesign ugt i32 %134, 947912703
   br i1 %135, label %136, label %157
 
 136:                                              ; preds = %132
-  %137 = icmp ugt i32 %134, 2139095039
+  %137 = icmp samesign ugt i32 %134, 2139095039
   br i1 %137, label %138, label %148
 
 138:                                              ; preds = %136
@@ -23350,7 +23350,7 @@ float_to_half.exit:                               ; preds = %83, %86, %96, %98, 
   br label %uint_to_half.exit
 
 148:                                              ; preds = %136
-  %149 = icmp ugt i32 %134, 1199566847
+  %149 = icmp samesign ugt i32 %134, 1199566847
   br i1 %149, label %uint_to_half.exit, label %150
 
 150:                                              ; preds = %148
@@ -23363,7 +23363,7 @@ float_to_half.exit:                               ; preds = %83, %86, %96, %98, 
   br label %uint_to_half.exit
 
 157:                                              ; preds = %132
-  %158 = icmp ult i32 %134, 855638017
+  %158 = icmp samesign ult i32 %134, 855638017
   br i1 %158, label %uint_to_half.exit, label %159
 
 159:                                              ; preds = %157
@@ -23441,12 +23441,12 @@ uint_to_half.exit:                                ; preds = %129, %138, %140, %1
   %190 = and i32 %189, 268427264
   %.signext.i.i = sext i16 %187 to i32
   %191 = and i32 %.signext.i.i, -2147483648
-  %192 = icmp ugt i32 %190, 8388607
+  %192 = icmp samesign ugt i32 %190, 8388607
   br i1 %192, label %193, label %200
 
 193:                                              ; preds = %186
   %194 = or disjoint i32 %190, %191
-  %195 = icmp ult i32 %190, 260046848
+  %195 = icmp samesign ult i32 %190, 260046848
   br i1 %195, label %196, label %198
 
 196:                                              ; preds = %193
@@ -24031,7 +24031,7 @@ reorder_and_predict.exit:                         ; preds = %.lr.ph39.i, %7, %._
 .critedge.i:                                      ; preds = %46, %42
   %.0.lcssa.i = phi i8 [ %47, %46 ], [ %.073.i, %42 ]
   %.158.lcssa.i = phi ptr [ %.158.i, %46 ], [ %.15874.i, %42 ]
-  %49 = icmp ugt i8 %.0.lcssa.i, 1
+  %49 = icmp samesign ugt i8 %.0.lcssa.i, 1
   br i1 %49, label %52, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge.i, %.preheader71.i
@@ -25151,7 +25151,7 @@ define internal fastcc i32 @internal_exr_apply_pxr24(ptr nocapture noundef %0) u
 
 101:                                              ; preds = %100
   %102 = lshr i32 %98, 8
-  %103 = icmp ult i32 %98, 256
+  %103 = icmp samesign ult i32 %98, 256
   %104 = zext i1 %103 to i32
   %105 = or i32 %102, %104
   %106 = or disjoint i32 %105, 8355840
@@ -25431,7 +25431,7 @@ define internal fastcc i64 @internal_rle_compress(ptr nocapture noundef writeonl
 .critedge:                                        ; preds = %14, %10
   %.0.lcssa = phi i8 [ %15, %14 ], [ %.073, %10 ]
   %.158.lcssa = phi ptr [ %.158, %14 ], [ %.15874, %10 ]
-  %17 = icmp ugt i8 %.0.lcssa, 1
+  %17 = icmp samesign ugt i8 %.0.lcssa, 1
   br i1 %17, label %19, label %.preheader
 
 .preheader:                                       ; preds = %.preheader71, %.critedge
@@ -26327,7 +26327,7 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
 
 119:                                              ; preds = %.lr.ph749
   %indvars.iv.next775 = add nuw nsw i64 %indvars.iv774, 1
-  %120 = icmp ult i64 %indvars.iv.next775, %109
+  %120 = icmp samesign ult i64 %indvars.iv.next775, %109
   br i1 %120, label %.lr.ph749, label %.critedge, !llvm.loop !155
 
 .loopexit724:                                     ; preds = %110
@@ -26451,7 +26451,7 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
 
 171:                                              ; preds = %.lr.ph754
   %indvars.iv.next780 = add nuw nsw i64 %indvars.iv779, 1
-  %172 = icmp ult i64 %indvars.iv.next780, %161
+  %172 = icmp samesign ult i64 %indvars.iv.next780, %161
   br i1 %172, label %.lr.ph754, label %.critedge2, !llvm.loop !155
 
 .loopexit:                                        ; preds = %162
@@ -26570,7 +26570,7 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
 
 220:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %221 = icmp ult i64 %indvars.iv.next, %210
+  %221 = icmp samesign ult i64 %indvars.iv.next, %210
   br i1 %221, label %.lr.ph, label %.critedge4, !llvm.loop !155
 
 .loopexit726:                                     ; preds = %211
@@ -27116,7 +27116,7 @@ calculate_min_match_len.exit:                     ; preds = %50, %52, %60, %66, 
 
 176:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %177 = icmp ult i64 %indvars.iv.next, %166
+  %177 = icmp samesign ult i64 %indvars.iv.next, %166
   br i1 %177, label %.lr.ph, label %.critedge, !llvm.loop !155
 
 .loopexit729:                                     ; preds = %167
@@ -27286,7 +27286,7 @@ calculate_min_match_len.exit:                     ; preds = %50, %52, %60, %66, 
 
 239:                                              ; preds = %.lr.ph759
   %indvars.iv.next786 = add nuw nsw i64 %indvars.iv785, 1
-  %240 = icmp ult i64 %indvars.iv.next786, %197
+  %240 = icmp samesign ult i64 %indvars.iv.next786, %197
   br i1 %240, label %.lr.ph759, label %.critedge2, !llvm.loop !155
 
 .loopexit:                                        ; preds = %230
@@ -28073,7 +28073,7 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
 
 216:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %217 = icmp ult i64 %indvars.iv.next, %206
+  %217 = icmp samesign ult i64 %indvars.iv.next, %206
   br i1 %217, label %.lr.ph, label %.critedge, !llvm.loop !155
 
 .loopexit2003:                                    ; preds = %207
@@ -28243,7 +28243,7 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
 
 279:                                              ; preds = %.lr.ph2062
   %indvars.iv.next2150 = add nuw nsw i64 %indvars.iv2149, 1
-  %280 = icmp ult i64 %indvars.iv.next2150, %237
+  %280 = icmp samesign ult i64 %indvars.iv.next2150, %237
   br i1 %280, label %.lr.ph2062, label %.critedge2, !llvm.loop !155
 
 .loopexit1999:                                    ; preds = %270
@@ -28694,7 +28694,7 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
 
 508:                                              ; preds = %.lr.ph2068
   %indvars.iv.next2155 = add nuw nsw i64 %indvars.iv2154, 1
-  %509 = icmp ult i64 %indvars.iv.next2155, %498
+  %509 = icmp samesign ult i64 %indvars.iv.next2155, %498
   br i1 %509, label %.lr.ph2068, label %.critedge5, !llvm.loop !155
 
 .loopexit1994:                                    ; preds = %499
@@ -28864,7 +28864,7 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
 
 571:                                              ; preds = %.lr.ph2073
   %indvars.iv.next2160 = add nuw nsw i64 %indvars.iv2159, 1
-  %572 = icmp ult i64 %indvars.iv.next2160, %529
+  %572 = icmp samesign ult i64 %indvars.iv.next2160, %529
   br i1 %572, label %.lr.ph2073, label %.critedge7, !llvm.loop !155
 
 .loopexit:                                        ; preds = %562
@@ -29659,7 +29659,7 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
 
 216:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %217 = icmp ult i64 %indvars.iv.next, %206
+  %217 = icmp samesign ult i64 %indvars.iv.next, %206
   br i1 %217, label %.lr.ph, label %.critedge, !llvm.loop !155
 
 .loopexit2050:                                    ; preds = %207
@@ -29829,7 +29829,7 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
 
 279:                                              ; preds = %.lr.ph2126
   %indvars.iv.next2232 = add nuw nsw i64 %indvars.iv2231, 1
-  %280 = icmp ult i64 %indvars.iv.next2232, %237
+  %280 = icmp samesign ult i64 %indvars.iv.next2232, %237
   br i1 %280, label %.lr.ph2126, label %.critedge2, !llvm.loop !155
 
 .loopexit2046:                                    ; preds = %270
@@ -30280,7 +30280,7 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
 
 508:                                              ; preds = %.lr.ph2132
   %indvars.iv.next2237 = add nuw nsw i64 %indvars.iv2236, 1
-  %509 = icmp ult i64 %indvars.iv.next2237, %498
+  %509 = icmp samesign ult i64 %indvars.iv.next2237, %498
   br i1 %509, label %.lr.ph2132, label %.critedge5, !llvm.loop !155
 
 .loopexit2041:                                    ; preds = %499
@@ -30450,7 +30450,7 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
 
 571:                                              ; preds = %.lr.ph2137
   %indvars.iv.next2242 = add nuw nsw i64 %indvars.iv2241, 1
-  %572 = icmp ult i64 %indvars.iv.next2242, %529
+  %572 = icmp samesign ult i64 %indvars.iv.next2242, %529
   br i1 %572, label %.lr.ph2137, label %.critedge7, !llvm.loop !155
 
 .loopexit2029:                                    ; preds = %562
@@ -30759,7 +30759,7 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
 
 716:                                              ; preds = %.lr.ph2145
   %indvars.iv.next2247 = add nuw nsw i64 %indvars.iv2246, 1
-  %717 = icmp ult i64 %indvars.iv.next2247, %706
+  %717 = icmp samesign ult i64 %indvars.iv.next2247, %706
   br i1 %717, label %.lr.ph2145, label %.critedge9, !llvm.loop !155
 
 .loopexit2035:                                    ; preds = %707
@@ -30929,7 +30929,7 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
 
 779:                                              ; preds = %.lr.ph2150
   %indvars.iv.next2252 = add nuw nsw i64 %indvars.iv2251, 1
-  %780 = icmp ult i64 %indvars.iv.next2252, %737
+  %780 = icmp samesign ult i64 %indvars.iv.next2252, %737
   br i1 %780, label %.lr.ph2150, label %.critedge11, !llvm.loop !155
 
 .loopexit:                                        ; preds = %770
@@ -31708,7 +31708,7 @@ deflate_near_optimal_merge_stats.exit:            ; preds = %deflate_near_optima
 
 207:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %208 = icmp ult i64 %indvars.iv.next, %155
+  %208 = icmp samesign ult i64 %indvars.iv.next, %155
   br i1 %208, label %.lr.ph, label %.critedge, !llvm.loop !155
 
 .loopexit1025:                                    ; preds = %198
@@ -31825,11 +31825,11 @@ deflate_near_optimal_merge_stats.exit:            ; preds = %deflate_near_optima
   br i1 %.not957, label %283, label %255
 
 255:                                              ; preds = %254
-  %.not958 = icmp ult i32 %.0803, %.0807
+  %.not958 = icmp samesign ult i32 %.0803, %.0807
   br i1 %.not958, label %269, label %256
 
 256:                                              ; preds = %255
-  %257 = icmp ugt i32 %.0803, 8
+  %257 = icmp samesign ugt i32 %.0803, 8
   %258 = select i1 %257, i64 9, i64 8
   %259 = getelementptr inbounds [10 x i32], ptr %21, i64 0, i64 %258
   %260 = load i32, ptr %259, align 4
@@ -31876,7 +31876,7 @@ deflate_near_optimal_merge_stats.exit:            ; preds = %deflate_near_optima
   store i16 %287, ptr %288, align 2
   %289 = getelementptr inbounds i8, ptr %.1836, i64 1
   %.2816.add = add nsw i64 %.2816.idx, 4
-  %290 = icmp ult i32 %.0803, 3
+  %290 = icmp samesign ult i32 %.0803, 3
   %.not959 = icmp ult i32 %.0803, %.2908
   %or.cond986 = select i1 %290, i1 true, i1 %.not959
   br i1 %or.cond986, label %.loopexit1026, label %291
@@ -32098,7 +32098,7 @@ deflate_near_optimal_merge_stats.exit:            ; preds = %deflate_near_optima
 
 400:                                              ; preds = %.lr.ph1076
   %indvars.iv.next1126 = add nuw nsw i64 %indvars.iv1125, 1
-  %401 = icmp ult i64 %indvars.iv.next1126, %348
+  %401 = icmp samesign ult i64 %indvars.iv.next1126, %348
   br i1 %401, label %.lr.ph1076, label %.critedge2.thread, !llvm.loop !155
 
 .loopexit:                                        ; preds = %391
@@ -33004,7 +33004,7 @@ deflate_compute_full_len_codewords.exit:          ; preds = %273
   %364 = load i32, ptr %.0554, align 4
   %365 = and i32 %364, 8388607
   %366 = lshr i32 %364, 23
-  %367 = icmp ugt i32 %365, 3
+  %367 = icmp samesign ugt i32 %365, 3
   br i1 %367, label %.lr.ph654, label %._crit_edge655
 
 .lr.ph654:                                        ; preds = %363, %.lr.ph654
@@ -33514,7 +33514,7 @@ sort_symbols.exit:                                ; preds = %.lr.ph.i.i, %heapif
 125:                                              ; preds = %115, %110
   %126 = add i32 %.055.i, 2
   %127 = zext i32 %126 to i64
-  %.not62.i = icmp ult i64 %indvars.iv.i25, %127
+  %.not62.i = icmp samesign ult i64 %indvars.iv.i25, %127
   br i1 %.not62.i, label %._crit_edge65.i, label %128
 
 ._crit_edge65.i:                                  ; preds = %125
@@ -33622,7 +33622,7 @@ build_tree.exit:                                  ; preds = %158
   %182 = shl i32 %180, 10
   %183 = or disjoint i32 %182, %181
   store i32 %183, ptr %173, align 4
-  %.not34.i = icmp ult i32 %180, %1
+  %.not34.i = icmp samesign ult i32 %180, %1
   br i1 %.not34.i, label %.lr.ph..loopexit_crit_edge.i, label %.preheader.i31
 
 .lr.ph..loopexit_crit_edge.i:                     ; preds = %.lr.ph.i
@@ -33880,7 +33880,7 @@ define internal fastcc void @deflate_precompute_huffman_header(ptr noundef %0) u
   %.164.lcssa.i = phi i32 [ %.063.i, %.preheader.i ], [ %59, %.lr.ph.i ]
   %.1.lcssa.i = phi ptr [ %.0.i, %.preheader.i ], [ %57, %.lr.ph.i ]
   %.lcssa76.i = phi i32 [ %47, %.preheader.i ], [ %60, %.lr.ph.i ]
-  %62 = icmp ugt i32 %.lcssa76.i, 2
+  %62 = icmp samesign ugt i32 %.lcssa76.i, 2
   br i1 %62, label %.loopexit.thread.i, label %.loopexit.i
 
 .loopexit.thread.i:                               ; preds = %._crit_edge.i
@@ -34420,7 +34420,7 @@ deflate_choose_default_litlen_costs.exit.i:       ; preds = %126
 219:                                              ; preds = %190
   %220 = shl nuw nsw i64 %189, 2
   %221 = mul nuw nsw i64 %193, 9
-  %222 = icmp ugt i64 %220, %221
+  %222 = icmp samesign ugt i64 %220, %221
   br i1 %222, label %.preheader346.i.i, label %256
 
 .preheader346.i.i:                                ; preds = %219
@@ -34485,7 +34485,7 @@ deflate_choose_default_litlen_costs.exit.i:       ; preds = %126
 
 256:                                              ; preds = %219
   %257 = shl nuw nsw i64 %189, 1
-  %258 = icmp ugt i64 %257, %194
+  %258 = icmp samesign ugt i64 %257, %194
   br i1 %258, label %.preheader350.i.i, label %295
 
 .preheader350.i.i:                                ; preds = %256
@@ -34552,7 +34552,7 @@ deflate_choose_default_litlen_costs.exit.i:       ; preds = %126
   br i1 %exitcond413.not.i.i, label %deflate_set_initial_costs.exit, label %284, !llvm.loop !228
 
 295:                                              ; preds = %256
-  %296 = icmp ugt i64 %257, %193
+  %296 = icmp samesign ugt i64 %257, %193
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 8972420
   br i1 %296, label %.preheader354.i.i, label %.preheader358.i.i
 
@@ -35688,7 +35688,7 @@ make_heap.exit.thread.i:                          ; preds = %._crit_edge.i.threa
   %60 = load ptr, ptr %59, align 8
   %61 = add nsw i64 %52, -1
   %62 = lshr i64 %61, 1
-  %63 = icmp ult i64 %58, %62
+  %63 = icmp samesign ult i64 %58, %62
   br i1 %63, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.split.i.i, %.lr.ph.i.i.i
@@ -35753,7 +35753,7 @@ make_heap.exit.thread.i:                          ; preds = %._crit_edge.i.threa
 96:                                               ; preds = %.lr.ph.i.i.i.i
   %97 = getelementptr inbounds ptr, ptr %19, i64 %.01421.i.i.i.i
   store ptr %90, ptr %97, align 8
-  %98 = icmp ugt i64 %.022.i.i.i.i, %58
+  %98 = icmp samesign ugt i64 %.022.i.i.i.i, %58
   br i1 %98, label %.lr.ph.i.i.i.i, label %adjust_heap.exit.i.i, !llvm.loop !250
 
 adjust_heap.exit.i.i:                             ; preds = %96, %.lr.ph.i.i.i.i, %87
@@ -35773,7 +35773,7 @@ adjust_heap.exit.i.i:                             ; preds = %96, %.lr.ph.i.i.i.i
   %103 = add nsw i64 %.029.i.i, -1
   %104 = getelementptr inbounds ptr, ptr %19, i64 %103
   %105 = load ptr, ptr %104, align 8
-  %106 = icmp ult i64 %103, %62
+  %106 = icmp samesign ult i64 %103, %62
   br i1 %106, label %.lr.ph.i22.i.i, label %._crit_edge.i12.i.i
 
 .lr.ph.i22.i.i:                                   ; preds = %.split10.i.i, %.lr.ph.i22.i.i
@@ -35834,7 +35834,7 @@ adjust_heap.exit.i.i:                             ; preds = %96, %.lr.ph.i.i.i.i
 135:                                              ; preds = %.lr.ph.i.i16.i.i
   %136 = getelementptr inbounds ptr, ptr %19, i64 %.01421.i.i17.i.i
   store ptr %129, ptr %136, align 8
-  %137 = icmp ugt i64 %.022.i.i19.i.i, %103
+  %137 = icmp samesign ugt i64 %.022.i.i19.i.i, %103
   br i1 %137, label %.lr.ph.i.i16.i.i, label %adjust_heap.exit27.i.i, !llvm.loop !250
 
 adjust_heap.exit27.i.i:                           ; preds = %135, %.lr.ph.i.i16.i.i, %126
@@ -36209,8 +36209,8 @@ hufBuildEncTable.exit:                            ; preds = %304
 
 314:                                              ; preds = %.lr.ph.i50
   %315 = add nuw nsw i64 %.0155.i, 1
-  %316 = icmp ult i64 %indvars.iv.next.i52, %284
-  %317 = icmp ult i64 %.0155.i, 260
+  %316 = icmp samesign ult i64 %indvars.iv.next.i52, %284
+  %317 = icmp samesign ult i64 %.0155.i, 260
   %318 = select i1 %316, i1 %317, i1 false
   br i1 %318, label %.lr.ph.i50, label %._crit_edge.thread205.i, !llvm.loop !255
 
@@ -36220,13 +36220,13 @@ hufBuildEncTable.exit:                            ; preds = %304
 
 ._crit_edge.i53:                                  ; preds = %.lr.ph.i50
   %.2.lcssa.ph.i = trunc i64 %indvars.iv.i51 to i32
-  %319 = icmp ugt i64 %.0155.i, 1
+  %319 = icmp samesign ugt i64 %.0155.i, 1
   br i1 %319, label %320, label %._crit_edge.thread.i
 
 320:                                              ; preds = %._crit_edge.i53, %._crit_edge.thread205.i
   %.2.lcssa.ph210.i = phi i32 [ %.2.lcssa.ph208.i, %._crit_edge.thread205.i ], [ %.2.lcssa.ph.i, %._crit_edge.i53 ]
   %.0.lcssa.ph209.i = phi i64 [ %315, %._crit_edge.thread205.i ], [ %.0155.i, %._crit_edge.i53 ]
-  %321 = icmp ugt i64 %.0.lcssa.ph209.i, 5
+  %321 = icmp samesign ugt i64 %.0.lcssa.ph209.i, 5
   br i1 %321, label %322, label %351
 
 322:                                              ; preds = %320
@@ -39124,11 +39124,11 @@ define internal void @convertFloatToHalf64_scalar(ptr nocapture noundef writeonl
   %9 = lshr i32 %6, 16
   %10 = trunc nuw i32 %9 to i16
   %11 = and i16 %10, -32768
-  %12 = icmp ugt i32 %8, 947912703
+  %12 = icmp samesign ugt i32 %8, 947912703
   br i1 %12, label %13, label %39
 
 13:                                               ; preds = %3
-  %14 = icmp ugt i32 %8, 2139095039
+  %14 = icmp samesign ugt i32 %8, 2139095039
   br i1 %14, label %15, label %26
 
 15:                                               ; preds = %13
@@ -39147,7 +39147,7 @@ define internal void @convertFloatToHalf64_scalar(ptr nocapture noundef writeonl
   br label %float_to_half.exit
 
 26:                                               ; preds = %13
-  %27 = icmp ugt i32 %8, 1199566847
+  %27 = icmp samesign ugt i32 %8, 1199566847
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
@@ -39166,7 +39166,7 @@ define internal void @convertFloatToHalf64_scalar(ptr nocapture noundef writeonl
   br label %float_to_half.exit
 
 39:                                               ; preds = %3
-  %40 = icmp ult i32 %8, 855638017
+  %40 = icmp samesign ult i32 %8, 855638017
   br i1 %40, label %float_to_half.exit, label %41
 
 41:                                               ; preds = %39
@@ -39214,12 +39214,12 @@ define internal void @fromHalfZigZag_scalar(ptr noundef readonly %0, ptr noundef
   %6 = and i32 %5, 268427264
   %.signext.i = sext i16 %3 to i32
   %7 = and i32 %.signext.i, -2147483648
-  %8 = icmp ugt i32 %6, 8388607
+  %8 = icmp samesign ugt i32 %6, 8388607
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %2
   %10 = or disjoint i32 %6, %7
-  %11 = icmp ult i32 %6, 260046848
+  %11 = icmp samesign ult i32 %6, 260046848
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9
@@ -39254,12 +39254,12 @@ half_to_float.exit:                               ; preds = %12, %14, %16, %17
   %29 = and i32 %28, 268427264
   %.signext.i128 = sext i16 %26 to i32
   %30 = and i32 %.signext.i128, -2147483648
-  %31 = icmp ugt i32 %29, 8388607
+  %31 = icmp samesign ugt i32 %29, 8388607
   br i1 %31, label %32, label %39
 
 32:                                               ; preds = %half_to_float.exit
   %33 = or disjoint i32 %29, %30
-  %34 = icmp ult i32 %29, 260046848
+  %34 = icmp samesign ult i32 %29, 260046848
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
@@ -39295,12 +39295,12 @@ half_to_float.exit131:                            ; preds = %35, %37, %39, %40
   %53 = and i32 %52, 268427264
   %.signext.i132 = sext i16 %50 to i32
   %54 = and i32 %.signext.i132, -2147483648
-  %55 = icmp ugt i32 %53, 8388607
+  %55 = icmp samesign ugt i32 %53, 8388607
   br i1 %55, label %56, label %63
 
 56:                                               ; preds = %half_to_float.exit131
   %57 = or disjoint i32 %53, %54
-  %58 = icmp ult i32 %53, 260046848
+  %58 = icmp samesign ult i32 %53, 260046848
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56
@@ -39336,12 +39336,12 @@ half_to_float.exit135:                            ; preds = %59, %61, %63, %64
   %77 = and i32 %76, 268427264
   %.signext.i136 = sext i16 %74 to i32
   %78 = and i32 %.signext.i136, -2147483648
-  %79 = icmp ugt i32 %77, 8388607
+  %79 = icmp samesign ugt i32 %77, 8388607
   br i1 %79, label %80, label %87
 
 80:                                               ; preds = %half_to_float.exit135
   %81 = or disjoint i32 %77, %78
-  %82 = icmp ult i32 %77, 260046848
+  %82 = icmp samesign ult i32 %77, 260046848
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %80
@@ -39377,12 +39377,12 @@ half_to_float.exit139:                            ; preds = %83, %85, %87, %88
   %101 = and i32 %100, 268427264
   %.signext.i140 = sext i16 %98 to i32
   %102 = and i32 %.signext.i140, -2147483648
-  %103 = icmp ugt i32 %101, 8388607
+  %103 = icmp samesign ugt i32 %101, 8388607
   br i1 %103, label %104, label %111
 
 104:                                              ; preds = %half_to_float.exit139
   %105 = or disjoint i32 %101, %102
-  %106 = icmp ult i32 %101, 260046848
+  %106 = icmp samesign ult i32 %101, 260046848
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %104
@@ -39418,12 +39418,12 @@ half_to_float.exit143:                            ; preds = %107, %109, %111, %1
   %125 = and i32 %124, 268427264
   %.signext.i144 = sext i16 %122 to i32
   %126 = and i32 %.signext.i144, -2147483648
-  %127 = icmp ugt i32 %125, 8388607
+  %127 = icmp samesign ugt i32 %125, 8388607
   br i1 %127, label %128, label %135
 
 128:                                              ; preds = %half_to_float.exit143
   %129 = or disjoint i32 %125, %126
-  %130 = icmp ult i32 %125, 260046848
+  %130 = icmp samesign ult i32 %125, 260046848
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %128
@@ -39459,12 +39459,12 @@ half_to_float.exit147:                            ; preds = %131, %133, %135, %1
   %149 = and i32 %148, 268427264
   %.signext.i148 = sext i16 %146 to i32
   %150 = and i32 %.signext.i148, -2147483648
-  %151 = icmp ugt i32 %149, 8388607
+  %151 = icmp samesign ugt i32 %149, 8388607
   br i1 %151, label %152, label %159
 
 152:                                              ; preds = %half_to_float.exit147
   %153 = or disjoint i32 %149, %150
-  %154 = icmp ult i32 %149, 260046848
+  %154 = icmp samesign ult i32 %149, 260046848
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %152
@@ -39500,12 +39500,12 @@ half_to_float.exit151:                            ; preds = %155, %157, %159, %1
   %173 = and i32 %172, 268427264
   %.signext.i152 = sext i16 %170 to i32
   %174 = and i32 %.signext.i152, -2147483648
-  %175 = icmp ugt i32 %173, 8388607
+  %175 = icmp samesign ugt i32 %173, 8388607
   br i1 %175, label %176, label %183
 
 176:                                              ; preds = %half_to_float.exit151
   %177 = or disjoint i32 %173, %174
-  %178 = icmp ult i32 %173, 260046848
+  %178 = icmp samesign ult i32 %173, 260046848
   br i1 %178, label %179, label %181
 
 179:                                              ; preds = %176
@@ -39541,12 +39541,12 @@ half_to_float.exit155:                            ; preds = %179, %181, %183, %1
   %197 = and i32 %196, 268427264
   %.signext.i156 = sext i16 %194 to i32
   %198 = and i32 %.signext.i156, -2147483648
-  %199 = icmp ugt i32 %197, 8388607
+  %199 = icmp samesign ugt i32 %197, 8388607
   br i1 %199, label %200, label %207
 
 200:                                              ; preds = %half_to_float.exit155
   %201 = or disjoint i32 %197, %198
-  %202 = icmp ult i32 %197, 260046848
+  %202 = icmp samesign ult i32 %197, 260046848
   br i1 %202, label %203, label %205
 
 203:                                              ; preds = %200
@@ -39582,12 +39582,12 @@ half_to_float.exit159:                            ; preds = %203, %205, %207, %2
   %221 = and i32 %220, 268427264
   %.signext.i160 = sext i16 %218 to i32
   %222 = and i32 %.signext.i160, -2147483648
-  %223 = icmp ugt i32 %221, 8388607
+  %223 = icmp samesign ugt i32 %221, 8388607
   br i1 %223, label %224, label %231
 
 224:                                              ; preds = %half_to_float.exit159
   %225 = or disjoint i32 %221, %222
-  %226 = icmp ult i32 %221, 260046848
+  %226 = icmp samesign ult i32 %221, 260046848
   br i1 %226, label %227, label %229
 
 227:                                              ; preds = %224
@@ -39623,12 +39623,12 @@ half_to_float.exit163:                            ; preds = %227, %229, %231, %2
   %245 = and i32 %244, 268427264
   %.signext.i164 = sext i16 %242 to i32
   %246 = and i32 %.signext.i164, -2147483648
-  %247 = icmp ugt i32 %245, 8388607
+  %247 = icmp samesign ugt i32 %245, 8388607
   br i1 %247, label %248, label %255
 
 248:                                              ; preds = %half_to_float.exit163
   %249 = or disjoint i32 %245, %246
-  %250 = icmp ult i32 %245, 260046848
+  %250 = icmp samesign ult i32 %245, 260046848
   br i1 %250, label %251, label %253
 
 251:                                              ; preds = %248
@@ -39664,12 +39664,12 @@ half_to_float.exit167:                            ; preds = %251, %253, %255, %2
   %269 = and i32 %268, 268427264
   %.signext.i168 = sext i16 %266 to i32
   %270 = and i32 %.signext.i168, -2147483648
-  %271 = icmp ugt i32 %269, 8388607
+  %271 = icmp samesign ugt i32 %269, 8388607
   br i1 %271, label %272, label %279
 
 272:                                              ; preds = %half_to_float.exit167
   %273 = or disjoint i32 %269, %270
-  %274 = icmp ult i32 %269, 260046848
+  %274 = icmp samesign ult i32 %269, 260046848
   br i1 %274, label %275, label %277
 
 275:                                              ; preds = %272
@@ -39705,12 +39705,12 @@ half_to_float.exit171:                            ; preds = %275, %277, %279, %2
   %293 = and i32 %292, 268427264
   %.signext.i172 = sext i16 %290 to i32
   %294 = and i32 %.signext.i172, -2147483648
-  %295 = icmp ugt i32 %293, 8388607
+  %295 = icmp samesign ugt i32 %293, 8388607
   br i1 %295, label %296, label %303
 
 296:                                              ; preds = %half_to_float.exit171
   %297 = or disjoint i32 %293, %294
-  %298 = icmp ult i32 %293, 260046848
+  %298 = icmp samesign ult i32 %293, 260046848
   br i1 %298, label %299, label %301
 
 299:                                              ; preds = %296
@@ -39746,12 +39746,12 @@ half_to_float.exit175:                            ; preds = %299, %301, %303, %3
   %317 = and i32 %316, 268427264
   %.signext.i176 = sext i16 %314 to i32
   %318 = and i32 %.signext.i176, -2147483648
-  %319 = icmp ugt i32 %317, 8388607
+  %319 = icmp samesign ugt i32 %317, 8388607
   br i1 %319, label %320, label %327
 
 320:                                              ; preds = %half_to_float.exit175
   %321 = or disjoint i32 %317, %318
-  %322 = icmp ult i32 %317, 260046848
+  %322 = icmp samesign ult i32 %317, 260046848
   br i1 %322, label %323, label %325
 
 323:                                              ; preds = %320
@@ -39787,12 +39787,12 @@ half_to_float.exit179:                            ; preds = %323, %325, %327, %3
   %341 = and i32 %340, 268427264
   %.signext.i180 = sext i16 %338 to i32
   %342 = and i32 %.signext.i180, -2147483648
-  %343 = icmp ugt i32 %341, 8388607
+  %343 = icmp samesign ugt i32 %341, 8388607
   br i1 %343, label %344, label %351
 
 344:                                              ; preds = %half_to_float.exit179
   %345 = or disjoint i32 %341, %342
-  %346 = icmp ult i32 %341, 260046848
+  %346 = icmp samesign ult i32 %341, 260046848
   br i1 %346, label %347, label %349
 
 347:                                              ; preds = %344
@@ -39828,12 +39828,12 @@ half_to_float.exit183:                            ; preds = %347, %349, %351, %3
   %365 = and i32 %364, 268427264
   %.signext.i184 = sext i16 %362 to i32
   %366 = and i32 %.signext.i184, -2147483648
-  %367 = icmp ugt i32 %365, 8388607
+  %367 = icmp samesign ugt i32 %365, 8388607
   br i1 %367, label %368, label %375
 
 368:                                              ; preds = %half_to_float.exit183
   %369 = or disjoint i32 %365, %366
-  %370 = icmp ult i32 %365, 260046848
+  %370 = icmp samesign ult i32 %365, 260046848
   br i1 %370, label %371, label %373
 
 371:                                              ; preds = %368
@@ -39869,12 +39869,12 @@ half_to_float.exit187:                            ; preds = %371, %373, %375, %3
   %389 = and i32 %388, 268427264
   %.signext.i188 = sext i16 %386 to i32
   %390 = and i32 %.signext.i188, -2147483648
-  %391 = icmp ugt i32 %389, 8388607
+  %391 = icmp samesign ugt i32 %389, 8388607
   br i1 %391, label %392, label %399
 
 392:                                              ; preds = %half_to_float.exit187
   %393 = or disjoint i32 %389, %390
-  %394 = icmp ult i32 %389, 260046848
+  %394 = icmp samesign ult i32 %389, 260046848
   br i1 %394, label %395, label %397
 
 395:                                              ; preds = %392
@@ -39910,12 +39910,12 @@ half_to_float.exit191:                            ; preds = %395, %397, %399, %4
   %413 = and i32 %412, 268427264
   %.signext.i192 = sext i16 %410 to i32
   %414 = and i32 %.signext.i192, -2147483648
-  %415 = icmp ugt i32 %413, 8388607
+  %415 = icmp samesign ugt i32 %413, 8388607
   br i1 %415, label %416, label %423
 
 416:                                              ; preds = %half_to_float.exit191
   %417 = or disjoint i32 %413, %414
-  %418 = icmp ult i32 %413, 260046848
+  %418 = icmp samesign ult i32 %413, 260046848
   br i1 %418, label %419, label %421
 
 419:                                              ; preds = %416
@@ -39951,12 +39951,12 @@ half_to_float.exit195:                            ; preds = %419, %421, %423, %4
   %437 = and i32 %436, 268427264
   %.signext.i196 = sext i16 %434 to i32
   %438 = and i32 %.signext.i196, -2147483648
-  %439 = icmp ugt i32 %437, 8388607
+  %439 = icmp samesign ugt i32 %437, 8388607
   br i1 %439, label %440, label %447
 
 440:                                              ; preds = %half_to_float.exit195
   %441 = or disjoint i32 %437, %438
-  %442 = icmp ult i32 %437, 260046848
+  %442 = icmp samesign ult i32 %437, 260046848
   br i1 %442, label %443, label %445
 
 443:                                              ; preds = %440
@@ -39992,12 +39992,12 @@ half_to_float.exit199:                            ; preds = %443, %445, %447, %4
   %461 = and i32 %460, 268427264
   %.signext.i200 = sext i16 %458 to i32
   %462 = and i32 %.signext.i200, -2147483648
-  %463 = icmp ugt i32 %461, 8388607
+  %463 = icmp samesign ugt i32 %461, 8388607
   br i1 %463, label %464, label %471
 
 464:                                              ; preds = %half_to_float.exit199
   %465 = or disjoint i32 %461, %462
-  %466 = icmp ult i32 %461, 260046848
+  %466 = icmp samesign ult i32 %461, 260046848
   br i1 %466, label %467, label %469
 
 467:                                              ; preds = %464
@@ -40033,12 +40033,12 @@ half_to_float.exit203:                            ; preds = %467, %469, %471, %4
   %485 = and i32 %484, 268427264
   %.signext.i204 = sext i16 %482 to i32
   %486 = and i32 %.signext.i204, -2147483648
-  %487 = icmp ugt i32 %485, 8388607
+  %487 = icmp samesign ugt i32 %485, 8388607
   br i1 %487, label %488, label %495
 
 488:                                              ; preds = %half_to_float.exit203
   %489 = or disjoint i32 %485, %486
-  %490 = icmp ult i32 %485, 260046848
+  %490 = icmp samesign ult i32 %485, 260046848
   br i1 %490, label %491, label %493
 
 491:                                              ; preds = %488
@@ -40074,12 +40074,12 @@ half_to_float.exit207:                            ; preds = %491, %493, %495, %4
   %509 = and i32 %508, 268427264
   %.signext.i208 = sext i16 %506 to i32
   %510 = and i32 %.signext.i208, -2147483648
-  %511 = icmp ugt i32 %509, 8388607
+  %511 = icmp samesign ugt i32 %509, 8388607
   br i1 %511, label %512, label %519
 
 512:                                              ; preds = %half_to_float.exit207
   %513 = or disjoint i32 %509, %510
-  %514 = icmp ult i32 %509, 260046848
+  %514 = icmp samesign ult i32 %509, 260046848
   br i1 %514, label %515, label %517
 
 515:                                              ; preds = %512
@@ -40115,12 +40115,12 @@ half_to_float.exit211:                            ; preds = %515, %517, %519, %5
   %533 = and i32 %532, 268427264
   %.signext.i212 = sext i16 %530 to i32
   %534 = and i32 %.signext.i212, -2147483648
-  %535 = icmp ugt i32 %533, 8388607
+  %535 = icmp samesign ugt i32 %533, 8388607
   br i1 %535, label %536, label %543
 
 536:                                              ; preds = %half_to_float.exit211
   %537 = or disjoint i32 %533, %534
-  %538 = icmp ult i32 %533, 260046848
+  %538 = icmp samesign ult i32 %533, 260046848
   br i1 %538, label %539, label %541
 
 539:                                              ; preds = %536
@@ -40156,12 +40156,12 @@ half_to_float.exit215:                            ; preds = %539, %541, %543, %5
   %557 = and i32 %556, 268427264
   %.signext.i216 = sext i16 %554 to i32
   %558 = and i32 %.signext.i216, -2147483648
-  %559 = icmp ugt i32 %557, 8388607
+  %559 = icmp samesign ugt i32 %557, 8388607
   br i1 %559, label %560, label %567
 
 560:                                              ; preds = %half_to_float.exit215
   %561 = or disjoint i32 %557, %558
-  %562 = icmp ult i32 %557, 260046848
+  %562 = icmp samesign ult i32 %557, 260046848
   br i1 %562, label %563, label %565
 
 563:                                              ; preds = %560
@@ -40197,12 +40197,12 @@ half_to_float.exit219:                            ; preds = %563, %565, %567, %5
   %581 = and i32 %580, 268427264
   %.signext.i220 = sext i16 %578 to i32
   %582 = and i32 %.signext.i220, -2147483648
-  %583 = icmp ugt i32 %581, 8388607
+  %583 = icmp samesign ugt i32 %581, 8388607
   br i1 %583, label %584, label %591
 
 584:                                              ; preds = %half_to_float.exit219
   %585 = or disjoint i32 %581, %582
-  %586 = icmp ult i32 %581, 260046848
+  %586 = icmp samesign ult i32 %581, 260046848
   br i1 %586, label %587, label %589
 
 587:                                              ; preds = %584
@@ -40238,12 +40238,12 @@ half_to_float.exit223:                            ; preds = %587, %589, %591, %5
   %605 = and i32 %604, 268427264
   %.signext.i224 = sext i16 %602 to i32
   %606 = and i32 %.signext.i224, -2147483648
-  %607 = icmp ugt i32 %605, 8388607
+  %607 = icmp samesign ugt i32 %605, 8388607
   br i1 %607, label %608, label %615
 
 608:                                              ; preds = %half_to_float.exit223
   %609 = or disjoint i32 %605, %606
-  %610 = icmp ult i32 %605, 260046848
+  %610 = icmp samesign ult i32 %605, 260046848
   br i1 %610, label %611, label %613
 
 611:                                              ; preds = %608
@@ -40279,12 +40279,12 @@ half_to_float.exit227:                            ; preds = %611, %613, %615, %6
   %629 = and i32 %628, 268427264
   %.signext.i228 = sext i16 %626 to i32
   %630 = and i32 %.signext.i228, -2147483648
-  %631 = icmp ugt i32 %629, 8388607
+  %631 = icmp samesign ugt i32 %629, 8388607
   br i1 %631, label %632, label %639
 
 632:                                              ; preds = %half_to_float.exit227
   %633 = or disjoint i32 %629, %630
-  %634 = icmp ult i32 %629, 260046848
+  %634 = icmp samesign ult i32 %629, 260046848
   br i1 %634, label %635, label %637
 
 635:                                              ; preds = %632
@@ -40320,12 +40320,12 @@ half_to_float.exit231:                            ; preds = %635, %637, %639, %6
   %653 = and i32 %652, 268427264
   %.signext.i232 = sext i16 %650 to i32
   %654 = and i32 %.signext.i232, -2147483648
-  %655 = icmp ugt i32 %653, 8388607
+  %655 = icmp samesign ugt i32 %653, 8388607
   br i1 %655, label %656, label %663
 
 656:                                              ; preds = %half_to_float.exit231
   %657 = or disjoint i32 %653, %654
-  %658 = icmp ult i32 %653, 260046848
+  %658 = icmp samesign ult i32 %653, 260046848
   br i1 %658, label %659, label %661
 
 659:                                              ; preds = %656
@@ -40361,12 +40361,12 @@ half_to_float.exit235:                            ; preds = %659, %661, %663, %6
   %677 = and i32 %676, 268427264
   %.signext.i236 = sext i16 %674 to i32
   %678 = and i32 %.signext.i236, -2147483648
-  %679 = icmp ugt i32 %677, 8388607
+  %679 = icmp samesign ugt i32 %677, 8388607
   br i1 %679, label %680, label %687
 
 680:                                              ; preds = %half_to_float.exit235
   %681 = or disjoint i32 %677, %678
-  %682 = icmp ult i32 %677, 260046848
+  %682 = icmp samesign ult i32 %677, 260046848
   br i1 %682, label %683, label %685
 
 683:                                              ; preds = %680
@@ -40402,12 +40402,12 @@ half_to_float.exit239:                            ; preds = %683, %685, %687, %6
   %701 = and i32 %700, 268427264
   %.signext.i240 = sext i16 %698 to i32
   %702 = and i32 %.signext.i240, -2147483648
-  %703 = icmp ugt i32 %701, 8388607
+  %703 = icmp samesign ugt i32 %701, 8388607
   br i1 %703, label %704, label %711
 
 704:                                              ; preds = %half_to_float.exit239
   %705 = or disjoint i32 %701, %702
-  %706 = icmp ult i32 %701, 260046848
+  %706 = icmp samesign ult i32 %701, 260046848
   br i1 %706, label %707, label %709
 
 707:                                              ; preds = %704
@@ -40443,12 +40443,12 @@ half_to_float.exit243:                            ; preds = %707, %709, %711, %7
   %725 = and i32 %724, 268427264
   %.signext.i244 = sext i16 %722 to i32
   %726 = and i32 %.signext.i244, -2147483648
-  %727 = icmp ugt i32 %725, 8388607
+  %727 = icmp samesign ugt i32 %725, 8388607
   br i1 %727, label %728, label %735
 
 728:                                              ; preds = %half_to_float.exit243
   %729 = or disjoint i32 %725, %726
-  %730 = icmp ult i32 %725, 260046848
+  %730 = icmp samesign ult i32 %725, 260046848
   br i1 %730, label %731, label %733
 
 731:                                              ; preds = %728
@@ -40484,12 +40484,12 @@ half_to_float.exit247:                            ; preds = %731, %733, %735, %7
   %749 = and i32 %748, 268427264
   %.signext.i248 = sext i16 %746 to i32
   %750 = and i32 %.signext.i248, -2147483648
-  %751 = icmp ugt i32 %749, 8388607
+  %751 = icmp samesign ugt i32 %749, 8388607
   br i1 %751, label %752, label %759
 
 752:                                              ; preds = %half_to_float.exit247
   %753 = or disjoint i32 %749, %750
-  %754 = icmp ult i32 %749, 260046848
+  %754 = icmp samesign ult i32 %749, 260046848
   br i1 %754, label %755, label %757
 
 755:                                              ; preds = %752
@@ -40525,12 +40525,12 @@ half_to_float.exit251:                            ; preds = %755, %757, %759, %7
   %773 = and i32 %772, 268427264
   %.signext.i252 = sext i16 %770 to i32
   %774 = and i32 %.signext.i252, -2147483648
-  %775 = icmp ugt i32 %773, 8388607
+  %775 = icmp samesign ugt i32 %773, 8388607
   br i1 %775, label %776, label %783
 
 776:                                              ; preds = %half_to_float.exit251
   %777 = or disjoint i32 %773, %774
-  %778 = icmp ult i32 %773, 260046848
+  %778 = icmp samesign ult i32 %773, 260046848
   br i1 %778, label %779, label %781
 
 779:                                              ; preds = %776
@@ -40566,12 +40566,12 @@ half_to_float.exit255:                            ; preds = %779, %781, %783, %7
   %797 = and i32 %796, 268427264
   %.signext.i256 = sext i16 %794 to i32
   %798 = and i32 %.signext.i256, -2147483648
-  %799 = icmp ugt i32 %797, 8388607
+  %799 = icmp samesign ugt i32 %797, 8388607
   br i1 %799, label %800, label %807
 
 800:                                              ; preds = %half_to_float.exit255
   %801 = or disjoint i32 %797, %798
-  %802 = icmp ult i32 %797, 260046848
+  %802 = icmp samesign ult i32 %797, 260046848
   br i1 %802, label %803, label %805
 
 803:                                              ; preds = %800
@@ -40607,12 +40607,12 @@ half_to_float.exit259:                            ; preds = %803, %805, %807, %8
   %821 = and i32 %820, 268427264
   %.signext.i260 = sext i16 %818 to i32
   %822 = and i32 %.signext.i260, -2147483648
-  %823 = icmp ugt i32 %821, 8388607
+  %823 = icmp samesign ugt i32 %821, 8388607
   br i1 %823, label %824, label %831
 
 824:                                              ; preds = %half_to_float.exit259
   %825 = or disjoint i32 %821, %822
-  %826 = icmp ult i32 %821, 260046848
+  %826 = icmp samesign ult i32 %821, 260046848
   br i1 %826, label %827, label %829
 
 827:                                              ; preds = %824
@@ -40648,12 +40648,12 @@ half_to_float.exit263:                            ; preds = %827, %829, %831, %8
   %845 = and i32 %844, 268427264
   %.signext.i264 = sext i16 %842 to i32
   %846 = and i32 %.signext.i264, -2147483648
-  %847 = icmp ugt i32 %845, 8388607
+  %847 = icmp samesign ugt i32 %845, 8388607
   br i1 %847, label %848, label %855
 
 848:                                              ; preds = %half_to_float.exit263
   %849 = or disjoint i32 %845, %846
-  %850 = icmp ult i32 %845, 260046848
+  %850 = icmp samesign ult i32 %845, 260046848
   br i1 %850, label %851, label %853
 
 851:                                              ; preds = %848
@@ -40689,12 +40689,12 @@ half_to_float.exit267:                            ; preds = %851, %853, %855, %8
   %869 = and i32 %868, 268427264
   %.signext.i268 = sext i16 %866 to i32
   %870 = and i32 %.signext.i268, -2147483648
-  %871 = icmp ugt i32 %869, 8388607
+  %871 = icmp samesign ugt i32 %869, 8388607
   br i1 %871, label %872, label %879
 
 872:                                              ; preds = %half_to_float.exit267
   %873 = or disjoint i32 %869, %870
-  %874 = icmp ult i32 %869, 260046848
+  %874 = icmp samesign ult i32 %869, 260046848
   br i1 %874, label %875, label %877
 
 875:                                              ; preds = %872
@@ -40730,12 +40730,12 @@ half_to_float.exit271:                            ; preds = %875, %877, %879, %8
   %893 = and i32 %892, 268427264
   %.signext.i272 = sext i16 %890 to i32
   %894 = and i32 %.signext.i272, -2147483648
-  %895 = icmp ugt i32 %893, 8388607
+  %895 = icmp samesign ugt i32 %893, 8388607
   br i1 %895, label %896, label %903
 
 896:                                              ; preds = %half_to_float.exit271
   %897 = or disjoint i32 %893, %894
-  %898 = icmp ult i32 %893, 260046848
+  %898 = icmp samesign ult i32 %893, 260046848
   br i1 %898, label %899, label %901
 
 899:                                              ; preds = %896
@@ -40771,12 +40771,12 @@ half_to_float.exit275:                            ; preds = %899, %901, %903, %9
   %917 = and i32 %916, 268427264
   %.signext.i276 = sext i16 %914 to i32
   %918 = and i32 %.signext.i276, -2147483648
-  %919 = icmp ugt i32 %917, 8388607
+  %919 = icmp samesign ugt i32 %917, 8388607
   br i1 %919, label %920, label %927
 
 920:                                              ; preds = %half_to_float.exit275
   %921 = or disjoint i32 %917, %918
-  %922 = icmp ult i32 %917, 260046848
+  %922 = icmp samesign ult i32 %917, 260046848
   br i1 %922, label %923, label %925
 
 923:                                              ; preds = %920
@@ -40812,12 +40812,12 @@ half_to_float.exit279:                            ; preds = %923, %925, %927, %9
   %941 = and i32 %940, 268427264
   %.signext.i280 = sext i16 %938 to i32
   %942 = and i32 %.signext.i280, -2147483648
-  %943 = icmp ugt i32 %941, 8388607
+  %943 = icmp samesign ugt i32 %941, 8388607
   br i1 %943, label %944, label %951
 
 944:                                              ; preds = %half_to_float.exit279
   %945 = or disjoint i32 %941, %942
-  %946 = icmp ult i32 %941, 260046848
+  %946 = icmp samesign ult i32 %941, 260046848
   br i1 %946, label %947, label %949
 
 947:                                              ; preds = %944
@@ -40853,12 +40853,12 @@ half_to_float.exit283:                            ; preds = %947, %949, %951, %9
   %965 = and i32 %964, 268427264
   %.signext.i284 = sext i16 %962 to i32
   %966 = and i32 %.signext.i284, -2147483648
-  %967 = icmp ugt i32 %965, 8388607
+  %967 = icmp samesign ugt i32 %965, 8388607
   br i1 %967, label %968, label %975
 
 968:                                              ; preds = %half_to_float.exit283
   %969 = or disjoint i32 %965, %966
-  %970 = icmp ult i32 %965, 260046848
+  %970 = icmp samesign ult i32 %965, 260046848
   br i1 %970, label %971, label %973
 
 971:                                              ; preds = %968
@@ -40894,12 +40894,12 @@ half_to_float.exit287:                            ; preds = %971, %973, %975, %9
   %989 = and i32 %988, 268427264
   %.signext.i288 = sext i16 %986 to i32
   %990 = and i32 %.signext.i288, -2147483648
-  %991 = icmp ugt i32 %989, 8388607
+  %991 = icmp samesign ugt i32 %989, 8388607
   br i1 %991, label %992, label %999
 
 992:                                              ; preds = %half_to_float.exit287
   %993 = or disjoint i32 %989, %990
-  %994 = icmp ult i32 %989, 260046848
+  %994 = icmp samesign ult i32 %989, 260046848
   br i1 %994, label %995, label %997
 
 995:                                              ; preds = %992
@@ -40935,12 +40935,12 @@ half_to_float.exit291:                            ; preds = %995, %997, %999, %1
   %1013 = and i32 %1012, 268427264
   %.signext.i292 = sext i16 %1010 to i32
   %1014 = and i32 %.signext.i292, -2147483648
-  %1015 = icmp ugt i32 %1013, 8388607
+  %1015 = icmp samesign ugt i32 %1013, 8388607
   br i1 %1015, label %1016, label %1023
 
 1016:                                             ; preds = %half_to_float.exit291
   %1017 = or disjoint i32 %1013, %1014
-  %1018 = icmp ult i32 %1013, 260046848
+  %1018 = icmp samesign ult i32 %1013, 260046848
   br i1 %1018, label %1019, label %1021
 
 1019:                                             ; preds = %1016
@@ -40976,12 +40976,12 @@ half_to_float.exit295:                            ; preds = %1019, %1021, %1023,
   %1037 = and i32 %1036, 268427264
   %.signext.i296 = sext i16 %1034 to i32
   %1038 = and i32 %.signext.i296, -2147483648
-  %1039 = icmp ugt i32 %1037, 8388607
+  %1039 = icmp samesign ugt i32 %1037, 8388607
   br i1 %1039, label %1040, label %1047
 
 1040:                                             ; preds = %half_to_float.exit295
   %1041 = or disjoint i32 %1037, %1038
-  %1042 = icmp ult i32 %1037, 260046848
+  %1042 = icmp samesign ult i32 %1037, 260046848
   br i1 %1042, label %1043, label %1045
 
 1043:                                             ; preds = %1040
@@ -41017,12 +41017,12 @@ half_to_float.exit299:                            ; preds = %1043, %1045, %1047,
   %1061 = and i32 %1060, 268427264
   %.signext.i300 = sext i16 %1058 to i32
   %1062 = and i32 %.signext.i300, -2147483648
-  %1063 = icmp ugt i32 %1061, 8388607
+  %1063 = icmp samesign ugt i32 %1061, 8388607
   br i1 %1063, label %1064, label %1071
 
 1064:                                             ; preds = %half_to_float.exit299
   %1065 = or disjoint i32 %1061, %1062
-  %1066 = icmp ult i32 %1061, 260046848
+  %1066 = icmp samesign ult i32 %1061, 260046848
   br i1 %1066, label %1067, label %1069
 
 1067:                                             ; preds = %1064
@@ -41058,12 +41058,12 @@ half_to_float.exit303:                            ; preds = %1067, %1069, %1071,
   %1085 = and i32 %1084, 268427264
   %.signext.i304 = sext i16 %1082 to i32
   %1086 = and i32 %.signext.i304, -2147483648
-  %1087 = icmp ugt i32 %1085, 8388607
+  %1087 = icmp samesign ugt i32 %1085, 8388607
   br i1 %1087, label %1088, label %1095
 
 1088:                                             ; preds = %half_to_float.exit303
   %1089 = or disjoint i32 %1085, %1086
-  %1090 = icmp ult i32 %1085, 260046848
+  %1090 = icmp samesign ult i32 %1085, 260046848
   br i1 %1090, label %1091, label %1093
 
 1091:                                             ; preds = %1088
@@ -41099,12 +41099,12 @@ half_to_float.exit307:                            ; preds = %1091, %1093, %1095,
   %1109 = and i32 %1108, 268427264
   %.signext.i308 = sext i16 %1106 to i32
   %1110 = and i32 %.signext.i308, -2147483648
-  %1111 = icmp ugt i32 %1109, 8388607
+  %1111 = icmp samesign ugt i32 %1109, 8388607
   br i1 %1111, label %1112, label %1119
 
 1112:                                             ; preds = %half_to_float.exit307
   %1113 = or disjoint i32 %1109, %1110
-  %1114 = icmp ult i32 %1109, 260046848
+  %1114 = icmp samesign ult i32 %1109, 260046848
   br i1 %1114, label %1115, label %1117
 
 1115:                                             ; preds = %1112
@@ -41140,12 +41140,12 @@ half_to_float.exit311:                            ; preds = %1115, %1117, %1119,
   %1133 = and i32 %1132, 268427264
   %.signext.i312 = sext i16 %1130 to i32
   %1134 = and i32 %.signext.i312, -2147483648
-  %1135 = icmp ugt i32 %1133, 8388607
+  %1135 = icmp samesign ugt i32 %1133, 8388607
   br i1 %1135, label %1136, label %1143
 
 1136:                                             ; preds = %half_to_float.exit311
   %1137 = or disjoint i32 %1133, %1134
-  %1138 = icmp ult i32 %1133, 260046848
+  %1138 = icmp samesign ult i32 %1133, 260046848
   br i1 %1138, label %1139, label %1141
 
 1139:                                             ; preds = %1136
@@ -41181,12 +41181,12 @@ half_to_float.exit315:                            ; preds = %1139, %1141, %1143,
   %1157 = and i32 %1156, 268427264
   %.signext.i316 = sext i16 %1154 to i32
   %1158 = and i32 %.signext.i316, -2147483648
-  %1159 = icmp ugt i32 %1157, 8388607
+  %1159 = icmp samesign ugt i32 %1157, 8388607
   br i1 %1159, label %1160, label %1167
 
 1160:                                             ; preds = %half_to_float.exit315
   %1161 = or disjoint i32 %1157, %1158
-  %1162 = icmp ult i32 %1157, 260046848
+  %1162 = icmp samesign ult i32 %1157, 260046848
   br i1 %1162, label %1163, label %1165
 
 1163:                                             ; preds = %1160
@@ -41222,12 +41222,12 @@ half_to_float.exit319:                            ; preds = %1163, %1165, %1167,
   %1181 = and i32 %1180, 268427264
   %.signext.i320 = sext i16 %1178 to i32
   %1182 = and i32 %.signext.i320, -2147483648
-  %1183 = icmp ugt i32 %1181, 8388607
+  %1183 = icmp samesign ugt i32 %1181, 8388607
   br i1 %1183, label %1184, label %1191
 
 1184:                                             ; preds = %half_to_float.exit319
   %1185 = or disjoint i32 %1181, %1182
-  %1186 = icmp ult i32 %1181, 260046848
+  %1186 = icmp samesign ult i32 %1181, 260046848
   br i1 %1186, label %1187, label %1189
 
 1187:                                             ; preds = %1184
@@ -41263,12 +41263,12 @@ half_to_float.exit323:                            ; preds = %1187, %1189, %1191,
   %1205 = and i32 %1204, 268427264
   %.signext.i324 = sext i16 %1202 to i32
   %1206 = and i32 %.signext.i324, -2147483648
-  %1207 = icmp ugt i32 %1205, 8388607
+  %1207 = icmp samesign ugt i32 %1205, 8388607
   br i1 %1207, label %1208, label %1215
 
 1208:                                             ; preds = %half_to_float.exit323
   %1209 = or disjoint i32 %1205, %1206
-  %1210 = icmp ult i32 %1205, 260046848
+  %1210 = icmp samesign ult i32 %1205, 260046848
   br i1 %1210, label %1211, label %1213
 
 1211:                                             ; preds = %1208
@@ -41304,12 +41304,12 @@ half_to_float.exit327:                            ; preds = %1211, %1213, %1215,
   %1229 = and i32 %1228, 268427264
   %.signext.i328 = sext i16 %1226 to i32
   %1230 = and i32 %.signext.i328, -2147483648
-  %1231 = icmp ugt i32 %1229, 8388607
+  %1231 = icmp samesign ugt i32 %1229, 8388607
   br i1 %1231, label %1232, label %1239
 
 1232:                                             ; preds = %half_to_float.exit327
   %1233 = or disjoint i32 %1229, %1230
-  %1234 = icmp ult i32 %1229, 260046848
+  %1234 = icmp samesign ult i32 %1229, 260046848
   br i1 %1234, label %1235, label %1237
 
 1235:                                             ; preds = %1232
@@ -41345,12 +41345,12 @@ half_to_float.exit331:                            ; preds = %1235, %1237, %1239,
   %1253 = and i32 %1252, 268427264
   %.signext.i332 = sext i16 %1250 to i32
   %1254 = and i32 %.signext.i332, -2147483648
-  %1255 = icmp ugt i32 %1253, 8388607
+  %1255 = icmp samesign ugt i32 %1253, 8388607
   br i1 %1255, label %1256, label %1263
 
 1256:                                             ; preds = %half_to_float.exit331
   %1257 = or disjoint i32 %1253, %1254
-  %1258 = icmp ult i32 %1253, 260046848
+  %1258 = icmp samesign ult i32 %1253, 260046848
   br i1 %1258, label %1259, label %1261
 
 1259:                                             ; preds = %1256
@@ -41386,12 +41386,12 @@ half_to_float.exit335:                            ; preds = %1259, %1261, %1263,
   %1277 = and i32 %1276, 268427264
   %.signext.i336 = sext i16 %1274 to i32
   %1278 = and i32 %.signext.i336, -2147483648
-  %1279 = icmp ugt i32 %1277, 8388607
+  %1279 = icmp samesign ugt i32 %1277, 8388607
   br i1 %1279, label %1280, label %1287
 
 1280:                                             ; preds = %half_to_float.exit335
   %1281 = or disjoint i32 %1277, %1278
-  %1282 = icmp ult i32 %1277, 260046848
+  %1282 = icmp samesign ult i32 %1277, 260046848
   br i1 %1282, label %1283, label %1285
 
 1283:                                             ; preds = %1280
@@ -41427,12 +41427,12 @@ half_to_float.exit339:                            ; preds = %1283, %1285, %1287,
   %1301 = and i32 %1300, 268427264
   %.signext.i340 = sext i16 %1298 to i32
   %1302 = and i32 %.signext.i340, -2147483648
-  %1303 = icmp ugt i32 %1301, 8388607
+  %1303 = icmp samesign ugt i32 %1301, 8388607
   br i1 %1303, label %1304, label %1311
 
 1304:                                             ; preds = %half_to_float.exit339
   %1305 = or disjoint i32 %1301, %1302
-  %1306 = icmp ult i32 %1301, 260046848
+  %1306 = icmp samesign ult i32 %1301, 260046848
   br i1 %1306, label %1307, label %1309
 
 1307:                                             ; preds = %1304
@@ -41468,12 +41468,12 @@ half_to_float.exit343:                            ; preds = %1307, %1309, %1311,
   %1325 = and i32 %1324, 268427264
   %.signext.i344 = sext i16 %1322 to i32
   %1326 = and i32 %.signext.i344, -2147483648
-  %1327 = icmp ugt i32 %1325, 8388607
+  %1327 = icmp samesign ugt i32 %1325, 8388607
   br i1 %1327, label %1328, label %1335
 
 1328:                                             ; preds = %half_to_float.exit343
   %1329 = or disjoint i32 %1325, %1326
-  %1330 = icmp ult i32 %1325, 260046848
+  %1330 = icmp samesign ult i32 %1325, 260046848
   br i1 %1330, label %1331, label %1333
 
 1331:                                             ; preds = %1328
@@ -41509,12 +41509,12 @@ half_to_float.exit347:                            ; preds = %1331, %1333, %1335,
   %1349 = and i32 %1348, 268427264
   %.signext.i348 = sext i16 %1346 to i32
   %1350 = and i32 %.signext.i348, -2147483648
-  %1351 = icmp ugt i32 %1349, 8388607
+  %1351 = icmp samesign ugt i32 %1349, 8388607
   br i1 %1351, label %1352, label %1359
 
 1352:                                             ; preds = %half_to_float.exit347
   %1353 = or disjoint i32 %1349, %1350
-  %1354 = icmp ult i32 %1349, 260046848
+  %1354 = icmp samesign ult i32 %1349, 260046848
   br i1 %1354, label %1355, label %1357
 
 1355:                                             ; preds = %1352
@@ -41550,12 +41550,12 @@ half_to_float.exit351:                            ; preds = %1355, %1357, %1359,
   %1373 = and i32 %1372, 268427264
   %.signext.i352 = sext i16 %1370 to i32
   %1374 = and i32 %.signext.i352, -2147483648
-  %1375 = icmp ugt i32 %1373, 8388607
+  %1375 = icmp samesign ugt i32 %1373, 8388607
   br i1 %1375, label %1376, label %1383
 
 1376:                                             ; preds = %half_to_float.exit351
   %1377 = or disjoint i32 %1373, %1374
-  %1378 = icmp ult i32 %1373, 260046848
+  %1378 = icmp samesign ult i32 %1373, 260046848
   br i1 %1378, label %1379, label %1381
 
 1379:                                             ; preds = %1376
@@ -41591,12 +41591,12 @@ half_to_float.exit355:                            ; preds = %1379, %1381, %1383,
   %1397 = and i32 %1396, 268427264
   %.signext.i356 = sext i16 %1394 to i32
   %1398 = and i32 %.signext.i356, -2147483648
-  %1399 = icmp ugt i32 %1397, 8388607
+  %1399 = icmp samesign ugt i32 %1397, 8388607
   br i1 %1399, label %1400, label %1407
 
 1400:                                             ; preds = %half_to_float.exit355
   %1401 = or disjoint i32 %1397, %1398
-  %1402 = icmp ult i32 %1397, 260046848
+  %1402 = icmp samesign ult i32 %1397, 260046848
   br i1 %1402, label %1403, label %1405
 
 1403:                                             ; preds = %1400
@@ -41632,12 +41632,12 @@ half_to_float.exit359:                            ; preds = %1403, %1405, %1407,
   %1421 = and i32 %1420, 268427264
   %.signext.i360 = sext i16 %1418 to i32
   %1422 = and i32 %.signext.i360, -2147483648
-  %1423 = icmp ugt i32 %1421, 8388607
+  %1423 = icmp samesign ugt i32 %1421, 8388607
   br i1 %1423, label %1424, label %1431
 
 1424:                                             ; preds = %half_to_float.exit359
   %1425 = or disjoint i32 %1421, %1422
-  %1426 = icmp ult i32 %1421, 260046848
+  %1426 = icmp samesign ult i32 %1421, 260046848
   br i1 %1426, label %1427, label %1429
 
 1427:                                             ; preds = %1424
@@ -41673,12 +41673,12 @@ half_to_float.exit363:                            ; preds = %1427, %1429, %1431,
   %1445 = and i32 %1444, 268427264
   %.signext.i364 = sext i16 %1442 to i32
   %1446 = and i32 %.signext.i364, -2147483648
-  %1447 = icmp ugt i32 %1445, 8388607
+  %1447 = icmp samesign ugt i32 %1445, 8388607
   br i1 %1447, label %1448, label %1455
 
 1448:                                             ; preds = %half_to_float.exit363
   %1449 = or disjoint i32 %1445, %1446
-  %1450 = icmp ult i32 %1445, 260046848
+  %1450 = icmp samesign ult i32 %1445, 260046848
   br i1 %1450, label %1451, label %1453
 
 1451:                                             ; preds = %1448
@@ -41714,12 +41714,12 @@ half_to_float.exit367:                            ; preds = %1451, %1453, %1455,
   %1469 = and i32 %1468, 268427264
   %.signext.i368 = sext i16 %1466 to i32
   %1470 = and i32 %.signext.i368, -2147483648
-  %1471 = icmp ugt i32 %1469, 8388607
+  %1471 = icmp samesign ugt i32 %1469, 8388607
   br i1 %1471, label %1472, label %1479
 
 1472:                                             ; preds = %half_to_float.exit367
   %1473 = or disjoint i32 %1469, %1470
-  %1474 = icmp ult i32 %1469, 260046848
+  %1474 = icmp samesign ult i32 %1469, 260046848
   br i1 %1474, label %1475, label %1477
 
 1475:                                             ; preds = %1472
@@ -41755,12 +41755,12 @@ half_to_float.exit371:                            ; preds = %1475, %1477, %1479,
   %1493 = and i32 %1492, 268427264
   %.signext.i372 = sext i16 %1490 to i32
   %1494 = and i32 %.signext.i372, -2147483648
-  %1495 = icmp ugt i32 %1493, 8388607
+  %1495 = icmp samesign ugt i32 %1493, 8388607
   br i1 %1495, label %1496, label %1503
 
 1496:                                             ; preds = %half_to_float.exit371
   %1497 = or disjoint i32 %1493, %1494
-  %1498 = icmp ult i32 %1493, 260046848
+  %1498 = icmp samesign ult i32 %1493, 260046848
   br i1 %1498, label %1499, label %1501
 
 1499:                                             ; preds = %1496
@@ -41796,12 +41796,12 @@ half_to_float.exit375:                            ; preds = %1499, %1501, %1503,
   %1517 = and i32 %1516, 268427264
   %.signext.i376 = sext i16 %1514 to i32
   %1518 = and i32 %.signext.i376, -2147483648
-  %1519 = icmp ugt i32 %1517, 8388607
+  %1519 = icmp samesign ugt i32 %1517, 8388607
   br i1 %1519, label %1520, label %1527
 
 1520:                                             ; preds = %half_to_float.exit375
   %1521 = or disjoint i32 %1517, %1518
-  %1522 = icmp ult i32 %1517, 260046848
+  %1522 = icmp samesign ult i32 %1517, 260046848
   br i1 %1522, label %1523, label %1525
 
 1523:                                             ; preds = %1520
@@ -41847,11 +41847,11 @@ define internal void @convertFloatToHalf64_f16c(ptr nocapture noundef writeonly 
   %9 = lshr i32 %6, 16
   %10 = trunc nuw i32 %9 to i16
   %11 = and i16 %10, -32768
-  %12 = icmp ugt i32 %8, 947912703
+  %12 = icmp samesign ugt i32 %8, 947912703
   br i1 %12, label %13, label %39
 
 13:                                               ; preds = %3
-  %14 = icmp ugt i32 %8, 2139095039
+  %14 = icmp samesign ugt i32 %8, 2139095039
   br i1 %14, label %15, label %26
 
 15:                                               ; preds = %13
@@ -41870,7 +41870,7 @@ define internal void @convertFloatToHalf64_f16c(ptr nocapture noundef writeonly 
   br label %float_to_half.exit.i
 
 26:                                               ; preds = %13
-  %27 = icmp ugt i32 %8, 1199566847
+  %27 = icmp samesign ugt i32 %8, 1199566847
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
@@ -41889,7 +41889,7 @@ define internal void @convertFloatToHalf64_f16c(ptr nocapture noundef writeonly 
   br label %float_to_half.exit.i
 
 39:                                               ; preds = %3
-  %40 = icmp ult i32 %8, 855638017
+  %40 = icmp samesign ult i32 %8, 855638017
   br i1 %40, label %float_to_half.exit.i, label %41
 
 41:                                               ; preds = %39
@@ -43807,11 +43807,11 @@ define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr nocaptur
   %64 = lshr i32 %61, 16
   %65 = trunc nuw i32 %64 to i16
   %66 = and i16 %65, -32768
-  %67 = icmp ugt i32 %63, 947912703
+  %67 = icmp samesign ugt i32 %63, 947912703
   br i1 %67, label %68, label %94
 
 68:                                               ; preds = %60
-  %69 = icmp ugt i32 %63, 2139095039
+  %69 = icmp samesign ugt i32 %63, 2139095039
   br i1 %69, label %70, label %81
 
 70:                                               ; preds = %68
@@ -43830,7 +43830,7 @@ define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr nocaptur
   br label %float_to_half.exit
 
 81:                                               ; preds = %68
-  %82 = icmp ugt i32 %63, 1199566847
+  %82 = icmp samesign ugt i32 %63, 1199566847
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
@@ -43849,7 +43849,7 @@ define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr nocaptur
   br label %float_to_half.exit
 
 94:                                               ; preds = %60
-  %95 = icmp ult i32 %63, 855638017
+  %95 = icmp samesign ult i32 %63, 855638017
   br i1 %95, label %float_to_half.exit, label %96
 
 96:                                               ; preds = %94
@@ -44212,7 +44212,7 @@ toZigZag.exit.us:                                 ; preds = %.preheader167.us
   br i1 %.not.i161.us, label %.preheader.i162.us, label %.backedge.i.us
 
 .preheader.i162.us:                               ; preds = %311
-  %315 = icmp ult i32 %.03543.i.us, 63
+  %315 = icmp samesign ult i32 %.03543.i.us, 63
   br i1 %315, label %.lr.ph.i163.us.preheader, label %.backedge.i.us
 
 .lr.ph.i163.us.preheader:                         ; preds = %.preheader.i162.us
@@ -44232,7 +44232,7 @@ toZigZag.exit.us:                                 ; preds = %.preheader167.us
   %323 = add i16 %.038.i.us, 1
   %324 = zext i16 %323 to i32
   %325 = add nuw nsw i32 %.03543.i.us, %324
-  %326 = icmp ult i32 %325, 64
+  %326 = icmp samesign ult i32 %325, 64
   br i1 %326, label %.lr.ph.i163.us, label %.critedge.i.us, !llvm.loop !316
 
 .critedge.i.us:                                   ; preds = %322, %.lr.ph.i163.us
@@ -44257,7 +44257,7 @@ toZigZag.exit.us:                                 ; preds = %.preheader167.us
   store i64 %storemerge.i.us, ptr %23, align 8
   %332 = add nuw nsw i32 %.sink.i.us, %.03543.i.us
   %.033.be.i.us = getelementptr inbounds i8, ptr %.03344.i.us, i64 2
-  %333 = icmp ult i32 %332, 64
+  %333 = icmp samesign ult i32 %332, 64
   br i1 %333, label %311, label %LossyDctEncoder_rleAc.exit.us, !llvm.loop !317
 
 LossyDctEncoder_rleAc.exit.us:                    ; preds = %.backedge.i.us
@@ -44277,11 +44277,11 @@ LossyDctEncoder_rleAc.exit.us:                    ; preds = %.backedge.i.us
   %342 = lshr i32 %339, 16
   %343 = trunc nuw i32 %342 to i16
   %344 = and i16 %343, -32768
-  %345 = icmp ugt i32 %341, 947912703
+  %345 = icmp samesign ugt i32 %341, 947912703
   br i1 %345, label %365, label %346
 
 346:                                              ; preds = %334
-  %347 = icmp ult i32 %341, 855638017
+  %347 = icmp samesign ult i32 %341, 855638017
   br i1 %347, label %float_to_half.exit.i.us, label %348
 
 348:                                              ; preds = %346
@@ -44310,11 +44310,11 @@ LossyDctEncoder_rleAc.exit.us:                    ; preds = %.backedge.i.us
   br label %float_to_half.exit.i.us
 
 365:                                              ; preds = %334
-  %366 = icmp ugt i32 %341, 2139095039
+  %366 = icmp samesign ugt i32 %341, 2139095039
   br i1 %366, label %380, label %367
 
 367:                                              ; preds = %365
-  %368 = icmp ugt i32 %341, 1199566847
+  %368 = icmp samesign ugt i32 %341, 1199566847
   br i1 %368, label %378, label %369
 
 369:                                              ; preds = %367
@@ -44354,7 +44354,7 @@ float_to_half.exit.i.us:                          ; preds = %383, %380, %378, %3
   %393 = and i32 %392, 268427264
   %.signext.i.i.us = sext i16 %.0.i.i.us to i32
   %394 = and i32 %.signext.i.i.us, -2147483648
-  %395 = icmp ugt i32 %393, 8388607
+  %395 = icmp samesign ugt i32 %393, 8388607
   br i1 %395, label %405, label %396
 
 396:                                              ; preds = %float_to_half.exit.i.us
@@ -44373,7 +44373,7 @@ float_to_half.exit.i.us:                          ; preds = %383, %380, %378, %3
 
 405:                                              ; preds = %float_to_half.exit.i.us
   %406 = or disjoint i32 %393, %394
-  %407 = icmp ult i32 %393, 260046848
+  %407 = icmp samesign ult i32 %393, 260046848
   br i1 %407, label %410, label %408
 
 408:                                              ; preds = %405
@@ -44419,7 +44419,7 @@ half_to_float.exit.i.us:                          ; preds = %410, %408, %397, %3
   %432 = and i32 %431, 268427264
   %.signext.i17.i.us = sext i16 %429 to i32
   %433 = and i32 %.signext.i17.i.us, -2147483648
-  %434 = icmp ugt i32 %432, 8388607
+  %434 = icmp samesign ugt i32 %432, 8388607
   br i1 %434, label %444, label %435
 
 435:                                              ; preds = %.lr.ph.i.us
@@ -44438,7 +44438,7 @@ half_to_float.exit.i.us:                          ; preds = %410, %408, %397, %3
 
 444:                                              ; preds = %.lr.ph.i.us
   %445 = or disjoint i32 %432, %433
-  %446 = icmp ult i32 %432, 260046848
+  %446 = icmp samesign ult i32 %432, 260046848
   br i1 %446, label %449, label %447
 
 447:                                              ; preds = %444
@@ -44525,7 +44525,7 @@ quantize.exit.us:                                 ; preds = %half_to_float.exit2
   %488 = and i32 %487, 268427264
   %.signext.i.us = sext i16 %.0123.us to i32
   %489 = and i32 %.signext.i.us, -2147483648
-  %490 = icmp ugt i32 %488, 8388607
+  %490 = icmp samesign ugt i32 %488, 8388607
   br i1 %490, label %500, label %491
 
 491:                                              ; preds = %485
@@ -44544,7 +44544,7 @@ quantize.exit.us:                                 ; preds = %half_to_float.exit2
 
 500:                                              ; preds = %485
   %501 = or disjoint i32 %488, %489
-  %502 = icmp ult i32 %488, 260046848
+  %502 = icmp samesign ult i32 %488, 260046848
   br i1 %502, label %505, label %503
 
 503:                                              ; preds = %500
@@ -47895,7 +47895,7 @@ reverseLutFromBitmap.exit.i:                      ; preds = %.lr.ph.preheader.i.
 
 .loopexit.i.i:                                    ; preds = %.lr.ph143.split.i.i, %.lr.ph143.split.us.i.i, %329, %._crit_edge138.i.i
   %350 = lshr i32 %.1145.i.i, 1
-  %.not149.i.i = icmp ult i32 %.1145.i.i, 2
+  %.not149.i.i = icmp samesign ult i32 %.1145.i.i, 2
   br i1 %.not149.i.i, label %wav_2D_decode.exit.i, label %.lr.ph147.i.i, !llvm.loop !347
 
 wav_2D_decode.exit.i:                             ; preds = %.loopexit.i.i, %250
@@ -48926,7 +48926,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
 
 .preheader905:                                    ; preds = %25
   %29 = and i32 %.0761, 255
-  %30 = icmp ult i32 %29, 56
+  %30 = icmp samesign ult i32 %29, 56
   br i1 %30, label %.lr.ph, label %.loopexit906
 
 31:                                               ; preds = %25
@@ -48973,7 +48973,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   %.2730 = phi ptr [ %45, %44 ], [ %.1729943, %51 ]
   %55 = add i32 %.1762941, 8
   %56 = and i32 %55, 255
-  %57 = icmp ult i32 %56, 56
+  %57 = icmp samesign ult i32 %56, 56
   br i1 %57, label %.lr.ph, label %.loopexit906, !llvm.loop !359
 
 .loopexit906:                                     ; preds = %54, %.preheader905, %31
@@ -49017,7 +49017,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
 
 .preheader897:                                    ; preds = %62
   %80 = and i32 %76, 255
-  %81 = icmp ult i32 %80, 56
+  %81 = icmp samesign ult i32 %80, 56
   br i1 %81, label %.lr.ph963, label %.loopexit898
 
 82:                                               ; preds = %62
@@ -49064,7 +49064,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   %.5733 = phi ptr [ %96, %95 ], [ %.4732962, %102 ]
   %106 = add i32 %.3764960, 8
   %107 = and i32 %106, 255
-  %108 = icmp ult i32 %107, 56
+  %108 = icmp samesign ult i32 %107, 56
   br i1 %108, label %.lr.ph963, label %.loopexit898, !llvm.loop !360
 
 .loopexit898:                                     ; preds = %105, %.preheader897, %82
@@ -49096,7 +49096,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
 .preheader896:                                    ; preds = %110
   %118 = add i32 %.4765, -9
   %119 = add i32 %.neg1048, %118
-  %120 = icmp ult i64 %indvars.iv, 18
+  %120 = icmp samesign ult i64 %indvars.iv, 18
   br i1 %120, label %.lr.ph969, label %._crit_edge
 
 .lr.ph969:                                        ; preds = %.preheader896, %.lr.ph969
@@ -49107,7 +49107,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   %124 = getelementptr inbounds [19 x i8], ptr %0, i64 0, i64 %123
   store i8 0, ptr %124, align 1
   %indvars.iv.next1043 = add nuw nsw i64 %indvars.iv1042, 1
-  %125 = icmp ult i64 %indvars.iv1042, 18
+  %125 = icmp samesign ult i64 %indvars.iv1042, 18
   br i1 %125, label %.lr.ph969, label %._crit_edge, !llvm.loop !362
 
 ._crit_edge:                                      ; preds = %.lr.ph969, %.preheader896
@@ -49125,7 +49125,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   %.8743 = phi i64 [ %.12747, %249 ], [ %117, %.preheader894 ]
   %.7 = phi ptr [ %.8, %249 ], [ %.6734, %.preheader894 ]
   %129 = and i32 %.6767, 255
-  %130 = icmp ult i32 %129, 14
+  %130 = icmp samesign ult i32 %129, 14
   br i1 %130, label %131, label %.loopexit887
 
 131:                                              ; preds = %128
@@ -49177,7 +49177,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   %.10 = phi ptr [ %148, %147 ], [ %.9973, %154 ]
   %158 = add i32 %.8769971, 8
   %159 = and i32 %158, 255
-  %160 = icmp ult i32 %159, 56
+  %160 = icmp samesign ult i32 %159, 56
   br i1 %160, label %.lr.ph974, label %.loopexit887, !llvm.loop !363
 
 .loopexit887:                                     ; preds = %157, %135, %128
@@ -49583,7 +49583,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   br i1 %.not860, label %429, label %403
 
 403:                                              ; preds = %388
-  %404 = icmp ult i32 %402, 38
+  %404 = icmp samesign ult i32 %402, 38
   br i1 %404, label %405, label %416
 
 405:                                              ; preds = %403
@@ -49620,7 +49620,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   br label %442
 
 429:                                              ; preds = %388
-  %430 = icmp ult i32 %402, 31
+  %430 = icmp samesign ult i32 %402, 31
   br i1 %430, label %431, label %442
 
 431:                                              ; preds = %429
@@ -49827,7 +49827,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
 
 .preheader:                                       ; preds = %.loopexit893
   %525 = and i32 %.20781, 255
-  %526 = icmp ult i32 %525, 56
+  %526 = icmp samesign ult i32 %525, 56
   br i1 %526, label %.lr.ph994, label %.loopexit881
 
 527:                                              ; preds = %.loopexit893
@@ -49874,7 +49874,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   %.21 = phi ptr [ %541, %540 ], [ %.20993, %547 ]
   %551 = add i32 %.21782991, 8
   %552 = and i32 %551, 255
-  %553 = icmp ult i32 %552, 56
+  %553 = icmp samesign ult i32 %552, 56
   br i1 %553, label %.lr.ph994, label %.loopexit881, !llvm.loop !369
 
 .loopexit881:                                     ; preds = %550, %.preheader, %527
@@ -50121,7 +50121,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
 
 .preheader905:                                    ; preds = %25
   %29 = and i32 %.0761, 255
-  %30 = icmp ult i32 %29, 56
+  %30 = icmp samesign ult i32 %29, 56
   br i1 %30, label %.lr.ph, label %.loopexit906
 
 31:                                               ; preds = %25
@@ -50168,7 +50168,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   %.2730 = phi ptr [ %45, %44 ], [ %.1729943, %51 ]
   %55 = add i32 %.1762941, 8
   %56 = and i32 %55, 255
-  %57 = icmp ult i32 %56, 56
+  %57 = icmp samesign ult i32 %56, 56
   br i1 %57, label %.lr.ph, label %.loopexit906, !llvm.loop !371
 
 .loopexit906:                                     ; preds = %54, %.preheader905, %31
@@ -50212,7 +50212,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
 
 .preheader897:                                    ; preds = %62
   %80 = and i32 %76, 255
-  %81 = icmp ult i32 %80, 56
+  %81 = icmp samesign ult i32 %80, 56
   br i1 %81, label %.lr.ph963, label %.loopexit898
 
 82:                                               ; preds = %62
@@ -50259,7 +50259,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   %.5733 = phi ptr [ %96, %95 ], [ %.4732962, %102 ]
   %106 = add i32 %.3764960, 8
   %107 = and i32 %106, 255
-  %108 = icmp ult i32 %107, 56
+  %108 = icmp samesign ult i32 %107, 56
   br i1 %108, label %.lr.ph963, label %.loopexit898, !llvm.loop !372
 
 .loopexit898:                                     ; preds = %105, %.preheader897, %82
@@ -50291,7 +50291,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
 .preheader896:                                    ; preds = %110
   %118 = add i32 %.4765, -9
   %119 = add i32 %.neg1048, %118
-  %120 = icmp ult i64 %indvars.iv, 18
+  %120 = icmp samesign ult i64 %indvars.iv, 18
   br i1 %120, label %.lr.ph969, label %._crit_edge
 
 .lr.ph969:                                        ; preds = %.preheader896, %.lr.ph969
@@ -50302,7 +50302,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   %124 = getelementptr inbounds [19 x i8], ptr %0, i64 0, i64 %123
   store i8 0, ptr %124, align 1
   %indvars.iv.next1043 = add nuw nsw i64 %indvars.iv1042, 1
-  %125 = icmp ult i64 %indvars.iv1042, 18
+  %125 = icmp samesign ult i64 %indvars.iv1042, 18
   br i1 %125, label %.lr.ph969, label %._crit_edge, !llvm.loop !374
 
 ._crit_edge:                                      ; preds = %.lr.ph969, %.preheader896
@@ -50320,7 +50320,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   %.8743 = phi i64 [ %.12747, %249 ], [ %117, %.preheader894 ]
   %.7 = phi ptr [ %.8, %249 ], [ %.6734, %.preheader894 ]
   %129 = and i32 %.6767, 255
-  %130 = icmp ult i32 %129, 14
+  %130 = icmp samesign ult i32 %129, 14
   br i1 %130, label %131, label %.loopexit887
 
 131:                                              ; preds = %128
@@ -50372,7 +50372,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   %.10 = phi ptr [ %148, %147 ], [ %.9973, %154 ]
   %158 = add i32 %.8769971, 8
   %159 = and i32 %158, 255
-  %160 = icmp ult i32 %159, 56
+  %160 = icmp samesign ult i32 %159, 56
   br i1 %160, label %.lr.ph974, label %.loopexit887, !llvm.loop !375
 
 .loopexit887:                                     ; preds = %157, %135, %128
@@ -50778,7 +50778,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   br i1 %.not860, label %429, label %403
 
 403:                                              ; preds = %388
-  %404 = icmp ult i32 %402, 38
+  %404 = icmp samesign ult i32 %402, 38
   br i1 %404, label %405, label %416
 
 405:                                              ; preds = %403
@@ -50815,7 +50815,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   br label %442
 
 429:                                              ; preds = %388
-  %430 = icmp ult i32 %402, 31
+  %430 = icmp samesign ult i32 %402, 31
   br i1 %430, label %431, label %442
 
 431:                                              ; preds = %429
@@ -51022,7 +51022,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
 
 .preheader:                                       ; preds = %.loopexit893
   %525 = and i32 %.20781, 255
-  %526 = icmp ult i32 %525, 56
+  %526 = icmp samesign ult i32 %525, 56
   br i1 %526, label %.lr.ph994, label %.loopexit881
 
 527:                                              ; preds = %.loopexit893
@@ -51069,7 +51069,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   %.21 = phi ptr [ %541, %540 ], [ %.20993, %547 ]
   %551 = add i32 %.21782991, 8
   %552 = and i32 %551, 255
-  %553 = icmp ult i32 %552, 56
+  %553 = icmp samesign ult i32 %552, 56
   br i1 %553, label %.lr.ph994, label %.loopexit881, !llvm.loop !381
 
 .loopexit881:                                     ; preds = %550, %.preheader, %527
@@ -51721,7 +51721,7 @@ define internal fastcc range(i32 0, 24) i32 @internal_huf_decompress(ptr noundef
   %41 = getelementptr i8, ptr %1, i64 %2
   %42 = zext nneg i32 %21 to i64
   %43 = zext nneg i32 %23 to i64
-  %.not237.i = icmp ugt i32 %21, %23
+  %.not237.i = icmp samesign ugt i32 %21, %23
   br i1 %.not237.i, label %.preheader216.i, label %.lr.ph.i
 
 .preheader216.i:                                  ; preds = %107, %37
@@ -51768,7 +51768,7 @@ fasthuf_read_bits.exit.i:                         ; preds = %.lr.ph.i.i, %49
   %59 = zext nneg i32 %58 to i64
   %60 = lshr i64 %.6197.i, %59
   %61 = and i64 %60, 63
-  %62 = icmp ult i64 %61, 59
+  %62 = icmp samesign ult i64 %61, 59
   br i1 %62, label %63, label %81
 
 63:                                               ; preds = %fasthuf_read_bits.exit.i
@@ -51777,7 +51777,7 @@ fasthuf_read_bits.exit.i:                         ; preds = %.lr.ph.i.i, %49
 
 65:                                               ; preds = %63
   %66 = zext i8 %47 to i64
-  %67 = icmp ult i64 %61, %66
+  %67 = icmp samesign ult i64 %61, %66
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %65
@@ -51788,7 +51788,7 @@ fasthuf_read_bits.exit.i:                         ; preds = %.lr.ph.i.i, %49
 70:                                               ; preds = %68, %65
   %71 = phi i8 [ %69, %68 ], [ %47, %65 ]
   %72 = zext nneg i8 %46 to i64
-  %73 = icmp ugt i64 %61, %72
+  %73 = icmp samesign ugt i64 %61, %72
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %70
@@ -51918,7 +51918,7 @@ fasthuf_read_bits.exit159.i:                      ; preds = %fasthuf_read_bits.e
 .lr.ph256.i:                                      ; preds = %.lr.ph246.i, %._crit_edge.i
   %indvars.iv304.i = phi i64 [ %indvars.iv.next305.i, %._crit_edge.i ], [ %121, %.lr.ph246.i ]
   %indvars.iv.next305.i = add nuw nsw i64 %indvars.iv304.i, 1
-  %.not150249.not.i = icmp ult i64 %indvars.iv304.i, %.pre
+  %.not150249.not.i = icmp samesign ult i64 %indvars.iv304.i, %.pre
   br i1 %.not150249.not.i, label %.lr.ph252.i, label %._crit_edge.i
 
 .lr.ph252.i:                                      ; preds = %.lr.ph256.i, %.lr.ph252.i
@@ -52018,7 +52018,7 @@ fasthuf_read_bits.exit162.i:                      ; preds = %.lr.ph.i161.i, %153
   %163 = zext nneg i32 %162 to i64
   %164 = lshr i64 %.10.i, %163
   %165 = and i64 %164, 63
-  %166 = icmp ult i64 %165, 59
+  %166 = icmp samesign ult i64 %165, 59
   br i1 %166, label %167, label %179
 
 167:                                              ; preds = %fasthuf_read_bits.exit162.i
@@ -52254,7 +52254,7 @@ fasthuf_initialize.exit.thread:                   ; preds = %fasthuf_initialize.
 274:                                              ; preds = %35
   %275 = getelementptr inbounds i8, ptr %5, i64 524296
   %276 = add i64 %2, -20
-  %.not86.i = icmp ugt i32 %21, %23
+  %.not86.i = icmp samesign ugt i32 %21, %23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(786440) %5, i8 0, i64 786440, i1 false)
   br i1 %.not86.i, label %.._crit_edge93.i_crit_edge, label %.lr.ph92.i
 
@@ -52334,7 +52334,7 @@ getBits.exit48.i:                                 ; preds = %.lr.ph.i46.i, %298
   %312 = and i64 %311, 255
   %313 = add nuw nsw i64 %312, 6
   %314 = add nuw nsw i64 %313, %295
-  %315 = icmp ugt i64 %314, %278
+  %315 = icmp samesign ugt i64 %314, %278
   br i1 %315, label %hufUnpackEncTable.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %getBits.exit48.i, %.preheader.i
@@ -52349,7 +52349,7 @@ getBits.exit48.i:                                 ; preds = %.lr.ph.i46.i, %298
   br i1 %.not44.i, label %.loopexit95.i, label %.preheader.i, !llvm.loop !410
 
 320:                                              ; preds = %getBits.exit.i
-  %321 = icmp ugt i64 %294, 58
+  %321 = icmp samesign ugt i64 %294, 58
   br i1 %321, label %322, label %..loopexit95.i_crit_edge
 
 ..loopexit95.i_crit_edge:                         ; preds = %320
@@ -52552,7 +52552,7 @@ define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %0, ptr 
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = load i8, ptr %17, align 1
   %35 = zext i8 %34 to i64
-  %36 = icmp ugt i64 %indvars.iv, %35
+  %36 = icmp samesign ugt i64 %indvars.iv, %35
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %32
@@ -52925,7 +52925,7 @@ define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readon
 .thread:                                          ; preds = %5, %6
   %11 = phi ptr [ %8, %6 ], [ @internal_exr_alloc, %5 ]
   %12 = phi ptr [ %10, %6 ], [ @internal_exr_free, %5 ]
-  %.not6379 = icmp ugt i32 %2, %3
+  %.not6379 = icmp samesign ugt i32 %2, %3
   br i1 %.not6379, label %.loopexit74, label %.lr.ph81.preheader
 
 .lr.ph81.preheader:                               ; preds = %.thread
@@ -52947,7 +52947,7 @@ define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readon
   br i1 %.not64, label %22, label %.loopexit74
 
 22:                                               ; preds = %.lr.ph81
-  %23 = icmp ugt i32 %19, 14
+  %23 = icmp samesign ugt i32 %19, 14
   br i1 %23, label %24, label %59
 
 24:                                               ; preds = %22
@@ -52993,7 +52993,7 @@ define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readon
   %45 = load i32, ptr %31, align 4
   %46 = add i32 %45, -1
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %48, label %.lr.ph, label %.loopexit, !llvm.loop !418
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %36
@@ -55287,12 +55287,12 @@ define internal fastcc range(i32 0, 24) i32 @LossyDctDecoder_execute(ptr nocaptu
   %174 = and i32 %173, 268427264
   %.signext.i = sext i16 %171 to i32
   %175 = and i32 %.signext.i, -2147483648
-  %176 = icmp ugt i32 %174, 8388607
+  %176 = icmp samesign ugt i32 %174, 8388607
   br i1 %176, label %177, label %184
 
 177:                                              ; preds = %170
   %178 = or disjoint i32 %174, %175
-  %179 = icmp ult i32 %174, 260046848
+  %179 = icmp samesign ult i32 %174, 260046848
   br i1 %179, label %180, label %182
 
 180:                                              ; preds = %177
@@ -55682,11 +55682,11 @@ dctInverse8x8DcOnly.exit:                         ; preds = %198, %dctInverse8x8
   %437 = lshr i32 %434, 16
   %438 = trunc nuw i32 %437 to i16
   %439 = and i16 %438, -32768
-  %440 = icmp ugt i32 %436, 947912703
+  %440 = icmp samesign ugt i32 %436, 947912703
   br i1 %440, label %441, label %467
 
 441:                                              ; preds = %.lr.ph403.split
-  %442 = icmp ugt i32 %436, 2139095039
+  %442 = icmp samesign ugt i32 %436, 2139095039
   br i1 %442, label %443, label %454
 
 443:                                              ; preds = %441
@@ -55705,7 +55705,7 @@ dctInverse8x8DcOnly.exit:                         ; preds = %198, %dctInverse8x8
   br label %float_to_half.exit
 
 454:                                              ; preds = %441
-  %455 = icmp ugt i32 %436, 1199566847
+  %455 = icmp samesign ugt i32 %436, 1199566847
   br i1 %455, label %456, label %458
 
 456:                                              ; preds = %454
@@ -55724,7 +55724,7 @@ dctInverse8x8DcOnly.exit:                         ; preds = %198, %dctInverse8x8
   br label %float_to_half.exit
 
 467:                                              ; preds = %.lr.ph403.split
-  %468 = icmp ult i32 %436, 855638017
+  %468 = icmp samesign ult i32 %436, 855638017
   br i1 %468, label %float_to_half.exit, label %469
 
 469:                                              ; preds = %467
@@ -56096,12 +56096,12 @@ float_to_half.exit:                               ; preds = %443, %446, %456, %4
   %685 = and i32 %684, 268427264
   %.signext.i345 = sext i16 %682 to i32
   %686 = and i32 %.signext.i345, -2147483648
-  %687 = icmp ugt i32 %685, 8388607
+  %687 = icmp samesign ugt i32 %685, 8388607
   br i1 %687, label %688, label %695
 
 688:                                              ; preds = %.lr.ph452
   %689 = or disjoint i32 %685, %686
-  %690 = icmp ult i32 %685, 260046848
+  %690 = icmp samesign ult i32 %685, 260046848
   br i1 %690, label %691, label %693
 
 691:                                              ; preds = %688
@@ -56538,11 +56538,11 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep_pointers(ptr nocapture 
 70:                                               ; preds = %.lr.ph224.us.us
   %71 = uitofp nneg i32 %.0149.val.us.us to float
   %72 = bitcast float %71 to i32
-  %73 = icmp ugt i32 %72, 947912703
+  %73 = icmp samesign ugt i32 %72, 947912703
   br i1 %73, label %91, label %74
 
 74:                                               ; preds = %70
-  %75 = icmp ult i32 %72, 855638017
+  %75 = icmp samesign ult i32 %72, 855638017
   br i1 %75, label %uint_to_half.exit.us.us, label %76
 
 76:                                               ; preds = %74
@@ -56569,11 +56569,11 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep_pointers(ptr nocapture 
   br label %uint_to_half.exit.us.us
 
 91:                                               ; preds = %70
-  %92 = icmp ugt i32 %72, 2139095039
+  %92 = icmp samesign ugt i32 %72, 2139095039
   br i1 %92, label %102, label %93
 
 93:                                               ; preds = %91
-  %94 = icmp ugt i32 %72, 1199566847
+  %94 = icmp samesign ugt i32 %72, 1199566847
   br i1 %94, label %uint_to_half.exit.us.us, label %95
 
 95:                                               ; preds = %93
@@ -56665,11 +56665,11 @@ float_to_uint_int.exit.us.us:                     ; preds = %117, %.lr.ph228.us.
   %131 = lshr i32 %.0157.val.us.us, 16
   %132 = trunc nuw i32 %131 to i16
   %133 = and i16 %132, -32768
-  %134 = icmp ugt i32 %130, 947912703
+  %134 = icmp samesign ugt i32 %130, 947912703
   br i1 %134, label %154, label %135
 
 135:                                              ; preds = %.lr.ph236.us.us
-  %136 = icmp ult i32 %130, 855638017
+  %136 = icmp samesign ult i32 %130, 855638017
   br i1 %136, label %float_to_half_int.exit.us.us, label %137
 
 137:                                              ; preds = %135
@@ -56698,11 +56698,11 @@ float_to_uint_int.exit.us.us:                     ; preds = %117, %.lr.ph228.us.
   br label %float_to_half_int.exit.us.us
 
 154:                                              ; preds = %.lr.ph236.us.us
-  %155 = icmp ugt i32 %130, 2139095039
+  %155 = icmp samesign ugt i32 %130, 2139095039
   br i1 %155, label %169, label %156
 
 156:                                              ; preds = %154
-  %157 = icmp ugt i32 %130, 1199566847
+  %157 = icmp samesign ugt i32 %130, 1199566847
   br i1 %157, label %167, label %158
 
 158:                                              ; preds = %156
@@ -56827,7 +56827,7 @@ half_to_uint.exit.us.us:                          ; preds = %208, %half_to_float
   %215 = and i32 %214, 268427264
   %.signext.i.us.us = sext i16 %.0163.val.us.us to i32
   %216 = and i32 %.signext.i.us.us, -2147483648
-  %217 = icmp ugt i32 %215, 8388607
+  %217 = icmp samesign ugt i32 %215, 8388607
   br i1 %217, label %227, label %218
 
 218:                                              ; preds = %.lr.ph244.us.us
@@ -56846,7 +56846,7 @@ half_to_uint.exit.us.us:                          ; preds = %208, %half_to_float
 
 227:                                              ; preds = %.lr.ph244.us.us
   %228 = or disjoint i32 %215, %216
-  %229 = icmp ult i32 %215, 260046848
+  %229 = icmp samesign ult i32 %215, 260046848
   br i1 %229, label %232, label %230
 
 230:                                              ; preds = %227
@@ -57115,11 +57115,11 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep(ptr nocapture noundef r
 64:                                               ; preds = %.lr.ph233.us.us
   %65 = uitofp nneg i32 %.0151.val.us.us to float
   %66 = bitcast float %65 to i32
-  %67 = icmp ugt i32 %66, 947912703
+  %67 = icmp samesign ugt i32 %66, 947912703
   br i1 %67, label %85, label %68
 
 68:                                               ; preds = %64
-  %69 = icmp ult i32 %66, 855638017
+  %69 = icmp samesign ult i32 %66, 855638017
   br i1 %69, label %uint_to_half.exit.us.us, label %70
 
 70:                                               ; preds = %68
@@ -57146,11 +57146,11 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep(ptr nocapture noundef r
   br label %uint_to_half.exit.us.us
 
 85:                                               ; preds = %64
-  %86 = icmp ugt i32 %66, 2139095039
+  %86 = icmp samesign ugt i32 %66, 2139095039
   br i1 %86, label %96, label %87
 
 87:                                               ; preds = %85
-  %88 = icmp ugt i32 %66, 1199566847
+  %88 = icmp samesign ugt i32 %66, 1199566847
   br i1 %88, label %uint_to_half.exit.us.us, label %89
 
 89:                                               ; preds = %87
@@ -57242,11 +57242,11 @@ float_to_uint_int.exit.us.us:                     ; preds = %111, %.lr.ph238.us.
   %125 = lshr i32 %.0162.val.us.us, 16
   %126 = trunc nuw i32 %125 to i16
   %127 = and i16 %126, -32768
-  %128 = icmp ugt i32 %124, 947912703
+  %128 = icmp samesign ugt i32 %124, 947912703
   br i1 %128, label %148, label %129
 
 129:                                              ; preds = %.lr.ph248.us.us
-  %130 = icmp ult i32 %124, 855638017
+  %130 = icmp samesign ult i32 %124, 855638017
   br i1 %130, label %float_to_half_int.exit.us.us, label %131
 
 131:                                              ; preds = %129
@@ -57275,11 +57275,11 @@ float_to_uint_int.exit.us.us:                     ; preds = %111, %.lr.ph238.us.
   br label %float_to_half_int.exit.us.us
 
 148:                                              ; preds = %.lr.ph248.us.us
-  %149 = icmp ugt i32 %124, 2139095039
+  %149 = icmp samesign ugt i32 %124, 2139095039
   br i1 %149, label %163, label %150
 
 150:                                              ; preds = %148
-  %151 = icmp ugt i32 %124, 1199566847
+  %151 = icmp samesign ugt i32 %124, 1199566847
   br i1 %151, label %161, label %152
 
 152:                                              ; preds = %150
@@ -57404,7 +57404,7 @@ half_to_uint.exit.us.us:                          ; preds = %202, %half_to_float
   %209 = and i32 %208, 268427264
   %.signext.i.us.us = sext i16 %.0172.val.us.us to i32
   %210 = and i32 %.signext.i.us.us, -2147483648
-  %211 = icmp ugt i32 %209, 8388607
+  %211 = icmp samesign ugt i32 %209, 8388607
   br i1 %211, label %221, label %212
 
 212:                                              ; preds = %.lr.ph258.us.us
@@ -57423,7 +57423,7 @@ half_to_uint.exit.us.us:                          ; preds = %202, %half_to_float
 
 221:                                              ; preds = %.lr.ph258.us.us
   %222 = or disjoint i32 %209, %210
-  %223 = icmp ult i32 %209, 260046848
+  %223 = icmp samesign ult i32 %209, 260046848
   br i1 %223, label %226, label %224
 
 224:                                              ; preds = %221
@@ -57597,7 +57597,7 @@ define internal noundef i32 @unpack_half_to_float_4chan_interleave(ptr nocapture
   %27 = and i32 %26, 268427264
   %.signext.i.us = sext i16 %24 to i32
   %28 = and i32 %.signext.i.us, -2147483648
-  %29 = icmp ugt i32 %27, 8388607
+  %29 = icmp samesign ugt i32 %27, 8388607
   br i1 %29, label %39, label %30
 
 30:                                               ; preds = %22
@@ -57616,7 +57616,7 @@ define internal noundef i32 @unpack_half_to_float_4chan_interleave(ptr nocapture
 
 39:                                               ; preds = %22
   %40 = or disjoint i32 %27, %28
-  %41 = icmp ult i32 %27, 260046848
+  %41 = icmp samesign ult i32 %27, 260046848
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %39
@@ -57637,7 +57637,7 @@ half_to_float.exit.us:                            ; preds = %44, %42, %31, %30
   %50 = and i32 %49, 268427264
   %.signext.i39.us = sext i16 %47 to i32
   %51 = and i32 %.signext.i39.us, -2147483648
-  %52 = icmp ugt i32 %50, 8388607
+  %52 = icmp samesign ugt i32 %50, 8388607
   br i1 %52, label %62, label %53
 
 53:                                               ; preds = %half_to_float.exit.us
@@ -57656,7 +57656,7 @@ half_to_float.exit.us:                            ; preds = %44, %42, %31, %30
 
 62:                                               ; preds = %half_to_float.exit.us
   %63 = or disjoint i32 %50, %51
-  %64 = icmp ult i32 %50, 260046848
+  %64 = icmp samesign ult i32 %50, 260046848
   br i1 %64, label %67, label %65
 
 65:                                               ; preds = %62
@@ -57678,7 +57678,7 @@ half_to_float.exit42.us:                          ; preds = %67, %65, %54, %53
   %74 = and i32 %73, 268427264
   %.signext.i43.us = sext i16 %71 to i32
   %75 = and i32 %.signext.i43.us, -2147483648
-  %76 = icmp ugt i32 %74, 8388607
+  %76 = icmp samesign ugt i32 %74, 8388607
   br i1 %76, label %86, label %77
 
 77:                                               ; preds = %half_to_float.exit42.us
@@ -57697,7 +57697,7 @@ half_to_float.exit42.us:                          ; preds = %67, %65, %54, %53
 
 86:                                               ; preds = %half_to_float.exit42.us
   %87 = or disjoint i32 %74, %75
-  %88 = icmp ult i32 %74, 260046848
+  %88 = icmp samesign ult i32 %74, 260046848
   br i1 %88, label %91, label %89
 
 89:                                               ; preds = %86
@@ -57719,7 +57719,7 @@ half_to_float.exit46.us:                          ; preds = %91, %89, %78, %77
   %98 = and i32 %97, 268427264
   %.signext.i47.us = sext i16 %95 to i32
   %99 = and i32 %.signext.i47.us, -2147483648
-  %100 = icmp ugt i32 %98, 8388607
+  %100 = icmp samesign ugt i32 %98, 8388607
   br i1 %100, label %110, label %101
 
 101:                                              ; preds = %half_to_float.exit46.us
@@ -57738,7 +57738,7 @@ half_to_float.exit46.us:                          ; preds = %91, %89, %78, %77
 
 110:                                              ; preds = %half_to_float.exit46.us
   %111 = or disjoint i32 %98, %99
-  %112 = icmp ult i32 %98, 260046848
+  %112 = icmp samesign ult i32 %98, 260046848
   br i1 %112, label %115, label %113
 
 113:                                              ; preds = %110
@@ -57815,7 +57815,7 @@ define internal noundef i32 @unpack_half_to_float_3chan_interleave(ptr nocapture
   %26 = and i32 %25, 268427264
   %.signext.i.us = sext i16 %23 to i32
   %27 = and i32 %.signext.i.us, -2147483648
-  %28 = icmp ugt i32 %26, 8388607
+  %28 = icmp samesign ugt i32 %26, 8388607
   br i1 %28, label %38, label %29
 
 29:                                               ; preds = %21
@@ -57834,7 +57834,7 @@ define internal noundef i32 @unpack_half_to_float_3chan_interleave(ptr nocapture
 
 38:                                               ; preds = %21
   %39 = or disjoint i32 %26, %27
-  %40 = icmp ult i32 %26, 260046848
+  %40 = icmp samesign ult i32 %26, 260046848
   br i1 %40, label %43, label %41
 
 41:                                               ; preds = %38
@@ -57855,7 +57855,7 @@ half_to_float.exit.us:                            ; preds = %43, %41, %30, %29
   %49 = and i32 %48, 268427264
   %.signext.i34.us = sext i16 %46 to i32
   %50 = and i32 %.signext.i34.us, -2147483648
-  %51 = icmp ugt i32 %49, 8388607
+  %51 = icmp samesign ugt i32 %49, 8388607
   br i1 %51, label %61, label %52
 
 52:                                               ; preds = %half_to_float.exit.us
@@ -57874,7 +57874,7 @@ half_to_float.exit.us:                            ; preds = %43, %41, %30, %29
 
 61:                                               ; preds = %half_to_float.exit.us
   %62 = or disjoint i32 %49, %50
-  %63 = icmp ult i32 %49, 260046848
+  %63 = icmp samesign ult i32 %49, 260046848
   br i1 %63, label %66, label %64
 
 64:                                               ; preds = %61
@@ -57896,7 +57896,7 @@ half_to_float.exit37.us:                          ; preds = %66, %64, %53, %52
   %73 = and i32 %72, 268427264
   %.signext.i38.us = sext i16 %70 to i32
   %74 = and i32 %.signext.i38.us, -2147483648
-  %75 = icmp ugt i32 %73, 8388607
+  %75 = icmp samesign ugt i32 %73, 8388607
   br i1 %75, label %85, label %76
 
 76:                                               ; preds = %half_to_float.exit37.us
@@ -57915,7 +57915,7 @@ half_to_float.exit37.us:                          ; preds = %66, %64, %53, %52
 
 85:                                               ; preds = %half_to_float.exit37.us
   %86 = or disjoint i32 %73, %74
-  %87 = icmp ult i32 %73, 260046848
+  %87 = icmp samesign ult i32 %73, 260046848
   br i1 %87, label %90, label %88
 
 88:                                               ; preds = %85
@@ -57993,7 +57993,7 @@ define internal noundef i32 @unpack_half_to_float_4chan_interleave_rev(ptr nocap
   %27 = and i32 %26, 268427264
   %.signext.i.us = sext i16 %24 to i32
   %28 = and i32 %.signext.i.us, -2147483648
-  %29 = icmp ugt i32 %27, 8388607
+  %29 = icmp samesign ugt i32 %27, 8388607
   br i1 %29, label %39, label %30
 
 30:                                               ; preds = %22
@@ -58012,7 +58012,7 @@ define internal noundef i32 @unpack_half_to_float_4chan_interleave_rev(ptr nocap
 
 39:                                               ; preds = %22
   %40 = or disjoint i32 %27, %28
-  %41 = icmp ult i32 %27, 260046848
+  %41 = icmp samesign ult i32 %27, 260046848
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %39
@@ -58033,7 +58033,7 @@ half_to_float.exit.us:                            ; preds = %44, %42, %31, %30
   %50 = and i32 %49, 268427264
   %.signext.i39.us = sext i16 %47 to i32
   %51 = and i32 %.signext.i39.us, -2147483648
-  %52 = icmp ugt i32 %50, 8388607
+  %52 = icmp samesign ugt i32 %50, 8388607
   br i1 %52, label %62, label %53
 
 53:                                               ; preds = %half_to_float.exit.us
@@ -58052,7 +58052,7 @@ half_to_float.exit.us:                            ; preds = %44, %42, %31, %30
 
 62:                                               ; preds = %half_to_float.exit.us
   %63 = or disjoint i32 %50, %51
-  %64 = icmp ult i32 %50, 260046848
+  %64 = icmp samesign ult i32 %50, 260046848
   br i1 %64, label %67, label %65
 
 65:                                               ; preds = %62
@@ -58074,7 +58074,7 @@ half_to_float.exit42.us:                          ; preds = %67, %65, %54, %53
   %74 = and i32 %73, 268427264
   %.signext.i43.us = sext i16 %71 to i32
   %75 = and i32 %.signext.i43.us, -2147483648
-  %76 = icmp ugt i32 %74, 8388607
+  %76 = icmp samesign ugt i32 %74, 8388607
   br i1 %76, label %86, label %77
 
 77:                                               ; preds = %half_to_float.exit42.us
@@ -58093,7 +58093,7 @@ half_to_float.exit42.us:                          ; preds = %67, %65, %54, %53
 
 86:                                               ; preds = %half_to_float.exit42.us
   %87 = or disjoint i32 %74, %75
-  %88 = icmp ult i32 %74, 260046848
+  %88 = icmp samesign ult i32 %74, 260046848
   br i1 %88, label %91, label %89
 
 89:                                               ; preds = %86
@@ -58115,7 +58115,7 @@ half_to_float.exit46.us:                          ; preds = %91, %89, %78, %77
   %98 = and i32 %97, 268427264
   %.signext.i47.us = sext i16 %95 to i32
   %99 = and i32 %.signext.i47.us, -2147483648
-  %100 = icmp ugt i32 %98, 8388607
+  %100 = icmp samesign ugt i32 %98, 8388607
   br i1 %100, label %110, label %101
 
 101:                                              ; preds = %half_to_float.exit46.us
@@ -58134,7 +58134,7 @@ half_to_float.exit46.us:                          ; preds = %91, %89, %78, %77
 
 110:                                              ; preds = %half_to_float.exit46.us
   %111 = or disjoint i32 %98, %99
-  %112 = icmp ult i32 %98, 260046848
+  %112 = icmp samesign ult i32 %98, 260046848
   br i1 %112, label %115, label %113
 
 113:                                              ; preds = %110
@@ -58211,7 +58211,7 @@ define internal noundef i32 @unpack_half_to_float_3chan_interleave_rev(ptr nocap
   %26 = and i32 %25, 268427264
   %.signext.i.us = sext i16 %23 to i32
   %27 = and i32 %.signext.i.us, -2147483648
-  %28 = icmp ugt i32 %26, 8388607
+  %28 = icmp samesign ugt i32 %26, 8388607
   br i1 %28, label %38, label %29
 
 29:                                               ; preds = %21
@@ -58230,7 +58230,7 @@ define internal noundef i32 @unpack_half_to_float_3chan_interleave_rev(ptr nocap
 
 38:                                               ; preds = %21
   %39 = or disjoint i32 %26, %27
-  %40 = icmp ult i32 %26, 260046848
+  %40 = icmp samesign ult i32 %26, 260046848
   br i1 %40, label %43, label %41
 
 41:                                               ; preds = %38
@@ -58251,7 +58251,7 @@ half_to_float.exit.us:                            ; preds = %43, %41, %30, %29
   %49 = and i32 %48, 268427264
   %.signext.i34.us = sext i16 %46 to i32
   %50 = and i32 %.signext.i34.us, -2147483648
-  %51 = icmp ugt i32 %49, 8388607
+  %51 = icmp samesign ugt i32 %49, 8388607
   br i1 %51, label %61, label %52
 
 52:                                               ; preds = %half_to_float.exit.us
@@ -58270,7 +58270,7 @@ half_to_float.exit.us:                            ; preds = %43, %41, %30, %29
 
 61:                                               ; preds = %half_to_float.exit.us
   %62 = or disjoint i32 %49, %50
-  %63 = icmp ult i32 %49, 260046848
+  %63 = icmp samesign ult i32 %49, 260046848
   br i1 %63, label %66, label %64
 
 64:                                               ; preds = %61
@@ -58292,7 +58292,7 @@ half_to_float.exit37.us:                          ; preds = %66, %64, %53, %52
   %73 = and i32 %72, 268427264
   %.signext.i38.us = sext i16 %70 to i32
   %74 = and i32 %.signext.i38.us, -2147483648
-  %75 = icmp ugt i32 %73, 8388607
+  %75 = icmp samesign ugt i32 %73, 8388607
   br i1 %75, label %85, label %76
 
 76:                                               ; preds = %half_to_float.exit37.us
@@ -58311,7 +58311,7 @@ half_to_float.exit37.us:                          ; preds = %66, %64, %53, %52
 
 85:                                               ; preds = %half_to_float.exit37.us
   %86 = or disjoint i32 %73, %74
-  %87 = icmp ult i32 %73, 260046848
+  %87 = icmp samesign ult i32 %73, 260046848
   br i1 %87, label %90, label %88
 
 88:                                               ; preds = %85
@@ -58618,12 +58618,12 @@ define internal range(i32 0, 4) i32 @generic_unpack(ptr nocapture noundef readon
   %76 = and i32 %75, 268427264
   %.signext.i = sext i16 %.0149.val to i32
   %77 = and i32 %.signext.i, -2147483648
-  %78 = icmp ugt i32 %76, 8388607
+  %78 = icmp samesign ugt i32 %76, 8388607
   br i1 %78, label %79, label %86
 
 79:                                               ; preds = %72
   %80 = or disjoint i32 %76, %77
-  %81 = icmp ult i32 %76, 260046848
+  %81 = icmp samesign ult i32 %76, 260046848
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %79
@@ -58766,11 +58766,11 @@ half_to_uint.exit:                                ; preds = %97, %103, %half_to_
   %140 = lshr i32 %.0143.val, 16
   %141 = trunc nuw i32 %140 to i16
   %142 = and i16 %141, -32768
-  %143 = icmp ugt i32 %139, 947912703
+  %143 = icmp samesign ugt i32 %139, 947912703
   br i1 %143, label %144, label %170
 
 144:                                              ; preds = %135
-  %145 = icmp ugt i32 %139, 2139095039
+  %145 = icmp samesign ugt i32 %139, 2139095039
   br i1 %145, label %146, label %157
 
 146:                                              ; preds = %144
@@ -58789,7 +58789,7 @@ half_to_uint.exit:                                ; preds = %97, %103, %half_to_
   br label %float_to_half_int.exit
 
 157:                                              ; preds = %144
-  %158 = icmp ugt i32 %139, 1199566847
+  %158 = icmp samesign ugt i32 %139, 1199566847
   br i1 %158, label %159, label %161
 
 159:                                              ; preds = %157
@@ -58808,7 +58808,7 @@ half_to_uint.exit:                                ; preds = %97, %103, %half_to_
   br label %float_to_half_int.exit
 
 170:                                              ; preds = %135
-  %171 = icmp ult i32 %139, 855638017
+  %171 = icmp samesign ult i32 %139, 855638017
   br i1 %171, label %float_to_half_int.exit, label %172
 
 172:                                              ; preds = %170
@@ -58927,11 +58927,11 @@ float_to_uint_int.exit:                           ; preds = %195, %197
 216:                                              ; preds = %213
   %217 = uitofp nneg i32 %.0133.val to float
   %218 = bitcast float %217 to i32
-  %219 = icmp ugt i32 %218, 947912703
+  %219 = icmp samesign ugt i32 %218, 947912703
   br i1 %219, label %220, label %241
 
 220:                                              ; preds = %216
-  %221 = icmp ugt i32 %218, 2139095039
+  %221 = icmp samesign ugt i32 %218, 2139095039
   br i1 %221, label %222, label %232
 
 222:                                              ; preds = %220
@@ -58949,7 +58949,7 @@ float_to_uint_int.exit:                           ; preds = %195, %197
   br label %uint_to_half.exit
 
 232:                                              ; preds = %220
-  %233 = icmp ugt i32 %218, 1199566847
+  %233 = icmp samesign ugt i32 %218, 1199566847
   br i1 %233, label %uint_to_half.exit, label %234
 
 234:                                              ; preds = %232
@@ -58962,7 +58962,7 @@ float_to_uint_int.exit:                           ; preds = %195, %197
   br label %uint_to_half.exit
 
 241:                                              ; preds = %216
-  %242 = icmp ult i32 %218, 855638017
+  %242 = icmp samesign ult i32 %218, 855638017
   br i1 %242, label %uint_to_half.exit, label %243
 
 243:                                              ; preds = %241
@@ -59903,12 +59903,12 @@ define internal fastcc void @half_to_float_buffer(ptr nocapture noundef writeonl
   %16 = and i32 %15, 268427264
   %.signext.i = sext i16 %13 to i32
   %17 = and i32 %.signext.i, -2147483648
-  %18 = icmp ugt i32 %16, 8388607
+  %18 = icmp samesign ugt i32 %16, 8388607
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %11
   %20 = or disjoint i32 %16, %17
-  %21 = icmp ult i32 %16, 260046848
+  %21 = icmp samesign ult i32 %16, 260046848
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %19
@@ -59944,12 +59944,12 @@ half_to_float.exit:                               ; preds = %22, %24, %26, %27
   %40 = and i32 %39, 268427264
   %.signext.i40 = sext i16 %37 to i32
   %41 = and i32 %.signext.i40, -2147483648
-  %42 = icmp ugt i32 %40, 8388607
+  %42 = icmp samesign ugt i32 %40, 8388607
   br i1 %42, label %43, label %50
 
 43:                                               ; preds = %half_to_float.exit
   %44 = or disjoint i32 %40, %41
-  %45 = icmp ult i32 %40, 260046848
+  %45 = icmp samesign ult i32 %40, 260046848
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %43
@@ -59985,12 +59985,12 @@ half_to_float.exit43:                             ; preds = %46, %48, %50, %51
   %64 = and i32 %63, 268427264
   %.signext.i44 = sext i16 %61 to i32
   %65 = and i32 %.signext.i44, -2147483648
-  %66 = icmp ugt i32 %64, 8388607
+  %66 = icmp samesign ugt i32 %64, 8388607
   br i1 %66, label %67, label %74
 
 67:                                               ; preds = %half_to_float.exit43
   %68 = or disjoint i32 %64, %65
-  %69 = icmp ult i32 %64, 260046848
+  %69 = icmp samesign ult i32 %64, 260046848
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %67
@@ -60030,12 +60030,12 @@ half_to_float.exit47:                             ; preds = %70, %72, %74, %75
   %89 = and i32 %88, 268427264
   %.signext.i48 = sext i16 %86 to i32
   %90 = and i32 %.signext.i48, -2147483648
-  %91 = icmp ugt i32 %89, 8388607
+  %91 = icmp samesign ugt i32 %89, 8388607
   br i1 %91, label %92, label %99
 
 92:                                               ; preds = %84
   %93 = or disjoint i32 %89, %90
-  %94 = icmp ult i32 %89, 260046848
+  %94 = icmp samesign ult i32 %89, 260046848
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %92
@@ -60071,12 +60071,12 @@ half_to_float.exit51:                             ; preds = %95, %97, %99, %100
   %113 = and i32 %112, 268427264
   %.signext.i52 = sext i16 %110 to i32
   %114 = and i32 %.signext.i52, -2147483648
-  %115 = icmp ugt i32 %113, 8388607
+  %115 = icmp samesign ugt i32 %113, 8388607
   br i1 %115, label %116, label %123
 
 116:                                              ; preds = %half_to_float.exit51
   %117 = or disjoint i32 %113, %114
-  %118 = icmp ult i32 %113, 260046848
+  %118 = icmp samesign ult i32 %113, 260046848
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %116
@@ -60116,12 +60116,12 @@ half_to_float.exit55:                             ; preds = %119, %121, %123, %1
   %138 = and i32 %137, 268427264
   %.signext.i56 = sext i16 %135 to i32
   %139 = and i32 %.signext.i56, -2147483648
-  %140 = icmp ugt i32 %138, 8388607
+  %140 = icmp samesign ugt i32 %138, 8388607
   br i1 %140, label %141, label %148
 
 141:                                              ; preds = %133
   %142 = or disjoint i32 %138, %139
-  %143 = icmp ult i32 %138, 260046848
+  %143 = icmp samesign ult i32 %138, 260046848
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %141
@@ -60163,12 +60163,12 @@ half_to_float.exit59:                             ; preds = %144, %146, %148, %1
   %163 = and i32 %162, 268427264
   %.signext.i60 = sext i16 %160 to i32
   %164 = and i32 %.signext.i60, -2147483648
-  %165 = icmp ugt i32 %163, 8388607
+  %165 = icmp samesign ugt i32 %163, 8388607
   br i1 %165, label %166, label %173
 
 166:                                              ; preds = %159
   %167 = or disjoint i32 %163, %164
-  %168 = icmp ult i32 %163, 260046848
+  %168 = icmp samesign ult i32 %163, 260046848
   br i1 %168, label %169, label %171
 
 169:                                              ; preds = %166
@@ -60203,12 +60203,12 @@ half_to_float.exit63:                             ; preds = %169, %171, %173, %1
   %186 = and i32 %185, 268427264
   %.signext.i64 = sext i16 %183 to i32
   %187 = and i32 %.signext.i64, -2147483648
-  %188 = icmp ugt i32 %186, 8388607
+  %188 = icmp samesign ugt i32 %186, 8388607
   br i1 %188, label %189, label %196
 
 189:                                              ; preds = %half_to_float.exit63
   %190 = or disjoint i32 %186, %187
-  %191 = icmp ult i32 %186, 260046848
+  %191 = icmp samesign ult i32 %186, 260046848
   br i1 %191, label %192, label %194
 
 192:                                              ; preds = %189
@@ -60244,12 +60244,12 @@ half_to_float.exit67:                             ; preds = %192, %194, %196, %1
   %210 = and i32 %209, 268427264
   %.signext.i68 = sext i16 %207 to i32
   %211 = and i32 %.signext.i68, -2147483648
-  %212 = icmp ugt i32 %210, 8388607
+  %212 = icmp samesign ugt i32 %210, 8388607
   br i1 %212, label %213, label %220
 
 213:                                              ; preds = %half_to_float.exit67
   %214 = or disjoint i32 %210, %211
-  %215 = icmp ult i32 %210, 260046848
+  %215 = icmp samesign ult i32 %210, 260046848
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %213
@@ -60287,12 +60287,12 @@ half_to_float.exit71:                             ; preds = %216, %218, %220, %2
   %234 = and i32 %233, 268427264
   %.signext.i72 = sext i16 %231 to i32
   %235 = and i32 %.signext.i72, -2147483648
-  %236 = icmp ugt i32 %234, 8388607
+  %236 = icmp samesign ugt i32 %234, 8388607
   br i1 %236, label %237, label %244
 
 237:                                              ; preds = %230
   %238 = or disjoint i32 %234, %235
-  %239 = icmp ult i32 %234, 260046848
+  %239 = icmp samesign ult i32 %234, 260046848
   br i1 %239, label %240, label %242
 
 240:                                              ; preds = %237
@@ -60327,12 +60327,12 @@ half_to_float.exit75:                             ; preds = %240, %242, %244, %2
   %257 = and i32 %256, 268427264
   %.signext.i76 = sext i16 %254 to i32
   %258 = and i32 %.signext.i76, -2147483648
-  %259 = icmp ugt i32 %257, 8388607
+  %259 = icmp samesign ugt i32 %257, 8388607
   br i1 %259, label %260, label %267
 
 260:                                              ; preds = %half_to_float.exit75
   %261 = or disjoint i32 %257, %258
-  %262 = icmp ult i32 %257, 260046848
+  %262 = icmp samesign ult i32 %257, 260046848
   br i1 %262, label %263, label %265
 
 263:                                              ; preds = %260
@@ -60370,12 +60370,12 @@ half_to_float.exit79:                             ; preds = %263, %265, %267, %2
   %281 = and i32 %280, 268427264
   %.signext.i80 = sext i16 %278 to i32
   %282 = and i32 %.signext.i80, -2147483648
-  %283 = icmp ugt i32 %281, 8388607
+  %283 = icmp samesign ugt i32 %281, 8388607
   br i1 %283, label %284, label %291
 
 284:                                              ; preds = %277
   %285 = or disjoint i32 %281, %282
-  %286 = icmp ult i32 %281, 260046848
+  %286 = icmp samesign ult i32 %281, 260046848
   br i1 %286, label %287, label %289
 
 287:                                              ; preds = %284
@@ -60417,12 +60417,12 @@ define internal fastcc void @half_to_float4(ptr nocapture noundef writeonly %0, 
   %6 = and i32 %5, 268427264
   %.signext.i = sext i16 %3 to i32
   %7 = and i32 %.signext.i, -2147483648
-  %8 = icmp ugt i32 %6, 8388607
+  %8 = icmp samesign ugt i32 %6, 8388607
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %2
   %10 = or disjoint i32 %6, %7
-  %11 = icmp ult i32 %6, 260046848
+  %11 = icmp samesign ult i32 %6, 260046848
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9
@@ -60457,12 +60457,12 @@ half_to_float.exit:                               ; preds = %12, %14, %16, %17
   %29 = and i32 %28, 268427264
   %.signext.i8 = sext i16 %26 to i32
   %30 = and i32 %.signext.i8, -2147483648
-  %31 = icmp ugt i32 %29, 8388607
+  %31 = icmp samesign ugt i32 %29, 8388607
   br i1 %31, label %32, label %39
 
 32:                                               ; preds = %half_to_float.exit
   %33 = or disjoint i32 %29, %30
-  %34 = icmp ult i32 %29, 260046848
+  %34 = icmp samesign ult i32 %29, 260046848
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
@@ -60498,12 +60498,12 @@ half_to_float.exit11:                             ; preds = %35, %37, %39, %40
   %53 = and i32 %52, 268427264
   %.signext.i12 = sext i16 %50 to i32
   %54 = and i32 %.signext.i12, -2147483648
-  %55 = icmp ugt i32 %53, 8388607
+  %55 = icmp samesign ugt i32 %53, 8388607
   br i1 %55, label %56, label %63
 
 56:                                               ; preds = %half_to_float.exit11
   %57 = or disjoint i32 %53, %54
-  %58 = icmp ult i32 %53, 260046848
+  %58 = icmp samesign ult i32 %53, 260046848
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56
@@ -60539,12 +60539,12 @@ half_to_float.exit15:                             ; preds = %59, %61, %63, %64
   %77 = and i32 %76, 268427264
   %.signext.i16 = sext i16 %74 to i32
   %78 = and i32 %.signext.i16, -2147483648
-  %79 = icmp ugt i32 %77, 8388607
+  %79 = icmp samesign ugt i32 %77, 8388607
   br i1 %79, label %80, label %87
 
 80:                                               ; preds = %half_to_float.exit15
   %81 = or disjoint i32 %77, %78
-  %82 = icmp ult i32 %77, 260046848
+  %82 = icmp samesign ult i32 %77, 260046848
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %80

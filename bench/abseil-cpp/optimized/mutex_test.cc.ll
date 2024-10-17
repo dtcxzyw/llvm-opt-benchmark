@@ -12701,7 +12701,7 @@ for.body:                                         ; preds = %entry, %for.inc17
   %indvars32 = trunc i64 %indvars.iv to i32
   %1 = tail call i32 @llvm.umin.i32(i32 %indvars32, i32 131067)
   %.sroa.speculated = add nuw nsw i32 %1, 5
-  %cmp321 = icmp ugt i32 %.sroa.speculated, %indvars32
+  %cmp321 = icmp samesign ugt i32 %.sroa.speculated, %indvars32
   br i1 %cmp321, label %for.body4.preheader, label %for.inc17
 
 for.body4.preheader:                              ; preds = %for.body
@@ -12720,7 +12720,7 @@ for.body4:                                        ; preds = %for.body4.preheader
 
 for.inc:                                          ; preds = %for.body4
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %cmp3 = icmp ult i64 %indvars.iv.next27, %2
+  %cmp3 = icmp samesign ult i64 %indvars.iv.next27, %2
   br i1 %cmp3, label %for.body4, label %for.body10.preheader, !llvm.loop !174
 
 lpad.loopexit:                                    ; preds = %for.body10
@@ -12746,7 +12746,7 @@ for.body10:                                       ; preds = %for.body10.preheade
 
 for.inc14:                                        ; preds = %for.body10
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %cmp9 = icmp ult i64 %indvars.iv.next30, %3
+  %cmp9 = icmp samesign ult i64 %indvars.iv.next30, %3
   br i1 %cmp9, label %for.body10, label %for.inc17, !llvm.loop !175
 
 for.inc17:                                        ; preds = %for.inc14, %for.body

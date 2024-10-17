@@ -1971,7 +1971,7 @@ eval_nodes_cpus_to_use.exit243.i:                 ; preds = %923, %878
   %955 = load i16, ptr %954, align 8
   %956 = zext i16 %955 to i32
   %957 = mul nuw nsw i32 %956, %951
-  %958 = icmp ult i32 %946, %957
+  %958 = icmp samesign ult i32 %946, %957
   br i1 %958, label %959, label %961
 
 959:                                              ; preds = %933, %._crit_edge354.i

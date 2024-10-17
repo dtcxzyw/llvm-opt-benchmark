@@ -319,7 +319,7 @@ for.inc.i:                                        ; preds = %if.then24.i, %for.b
   %33 = phi i16 [ %30, %for.body20.i ], [ %.pre.i, %if.then24.i ]
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
   %34 = zext i16 %33 to i64
-  %cmp19.i = icmp ult i64 %indvars.iv.next.i8, %34
+  %cmp19.i = icmp samesign ult i64 %indvars.iv.next.i8, %34
   br i1 %cmp19.i, label %for.body20.i, label %for.cond.loopexit.i, !llvm.loop !11
 
 for.end34.i:                                      ; preds = %for.cond.loopexit.i, %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread

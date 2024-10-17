@@ -7337,7 +7337,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %2, %13
   %61 = lshr i64 %60, 32
   %62 = trunc nuw i64 %61 to i32
   %63 = and i32 %62, 2147483647
-  %64 = icmp ult i32 %63, 65
+  %64 = icmp samesign ult i32 %63, 65
   br i1 %64, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %53

@@ -14300,7 +14300,7 @@ land.lhs.true45:                                  ; preds = %invoke.cont58
   %mul86 = fmul float %33, %35
   %14 = call noundef float @llvm.fabs.f32(float %34)
   %cmp47 = fcmp ogt float %14, %tol.addr.0
-  %cmp48 = icmp ult i32 %count.0459480, 99
+  %cmp48 = icmp samesign ult i32 %count.0459480, 99
   %or.cond = select i1 %cmp47, i1 %cmp48, i1 false
   br i1 %or.cond, label %while.body, label %while.end, !llvm.loop !162
 
@@ -17839,7 +17839,7 @@ for.body211.us:                                   ; preds = %for.cond209.prehead
   %indvars.iv356 = phi i64 [ 0, %for.cond209.preheader.us ], [ %indvars.iv.next357, %for.cond209.loopexit.us ]
   %indvars.iv345 = phi i64 [ 1, %for.cond209.preheader.us ], [ %indvars.iv.next346, %for.cond209.loopexit.us ]
   %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
-  %cmp214302.us = icmp ult i64 %indvars.iv.next357, %12
+  %cmp214302.us = icmp samesign ult i64 %indvars.iv.next357, %12
   br i1 %cmp214302.us, label %for.body215.lr.ph.us, label %for.cond209.loopexit.us
 
 for.body215.us:                                   ; preds = %for.body215.lr.ph.us, %for.inc241.us
@@ -18289,12 +18289,12 @@ if.then184:                                       ; preds = %if.then169
 
 for.inc195:                                       ; preds = %for.body161, %if.then184, %if.then169
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
-  %cmp160 = icmp ult i64 %indvars.iv.next373, %70
+  %cmp160 = icmp samesign ult i64 %indvars.iv.next373, %70
   br i1 %cmp160, label %for.body161, label %for.inc198, !llvm.loop !201
 
 for.inc198:                                       ; preds = %for.inc195, %for.body148
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
-  %cmp147 = icmp ult i64 %indvars.iv.next376, %67
+  %cmp147 = icmp samesign ult i64 %indvars.iv.next376, %67
   br i1 %cmp147, label %for.body148, label %for.inc201, !llvm.loop !202
 
 for.inc201:                                       ; preds = %for.inc198, %for.cond141.preheader
@@ -18403,7 +18403,7 @@ for.body253:                                      ; preds = %for.body253.lr.ph, 
   %indvars.iv385 = phi i64 [ 1, %for.body253.lr.ph ], [ %indvars.iv.next386, %for.cond251.loopexit ]
   %nlinks.0322 = phi i32 [ 0, %for.body253.lr.ph ], [ %nlinks.1.lcssa, %for.cond251.loopexit ]
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
-  %cmp256316 = icmp ult i64 %indvars.iv.next394, %87
+  %cmp256316 = icmp samesign ult i64 %indvars.iv.next394, %87
   br i1 %cmp256316, label %for.body257.lr.ph, label %for.cond251.loopexit
 
 for.body257.lr.ph:                                ; preds = %for.body253
@@ -22818,7 +22818,7 @@ for.body120:                                      ; preds = %for.body120.lr.ph, 
   %indvars.iv706 = phi i64 [ 0, %for.body120.lr.ph ], [ %indvars.iv.next707, %for.cond118.loopexit ]
   %indvars.iv701 = phi i64 [ 1, %for.body120.lr.ph ], [ %indvars.iv.next702, %for.cond118.loopexit ]
   %indvars.iv.next707 = add nuw nsw i64 %indvars.iv706, 1
-  %cmp122660 = icmp ult i64 %indvars.iv.next707, %32
+  %cmp122660 = icmp samesign ult i64 %indvars.iv.next707, %32
   br i1 %cmp122660, label %invoke.cont124.lr.ph, label %for.cond118.loopexit
 
 invoke.cont124.lr.ph:                             ; preds = %for.body120
@@ -28294,7 +28294,7 @@ invoke.cont133:                                   ; preds = %for.body123
 
 for.inc143:                                       ; preds = %for.body123, %invoke.cont133
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
-  %cmp122 = icmp ult i64 %indvars.iv.next224, %19
+  %cmp122 = icmp samesign ult i64 %indvars.iv.next224, %19
   br i1 %cmp122, label %for.body123, label %if.then.i.i.i192, !llvm.loop !352
 
 for.end145:                                       ; preds = %for.cond119.preheader
@@ -30058,7 +30058,7 @@ for.cond92.preheader:                             ; preds = %for.cond92.preheade
   %indvars.iv956 = phi i64 [ 0, %for.cond92.preheader.preheader ], [ %indvars.iv.next957, %for.inc170 ]
   %indvars.iv949 = phi i64 [ 1, %for.cond92.preheader.preheader ], [ %indvars.iv.next950, %for.inc170 ]
   %indvars.iv.next957 = add nuw nsw i64 %indvars.iv956, 1
-  %cmp95874 = icmp ult i64 %indvars.iv.next957, %27
+  %cmp95874 = icmp samesign ult i64 %indvars.iv.next957, %27
   br i1 %cmp95874, label %for.body96.lr.ph, label %for.inc170
 
 for.body96.lr.ph:                                 ; preds = %for.cond92.preheader
@@ -52981,7 +52981,7 @@ if.then91.i:                                      ; preds = %if.then87.i
 if.end95.i:                                       ; preds = %if.then91.i, %if.then87.i
   %107 = phi float [ %105, %if.then87.i ], [ %106, %if.then91.i ]
   %108 = phi float [ %106, %if.then87.i ], [ %105, %if.then91.i ]
-  %cmp96.i = icmp ugt i32 %num_roots.074.i, 2
+  %cmp96.i = icmp samesign ugt i32 %num_roots.074.i, 2
   br i1 %cmp96.i, label %if.then97.i, label %for.body.lr.ph.i
 
 if.then97.i:                                      ; preds = %if.end95.i

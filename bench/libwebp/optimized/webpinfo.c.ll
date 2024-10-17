@@ -870,7 +870,7 @@ ParseChunk.exit.i:                                ; preds = %.split.loop.exit48.
   %333 = zext nneg i32 %327 to i64
   %334 = zext nneg i32 %328 to i64
   %335 = mul nuw nsw i64 %334, %333
-  %336 = icmp ugt i64 %335, 4294967296
+  %336 = icmp samesign ugt i64 %335, 4294967296
   %or.cond88.i.i.i = select i1 %or.cond84.i.i.i, i1 true, i1 %336
   br i1 %or.cond88.i.i.i, label %337, label %345
 
@@ -1220,7 +1220,7 @@ ProcessImageChunk.exit.i.i:                       ; preds = %365, %363, %323, %3
   %510 = load ptr, ptr %509, align 8
   %511 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.113, ptr noundef %510, i32 noundef %504)
   %512 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %506)
-  %513 = icmp ugt i32 %502, 1
+  %513 = icmp samesign ugt i32 %502, 1
   br i1 %513, label %514, label %516
 
 514:                                              ; preds = %499
@@ -1229,7 +1229,7 @@ ProcessImageChunk.exit.i.i:                       ; preds = %365, %363, %323, %3
   br i1 %.not33.i.i.i.i, label %ParseAlphaHeader.exit.thread.i.i.i, label %ParseAlphaHeader.exit.thread.sink.split.i.i.i
 
 516:                                              ; preds = %499
-  %517 = icmp ugt i32 %506, 1
+  %517 = icmp samesign ugt i32 %506, 1
   br i1 %517, label %518, label %520
 
 518:                                              ; preds = %516
@@ -1449,8 +1449,8 @@ ParseAlphaHeader.exit.i.i.i:                      ; preds = %531, %529
   br label %637
 
 637:                                              ; preds = %627, %587
-  %638 = icmp ugt i32 %593, 8388608
-  %639 = icmp ugt i32 %601, 8388608
+  %638 = icmp samesign ugt i32 %593, 8388608
+  %639 = icmp samesign ugt i32 %601, 8388608
   %or.cond.i.i.i = select i1 %638, i1 true, i1 %639
   br i1 %or.cond.i.i.i, label %640, label %642
 
@@ -1861,7 +1861,7 @@ define internal fastcc range(i32 0, 5) i32 @ParseLossyHeader(i64 %.8.val, ptr no
   %17 = and i32 %16, 7
   %18 = lshr i32 %14, 5
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  %19 = icmp ugt i32 %17, 3
+  %19 = icmp samesign ugt i32 %17, 3
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %1
@@ -2314,7 +2314,7 @@ GetBits.exit222:                                  ; preds = %230
   %259 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.69, i32 noundef %258)
   %260 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, i32 noundef %250)
   %261 = lshr i64 %249, 3
-  %.not177 = icmp ult i64 %261, %68
+  %.not177 = icmp samesign ult i64 %261, %68
   br i1 %.not177, label %267, label %262
 
 262:                                              ; preds = %248

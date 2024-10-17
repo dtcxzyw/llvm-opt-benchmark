@@ -388,7 +388,7 @@ if.end20.i.i:                                     ; preds = %while.end.i.i
   %inc.i.i = add nuw nsw i64 %tries.i.i.0131, 1
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 16), align 8
   %conv.i.i = zext i32 %18 to i64
-  %cmp.i.i.not.not = icmp ult i64 %tries.i.i.0131, %conv.i.i
+  %cmp.i.i.not.not = icmp samesign ult i64 %tries.i.i.0131, %conv.i.i
   br i1 %cmp.i.i.not.not, label %call6.i.i.noexc, label %if.end, !llvm.loop !10
 
 if.then:                                          ; preds = %land.rhs.i.i.i, %if.end.i.i.i.i
@@ -587,7 +587,7 @@ if.end20.i.us.i.i:                                ; preds = %while.end.i.us.i.i
   %inc.i.us.i.i = add nuw nsw i64 %tries.i.049.us.i.i, 1
   %37 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util12_GLOBAL__N_119isUtcEquivalentNameESt17basic_string_viewIcSt11char_traitsIcEEE6utcSetB5cxx11, i64 16), align 8, !noalias !12
   %conv.i.us.i.i = zext i32 %37 to i64
-  %cmp.i.not.us.not.i.i = icmp ult i64 %tries.i.049.us.i.i, %conv.i.us.i.i
+  %cmp.i.not.us.not.i.i = icmp samesign ult i64 %tries.i.049.us.i.i, %conv.i.us.i.i
   br i1 %cmp.i.not.us.not.i.i, label %for.body.i.us.i.i, label %if.end7.i, !llvm.loop !15
 
 while.body.i.lr.ph.us.i.i:                        ; preds = %for.body.i.us.i.i
@@ -675,7 +675,7 @@ if.end20.i.i.i:                                   ; preds = %while.end.i.i.i
   %inc.i.i.i = add nuw nsw i64 %tries.i.049.i.i, 1
   %50 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util12_GLOBAL__N_119isUtcEquivalentNameESt17basic_string_viewIcSt11char_traitsIcEEE6utcSetB5cxx11, i64 16), align 8, !noalias !12
   %conv.i.i.i = zext i32 %50 to i64
-  %cmp.i.not.not.i.i = icmp ult i64 %tries.i.049.i.i, %conv.i.i.i
+  %cmp.i.not.not.i.i = icmp samesign ult i64 %tries.i.049.i.i, %conv.i.i.i
   br i1 %cmp.i.not.not.i.i, label %for.body.i.i.i48, label %if.end7.i, !llvm.loop !15
 
 ehcleanup47.thread.i.i:                           ; preds = %init.i.i
@@ -1119,7 +1119,7 @@ if.end20.i.i96:                                   ; preds = %while.end.i.i93
   %inc.i.i98 = add nuw nsw i64 %tries.i.i65.0137, 1
   %91 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 16), align 8
   %conv.i.i79 = zext i32 %91 to i64
-  %cmp.i.i80.not.not = icmp ult i64 %tries.i.i65.0137, %conv.i.i79
+  %cmp.i.i80.not.not = icmp samesign ult i64 %tries.i.i65.0137, %conv.i.i79
   br i1 %cmp.i.i80.not.not, label %call6.i.i.noexc111, label %if.end34, !llvm.loop !10
 
 invoke.cont28:                                    ; preds = %if.end.i.i.i.i88, %land.rhs.i.i.i83
@@ -2161,7 +2161,7 @@ if.end20.i:                                       ; preds = %while.end.i
   %inc.i = add nuw nsw i64 %tries.i.058, 1
   %12 = load i32, ptr %chunkMask_.i, align 8
   %conv.i = zext i32 %12 to i64
-  %cmp.i.not.not = icmp ult i64 %tries.i.058, %conv.i
+  %cmp.i.not.not = icmp samesign ult i64 %tries.i.058, %conv.i
   br i1 %cmp.i.not.not, label %for.body.i, label %if.end7, !llvm.loop !10
 
 if.then6:                                         ; preds = %land.rhs.i.i.i, %if.end.i.i.i.i
@@ -2523,7 +2523,7 @@ while.body:                                       ; preds = %while.cond.preheade
   store i8 %call.i.i.i.i.i.i, ptr %arrayidx, align 1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__beg.sroa.0.031, i64 1
   %cmp.i.i.i.i = icmp ne ptr %incdec.ptr.i.i.i.i, %__end.coerce0
-  %cmp = icmp ult i64 %__len.032, 14
+  %cmp = icmp samesign ult i64 %__len.032, 14
   %4 = select i1 %cmp.i.i.i.i, i1 %cmp, i1 false
   br i1 %4, label %while.body, label %while.end, !llvm.loop !42
 
@@ -2743,7 +2743,7 @@ if.end20.i:                                       ; preds = %while.end.i
   %inc.i = add nuw nsw i64 %tries.i.058, 1
   %11 = load i32, ptr %chunkMask_.i, align 8
   %conv.i = zext i32 %11 to i64
-  %cmp.i.not.not = icmp ult i64 %tries.i.058, %conv.i
+  %cmp.i.not.not = icmp samesign ult i64 %tries.i.058, %conv.i
   br i1 %cmp.i.not.not, label %for.body.i, label %if.end7, !llvm.loop !44
 
 if.then6:                                         ; preds = %land.rhs.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -4024,7 +4024,7 @@ if.end20.i:                                       ; preds = %while.end.i
   %inc.i = add nuw nsw i64 %tries.i.058, 1
   %12 = load i32, ptr %chunkMask_.i, align 8
   %conv.i = zext i32 %12 to i64
-  %cmp.i.not.not = icmp ult i64 %tries.i.058, %conv.i
+  %cmp.i.not.not = icmp samesign ult i64 %tries.i.058, %conv.i
   br i1 %cmp.i.not.not, label %for.body.i, label %if.end5, !llvm.loop !71
 
 if.then4:                                         ; preds = %land.rhs.i.i.i, %if.end.i.i.i.i

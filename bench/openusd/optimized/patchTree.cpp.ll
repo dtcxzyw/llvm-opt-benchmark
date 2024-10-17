@@ -1758,7 +1758,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE6resizeEm.exit:
 
 75:                                               ; preds = %68
   %76 = select i1 %.not, i32 1, i32 2
-  %.not4283 = icmp ugt i32 %76, %58
+  %.not4283 = icmp samesign ugt i32 %76, %58
   br i1 %.not4283, label %.loopexit, label %.lr.ph86.preheader
 
 .lr.ph86.preheader:                               ; preds = %75
@@ -1822,7 +1822,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit: ; 
   %.pn = phi double [ %110, %107 ], [ %103, %99 ]
   %.sink.i = phi double [ %114, %107 ], [ %106, %99 ]
   %115 = select i1 %.not, i32 1, i32 2
-  %.not4376 = icmp ugt i32 %115, %58
+  %.not4376 = icmp samesign ugt i32 %115, %58
   br i1 %.not4376, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit

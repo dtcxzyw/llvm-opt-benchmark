@@ -14309,184 +14309,184 @@ _ZNK4llvm7AArch648ArchInfoeqERKS1_.exit:          ; preds = %1
 _ZNK4llvm7AArch648ArchInfoeqERKS1_.exit.thread:   ; preds = %1, %_ZNK4llvm7AArch648ArchInfoeqERKS1_.exit
   %14 = load i64, ptr %3, align 4
   %15 = trunc i64 %14 to i32
-  switch i32 %15, label %101 [
+  switch i32 %15, label %105 [
     i32 8, label %16
-    i32 9, label %70
+    i32 9, label %74
   ]
 
 16:                                               ; preds = %_ZNK4llvm7AArch648ArchInfoeqERKS1_.exit.thread
-  %.not.i = icmp slt i64 %14, 0
-  %17 = and i64 %14, 9223372032559808512
-  %18 = icmp ugt i64 %17, 25769803776
-  %19 = and i1 %.not.i, %18
-  br i1 %19, label %20, label %22
+  %17 = icmp slt i64 %14, 0
+  %18 = and i64 %14, 9223372032559808512
+  %19 = icmp samesign ugt i64 %18, 25769803776
+  %20 = select i1 %17, i1 %19, i1 false
+  br i1 %20, label %21, label %23
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 542
-  store i8 1, ptr %21, align 2
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 542
+  store i8 1, ptr %22, align 2
   %.pre82 = load i64, ptr %3, align 4
-  br label %22
+  br label %23
 
-22:                                               ; preds = %20, %16
-  %23 = phi i64 [ %.pre82, %20 ], [ %14, %16 ]
-  %.not.i1 = icmp slt i64 %23, 0
-  %24 = and i64 %23, 9223372028264841216
-  %25 = icmp ugt i64 %24, 21474836480
-  %26 = and i1 %.not.i1, %25
-  br i1 %26, label %27, label %30
+23:                                               ; preds = %21, %16
+  %24 = phi i64 [ %.pre82, %21 ], [ %14, %16 ]
+  %25 = icmp slt i64 %24, 0
+  %26 = and i64 %24, 9223372028264841216
+  %27 = icmp samesign ugt i64 %26, 21474836480
+  %28 = select i1 %25, i1 %27, i1 false
+  br i1 %28, label %29, label %32
 
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 510
-  store i8 1, ptr %28, align 2
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 509
-  store i8 1, ptr %29, align 1
+29:                                               ; preds = %23
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 510
+  store i8 1, ptr %30, align 2
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 509
+  store i8 1, ptr %31, align 1
   %.pre83 = load i64, ptr %3, align 4
-  br label %30
+  br label %32
 
-30:                                               ; preds = %27, %22
-  %31 = phi i64 [ %.pre83, %27 ], [ %23, %22 ]
-  %.not.i5 = icmp slt i64 %31, 0
-  %32 = and i64 %31, 9223372032559808512
-  %33 = icmp ugt i64 %32, 17179869184
-  %34 = and i1 %.not.i5, %33
-  br i1 %34, label %35, label %39
+32:                                               ; preds = %29, %23
+  %33 = phi i64 [ %.pre83, %29 ], [ %24, %23 ]
+  %34 = icmp slt i64 %33, 0
+  %35 = and i64 %33, 9223372032559808512
+  %36 = icmp samesign ugt i64 %35, 17179869184
+  %37 = select i1 %34, i1 %36, i1 false
+  br i1 %37, label %38, label %42
 
-35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 522
-  store i8 1, ptr %36, align 2
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 530
-  store i8 1, ptr %37, align 2
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 538
-  store i32 16843009, ptr %38, align 2
+38:                                               ; preds = %32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 522
+  store i8 1, ptr %39, align 2
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 530
+  store i8 1, ptr %40, align 2
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 538
+  store i32 16843009, ptr %41, align 2
   %.pre84 = load i64, ptr %3, align 4
-  br label %39
+  br label %42
 
-39:                                               ; preds = %35, %30
-  %40 = phi i64 [ %.pre84, %35 ], [ %31, %30 ]
-  %.not.i9 = icmp slt i64 %40, 0
-  %41 = and i64 %40, 9223372019674906624
-  %42 = icmp ne i64 %41, 0
-  %43 = and i1 %.not.i9, %42
-  br i1 %43, label %44, label %48
+42:                                               ; preds = %38, %32
+  %43 = phi i64 [ %.pre84, %38 ], [ %33, %32 ]
+  %.not.i9 = icmp slt i64 %43, 0
+  %44 = and i64 %43, 9223372019674906624
+  %45 = icmp ne i64 %44, 0
+  %46 = and i1 %.not.i9, %45
+  br i1 %46, label %47, label %51
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 502
-  store i8 1, ptr %45, align 2
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 527
-  store i8 1, ptr %46, align 1
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 521
-  store i8 1, ptr %47, align 1
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 502
+  store i8 1, ptr %48, align 2
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 527
+  store i8 1, ptr %49, align 1
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 521
+  store i8 1, ptr %50, align 1
   %.pre85 = load i64, ptr %3, align 4
-  br label %48
+  br label %51
 
-48:                                               ; preds = %44, %39
-  %49 = phi i64 [ %.pre85, %44 ], [ %40, %39 ]
-  %.not.i13 = icmp slt i64 %49, 0
-  %50 = and i64 %49, 9223372032559808512
-  %51 = icmp ugt i64 %50, 8589934592
-  %52 = and i1 %.not.i13, %51
-  br i1 %52, label %53, label %58
+51:                                               ; preds = %47, %42
+  %52 = phi i64 [ %.pre85, %47 ], [ %43, %42 ]
+  %53 = icmp slt i64 %52, 0
+  %54 = and i64 %52, 9223372032559808512
+  %55 = icmp samesign ugt i64 %54, 8589934592
+  %56 = select i1 %53, i1 %55, i1 false
+  br i1 %56, label %57, label %62
 
-53:                                               ; preds = %48
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 525
-  store i8 1, ptr %54, align 1
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 492
-  %56 = load i32, ptr %55, align 4
-  %57 = or i32 %56, 2
-  store i32 %57, ptr %55, align 4
+57:                                               ; preds = %51
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 525
+  store i8 1, ptr %58, align 1
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 492
+  %60 = load i32, ptr %59, align 4
+  %61 = or i32 %60, 2
+  store i32 %61, ptr %59, align 4
   %.pre86 = load i64, ptr %3, align 4
-  br label %58
+  br label %62
 
-58:                                               ; preds = %53, %48
-  %59 = phi i64 [ %.pre86, %53 ], [ %49, %48 ]
-  %.not.i17 = icmp slt i64 %59, 0
-  %60 = and i64 %59, 9223372028264841216
-  %61 = icmp ne i64 %60, 0
-  %62 = and i1 %.not.i17, %61
-  br i1 %62, label %63, label %65
+62:                                               ; preds = %57, %51
+  %63 = phi i64 [ %.pre86, %57 ], [ %52, %51 ]
+  %.not.i17 = icmp slt i64 %63, 0
+  %64 = and i64 %63, 9223372028264841216
+  %65 = icmp ne i64 %64, 0
+  %66 = and i1 %.not.i17, %65
+  br i1 %66, label %67, label %69
 
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store i8 1, ptr %64, align 8
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  store i8 1, ptr %68, align 8
   %.pre87 = load i64, ptr %3, align 4
-  br label %65
+  br label %69
 
-65:                                               ; preds = %63, %58
-  %66 = phi i64 [ %.pre87, %63 ], [ %59, %58 ]
-  %.not.i21 = icmp slt i64 %66, 0
-  %67 = and i64 %66, 9223372032559808512
-  %68 = icmp ne i64 %67, 0
-  %69 = and i1 %.not.i21, %68
-  br i1 %69, label %.sink.split, label %101
-
-70:                                               ; preds = %_ZNK4llvm7AArch648ArchInfoeqERKS1_.exit.thread
-  %.not.i25 = icmp slt i64 %14, 0
-  %71 = and i64 %14, 9223372028264841216
+69:                                               ; preds = %67, %62
+  %70 = phi i64 [ %.pre87, %67 ], [ %63, %62 ]
+  %.not.i21 = icmp slt i64 %70, 0
+  %71 = and i64 %70, 9223372032559808512
   %72 = icmp ne i64 %71, 0
-  %73 = and i1 %.not.i25, %72
-  br i1 %73, label %74, label %76
+  %73 = and i1 %.not.i21, %72
+  br i1 %73, label %.sink.split, label %105
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 542
-  store i8 1, ptr %75, align 2
+74:                                               ; preds = %_ZNK4llvm7AArch648ArchInfoeqERKS1_.exit.thread
+  %.not.i25 = icmp slt i64 %14, 0
+  %75 = and i64 %14, 9223372028264841216
+  %76 = icmp ne i64 %75, 0
+  %77 = and i1 %.not.i25, %76
+  br i1 %77, label %78, label %80
+
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 542
+  store i8 1, ptr %79, align 2
   %.pre = load i64, ptr %3, align 4
-  br label %76
+  br label %80
 
-76:                                               ; preds = %74, %70
-  %77 = phi i64 [ %.pre, %74 ], [ %14, %70 ]
-  %.not.i29 = icmp slt i64 %77, 0
-  %78 = and i64 %77, 9223372032559808512
-  %79 = icmp ne i64 %78, 0
-  %80 = and i1 %.not.i29, %79
-  br i1 %80, label %81, label %84
+80:                                               ; preds = %78, %74
+  %81 = phi i64 [ %.pre, %78 ], [ %14, %74 ]
+  %.not.i29 = icmp slt i64 %81, 0
+  %82 = and i64 %81, 9223372032559808512
+  %83 = icmp ne i64 %82, 0
+  %84 = and i1 %.not.i29, %83
+  br i1 %84, label %85, label %88
 
-81:                                               ; preds = %76
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 510
-  store i8 1, ptr %82, align 2
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 509
-  store i8 1, ptr %83, align 1
-  br label %84
-
-84:                                               ; preds = %81, %76
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 492
-  %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 511
+85:                                               ; preds = %80
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 510
+  store i8 1, ptr %86, align 2
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 509
   store i8 1, ptr %87, align 1
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 501
-  store i8 1, ptr %88, align 1
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 522
-  store i8 1, ptr %89, align 2
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 530
-  store i8 1, ptr %90, align 2
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 538
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 502
-  store i8 1, ptr %92, align 2
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 527
-  store i8 1, ptr %93, align 1
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 521
-  store i8 1, ptr %94, align 1
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 525
-  store i8 1, ptr %95, align 1
-  %96 = or i32 %86, 6
-  store i32 16843009, ptr %91, align 2
-  store i32 %96, ptr %85, align 4
+  br label %88
+
+88:                                               ; preds = %85, %80
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 492
+  %90 = load i32, ptr %89, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 511
+  store i8 1, ptr %91, align 1
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 501
+  store i8 1, ptr %92, align 1
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 522
+  store i8 1, ptr %93, align 2
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 530
+  store i8 1, ptr %94, align 2
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 538
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 502
+  store i8 1, ptr %96, align 2
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 527
+  store i8 1, ptr %97, align 1
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 521
+  store i8 1, ptr %98, align 1
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 525
+  store i8 1, ptr %99, align 1
+  %100 = or i32 %90, 6
+  store i32 16843009, ptr %95, align 2
+  store i32 %100, ptr %89, align 4
   br label %.sink.split.sink.split
 
-.sink.split.sink.split:                           ; preds = %84, %6
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store i8 1, ptr %97, align 8
+.sink.split.sink.split:                           ; preds = %88, %6
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  store i8 1, ptr %101, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %65
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  store i8 1, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store i8 1, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 526
-  store i8 1, ptr %100, align 2
-  br label %101
+.sink.split:                                      ; preds = %.sink.split.sink.split, %69
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  store i8 1, ptr %102, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  store i8 1, ptr %103, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 526
+  store i8 1, ptr %104, align 2
+  br label %105
 
-101:                                              ; preds = %.sink.split, %_ZNK4llvm7AArch648ArchInfoeqERKS1_.exit.thread, %65
+105:                                              ; preds = %.sink.split, %_ZNK4llvm7AArch648ArchInfoeqERKS1_.exit.thread, %69
   ret void
 }
 
@@ -18468,7 +18468,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i
@@ -19366,15 +19366,15 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo17setFeatureEnabledERN4
   %46 = lshr i64 %43, 32
   %47 = trunc nuw i64 %46 to i32
   %48 = and i32 %47, 2147483647
-  %49 = icmp ult i32 %32, %42
+  %49 = icmp samesign ult i32 %32, %42
   br i1 %49, label %_ZNK4llvm7AArch648ArchInfo7impliesERKS1_.exit.thread33, label %50
 
 50:                                               ; preds = %29
-  %51 = icmp ult i32 %42, %32
+  %51 = icmp samesign ult i32 %42, %32
   br i1 %51, label %_ZNK4llvm7AArch648ArchInfo7impliesERKS1_.exit.thread, label %52
 
 52:                                               ; preds = %50
-  %53 = icmp ult i32 %36, %45
+  %53 = icmp samesign ult i32 %36, %45
   br i1 %53, label %_ZNK4llvm7AArch648ArchInfo7impliesERKS1_.exit.thread33, label %_ZNK4llvm7AArch648ArchInfo7impliesERKS1_.exit
 
 54:                                               ; preds = %23
@@ -19399,8 +19399,8 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo17setFeatureEnabledERN4
   br i1 %67, label %_ZNK4llvm7AArch648ArchInfo7impliesERKS1_.exit.thread33, label %_ZNK4llvm7AArch648ArchInfo7impliesERKS1_.exit.thread
 
 _ZNK4llvm7AArch648ArchInfo7impliesERKS1_.exit:    ; preds = %52
-  %68 = icmp uge i32 %45, %36
-  %69 = icmp ult i32 %39, %48
+  %68 = icmp samesign uge i32 %45, %36
+  %69 = icmp samesign ult i32 %39, %48
   %spec.select.i.i.i = select i1 %68, i1 %69, i1 false
   br i1 %spec.select.i.i.i, label %_ZNK4llvm7AArch648ArchInfo7impliesERKS1_.exit.thread33, label %_ZNK4llvm7AArch648ArchInfo7impliesERKS1_.exit.thread
 
@@ -20104,8 +20104,8 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit87:        ; preds = %295, %301, %_ZN4llv
 309:                                              ; preds = %304
   %310 = icmp eq i32 %307, 8
   %311 = and i64 %306, 9223372032559808512
-  %312 = icmp ult i64 %311, 12884901888
-  %or.cond109 = and i1 %310, %312
+  %312 = icmp samesign ult i64 %311, 12884901888
+  %or.cond109 = select i1 %310, i1 %312, i1 false
   br i1 %or.cond109, label %313, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit88
 
 313:                                              ; preds = %309, %304
@@ -20146,8 +20146,8 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit89:        ; preds = %316, %322, %_ZN4llv
 330:                                              ; preds = %325
   %331 = icmp eq i32 %328, 8
   %332 = and i64 %327, 9223372032559808512
-  %333 = icmp ult i64 %332, 21474836480
-  %or.cond111 = and i1 %331, %333
+  %333 = icmp samesign ult i64 %332, 21474836480
+  %or.cond111 = select i1 %331, i1 %333, i1 false
   br i1 %or.cond111, label %334, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit90
 
 334:                                              ; preds = %330, %325
@@ -20169,8 +20169,8 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit90:        ; preds = %330, %334, %_ZN4llv
 342:                                              ; preds = %337
   %343 = icmp eq i32 %340, 8
   %344 = and i64 %339, 9223372028264841216
-  %345 = icmp ult i64 %344, 25769803776
-  %or.cond112 = and i1 %343, %345
+  %345 = icmp samesign ult i64 %344, 25769803776
+  %or.cond112 = select i1 %343, i1 %345, i1 false
   br i1 %or.cond112, label %346, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit91
 
 346:                                              ; preds = %342, %337
@@ -20192,8 +20192,8 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit91:        ; preds = %342, %346, %_ZN4llv
 354:                                              ; preds = %349
   %355 = icmp eq i32 %352, 8
   %356 = and i64 %351, 9223372032559808512
-  %357 = icmp ult i64 %356, 30064771072
-  %or.cond113 = and i1 %355, %357
+  %357 = icmp samesign ult i64 %356, 30064771072
+  %or.cond113 = select i1 %355, i1 %357, i1 false
   br i1 %or.cond113, label %358, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit92
 
 358:                                              ; preds = %354, %349
@@ -20234,8 +20234,8 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit93:        ; preds = %361, %367, %_ZN4llv
 375:                                              ; preds = %370
   %376 = icmp eq i32 %373, 8
   %377 = and i64 %372, 9223372032559808512
-  %378 = icmp ult i64 %377, 38654705664
-  %or.cond115 = and i1 %376, %378
+  %378 = icmp samesign ult i64 %377, 38654705664
+  %or.cond115 = select i1 %376, i1 %378, i1 false
   br i1 %or.cond115, label %379, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit94
 
 379:                                              ; preds = %375, %370
@@ -20311,8 +20311,8 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit97:        ; preds = %398, %404, %_ZN4llv
 412:                                              ; preds = %407
   %413 = icmp eq i32 %410, 9
   %414 = and i64 %409, 9223372032559808512
-  %415 = icmp ult i64 %414, 12884901888
-  %or.cond118 = and i1 %413, %415
+  %415 = icmp samesign ult i64 %414, 12884901888
+  %or.cond118 = select i1 %413, i1 %415, i1 false
   br i1 %or.cond118, label %416, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit98
 
 416:                                              ; preds = %412, %407
@@ -20353,8 +20353,8 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit99:        ; preds = %419, %425, %_ZN4llv
 433:                                              ; preds = %428
   %434 = icmp eq i32 %431, 9
   %435 = and i64 %430, 9223372032559808512
-  %436 = icmp ult i64 %435, 21474836480
-  %or.cond120 = and i1 %434, %436
+  %436 = icmp samesign ult i64 %435, 21474836480
+  %or.cond120 = select i1 %434, i1 %436, i1 false
   br i1 %or.cond120, label %437, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit100
 
 437:                                              ; preds = %433, %428
@@ -23061,7 +23061,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo16hasBuilti
 8:                                                ; preds = %7
   %9 = lshr i64 %1, 3
   %10 = tail call range(i64 1, 6) i64 @llvm.ctpop.i64(i64 %9)
-  %11 = icmp ult i64 %10, 2
+  %11 = icmp samesign ult i64 %10, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %8, %7, %3
@@ -23936,7 +23936,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5clang7targets16DarwinTargetInfoINS0
   %19 = trunc nuw i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = icmp uge i32 %12, %11
-  %22 = icmp ult i32 %20, %17
+  %22 = icmp samesign ult i32 %20, %17
   %or.cond = select i1 %21, i1 %22, i1 false
   br i1 %or.cond, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit, label %23
 

@@ -135,7 +135,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
   %73 = getelementptr inbounds i8, ptr %70, i64 %indvars.iv214
   store i64 %.0158194, ptr %73, align 1
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 8
-  %74 = icmp ult i64 %indvars.iv.next215, %72
+  %74 = icmp samesign ult i64 %indvars.iv.next215, %72
   br i1 %74, label %.lr.ph191, label %._crit_edge192, !llvm.loop !7
 
 ._crit_edge192:                                   ; preds = %.lr.ph191, %.lr.ph197
@@ -164,7 +164,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
   %88 = add nuw nsw i64 %.0162199, %65
   %89 = and i64 %88, %63
   %90 = add nuw nsw i64 %.0161200, 2
-  %91 = icmp ult i64 %90, %61
+  %91 = icmp samesign ult i64 %90, %61
   br i1 %91, label %.preheader172, label %.loopexit174, !llvm.loop !9
 
 .lr.ph188:                                        ; preds = %._crit_edge, %._crit_edge184

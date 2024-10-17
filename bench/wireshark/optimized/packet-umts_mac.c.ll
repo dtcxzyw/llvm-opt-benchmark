@@ -1527,7 +1527,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %100, %103
   %137 = trunc nuw i64 %indvars.iv.next.i to i32
   %.b.i.i = load i1, ptr @MAX_TSN, align 4
   %138 = select i1 %.b.i.i, i32 16384, i32 64
-  %139 = icmp ugt i32 %138, %137
+  %139 = icmp samesign ugt i32 %138, %137
   br i1 %139, label %133, label %140, !llvm.loop !4
 
 140:                                              ; preds = %133
@@ -1768,7 +1768,7 @@ find_head.exit147.i:                              ; preds = %258, %._crit_edge.i
   %268 = add nsw i32 %146, -1
   %269 = zext i32 %268 to i64
   %270 = icmp ne i64 %indvars.iv, %269
-  %or.cond125.i = or i1 %.not118.i, %270
+  %or.cond125.i = select i1 %270, i1 true, i1 %.not118.i
   %271 = and i32 %92, 65535
   br i1 %or.cond125.i, label %316, label %272
 
@@ -1925,7 +1925,7 @@ get_sdu.exit168.i:                                ; preds = %330
   %338 = add nsw i32 %319, -1
   %339 = zext i32 %338 to i64
   %340 = icmp ne i64 %indvars.iv, %339
-  %or.cond129.i = or i1 %.not118.i, %340
+  %or.cond129.i = select i1 %340, i1 true, i1 %.not118.i
   br i1 %or.cond129.i, label %348, label %341
 
 341:                                              ; preds = %337
@@ -2007,7 +2007,7 @@ call_rlc.exit:                                    ; preds = %364, %363, %360, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %368 = load i32, ptr %11, align 4
   %369 = zext i32 %368 to i64
-  %370 = icmp ult i64 %indvars.iv.next, %369
+  %370 = icmp samesign ult i64 %indvars.iv.next, %369
   br i1 %370, label %87, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %call_rlc.exit, %ss_interpretation.exit

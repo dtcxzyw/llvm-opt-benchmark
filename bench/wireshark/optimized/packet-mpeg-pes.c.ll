@@ -795,7 +795,7 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   %9 = load i32, ptr @ett_mpeg_pes_header_data, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #3
-  %.not = icmp ult i32 %2, 128
+  %.not = icmp samesign ult i32 %2, 128
   br i1 %.not, label %29, label %11
 
 11:                                               ; preds = %3

@@ -279,7 +279,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %tobool.not.i = icmp eq i32 %call1.i, 0
   %spec.select.i = select i1 %tobool.not.i, i32 0, i32 %ok.06.i
   %univ.addr.05.i.add = add nuw nsw i64 %univ.addr.05.i.idx, 4
-  %cmp.i = icmp ult i64 %univ.addr.05.i.idx, 12
+  %cmp.i = icmp samesign ult i64 %univ.addr.05.i.idx, 12
   br i1 %cmp.i, label %for.body.i, label %for.body.i2, !llvm.loop !10
 
 for.body.i2:                                      ; preds = %for.body.i, %for.body.i2
@@ -291,7 +291,7 @@ for.body.i2:                                      ; preds = %for.body.i, %for.bo
   %tobool.not.i7 = icmp eq i32 %call1.i6, 0
   %spec.select.i8 = select i1 %tobool.not.i7, i32 0, i32 %ok.06.i3
   %univ.addr.05.i4.add = add nuw nsw i64 %univ.addr.05.i4.idx, 4
-  %cmp.i10 = icmp ult i64 %univ.addr.05.i4.idx, 16
+  %cmp.i10 = icmp samesign ult i64 %univ.addr.05.i4.idx, 16
   br i1 %cmp.i10, label %for.body.i2, label %test_unicode.exit11, !llvm.loop !10
 
 test_unicode.exit11:                              ; preds = %for.body.i2

@@ -2525,7 +2525,7 @@ define linkonce_odr void @_ZSt11__make_heapIPjN9__gnu_cxx5__ops15_Iter_less_iter
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -3082,7 +3082,7 @@ _ZNSt10_HashtableImSt4pairIKmjESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %124 = lshr i32 64, %120
   %125 = zext nneg i32 %124 to i64
-  %126 = icmp ult i64 %indvars.iv.next, %125
+  %126 = icmp samesign ult i64 %indvars.iv.next, %125
   br i1 %126, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %118, %.preheader133
@@ -4861,7 +4861,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit81:         ; preds = %_ZNSt6vectorImSaImE
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %282 = load i32, ptr %36, align 4
   %283 = zext i32 %282 to i64
-  %284 = icmp ult i64 %indvars.iv.next116, %283
+  %284 = icmp samesign ult i64 %indvars.iv.next116, %283
   br i1 %284, label %128, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit81, %_ZNSt6vectorImSaImEE5clearEv.exit35
@@ -5186,7 +5186,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 12:                                               ; preds = %.lr.ph
   %13 = and i64 %.015, 15
-  %14 = icmp ult i64 %13, 10
+  %14 = icmp samesign ult i64 %13, 10
   %15 = trunc nuw nsw i64 %13 to i8
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 -1
   %17 = add nuw nsw i8 %15, 87
@@ -5487,7 +5487,7 @@ _ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit: ; preds = %56, %4
 
 _ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit70: ; preds = %65, %_ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %71 = icmp ult i64 %indvars.iv.next110, %48
+  %71 = icmp samesign ult i64 %indvars.iv.next110, %48
   br i1 %71, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %_ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit70
@@ -6543,7 +6543,7 @@ _ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit: ; preds = %52, %4
 
 _ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit68: ; preds = %61, %_ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %67 = icmp ult i64 %indvars.iv.next108, %44
+  %67 = icmp samesign ult i64 %indvars.iv.next108, %44
   br i1 %67, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %_ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit68
@@ -6964,7 +6964,7 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl24covering_solve_heurist
   %80 = load i32, ptr %30, align 4
   %81 = sub i32 %79, %80
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %indvars.iv.next, %82
+  %83 = icmp samesign ult i64 %indvars.iv.next, %82
   br i1 %83, label %.lr.ph85, label %.critedge.loopexit.split.loop.exit, !llvm.loop !120
 
 .critedge.loopexit.split.loop.exit:               ; preds = %._crit_edge78
@@ -7760,7 +7760,7 @@ _ZNSt6vectorIN3acd23ac_decomposition_resultESaIS1_EE5clearEv.exit: ; preds = %1,
 
 ._crit_edge.us.i:                                 ; preds = %77
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, %75
-  %86 = icmp ult i64 %indvars.iv.next33.i, 16
+  %86 = icmp samesign ult i64 %indvars.iv.next33.i, 16
   br i1 %86, label %.preheader.us.i, label %_ZN3acd21ac_decomposition_impl24adjust_truth_table_on_dcERN5kitty18static_truth_tableILj10EEES4_j.exit, !llvm.loop !135
 
 _ZN5kitty7has_varINS_18static_truth_tableILj10EEEEEbRKT_h.exit: ; preds = %48
@@ -7863,11 +7863,11 @@ _ZN5kitty7has_varINS_18static_truth_tableILj10EEEEEbRKT_h.exit.thread: ; preds =
 
 ._crit_edge.us.i34:                               ; preds = %107
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, %105
-  %123 = icmp ult i64 %indvars.iv.next59.i, 16
+  %123 = icmp samesign ult i64 %indvars.iv.next59.i, 16
   br i1 %123, label %.preheader47.us.i, label %_ZN5kitty7has_varINS_18static_truth_tableILj10EEEEEbRKT_S5_h.exit, !llvm.loop !138
 
 _ZN5kitty7has_varINS_18static_truth_tableILj10EEEEEbRKT_S5_h.exit: ; preds = %._crit_edge.us.i34, %99
-  %124 = icmp ult i64 %indvars.iv, 6
+  %124 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %124, label %.preheader.i43, label %144
 
 .preheader.i43:                                   ; preds = %_ZN5kitty7has_varINS_18static_truth_tableILj10EEEEEbRKT_S5_h.exit
@@ -7948,12 +7948,12 @@ _ZN5kitty7has_varINS_18static_truth_tableILj10EEEEEbRKT_S5_h.exit: ; preds = %._
 
 ._crit_edge.us.i42:                               ; preds = %150
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, %148
-  %166 = icmp ult i64 %indvars.iv.next88.i, 16
+  %166 = icmp samesign ult i64 %indvars.iv.next88.i, 16
   br i1 %166, label %.preheader77.us.i, label %_ZN3acd21ac_decomposition_impl24adjust_truth_table_on_dcERN5kitty18static_truth_tableILj10EEES4_j.exit, !llvm.loop !141
 
 .loopexit:                                        ; preds = %90, %108
   %167 = zext i32 %.023139 to i64
-  %168 = icmp ugt i64 %indvars.iv, %167
+  %168 = icmp samesign ugt i64 %indvars.iv, %167
   br i1 %168, label %169, label %_ZN5kitty12swap_inplaceINS_18static_truth_tableILj10EEEEEvRT_hh.exit96
 
 169:                                              ; preds = %.loopexit
@@ -8361,7 +8361,7 @@ _ZN3acd21ac_decomposition_impl24adjust_truth_table_on_dcERN5kitty18static_truth_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %355 = sub i32 %353, %352
   %356 = zext i32 %355 to i64
-  %357 = icmp ult i64 %indvars.iv.next, %356
+  %357 = icmp samesign ult i64 %indvars.iv.next, %356
   br i1 %357, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !142
 
 ._crit_edge.loopexit:                             ; preds = %_ZN3acd21ac_decomposition_impl24adjust_truth_table_on_dcERN5kitty18static_truth_tableILj10EEES4_j.exit
@@ -8679,7 +8679,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = load i32, ptr %13, align 4
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %indvars.iv.next, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next, %79
   br i1 %80, label %42, label %._crit_edge, !llvm.loop !150
 
 .loopexit161:                                     ; preds = %66

@@ -105,7 +105,7 @@ if.else.i:                                        ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %icv.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %iv.i8.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %sha1tmp.i9.i)
-  %cmp.i10.i = icmp ult i64 %inl, 24
+  %cmp.i10.i = icmp samesign ult i64 %inl, 24
   br i1 %cmp.i10.i, label %des_ede3_unwrap.exit.i, label %if.end.i11.i
 
 if.end.i11.i:                                     ; preds = %if.else.i

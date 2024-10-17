@@ -4768,7 +4768,7 @@ define internal fastcc noundef ptr @_ZL36updateLoopMetadataDebugLocationsImplPN4
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %13, %16
   %.0.i.i = phi i64 [ %18, %16 ], [ %15, %13 ]
-  %19 = icmp ult i64 %indvars.iv, %.0.i.i
+  %19 = icmp samesign ult i64 %indvars.iv, %.0.i.i
   br i1 %19, label %20, label %55
 
 20:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit
@@ -13516,7 +13516,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_8MetadataEE5countEPKS1_.exit49: ; preds = %.lr.ph
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %78, %81
   %.0.i.i53 = phi i64 [ %83, %81 ], [ %80, %78 ]
-  %84 = icmp ult i64 %indvars.iv, %.0.i.i53
+  %84 = icmp samesign ult i64 %indvars.iv, %.0.i.i53
   br i1 %84, label %85, label %130
 
 85:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit

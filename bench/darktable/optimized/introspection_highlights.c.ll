@@ -6552,7 +6552,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1407 = getelementptr inbounds float, ptr %3, i64 %1406
   %1408 = mul nsw i64 %1405, %1338
   %1409 = getelementptr inbounds float, ptr %2, i64 %1408
-  %1410 = icmp ult i64 %1405, 2
+  %1410 = icmp samesign ult i64 %1405, 2
   %1411 = icmp sgt i64 %1405, %1354
   %1412 = freeze i1 %1411
   %1413 = or i1 %1410, %1412
@@ -6667,7 +6667,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1494 = or i1 %1489, %1493
   %1495 = zext i1 %1494 to i32
   %1496 = or disjoint i32 %1484, %1495
-  %1497 = icmp ult i32 %1482, 2
+  %1497 = icmp samesign ult i32 %1482, 2
   %1498 = icmp sgt i32 %1482, %1342
   %1499 = select i1 %1497, i1 true, i1 %1498
   br i1 %1499, label %1836, label %1500
@@ -8584,7 +8584,7 @@ default.unreachable409:                           ; preds = %2283, %2252, %2229,
   %2962 = getelementptr inbounds i8, ptr %2947, i64 72
   %2963 = load i32, ptr %2962, align 8, !tbaa !51
   %2964 = icmp ult i32 %2961, %2963
-  %2965 = icmp ugt i32 %2961, 1
+  %2965 = icmp samesign ugt i32 %2961, 1
   %2966 = and i1 %2964, %2965
   br i1 %2966, label %2967, label %2988
 
@@ -8766,7 +8766,7 @@ default.unreachable409:                           ; preds = %2283, %2252, %2229,
   %3111 = load i32, ptr %3110, align 4, !tbaa !30
   %3112 = and i32 %3111, 262143
   %3113 = icmp ult i32 %3112, %3004
-  %3114 = icmp ugt i32 %3112, 1
+  %3114 = icmp samesign ugt i32 %3112, 1
   %3115 = and i1 %3113, %3114
   %3116 = zext nneg i32 %3112 to i64
   %3117 = select i1 %3115, i64 %3116, i64 0
@@ -11215,7 +11215,7 @@ default.unreachable409:                           ; preds = %2283, %2252, %2229,
   %5023 = getelementptr inbounds i8, ptr %5008, i64 72
   %5024 = load i32, ptr %5023, align 8, !tbaa !51
   %5025 = icmp ult i32 %5022, %5024
-  %5026 = icmp ugt i32 %5022, 1
+  %5026 = icmp samesign ugt i32 %5022, 1
   %5027 = and i1 %5025, %5026
   %5028 = select i1 %5027, i32 %5022, i32 0
   %5029 = select i1 %4879, i1 %5027, i1 false
@@ -11238,7 +11238,7 @@ default.unreachable409:                           ; preds = %2283, %2252, %2229,
   %5037 = load i32, ptr %5036, align 4, !tbaa !30
   %5038 = and i32 %5037, 262143
   %5039 = icmp ult i32 %5038, %4890
-  %5040 = icmp ugt i32 %5038, 1
+  %5040 = icmp samesign ugt i32 %5038, 1
   %5041 = and i1 %5039, %5040
   br i1 %5041, label %5042, label %5046
 
@@ -16142,7 +16142,7 @@ define internal fastcc void @wavelets_process(ptr noalias noundef %0, ptr noalia
   %48 = getelementptr i8, ptr %23, i64 8
   %49 = getelementptr i8, ptr %23, i64 12
   %50 = getelementptr i8, ptr %23, i64 4
-  %51 = icmp ult i64 %3, 8
+  %51 = icmp samesign ult i64 %3, 8
   %52 = shl i64 %29, 4
   %53 = getelementptr i8, ptr %48, i64 %52
   %54 = icmp ult ptr %53, %48

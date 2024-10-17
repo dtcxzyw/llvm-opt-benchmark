@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local zeroext range(i8 0, 2) i8 @lzma_lzma_preset(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = and i32 %1, 31
-  %4 = icmp ult i32 %3, 10
+  %4 = icmp samesign ult i32 %3, 10
   %5 = and i32 %1, 2147483616
   %.not = icmp eq i32 %5, 0
   %or.cond37 = and i1 %4, %.not
@@ -32,13 +32,13 @@ define dso_local zeroext range(i8 0, 2) i8 @lzma_lzma_preset(ptr nocapture nound
   %15 = zext nneg i8 %14 to i32
   %16 = shl nuw i32 1, %15
   store i32 %16, ptr %0, align 8
-  %17 = icmp ult i32 %3, 4
+  %17 = icmp samesign ult i32 %3, 4
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %6
   %19 = icmp eq i32 %3, 0
   %20 = select i1 %19, i32 3, i32 4
-  %21 = icmp ult i32 %3, 2
+  %21 = icmp samesign ult i32 %3, 2
   %22 = select i1 %21, i32 128, i32 273
   %23 = getelementptr inbounds [4 x i8], ptr @lzma_lzma_preset.depths, i64 0, i64 %12
   %24 = load i8, ptr %23, align 1

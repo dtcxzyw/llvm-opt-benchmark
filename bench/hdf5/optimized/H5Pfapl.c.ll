@@ -9357,11 +9357,11 @@ define internal range(i32 -1, 2) i32 @H5P__facc_cache_config_cmp(ptr noundef rea
   %19 = getelementptr inbounds i8, ptr %1, i64 4
   %20 = load i8, ptr %19, align 4
   %21 = and i8 %20, 1
-  %22 = icmp ult i8 %18, %21
+  %22 = icmp samesign ult i8 %18, %21
   br i1 %22, label %235, label %23
 
 23:                                               ; preds = %15
-  %24 = icmp ugt i8 %18, %21
+  %24 = icmp samesign ugt i8 %18, %21
   br i1 %24, label %235, label %25
 
 25:                                               ; preds = %23
@@ -9371,11 +9371,11 @@ define internal range(i32 -1, 2) i32 @H5P__facc_cache_config_cmp(ptr noundef rea
   %29 = getelementptr inbounds i8, ptr %1, i64 1032
   %30 = load i8, ptr %29, align 8
   %31 = and i8 %30, 1
-  %32 = icmp ult i8 %28, %31
+  %32 = icmp samesign ult i8 %28, %31
   br i1 %32, label %235, label %33
 
 33:                                               ; preds = %25
-  %34 = icmp ugt i8 %28, %31
+  %34 = icmp samesign ugt i8 %28, %31
   br i1 %34, label %235, label %35
 
 35:                                               ; preds = %33
@@ -9385,11 +9385,11 @@ define internal range(i32 -1, 2) i32 @H5P__facc_cache_config_cmp(ptr noundef rea
   %39 = getelementptr inbounds i8, ptr %1, i64 1033
   %40 = load i8, ptr %39, align 1
   %41 = and i8 %40, 1
-  %42 = icmp ult i8 %38, %41
+  %42 = icmp samesign ult i8 %38, %41
   br i1 %42, label %235, label %43
 
 43:                                               ; preds = %35
-  %44 = icmp ugt i8 %38, %41
+  %44 = icmp samesign ugt i8 %38, %41
   br i1 %44, label %235, label %45
 
 45:                                               ; preds = %43
@@ -9495,11 +9495,11 @@ define internal range(i32 -1, 2) i32 @H5P__facc_cache_config_cmp(ptr noundef rea
   %113 = getelementptr inbounds i8, ptr %1, i64 1104
   %114 = load i8, ptr %113, align 8
   %115 = and i8 %114, 1
-  %116 = icmp ult i8 %112, %115
+  %116 = icmp samesign ult i8 %112, %115
   br i1 %116, label %235, label %117
 
 117:                                              ; preds = %109
-  %118 = icmp ugt i8 %112, %115
+  %118 = icmp samesign ugt i8 %112, %115
   br i1 %118, label %235, label %119
 
 119:                                              ; preds = %117
@@ -9593,11 +9593,11 @@ define internal range(i32 -1, 2) i32 @H5P__facc_cache_config_cmp(ptr noundef rea
   %179 = getelementptr inbounds i8, ptr %1, i64 1168
   %180 = load i8, ptr %179, align 8
   %181 = and i8 %180, 1
-  %182 = icmp ult i8 %178, %181
+  %182 = icmp samesign ult i8 %178, %181
   br i1 %182, label %235, label %183
 
 183:                                              ; preds = %175
-  %184 = icmp ugt i8 %178, %181
+  %184 = icmp samesign ugt i8 %178, %181
   br i1 %184, label %235, label %185
 
 185:                                              ; preds = %183
@@ -9631,11 +9631,11 @@ define internal range(i32 -1, 2) i32 @H5P__facc_cache_config_cmp(ptr noundef rea
   %205 = getelementptr inbounds i8, ptr %1, i64 1188
   %206 = load i8, ptr %205, align 4
   %207 = and i8 %206, 1
-  %208 = icmp ult i8 %204, %207
+  %208 = icmp samesign ult i8 %204, %207
   br i1 %208, label %235, label %209
 
 209:                                              ; preds = %201
-  %210 = icmp ugt i8 %204, %207
+  %210 = icmp samesign ugt i8 %204, %207
   br i1 %210, label %235, label %211
 
 211:                                              ; preds = %209
@@ -10765,11 +10765,11 @@ define internal range(i32 -1, 2) i32 @H5P__facc_cache_image_config_cmp(ptr nound
   %19 = getelementptr inbounds i8, ptr %1, i64 4
   %20 = load i8, ptr %19, align 4
   %21 = and i8 %20, 1
-  %22 = icmp ult i8 %18, %21
+  %22 = icmp samesign ult i8 %18, %21
   br i1 %22, label %43, label %23
 
 23:                                               ; preds = %15
-  %24 = icmp ugt i8 %18, %21
+  %24 = icmp samesign ugt i8 %18, %21
   br i1 %24, label %43, label %25
 
 25:                                               ; preds = %23
@@ -10779,11 +10779,11 @@ define internal range(i32 -1, 2) i32 @H5P__facc_cache_image_config_cmp(ptr nound
   %29 = getelementptr inbounds i8, ptr %1, i64 5
   %30 = load i8, ptr %29, align 1
   %31 = and i8 %30, 1
-  %32 = icmp ult i8 %28, %31
+  %32 = icmp samesign ult i8 %28, %31
   br i1 %32, label %43, label %33
 
 33:                                               ; preds = %25
-  %34 = icmp ugt i8 %28, %31
+  %34 = icmp samesign ugt i8 %28, %31
   br i1 %34, label %43, label %35
 
 35:                                               ; preds = %33

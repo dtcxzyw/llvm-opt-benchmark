@@ -11900,7 +11900,7 @@ thread-pre-split.i:                               ; preds = %.noexc227.i, %.loop
   %.088.in.in.i = select i1 %.not407.i, ptr %547, ptr %226
   %.088.in.i = load i32, ptr %.088.in.in.i, align 4, !noalias !1854, !noundef !9
   %.088.i = zext i32 %.088.in.i to i64
-  %548 = icmp ugt i64 %.083.ph.i, %537
+  %548 = icmp samesign ugt i64 %.083.ph.i, %537
   br i1 %548, label %549, label %558
 
 549:                                              ; preds = %542

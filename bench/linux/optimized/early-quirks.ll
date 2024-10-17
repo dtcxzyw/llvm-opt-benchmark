@@ -79,7 +79,7 @@ define internal fastcc void @early_pci_scan_bus(i32 noundef range(i32 0, 256) %0
   %6 = tail call fastcc i32 @check_dev_quirk(i32 noundef %0, i32 noundef %3, i32 noundef %5) #5, !range !5
   %7 = icmp eq i32 %6, 0
   %8 = add nuw nsw i32 %5, 1
-  %9 = icmp ult i32 %5, 7
+  %9 = icmp samesign ult i32 %5, 7
   %10 = and i1 %9, %7
   br i1 %10, label %4, label %11, !llvm.loop !6
 
@@ -178,7 +178,7 @@ define internal fastcc range(i32 -1, 1) i32 @check_dev_quirk(i32 noundef range(i
 59:                                               ; preds = %.loopexit
   %60 = tail call zeroext i8 @read_pci_config_byte(i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext 25) #4
   %61 = zext i8 %60 to i32
-  %62 = icmp ult i32 %0, %61
+  %62 = icmp samesign ult i32 %0, %61
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %59
@@ -264,7 +264,7 @@ define internal void @ati_bugs(i32 noundef %0, i32 noundef %1, i32 noundef %2) #
 
 6:                                                ; preds = %3
   %7 = tail call fastcc i32 @ati_ixp4x0_rev(i32 noundef %0, i32 noundef %1, i32 noundef %2) #5, !range !11
-  %8 = icmp ult i32 %7, 130
+  %8 = icmp samesign ult i32 %7, 130
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %6
@@ -300,7 +300,7 @@ define internal void @ati_bugs_contd(i32 noundef %0, i32 noundef %1, i32 noundef
   %6 = trunc i32 %2 to i8
   %7 = tail call i32 @read_pci_config(i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext 8) #4
   %8 = and i32 %7, 255
-  %9 = icmp ugt i32 %8, 63
+  %9 = icmp samesign ugt i32 %8, 63
   br i1 %9, label %.thread, label %10
 
 .thread:                                          ; preds = %3
@@ -308,7 +308,7 @@ define internal void @ati_bugs_contd(i32 noundef %0, i32 noundef %1, i32 noundef
   br label %25
 
 10:                                               ; preds = %3
-  %11 = icmp ult i32 %8, 57
+  %11 = icmp samesign ult i32 %8, 57
   %12 = load i32, ptr @acpi_use_timer_override, align 4
   %13 = icmp eq i32 %12, 0
   %14 = select i1 %11, i1 %13, i1 false
@@ -462,7 +462,7 @@ define internal void @apple_airport_reset(i32 noundef %0, i32 noundef %1, i32 no
   %43 = add nuw nsw i32 %42, 1
   %44 = tail call i32 @ioread32(ptr noundef %39) #4
   %45 = icmp ne i32 %44, 0
-  %46 = icmp ult i32 %42, 29
+  %46 = icmp samesign ult i32 %42, 29
   %47 = select i1 %45, i1 %46, i1 false
   br i1 %47, label %.preheader, label %.loopexit, !llvm.loop !18
 
@@ -795,7 +795,7 @@ define internal range(i64 0, 18014398543036417) i64 @chv_stolen_size(i32 noundef
   %8 = lshr i16 %7, 3
   %9 = and i16 %8, 31
   %10 = zext nneg i16 %9 to i32
-  %11 = icmp ult i16 %9, 17
+  %11 = icmp samesign ult i16 %9, 17
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
@@ -804,7 +804,7 @@ define internal range(i64 0, 18014398543036417) i64 @chv_stolen_size(i32 noundef
   br label %27
 
 15:                                               ; preds = %3
-  %16 = icmp ult i16 %9, 23
+  %16 = icmp samesign ult i16 %9, 23
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15

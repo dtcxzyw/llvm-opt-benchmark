@@ -187,7 +187,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$12pus
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %21
-  %26 = icmp ult i32 %.0, 7
+  %26 = icmp samesign ult i32 %.0, 7
   br i1 %26, label %.preheader.i, label %27
 
 27:                                               ; preds = %25
@@ -195,7 +195,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$12pus
           to label %.thread.i unwind label %63
 
 .thread.i:                                        ; preds = %.preheader.i, %27
-  %28 = icmp ult i32 %.0, 11
+  %28 = icmp samesign ult i32 %.0, 11
   %29 = load atomic i64, ptr %5 monotonic, align 128
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31
 
@@ -230,7 +230,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$12pus
   br label %40
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit: ; preds = %40
-  %38 = icmp ult i32 %.0, 7
+  %38 = icmp samesign ult i32 %.0, 7
   %39 = load atomic i64, ptr %5 monotonic, align 128
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31
 
@@ -273,7 +273,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31: ; preds = 
   br label %57
 
 55:                                               ; preds = %57
-  %56 = icmp ult i32 %.0, 7
+  %56 = icmp samesign ult i32 %.0, 7
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31
 
 57:                                               ; preds = %57, %54
@@ -343,7 +343,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$3pop1
   br i1 %25, label %47, label %44
 
 26:                                               ; preds = %20
-  %27 = icmp ult i32 %.025, 7
+  %27 = icmp samesign ult i32 %.025, 7
   br i1 %27, label %.preheader.i, label %28
 
 28:                                               ; preds = %26
@@ -351,7 +351,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$3pop1
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.preheader.i, %28
-  %29 = icmp ult i32 %.025, 11
+  %29 = icmp samesign ult i32 %.025, 11
   %30 = load atomic i64, ptr %1 monotonic, align 128
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19
 
@@ -374,7 +374,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$3pop1
   br label %39
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit: ; preds = %39
-  %37 = icmp ult i32 %.025, 7
+  %37 = icmp samesign ult i32 %.025, 7
   %38 = load atomic i64, ptr %1 monotonic, align 128
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19
 
@@ -417,7 +417,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19: ; preds = 
   br label %54
 
 52:                                               ; preds = %54
-  %53 = icmp ult i32 %.025, 7
+  %53 = icmp samesign ult i32 %.025, 7
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19
 
 54:                                               ; preds = %54, %51
@@ -7121,7 +7121,7 @@ define hidden void @_ZN7tracing4span4Span3log17hec43ba3be1da64bbE.llvm.162005795
   %17 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %18 = icmp ult i64 %17, 6
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ugt i64 %.0, %17
+  %19 = icmp samesign ugt i64 %.0, %17
   br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %13, %31, %5

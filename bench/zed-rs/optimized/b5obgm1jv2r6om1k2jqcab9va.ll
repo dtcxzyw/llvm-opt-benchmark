@@ -757,7 +757,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %47 = sub i64 %.sroa.018.0, %46
   %48 = zext i16 %44 to i64
   %49 = and i64 %47, %48
-  %50 = icmp ult i64 %49, %.sroa.012.0.ph
+  %50 = icmp samesign ult i64 %49, %.sroa.012.0.ph
   br i1 %50, label %.noexc50, label %51
 
 51:                                               ; preds = %40
@@ -972,7 +972,7 @@ split:                                            ; preds = %67, %"_ZN71_$LT$htt
   unreachable
 
 .noexc50:                                         ; preds = %40
-  %143 = icmp ugt i64 %.sroa.012.0.ph, 511
+  %143 = icmp samesign ugt i64 %.sroa.012.0.ph, 511
   %144 = load i64, ptr %0, align 8, !range !74
   %145 = icmp ne i64 %144, 2
   %.sroa.010.0 = select i1 %143, i1 %145, i1 false
@@ -1473,7 +1473,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355
   %22 = add i64 %21, 1
   store i64 %22, ptr %.phi.trans.insert, align 8, !alias.scope !343, !noalias !354
   %23 = lshr i64 %.sroa.01.07, 7
-  %24 = icmp ult i64 %.sroa.01.07, 16384
+  %24 = icmp samesign ult i64 %.sroa.01.07, 16384
   br i1 %24, label %._crit_edge, label %11
 
 ._crit_edge:                                      ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355.exit, %.._crit_edge_crit_edge
@@ -1565,7 +1565,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding10merge_loop17h0924b8adce09
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !357
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !357
   store i64 %37, ptr %8, align 8, !noalias !366
-  %switch.i = icmp ult i64 %37, 6
+  %switch.i = icmp samesign ult i64 %37, 6
   br i1 %switch.i, label %40, label %43
 
 38:                                               ; preds = %33
@@ -1712,7 +1712,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding10merge_loop17h0bcc39700b29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !390
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !390
   store i64 %37, ptr %8, align 8, !noalias !399
-  %switch.i = icmp ult i64 %37, 6
+  %switch.i = icmp samesign ult i64 %37, 6
   br i1 %switch.i, label %40, label %43
 
 38:                                               ; preds = %33
@@ -1859,7 +1859,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding10merge_loop17h3d513a267d5a
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !423
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !423
   store i64 %37, ptr %8, align 8, !noalias !432
-  %switch.i = icmp ult i64 %37, 6
+  %switch.i = icmp samesign ult i64 %37, 6
   br i1 %switch.i, label %40, label %43
 
 38:                                               ; preds = %33
@@ -2006,7 +2006,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding10merge_loop17h8ca56ad3778b
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !456
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !456
   store i64 %37, ptr %8, align 8, !noalias !465
-  %switch.i = icmp ult i64 %37, 6
+  %switch.i = icmp samesign ult i64 %37, 6
   br i1 %switch.i, label %40, label %43
 
 38:                                               ; preds = %33
@@ -2153,7 +2153,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding10merge_loop17hbc3f8243f901
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !489
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !489
   store i64 %37, ptr %8, align 8, !noalias !498
-  %switch.i = icmp ult i64 %37, 6
+  %switch.i = icmp samesign ult i64 %37, 6
   br i1 %switch.i, label %40, label %43
 
 38:                                               ; preds = %33
@@ -2304,7 +2304,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding10skip_field17hbe2132079cf6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %34, ptr %9, align 8, !noalias !527
-  %switch95 = icmp ult i64 %34, 6
+  %switch95 = icmp samesign ult i64 %34, 6
   br i1 %switch95, label %37, label %40
 
 35:                                               ; preds = %30
@@ -2922,7 +2922,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355
   %19 = add i64 %18, 1
   store i64 %19, ptr %.phi.trans.insert.i, align 8, !alias.scope !607, !noalias !618
   %20 = lshr i64 %.sroa.01.07.i, 7
-  %21 = icmp ult i64 %.sroa.01.07.i, 16384
+  %21 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %21, label %._crit_edge.i, label %8
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355.exit.i, %.._crit_edge_crit_edge.i
@@ -3087,7 +3087,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !662, !noalias !673
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355.exit.i, %.._crit_edge_crit_edge.i
@@ -3313,7 +3313,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355
   %19 = add i64 %18, 1
   store i64 %19, ptr %.phi.trans.insert.i, align 8, !alias.scope !743, !noalias !754
   %20 = lshr i64 %.sroa.01.07.i, 7
-  %21 = icmp ult i64 %.sroa.01.07.i, 16384
+  %21 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %21, label %._crit_edge.i, label %8
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355.exit.i, %.._crit_edge_crit_edge.i
@@ -3568,7 +3568,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !835, !noalias !846
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355.exit.i, %.._crit_edge_crit_edge.i
@@ -3772,7 +3772,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355
   %19 = add i64 %18, 1
   store i64 %19, ptr %.phi.trans.insert.i, align 8, !alias.scope !915, !noalias !926
   %20 = lshr i64 %.sroa.01.07.i, 7
-  %21 = icmp ult i64 %.sroa.01.07.i, 16384
+  %21 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %21, label %._crit_edge.i, label %8
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355.exit.i, %.._crit_edge_crit_edge.i
@@ -3825,7 +3825,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355
   %46 = add i64 %45, 1
   store i64 %46, ptr %.phi.trans.insert.i, align 8, !alias.scope !929, !noalias !940
   %47 = lshr i64 %.sroa.0.07, 7
-  %48 = icmp ult i64 %.sroa.0.07, 16384
+  %48 = icmp samesign ult i64 %.sroa.0.07, 16384
   br i1 %48, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355.exit, %_ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.8801228890571076355.exit

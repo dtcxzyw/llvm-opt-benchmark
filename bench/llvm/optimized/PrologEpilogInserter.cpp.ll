@@ -4674,7 +4674,7 @@ _ZNK4llvm9BitVector10find_firstEv.exit.i.i:       ; preds = %2042
 
 2081:                                             ; preds = %.loopexit.i284.i
   %2082 = lshr i32 %2079, 6
-  %.not32.i.i.i.i = icmp ugt i32 %2082, %2034
+  %.not32.i.i.i.i = icmp samesign ugt i32 %2082, %2034
   br i1 %.not32.i.i.i.i, label %.loopexit.i109, label %.lr.ph.i.i.i.i108
 
 .lr.ph.i.i.i.i108:                                ; preds = %2081
@@ -5544,7 +5544,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit.i.i:          ; preds = %2461
   %2518 = lshr i32 %2514, 6
   %2519 = add i32 %2515, -1
   %2520 = lshr i32 %2519, 6
-  %.not32.i.i.i.i.i.i = icmp ugt i32 %2518, %2520
+  %.not32.i.i.i.i.i.i = icmp samesign ugt i32 %2518, %2520
   br i1 %.not32.i.i.i.i.i.i, label %._crit_edge333.i.i, label %.lr.ph.i.i.i.i.i.i139
 
 .lr.ph.i.i.i.i.i.i139:                            ; preds = %2517

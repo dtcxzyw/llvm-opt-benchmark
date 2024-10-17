@@ -526,7 +526,7 @@ thread-pre-split:                                 ; preds = %35, %28, %21
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %40, 0
   %50 = select i1 %49, ptr @.str.26, ptr @.str.25
-  %51 = icmp ugt i32 %40, 1
+  %51 = icmp samesign ugt i32 %40, 1
   %52 = select i1 %51, ptr @.str.27, ptr @.str.28
   %53 = add nsw i32 %40, -2
   %54 = select i1 %51, i32 %53, i32 0
@@ -1419,7 +1419,7 @@ define dso_local i32 @intel_guc_log_dump(ptr noundef %0, ptr noundef %1, i1 noun
   %58 = load i32, ptr %57, align 4
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.15, i32 noundef %52, i32 noundef %54, i32 noundef %56, i32 noundef %58) #11
   %59 = add nuw nsw i64 %50, 4
-  %60 = icmp ult i64 %50, 1020
+  %60 = icmp samesign ult i64 %50, 1020
   br i1 %60, label %49, label %61, !llvm.loop !38
 
 61:                                               ; preds = %49

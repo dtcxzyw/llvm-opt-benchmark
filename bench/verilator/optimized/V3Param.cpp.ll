@@ -2167,7 +2167,7 @@ _ZN12VNUser1InUseD2Ev.exit:                       ; preds = %_ZN12VNUser1InUseC2
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %89
@@ -13687,7 +13687,7 @@ define linkonce_odr dso_local void @_ZN12ParamVisitor19visitCellOrClassRefEP7Ast
   %18 = getelementptr inbounds i8, ptr %.0710.i.i.i, i64 32
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 1
-  %21 = icmp ugt i8 %20, %12
+  %21 = icmp samesign ugt i8 %20, %12
   %.in.v.i.i.i = select i1 %21, i64 16, i64 24
   %.in.i.i.i = getelementptr inbounds i8, ptr %.0710.i.i.i, i64 %.in.v.i.i.i
   %.07.i.i.i = load ptr, ptr %.in.i.i.i, align 8

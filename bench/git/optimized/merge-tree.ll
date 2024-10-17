@@ -1589,7 +1589,7 @@ for.end:                                          ; preds = %for.body
 
 for.cond.i:                                       ; preds = %for.body.i
   %p.0.add.i = add nuw nsw i64 %p.0.idx29.i, 56
-  %cmp.i = icmp ult i64 %p.0.idx29.i, 112
+  %cmp.i = icmp samesign ult i64 %p.0.idx29.i, 112
   br i1 %cmp.i, label %for.body.i, label %unresolved_directory.exit, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %for.end

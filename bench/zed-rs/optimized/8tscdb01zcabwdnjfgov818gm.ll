@@ -6966,7 +6966,7 @@ default.unreachable586:                           ; preds = %1670, %1284, %1250,
   %125 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %126 = icmp ult i64 %125, 6
   tail call void @llvm.assume(i1 %126)
-  %switch.i206 = icmp ugt i64 %125, 2
+  %switch.i206 = icmp samesign ugt i64 %125, 2
   br i1 %switch.i206, label %127, label %143
 
 127:                                              ; preds = %118
@@ -13463,7 +13463,7 @@ default.unreachable140:                           ; preds = %3
           to label %.noexc33 unwind label %49
 
 .noexc33:                                         ; preds = %37
-  %switch.i.i.i = icmp ult i8 %43, 2
+  %switch.i.i.i = icmp samesign ult i8 %43, 2
   br i1 %switch.i.i.i, label %51, label %44
 
 44:                                               ; preds = %.noexc33
@@ -24095,7 +24095,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
-  %switch.i.i = icmp ult i8 %31, 3
+  %switch.i.i = icmp samesign ult i8 %31, 3
   %34 = getelementptr inbounds i8, ptr %1, i64 16
   %35 = load i8, ptr %34, align 8, !range !2260, !noundef !4
   %36 = icmp eq i8 %35, 6
@@ -24104,14 +24104,14 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$
 .thread:                                          ; preds = %29
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i8, ptr %37, align 8, !range !2260, !noundef !4
-  %switch.i.i3453 = icmp ult i8 %38, 3
+  %switch.i.i3453 = icmp samesign ult i8 %38, 3
   br i1 %switch.i.i3453, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit"
 
 ._crit_edge:                                      ; preds = %33
   br i1 %switch.i.i, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit"
 
 39:                                               ; preds = %33
-  %switch.i.i34 = icmp ult i8 %35, 3
+  %switch.i.i34 = icmp samesign ult i8 %35, 3
   %40 = xor i1 %switch.i.i, %switch.i.i34
   br i1 %40, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit"
 
@@ -25548,7 +25548,7 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %1, align 8, !alias.scope !8005, !nonnull !4, !align !11, !noundef !4
   %9 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h42651f82eedf85bcE.llvm.4982356907791861978"(ptr noundef nonnull align 8 %7, ptr noundef nonnull align 8 %4, i64 noundef 0, ptr noundef nonnull %8), !range !2175, !noalias !8005
-  %switch.i.i = icmp ult i8 %9, 2
+  %switch.i.i = icmp samesign ult i8 %9, 2
   br i1 %switch.i.i, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8afd4228883ca0b2E.exit", label %10
 
 10:                                               ; preds = %2
@@ -48387,15 +48387,15 @@ define internal fastcc void @"_ZN74_$LT$languages..vtsls..VtslsLspAdapter$u20$as
   br i1 %120, label %.loopexit.i.i, label %172
 
 172:                                              ; preds = %170
-  %173 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %173 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %173, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i", label %174
 
 174:                                              ; preds = %172
-  %175 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %175 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %175, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i", label %176
 
 176:                                              ; preds = %174
-  %177 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %177 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %177, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i"
 

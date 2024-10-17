@@ -176,13 +176,13 @@ define hidden noundef i32 @_ZN16PhaseMacroExpand13replace_inputEP4NodeS1_S1_(ptr
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %.lr.ph.split.us
-  %20 = icmp uge i64 %indvars.iv33, %13
+  %20 = icmp samesign uge i64 %indvars.iv33, %13
   %21 = icmp eq ptr %17, null
   %or.cond.us = and i1 %20, %21
   br i1 %or.cond.us, label %._crit_edge, label %45
 
 22:                                               ; preds = %.lr.ph.split.us
-  %23 = icmp ult i64 %indvars.iv33, %13
+  %23 = icmp samesign ult i64 %indvars.iv33, %13
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %22
@@ -236,7 +236,7 @@ _ZN4Node7set_reqEjPS_.exit.us:                    ; preds = %_ZN4Node7del_outEPS
   %.1.us = phi i32 [ %44, %_ZN4Node7set_reqEjPS_.exit.us ], [ %.025.us, %19 ]
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next34, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next34, %47
   br i1 %48, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %93
@@ -250,7 +250,7 @@ _ZN4Node7set_reqEjPS_.exit.us:                    ; preds = %_ZN4Node7del_outEPS
   br i1 %53, label %54, label %90
 
 54:                                               ; preds = %.lr.ph.split
-  %55 = icmp ult i64 %indvars.iv, %13
+  %55 = icmp samesign ult i64 %indvars.iv, %13
   br i1 %55, label %56, label %87
 
 56:                                               ; preds = %54
@@ -324,7 +324,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %81, %_ZN4Node7del_o
   br label %93
 
 90:                                               ; preds = %.lr.ph.split
-  %91 = icmp uge i64 %indvars.iv, %13
+  %91 = icmp samesign uge i64 %indvars.iv, %13
   %92 = icmp eq ptr %52, null
   %or.cond = and i1 %91, %92
   br i1 %or.cond, label %._crit_edge, label %93
@@ -334,7 +334,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %81, %_ZN4Node7del_o
   %.1 = phi i32 [ %89, %_ZN4Node7set_reqEjPS_.exit ], [ %.025, %90 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = zext i32 %94 to i64
-  %96 = icmp ult i64 %indvars.iv.next, %95
+  %96 = icmp samesign ult i64 %indvars.iv.next, %95
   br i1 %96, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %93, %90, %45, %19, %4
@@ -379,7 +379,7 @@ define linkonce_odr hidden void @_ZN4Node8set_precEjPS_(ptr noundef nonnull alig
 24:                                               ; preds = %20
   %25 = icmp ne ptr %22, null
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %26 = icmp ult i64 %indvars.iv.next.i, %19
+  %26 = icmp samesign ult i64 %indvars.iv.next.i, %19
   %or.cond.i = select i1 %25, i1 %26, i1 false
   br i1 %or.cond.i, label %20, label %_ZN4Node14find_prec_edgeEPS_.exit.thread, !llvm.loop !9
 
@@ -2220,7 +2220,7 @@ _ZN9VectorSet8test_setEj.exit:                    ; preds = %.backedge, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %96 = load i32, ptr %79, align 8
   %97 = zext i32 %96 to i64
-  %98 = icmp ult i64 %indvars.iv.next, %97
+  %98 = icmp samesign ult i64 %indvars.iv.next, %97
   br i1 %98, label %83, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge.thread:                               ; preds = %75, %94
@@ -3414,7 +3414,7 @@ define hidden noundef zeroext i1 @_ZN16PhaseMacroExpand24can_eliminate_allocatio
   %174 = add nsw i32 %163, 1
   %175 = icmp sgt i32 %163, -1
   %176 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %174)
-  %177 = icmp ult i32 %176, 2
+  %177 = icmp samesign ult i32 %176, 2
   %or.cond.i.i.i.i.i = select i1 %175, i1 %177, i1 false
   %178 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %174, i1 true)
   %179 = sub nuw nsw i32 32, %178
@@ -4541,7 +4541,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9VectorSet8test_
 _ZN13GrowableArrayIP13SafePointNodeE8allocateEv.exit.i: ; preds = %.loopexit.i
   %72 = icmp sgt i32 %.sroa.0.066, -1
   %73 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %71)
-  %74 = icmp ult i32 %73, 2
+  %74 = icmp samesign ult i32 %73, 2
   %or.cond.i.i.i.i.i = select i1 %72, i1 %74, i1 false
   %75 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %71, i1 true)
   %76 = sub nuw nsw i32 32, %75
@@ -11126,7 +11126,7 @@ define hidden void @_ZN16PhaseMacroExpand19mark_eliminated_boxEP4NodeS1_(ptr noc
   %45 = phi i32 [ %25, %24 ], [ %25, %33 ], [ %.pre, %43 ], [ %25, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %47, label %24, label %.loopexit, !llvm.loop !38
 
 48:                                               ; preds = %10
@@ -11665,7 +11665,7 @@ define hidden void @_ZN16PhaseMacroExpand29mark_eliminated_locking_nodesEP16Abst
   %44 = phi i32 [ %27, %26 ], [ %.pre44, %41 ], [ %27, %35 ]
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next42, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next42, %45
   br i1 %46, label %26, label %.loopexit, !llvm.loop !42
 
 47:                                               ; preds = %4
@@ -11718,7 +11718,7 @@ define hidden void @_ZN16PhaseMacroExpand29mark_eliminated_locking_nodesEP16Abst
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = load i32, ptr %53, align 8
   %78 = zext i32 %77 to i64
-  %79 = icmp ult i64 %indvars.iv.next, %78
+  %79 = icmp samesign ult i64 %indvars.iv.next, %78
   br i1 %79, label %56, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %76, %43, %.thread, %17, %9, %10, %15, %2, %47

@@ -125,7 +125,7 @@ define hidden void @isis_dissect_area_address_clv(ptr noundef %0, ptr noundef %1
   %32 = and i32 %.04053, 1
   %33 = icmp eq i32 %32, 0
   %34 = or disjoint i32 %.04053, 1
-  %35 = icmp ult i32 %34, %20
+  %35 = icmp samesign ult i32 %34, %20
   %or.cond = select i1 %33, i1 %35, i1 false
   br i1 %or.cond, label %36, label %37
 
@@ -336,7 +336,7 @@ define hidden void @isis_dissect_ip_int_clv(ptr noundef %0, ptr noundef %1, ptr 
 .preheader.split.us:                              ; preds = %.preheader, %10
   %.017.us = phi i32 [ %12, %10 ], [ %5, %.preheader ]
   %.0.us = phi i32 [ %11, %10 ], [ %4, %.preheader ]
-  %9 = icmp ult i32 %.017.us, 4
+  %9 = icmp samesign ult i32 %.017.us, 4
   br i1 %9, label %.split.us, label %10
 
 10:                                               ; preds = %.preheader.split.us
@@ -348,7 +348,7 @@ define hidden void @isis_dissect_ip_int_clv(ptr noundef %0, ptr noundef %1, ptr 
 .preheader.split:                                 ; preds = %.preheader, %15
   %.017 = phi i32 [ %18, %15 ], [ %5, %.preheader ]
   %.0 = phi i32 [ %17, %15 ], [ %4, %.preheader ]
-  %13 = icmp ult i32 %.017, 4
+  %13 = icmp samesign ult i32 %.017, 4
   br i1 %13, label %.split.us, label %15
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
@@ -381,7 +381,7 @@ define hidden void @isis_dissect_ipv6_int_clv(ptr noundef %0, ptr noundef %1, pt
 .preheader.split.us:                              ; preds = %.preheader, %11
   %.019.us = phi i32 [ %13, %11 ], [ %5, %.preheader ]
   %.0.us = phi i32 [ %12, %11 ], [ %4, %.preheader ]
-  %10 = icmp ult i32 %.019.us, 16
+  %10 = icmp samesign ult i32 %.019.us, 16
   br i1 %10, label %.split.us, label %11
 
 11:                                               ; preds = %.preheader.split.us
@@ -394,7 +394,7 @@ define hidden void @isis_dissect_ipv6_int_clv(ptr noundef %0, ptr noundef %1, pt
 .preheader.split:                                 ; preds = %.preheader, %16
   %.019 = phi i32 [ %19, %16 ], [ %5, %.preheader ]
   %.0 = phi i32 [ %18, %16 ], [ %4, %.preheader ]
-  %14 = icmp ult i32 %.019, 16
+  %14 = icmp samesign ult i32 %.019, 16
   br i1 %14, label %.split.us, label %16
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us

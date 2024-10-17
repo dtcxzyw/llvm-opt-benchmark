@@ -764,7 +764,7 @@ default.unreachable.i:                            ; preds = %20
   %205 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !6
   %206 = icmp ult i64 %205, 6
   call void @llvm.assume(i1 %206)
-  %switch.i17.i.i.i = icmp ugt i64 %205, 3
+  %switch.i17.i.i.i = icmp samesign ugt i64 %205, 3
   br i1 %switch.i17.i.i.i, label %207, label %203
 
 207:                                              ; preds = %204
@@ -14759,7 +14759,7 @@ default.unreachable53:                            ; preds = %984, %926, %855, %7
   br i1 %1136, label %.thread.i.i.i.i, label %1137
 
 1137:                                             ; preds = %1133
-  %switch.i.i.i.i.i.i = icmp ult i8 %1135, 3
+  %switch.i.i.i.i.i.i = icmp samesign ult i8 %1135, 3
   %1138 = getelementptr inbounds i8, ptr %6, i64 16
   %1139 = load i8, ptr %1138, align 8, !range !3748, !alias.scope !3744, !noalias !3747, !noundef !5
   %1140 = icmp eq i8 %1139, 6
@@ -14768,14 +14768,14 @@ default.unreachable53:                            ; preds = %984, %926, %855, %7
 .thread.i.i.i.i:                                  ; preds = %1133
   %1141 = getelementptr inbounds i8, ptr %6, i64 16
   %1142 = load i8, ptr %1141, align 8, !range !3748, !alias.scope !3744, !noalias !3747, !noundef !5
-  %switch.i.i3453.i.i.i.i = icmp ult i8 %1142, 3
+  %switch.i.i3453.i.i.i.i = icmp samesign ult i8 %1142, 3
   br i1 %switch.i.i3453.i.i.i.i, label %1129, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h97bc133204e56b3dE.exit.i.i.i.i"
 
 ._crit_edge.i.i.i.i:                              ; preds = %1137
   br i1 %switch.i.i.i.i.i.i, label %1129, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h97bc133204e56b3dE.exit.i.i.i.i"
 
 1143:                                             ; preds = %1137
-  %switch.i.i34.i.i.i.i = icmp ult i8 %1139, 3
+  %switch.i.i34.i.i.i.i = icmp samesign ult i8 %1139, 3
   %1144 = xor i1 %switch.i.i.i.i.i.i, %switch.i.i34.i.i.i.i
   br i1 %1144, label %1129, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h97bc133204e56b3dE.exit.i.i.i.i"
 

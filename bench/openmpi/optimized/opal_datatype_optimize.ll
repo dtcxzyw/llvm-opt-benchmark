@@ -491,7 +491,7 @@ GET_FIRST_NON_LOOP.exit.i:                        ; preds = %.lr.ph.i.i
   %252 = load i32, ptr %197, align 4
   %253 = add i32 %252, -1
   %254 = zext i32 %253 to i64
-  %255 = icmp ult i64 %indvars.iv.next549.i, %254
+  %255 = icmp samesign ult i64 %indvars.iv.next549.i, %254
   br i1 %255, label %.lr.ph443.i, label %._crit_edge444.loopexit.i, !llvm.loop !8
 
 ._crit_edge444.loopexit.i:                        ; preds = %249

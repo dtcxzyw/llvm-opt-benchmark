@@ -1116,7 +1116,7 @@ _ZN10open_spiel2go21VirtualPointTo2DPointEt.exit: ; preds = %2
   %22 = urem i16 %1, 21
   %.zext16.i = trunc nuw nsw i16 %22 to i8
   %23 = or disjoint i8 %.zext16.i, 96
-  %24 = icmp ugt i8 %23, 104
+  %24 = icmp samesign ugt i8 %23, 104
   %25 = add nuw nsw i8 %.zext16.i, 97
   %spec.select = select i1 %24, i8 %25, i8 %23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #26
@@ -1937,7 +1937,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %27 = getelementptr i8, ptr %26, i64 %.idx.i7.i
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
-  %30 = icmp ult i32 %.0, %29
+  %30 = icmp samesign ult i32 %.0, %29
   %spec.select67 = select i1 %30, i16 %24, i16 %.059
   %spec.select68 = tail call i32 @llvm.umax.i32(i32 %.0, i32 %29)
   br label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i"

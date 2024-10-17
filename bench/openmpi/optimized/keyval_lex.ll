@@ -868,7 +868,7 @@ yy_try_NUL_trans.exit:                            ; preds = %._crit_edge.i99
   %381 = getelementptr inbounds i8, ptr %379, i64 %380
   store i8 %372, ptr %381, align 1
   %382 = add nuw nsw i32 %.03355.i, 1
-  %383 = icmp ult i32 %382, %364
+  %383 = icmp samesign ult i32 %382, %364
   br i1 %383, label %368, label %.critedge.i, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %371, %368, %368

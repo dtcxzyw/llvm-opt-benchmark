@@ -487,7 +487,7 @@ define hidden noundef i32 @mbedtls_des_setkey_dec(ptr nocapture noundef %0, ptr 
   store i32 %14, ptr %10, align 4
   store i32 %11, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %15 = icmp ult i64 %indvars.iv, 14
+  %15 = icmp samesign ult i64 %indvars.iv, 14
   br i1 %15, label %3, label %16, !llvm.loop !9
 
 16:                                               ; preds = %3
@@ -543,7 +543,7 @@ define hidden noundef i32 @mbedtls_des3_set2key_enc(ptr nocapture noundef %0, pt
   %35 = getelementptr inbounds i32, ptr %3, i64 %32
   store i32 %13, ptr %35, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %36 = icmp ult i64 %indvars.iv.i, 30
+  %36 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %36, label %6, label %des3_set2key.exit, !llvm.loop !10
 
 des3_set2key.exit:                                ; preds = %6
@@ -600,7 +600,7 @@ define hidden noundef i32 @mbedtls_des3_set2key_dec(ptr nocapture noundef %0, pt
   %35 = getelementptr inbounds i32, ptr %0, i64 %32
   store i32 %13, ptr %35, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %36 = icmp ult i64 %indvars.iv.i, 30
+  %36 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %36, label %6, label %des3_set2key.exit, !llvm.loop !10
 
 des3_set2key.exit:                                ; preds = %6
@@ -658,7 +658,7 @@ define hidden noundef i32 @mbedtls_des3_set3key_enc(ptr nocapture noundef %0, pt
   %37 = getelementptr inbounds i32, ptr %3, i64 %36
   store i32 %35, ptr %37, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %38 = icmp ult i64 %indvars.iv.i, 30
+  %38 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %38, label %8, label %des3_set3key.exit, !llvm.loop !11
 
 des3_set3key.exit:                                ; preds = %8
@@ -716,7 +716,7 @@ define hidden noundef i32 @mbedtls_des3_set3key_dec(ptr nocapture noundef %0, pt
   %37 = getelementptr inbounds i32, ptr %0, i64 %36
   store i32 %35, ptr %37, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %38 = icmp ult i64 %indvars.iv.i, 30
+  %38 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %38, label %8, label %des3_set3key.exit, !llvm.loop !11
 
 des3_set3key.exit:                                ; preds = %8
@@ -1638,7 +1638,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_des_self_test(i32 noundef %0) local_u
   br i1 %.not74, label %22, label %14
 
 14:                                               ; preds = %.backedge151
-  %15 = icmp ult i32 %.062121, 2
+  %15 = icmp samesign ult i32 %.062121, 2
   %16 = select i1 %15, i32 32, i32 51
   %17 = mul nuw nsw i32 %12, 56
   %18 = add nuw nsw i32 %17, 56
@@ -1680,7 +1680,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_des_self_test(i32 noundef %0) local_u
   store i32 %35, ptr %31, align 4
   store i32 %32, ptr %34, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %36 = icmp ult i64 %indvars.iv.i, 14
+  %36 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %36, label %24, label %mbedtls_des_setkey_dec.exit, !llvm.loop !9
 
 mbedtls_des_setkey_dec.exit.thread138:            ; preds = %22
@@ -1733,7 +1733,7 @@ mbedtls_des_setkey_dec.exit.thread138:            ; preds = %22
   %67 = getelementptr inbounds i32, ptr %7, i64 %64
   store i32 %45, ptr %67, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
-  %68 = icmp ult i64 %indvars.iv.i.i, 30
+  %68 = icmp samesign ult i64 %indvars.iv.i.i, 30
   br i1 %68, label %38, label %mbedtls_des3_set2key_dec.exit, !llvm.loop !10
 
 mbedtls_des3_set2key_dec.exit:                    ; preds = %38
@@ -1787,7 +1787,7 @@ mbedtls_des3_set2key_dec.exit:                    ; preds = %38
   %99 = getelementptr inbounds i32, ptr %4, i64 %96
   store i32 %77, ptr %99, align 4
   %indvars.iv.next.i.i84 = add nuw nsw i64 %indvars.iv.i.i83, 2
-  %100 = icmp ult i64 %indvars.iv.i.i83, 30
+  %100 = icmp samesign ult i64 %indvars.iv.i.i83, 30
   br i1 %100, label %70, label %mbedtls_des3_set2key_enc.exit, !llvm.loop !10
 
 mbedtls_des3_set2key_enc.exit:                    ; preds = %70
@@ -1804,7 +1804,7 @@ mbedtls_des3_set2key_enc.exit:                    ; preds = %70
   br label %mbedtls_des_setkey_dec.exit.split.preheader
 
 mbedtls_des_setkey_dec.exit:                      ; preds = %24, %mbedtls_des3_set2key_dec.exit, %mbedtls_des3_set2key_enc.exit
-  %105 = icmp ult i32 %.062121, 2
+  %105 = icmp samesign ult i32 %.062121, 2
   br i1 %105, label %mbedtls_des_setkey_dec.exit.split.us.preheader, label %mbedtls_des_setkey_dec.exit.split.preheader
 
 mbedtls_des_setkey_dec.exit.split.preheader:      ; preds = %103, %101, %mbedtls_des_setkey_dec.exit
@@ -1885,7 +1885,7 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
   br i1 %.not74, label %133, label %125
 
 125:                                              ; preds = %.backedge
-  %126 = icmp ult i32 %.163127, 2
+  %126 = icmp samesign ult i32 %.163127, 2
   %127 = select i1 %126, i32 32, i32 51
   %128 = mul nuw nsw i32 %123, 56
   %129 = add nuw nsw i32 %128, 56
@@ -1928,7 +1928,7 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
   store i32 %146, ptr %142, align 4
   store i32 %143, ptr %145, align 4
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i85, 2
-  %147 = icmp ult i64 %indvars.iv.i85, 14
+  %147 = icmp samesign ult i64 %indvars.iv.i85, 14
   br i1 %147, label %135, label %mbedtls_des_setkey_dec.exit87, !llvm.loop !9
 
 148:                                              ; preds = %133
@@ -1981,7 +1981,7 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
   %179 = getelementptr inbounds i32, ptr %7, i64 %176
   store i32 %157, ptr %179, align 4
   %indvars.iv.next.i.i89 = add nuw nsw i64 %indvars.iv.i.i88, 2
-  %180 = icmp ult i64 %indvars.iv.i.i88, 30
+  %180 = icmp samesign ult i64 %indvars.iv.i.i88, 30
   br i1 %180, label %150, label %mbedtls_des3_set2key_dec.exit90, !llvm.loop !10
 
 mbedtls_des3_set2key_dec.exit90:                  ; preds = %150
@@ -2035,7 +2035,7 @@ mbedtls_des3_set2key_dec.exit90:                  ; preds = %150
   %211 = getelementptr inbounds i32, ptr %2, i64 %208
   store i32 %189, ptr %211, align 4
   %indvars.iv.next.i.i92 = add nuw nsw i64 %indvars.iv.i.i91, 2
-  %212 = icmp ult i64 %indvars.iv.i.i91, 30
+  %212 = icmp samesign ult i64 %indvars.iv.i.i91, 30
   br i1 %212, label %182, label %mbedtls_des3_set2key_enc.exit93, !llvm.loop !10
 
 mbedtls_des3_set2key_enc.exit93:                  ; preds = %182
@@ -2056,7 +2056,7 @@ mbedtls_des_setkey_dec.exit87:                    ; preds = %135, %mbedtls_des3_
   br i1 %216, label %.preheader, label %.preheader118
 
 .preheader118:                                    ; preds = %214, %148, %mbedtls_des_setkey_dec.exit87
-  %217 = icmp ult i32 %.163127, 2
+  %217 = icmp samesign ult i32 %.163127, 2
   br i1 %217, label %.preheader.i.preheader.us, label %.preheader.i106.preheader
 
 .preheader.i.preheader.us:                        ; preds = %.preheader118, %mbedtls_des_crypt_cbc.exit105.loopexit.us
@@ -2086,7 +2086,7 @@ mbedtls_des_crypt_cbc.exit105.loopexit.us:        ; preds = %218
   br i1 %exitcond134.not, label %.split125.us, label %.preheader.i.preheader.us, !llvm.loop !26
 
 .preheader:                                       ; preds = %mbedtls_des_setkey_dec.exit87
-  %227 = icmp ult i32 %.163127, 2
+  %227 = icmp samesign ult i32 %.163127, 2
   br i1 %227, label %.lr.ph.i.preheader.us, label %.lr.ph.i96.preheader.preheader
 
 .lr.ph.i96.preheader.preheader:                   ; preds = %.preheader.thread, %.preheader

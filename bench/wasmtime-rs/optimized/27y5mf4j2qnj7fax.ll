@@ -2665,7 +2665,7 @@ define hidden void @_ZN14cranelift_wasm15func_translator14FuncTranslator14transl
   %62 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %63 = icmp ult i64 %62, 6
   tail call void @llvm.assume(i1 %63)
-  %64 = icmp ugt i64 %62, 4
+  %64 = icmp samesign ugt i64 %62, 4
   br i1 %64, label %67, label %65
 
 65:                                               ; preds = %6, %82
@@ -3933,7 +3933,7 @@ common.resume:                                    ; preds = %.body, %462, %471, 
   %447 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %448 = icmp ult i64 %447, 6
   call void @llvm.assume(i1 %448)
-  %449 = icmp ugt i64 %447, 4
+  %449 = icmp samesign ugt i64 %447, 4
   br i1 %449, label %450, label %424
 
 450:                                              ; preds = %446

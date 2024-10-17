@@ -1092,7 +1092,7 @@ common.resume:                                    ; preds = %344, %341, %67, %11
 "_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he4ffc5711b4cce78E.exit39.i.i": ; preds = %331, %328
   store ptr %.sroa.0.2.i.i.i, ptr %45, align 8, !noalias !21
   %334 = icmp ne ptr %.sroa.0.2.i.i.i, null
-  %335 = icmp ult i64 %.sroa.022.0.i.i, 9
+  %335 = icmp samesign ult i64 %.sroa.022.0.i.i, 9
   %or.cond.i.i = and i1 %335, %334
   br i1 %or.cond.i.i, label %157, label %150
 
@@ -2102,7 +2102,7 @@ common.resume:                                    ; preds = %344, %341, %67, %11
 "_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he4ffc5711b4cce78E.exit39.i.i": ; preds = %331, %328
   store ptr %.sroa.0.2.i.i.i, ptr %45, align 8, !noalias !228
   %334 = icmp ne ptr %.sroa.0.2.i.i.i, null
-  %335 = icmp ult i64 %.sroa.022.0.i.i, 9
+  %335 = icmp samesign ult i64 %.sroa.022.0.i.i, 9
   %or.cond.i.i = and i1 %335, %334
   br i1 %or.cond.i.i, label %157, label %150
 

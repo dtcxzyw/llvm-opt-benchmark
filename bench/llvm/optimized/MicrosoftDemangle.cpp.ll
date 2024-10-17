@@ -2219,7 +2219,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.thre
   %14 = tail call noundef zeroext i16 @_ZN4llvm11ms_demangle9Demangler21demangleFunctionClassERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %15 = or i16 %14, %13
   %16 = zext nneg i16 %15 to i32
-  %.not = icmp ult i16 %14, 2048
+  %.not = icmp samesign ult i16 %14, 2048
   br i1 %.not, label %88, label %17
 
 17:                                               ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.thread
@@ -2450,7 +2450,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm11ms_demangle18ThunkSignatureNodeE, i64 16), ptr %.sink27.i42, align 8
   %124 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %124, i8 0, i64 16, i1 false)
-  %.not36 = icmp ult i16 %14, 1024
+  %.not36 = icmp samesign ult i16 %14, 1024
   br i1 %.not36, label %200, label %125
 
 125:                                              ; preds = %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit43
@@ -3904,7 +3904,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %136, label %142, label %137
 
 137:                                              ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i68
-  %138 = icmp ugt i64 %indvars.iv130, 127
+  %138 = icmp samesign ugt i64 %indvars.iv130, 127
   br i1 %138, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %137
@@ -3971,7 +3971,7 @@ switch.lookup:                                    ; preds = %147, %142
 
 _ZL19decodeMultiByteCharPKhjj.exit:               ; preds = %157
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %164 = icmp ult i64 %indvars.iv.next109, %153
+  %164 = icmp samesign ult i64 %indvars.iv.next109, %153
   br i1 %164, label %168, label %165
 
 165:                                              ; preds = %_ZL19decodeMultiByteCharPKhjj.exit
@@ -7629,7 +7629,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i160: ; preds = %_ZNSt11char_tr
   %.sroa.01.0.copyload.i462606 = phi i64 [ %.sroa.01.0.copyload.i133, %_ZN4llvm11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit ], [ %.sroa.01.0.copyload.i141.pre, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit140.thread ]
   %.sroa.219.0.copyload363.ph401 = phi ptr [ %.sroa.22.0.copyload.i135, %_ZN4llvm11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit ], [ %.sroa.22.0.copyload.i143.pre, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit140.thread ]
   %94 = phi i64 [ 2, %_ZN4llvm11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit ], [ 1, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit140.thread ]
-  %95 = icmp ugt i64 %94, %.sroa.01.0.copyload.i462606
+  %95 = icmp samesign ugt i64 %94, %.sroa.01.0.copyload.i462606
   br i1 %95, label %.thread442, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i165
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i165: ; preds = %.thread393
@@ -9527,7 +9527,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit: ; preds = %204, %._ZN4llvm16i
   %225 = getelementptr inbounds [17 x i8], ptr %3, i64 0, i64 %indvars.iv.i
   %226 = trunc i32 %.11112.i to i8
   %227 = and i8 %226, 15
-  %228 = icmp ult i8 %227, 10
+  %228 = icmp samesign ult i8 %227, 10
   %229 = or disjoint i8 %227, 48
   %230 = add nuw nsw i8 %227, 55
   %231 = select i1 %228, i8 %229, i8 %230

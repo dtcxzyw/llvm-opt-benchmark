@@ -128,7 +128,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   call void @llvm.assume(i1 %59)
   %60 = icmp sgt i32 %35, -1
   call void @llvm.assume(i1 %60)
-  %61 = icmp uge i32 %35, %52
+  %61 = icmp samesign uge i32 %35, %52
   call void @llvm.assume(i1 %61)
   %62 = icmp eq i32 %52, 0
   %63 = icmp ne i32 %53, 0
@@ -238,7 +238,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   call void @llvm.assume(i1 %123)
   %124 = icmp sgt i32 %119, -1
   call void @llvm.assume(i1 %124)
-  %125 = icmp uge i32 %119, %114
+  %125 = icmp samesign uge i32 %119, %114
   call void @llvm.assume(i1 %125)
   %126 = icmp eq i32 %114, 0
   %127 = icmp ne i32 %116, 0
@@ -300,7 +300,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
 
 176:                                              ; preds = %.loopexit, %136
   %177 = phi i64 [ 0, %136 ], [ %470, %.loopexit ]
-  %178 = icmp ult i64 %177, %141
+  %178 = icmp samesign ult i64 %177, %141
   call void @llvm.assume(i1 %178)
   %179 = mul nuw nsw i64 %177, %142
   %180 = trunc i64 %179 to i32
@@ -312,11 +312,11 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %185 = add i32 %2, %184
   %186 = icmp sgt i32 %185, -1
   call void @llvm.assume(i1 %186)
-  %187 = icmp ugt i32 %116, %185
+  %187 = icmp samesign ugt i32 %116, %185
   call void @llvm.assume(i1 %187)
   %188 = mul nuw nsw i32 %185, %119
   %189 = add nuw nsw i32 %188, %114
-  %190 = icmp ule i32 %189, %120
+  %190 = icmp samesign ule i32 %189, %120
   call void @llvm.assume(i1 %190)
   %191 = zext nneg i32 %188 to i64
   %192 = getelementptr inbounds i16, ptr %109, i64 %191
@@ -646,7 +646,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
 .preheader9:                                      ; preds = %369, %.preheader9
   %371 = phi i64 [ %382, %.preheader9 ], [ %370, %369 ]
   %372 = phi i64 [ %383, %.preheader9 ], [ 0, %369 ]
-  %373 = icmp ult i64 %371, %138
+  %373 = icmp samesign ult i64 %371, %138
   call void @llvm.assume(i1 %373)
   %374 = getelementptr inbounds i8, ptr %183, i64 %371
   %375 = load i8, ptr %374, align 1, !tbaa !90
@@ -654,7 +654,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %377 = and i64 %376, 2147483648
   %378 = icmp eq i64 %377, 0
   call void @llvm.assume(i1 %378)
-  %379 = icmp ult i64 %376, %140
+  %379 = icmp samesign ult i64 %376, %140
   call void @llvm.assume(i1 %379)
   %380 = getelementptr inbounds i16, ptr %192, i64 %376
   %381 = zext i8 %375 to i16

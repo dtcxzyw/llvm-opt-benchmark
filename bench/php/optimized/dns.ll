@@ -1823,7 +1823,7 @@ define internal fastcc ptr @php_parserr(ptr noundef nonnull %0, ptr noundef nonn
 129:                                              ; preds = %124
   call void @add_assoc_stringl_ex(ptr noundef nonnull %6, ptr noundef nonnull @.str.39, i64 noundef 3, ptr noundef nonnull %122, i64 noundef %126) #12
   %130 = add nuw nsw i64 %126, 2
-  %131 = icmp ugt i64 %130, %53
+  %131 = icmp samesign ugt i64 %130, %53
   br i1 %131, label %.loopexit, label %132
 
 132:                                              ; preds = %129
@@ -2124,7 +2124,7 @@ define internal fastcc ptr @php_parserr(ptr noundef nonnull %0, ptr noundef nonn
   %.2694 = phi i32 [ 1, %313 ], [ 0, %309 ]
   %.4689 = phi ptr [ %314, %313 ], [ %8, %309 ]
   %316 = and i64 %311, 15
-  %317 = icmp ugt i64 %316, 8
+  %317 = icmp samesign ugt i64 %316, 8
   br i1 %317, label %318, label %332
 
 318:                                              ; preds = %315

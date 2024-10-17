@@ -687,7 +687,7 @@ define internal fastcc range(i32 -25, 1) i32 @archive_format_gnutar_header(ptr n
   br i1 %61, label %54, label %62, !llvm.loop !5
 
 62:                                               ; preds = %54
-  %63 = icmp ult i64 %.01315.i, 8
+  %63 = icmp samesign ult i64 %.01315.i, 8
   br i1 %63, label %format_octal.exit, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %62
@@ -719,7 +719,7 @@ format_octal.exit:                                ; preds = %62, %.preheader.pre
   br i1 %75, label %68, label %76, !llvm.loop !5
 
 76:                                               ; preds = %68
-  %77 = icmp ult i64 %.01315.i.i, 8
+  %77 = icmp samesign ult i64 %.01315.i.i, 8
   br i1 %77, label %format_number.exit.thread, label %87
 
 78:                                               ; preds = %format_octal.exit
@@ -775,7 +775,7 @@ format_number.exit.thread:                        ; preds = %76, %format_256.exi
   br i1 %100, label %93, label %101, !llvm.loop !5
 
 101:                                              ; preds = %93
-  %102 = icmp ult i64 %.01315.i.i104, 8
+  %102 = icmp samesign ult i64 %.01315.i.i104, 8
   br i1 %102, label %format_number.exit106.thread, label %112
 
 103:                                              ; preds = %format_number.exit.thread
@@ -831,7 +831,7 @@ format_number.exit106.thread:                     ; preds = %101, %format_256.ex
   br i1 %125, label %118, label %126, !llvm.loop !5
 
 126:                                              ; preds = %118
-  %127 = icmp ult i64 %.01315.i.i115, 8
+  %127 = icmp samesign ult i64 %.01315.i.i115, 8
   br i1 %127, label %format_number.exit117.thread, label %137
 
 128:                                              ; preds = %format_number.exit106.thread
@@ -882,7 +882,7 @@ format_number.exit117.thread:                     ; preds = %126, %format_256.ex
   br i1 %147, label %140, label %148, !llvm.loop !5
 
 148:                                              ; preds = %140
-  %149 = icmp ult i64 %.01315.i120, 8
+  %149 = icmp samesign ult i64 %.01315.i120, 8
   br i1 %149, label %format_octal.exit123, label %.preheader.preheader.i121
 
 .preheader.preheader.i121:                        ; preds = %148
@@ -920,7 +920,7 @@ format_octal.exit123:                             ; preds = %148, %.preheader.pr
   br i1 %165, label %158, label %166, !llvm.loop !5
 
 166:                                              ; preds = %158
-  %167 = icmp ult i64 %.01315.i127, 8
+  %167 = icmp samesign ult i64 %.01315.i127, 8
   br i1 %167, label %format_octal.exit130.thread, label %168
 
 168:                                              ; preds = %166
@@ -950,7 +950,7 @@ format_octal.exit130.thread:                      ; preds = %166, %168
   br i1 %178, label %171, label %179, !llvm.loop !5
 
 179:                                              ; preds = %171
-  %180 = icmp ult i64 %.01315.i134, 8
+  %180 = icmp samesign ult i64 %.01315.i134, 8
   br i1 %180, label %format_octal.exit137.thread, label %181
 
 181:                                              ; preds = %179
@@ -997,7 +997,7 @@ format_octal.exit137.thread:                      ; preds = %179, %181, %152
   br i1 %199, label %192, label %200, !llvm.loop !5
 
 200:                                              ; preds = %192
-  %201 = icmp ult i64 %.01315.i141, 8
+  %201 = icmp samesign ult i64 %.01315.i141, 8
   br i1 %201, label %format_octal.exit144, label %.preheader.preheader.i142
 
 .preheader.preheader.i142:                        ; preds = %200

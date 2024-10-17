@@ -99,7 +99,7 @@ if.end36:                                         ; preds = %if.end26, %if.else,
   %3 = xor i64 %switch.load, -1
   %sub39 = add i64 %2, %3
   store i64 %sub39, ptr %usable, align 8
-  %4 = icmp ult i8 %spec.store.select, 4
+  %4 = icmp samesign ult i8 %spec.store.select, 4
   br i1 %4, label %switch.lookup, label %sw.bb68
 
 switch.lookup:                                    ; preds = %if.end36
@@ -367,7 +367,7 @@ if.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 -1
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
-  %2 = icmp ult i8 %1, 5
+  %2 = icmp samesign ult i8 %1, 5
   br i1 %2, label %switch.lookup, label %sdsHdrSize.exit
 
 switch.lookup:                                    ; preds = %if.end
@@ -576,7 +576,7 @@ sw.bb13.i:                                        ; preds = %if.end
 
 sdslen.exit:                                      ; preds = %if.end, %sw.bb.i, %sw.bb3.i, %sw.bb5.i40, %sw.bb9.i, %sw.bb13.i
   %retval.0.i39 = phi i64 [ %13, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i40 ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i42, %sw.bb.i ], [ 0, %if.end ]
-  %14 = icmp ult i8 %1, 5
+  %14 = icmp samesign ult i8 %1, 5
   br i1 %14, label %switch.lookup, label %sdsHdrSize.exit
 
 switch.lookup:                                    ; preds = %sdslen.exit
@@ -876,7 +876,7 @@ entry:
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 -1
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
-  %2 = icmp ult i8 %1, 5
+  %2 = icmp samesign ult i8 %1, 5
   br i1 %2, label %switch.lookup, label %sdsHdrSize.exit
 
 switch.lookup:                                    ; preds = %entry
@@ -985,10 +985,11 @@ sdsReqType.exit:                                  ; preds = %if.end, %if.end.i, 
   %switch.gep130 = getelementptr inbounds [5 x i64], ptr @switch.table.sdsAllocSize, i64 0, i64 %12
   %switch.load131 = load i64, ptr %switch.gep130, align 8
   %cmp20 = icmp eq i8 %1, %type.0
-  %cmp24 = icmp ult i8 %type.0, %1
-  %cmp27 = icmp ugt i8 %type.0, 1
+  %cmp24 = icmp samesign ult i8 %type.0, %1
+  %cmp27 = icmp samesign ugt i8 %type.0, 1
   %13 = and i1 %cmp24, %cmp27
-  %14 = or i1 %cmp20, %13
+  %cond.fr = freeze i1 %13
+  %14 = or i1 %cmp20, %cond.fr
   %15 = select i1 %14, i64 %retval.0.i, i64 %switch.load131
   %cond.in = add i64 %size, 1
   %cond = add i64 %cond.in, %15
@@ -1163,7 +1164,7 @@ sw.bb13.i:                                        ; preds = %entry
 sdsalloc.exit:                                    ; preds = %entry, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %4, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
   %5 = and i8 %0, 7
-  %6 = icmp ult i8 %5, 5
+  %6 = icmp samesign ult i8 %5, 5
   br i1 %6, label %switch.lookup, label %sdsHdrSize.exit
 
 switch.lookup:                                    ; preds = %sdsalloc.exit
@@ -1185,7 +1186,7 @@ entry:
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 -1
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
-  %2 = icmp ult i8 %1, 5
+  %2 = icmp samesign ult i8 %1, 5
   br i1 %2, label %switch.lookup, label %sdsHdrSize.exit
 
 switch.lookup:                                    ; preds = %entry
@@ -3729,7 +3730,7 @@ if.end.i:                                         ; preds = %for.body67
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 -1
   %3 = load i8, ptr %arrayidx.i, align 1
   %4 = and i8 %3, 7
-  %5 = icmp ult i8 %4, 5
+  %5 = icmp samesign ult i8 %4, 5
   br i1 %5, label %switch.lookup, label %sdsHdrSize.exit.i
 
 switch.lookup:                                    ; preds = %if.end.i
@@ -3790,7 +3791,7 @@ if.end.i:                                         ; preds = %while.body
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -1
   %2 = load i8, ptr %arrayidx.i, align 1
   %3 = and i8 %2, 7
-  %4 = icmp ult i8 %3, 5
+  %4 = icmp samesign ult i8 %3, 5
   br i1 %4, label %switch.lookup, label %sdsHdrSize.exit.i
 
 switch.lookup:                                    ; preds = %if.end.i
@@ -5652,7 +5653,7 @@ if.end.i269:                                      ; preds = %while.body150
   %arrayidx.i270 = getelementptr inbounds i8, ptr %83, i64 -1
   %84 = load i8, ptr %arrayidx.i270, align 1
   %85 = and i8 %84, 7
-  %86 = icmp ult i8 %85, 5
+  %86 = icmp samesign ult i8 %85, 5
   br i1 %86, label %switch.lookup, label %sdsHdrSize.exit.i
 
 switch.lookup:                                    ; preds = %if.end.i269
@@ -5684,7 +5685,7 @@ if.end.i275:                                      ; preds = %while.end153
   %arrayidx.i276 = getelementptr inbounds i8, ptr %current.2294, i64 -1
   %89 = load i8, ptr %arrayidx.i276, align 1
   %90 = and i8 %89, 7
-  %91 = icmp ult i8 %90, 5
+  %91 = icmp samesign ult i8 %90, 5
   br i1 %91, label %switch.lookup356, label %sdsfree.exit285
 
 switch.lookup356:                                 ; preds = %if.end.i275
@@ -6585,7 +6586,7 @@ if.end.i74:                                       ; preds = %if.end18
   %arrayidx.i75 = getelementptr inbounds i8, ptr %call.i72, i64 -1
   %26 = load i8, ptr %arrayidx.i75, align 1
   %27 = and i8 %26, 7
-  %28 = icmp ult i8 %27, 5
+  %28 = icmp samesign ult i8 %27, 5
   br i1 %28, label %switch.lookup, label %sdsHdrSize.exit.i
 
 switch.lookup:                                    ; preds = %if.end.i74
@@ -6705,7 +6706,7 @@ if.end.i123:                                      ; preds = %sdssetlen.exit.i.i9
   %arrayidx.i124 = getelementptr inbounds i8, ptr %call23, i64 -1
   %37 = load i8, ptr %arrayidx.i124, align 1
   %38 = and i8 %37, 7
-  %39 = icmp ult i8 %38, 5
+  %39 = icmp samesign ult i8 %38, 5
   br i1 %39, label %switch.lookup168, label %sdsfree.exit133
 
 switch.lookup168:                                 ; preds = %if.end.i123
@@ -6729,7 +6730,7 @@ if.end.i135:                                      ; preds = %error
   %arrayidx.i136 = getelementptr inbounds i8, ptr %res.2, i64 -1
   %41 = load i8, ptr %arrayidx.i136, align 1
   %42 = and i8 %41, 7
-  %43 = icmp ult i8 %42, 5
+  %43 = icmp samesign ult i8 %42, 5
   br i1 %43, label %switch.lookup171, label %sdsHdrSize.exit.i138
 
 switch.lookup171:                                 ; preds = %if.end.i135

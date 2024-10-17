@@ -347,7 +347,7 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %.1.i.us.us = phi i32 [ %161, %157 ], [ %166, %162 ]
   %168 = add nuw nsw i32 %147, %143
   %169 = add nuw nsw i32 %168, %151
-  %170 = icmp ult i32 %169, 2
+  %170 = icmp samesign ult i32 %169, 2
   br i1 %170, label %174, label %171
 
 171:                                              ; preds = %167
@@ -814,7 +814,7 @@ define internal void @ascii_line(ptr nocapture noundef readonly %0, i32 %1, i32 
 
 21:                                               ; preds = %19, %20
   %.062 = add nuw nsw i32 %.048, 1
-  %22 = icmp ult i32 %.062, %.050
+  %22 = icmp samesign ult i32 %.062, %.050
   br i1 %22, label %.lr.ph64, label %.loopexit
 
 .lr.ph64:                                         ; preds = %21, %.lr.ph64
@@ -831,7 +831,7 @@ define internal void @ascii_line(ptr nocapture noundef readonly %0, i32 %1, i32 
   tail call fastcc void @merge(ptr noundef %10, i32 noundef %spec.select58, i32 noundef %.048, i32 noundef 8, i32 noundef 0, ptr noundef null)
   tail call fastcc void @merge(ptr noundef %10, i32 noundef %spec.select, i32 noundef %.048, i32 noundef 4, i32 noundef 0, ptr noundef null)
   %.04660 = add nuw nsw i32 %spec.select58, 1
-  %25 = icmp ult i32 %.04660, %spec.select
+  %25 = icmp samesign ult i32 %.04660, %spec.select
   br i1 %25, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %24, %.lr.ph

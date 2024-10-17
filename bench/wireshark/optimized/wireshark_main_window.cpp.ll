@@ -68755,7 +68755,7 @@ _ZN7QStringC2EPKc.exit:                           ; preds = %19, %.split.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = load i32, ptr %94, align 8
   %111 = zext i32 %110 to i64
-  %112 = icmp ult i64 %indvars.iv.next, %111
+  %112 = icmp samesign ult i64 %indvars.iv.next, %111
   br i1 %112, label %100, label %.loopexit, !llvm.loop !310
 
 113:                                              ; preds = %86

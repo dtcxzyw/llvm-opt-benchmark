@@ -4682,7 +4682,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %len.0125 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %from.0124 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %add.ptr40, %for.inc ]
-  %cmp14 = icmp ugt i32 %len.0125, 16
+  %cmp14 = icmp samesign ugt i32 %len.0125, 16
   br i1 %cmp14, label %if.then15, label %if.end
 
 if.then15:                                        ; preds = %for.body
@@ -12737,7 +12737,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -12847,7 +12847,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -13528,7 +13528,7 @@ while.body.i220:                                  ; preds = %while.body.i220, %w
   %shr.i.i.i225 = lshr i32 %add.i1.i.i224, 6
   %xor.i.i.i226 = xor i32 %shr.i.i.i225, %add.i1.i.i224
   %shr.i227 = lshr i32 %imm.addr.04.i221, 8
-  %tobool.not.i228 = icmp ult i32 %imm.addr.04.i221, 256
+  %tobool.not.i228 = icmp samesign ult i32 %imm.addr.04.i221, 256
   br i1 %tobool.not.i228, label %while.cond.while.end_crit_edge.i229, label %while.body.i220, !llvm.loop !112
 
 while.cond.while.end_crit_edge.i229:              ; preds = %while.body.i220

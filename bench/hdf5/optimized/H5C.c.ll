@@ -2478,7 +2478,7 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr nocapture noundef %0, i64 noundef %1, 
   %323 = getelementptr inbounds i8, ptr %322, i64 8
   %324 = load i32, ptr %323, align 8
   %325 = zext i32 %324 to i64
-  %326 = icmp ult i64 %indvars.iv.next, %325
+  %326 = icmp samesign ult i64 %indvars.iv.next, %325
   br i1 %326, label %.lr.ph695, label %._crit_edge696
 
 ._crit_edge696:                                   ; preds = %._crit_edge, %263

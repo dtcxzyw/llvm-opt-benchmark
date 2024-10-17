@@ -2597,7 +2597,7 @@ define internal float @_action_process_zones(ptr noundef %0, i32 noundef %1, i32
   br i1 %38, label %.loopexit28, label %30
 
 39:                                               ; preds = %30
-  %40 = icmp ult i64 %37, %25
+  %40 = icmp samesign ult i64 %37, %25
   br label %41
 
 41:                                               ; preds = %39, %24
@@ -7461,7 +7461,7 @@ define internal noundef range(i32 0, 2) i32 @_area_button_press_callback(ptr nou
   %438 = phi i64 [ %388, %387 ], [ %392, %389 ]
   %439 = add nsw i32 %383, -1
   %440 = uitofp nneg i32 %439 to float
-  %441 = icmp ult i64 %438, 32
+  %441 = icmp samesign ult i64 %438, 32
   br i1 %441, label %476, label %442
 
 442:                                              ; preds = %437

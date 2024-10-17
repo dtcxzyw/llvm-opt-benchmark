@@ -1870,7 +1870,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %10,
   %.0.i.i.i.i.i = phi ptr [ %9, %7 ], [ %11, %10 ]
   %12 = load i32, ptr %.0.i.i.i.i.i, align 8
   %13 = and i32 %12, 2147483647
-  %14 = icmp ult i32 %4, %13
+  %14 = icmp samesign ult i32 %4, %13
   br i1 %14, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %15
 
 15:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -1894,7 +1894,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %17
   %26 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %6, ptr noundef null)
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 2147483647
-  %29 = icmp ult i32 %4, %28
+  %29 = icmp samesign ult i32 %4, %28
   br i1 %29, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %22, %15
@@ -25542,7 +25542,7 @@ _ZNK5clang4Type19isExtVectorBoolTypeEv.exit.thread: ; preds = %116, %103, %_ZNK5
   %.sroa.speculated266 = tail call i32 @llvm.umax.i32(i32 %140, i32 8)
   %141 = zext i32 %.sroa.speculated266 to i64
   %142 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.sroa.speculated266)
-  %.not160 = icmp ult i32 %142, 2
+  %.not160 = icmp samesign ult i32 %142, 2
   br i1 %.not160, label %151, label %_ZN4llvm8bit_ceilIjEET_S1_.exit
 
 _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
@@ -28174,7 +28174,7 @@ _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit: ; p
   %67 = load i64, ptr %66, align 8, !noalias !86
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %65, ptr %68, align 8, !alias.scope !86
-  %69 = icmp ult i32 %65, 65
+  %69 = icmp samesign ult i32 %65, 65
   br i1 %69, label %70, label %78
 
 70:                                               ; preds = %63
@@ -33827,7 +33827,7 @@ _ZNK5clang8QualType15hasAddressSpaceEv.exit15.thread: ; preds = %_ZN5clang18Qual
   %59 = phi i64 [ %.pre, %25 ], [ 0, %_ZNK5clang8QualType15hasAddressSpaceEv.exit15.preheader ], [ %43, %_ZNK5clang8QualType15hasAddressSpaceEv.exit21 ], [ %43, %_ZNK5clang8QualType15hasAddressSpaceEv.exit15 ], [ %43, %53 ], [ %43, %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit ]
   %.0 = phi ptr [ %29, %25 ], [ undef, %_ZNK5clang8QualType15hasAddressSpaceEv.exit15.preheader ], [ %.0.i, %_ZNK5clang8QualType15hasAddressSpaceEv.exit21 ], [ %.0.i, %_ZNK5clang8QualType15hasAddressSpaceEv.exit15 ], [ %.0.i, %53 ], [ %.0.i, %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit ]
   %60 = and i64 %59, 511
-  %61 = icmp ugt i64 %60, 7
+  %61 = icmp samesign ugt i64 %60, 7
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %_ZNK5clang8QualType15hasAddressSpaceEv.exit15.thread
@@ -33959,7 +33959,7 @@ _ZNK5clang8QualType23getSplitUnqualifiedTypeEv.exit: ; preds = %_ZNK5clang8QualT
   %59 = load i64, ptr %58, align 8, !noalias !128
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %57, ptr %60, align 8, !alias.scope !128
-  %61 = icmp ult i32 %57, 65
+  %61 = icmp samesign ult i32 %57, 65
   br i1 %61, label %62, label %70
 
 62:                                               ; preds = %55
@@ -39056,7 +39056,7 @@ _ZNK5clang13ReferenceType14getPointeeTypeEv.exit71: ; preds = %_ZNK5clang4Type6c
   %82 = load i64, ptr %81, align 8, !noalias !133
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %80, ptr %83, align 8, !alias.scope !133
-  %84 = icmp ult i32 %80, 65
+  %84 = icmp samesign ult i32 %80, 65
   br i1 %84, label %85, label %93
 
 85:                                               ; preds = %78
@@ -39354,7 +39354,7 @@ define linkonce_odr hidden void @_ZNK5clang17ConstantArrayType7getSizeEv(ptr dea
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %18, ptr %21, align 8
-  %22 = icmp ult i32 %18, 65
+  %22 = icmp samesign ult i32 %18, 65
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %16
@@ -73490,7 +73490,7 @@ define dso_local void @_ZNK5clang10ASTContext23UnwrapSimilarArrayTypesERNS_8Qual
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %38 = load i64, ptr %37, align 8, !noalias !154
   store i32 %36, ptr %9, align 8, !alias.scope !154
-  %39 = icmp ult i32 %36, 65
+  %39 = icmp samesign ult i32 %36, 65
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %34
@@ -73540,7 +73540,7 @@ _ZNK5clang17ConstantArrayType7getSizeEv.exit:     ; preds = %31, %33, %40, %48
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %64 = load i64, ptr %63, align 8, !noalias !157
   store i32 %62, ptr %10, align 8, !alias.scope !157
-  %65 = icmp ult i32 %62, 65
+  %65 = icmp samesign ult i32 %62, 65
   br i1 %65, label %66, label %74
 
 66:                                               ; preds = %60
@@ -76918,7 +76918,7 @@ _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit.i:  ; preds = %14, %5
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %32 = load i64, ptr %31, align 8, !noalias !182
   store i32 %30, ptr %4, align 8, !alias.scope !182
-  %33 = icmp ult i32 %30, 65
+  %33 = icmp samesign ult i32 %30, 65
   br i1 %33, label %34, label %42
 
 34:                                               ; preds = %28
@@ -82297,7 +82297,7 @@ _ZNK5clang8EnumDecl14getIntegerTypeEv.exit.i:     ; preds = %_ZNK5clang8QualType
   %108 = getelementptr inbounds i8, ptr %.111.i31, i64 -1
   store i8 %107, ptr %108, align 1, !noalias !201
   %109 = udiv i64 %.0810.i32, 10
-  %.not.i33 = icmp ult i64 %.0810.i32, 10
+  %.not.i33 = icmp samesign ult i64 %.0810.i32, 10
   br i1 %.not.i33, label %_ZN4llvm6utostrB5cxx11Emb.exit36, label %.lr.ph.i30, !llvm.loop !192
 
 _ZN4llvm6utostrB5cxx11Emb.exit36:                 ; preds = %.lr.ph.i30, %.thread.i35
@@ -95463,7 +95463,7 @@ _ZNSt8optionalIN4llvm6APSIntEED2Ev.exit.thread:   ; preds = %15, %27, %30
   %73 = load i64, ptr %72, align 8, !noalias !264
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %71, ptr %74, align 8, !alias.scope !264
-  %75 = icmp ult i32 %71, 65
+  %75 = icmp samesign ult i32 %71, 65
   br i1 %75, label %76, label %84
 
 76:                                               ; preds = %69
@@ -100808,8 +100808,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang10ASTContext28AtomicUsesUnsupport
 _ZNK4llvm6Triple13isOSVersionLTEjjj.exit:         ; preds = %20
   %25 = icmp eq i32 %23, 10
   %26 = and i64 %22, 9223372032559808512
-  %27 = icmp ult i64 %26, 38654705664
-  %spec.select.i15 = and i1 %25, %27
+  %27 = icmp samesign ult i64 %26, 38654705664
+  %spec.select.i15 = select i1 %25, i1 %27, i1 false
   br i1 %spec.select.i15, label %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit.thread, label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
 _ZNK4llvm6Triple13isOSVersionLTEjjj.exit.thread:  ; preds = %20, %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit, %12
@@ -104678,27 +104678,27 @@ _ZNK5clang4Type13isIntegerTypeEv.exit.thread:     ; preds = %15, %23, %28, %_ZNK
   %50 = load i32, ptr %46, align 16
   %51 = lshr i32 %50, 19
   %52 = and i32 %51, 511
-  %53 = icmp ugt i32 %52, 448
+  %53 = icmp samesign ugt i32 %52, 448
   br i1 %53, label %54, label %_ZNK5clang4Type22isSignedFixedPointTypeEv.exit
 
 54:                                               ; preds = %49
-  %55 = icmp ult i32 %52, 452
+  %55 = icmp samesign ult i32 %52, 452
   br i1 %55, label %_ZNK5clang4Type22isSignedFixedPointTypeEv.exit, label %56
 
 56:                                               ; preds = %54
-  %57 = icmp ugt i32 %52, 454
+  %57 = icmp samesign ugt i32 %52, 454
   br i1 %57, label %58, label %_ZNK5clang4Type22isSignedFixedPointTypeEv.exit
 
 58:                                               ; preds = %56
-  %59 = icmp ult i32 %52, 458
+  %59 = icmp samesign ult i32 %52, 458
   br i1 %59, label %_ZNK5clang4Type22isSignedFixedPointTypeEv.exit, label %60
 
 60:                                               ; preds = %58
-  %61 = icmp ugt i32 %52, 460
+  %61 = icmp samesign ugt i32 %52, 460
   br i1 %61, label %62, label %_ZNK5clang4Type22isSignedFixedPointTypeEv.exit
 
 62:                                               ; preds = %60
-  %63 = icmp ult i32 %52, 464
+  %63 = icmp samesign ult i32 %52, 464
   br i1 %63, label %_ZNK5clang4Type22isSignedFixedPointTypeEv.exit, label %64
 
 64:                                               ; preds = %62
@@ -115070,7 +115070,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i: ; preds = %_ZN4llvm9Str
   br i1 %33, label %_ZNK4llvm9StringRef7compareES0_.exit, label %34
 
 34:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i
-  %35 = icmp ult i64 %.sroa.3.0.i, %.sroa.3.0.i4
+  %35 = icmp samesign ult i64 %.sroa.3.0.i, %.sroa.3.0.i4
   %36 = select i1 %35, i32 -1, i32 1
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 

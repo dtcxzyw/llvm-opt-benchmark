@@ -229,7 +229,7 @@ define internal fastcc i32 @dissect_riemann(ptr noundef %0, ptr noundef %1, ptr 
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %10 ], [ 0, %4 ]
   %.013.i.i = phi i32 [ %11, %10 ], [ %3, %4 ]
   %.012.i.i = phi i64 [ %16, %10 ], [ 0, %4 ]
-  %9 = icmp ugt i64 %indvars.iv.i.i, 63
+  %9 = icmp samesign ugt i64 %indvars.iv.i.i, 63
   br i1 %9, label %is_riemann.exit.thread, label %10
 
 10:                                               ; preds = %.preheader.i
@@ -284,7 +284,7 @@ is_riemann.exit.thread22:                         ; preds = %riemann_get_guint64
   %indvars.iv.i.i14 = phi i64 [ %indvars.iv.next.i.i17, %37 ], [ 0, %.preheader.i13 ]
   %.013.i.i15 = phi i32 [ %38, %37 ], [ %.066181.i, %.preheader.i13 ]
   %.012.i.i16 = phi i64 [ %43, %37 ], [ 0, %.preheader.i13 ]
-  %35 = icmp ugt i64 %indvars.iv.i.i14, 63
+  %35 = icmp samesign ugt i64 %indvars.iv.i.i14, 63
   br i1 %35, label %riemann_get_guint64.exit.thread.i19, label %37
 
 riemann_get_guint64.exit.thread.i19:              ; preds = %34
@@ -349,7 +349,7 @@ riemann_verify_wire_format.exit78.i:              ; preds = %58, %57
   %indvars.iv.i.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit78.i ], [ %indvars.iv.next.i.i.i, %64 ]
   %.013.i.i.i = phi i32 [ %49, %riemann_verify_wire_format.exit78.i ], [ %65, %64 ]
   %.012.i.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit78.i ], [ %70, %64 ]
-  %63 = icmp ugt i64 %indvars.iv.i.i.i, 63
+  %63 = icmp samesign ugt i64 %indvars.iv.i.i.i, 63
   br i1 %63, label %riemann_dissect_string.exit.i, label %64
 
 64:                                               ; preds = %62
@@ -399,7 +399,7 @@ riemann_verify_wire_format.exit82.i:              ; preds = %78, %77
   %indvars.iv.i.i84.i = phi i64 [ %indvars.iv.next.i.i87.i, %85 ], [ 0, %.preheader ]
   %.013.i.i85.i = phi i32 [ %86, %85 ], [ %49, %.preheader ]
   %.012.i.i86.i = phi i64 [ %91, %85 ], [ 0, %.preheader ]
-  %84 = icmp ugt i64 %indvars.iv.i.i84.i, 63
+  %84 = icmp samesign ugt i64 %indvars.iv.i.i84.i, 63
   br i1 %84, label %riemann_get_guint64.exit.i.i, label %85
 
 85:                                               ; preds = %83
@@ -437,7 +437,7 @@ riemann_get_guint64.exit.i.i:                     ; preds = %85, %83
   %indvars.iv.i40.i.i = phi i64 [ %indvars.iv.next.i43.i.i, %105 ], [ 0, %.preheader.i.i ]
   %.013.i41.i.i = phi i32 [ %106, %105 ], [ %.069.i.i, %.preheader.i.i ]
   %.012.i42.i.i = phi i64 [ %111, %105 ], [ 0, %.preheader.i.i ]
-  %103 = icmp ugt i64 %indvars.iv.i40.i.i, 63
+  %103 = icmp samesign ugt i64 %indvars.iv.i40.i.i, 63
   br i1 %103, label %riemann_get_guint64.exit45.thread.i.i, label %105
 
 riemann_get_guint64.exit45.thread.i.i:            ; preds = %102
@@ -483,7 +483,7 @@ riemann_verify_wire_format.exit.i.i:              ; preds = %120, %119
   %indvars.iv.i.i.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit.i.i ], [ %indvars.iv.next.i.i.i.i, %126 ]
   %.013.i.i.i.i = phi i32 [ %117, %riemann_verify_wire_format.exit.i.i ], [ %127, %126 ]
   %.012.i.i.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit.i.i ], [ %132, %126 ]
-  %125 = icmp ugt i64 %indvars.iv.i.i.i.i, 63
+  %125 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 63
   br i1 %125, label %riemann_get_string.exit.i.i, label %126
 
 126:                                              ; preds = %124
@@ -514,7 +514,7 @@ riemann_get_string.exit.i.i:                      ; preds = %126, %124
   %indvars.iv.i.i49.i.i = phi i64 [ 0, %riemann_get_string.exit.i.i ], [ %indvars.iv.next.i.i52.i.i, %142 ]
   %.013.i.i50.i.i = phi i32 [ %117, %riemann_get_string.exit.i.i ], [ %143, %142 ]
   %.012.i.i51.i.i = phi i64 [ 0, %riemann_get_string.exit.i.i ], [ %148, %142 ]
-  %141 = icmp ugt i64 %indvars.iv.i.i49.i.i, 63
+  %141 = icmp samesign ugt i64 %indvars.iv.i.i49.i.i, 63
   br i1 %141, label %riemann_dissect_string.exit.i.i, label %142
 
 142:                                              ; preds = %140
@@ -601,7 +601,7 @@ riemann_verify_wire_format.exit91.i:              ; preds = %178, %177
   %indvars.iv.i.i92.i = phi i64 [ %indvars.iv.next.i.i95.i, %185 ], [ 0, %.preheader125 ]
   %.013.i.i93.i = phi i32 [ %186, %185 ], [ %49, %.preheader125 ]
   %.012.i.i94.i = phi i64 [ %191, %185 ], [ 0, %.preheader125 ]
-  %184 = icmp ugt i64 %indvars.iv.i.i92.i, 63
+  %184 = icmp samesign ugt i64 %indvars.iv.i.i92.i, 63
   br i1 %184, label %riemann_get_guint64.exit.i96.i, label %185
 
 185:                                              ; preds = %183
@@ -642,7 +642,7 @@ riemann_get_guint64.exit.i96.i:                   ; preds = %185, %183
   %indvars.iv.i127.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i130.i.i, %206 ]
   %.013.i128.i.i = phi i32 [ %.0267.i.i, %.lr.ph.i.i ], [ %207, %206 ]
   %.012.i129.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %212, %206 ]
-  %204 = icmp ugt i64 %indvars.iv.i127.i.i, 63
+  %204 = icmp samesign ugt i64 %indvars.iv.i127.i.i, 63
   br i1 %204, label %riemann_get_guint64.exit132.thread.i.i, label %206
 
 riemann_get_guint64.exit132.thread.i.i:           ; preds = %203
@@ -700,7 +700,7 @@ riemann_verify_wire_format.exit.i107.i:           ; preds = %221, %220
   %indvars.iv.i.i.i108.i = phi i64 [ 0, %riemann_verify_wire_format.exit.i107.i ], [ %indvars.iv.next.i.i.i111.i, %227 ]
   %.013.i.i.i109.i = phi i32 [ %218, %riemann_verify_wire_format.exit.i107.i ], [ %228, %227 ]
   %.012.i.i.i110.i = phi i64 [ 0, %riemann_verify_wire_format.exit.i107.i ], [ %233, %227 ]
-  %226 = icmp ugt i64 %indvars.iv.i.i.i108.i, 63
+  %226 = icmp samesign ugt i64 %indvars.iv.i.i.i108.i, 63
   br i1 %226, label %riemann_dissect_int64.exit.i.i, label %227
 
 227:                                              ; preds = %225
@@ -739,7 +739,7 @@ riemann_verify_wire_format.exit137.i.i:           ; preds = %238, %237
   %indvars.iv.i.i139.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit137.i.i ], [ %indvars.iv.next.i.i142.i.i, %244 ]
   %.013.i.i140.i.i = phi i32 [ %218, %riemann_verify_wire_format.exit137.i.i ], [ %245, %244 ]
   %.012.i.i141.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit137.i.i ], [ %250, %244 ]
-  %243 = icmp ugt i64 %indvars.iv.i.i139.i.i, 63
+  %243 = icmp samesign ugt i64 %indvars.iv.i.i139.i.i, 63
   br i1 %243, label %riemann_dissect_string.exit.i105.i, label %244
 
 244:                                              ; preds = %242
@@ -781,7 +781,7 @@ riemann_verify_wire_format.exit147.i.i:           ; preds = %258, %257
   %indvars.iv.i.i149.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit147.i.i ], [ %indvars.iv.next.i.i152.i.i, %264 ]
   %.013.i.i150.i.i = phi i32 [ %218, %riemann_verify_wire_format.exit147.i.i ], [ %265, %264 ]
   %.012.i.i151.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit147.i.i ], [ %270, %264 ]
-  %263 = icmp ugt i64 %indvars.iv.i.i149.i.i, 63
+  %263 = icmp samesign ugt i64 %indvars.iv.i.i149.i.i, 63
   br i1 %263, label %riemann_get_string.exit.i104.i, label %264
 
 264:                                              ; preds = %262
@@ -812,7 +812,7 @@ riemann_get_string.exit.i104.i:                   ; preds = %264, %262
   %indvars.iv.i.i156.i.i = phi i64 [ 0, %riemann_get_string.exit.i104.i ], [ %indvars.iv.next.i.i159.i.i, %280 ]
   %.013.i.i157.i.i = phi i32 [ %218, %riemann_get_string.exit.i104.i ], [ %281, %280 ]
   %.012.i.i158.i.i = phi i64 [ 0, %riemann_get_string.exit.i104.i ], [ %286, %280 ]
-  %279 = icmp ugt i64 %indvars.iv.i.i156.i.i, 63
+  %279 = icmp samesign ugt i64 %indvars.iv.i.i156.i.i, 63
   br i1 %279, label %riemann_dissect_string.exit162.i.i, label %280
 
 280:                                              ; preds = %278
@@ -854,7 +854,7 @@ riemann_verify_wire_format.exit165.i.i:           ; preds = %294, %293
   %indvars.iv.i.i167.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit165.i.i ], [ %indvars.iv.next.i.i170.i.i, %300 ]
   %.013.i.i168.i.i = phi i32 [ %218, %riemann_verify_wire_format.exit165.i.i ], [ %301, %300 ]
   %.012.i.i169.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit165.i.i ], [ %306, %300 ]
-  %299 = icmp ugt i64 %indvars.iv.i.i167.i.i, 63
+  %299 = icmp samesign ugt i64 %indvars.iv.i.i167.i.i, 63
   br i1 %299, label %riemann_get_string.exit173.i.i, label %300
 
 300:                                              ; preds = %298
@@ -885,7 +885,7 @@ riemann_get_string.exit173.i.i:                   ; preds = %300, %298
   %indvars.iv.i.i175.i.i = phi i64 [ 0, %riemann_get_string.exit173.i.i ], [ %indvars.iv.next.i.i178.i.i, %316 ]
   %.013.i.i176.i.i = phi i32 [ %218, %riemann_get_string.exit173.i.i ], [ %317, %316 ]
   %.012.i.i177.i.i = phi i64 [ 0, %riemann_get_string.exit173.i.i ], [ %322, %316 ]
-  %315 = icmp ugt i64 %indvars.iv.i.i175.i.i, 63
+  %315 = icmp samesign ugt i64 %indvars.iv.i.i175.i.i, 63
   br i1 %315, label %riemann_dissect_string.exit181.i.i, label %316
 
 316:                                              ; preds = %314
@@ -927,7 +927,7 @@ riemann_verify_wire_format.exit184.i.i:           ; preds = %330, %329
   %indvars.iv.i.i186.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit184.i.i ], [ %indvars.iv.next.i.i189.i.i, %336 ]
   %.013.i.i187.i.i = phi i32 [ %218, %riemann_verify_wire_format.exit184.i.i ], [ %337, %336 ]
   %.012.i.i188.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit184.i.i ], [ %342, %336 ]
-  %335 = icmp ugt i64 %indvars.iv.i.i186.i.i, 63
+  %335 = icmp samesign ugt i64 %indvars.iv.i.i186.i.i, 63
   br i1 %335, label %riemann_dissect_string.exit192.i.i, label %336
 
 336:                                              ; preds = %334
@@ -969,7 +969,7 @@ riemann_verify_wire_format.exit195.i.i:           ; preds = %350, %349
   %indvars.iv.i.i197.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit195.i.i ], [ %indvars.iv.next.i.i200.i.i, %356 ]
   %.013.i.i198.i.i = phi i32 [ %218, %riemann_verify_wire_format.exit195.i.i ], [ %357, %356 ]
   %.012.i.i199.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit195.i.i ], [ %362, %356 ]
-  %355 = icmp ugt i64 %indvars.iv.i.i197.i.i, 63
+  %355 = icmp samesign ugt i64 %indvars.iv.i.i197.i.i, 63
   br i1 %355, label %riemann_dissect_string.exit203.i.i, label %356
 
 356:                                              ; preds = %354
@@ -1024,7 +1024,7 @@ riemann_verify_wire_format.exit209.i.i:           ; preds = %riemann_verify_wire
   %indvars.iv.i.i211.i.i = phi i64 [ %indvars.iv.next.i.i214.i.i, %380 ], [ 0, %riemann_verify_wire_format.exit209.i.i.preheader ]
   %.013.i.i212.i.i = phi i32 [ %381, %380 ], [ %218, %riemann_verify_wire_format.exit209.i.i.preheader ]
   %.012.i.i213.i.i = phi i64 [ %386, %380 ], [ 0, %riemann_verify_wire_format.exit209.i.i.preheader ]
-  %379 = icmp ugt i64 %indvars.iv.i.i211.i.i, 63
+  %379 = icmp samesign ugt i64 %indvars.iv.i.i211.i.i, 63
   br i1 %379, label %riemann_get_guint64.exit.i.i.i, label %380
 
 380:                                              ; preds = %riemann_verify_wire_format.exit209.i.i
@@ -1062,7 +1062,7 @@ riemann_get_guint64.exit.i.i.i:                   ; preds = %380, %riemann_verif
   %indvars.iv.i44.i.i.i = phi i64 [ %indvars.iv.next.i47.i.i.i, %400 ], [ 0, %.preheader.i.i.i ]
   %.013.i45.i.i.i = phi i32 [ %401, %400 ], [ %.076.i.i.i, %.preheader.i.i.i ]
   %.012.i46.i.i.i = phi i64 [ %406, %400 ], [ 0, %.preheader.i.i.i ]
-  %398 = icmp ugt i64 %indvars.iv.i44.i.i.i, 63
+  %398 = icmp samesign ugt i64 %indvars.iv.i44.i.i.i, 63
   br i1 %398, label %riemann_get_guint64.exit49.thread.i.i.i, label %400
 
 riemann_get_guint64.exit49.thread.i.i.i:          ; preds = %397
@@ -1110,7 +1110,7 @@ riemann_verify_wire_format.exit.i.i.i:            ; preds = %415, %414
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %421 ]
   %.013.i.i.i.i.i = phi i32 [ %412, %riemann_verify_wire_format.exit.i.i.i ], [ %422, %421 ]
   %.012.i.i.i.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit.i.i.i ], [ %427, %421 ]
-  %420 = icmp ugt i64 %indvars.iv.i.i.i.i.i, 63
+  %420 = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i, 63
   br i1 %420, label %riemann_dissect_string.exit.i.i.i, label %421
 
 421:                                              ; preds = %419
@@ -1152,7 +1152,7 @@ riemann_verify_wire_format.exit54.i.i.i:          ; preds = %435, %434
   %indvars.iv.i.i56.i.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit54.i.i.i ], [ %indvars.iv.next.i.i59.i.i.i, %441 ]
   %.013.i.i57.i.i.i = phi i32 [ %412, %riemann_verify_wire_format.exit54.i.i.i ], [ %442, %441 ]
   %.012.i.i58.i.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit54.i.i.i ], [ %447, %441 ]
-  %440 = icmp ugt i64 %indvars.iv.i.i56.i.i.i, 63
+  %440 = icmp samesign ugt i64 %indvars.iv.i.i56.i.i.i, 63
   br i1 %440, label %riemann_dissect_string.exit62.i.i.i, label %441
 
 441:                                              ; preds = %439
@@ -1231,7 +1231,7 @@ riemann_verify_wire_format.exit218.i.i:           ; preds = %477, %476
   %indvars.iv.i.i220.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit218.i.i ], [ %indvars.iv.next.i.i223.i.i, %483 ]
   %.013.i.i221.i.i = phi i32 [ %218, %riemann_verify_wire_format.exit218.i.i ], [ %484, %483 ]
   %.012.i.i222.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit218.i.i ], [ %489, %483 ]
-  %482 = icmp ugt i64 %indvars.iv.i.i220.i.i, 63
+  %482 = icmp samesign ugt i64 %indvars.iv.i.i220.i.i, 63
   br i1 %482, label %riemann_dissect_int64.exit227.i.i, label %483
 
 483:                                              ; preds = %481
@@ -1270,7 +1270,7 @@ riemann_verify_wire_format.exit230.i.i:           ; preds = %494, %493
   %indvars.iv.i.i231.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit230.i.i ], [ %indvars.iv.next.i.i234.i.i, %500 ]
   %.013.i.i232.i.i = phi i32 [ %218, %riemann_verify_wire_format.exit230.i.i ], [ %501, %500 ]
   %.012.i.i233.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit230.i.i ], [ %506, %500 ]
-  %499 = icmp ugt i64 %indvars.iv.i.i231.i.i, 63
+  %499 = icmp samesign ugt i64 %indvars.iv.i.i231.i.i, 63
   br i1 %499, label %riemann_dissect_sint64.exit.i.i, label %500
 
 500:                                              ; preds = %498
@@ -1389,7 +1389,7 @@ riemann_verify_wire_format.exit116.i:             ; preds = %548, %547
   %indvars.iv.i.i117.i = phi i64 [ %indvars.iv.next.i.i120.i, %555 ], [ 0, %.preheader126 ]
   %.013.i.i118.i = phi i32 [ %556, %555 ], [ %49, %.preheader126 ]
   %.012.i.i119.i = phi i64 [ %561, %555 ], [ 0, %.preheader126 ]
-  %554 = icmp ugt i64 %indvars.iv.i.i117.i, 63
+  %554 = icmp samesign ugt i64 %indvars.iv.i.i117.i, 63
   br i1 %554, label %riemann_get_guint64.exit.i121.i, label %555
 
 555:                                              ; preds = %553
@@ -1430,7 +1430,7 @@ riemann_get_guint64.exit.i121.i:                  ; preds = %555, %553
   %indvars.iv.i98.i.i = phi i64 [ 0, %.lr.ph.i126.i ], [ %indvars.iv.next.i101.i.i, %576 ]
   %.013.i99.i.i = phi i32 [ %.0196.i.i, %.lr.ph.i126.i ], [ %577, %576 ]
   %.012.i100.i.i = phi i64 [ 0, %.lr.ph.i126.i ], [ %582, %576 ]
-  %574 = icmp ugt i64 %indvars.iv.i98.i.i, 63
+  %574 = icmp samesign ugt i64 %indvars.iv.i98.i.i, 63
   br i1 %574, label %riemann_get_guint64.exit103.thread.i.i, label %576
 
 riemann_get_guint64.exit103.thread.i.i:           ; preds = %573
@@ -1484,7 +1484,7 @@ riemann_verify_wire_format.exit.i134.i:           ; preds = %591, %590
   %indvars.iv.i.i.i135.i = phi i64 [ 0, %riemann_verify_wire_format.exit.i134.i ], [ %indvars.iv.next.i.i.i138.i, %597 ]
   %.013.i.i.i136.i = phi i32 [ %588, %riemann_verify_wire_format.exit.i134.i ], [ %598, %597 ]
   %.012.i.i.i137.i = phi i64 [ 0, %riemann_verify_wire_format.exit.i134.i ], [ %603, %597 ]
-  %596 = icmp ugt i64 %indvars.iv.i.i.i135.i, 63
+  %596 = icmp samesign ugt i64 %indvars.iv.i.i.i135.i, 63
   br i1 %596, label %riemann_dissect_int64.exit.i139.i, label %597
 
 597:                                              ; preds = %595
@@ -1523,7 +1523,7 @@ riemann_verify_wire_format.exit108.i.i:           ; preds = %608, %607
   %indvars.iv.i.i110.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit108.i.i ], [ %indvars.iv.next.i.i113.i.i, %614 ]
   %.013.i.i111.i.i = phi i32 [ %588, %riemann_verify_wire_format.exit108.i.i ], [ %615, %614 ]
   %.012.i.i112.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit108.i.i ], [ %620, %614 ]
-  %613 = icmp ugt i64 %indvars.iv.i.i110.i.i, 63
+  %613 = icmp samesign ugt i64 %indvars.iv.i.i110.i.i, 63
   br i1 %613, label %riemann_get_string.exit.i131.i, label %614
 
 614:                                              ; preds = %612
@@ -1554,7 +1554,7 @@ riemann_get_string.exit.i131.i:                   ; preds = %614, %612
   %indvars.iv.i.i117.i.i = phi i64 [ 0, %riemann_get_string.exit.i131.i ], [ %indvars.iv.next.i.i120.i.i, %630 ]
   %.013.i.i118.i.i = phi i32 [ %588, %riemann_get_string.exit.i131.i ], [ %631, %630 ]
   %.012.i.i119.i.i = phi i64 [ 0, %riemann_get_string.exit.i131.i ], [ %636, %630 ]
-  %629 = icmp ugt i64 %indvars.iv.i.i117.i.i, 63
+  %629 = icmp samesign ugt i64 %indvars.iv.i.i117.i.i, 63
   br i1 %629, label %riemann_dissect_string.exit.i132.i, label %630
 
 630:                                              ; preds = %628
@@ -1596,7 +1596,7 @@ riemann_verify_wire_format.exit125.i.i:           ; preds = %644, %643
   %indvars.iv.i.i127.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit125.i.i ], [ %indvars.iv.next.i.i130.i.i, %650 ]
   %.013.i.i128.i.i = phi i32 [ %588, %riemann_verify_wire_format.exit125.i.i ], [ %651, %650 ]
   %.012.i.i129.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit125.i.i ], [ %656, %650 ]
-  %649 = icmp ugt i64 %indvars.iv.i.i127.i.i, 63
+  %649 = icmp samesign ugt i64 %indvars.iv.i.i127.i.i, 63
   br i1 %649, label %riemann_get_string.exit133.i.i, label %650
 
 650:                                              ; preds = %648
@@ -1627,7 +1627,7 @@ riemann_get_string.exit133.i.i:                   ; preds = %650, %648
   %indvars.iv.i.i135.i.i = phi i64 [ 0, %riemann_get_string.exit133.i.i ], [ %indvars.iv.next.i.i138.i.i, %666 ]
   %.013.i.i136.i.i = phi i32 [ %588, %riemann_get_string.exit133.i.i ], [ %667, %666 ]
   %.012.i.i137.i.i = phi i64 [ 0, %riemann_get_string.exit133.i.i ], [ %672, %666 ]
-  %665 = icmp ugt i64 %indvars.iv.i.i135.i.i, 63
+  %665 = icmp samesign ugt i64 %indvars.iv.i.i135.i.i, 63
   br i1 %665, label %riemann_dissect_string.exit141.i.i, label %666
 
 666:                                              ; preds = %664
@@ -1669,7 +1669,7 @@ riemann_verify_wire_format.exit144.i.i:           ; preds = %680, %679
   %indvars.iv.i.i146.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit144.i.i ], [ %indvars.iv.next.i.i149.i.i, %686 ]
   %.013.i.i147.i.i = phi i32 [ %588, %riemann_verify_wire_format.exit144.i.i ], [ %687, %686 ]
   %.012.i.i148.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit144.i.i ], [ %692, %686 ]
-  %685 = icmp ugt i64 %indvars.iv.i.i146.i.i, 63
+  %685 = icmp samesign ugt i64 %indvars.iv.i.i146.i.i, 63
   br i1 %685, label %riemann_dissect_string.exit152.i.i, label %686
 
 686:                                              ; preds = %684
@@ -1711,7 +1711,7 @@ riemann_verify_wire_format.exit155.i.i:           ; preds = %700, %699
   %indvars.iv.i.i157.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit155.i.i ], [ %indvars.iv.next.i.i160.i.i, %706 ]
   %.013.i.i158.i.i = phi i32 [ %588, %riemann_verify_wire_format.exit155.i.i ], [ %707, %706 ]
   %.012.i.i159.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit155.i.i ], [ %712, %706 ]
-  %705 = icmp ugt i64 %indvars.iv.i.i157.i.i, 63
+  %705 = icmp samesign ugt i64 %indvars.iv.i.i157.i.i, 63
   br i1 %705, label %riemann_dissect_string.exit163.i.i, label %706
 
 706:                                              ; preds = %704
@@ -1767,7 +1767,7 @@ riemann_verify_wire_format.exit169.i.i:           ; preds = %726, %725
   %indvars.iv.i.i171.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit169.i.i ], [ %indvars.iv.next.i.i174.i.i, %732 ]
   %.013.i.i172.i.i = phi i32 [ %588, %riemann_verify_wire_format.exit169.i.i ], [ %733, %732 ]
   %.012.i.i173.i.i = phi i64 [ 0, %riemann_verify_wire_format.exit169.i.i ], [ %738, %732 ]
-  %731 = icmp ugt i64 %indvars.iv.i.i171.i.i, 63
+  %731 = icmp samesign ugt i64 %indvars.iv.i.i171.i.i, 63
   br i1 %731, label %riemann_dissect_string.exit177.i.i, label %732
 
 732:                                              ; preds = %730

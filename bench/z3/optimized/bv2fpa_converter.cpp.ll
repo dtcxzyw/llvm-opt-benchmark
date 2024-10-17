@@ -4174,7 +4174,7 @@ if.end.i.i53:                                     ; preds = %for.cond
 
 invoke.cont18:                                    ; preds = %if.end.i.i53, %for.cond
   %retval.0.i.i = phi i64 [ %15, %if.end.i.i53 ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv323, %retval.0.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv323, %retval.0.i.i
   br i1 %cmp, label %invoke.cont20, label %for.end104
 
 invoke.cont20:                                    ; preds = %invoke.cont18
@@ -4627,7 +4627,7 @@ for.inc124:                                       ; preds = %.noexc111, %lor.lhs
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %90 = load i32, ptr %m_arity.i100, align 8
   %91 = zext i32 %90 to i64
-  %cmp115 = icmp ult i64 %indvars.iv.next327, %91
+  %cmp115 = icmp samesign ult i64 %indvars.iv.next327, %91
   br i1 %cmp115, label %for.body116, label %for.end126, !llvm.loop !27
 
 lpad112.loopexit:                                 ; preds = %for.body116, %if.then.i.i108

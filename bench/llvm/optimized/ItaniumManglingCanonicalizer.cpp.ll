@@ -35795,7 +35795,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i
   store i8 %68, ptr %.ptr.i.i.i, align 1
   %69 = udiv i64 %.08.i.i.i, 10
-  %.not.i.i.i = icmp ult i64 %.08.i.i.i, 10
+  %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
   br i1 %.not.i.i.i, label %70, label %65, !llvm.loop !55
 
 70:                                               ; preds = %65

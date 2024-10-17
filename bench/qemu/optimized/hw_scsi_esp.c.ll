@@ -1090,9 +1090,9 @@ if.end76:                                         ; preds = %if.then72, %if.else
   %conv6.i137 = zext i8 %53 to i32
   %shl7.i138 = shl nuw nsw i32 %conv6.i137, 16
   %or8.i139 = or disjoint i32 %shl7.i138, %52
-  %cmp94 = icmp ult i32 %cond85, %or8.i139
-  %cmp97 = icmp ult i32 %or8.i139, 17
-  %or.cond = and i1 %cmp94, %cmp97
+  %cmp94 = icmp samesign ult i32 %cond85, %or8.i139
+  %cmp97 = icmp samesign ult i32 %or8.i139, 17
+  %or.cond = select i1 %cmp94, i1 %cmp97, i1 false
   br i1 %or.cond, label %while.cond.preheader, label %if.end105
 
 while.cond.preheader:                             ; preds = %if.end76

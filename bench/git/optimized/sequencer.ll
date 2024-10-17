@@ -10427,7 +10427,7 @@ for.inc:                                          ; preds = %if.then11.for.inc_c
   %pending = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i32, ptr %pending, align 8
   %9 = zext i32 %8 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %9
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !34
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader

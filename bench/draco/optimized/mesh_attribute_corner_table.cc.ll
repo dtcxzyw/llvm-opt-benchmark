@@ -525,7 +525,7 @@ _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
 
 68:                                               ; preds = %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %69 = zext i32 %.sroa.0.0.in.sroa.speculate.load..i to i64
-  %70 = icmp ugt i64 %indvars.iv, %69
+  %70 = icmp samesign ugt i64 %indvars.iv, %69
   br i1 %70, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %68
@@ -776,7 +776,7 @@ _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   %200 = sub i64 %198, %199
   %201 = lshr exact i64 %200, 2
   %202 = and i64 %201, 4294967295
-  %203 = icmp ult i64 %indvars.iv.next, %202
+  %203 = icmp samesign ult i64 %indvars.iv.next, %202
   br i1 %203, label %27, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit, %_ZNK5draco12ValenceCacheINS_24MeshAttributeCornerTableEE27ClearValenceCacheInaccurateEv.exit
@@ -1642,7 +1642,7 @@ _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE
   %294 = sub i64 %292, %293
   %295 = lshr exact i64 %294, 2
   %296 = and i64 %295, 4294967295
-  %.not144 = icmp ult i64 %indvars.iv.next, %296
+  %.not144 = icmp samesign ult i64 %indvars.iv.next, %296
   br i1 %.not144, label %32, label %.loopexit120, !llvm.loop !41
 
 .loopexit120:                                     ; preds = %.critedge, %_ZNK5draco24MeshAttributeCornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit31, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE5clearEv.exit
@@ -2236,7 +2236,7 @@ _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE
   %259 = sub i64 %257, %258
   %260 = lshr exact i64 %259, 2
   %261 = and i64 %260, 4294967295
-  %.not138 = icmp ult i64 %indvars.iv.next, %261
+  %.not138 = icmp samesign ult i64 %indvars.iv.next, %261
   br i1 %.not138, label %29, label %.loopexit114, !llvm.loop !64
 
 .loopexit114:                                     ; preds = %.critedge, %_ZNK5draco24MeshAttributeCornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit23, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE5clearEv.exit

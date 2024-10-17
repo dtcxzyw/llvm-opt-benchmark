@@ -10672,7 +10672,7 @@ if.then162:                                       ; preds = %sw.bb152
 
 if.then.i1010:                                    ; preds = %if.then162
   %narrow.i = add nuw nsw i8 %conv1.i, 4
-  %cmp7.i = icmp ult i8 %conv1.i, 3
+  %cmp7.i = icmp samesign ult i8 %conv1.i, 3
   %spec.select.i = select i1 %cmp7.i, i8 %narrow.i, i8 7
   br label %_ZL20get_max_liquid_level12NodeNeighbora.exit
 
@@ -10875,7 +10875,7 @@ sw.bb.i1085:                                      ; preds = %for.body259
   br i1 %cmp.i1087, label %if.then.i1089, label %if.else.i1088
 
 if.then.i1089:                                    ; preds = %sw.bb.i1085
-  %cmp7.i1090 = icmp ult i8 %conv1.i1073, 3
+  %cmp7.i1090 = icmp samesign ult i8 %conv1.i1073, 3
   %spec.select.i1091 = select i1 %cmp7.i1090, i8 %narrow.i1086, i8 7
   br label %_ZL20get_max_liquid_level12NodeNeighbora.exit1092
 

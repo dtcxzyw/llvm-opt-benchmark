@@ -2088,7 +2088,7 @@ define internal noundef range(i32 -19, 1) i32 @cnp_setup_backlight(ptr noundef %
   %11 = icmp sgt i32 %9, 5
   %12 = select i1 %11, i32 2, i32 1
   %13 = select i1 %10, i32 1, i32 %12
-  %14 = icmp ugt i32 %13, %7
+  %14 = icmp samesign ugt i32 %13, %7
   br i1 %14, label %15, label %27
 
 15:                                               ; preds = %2

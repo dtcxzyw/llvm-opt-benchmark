@@ -3533,7 +3533,7 @@ _ZNSt11_Deque_baseIcSaIcEE16_M_allocate_nodeEv.exit: ; preds = %.lr.ph
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = tail call ptr @__cxa_begin_catch(ptr %45) #17
-  %47 = icmp ugt i64 %.01426, 1
+  %47 = icmp samesign ugt i64 %.01426, 1
   br i1 %47, label %.lr.ph29, label %._crit_edge30
 
 .lr.ph29:                                         ; preds = %43, %.lr.ph29
@@ -3771,7 +3771,7 @@ _ZNSt11_Deque_baseIcSaIcEE16_M_allocate_nodeEv.exit: ; preds = %.lr.ph
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
   %47 = tail call ptr @__cxa_begin_catch(ptr %46) #17
-  %48 = icmp ugt i64 %.01427, 1
+  %48 = icmp samesign ugt i64 %.01427, 1
   br i1 %48, label %.lr.ph30, label %._crit_edge31
 
 .lr.ph30:                                         ; preds = %44, %.lr.ph30

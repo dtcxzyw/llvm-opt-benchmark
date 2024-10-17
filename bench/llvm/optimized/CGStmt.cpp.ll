@@ -8701,7 +8701,7 @@ _ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backEOS2_.exit: ; preds = %752, %_ZNSt6
   %824 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %823, ptr %824, align 1, !noalias !117
   %825 = udiv i64 %.0810.i, 10
-  %.not.i418 = icmp ult i64 %.0810.i, 10
+  %.not.i418 = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i418, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !120
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -15840,7 +15840,7 @@ define dso_local { ptr, ptr } @_ZN5clang7CodeGen15CodeGenFunction18EmitAsmInputL
   %26 = add i64 %25, -1
   %or.cond43 = icmp ult i64 %26, 64
   %27 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %25)
-  %28 = icmp ult i64 %27, 2
+  %28 = icmp samesign ult i64 %27, 2
   %or.cond45 = select i1 %or.cond43, i1 %28, i1 false
   br i1 %or.cond45, label %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 
@@ -16393,7 +16393,7 @@ define internal fastcc void @_ZL18SimplifyConstraintB5cxx11PKcRKN5clang10TargetI
   %51 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %50, ptr %51, align 1, !noalias !234
   %52 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !120
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -17614,7 +17614,7 @@ define internal fastcc void @_ZL13EmitAsmStoresRN5clang7CodeGen15CodeGenFunction
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %30, align 8
   %52 = zext i32 %51 to i64
-  %53 = icmp ult i64 %indvars.iv, %52
+  %53 = icmp samesign ult i64 %indvars.iv, %52
   br i1 %53, label %54, label %73
 
 54:                                               ; preds = %46
@@ -17836,7 +17836,7 @@ _ZN4llvm13IRBuilderBase13CreateFPTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit: ;
   %.sroa.17.0.copyload = load ptr, ptr %.sroa.17.0..sroa_idx, align 8
   %136 = load i32, ptr %42, align 8
   %137 = zext i32 %136 to i64
-  %138 = icmp ult i64 %indvars.iv, %137
+  %138 = icmp samesign ult i64 %indvars.iv, %137
   br i1 %138, label %139, label %220
 
 139:                                              ; preds = %_ZN4llvm13IRBuilderBase13CreateFPTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit

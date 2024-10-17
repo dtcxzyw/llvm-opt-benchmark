@@ -11549,7 +11549,7 @@ define void @_ZNK5Yosys5RTLIL5Const13decode_stringB5cxx11Ev(ptr dead_on_unwind n
   %29 = select i1 %25, i8 %28, i8 0
   %.134 = or i8 %29, %.03341
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = icmp ult i64 %indvars.iv.next, %22
+  %30 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %30, label %23, label %._crit_edge, !llvm.loop !28
 
 .loopexit:                                        ; preds = %47

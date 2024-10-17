@@ -1184,7 +1184,7 @@ _ZL14print_em_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingP13gmx_wallcy
 
 438:                                              ; preds = %428
   %indvars.iv.next520 = add nuw nsw i64 %indvars.iv519, 1
-  %439 = icmp ult i64 %indvars.iv.next520, %425
+  %439 = icmp samesign ult i64 %indvars.iv.next520, %425
   br i1 %439, label %.preheader449, label %._crit_edge479, !llvm.loop !10
 
 ._crit_edge479:                                   ; preds = %438, %420
@@ -1371,7 +1371,7 @@ _Z11do_per_stepll.exit299:                        ; preds = %_Z11do_per_stepll.e
 
 545:                                              ; preds = %536
   %indvars.iv.next527 = add nuw nsw i64 %indvars.iv526, 1
-  %546 = icmp ult i64 %indvars.iv.next527, %534
+  %546 = icmp samesign ult i64 %indvars.iv.next527, %534
   br i1 %546, label %.preheader448, label %._crit_edge486, !llvm.loop !15
 
 ._crit_edge486:                                   ; preds = %545, %527
@@ -1575,7 +1575,7 @@ _Z11do_per_stepll.exit299:                        ; preds = %_Z11do_per_stepll.e
 
 652:                                              ; preds = %643
   %indvars.iv.next534 = add nuw nsw i64 %indvars.iv533, 1
-  %653 = icmp ult i64 %indvars.iv.next534, %641
+  %653 = icmp samesign ult i64 %indvars.iv.next534, %641
   br i1 %653, label %.preheader, label %._crit_edge493, !llvm.loop !20
 
 ._crit_edge493:                                   ; preds = %652, %634
@@ -1645,12 +1645,12 @@ _Z11do_per_stepll.exit299:                        ; preds = %_Z11do_per_stepll.e
   %684 = getelementptr inbounds i8, ptr %.3431583, i64 976
   %685 = load float, ptr %684, align 8
   %686 = fcmp ogt float %675, %685
-  %687 = icmp ult i32 %.0233, 19
+  %687 = icmp samesign ult i32 %.0233, 19
   %or.cond11 = select i1 %686, i1 %687, i1 false
   br i1 %or.cond11, label %.backedge, label %.critedge3
 
 688:                                              ; preds = %678
-  %.old10 = icmp ult i32 %.0233, 19
+  %.old10 = icmp samesign ult i32 %.0233, 19
   br i1 %.old10, label %.backedge, label %.critedge3
 
 .backedge:                                        ; preds = %688, %681
@@ -1674,7 +1674,7 @@ _Z11do_per_stepll.exit299:                        ; preds = %_Z11do_per_stepll.e
   %694 = call noundef float @llvm.fabs.f32(float %691)
   %695 = fmul float %694, 0x3E80000000000000
   %696 = fcmp olt float %693, %695
-  %697 = icmp ugt i32 %.0233, 18
+  %697 = icmp samesign ugt i32 %.0233, 18
   %or.cond5 = select i1 %696, i1 true, i1 %697
   br i1 %or.cond5, label %698, label %700
 
@@ -7906,12 +7906,12 @@ _ZN8em_stateaSERKS_.exit587:                      ; preds = %.noexc588, %.noexc5
 720:                                              ; preds = %_ZN8em_stateaSERKS_.exit587
   %721 = load float, ptr %233, align 8
   %722 = fcmp ogt float %717, %721
-  %723 = icmp ult i32 %.0423, 19
+  %723 = icmp samesign ult i32 %.0423, 19
   %or.cond12 = select i1 %722, i1 %723, i1 false
   br i1 %or.cond12, label %.backedge, label %.critedge3
 
 724:                                              ; preds = %_ZN8em_stateaSERKS_.exit587
-  %.old11 = icmp ult i32 %.0423, 19
+  %.old11 = icmp samesign ult i32 %.0423, 19
   br i1 %.old11, label %.backedge, label %.critedge3.thread
 
 .backedge:                                        ; preds = %724, %720
@@ -7922,7 +7922,7 @@ _ZN8em_stateaSERKS_.exit587:                      ; preds = %.noexc588, %.noexc5
   %725 = fsub float %717, %609
   %726 = call noundef float @llvm.fabs.f32(float %725)
   %727 = fcmp olt float %726, 0x3E80000000000000
-  %728 = icmp ugt i32 %.0423, 18
+  %728 = icmp samesign ugt i32 %.0423, 18
   %or.cond5 = select i1 %727, i1 true, i1 %728
   br i1 %or.cond5, label %.critedge3.thread, label %736
 

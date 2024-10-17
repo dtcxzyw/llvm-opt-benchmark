@@ -2867,7 +2867,7 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   tail call void @msleep(i32 noundef 20) #18
   %147 = add nuw nsw i32 %132, 20
   %148 = call fastcc i32 @hub_ext_port_status(ptr noundef %25, i32 noundef %30, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef null), !range !5
-  %149 = icmp ugt i32 %132, 1979
+  %149 = icmp samesign ugt i32 %132, 1979
   %150 = icmp ne i32 %148, 0
   %151 = select i1 %149, i1 true, i1 %150
   br i1 %151, label %.loopexit35, label %131, !llvm.loop !27
@@ -3629,7 +3629,7 @@ define internal fastcc void @usb_enable_link_state(ptr noundef nonnull %0, ptr n
   br label %138
 
 35:                                               ; preds = %28
-  %36 = icmp ugt i32 %26, 127
+  %36 = icmp samesign ugt i32 %26, 127
   %37 = icmp ne i32 %26, 255
   %38 = and i1 %36, %37
   %39 = and i1 %12, %38
@@ -4037,7 +4037,7 @@ define dso_local range(i32 -2147483648, 65536) i32 @hub_port_debounce(ptr nounde
 .thread:                                          ; preds = %21, %23, %29
   %35 = phi i32 [ 0, %29 ], [ %27, %23 ], [ 0, %21 ]
   %36 = phi i32 [ %20, %29 ], [ %14, %23 ], [ %20, %21 ]
-  %37 = icmp ugt i32 %13, 1999
+  %37 = icmp samesign ugt i32 %13, 1999
   br i1 %37, label %.thread6, label %38
 
 38:                                               ; preds = %.thread
@@ -4249,7 +4249,7 @@ define dso_local range(i32 -115, 1) i32 @usb_reset_device(ptr noundef %0) #1 ali
   %85 = add nuw nsw i64 %59, 1
   %86 = load i8, ptr %53, align 4
   %87 = zext i8 %86 to i64
-  %88 = icmp ult i64 %85, %87
+  %88 = icmp samesign ult i64 %85, %87
   br i1 %88, label %58, label %.loopexit9, !llvm.loop !34
 
 .loopexit9:                                       ; preds = %84, %52, %34
@@ -4420,7 +4420,7 @@ define internal fastcc range(i32 -22, 1) i32 @usb_reset_and_verify_device(ptr no
   br i1 %49, label %50, label %216
 
 50:                                               ; preds = %47
-  %51 = icmp ult i32 %38, 2
+  %51 = icmp samesign ult i32 %38, 2
   br i1 %51, label %60, label %52
 
 52:                                               ; preds = %50
@@ -4583,7 +4583,7 @@ define internal fastcc range(i32 -22, 1) i32 @usb_reset_and_verify_device(ptr no
   %148 = getelementptr inbounds i8, ptr %147, i64 4
   %149 = load i8, ptr %148, align 4
   %150 = zext i8 %149 to i64
-  %151 = icmp ult i64 %146, %150
+  %151 = icmp samesign ult i64 %146, %150
   br i1 %151, label %.preheader, label %.loopexit, !llvm.loop !38
 
 152:                                              ; preds = %123
@@ -4601,7 +4601,7 @@ define internal fastcc range(i32 -22, 1) i32 @usb_reset_and_verify_device(ptr no
   %160 = getelementptr inbounds i8, ptr %159, i64 4
   %161 = load i8, ptr %160, align 4
   %162 = zext i8 %161 to i64
-  %163 = icmp ult i64 %158, %162
+  %163 = icmp samesign ult i64 %158, %162
   br i1 %163, label %112, label %.loopexit13, !llvm.loop !39
 
 .loopexit13:                                      ; preds = %.loopexit, %104, %74
@@ -5052,7 +5052,7 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @usb_set_lpm_timeout(ptr noundef nonnull %0, i32 noundef range(i32 1, 3) %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #1 align 16 {
   %4 = icmp eq i32 %1, 1
-  %5 = icmp ugt i32 %2, 127
+  %5 = icmp samesign ugt i32 %2, 127
   %6 = icmp ne i32 %2, 255
   %7 = and i1 %5, %6
   %8 = and i1 %4, %7
@@ -5421,7 +5421,7 @@ define internal noundef range(i32 -19, 1) i32 @hub_probe(ptr noundef %0, ptr noc
   %175 = getelementptr inbounds i8, ptr %174, i64 2
   %176 = load i8, ptr %175, align 1
   %177 = zext i8 %176 to i32
-  %178 = icmp ult i32 %173, %177
+  %178 = icmp samesign ult i32 %173, %177
   br i1 %178, label %.thread28, label %179
 
 179:                                              ; preds = %.thread22
@@ -5587,7 +5587,7 @@ default.unreachable58:                            ; preds = %234
   %268 = getelementptr inbounds i8, ptr %127, i64 1208
   store i16 %267, ptr %268, align 8
   %269 = and i32 %266, 65535
-  %270 = icmp ugt i32 %216, %269
+  %270 = icmp samesign ugt i32 %216, %269
   %271 = getelementptr inbounds i8, ptr %61, i64 232
   br i1 %270, label %273, label %272
 
@@ -6589,7 +6589,7 @@ define internal void @led_work(ptr noundef %0) #1 align 16 {
   %48 = phi i32 [ %33, %32 ], [ %21, %18 ]
   %49 = add nuw nsw i64 %20, 1
   %50 = zext i32 %46 to i64
-  %51 = icmp ult i64 %49, %50
+  %51 = icmp samesign ult i64 %49, %50
   br i1 %51, label %18, label %52, !llvm.loop !54
 
 52:                                               ; preds = %45
@@ -7476,7 +7476,7 @@ hub_power_on.exit:                                ; preds = %.preheader, %155
   br i1 %522, label %523, label %736
 
 523:                                              ; preds = %520
-  %524 = icmp ult i32 %511, 2
+  %524 = icmp samesign ult i32 %511, 2
   br i1 %524, label %533, label %525
 
 525:                                              ; preds = %523
@@ -7598,7 +7598,7 @@ hub_power_on.exit:                                ; preds = %.preheader, %155
 593:                                              ; preds = %589
   %594 = load i16, ptr %543, align 8
   %595 = zext i16 %594 to i32
-  %596 = icmp ult i32 %500, %595
+  %596 = icmp samesign ult i32 %500, %595
   br i1 %596, label %613, label %597
 
 597:                                              ; preds = %593
@@ -8577,7 +8577,7 @@ define internal fastcc noundef i32 @hub_port_reset(ptr noundef %0, i32 noundef %
   br i1 %204, label %205, label %200, !llvm.loop !63
 
 205:                                              ; preds = %200
-  %206 = icmp ugt i32 %201, 9
+  %206 = icmp samesign ugt i32 %201, 9
   %207 = and i1 %180, %206
   br i1 %207, label %216, label %208
 
@@ -8586,7 +8586,7 @@ define internal fastcc noundef i32 @hub_port_reset(ptr noundef %0, i32 noundef %
   br i1 %209, label %216, label %210
 
 210:                                              ; preds = %208
-  %211 = icmp ugt i32 %201, 4
+  %211 = icmp samesign ugt i32 %201, 4
   %212 = and i1 %181, %211
   br i1 %212, label %216, label %.thread3.i
 
@@ -8944,7 +8944,7 @@ define internal fastcc range(i32 0, 2) i32 @descriptors_changed(ptr noundef %0, 
   %68 = add nuw nsw i64 %80, 1
   %69 = load i8, ptr %35, align 1
   %70 = zext i8 %69 to i64
-  %.not = icmp ult i64 %68, %70
+  %.not = icmp samesign ult i64 %68, %70
   br i1 %.not, label %71, label %.loopexit, !llvm.loop !67
 
 71:                                               ; preds = %67
@@ -10056,7 +10056,7 @@ define internal fastcc void @usb_set_lpm_parameters(ptr nocapture noundef %0) un
   %104 = getelementptr inbounds i8, ptr %0, i64 1316
   %105 = tail call i32 @llvm.umax.i32(i32 %54, i32 %103)
   store i32 %105, ptr %104, align 4
-  %106 = icmp ugt i32 %48, %45
+  %106 = icmp samesign ugt i32 %48, %45
   %107 = sub nsw i32 %48, %45
   %108 = select i1 %106, i32 %107, i32 %45
   %109 = mul nsw i32 %108, 1000

@@ -5527,17 +5527,17 @@ define hidden noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef range(i32 0, 1114112) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.0 = alloca i32, align 4
-  %3 = icmp ult i32 %1, 128
+  %3 = icmp samesign ult i32 %1, 128
   br i1 %3, label %54, label %4
 
 4:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   store i32 0, ptr %.sroa.0, align 4
-  %5 = icmp ult i32 %1, 2048
+  %5 = icmp samesign ult i32 %1, 2048
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = icmp ult i32 %1, 65536
+  %7 = icmp samesign ult i32 %1, 65536
   br i1 %7, label %15, label %26
 
 8:                                                ; preds = %4
@@ -8134,7 +8134,7 @@ default.unreachable:                              ; preds = %.noexc10.i
   ]
 
 202:                                              ; preds = %200
-  %203 = icmp ugt i32 %.sroa.4.0.i11.ph.i, 127
+  %203 = icmp samesign ugt i32 %.sroa.4.0.i11.ph.i, 127
   br i1 %203, label %204, label %.thread21.i
 
 204:                                              ; preds = %202
@@ -12184,7 +12184,7 @@ define hidden void @_ZN15command_palette20humanize_action_name17h95f25803f4a74d9
   br i1 %or.cond.i.i.i.i, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hed62b8e32c06a2a1E.exit.i", label %50
 
 50:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.thread.i"
-  %51 = icmp ugt i32 %48, 127
+  %51 = icmp samesign ugt i32 %48, 127
   br i1 %51, label %52, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hed62b8e32c06a2a1E.exit.i"
 
 52:                                               ; preds = %50
@@ -12411,7 +12411,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit11: ; preds = %134, %130
   br i1 %or.cond, label %146, label %140
 
 140:                                              ; preds = %138
-  %141 = icmp ugt i32 %.sroa.4.0.i.ph, 127
+  %141 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 127
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %140
@@ -12508,17 +12508,17 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit18: ; preds = %._ZN5alloc6s
   %173 = getelementptr inbounds i32, ptr %66, i64 %170
   %174 = load i32, ptr %173, align 4, !range !8, !alias.scope !2848, !noalias !2849, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !2850)
-  %175 = icmp ult i32 %174, 128
+  %175 = icmp samesign ult i32 %174, 128
   br i1 %175, label %224, label %176
 
 176:                                              ; preds = %.lr.ph.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !2850
-  %177 = icmp ult i32 %174, 2048
+  %177 = icmp samesign ult i32 %174, 2048
   br i1 %177, label %180, label %178
 
 178:                                              ; preds = %176
-  %179 = icmp ult i32 %174, 65536
+  %179 = icmp samesign ult i32 %174, 65536
   br i1 %179, label %187, label %198
 
 180:                                              ; preds = %176

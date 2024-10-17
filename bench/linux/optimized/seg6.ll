@@ -64,7 +64,7 @@ define dso_local noundef zeroext i1 @seg6_validate_srh(ptr nocapture noundef rea
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = add nuw nsw i32 %26, 1
-  %31 = icmp ult i32 %30, %29
+  %31 = icmp samesign ult i32 %30, %29
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %25
@@ -209,7 +209,7 @@ define dso_local ptr @seg6_get_srh(ptr noundef %0, i32 noundef %1) local_unnamed
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
   %61 = add nuw nsw i32 %57, 1
-  %62 = icmp ult i32 %61, %60
+  %62 = icmp samesign ult i32 %61, %60
   br i1 %62, label %.thread, label %63
 
 63:                                               ; preds = %56

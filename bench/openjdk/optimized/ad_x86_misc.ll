@@ -28656,7 +28656,7 @@ define linkonce_odr hidden void @_ZN19jumpXtnd_offsetNode14add_case_labelEiP5Lab
   %10 = add nsw i32 %1, 1
   %11 = icmp sgt i32 %1, -1
   %12 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %10)
-  %13 = icmp ult i32 %12, 2
+  %13 = icmp samesign ult i32 %12, 2
   %or.cond.i.i.i.i = select i1 %11, i1 %13, i1 false
   %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
   %15 = sub nuw nsw i32 32, %14
@@ -28750,7 +28750,7 @@ define linkonce_odr hidden void @_ZN17jumpXtnd_addrNode14add_case_labelEiP5Label
   %10 = add nsw i32 %1, 1
   %11 = icmp sgt i32 %1, -1
   %12 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %10)
-  %13 = icmp ult i32 %12, 2
+  %13 = icmp samesign ult i32 %12, 2
   %or.cond.i.i.i.i = select i1 %11, i1 %13, i1 false
   %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
   %15 = sub nuw nsw i32 32, %14
@@ -28844,7 +28844,7 @@ define linkonce_odr hidden void @_ZN12jumpXtndNode14add_case_labelEiP5Label(ptr 
   %10 = add nsw i32 %1, 1
   %11 = icmp sgt i32 %1, -1
   %12 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %10)
-  %13 = icmp ult i32 %12, 2
+  %13 = icmp samesign ult i32 %12, 2
   %or.cond.i.i.i.i = select i1 %11, i1 %13, i1 false
   %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
   %15 = sub nuw nsw i32 32, %14

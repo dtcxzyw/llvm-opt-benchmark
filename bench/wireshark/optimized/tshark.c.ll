@@ -2035,7 +2035,7 @@ sub_0305:                                         ; preds = %547
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %599 = load i32, ptr %589, align 8
   %600 = zext i32 %599 to i64
-  %601 = icmp ult i64 %indvars.iv.next, %600
+  %601 = icmp samesign ult i64 %indvars.iv.next, %600
   br i1 %601, label %.lr.ph402, label %._crit_edge403, !llvm.loop !10
 
 ._crit_edge403:                                   ; preds = %598, %587
@@ -2940,7 +2940,7 @@ define internal fastcc void @list_capture_types() unnamed_addr #7 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %4, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
@@ -3517,7 +3517,7 @@ define internal fastcc range(i32 0, 4) i32 @process_cap_file(ptr noundef %0, i32
   %53 = getelementptr inbounds i8, ptr %52, i64 8
   %54 = load i32, ptr %53, align 8
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next, %55
   br i1 %56, label %.lr.ph, label %sub_0, !llvm.loop !19
 
 sub_0:                                            ; preds = %.lr.ph, %.preheader, %40

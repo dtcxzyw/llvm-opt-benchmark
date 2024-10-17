@@ -14250,7 +14250,7 @@ _ZNSt6vectorIP9ParamFaceSaIS1_EED2Ev.exit35:      ; preds = %_ZNSt6vectorIN3vcg6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %264 = load i32, ptr %11, align 8
   %265 = zext i32 %264 to i64
-  %266 = icmp ult i64 %indvars.iv.next, %265
+  %266 = icmp samesign ult i64 %indvars.iv.next, %265
   br i1 %266, label %36, label %._crit_edge, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIP9ParamFaceSaIS1_EED2Ev.exit35, %.preheader43.._crit_edge_crit_edge
@@ -14258,7 +14258,7 @@ _ZNSt6vectorIP9ParamFaceSaIS1_EED2Ev.exit35:      ; preds = %_ZNSt6vectorIN3vcg6
   %267 = phi i32 [ %32, %.preheader43.._crit_edge_crit_edge ], [ %264, %_ZNSt6vectorIP9ParamFaceSaIS1_EED2Ev.exit35 ]
   %.242.lcssa = phi i32 [ %.14164, %.preheader43.._crit_edge_crit_edge ], [ %.3, %_ZNSt6vectorIP9ParamFaceSaIS1_EED2Ev.exit35 ]
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %268 = icmp ult i64 %indvars.iv.next92, %.pre-phi
+  %268 = icmp samesign ult i64 %indvars.iv.next92, %.pre-phi
   br i1 %268, label %.preheader43, label %._crit_edge67.loopexit78, !llvm.loop !102
 
 ._crit_edge67.loopexit78:                         ; preds = %._crit_edge
@@ -14473,7 +14473,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE6resizeEm.exit:    ; preds = %._ZNSt6vectorIP8CVe
   %64 = phi i32 [ %.pre, %._ZNSt6vectorIP8CVertexOSaIS1_EE6resizeEm.exit_crit_edge ], [ %46, %63 ], [ %46, %61 ], [ %46, %59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next, %65
   br i1 %66, label %.lr.ph, label %.preheader106, !llvm.loop !108
 
 .loopexit:                                        ; preds = %57
@@ -14597,7 +14597,7 @@ _ZNSt6vectorIS_IP8CVertexOSaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPS
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %102 = load i32, ptr %14, align 8
   %103 = zext i32 %102 to i64
-  %104 = icmp ult i64 %indvars.iv.next128, %103
+  %104 = icmp samesign ult i64 %indvars.iv.next128, %103
   br i1 %104, label %81, label %._crit_edge, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %96, %.preheader103
@@ -14607,7 +14607,7 @@ _ZNSt6vectorIS_IP8CVertexOSaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPS
   %108 = phi i32 [ 0, %.preheader103 ], [ %102, %96 ]
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %109 = zext i32 %108 to i64
-  %110 = icmp ult i64 %indvars.iv.next131, %109
+  %110 = icmp samesign ult i64 %indvars.iv.next131, %109
   br i1 %110, label %.preheader103, label %.preheader104, !llvm.loop !111
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge113
@@ -14711,7 +14711,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_P8CVertexOS6_S6_.exit64: ; preds = %1
   %150 = load i32, ptr %14, align 8
   %151 = add i32 %150, -1
   %152 = zext i32 %151 to i64
-  %153 = icmp ult i64 %indvars.iv.next134, %152
+  %153 = icmp samesign ult i64 %indvars.iv.next134, %152
   br i1 %153, label %116, label %._crit_edge113
 
 ._crit_edge113:                                   ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_P8CVertexOS6_S6_.exit64, %.preheader.._crit_edge113_crit_edge
@@ -42211,7 +42211,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vector
   br i1 %123, label %124, label %_ZNSt6vectorISt4pairIP10BaseVertexS2_ESaIS3_EE9push_backEOS3_.exit
 
 124:                                              ; preds = %118
-  %.cmp.inv = icmp ugt i64 %indvars.iv, 1
+  %.cmp.inv = icmp samesign ugt i64 %indvars.iv, 1
   %.v = select i1 %.cmp.inv, i64 4294967294, i64 1
   %125 = add nuw nsw i64 %.v, %indvars.iv
   %sext = shl i64 %125, 32
@@ -42334,7 +42334,7 @@ _ZNSt6vectorISt4pairIP10BaseVertexS2_ESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gn
 
 _ZNSt6vectorISt4pairIP10BaseVertexS2_ESaIS3_EE9push_backEOS3_.exit: ; preds = %132, %124, %118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %169 = icmp ugt i64 %indvars.iv, 1
+  %169 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %169, label %_ZNSt6vectorISt4pairIP10BaseVertexS2_ESaIS3_EE9push_backEOS3_.exit.thread, label %118, !llvm.loop !508
 
 _ZNSt6vectorISt4pairIP10BaseVertexS2_ESaIS3_EE9push_backEOS3_.exit.thread: ; preds = %_ZNSt6vectorISt4pairIP10BaseVertexS2_ESaIS3_EE9push_backEOS3_.exit, %142, %_ZNSt6vectorISt4pairIP10BaseVertexS2_ESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
@@ -61962,7 +61962,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbE7
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !719
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -62149,7 +62149,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EE
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !720
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -62277,7 +62277,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri22MIPSTexCoordFoldHealerI8Bas
   br label %48
 
 42:                                               ; preds = %._crit_edge
-  %43 = icmp ugt i32 %.1, %.113
+  %43 = icmp samesign ugt i32 %.1, %.113
   %44 = getelementptr inbounds i8, ptr %0, i64 368
   %45 = getelementptr inbounds i8, ptr %0, i64 372
   br i1 %43, label %46, label %47
@@ -62544,7 +62544,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %26
   %.0.lcssa.i = phi i32 [ %4, %26 ], [ %31, %.lr.ph.i11 ]
-  %46 = icmp ugt i32 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %._crit_edge.i
@@ -69822,7 +69822,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i6, %23
   %.0.lcssa.i = phi i64 [ %1, %23 ], [ %30, %.lr.ph.i6 ]
-  %43 = icmp ugt i64 %.0.lcssa.i, 9
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %._crit_edge.i
@@ -93974,7 +93974,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vector
   br i1 %123, label %124, label %_ZNSt6vectorISt4pairIP10BaseVertexS2_ESaIS3_EE9push_backEOS3_.exit
 
 124:                                              ; preds = %118
-  %.cmp.inv = icmp ugt i64 %indvars.iv, 1
+  %.cmp.inv = icmp samesign ugt i64 %indvars.iv, 1
   %.v = select i1 %.cmp.inv, i64 4294967294, i64 1
   %125 = add nuw nsw i64 %.v, %indvars.iv
   %sext = shl i64 %125, 32
@@ -94097,7 +94097,7 @@ _ZNSt6vectorISt4pairIP10BaseVertexS2_ESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gn
 
 _ZNSt6vectorISt4pairIP10BaseVertexS2_ESaIS3_EE9push_backEOS3_.exit: ; preds = %132, %124, %118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %169 = icmp ugt i64 %indvars.iv, 1
+  %169 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %169, label %_ZNSt6vectorISt4pairIP10BaseVertexS2_ESaIS3_EE9push_backEOS3_.exit.thread, label %118, !llvm.loop !1139
 
 _ZNSt6vectorISt4pairIP10BaseVertexS2_ESaIS3_EE9push_backEOS3_.exit.thread: ; preds = %_ZNSt6vectorISt4pairIP10BaseVertexS2_ESaIS3_EE9push_backEOS3_.exit, %142, %_ZNSt6vectorISt4pairIP10BaseVertexS2_ESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
@@ -127050,7 +127050,7 @@ _ZN3vcg3tri9AllocatorI9ParamMeshE11AddVerticesERS2_m.exit: ; preds = %178, %181
 
 .loopexit.split.us.us:                            ; preds = %.split296.us
   %210 = add nuw nsw i32 %.1295.us, 1
-  %211 = icmp ult i32 %.1295.us, 2
+  %211 = icmp samesign ult i32 %.1295.us, 2
   br i1 %211, label %.split296.us, label %.loopexit271, !llvm.loop !1613
 
 .split.us.us:                                     ; preds = %.split296.us, %255

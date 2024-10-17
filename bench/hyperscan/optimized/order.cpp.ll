@@ -16028,7 +16028,7 @@ for.inc:                                          ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar199) #21
   %add = add nuw nsw i64 %conv1507, %storemerge1508
   %conv = and i64 %add, 4294967295
-  %cmp187 = icmp ugt i64 %conv, 31
+  %cmp187 = icmp samesign ugt i64 %conv, 31
   br i1 %cmp187, label %for.end, label %for.body189, !llvm.loop !93
 
 ehcleanup227:                                     ; preds = %ehcleanup220, %lpad201
@@ -19560,7 +19560,7 @@ for.inc:                                          ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar185) #21
   %add = add nuw nsw i64 %conv1423, %storemerge1424
   %conv = and i64 %add, 4294967295
-  %cmp173 = icmp ugt i64 %conv, 31
+  %cmp173 = icmp samesign ugt i64 %conv, 31
   br i1 %cmp173, label %for.end, label %for.body175, !llvm.loop !105
 
 ehcleanup213:                                     ; preds = %ehcleanup206, %lpad187
@@ -22947,7 +22947,7 @@ for.inc:                                          ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar171) #21
   %add = add nuw nsw i64 %conv1340, %storemerge1341
   %conv = and i64 %add, 4294967295
-  %cmp159 = icmp ugt i64 %conv, 31
+  %cmp159 = icmp samesign ugt i64 %conv, 31
   br i1 %cmp159, label %for.end, label %for.body161, !llvm.loop !117
 
 ehcleanup199:                                     ; preds = %ehcleanup192, %lpad173
@@ -26343,7 +26343,7 @@ for.inc:                                          ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar171) #21
   %add = add nuw nsw i64 %conv1340, %storemerge1341
   %conv = and i64 %add, 4294967295
-  %cmp159 = icmp ugt i64 %conv, 31
+  %cmp159 = icmp samesign ugt i64 %conv, 31
   br i1 %cmp159, label %for.end, label %for.body161, !llvm.loop !129
 
 ehcleanup199:                                     ; preds = %ehcleanup192, %lpad173

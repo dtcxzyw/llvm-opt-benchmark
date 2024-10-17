@@ -586,7 +586,7 @@ _ZN11MemBaselineC2Ev.exit:                        ; preds = %21
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %58
   %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i, 8
-  %62 = icmp ult i64 %.0.idx11.i.i.i.i, 2336
+  %62 = icmp samesign ult i64 %.0.idx11.i.i.i.i, 2336
   br i1 %62, label %58, label %_ZN17MemDetailReporterD2Ev.exit, !llvm.loop !12
 
 _ZN17MemDetailReporterD2Ev.exit:                  ; preds = %._crit_edge.i.i.i.i

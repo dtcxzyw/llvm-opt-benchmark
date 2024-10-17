@@ -2218,7 +2218,7 @@ if.end74.i:                                       ; preds = %if.end69.i
           to label %call.i.i.i.noexc unwind label %lpad418.loopexit.split-lp.loopexit.split-lp
 
 call.i.i.i.noexc:                                 ; preds = %if.end74.i
-  %cmp10.not106.i.i = icmp ugt i64 %b.sroa.77.0, 99
+  %cmp10.not106.i.i = icmp samesign ugt i64 %b.sroa.77.0, 99
   br i1 %cmp10.not106.i.i, label %do.body.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %call.i.i.i.noexc
@@ -6102,7 +6102,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.els
   %add5.i = fadd double %sum.112.i, %mul.i
   %cmp6.i = fcmp olt double %mul.i, 1.000000e-04
   %inc.i = add nuw nsw i32 %i.014.i, 1
-  %cmp2.not.i = icmp ugt i32 %i.014.i, 99
+  %cmp2.not.i = icmp samesign ugt i32 %i.014.i, 99
   %or.cond.i = or i1 %cmp2.not.i, %cmp6.i
   br i1 %or.cond.i, label %_ZN5boost4math6detail11didonato_SNIdEET_S3_S3_jS3_.exit, label %for.body.i, !llvm.loop !112
 
@@ -11722,7 +11722,7 @@ if.end:                                           ; preds = %entry
   %call = call double @frexp(double noundef %div1, ptr noundef nonnull %e) #32
   %4 = load i32, ptr %e, align 4, !tbaa !24
   %5 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
-  %cmp2 = icmp ult i32 %5, 64
+  %cmp2 = icmp samesign ult i32 %5, 64
   br i1 %cmp2, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
@@ -11741,7 +11741,7 @@ cond.end:                                         ; preds = %if.end, %cond.false
   %cmp5 = fcmp olt double %7, %9
   %dec91 = add i64 %0, -1
   store i64 %dec91, ptr %count, align 8, !tbaa !43
-  %cmp15 = icmp ugt i32 %5, 1024
+  %cmp15 = icmp samesign ugt i32 %5, 1024
   %cond16 = select i1 %cmp15, i32 8, i32 2
   %conv17 = uitofp nneg i32 %cond16 to double
   %10 = load double, ptr %f, align 8
@@ -11889,7 +11889,7 @@ if.end:                                           ; preds = %entry
   %call = call double @frexp(double noundef %div1, ptr noundef nonnull %e) #32
   %4 = load i32, ptr %e, align 4, !tbaa !24
   %5 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
-  %cmp2 = icmp ult i32 %5, 64
+  %cmp2 = icmp samesign ult i32 %5, 64
   br i1 %cmp2, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
@@ -11908,7 +11908,7 @@ cond.end:                                         ; preds = %if.end, %cond.false
   %cmp5 = fcmp olt double %8, %9
   %dec90 = add i64 %0, -1
   store i64 %dec90, ptr %count, align 8, !tbaa !43
-  %cmp14 = icmp ugt i32 %5, 1024
+  %cmp14 = icmp samesign ugt i32 %5, 1024
   %cond15 = select i1 %cmp14, i32 8, i32 2
   %conv16 = uitofp nneg i32 %cond15 to double
   %10 = load double, ptr %f, align 8

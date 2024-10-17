@@ -1292,7 +1292,7 @@ if.then.i120:                                     ; preds = %for.body.i
   %call.i123 = tail call i64 @lj_prng_u64(ptr noundef nonnull %prng.i) #13
   %and.i124 = and i64 %call.i123, 15
   %add.i125 = add nuw nsw i64 %shl.i122, %and.i124
-  %cmp9.i = icmp ugt i64 %add.i125, 60000
+  %cmp9.i = icmp samesign ugt i64 %add.i125, 60000
   br i1 %cmp9.i, label %if.then11.i, label %if.then.setpenalty_crit_edge.i
 
 if.then.setpenalty_crit_edge.i:                   ; preds = %if.then.i120
@@ -2140,7 +2140,7 @@ if.end126:                                        ; preds = %if.then121
 
 sw.default:                                       ; preds = %if.end72
   %and74 = and i32 %57, 255
-  %cmp130 = icmp ugt i32 %and74, 88
+  %cmp130 = icmp samesign ugt i32 %and74, 88
   br i1 %cmp130, label %if.then132, label %return
 
 if.then132:                                       ; preds = %sw.default
@@ -2395,7 +2395,7 @@ for.body28.i:                                     ; preds = %for.body28.i, %for.
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %26 = load i32, ptr %sizetrace.i, align 4
   %27 = zext i32 %26 to i64
-  %cmp27.i = icmp ult i64 %indvars.iv.next34.i, %27
+  %cmp27.i = icmp samesign ult i64 %indvars.iv.next34.i, %27
   br i1 %cmp27.i, label %for.body28.i, label %for.end35.i, !llvm.loop !15
 
 for.end35.i:                                      ; preds = %for.body28.i, %if.end21.i

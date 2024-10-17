@@ -40,8 +40,8 @@ define hidden range(i32 -1, 2) i32 @vms_open(ptr noundef %0, ptr noundef %1, ptr
   store i8 0, ptr %5, align 1
   br label %6
 
-6:                                                ; preds = %26, %3
-  %.02329.i = phi i32 [ 0, %3 ], [ %27, %26 ]
+6:                                                ; preds = %25, %3
+  %.02329.i = phi i32 [ 0, %3 ], [ %26, %25 ]
   %7 = load ptr, ptr %0, align 8
   %8 = call i64 @file_tell(ptr noundef %7) #7
   %9 = icmp eq i64 %8, -1
@@ -60,78 +60,78 @@ define hidden range(i32 -1, 2) i32 @vms_open(ptr noundef %0, ptr noundef %1, ptr
 16:                                               ; preds = %11
   %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %18 = and i64 %17, 4294967294
-  %19 = icmp ult i64 %18, 14
-  br i1 %19, label %26, label %20
+  %or.cond5.i = icmp samesign ult i64 %18, 14
+  br i1 %or.cond5.i, label %25, label %19
 
-20:                                               ; preds = %16
-  %21 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.1) #8
-  %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %22, label %vms_check_file_type.exit
+19:                                               ; preds = %16
+  %20 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.1) #8
+  %.not.i = icmp eq ptr %20, null
+  br i1 %.not.i, label %21, label %vms_check_file_type.exit
 
-22:                                               ; preds = %20
-  %23 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.2) #8
-  %.not25.i = icmp eq ptr %23, null
-  br i1 %.not25.i, label %24, label %vms_check_file_type.exit
+21:                                               ; preds = %19
+  %22 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.2) #8
+  %.not25.i = icmp eq ptr %22, null
+  br i1 %.not25.i, label %23, label %vms_check_file_type.exit
 
-24:                                               ; preds = %22
-  %25 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.3) #8
-  %.not26.i = icmp eq ptr %25, null
-  br i1 %.not26.i, label %26, label %vms_check_file_type.exit
+23:                                               ; preds = %21
+  %24 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.3) #8
+  %.not26.i = icmp eq ptr %24, null
+  br i1 %.not26.i, label %25, label %vms_check_file_type.exit
 
-26:                                               ; preds = %24, %16
-  %27 = add nuw nsw i32 %.02329.i, 1
-  %exitcond.not.i = icmp eq i32 %27, 200
+25:                                               ; preds = %23, %16
+  %26 = add nuw nsw i32 %.02329.i, 1
+  %exitcond.not.i = icmp eq i32 %26, 200
   br i1 %exitcond.not.i, label %vms_check_file_type.exit.thread, label %6, !llvm.loop !4
 
 vms_check_file_type.exit.thread.sink.split:       ; preds = %6, %14
   %.lcssa.sink = phi ptr [ %15, %14 ], [ %10, %6 ]
-  %28 = call i32 @file_error(ptr noundef %.lcssa.sink, ptr noundef %2) #7
+  %27 = call i32 @file_error(ptr noundef %.lcssa.sink, ptr noundef %2) #7
   br label %vms_check_file_type.exit.thread
 
-vms_check_file_type.exit.thread:                  ; preds = %26, %vms_check_file_type.exit.thread.sink.split
-  %.sink = phi i32 [ %28, %vms_check_file_type.exit.thread.sink.split ], [ 0, %26 ]
+vms_check_file_type.exit.thread:                  ; preds = %25, %vms_check_file_type.exit.thread.sink.split
+  %.sink = phi i32 [ %27, %vms_check_file_type.exit.thread.sink.split ], [ 0, %25 ]
   store i32 %.sink, ptr %1, align 4
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %4)
-  br label %31
+  br label %30
 
-vms_check_file_type.exit:                         ; preds = %20, %22, %24
-  %29 = load ptr, ptr %0, align 8
-  %30 = call i64 @file_seek(ptr noundef %29, i64 noundef %8, i32 noundef 0, ptr noundef %1) #7
-  %.not17 = icmp eq i64 %30, -1
+vms_check_file_type.exit:                         ; preds = %19, %21, %23
+  %28 = load ptr, ptr %0, align 8
+  %29 = call i64 @file_seek(ptr noundef %28, i64 noundef %8, i32 noundef 0, ptr noundef %1) #7
+  %.not17 = icmp eq i64 %29, -1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %4)
-  br i1 %.not17, label %vms_check_file_type.exit._crit_edge, label %34
+  br i1 %.not17, label %vms_check_file_type.exit._crit_edge, label %33
 
 vms_check_file_type.exit._crit_edge:              ; preds = %vms_check_file_type.exit
   %.pre = load i32, ptr %1, align 4
-  br label %31
+  br label %30
 
-31:                                               ; preds = %vms_check_file_type.exit._crit_edge, %vms_check_file_type.exit.thread
-  %32 = phi i32 [ %.pre, %vms_check_file_type.exit._crit_edge ], [ %.sink, %vms_check_file_type.exit.thread ]
-  %switch.selectcmp.case1 = icmp ne i32 %32, 0
-  %switch.selectcmp.case2 = icmp ne i32 %32, -12
+30:                                               ; preds = %vms_check_file_type.exit._crit_edge, %vms_check_file_type.exit.thread
+  %31 = phi i32 [ %.pre, %vms_check_file_type.exit._crit_edge ], [ %.sink, %vms_check_file_type.exit.thread ]
+  %switch.selectcmp.case1 = icmp ne i32 %31, 0
+  %switch.selectcmp.case2 = icmp ne i32 %31, -12
   %switch.selectcmp.not = and i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %33 = sext i1 %switch.selectcmp.not to i32
-  br label %42
+  %32 = sext i1 %switch.selectcmp.not to i32
+  br label %41
 
-34:                                               ; preds = %vms_check_file_type.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 7, ptr %35, align 8
-  %36 = load i32, ptr @vms_file_type_subtype, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @vms_read, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @vms_seek_read, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 2, ptr %41, align 4
+33:                                               ; preds = %vms_check_file_type.exit
+  %34 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 7, ptr %34, align 8
+  %35 = load i32, ptr @vms_file_type_subtype, align 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %35, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @vms_read, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @vms_seek_read, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 2, ptr %40, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #7
-  br label %42
+  br label %41
 
-42:                                               ; preds = %31, %34
-  %.0 = phi i32 [ 1, %34 ], [ %33, %31 ]
+41:                                               ; preds = %30, %33
+  %.0 = phi i32 [ 1, %33 ], [ %32, %30 ]
   ret i32 %.0
 }
 

@@ -3047,7 +3047,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_ZipFilePathERKNSt7__cxx111
   %204 = trunc i64 %203 to i16
   %205 = and i16 %204, 63
   %206 = icmp eq i16 %205, 0
-  %207 = icmp ugt i16 %205, 60
+  %207 = icmp samesign ugt i16 %205, 60
   %spec.select.v.i = select i1 %207, i16 128, i16 64
   %spec.select.i = sub nuw nsw i16 %spec.select.v.i, %205
   %.0.i = select i1 %206, i16 0, i16 %spec.select.i
@@ -3062,11 +3062,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_ZipFilePathERKNSt7__cxx111
   br i1 %206, label %219, label %211
 
 211:                                              ; preds = %193
-  %212 = icmp ugt i16 %spec.select.i, 3
+  %212 = icmp samesign ugt i16 %spec.select.i, 3
   br i1 %212, label %213, label %.invoke
 
 213:                                              ; preds = %211
-  %214 = icmp ult i16 %spec.select.i, 69
+  %214 = icmp samesign ult i16 %spec.select.i, 69
   br i1 %214, label %.noexc, label %.invoke
 
 .invoke:                                          ; preds = %213, %211

@@ -1009,7 +1009,7 @@ _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i: ; preds = %for.body
   %arrayidx.i.i15 = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i15, align 4
   %4 = zext i32 %3 to i64
-  %cmp.not.i = icmp ult i64 %indvars.iv, %4
+  %cmp.not.i = icmp samesign ult i64 %indvars.iv, %4
   br i1 %cmp.not.i, label %invoke.cont, label %invoke.cont7
 
 invoke.cont:                                      ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i
@@ -15334,7 +15334,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load i64, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6769 = lshr i64 %sub.i, 1
-  %cmp25.i = icmp ult i64 %div13, %div.i6769
+  %cmp25.i = icmp samesign ult i64 %div13, %div.i6769
   br i1 %cmp25.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i

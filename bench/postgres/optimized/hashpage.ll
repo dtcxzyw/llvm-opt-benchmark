@@ -881,7 +881,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
   store i32 %59, ptr %60, align 8
   %61 = add i32 %.0, 1
   %62 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %61)
-  %63 = icmp ult i32 %62, 2
+  %63 = icmp samesign ult i32 %62, 2
   %64 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %61, i1 true)
   %65 = xor i32 %64, 31
   %66 = shl nuw i32 2, %65

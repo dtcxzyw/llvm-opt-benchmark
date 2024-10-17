@@ -1564,7 +1564,7 @@ define internal fastcc i32 @mon_bin_fetch(ptr nocapture noundef readonly %0, ptr
   %50 = sub i32 %46, %49
   %51 = add i32 %45, %24
   %52 = icmp ult i32 %51, %11
-  %53 = icmp ult i64 %41, %20
+  %53 = icmp samesign ult i64 %41, %20
   %54 = select i1 %52, i1 %53, i1 false
   br i1 %54, label %21, label %55, !llvm.loop !31
 

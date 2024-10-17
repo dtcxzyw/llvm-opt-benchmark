@@ -1225,7 +1225,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %Gia_ObjIsRo.exit.th
   %387 = getelementptr inbounds [1 x i32], ptr %384, i64 0, i64 %indvars.iv450
   store i32 -1, ptr %387, align 4
   %indvars.iv.next451 = add nuw nsw i64 %indvars.iv450, 1
-  %388 = icmp ult i64 %indvars.iv.next451, %385
+  %388 = icmp samesign ult i64 %indvars.iv.next451, %385
   br i1 %388, label %386, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %386, %Gia_ObjIsRo.exit.thread

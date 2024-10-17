@@ -287,7 +287,7 @@ define i32 @QRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapt
   %indvars.iv159 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next160, %57 ]
   %indvars.iv155 = phi i32 [ -1, %.preheader.preheader ], [ %indvars.iv.next156, %57 ]
   %.0150 = phi i32 [ 0, %.preheader.preheader ], [ %.1, %57 ]
-  %6 = icmp ugt i64 %indvars.iv159, 1
+  %6 = icmp samesign ugt i64 %indvars.iv159, 1
   br i1 %6, label %.lr.ph147, label %._crit_edge148
 
 .lr.ph147:                                        ; preds = %.preheader
@@ -549,7 +549,7 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr nocapture nounde
   %30 = load double, ptr %29, align 8
   %31 = fdiv double %30, %26
   store double %31, ptr %29, align 8
-  %32 = icmp ugt i64 %indvars.iv63, 1
+  %32 = icmp samesign ugt i64 %indvars.iv63, 1
   br i1 %32, label %.lr.ph52, label %._crit_edge
 
 .lr.ph52:                                         ; preds = %28, %.lr.ph52

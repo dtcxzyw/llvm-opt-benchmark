@@ -426,7 +426,7 @@ if.then7.i.i.us:                                  ; preds = %if.then5.i.i.us
   br label %_ZNK3ue29CharReach9find_nextEm.exit.us
 
 for.cond.i.i.us:                                  ; preds = %if.then5.i.i.us, %if.end.i.i.us
-  %cmp14.i.i.us = icmp ult i64 %xor33.us, 3
+  %cmp14.i.i.us = icmp samesign ult i64 %xor33.us, 3
   br i1 %cmp14.i.i.us, label %for.body.i.i.us, label %cleanup
 
 for.body.i.i.us:                                  ; preds = %for.cond.i.i.us
@@ -486,7 +486,7 @@ if.then7.i.i:                                     ; preds = %if.then5.i.i
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 for.cond.i.i:                                     ; preds = %if.then5.i.i, %if.end.i.i
-  %cmp14.i.i = icmp ult i64 %xor33, 3
+  %cmp14.i.i = icmp samesign ult i64 %xor33, 3
   br i1 %cmp14.i.i, label %for.body.i.i, label %cleanup
 
 for.body.i.i:                                     ; preds = %for.cond.i.i

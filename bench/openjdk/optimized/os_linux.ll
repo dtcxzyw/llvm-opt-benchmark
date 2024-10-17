@@ -1643,7 +1643,7 @@ _ZN2os27dll_address_to_library_nameEPhPciPi.exit: ; preds = %13
 
 .critedge:                                        ; preds = %30
   %32 = add nuw nsw i32 %.05064, 1
-  %33 = icmp ult i32 %.05064, 4
+  %33 = icmp samesign ult i32 %.05064, 4
   br i1 %33, label %.preheader, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.critedge, %28, %23
@@ -6419,7 +6419,7 @@ _ZN2os5Linux25is_node_in_existing_nodesEj.exit:   ; preds = %.lr.ph, %9
   %20 = add nsw i32 %15, 1
   %21 = icmp sgt i32 %15, -1
   %22 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %20)
-  %23 = icmp ult i32 %22, 2
+  %23 = icmp samesign ult i32 %22, 2
   %or.cond.i.i.i.i = select i1 %21, i1 %23, i1 false
   %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
   %25 = sub nuw nsw i32 32, %24
@@ -6472,7 +6472,7 @@ define hidden void @_ZN2os5Linux23rebuild_cpu_to_node_mapEv() local_unnamed_addr
 12:                                               ; preds = %9
   %13 = icmp sgt i32 %2, 0
   %14 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %2)
-  %15 = icmp ult i32 %14, 2
+  %15 = icmp samesign ult i32 %14, 2
   %or.cond.i.i.i.i = select i1 %13, i1 %15, i1 false
   %16 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2, i1 true)
   %17 = sub nuw nsw i32 32, %16
@@ -12053,7 +12053,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25

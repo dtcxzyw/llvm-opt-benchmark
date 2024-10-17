@@ -184,7 +184,7 @@ define internal fastcc void @browscap_bdata_dtor(ptr nocapture noundef %0, i32 n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = load i32, ptr %9, align 8
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %47, label %12, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %44, %8
@@ -1025,7 +1025,7 @@ browscap_compute_regex_len.exit.i.i:              ; preds = %139, %._crit_edge.l
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %297 = load i32, ptr %141, align 4
   %298 = zext i32 %297 to i64
-  %299 = icmp ult i64 %indvars.iv.next.i.i, %298
+  %299 = icmp samesign ult i64 %indvars.iv.next.i.i, %298
   br i1 %299, label %282, label %browscap_entry_to_array.exit
 
 browscap_entry_to_array.exit:                     ; preds = %292, %275
@@ -1122,7 +1122,7 @@ browscap_entry_to_array.exit:                     ; preds = %292, %275
   %indvars.iv.next.i220 = add nuw nsw i64 %indvars.iv.i218, 1
   %349 = load i32, ptr %330, align 4
   %350 = zext i32 %349 to i64
-  %351 = icmp ult i64 %indvars.iv.next.i220, %350
+  %351 = icmp samesign ult i64 %indvars.iv.next.i220, %350
   br i1 %351, label %334, label %browscap_entry_add_kv_to_existing_array.exit
 
 browscap_entry_add_kv_to_existing_array.exit:     ; preds = %344, %326

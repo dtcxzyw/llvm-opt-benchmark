@@ -1672,7 +1672,7 @@ define internal fastcc void @timekeeping_update(ptr noundef %0, i32 noundef rang
   %32 = lshr i64 %28, %31
   %33 = add i64 %32, %22
   %34 = and i64 %33, 4294966784
-  %35 = icmp ugt i64 %34, 999999999
+  %35 = icmp samesign ugt i64 %34, 999999999
   %36 = zext i1 %35 to i64
   %37 = add i64 %20, %36
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1683,7 +1683,7 @@ define internal fastcc void @timekeeping_update(ptr noundef %0, i32 noundef rang
   %42 = getelementptr inbounds i8, ptr %0, i64 96
   store i64 %41, ptr %42, align 8
   tail call void @update_vsyscall(ptr noundef %0) #10
-  %43 = icmp ult i32 %1, 4
+  %43 = icmp samesign ult i32 %1, 4
   %44 = lshr i32 %1, 2
   %45 = zext nneg i32 %44 to i64
   %46 = tail call i32 @raw_notifier_call_chain(ptr noundef nonnull @pvclock_gtod_chain, i64 noundef %45, ptr noundef %0) #10

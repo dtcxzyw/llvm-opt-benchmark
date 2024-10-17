@@ -971,7 +971,7 @@ if.end147:                                        ; preds = %if.else142
 
 if.then153:                                       ; preds = %if.end147
   %inc154 = add nuw nsw i32 %client_wait_count.0.ph.ph.ph, 1
-  %cmp155 = icmp ugt i32 %client_wait_count.0.ph.ph.ph, 1
+  %cmp155 = icmp samesign ugt i32 %client_wait_count.0.ph.ph.ph, 1
   br i1 %cmp155, label %if.then157, label %for.cond.outer.outer.outer
 
 if.then157:                                       ; preds = %if.then153

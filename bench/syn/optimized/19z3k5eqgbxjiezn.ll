@@ -232,7 +232,7 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenT
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.858133952616893155"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !range !59, !noundef !4
-  %switch = icmp ult i32 %2, 2
+  %switch = icmp samesign ult i32 %2, 2
   br i1 %switch, label %"_ZN4core3ptr88drop_in_place$LT$alloc..rc..Rc$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$$GT$17h28831762582b8443E.exit", label %3
 
 3:                                                ; preds = %1
@@ -4541,7 +4541,7 @@ default.unreachable1.i:                           ; preds = %2
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %.sroa.6.0.copyload, ptr %14, align 8, !alias.scope !631, !noalias !634
   %.sroa.02.0.copyload.pre = load i32, ptr %1, align 8
-  %15 = icmp ult i32 %.sroa.02.0.copyload.pre, 2
+  %15 = icmp samesign ult i32 %.sroa.02.0.copyload.pre, 2
   store i32 %.sroa.0.0.copyload, ptr %3, align 8, !alias.scope !631, !noalias !634
   %.sroa.44.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8
   store i32 %.sroa.0.0.copyload, ptr %1, align 8

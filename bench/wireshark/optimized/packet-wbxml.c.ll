@@ -2848,7 +2848,7 @@ define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef 
   %40 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0418521) #4
   %41 = zext i8 %40 to i32
   %42 = and i32 %41, 63
-  %43 = icmp ult i32 %42, 4
+  %43 = icmp samesign ult i32 %42, 4
   br i1 %43, label %44, label %267
 
 44:                                               ; preds = %39
@@ -5028,7 +5028,7 @@ define internal fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, p
   %32 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0253357) #4
   %33 = zext i8 %32 to i32
   %34 = and i32 %33, 63
-  %35 = icmp ult i32 %34, 5
+  %35 = icmp samesign ult i32 %34, 5
   br i1 %35, label %36, label %262
 
 36:                                               ; preds = %31

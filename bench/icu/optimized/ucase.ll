@@ -2812,7 +2812,7 @@ ucase_getTypeOrIgnorable_75.exit:                 ; preds = %cond.false13.i, %co
   %arrayidx42.i = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %cond40.i
   %4 = load i16, ptr %arrayidx42.i, align 2
   %5 = and i16 %4, 7
-  %tobool.not = icmp ult i16 %5, 4
+  %tobool.not = icmp samesign ult i16 %5, 4
   br i1 %tobool.not, label %if.else, label %for.cond, !llvm.loop !17
 
 if.else:                                          ; preds = %ucase_getTypeOrIgnorable_75.exit

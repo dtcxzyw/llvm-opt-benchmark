@@ -887,8 +887,8 @@ png_free_buffer_list.exit:                        ; preds = %20, %17, %11
   %68 = and i32 %67, 15
   %69 = icmp eq i32 %68, 8
   %70 = and i32 %67, 240
-  %71 = icmp ult i32 %70, 113
-  %or.cond.i = and i1 %69, %71
+  %71 = icmp samesign ult i32 %70, 113
+  %or.cond.i = select i1 %69, i1 %71, i1 false
   br i1 %or.cond.i, label %72, label %optimize_cmf.exit
 
 72:                                               ; preds = %65
@@ -998,8 +998,8 @@ optimize_cmf.exit:                                ; preds = %82, %72, %65, %62, 
   %130 = and i32 %129, 15
   %131 = icmp eq i32 %130, 8
   %132 = and i32 %129, 240
-  %133 = icmp ult i32 %132, 113
-  %or.cond.i89 = and i1 %131, %133
+  %133 = icmp samesign ult i32 %132, 113
+  %or.cond.i89 = select i1 %131, i1 %133, i1 false
   br i1 %or.cond.i89, label %134, label %optimize_cmf.exit94
 
 134:                                              ; preds = %127
@@ -1318,7 +1318,7 @@ define internal fastcc i64 @png_image_size(ptr noalias nocapture noundef readonl
 .split.us:                                        ; preds = %11, %53
   %.03344.us = phi i32 [ %26, %53 ], [ 0, %11 ]
   %.03443.us = phi i64 [ %.1.us, %53 ], [ 0, %11 ]
-  %20 = icmp ugt i32 %.03344.us, 1
+  %20 = icmp samesign ugt i32 %.03344.us, 1
   %21 = sub nuw nsw i32 7, %.03344.us
   %22 = lshr i32 %21, 1
   %23 = select i1 %20, i32 %22, i32 3
@@ -1342,7 +1342,7 @@ define internal fastcc i64 @png_image_size(ptr noalias nocapture noundef readonl
   %37 = add nuw nsw i64 %36, 1
   %38 = sub nuw nsw i32 8, %.03344.us
   %39 = lshr i32 %38, 1
-  %.inv.us = icmp ult i32 %.03344.us, 3
+  %.inv.us = icmp samesign ult i32 %.03344.us, 3
   %40 = select i1 %.inv.us, i32 3, i32 %39
   %notmask41.us = shl nsw i32 -1, %40
   %41 = xor i32 %notmask41.us, -1
@@ -1367,7 +1367,7 @@ define internal fastcc i64 @png_image_size(ptr noalias nocapture noundef readonl
 .split:                                           ; preds = %11, %89
   %.03344 = phi i32 [ %60, %89 ], [ 0, %11 ]
   %.03443 = phi i64 [ %.1, %89 ], [ 0, %11 ]
-  %54 = icmp ugt i32 %.03344, 1
+  %54 = icmp samesign ugt i32 %.03344, 1
   %55 = sub nuw nsw i32 7, %.03344
   %56 = lshr i32 %55, 1
   %57 = select i1 %54, i32 %56, i32 3
@@ -1393,7 +1393,7 @@ define internal fastcc i64 @png_image_size(ptr noalias nocapture noundef readonl
   %73 = add nuw nsw i64 %72, 1
   %74 = sub nuw nsw i32 8, %.03344
   %75 = lshr i32 %74, 1
-  %.inv = icmp ult i32 %.03344, 3
+  %.inv = icmp samesign ult i32 %.03344, 3
   %76 = select i1 %.inv, i32 3, i32 %75
   %notmask41 = shl nsw i32 -1, %76
   %77 = xor i32 %notmask41, -1
@@ -1885,8 +1885,8 @@ define internal fastcc i32 @png_text_compress(ptr noalias noundef %0, i32 nounde
   %64 = and i32 %63, 15
   %65 = icmp eq i32 %64, 8
   %66 = and i32 %63, 240
-  %67 = icmp ult i32 %66, 113
-  %or.cond.i = and i1 %65, %67
+  %67 = icmp samesign ult i32 %66, 113
+  %or.cond.i = select i1 %65, i1 %67, i1 false
   br i1 %or.cond.i, label %68, label %optimize_cmf.exit
 
 68:                                               ; preds = %61
@@ -2254,7 +2254,7 @@ define void @png_write_sBIT(ptr noalias noundef %0, ptr nocapture noundef readon
   %14 = load i8, ptr %1, align 1
   %15 = icmp eq i8 %14, 0
   %16 = zext i8 %14 to i32
-  %17 = icmp ult i32 %13, %16
+  %17 = icmp samesign ult i32 %13, %16
   %or.cond = select i1 %15, i1 true, i1 %17
   br i1 %or.cond, label %30, label %18
 
@@ -2263,7 +2263,7 @@ define void @png_write_sBIT(ptr noalias noundef %0, ptr nocapture noundef readon
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   %22 = zext i8 %20 to i32
-  %23 = icmp ult i32 %13, %22
+  %23 = icmp samesign ult i32 %13, %22
   %or.cond38 = select i1 %21, i1 true, i1 %23
   br i1 %or.cond38, label %30, label %24
 
@@ -2272,7 +2272,7 @@ define void @png_write_sBIT(ptr noalias noundef %0, ptr nocapture noundef readon
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
   %28 = zext i8 %26 to i32
-  %29 = icmp ult i32 %13, %28
+  %29 = icmp samesign ult i32 %13, %28
   %or.cond40 = select i1 %27, i1 true, i1 %29
   br i1 %or.cond40, label %30, label %31
 
@@ -3819,7 +3819,7 @@ define void @png_write_start_row(ptr noalias noundef %0) local_unnamed_addr #1 {
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = mul nuw nsw i32 %7, %4
-  %9 = icmp ugt i32 %8, 7
+  %9 = icmp samesign ugt i32 %8, 7
   %10 = getelementptr inbounds i8, ptr %0, i64 504
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
@@ -3891,7 +3891,7 @@ define void @png_write_start_row(ptr noalias noundef %0) local_unnamed_addr #1 {
   %.1 = add nuw nsw i32 %52, %55
   %.2 = add nuw nsw i32 %.1, %.lobit
   %.3 = add nuw nsw i32 %.2, %54
-  %56 = icmp ugt i32 %.3, 1
+  %56 = icmp samesign ugt i32 %.3, 1
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %48
@@ -4050,7 +4050,7 @@ define void @png_write_finish_row(ptr noalias noundef %0) local_unnamed_addr #1 
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
   %61 = mul nuw nsw i32 %60, %57
-  %62 = icmp ugt i32 %61, 7
+  %62 = icmp samesign ugt i32 %61, 7
   %63 = getelementptr inbounds i8, ptr %0, i64 504
   %64 = load i32, ptr %63, align 8
   %65 = zext i32 %64 to i64
@@ -4865,10 +4865,10 @@ png_setup_avg_row_only.exit:                      ; preds = %.lr.ph44.i, %.prehe
   %196 = tail call i32 @llvm.abs.i32(i32 %194, i1 true)
   %197 = add nsw i32 %194, %193
   %198 = tail call i32 @llvm.abs.i32(i32 %197, i1 true)
-  %.not.i171 = icmp ugt i32 %195, %196
-  %.not57.i = icmp ugt i32 %195, %198
+  %.not.i171 = icmp samesign ugt i32 %195, %196
+  %.not57.i = icmp samesign ugt i32 %195, %198
   %or.cond.i172 = select i1 %.not.i171, i1 true, i1 %.not57.i
-  %.not58.i = icmp ugt i32 %196, %198
+  %.not58.i = icmp samesign ugt i32 %196, %198
   %199 = select i1 %.not58.i, i8 %189, i8 %187
   %.tr.i173 = select i1 %or.cond.i172, i8 %199, i8 %191
   %200 = getelementptr inbounds i8, ptr %.179.i, i64 1
@@ -4953,10 +4953,10 @@ png_setup_avg_row_only.exit:                      ; preds = %.lr.ph44.i, %.prehe
   %231 = tail call i32 @llvm.abs.i32(i32 %229, i1 true)
   %232 = add nsw i32 %229, %228
   %233 = tail call i32 @llvm.abs.i32(i32 %232, i1 true)
-  %.not.i182 = icmp ugt i32 %230, %231
-  %.not72.i = icmp ugt i32 %230, %233
+  %.not.i182 = icmp samesign ugt i32 %230, %231
+  %.not72.i = icmp samesign ugt i32 %230, %233
   %or.cond.i183 = select i1 %.not.i182, i1 true, i1 %.not72.i
-  %.not73.i = icmp ugt i32 %231, %233
+  %.not73.i = icmp samesign ugt i32 %231, %233
   %234 = select i1 %.not73.i, i8 %224, i8 %222
   %.tr.i184 = select i1 %or.cond.i183, i8 %234, i8 %226
   %235 = load i8, ptr %.197.i, align 1, !noalias !139

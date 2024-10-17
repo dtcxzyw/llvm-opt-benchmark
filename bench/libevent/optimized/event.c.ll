@@ -206,7 +206,7 @@ for.inc:                                          ; preds = %for.inc.loopexit, %
   %15 = phi i32 [ %.pre, %for.inc.loopexit ], [ %8, %for.body ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %16 = zext i32 %15 to i64
-  %cmp15 = icmp ult i64 %indvars.iv.next80, %16
+  %cmp15 = icmp samesign ult i64 %indvars.iv.next80, %16
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.then12
@@ -303,7 +303,7 @@ for.inc78:                                        ; preds = %for.inc78.loopexit,
   %29 = phi i32 [ %.pre85, %for.inc78.loopexit ], [ %23, %for.body52 ]
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %30 = zext i32 %29 to i64
-  %cmp50 = icmp ult i64 %indvars.iv.next83, %30
+  %cmp50 = icmp samesign ult i64 %indvars.iv.next83, %30
   br i1 %cmp50, label %for.body52, label %if.end82, !llvm.loop !10
 
 if.end82:                                         ; preds = %for.inc78, %if.end42, %if.else.i58, %if.then.i, %for.end

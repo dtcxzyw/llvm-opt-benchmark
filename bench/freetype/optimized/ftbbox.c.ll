@@ -412,7 +412,7 @@ define internal fastcc void @BBox_Cubic_Check(i64 noundef %0, i64 noundef %1, i6
   %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
   %24 = xor i32 %23, 31
   %25 = sub nsw i32 27, %24
-  %26 = icmp ult i32 %24, 27
+  %26 = icmp samesign ult i32 %24, 27
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %10
@@ -528,7 +528,7 @@ cubic_peak.exit:                                  ; preds = %40, %63, %65
   %91 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %90, i1 true)
   %92 = xor i32 %91, 31
   %93 = sub nsw i32 27, %92
-  %94 = icmp ult i32 %92, 27
+  %94 = icmp samesign ult i32 %92, 27
   br i1 %94, label %95, label %101
 
 95:                                               ; preds = %78

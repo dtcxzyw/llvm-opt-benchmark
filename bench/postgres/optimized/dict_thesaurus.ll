@@ -1444,7 +1444,7 @@ findTheLexeme.exit80:                             ; preds = %87, %91, %97
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %138 = load i16, ptr %121, align 2
   %139 = zext i16 %138 to i64
-  %140 = icmp ult i64 %indvars.iv.next.i.i, %139
+  %140 = icmp samesign ult i64 %indvars.iv.next.i.i, %139
   br i1 %140, label %129, label %checkMatch.exit.thread89, !llvm.loop !21
 
 checkMatch.exit.thread89:                         ; preds = %129

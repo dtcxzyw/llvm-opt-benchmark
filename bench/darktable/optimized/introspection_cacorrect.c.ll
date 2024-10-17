@@ -4843,7 +4843,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   br i1 %3804, label %3884, label %3805
 
 3805:                                             ; preds = %.loopexit323
-  %3806 = icmp ult i64 %3726, %3697
+  %3806 = icmp samesign ult i64 %3726, %3697
   br i1 %3806, label %3807, label %3878
 
 3807:                                             ; preds = %3805
@@ -5335,7 +5335,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   br i1 %4156, label %4236, label %4157
 
 4157:                                             ; preds = %.loopexit311
-  %4158 = icmp ult i64 %4077, %3697
+  %4158 = icmp samesign ult i64 %4077, %3697
   br i1 %4158, label %4159, label %4230
 
 4159:                                             ; preds = %4157

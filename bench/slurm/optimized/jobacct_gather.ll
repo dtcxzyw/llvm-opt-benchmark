@@ -1673,7 +1673,7 @@ define internal fastcc void @_copy_tres_usage(ptr nocapture noundef nonnull %0, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %126 = load i32, ptr %10, align 8
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next, %127
   br i1 %128, label %27, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %27, %7
@@ -3017,7 +3017,7 @@ define void @jobacctinfo_aggregate(ptr nocapture noundef %0, ptr noundef readonl
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %196 = load i32, ptr %57, align 8
   %197 = zext i32 %196 to i64
-  %198 = icmp ult i64 %indvars.iv.next.i, %197
+  %198 = icmp samesign ult i64 %indvars.iv.next.i, %197
   br i1 %198, label %87, label %_jobacctinfo_aggregate_tres_usage.exit, !llvm.loop !15
 
 _jobacctinfo_aggregate_tres_usage.exit:           ; preds = %195, %56, %2
@@ -3334,7 +3334,7 @@ define internal fastcc void @_init_tres_usage(ptr nocapture noundef %0, ptr noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %116 = load i32, ptr %4, align 8
   %117 = zext i32 %116 to i64
-  %118 = icmp ult i64 %indvars.iv.next, %117
+  %118 = icmp samesign ult i64 %indvars.iv.next, %117
   br i1 %118, label %40, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %113, %3

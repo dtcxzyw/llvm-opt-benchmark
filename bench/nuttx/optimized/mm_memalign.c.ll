@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noalias ptr @mm_memalign(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ult i64 %1, 9223372036854775807
   %5 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %1)
-  %.not = icmp ult i64 %5, 2
+  %.not = icmp samesign ult i64 %5, 2
   %or.cond98 = select i1 %4, i1 %.not, i1 false
   br i1 %or.cond98, label %6, label %84
 

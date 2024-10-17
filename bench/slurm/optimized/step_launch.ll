@@ -414,7 +414,7 @@ _rebuild_mpi_layout.exit:                         ; preds = %38, %62
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
   %137 = load i16, ptr %116, align 4
   %138 = zext i16 %137 to i64
-  %139 = icmp ult i64 %indvars.iv.next55.i, %138
+  %139 = icmp samesign ult i64 %indvars.iv.next55.i, %138
   br i1 %139, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !6
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %142
@@ -435,7 +435,7 @@ _rebuild_mpi_layout.exit:                         ; preds = %38, %62
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %149 = load i16, ptr %116, align 4
   %150 = zext i16 %149 to i64
-  %151 = icmp ult i64 %indvars.iv.next.i, %150
+  %151 = icmp samesign ult i64 %indvars.iv.next.i, %150
   br i1 %151, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %142, %130, %125
@@ -1119,7 +1119,7 @@ define internal fastcc i32 @_launch_tasks(ptr nocapture noundef nonnull readonly
   %38 = getelementptr inbounds i16, ptr %37, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next.i, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next.i, %40
   br i1 %41, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %24
@@ -1315,7 +1315,7 @@ _print_launch_msg.exit:                           ; preds = %._crit_edge.i, %45
   %155 = getelementptr inbounds i16, ptr %154, i64 %112
   %156 = load i16, ptr %155, align 2
   %157 = zext i16 %156 to i64
-  %158 = icmp ult i64 %indvars.iv.next.i59, %157
+  %158 = icmp samesign ult i64 %indvars.iv.next.i59, %157
   br i1 %158, label %122, label %._crit_edge.i60, !llvm.loop !10
 
 ._crit_edge.i60:                                  ; preds = %133, %.preheader.i
@@ -2705,7 +2705,7 @@ define void @slurm_step_launch_fwd_signal(ptr nocapture noundef readonly %0, i32
   %62 = getelementptr inbounds i8, ptr %61, i64 40
   %63 = load i32, ptr %62, align 8
   %64 = zext i32 %63 to i64
-  %65 = icmp ult i64 %indvars.iv.next102, %64
+  %65 = icmp samesign ult i64 %indvars.iv.next102, %64
   br i1 %65, label %27, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.critedge, %17, %50
@@ -2832,8 +2832,8 @@ define void @slurm_step_launch_fwd_signal(ptr nocapture noundef readonly %0, i32
   %.1.lcssa = phi i1 [ false, %100 ], [ %.2, %117 ]
   call void @list_iterator_destroy(ptr noundef %101) #14
   call void @list_destroy(ptr noundef nonnull %97) #14
-  %119 = icmp ult i32 %.072, 4
-  %or.cond = and i1 %119, %.1.lcssa
+  %119 = icmp samesign ult i32 %.072, 4
+  %or.cond = select i1 %.1.lcssa, i1 %119, i1 false
   br i1 %or.cond, label %120, label %123
 
 120:                                              ; preds = %._crit_edge
@@ -2979,7 +2979,7 @@ define ptr @step_launch_state_create(ptr nocapture noundef readonly %0) local_un
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = load i32, ptr %18, align 8
   %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next, %54
   br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -3039,7 +3039,7 @@ define void @step_launch_state_alter(ptr nocapture noundef readonly %0) local_un
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %19, align 8
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -3477,7 +3477,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef %1) #3 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %86 = load i32, ptr %40, align 4
   %87 = zext i32 %86 to i64
-  %88 = icmp ult i64 %indvars.iv.next.i, %87
+  %88 = icmp samesign ult i64 %indvars.iv.next.i, %87
   br i1 %88, label %69, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %69, %.thread, %.preheader1.i
@@ -3496,7 +3496,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef %1) #3 {
   %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 1
   %96 = load i32, ptr %40, align 4
   %97 = zext i32 %96 to i64
-  %98 = icmp ult i64 %indvars.iv.next9.i, %97
+  %98 = icmp samesign ult i64 %indvars.iv.next9.i, %97
   br i1 %98, label %90, label %.loopexit.i, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %90, %.thread, %._crit_edge.i, %.preheader.i
@@ -3667,7 +3667,7 @@ _launch_handler.exit:                             ; preds = %29, %32, %56, %108
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %172 = load i32, ptr %.val35, align 8
   %173 = zext i32 %172 to i64
-  %174 = icmp ult i64 %indvars.iv.next.i45, %173
+  %174 = icmp samesign ult i64 %indvars.iv.next.i45, %173
   br i1 %174, label %159, label %._crit_edge.i46, !llvm.loop !22
 
 ._crit_edge.i46:                                  ; preds = %166, %.preheader.i42

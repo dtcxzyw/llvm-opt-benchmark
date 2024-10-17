@@ -1515,7 +1515,7 @@ define internal fastcc i32 @dissect_iscsi(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond19, label %322, label %336
 
 322:                                              ; preds = %320
-  %.not602 = icmp ult i8 %312, 32
+  %.not602 = icmp samesign ult i8 %312, 32
   %323 = load ptr, ptr @global_iscsi_port_range, align 8
   br i1 %.not602, label %330, label %324
 
@@ -2287,7 +2287,7 @@ select.unfold:                                    ; preds = %71, %63, %75
   br label %237
 
 237:                                              ; preds = %235, %231
-  %238 = icmp ult i8 %4, 32
+  %238 = icmp samesign ult i8 %4, 32
   br i1 %238, label %239, label %253
 
 239:                                              ; preds = %237

@@ -19513,7 +19513,7 @@ for.body299:                                      ; preds = %if.then292, %for.bo
   %arrayidx304 = getelementptr inbounds [21 x ptr], ptr %cmd_argv, i64 0, i64 %220
   store ptr %call159, ptr %arrayidx304, align 8
   %indvars.iv.next773 = add nuw nsw i64 %indvars.iv772, 2
-  %cmp297 = icmp ult i64 %indvars.iv772, 19
+  %cmp297 = icmp samesign ult i64 %indvars.iv772, 19
   br i1 %cmp297, label %for.body299, label %if.end310, !llvm.loop !22
 
 if.end310:                                        ; preds = %for.body299

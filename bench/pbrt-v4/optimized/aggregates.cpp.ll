@@ -7034,7 +7034,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit35: ; preds = %invoke.cont
   %inc38 = add nuw nsw i32 %i.052, 1
   %25 = load i16, ptr %nPrimitives.le, align 4
   %conv24 = zext i16 %25 to i32
-  %cmp25 = icmp ult i32 %inc38, %conv24
+  %cmp25 = icmp samesign ult i32 %inc38, %conv24
   br i1 %cmp25, label %for.body, label %for.end, !llvm.loop !93
 
 for.end:                                          ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit35
@@ -7248,7 +7248,7 @@ for.cond:                                         ; preds = %for.body
   %inc32 = add nuw nsw i32 %i.031, 1
   %13 = load i16, ptr %nPrimitives.le, align 4
   %conv23 = zext i16 %13 to i32
-  %cmp24 = icmp ult i32 %inc32, %conv23
+  %cmp24 = icmp samesign ult i32 %inc32, %conv23
   br i1 %cmp24, label %for.body, label %for.end, !llvm.loop !95
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
@@ -9114,7 +9114,7 @@ land.rhs:                                         ; preds = %for.end154
 
 land.end:                                         ; preds = %for.end154
   %cmp159 = icmp eq i32 %bestAxis.1.lcssa, -1
-  %cmp161 = icmp ult i32 %retries.0, 2
+  %cmp161 = icmp samesign ult i32 %retries.0, 2
   %or.cond3 = select i1 %cmp159, i1 %cmp161, i1 false
   br i1 %or.cond3, label %if.then162, label %if.end166
 
@@ -15760,7 +15760,7 @@ if.end17:                                         ; preds = %if.then10, %land.lh
   %agg.tmp.sroa.5.0.copyload = load float, ptr %agg.tmp.sroa.5.0.__value.sroa_idx, align 4
   %__parent.0.in1.i = add nsw i64 %__holeIndex.addr.1, -1
   %__parent.02.i = sdiv i64 %__parent.0.in1.i, 2
-  %cmp3.i = icmp ugt i64 %__holeIndex.addr.1, %__holeIndex
+  %cmp3.i = icmp samesign ugt i64 %__holeIndex.addr.1, %__holeIndex
   br i1 %cmp3.i, label %land.rhs.lr.ph.i, label %"_ZSt11__push_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_RT2_.exit"
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end17
@@ -15989,7 +15989,7 @@ if.end17:                                         ; preds = %if.then10, %land.lh
   %agg.tmp.sroa.5.0.copyload = load float, ptr %agg.tmp.sroa.5.0.__value.sroa_idx, align 4
   %__parent.0.in1.i = add nsw i64 %__holeIndex.addr.1, -1
   %__parent.02.i = sdiv i64 %__parent.0.in1.i, 2
-  %cmp3.i = icmp ugt i64 %__holeIndex.addr.1, %__holeIndex
+  %cmp3.i = icmp samesign ugt i64 %__holeIndex.addr.1, %__holeIndex
   br i1 %cmp3.i, label %land.rhs.lr.ph.i, label %"_ZSt11__push_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_SS_T1_RT2_.exit"
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end17

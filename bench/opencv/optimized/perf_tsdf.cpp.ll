@@ -3246,7 +3246,7 @@ _ZN11opencv_test12_GLOBAL__N_115SemisphereScene3mapEN2cv7Point3_IfEEb.exit: ; pr
 166:                                              ; preds = %_ZN11opencv_test12_GLOBAL__N_115SemisphereScene3mapEN2cv7Point3_IfEEb.exit
   %167 = fadd float %.04581, %.0.i
   %168 = add nuw nsw i32 %.04680, 1
-  %169 = icmp ult i32 %.04680, 255
+  %169 = icmp samesign ult i32 %.04680, 255
   %170 = fcmp olt float %167, 2.000000e+01
   %171 = select i1 %169, i1 %170, i1 false
   br i1 %171, label %123, label %.loopexit, !llvm.loop !126

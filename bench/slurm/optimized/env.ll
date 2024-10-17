@@ -3005,7 +3005,7 @@ define ptr @uint16_array_to_str(i32 noundef %0, ptr noundef readonly %1) local_u
   %.030 = phi ptr [ @.str.154, %.lr.ph ], [ %.1, %29 ]
   %.02129 = phi i32 [ 0, %.lr.ph ], [ %.122, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = icmp ult i64 %indvars.iv.next, %8
+  %11 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %10
@@ -3421,7 +3421,7 @@ thread-pre-split.thread:                          ; preds = %103, %103, %thread-
   %.030.i = phi ptr [ @.str.154, %.lr.ph.i181 ], [ %.1.i, %179 ]
   %.02129.i = phi i32 [ 0, %.lr.ph.i181 ], [ %.122.i, %179 ]
   %indvars.iv.next.i184 = add nuw nsw i64 %indvars.iv.i183, 1
-  %164 = icmp ult i64 %indvars.iv.next.i184, %161
+  %164 = icmp samesign ult i64 %indvars.iv.next.i184, %161
   %165 = getelementptr inbounds i16, ptr %156, i64 %indvars.iv.i183
   %166 = load i16, ptr %165, align 2
   br i1 %164, label %167, label %._crit_edge
@@ -3530,7 +3530,7 @@ uint16_array_to_str.exit:                         ; preds = %152, %._crit_edge.l
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %210 = load i32, ptr %197, align 8
   %211 = zext i32 %210 to i64
-  %212 = icmp ult i64 %indvars.iv.next202, %211
+  %212 = icmp samesign ult i64 %indvars.iv.next202, %211
   br i1 %212, label %200, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %209, %196
@@ -4007,7 +4007,7 @@ getenvp.exit136.thread:                           ; preds = %149, %.loopexit, %1
   %.030.i = phi ptr [ @.str.154, %.lr.ph.i137 ], [ %.1.i, %191 ]
   %.02129.i = phi i32 [ 0, %.lr.ph.i137 ], [ %.122.i, %191 ]
   %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i139, 1
-  %176 = icmp ult i64 %indvars.iv.next.i140, %173
+  %176 = icmp samesign ult i64 %indvars.iv.next.i140, %173
   %177 = getelementptr inbounds i16, ptr %168, i64 %indvars.iv.i139
   %178 = load i16, ptr %177, align 2
   br i1 %176, label %179, label %._crit_edge177
@@ -4202,7 +4202,7 @@ define void @env_array_for_step(ptr noundef %0, ptr noundef readonly %1, ptr nou
   %.030.i = phi ptr [ @.str.154, %.lr.ph.i ], [ %.1.i, %69 ]
   %.02129.i = phi i32 [ 0, %.lr.ph.i ], [ %.122.i, %69 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %54 = icmp ult i64 %indvars.iv.next.i, %51
+  %54 = icmp samesign ult i64 %indvars.iv.next.i, %51
   %55 = getelementptr inbounds i16, ptr %45, i64 %indvars.iv.i
   %56 = load i16, ptr %55, align 2
   br i1 %54, label %57, label %._crit_edge
@@ -4277,7 +4277,7 @@ uint16_array_to_str.exit:                         ; preds = %46, %._crit_edge.lo
   %.030.i74 = phi ptr [ @.str.154, %.lr.ph.i71 ], [ %.1.i79, %101 ]
   %.02129.i75 = phi i32 [ 0, %.lr.ph.i71 ], [ %.122.i78, %101 ]
   %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i73, 1
-  %86 = icmp ult i64 %indvars.iv.next.i76, %83
+  %86 = icmp samesign ult i64 %indvars.iv.next.i76, %83
   %87 = getelementptr inbounds i16, ptr %78, i64 %indvars.iv.i73
   %88 = load i16, ptr %87, align 2
   br i1 %86, label %89, label %._crit_edge84

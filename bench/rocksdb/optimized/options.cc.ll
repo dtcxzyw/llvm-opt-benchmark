@@ -6657,7 +6657,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -8415,7 +8415,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %cmp4 = icmp ult i64 %indvars.iv, 2
+  %cmp4 = icmp samesign ult i64 %indvars.iv, 2
   %2 = load ptr, ptr %compression_per_level, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
   %. = select i1 %cmp4, i8 0, i8 4

@@ -242,7 +242,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.en
 
 if.end2.i.i:                                      ; preds = %if.end.i.i
   %sub.i.i = sub nsw i32 2147483647, %destIndex.0197
-  %cmp3.i.i = icmp ugt i32 %sub69, %sub.i.i
+  %cmp3.i.i = icmp samesign ugt i32 %sub69, %sub.i.i
   br i1 %cmp3.i.i, label %if.then72, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.end2.i.i
@@ -422,7 +422,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.
 
 if.end2.i.i.i:                                    ; preds = %if.end.i.i.i
   %sub.i.i.i = sub nuw nsw i32 2147483647, %call80
-  %cmp3.i.i.i = icmp ugt i32 %unchanged1.2.i, %sub.i.i.i
+  %cmp3.i.i.i = icmp samesign ugt i32 %unchanged1.2.i, %sub.i.i.i
   br i1 %cmp3.i.i.i, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i, label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end2.i.i.i
@@ -491,7 +491,7 @@ if.end.i.i57.i:                                   ; preds = %if.then.i.i56.i, %i
 
 if.end2.i.i61.i:                                  ; preds = %if.end.i.i57.i
   %sub.i.i62.i = sub nsw i32 2147483647, %16
-  %cmp3.i.i63.i = icmp ugt i32 %unchanged2.0.i, %sub.i.i62.i
+  %cmp3.i.i63.i = icmp samesign ugt i32 %unchanged2.0.i, %sub.i.i62.i
   br i1 %cmp3.i.i63.i, label %if.end99, label %if.end5.i.i64.i
 
 if.end5.i.i64.i:                                  ; preds = %if.end2.i.i61.i
@@ -552,7 +552,7 @@ if.end.i.i122:                                    ; preds = %if.then.i.i121, %if
 
 if.end2.i.i126:                                   ; preds = %if.end.i.i122
   %sub.i.i127 = sub nsw i32 2147483647, %destIndex.3
-  %cmp3.i.i128 = icmp ugt i32 %sub125, %sub.i.i127
+  %cmp3.i.i128 = icmp samesign ugt i32 %sub125, %sub.i.i127
   br i1 %cmp3.i.i128, label %if.then128, label %if.end5.i.i129
 
 if.end5.i.i129:                                   ; preds = %if.end2.i.i126
@@ -1031,7 +1031,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.en
 
 if.end2.i.i:                                      ; preds = %if.end.i.i
   %sub.i.i = xor i32 %destIndex.1.ph.ph, 2147483647
-  %cmp3.i.i = icmp ugt i32 %sub56, %sub.i.i
+  %cmp3.i.i = icmp samesign ugt i32 %sub56, %sub.i.i
   br i1 %cmp3.i.i, label %return.sink.split, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.end2.i.i
@@ -1148,7 +1148,7 @@ if.end.i.i91:                                     ; preds = %if.then.i.i90, %if.
 
 if.end2.i.i95:                                    ; preds = %if.end.i.i91
   %sub.i.i96 = xor i32 %destIndex.1.ph.ph, 2147483647
-  %cmp3.i.i97 = icmp ugt i32 %sub103, %sub.i.i96
+  %cmp3.i.i97 = icmp samesign ugt i32 %sub103, %sub.i.i96
   br i1 %cmp3.i.i97, label %return.sink.split, label %if.end5.i.i98
 
 if.end5.i.i98:                                    ; preds = %if.end2.i.i95
@@ -1194,7 +1194,7 @@ if.end.i.i110:                                    ; preds = %if.then.i.i109, %if
 
 if.end2.i.i114:                                   ; preds = %if.end.i.i110
   %sub.i.i115 = xor i32 %destIndex.1.ph.ph, 2147483647
-  %cmp3.i.i116 = icmp ugt i32 %sub116, %sub.i.i115
+  %cmp3.i.i116 = icmp samesign ugt i32 %sub116, %sub.i.i115
   br i1 %cmp3.i.i116, label %return.sink.split, label %if.end5.i.i117
 
 if.end5.i.i117:                                   ; preds = %if.end2.i.i114
@@ -2001,7 +2001,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.
 
 if.end2.i.i.i:                                    ; preds = %if.end.i.i.i
   %sub.i.i.i = xor i32 %destIndex.1.ph.i.ph, 2147483647
-  %cmp3.i.i.i = icmp ugt i32 %sub49.i, %sub.i.i.i
+  %cmp3.i.i.i = icmp samesign ugt i32 %sub49.i, %sub.i.i.i
   br i1 %cmp3.i.i.i, label %return.sink.split.i, label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end2.i.i.i
@@ -2107,7 +2107,7 @@ if.end.i.i81.i:                                   ; preds = %if.then.i.i80.i, %i
 
 if.end2.i.i85.i:                                  ; preds = %if.end.i.i81.i
   %sub.i.i86.i = xor i32 %destIndex.1.ph.i.ph, 2147483647
-  %cmp3.i.i87.i = icmp ugt i32 %sub91.i, %sub.i.i86.i
+  %cmp3.i.i87.i = icmp samesign ugt i32 %sub91.i, %sub.i.i86.i
   br i1 %cmp3.i.i87.i, label %return.sink.split.i, label %if.end5.i.i88.i
 
 if.end5.i.i88.i:                                  ; preds = %if.end2.i.i85.i
@@ -2153,7 +2153,7 @@ if.end.i.i100.i:                                  ; preds = %if.then.i.i99.i, %i
 
 if.end2.i.i104.i:                                 ; preds = %if.end.i.i100.i
   %sub.i.i105.i = xor i32 %destIndex.1.ph.i.ph, 2147483647
-  %cmp3.i.i106.i = icmp ugt i32 %sub104.i, %sub.i.i105.i
+  %cmp3.i.i106.i = icmp samesign ugt i32 %sub104.i, %sub.i.i105.i
   br i1 %cmp3.i.i106.i, label %return.sink.split.i, label %if.end5.i.i107.i
 
 if.end5.i.i107.i:                                 ; preds = %if.end2.i.i104.i

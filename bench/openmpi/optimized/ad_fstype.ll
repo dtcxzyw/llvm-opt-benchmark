@@ -73,7 +73,7 @@ define void @ADIO_ResolveFileType(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 116
   %24 = add nuw nsw i32 %.0.i, 1
-  %25 = icmp ult i32 %.0.i, 10000
+  %25 = icmp samesign ult i32 %.0.i, 10000
   %or.cond.i = select i1 %23, i1 %25, i1 false
   br i1 %or.cond.i, label %18, label %.critedge.i, !llvm.loop !4
 

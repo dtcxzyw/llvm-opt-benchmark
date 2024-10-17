@@ -390,7 +390,7 @@ default.unreachable258:                           ; preds = %38
   %47 = zext i32 %45 to i64
   %48 = zext i32 %46 to i64
   %49 = add nuw nsw i64 %48, 1
-  %50 = icmp ult i64 %49, %47
+  %50 = icmp samesign ult i64 %49, %47
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %44
@@ -3100,14 +3100,14 @@ _ZN19brotli_decompressor6decode16ReadContextModes17h7f2e4e8dcebfed80E.exit: ; pr
 
 516:                                              ; preds = %511
   %517 = lshr i64 %.02279.i, 5
-  %518 = icmp ult i64 %.02279.i, 256
+  %518 = icmp samesign ult i64 %.02279.i, 256
   br i1 %518, label %524, label %531, !prof !54
 
 519:                                              ; preds = %524, %511
   %520 = phi i32 [ %.pre.i, %524 ], [ %504, %511 ]
   %521 = add nuw nsw i64 %.02279.i, 1
   %522 = zext i32 %520 to i64
-  %523 = icmp ult i64 %521, %522
+  %523 = icmp samesign ult i64 %521, %522
   br i1 %523, label %.lr.ph.i, label %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h1d70d2ec0fe0075bE.exit
 
 524:                                              ; preds = %516
@@ -3171,7 +3171,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17h7f2e4e8dcebfed80E.exit: ; pr
   %560 = zext i8 %559 to i64
   %561 = or i64 %.078.i, %560
   %562 = add nuw nsw i64 %.02177.i, 4
-  %563 = icmp ult i64 %.02177.i, 60
+  %563 = icmp samesign ult i64 %.02177.i, 60
   br i1 %563, label %513, label %511
 
 564:                                              ; preds = %544
@@ -8287,7 +8287,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h839b4014e967008
   br i1 %34, label %67, label %35
 
 35:                                               ; preds = %28
-  %36 = icmp ugt i64 %31, 1
+  %36 = icmp samesign ugt i64 %31, 1
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %35
@@ -8295,7 +8295,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h839b4014e967008
   br i1 %38, label %41, label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i.i
 
 39:                                               ; preds = %35
-  %40 = icmp ugt i64 %31, 3
+  %40 = icmp samesign ugt i64 %31, 3
   br i1 %40, label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u3217h4e2ffcd040c895baE.exit.i.i", label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u1617h663f10b04bff3df3E.exit.i.i"
 
 41:                                               ; preds = %37
@@ -8977,7 +8977,7 @@ define hidden void @"_ZN63_$LT$http..header..name..Custom$u20$as$u20$core..hash.
   br i1 %11, label %49, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ugt i64 %6, 1
+  %13 = icmp samesign ugt i64 %6, 1
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %12
@@ -8985,7 +8985,7 @@ define hidden void @"_ZN63_$LT$http..header..name..Custom$u20$as$u20$core..hash.
   br i1 %15, label %18, label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i
 
 16:                                               ; preds = %12
-  %17 = icmp ugt i64 %6, 3
+  %17 = icmp samesign ugt i64 %6, 3
   br i1 %17, label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u3217h4e2ffcd040c895baE.exit.i", label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u1617h663f10b04bff3df3E.exit.i"
 
 18:                                               ; preds = %14
@@ -10145,7 +10145,7 @@ _ZN10actix_http8requests4head11RequestHead15connection_type17hca23b247bc6c5018E.
   %.sroa.gep68 = getelementptr inbounds i8, ptr %11, i64 208
   %.0.i34.sroa.sel = select i1 %19, ptr %.sroa.gep, ptr %.sroa.gep68
   %.val.i = load i8, ptr %.0.i34.sroa.sel, align 1, !range !31, !noundef !5
-  %46 = icmp ugt i8 %.val.i, 1
+  %46 = icmp samesign ugt i8 %.val.i, 1
   br i1 %46, label %_ZN10actix_http8requests4head11RequestHead15connection_type17hca23b247bc6c5018E.exit.thread60, label %_ZN10actix_http8requests4head11RequestHead15connection_type17hca23b247bc6c5018E.exit.thread
 
 _ZN10actix_http8requests4head11RequestHead15connection_type17hca23b247bc6c5018E.exit.thread60: ; preds = %_ZN10actix_http8requests4head11RequestHead15connection_type17hca23b247bc6c5018E.exit, %42

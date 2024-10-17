@@ -293,7 +293,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   %14 = alloca %struct.netlink_range_validation, align 8
   %15 = alloca i64, align 8
   %16 = alloca i64, align 8
-  %17 = icmp ugt i32 %7, 9
+  %17 = icmp samesign ugt i32 %7, 9
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %8
@@ -881,7 +881,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
 
 339:                                              ; preds = %334, %332
   %340 = phi i32 [ %333, %332 ], [ %338, %334 ]
-  %341 = icmp ugt i32 %340, %152
+  %341 = icmp samesign ugt i32 %340, %152
   br i1 %341, label %.thread, label %342
 
 342:                                              ; preds = %242, %339, %324, %309, %305, %301, %291, %287, %283, %277, %266, %262, %222, %222, %220
@@ -1550,7 +1550,7 @@ define dso_local noundef ptr @nla_find(ptr noundef readonly %0, i32 noundef %1, 
   %7 = load i16, ptr %5, align 2
   %8 = icmp ult i16 %7, 4
   %9 = zext i16 %7 to i32
-  %.not = icmp ult i32 %6, %9
+  %.not = icmp samesign ult i32 %6, %9
   %or.cond = or i1 %8, %.not
   br i1 %or.cond, label %.critedge, label %10
 
@@ -2173,7 +2173,7 @@ define internal fastcc i32 @nla_validate_array(ptr noundef %0, i32 noundef range
   %9 = icmp eq ptr %4, null
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = icmp ugt i32 %1, 3
+  %12 = icmp samesign ugt i32 %1, 3
   br i1 %12, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %7, %.thread4
@@ -2183,7 +2183,7 @@ define internal fastcc i32 @nla_validate_array(ptr noundef %0, i32 noundef range
   %16 = load i16, ptr %13, align 2
   %17 = icmp ult i16 %16, 4
   %18 = zext i16 %16 to i32
-  %.not = icmp ult i32 %15, %18
+  %.not = icmp samesign ult i32 %15, %18
   %or.cond = or i1 %17, %.not
   br i1 %or.cond, label %.critedge, label %19
 

@@ -3831,7 +3831,7 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   %8 = alloca [16 x i8], align 8
   %9 = alloca [16 x i8], align 8
   %10 = alloca [16 x i8], align 8
-  %11 = icmp ugt i64 %3, 7
+  %11 = icmp samesign ugt i64 %3, 7
   br i1 %11, label %12, label %25
 
 12:                                               ; preds = %4
@@ -4036,7 +4036,7 @@ _ZN4core5slice4sort6shared5pivot7median317h5dec6392dfc20184E.exit: ; preds = %"_
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h16ebfe1a89d9d98aE(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %_ZN4core5slice4sort6shared5pivot7median317hbe493b161ff9317aE.exit
 
 6:                                                ; preds = %4
@@ -4073,7 +4073,7 @@ _ZN4core5slice4sort6shared5pivot7median317hbe493b161ff9317aE.exit: ; preds = %4,
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h7a33407c427b45dbE(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %_ZN4core5slice4sort6shared5pivot7median317hddb17c3cb7fe8535E.exit
 
 6:                                                ; preds = %4
@@ -4113,7 +4113,7 @@ _ZN4core5slice4sort6shared5pivot7median317hddb17c3cb7fe8535E.exit: ; preds = %4,
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17hd31d814d425eb233E(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 2305843009213693952) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 {
-  %6 = icmp ugt i64 %3, 7
+  %6 = icmp samesign ugt i64 %3, 7
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %5

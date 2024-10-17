@@ -476,7 +476,7 @@ define internal noundef i32 @rapl_cpu_offline(i32 noundef %0) #2 align 16 {
 28:                                               ; preds = %37, %23
   %29 = phi i64 [ 0, %23 ], [ %43, %37 ]
   %30 = and i64 %29, 4294967295
-  %31 = icmp ugt i64 %30, 63
+  %31 = icmp samesign ugt i64 %30, 63
   br i1 %31, label %.thread, label %32, !prof !15
 
 32:                                               ; preds = %28

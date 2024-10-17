@@ -666,7 +666,7 @@ land.lhs.true:                                    ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %land.lhs.true
   %add = add nuw nsw i64 %i.020, 2
   %add.ptr = getelementptr inbounds i8, ptr %sent_sigs.019, i64 2
-  %cmp6 = icmp ult i64 %i.020, 14
+  %cmp6 = icmp samesign ult i64 %i.020, 14
   br i1 %cmp6, label %for.body, label %if.then21, !llvm.loop !17
 
 if.then21:                                        ; preds = %for.inc
@@ -817,13 +817,13 @@ for.inc:                                          ; preds = %for.body, %for.inc.
   %have_ecdsa.1 = phi i32 [ %have_ecdsa.013.ph, %for.inc.loopexit ], [ 1, %for.body ]
   %add = add nuw nsw i64 %i.011, 2
   %add.ptr = getelementptr inbounds i8, ptr %sigalgs.010, i64 2
-  %cmp = icmp ult i64 %i.011, 14
+  %cmp = icmp samesign ult i64 %i.011, 14
   br i1 %cmp, label %for.body.outer, label %for.end, !llvm.loop !18
 
 for.inc.thread:                                   ; preds = %for.body
   %add16 = add nuw nsw i64 %i.011, 2
   %add.ptr17 = getelementptr inbounds i8, ptr %sigalgs.010, i64 2
-  %cmp18 = icmp ult i64 %i.011, 14
+  %cmp18 = icmp samesign ult i64 %i.011, 14
   br i1 %cmp18, label %for.body, label %if.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc

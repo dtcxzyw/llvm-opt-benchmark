@@ -221,7 +221,7 @@ define hidden void @_ZN10phf_shared4hash17h905183aa0b0b0ccfE.llvm.85372212612730
   %.sroa.8.1 = phi i64 [ 7816392313619706465, %4 ], [ %56, %.lr.ph.i.i.i ]
   %.sroa.0.1 = phi i64 [ 8317987319222330741, %4 ], [ %57, %.lr.ph.i.i.i ]
   %.sroa.01.1.lcssa.i.i.i = phi i64 [ 0, %4 ], [ %58, %.lr.ph.i.i.i ]
-  %10 = icmp ugt i64 %8, 3
+  %10 = icmp samesign ugt i64 %8, 3
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %._crit_edge.i.i.i
@@ -234,7 +234,7 @@ define hidden void @_ZN10phf_shared4hash17h905183aa0b0b0ccfE.llvm.85372212612730
   %.sroa.03.0.i10.i.i.i = phi i64 [ 4, %11 ], [ 0, %._crit_edge.i.i.i ]
   %.sroa.0.0.i11.i.i.i = phi i64 [ %13, %11 ], [ 0, %._crit_edge.i.i.i ]
   %15 = or disjoint i64 %.sroa.03.0.i10.i.i.i, 1
-  %16 = icmp ult i64 %15, %8
+  %16 = icmp samesign ult i64 %15, %8
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %14
@@ -928,7 +928,7 @@ define hidden noundef zeroext i1 @"_ZN12string_cache4atom18Atom$LT$Static$GT$20e
 15:                                               ; preds = %6
   %16 = lshr i64 %4, 4
   %17 = and i64 %16, 15
-  %18 = icmp ugt i64 %17, 7
+  %18 = icmp samesign ugt i64 %17, 7
   br i1 %18, label %19, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha70a88a533b914f8E.llvm.8537221261273048587.exit.i"
 
 19:                                               ; preds = %15
@@ -981,7 +981,7 @@ define hidden noundef zeroext i1 @"_ZN12string_cache4atom18Atom$LT$Static$GT$20e
 40:                                               ; preds = %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd5f0a227095ac94eE.llvm.8537221261273048587.exit"
   %41 = lshr i64 %3, 4
   %42 = and i64 %41, 15
-  %43 = icmp ugt i64 %42, 7
+  %43 = icmp samesign ugt i64 %42, 7
   br i1 %43, label %44, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha70a88a533b914f8E.llvm.8537221261273048587.exit.i3"
 
 44:                                               ; preds = %40
@@ -1296,7 +1296,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
 13:                                               ; preds = %2
   %14 = lshr i64 %4, 4
   %15 = and i64 %14, 15
-  %16 = icmp ugt i64 %15, 7
+  %16 = icmp samesign ugt i64 %15, 7
   br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha70a88a533b914f8E.llvm.8537221261273048587.exit.i.i"
 
 17:                                               ; preds = %13
@@ -1359,7 +1359,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 13:                                               ; preds = %2
   %14 = lshr i64 %4, 4
   %15 = and i64 %14, 15
-  %16 = icmp ugt i64 %15, 7
+  %16 = icmp samesign ugt i64 %15, 7
   br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha70a88a533b914f8E.llvm.8537221261273048587.exit.i.i"
 
 17:                                               ; preds = %13
@@ -1422,7 +1422,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 13:                                               ; preds = %2
   %14 = lshr i64 %4, 4
   %15 = and i64 %14, 15
-  %16 = icmp ugt i64 %15, 7
+  %16 = icmp samesign ugt i64 %15, 7
   br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha70a88a533b914f8E.llvm.8537221261273048587.exit.i.i"
 
 17:                                               ; preds = %13
@@ -4365,7 +4365,7 @@ define hidden { ptr, i64 } @"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
 11:                                               ; preds = %1
   %12 = lshr i64 %2, 4
   %13 = and i64 %12, 15
-  %14 = icmp ugt i64 %13, 7
+  %14 = icmp samesign ugt i64 %13, 7
   br i1 %14, label %15, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha70a88a533b914f8E.llvm.8537221261273048587.exit"
 
 15:                                               ; preds = %11

@@ -2446,7 +2446,7 @@ define dso_local ptr @__i915_request_commit(ptr noundef %0) local_unnamed_addr #
 
 93:                                               ; preds = %78
   %94 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %91), !range !12
-  %95 = icmp ugt i32 %94, 1
+  %95 = icmp samesign ugt i32 %94, 1
   br label %96
 
 96:                                               ; preds = %93, %78

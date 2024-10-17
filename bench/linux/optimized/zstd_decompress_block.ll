@@ -142,7 +142,7 @@ define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr nounde
   br i1 %53, label %298, label %54
 
 54:                                               ; preds = %45
-  %55 = icmp ugt i32 %47, 131072
+  %55 = icmp samesign ugt i32 %47, 131072
   br i1 %55, label %298, label %56
 
 56:                                               ; preds = %54
@@ -151,7 +151,7 @@ define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr nounde
   br i1 %58, label %298, label %59
 
 59:                                               ; preds = %56
-  %60 = icmp ult i64 %22, %50
+  %60 = icmp samesign ult i64 %22, %50
   br i1 %60, label %298, label %61
 
 61:                                               ; preds = %59
@@ -169,7 +169,7 @@ define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr nounde
   br label %81
 
 70:                                               ; preds = %61
-  %71 = icmp ugt i32 %47, 65536
+  %71 = icmp samesign ugt i32 %47, 65536
   br i1 %71, label %72, label %77
 
 72:                                               ; preds = %70
@@ -198,7 +198,7 @@ define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr nounde
   %87 = getelementptr inbounds i8, ptr %0, i64 30188
   %88 = load i32, ptr %87, align 4
   %89 = icmp ne i32 %88, 0
-  %90 = icmp ugt i32 %47, 768
+  %90 = icmp samesign ugt i32 %47, 768
   %91 = and i1 %90, %89
   br i1 %91, label %92, label %.loopexit
 
@@ -212,7 +212,7 @@ define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr nounde
   %97 = getelementptr i8, ptr %94, i64 %96
   tail call void @llvm.prefetch.p0(ptr %97, i32 0, i32 2, i32 1)
   %98 = add nuw nsw i64 %96, 64
-  %99 = icmp ult i64 %96, 16324
+  %99 = icmp samesign ult i64 %96, 16324
   br i1 %99, label %95, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %95, %81
@@ -332,7 +332,7 @@ define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr nounde
   %170 = icmp ne i64 %168, 0
   %171 = icmp eq ptr %3, null
   %172 = and i1 %171, %170
-  %173 = icmp ult i64 %150, %168
+  %173 = icmp samesign ult i64 %150, %168
   %174 = or i1 %173, %172
   br i1 %174, label %298, label %175
 
@@ -351,7 +351,7 @@ define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr nounde
   br label %198
 
 184:                                              ; preds = %175
-  %185 = icmp ugt i64 %168, 65536
+  %185 = icmp samesign ugt i64 %168, 65536
   br i1 %185, label %186, label %194
 
 186:                                              ; preds = %184
@@ -468,7 +468,7 @@ define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr nounde
   br i1 %254, label %298, label %255
 
 255:                                              ; preds = %249
-  %256 = icmp ugt i64 %250, 131072
+  %256 = icmp samesign ugt i64 %250, 131072
   br i1 %256, label %298, label %257
 
 257:                                              ; preds = %255
@@ -487,7 +487,7 @@ define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr nounde
   br label %285
 
 266:                                              ; preds = %259
-  %267 = icmp ugt i64 %250, 65536
+  %267 = icmp samesign ugt i64 %250, 65536
   br i1 %267, label %270, label %268
 
 268:                                              ; preds = %266
@@ -689,7 +689,7 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
   %76 = getelementptr i8, ptr %70, i64 %75
   store i64 %66, ptr %76, align 1
   %77 = add nuw nsw i64 %75, 8
-  %78 = icmp ult i64 %77, %73
+  %78 = icmp samesign ult i64 %77, %73
   br i1 %78, label %74, label %.loopexit19, !llvm.loop !9
 
 .loopexit19:                                      ; preds = %74, %64
@@ -725,7 +725,7 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
   %99 = add nuw nsw i64 %86, %63
   %100 = and i64 %99, %60
   %101 = add nuw nsw i64 %85, 2
-  %102 = icmp ult i64 %101, %62
+  %102 = icmp samesign ult i64 %101, %62
   br i1 %102, label %84, label %.loopexit18, !llvm.loop !12
 
 103:                                              ; preds = %52
@@ -927,7 +927,7 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr nocapture noundef 
   %71 = getelementptr i8, ptr %65, i64 %70
   store i64 %61, ptr %71, align 1
   %72 = add nuw nsw i64 %70, 8
-  %73 = icmp ult i64 %72, %68
+  %73 = icmp samesign ult i64 %72, %68
   br i1 %73, label %69, label %.loopexit18, !llvm.loop !9
 
 .loopexit18:                                      ; preds = %69, %59
@@ -963,7 +963,7 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr nocapture noundef 
   %94 = add nuw nsw i64 %81, %58
   %95 = and i64 %94, %55
   %96 = add nuw nsw i64 %80, 2
-  %97 = icmp ult i64 %96, %57
+  %97 = icmp samesign ult i64 %96, %57
   br i1 %97, label %79, label %.loopexit, !llvm.loop !12
 
 98:                                               ; preds = %47
@@ -1198,7 +1198,7 @@ define internal fastcc range(i64 -20, -71) i64 @ZSTD_buildSeqTable(ptr noundef %
 21:                                               ; preds = %19
   %22 = load i8, ptr %5, align 1
   %23 = zext i8 %22 to i32
-  %24 = icmp ult i32 %3, %23
+  %24 = icmp samesign ult i32 %3, %23
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %21
@@ -1247,7 +1247,7 @@ define internal fastcc range(i64 -20, -71) i64 @ZSTD_buildSeqTable(ptr noundef %
   %50 = getelementptr i8, ptr %44, i64 %49
   tail call void @llvm.prefetch.p0(ptr %50, i32 0, i32 2, i32 1)
   %51 = add nuw nsw i64 %49, 64
-  %52 = icmp ult i64 %51, %47
+  %52 = icmp samesign ult i64 %51, %47
   br i1 %52, label %48, label %.loopexit, !llvm.loop !18
 
 53:                                               ; preds = %15

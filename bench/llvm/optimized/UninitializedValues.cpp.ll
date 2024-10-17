@@ -8134,7 +8134,7 @@ define linkonce_odr void @_ZSt11__make_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__op
   store ptr %.sroa.0.0.copyload13, ptr %6, align 8
   %17 = add nsw i64 %11, -1
   %18 = lshr i64 %17, 1
-  %19 = icmp ult i64 %14, %18
+  %19 = icmp samesign ult i64 %14, %18
   br i1 %19, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -9801,7 +9801,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117TransferFunctions20VisitObjCMess
 
 _ZNK4llvm12PackedVectorI5ValueLj2ENS_14SmallBitVectorEE4sizeEv.exit.i: ; preds = %12, %10
   %17 = phi i64 [ %11, %10 ], [ %16, %12 ]
-  %.not6.i = icmp ult i64 %17, 2
+  %.not6.i = icmp samesign ult i64 %17, 2
   br i1 %.not6.i, label %_ZN12_GLOBAL__N_114CFGBlockValues19setAllScratchValuesE5Value.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK4llvm12PackedVectorI5ValueLj2ENS_14SmallBitVectorEE4sizeEv.exit.i
@@ -10381,7 +10381,7 @@ _ZNK5clang4Decl7hasAttrINS_20AnalyzerNoReturnAttrEEEbv.exit: ; preds = %.lr.ph.i
 
 _ZNK4llvm12PackedVectorI5ValueLj2ENS_14SmallBitVectorEE4sizeEv.exit.i: ; preds = %62, %60
   %67 = phi i64 [ %61, %60 ], [ %66, %62 ]
-  %.not6.i = icmp ult i64 %67, 2
+  %.not6.i = icmp samesign ult i64 %67, 2
   br i1 %.not6.i, label %_ZN12_GLOBAL__N_114CFGBlockValues19setAllScratchValuesE5Value.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK4llvm12PackedVectorI5ValueLj2ENS_14SmallBitVectorEE4sizeEv.exit.i
@@ -11735,7 +11735,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114CFGBlockValues19setAllScratchVal
 
 _ZNK4llvm12PackedVectorI5ValueLj2ENS_14SmallBitVectorEE4sizeEv.exit: ; preds = %6, %8
   %13 = phi i64 [ %7, %6 ], [ %12, %8 ]
-  %.not6 = icmp ult i64 %13, 2
+  %.not6 = icmp samesign ult i64 %13, 2
   br i1 %.not6, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK4llvm12PackedVectorI5ValueLj2ENS_14SmallBitVectorEE4sizeEv.exit

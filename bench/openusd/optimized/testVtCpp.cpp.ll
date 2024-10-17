@@ -12786,7 +12786,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 498:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit416, %511
   %.02001749 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit416 ], [ %512, %511 ]
-  %499 = icmp ult i64 %.02001749, 100
+  %499 = icmp samesign ult i64 %.02001749, 100
   br i1 %499, label %500, label %506
 
 500:                                              ; preds = %498

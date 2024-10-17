@@ -1014,7 +1014,7 @@ define internal fastcc i32 @find_next_id(ptr nocapture noundef readonly %0, ptr 
   %53 = phi i32 [ %41, %40 ], [ %51, %.preheader ]
   %54 = freeze i32 %53
   %55 = urem i32 %54, %43
-  %56 = icmp ult i32 %55, %10
+  %56 = icmp samesign ult i32 %55, %10
   br i1 %56, label %57, label %.loopexit
 
 57:                                               ; preds = %.loopexit15
@@ -1063,7 +1063,7 @@ define internal fastcc i32 @find_next_id(ptr nocapture noundef readonly %0, ptr 
 select.unfold:                                    ; preds = %80, %68
   %.ph = phi i64 [ %64, %68 ], [ 4294967294, %80 ]
   %83 = add nuw nsw i64 %63, 1
-  %84 = icmp ult i64 %83, %61
+  %84 = icmp samesign ult i64 %83, %61
   br i1 %84, label %62, label %.loopexit, !llvm.loop !16
 
 85:                                               ; preds = %80

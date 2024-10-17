@@ -1196,7 +1196,7 @@ agxbsizeof.exit.i.i.lr.ph:                        ; preds = %2
   %7 = getelementptr inbounds i8, ptr %3, i64 31
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = icmp ugt i32 %1, 1
+  %10 = icmp samesign ugt i32 %1, 1
   br label %agxbsizeof.exit.i.i
 
 agxbsizeof.exit.i.i:                              ; preds = %agxbsizeof.exit.i.i.lr.ph, %58

@@ -310,7 +310,7 @@ _ZN4node9Utf8ValueD2Ev.exit:                      ; preds = %if.end48, %if.then.
   %inc = add nuw nsw i64 %n.028, 1
   %call21 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0) #16
   %conv = zext i32 %call21 to i64
-  %cmp = icmp ult i64 %inc, %conv
+  %cmp = icmp samesign ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %do.end65, !llvm.loop !5
 
 do.end65:                                         ; preds = %_ZN4node9Utf8ValueD2Ev.exit, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit

@@ -1187,11 +1187,11 @@ dissect_steady_signal.exit:                       ; preds = %145, %166
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %235, ptr noundef nonnull @.str.401, ptr noundef %237, i32 noundef %236) #3
   %238 = call zeroext i8 @tvb_get_guint8(ptr noundef %222, i32 noundef 2) #3
   %239 = and i8 %238, 127
-  %240 = icmp ugt i8 %239, 106
+  %240 = icmp samesign ugt i8 %239, 106
   br i1 %240, label %.sink.split.i, label %241
 
 241:                                              ; preds = %230
-  %242 = icmp ult i8 %239, 27
+  %242 = icmp samesign ult i8 %239, 27
   br i1 %242, label %.sink.split.i, label %245
 
 .sink.split.i:                                    ; preds = %241, %230
@@ -1244,11 +1244,11 @@ dissect_recognition_time.exit:                    ; preds = %215, %245
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %271, ptr noundef nonnull @.str.401, ptr noundef %273, i32 noundef %272) #3
   %274 = call zeroext i8 @tvb_get_guint8(ptr noundef %258, i32 noundef 2) #3
   %275 = and i8 %274, 127
-  %276 = icmp ugt i8 %275, 106
+  %276 = icmp samesign ugt i8 %275, 106
   br i1 %276, label %.sink.split.i249, label %277
 
 277:                                              ; preds = %266
-  %278 = icmp ult i8 %275, 27
+  %278 = icmp samesign ult i8 %275, 27
   br i1 %278, label %.sink.split.i249, label %281
 
 .sink.split.i249:                                 ; preds = %277, %266
@@ -1260,11 +1260,11 @@ dissect_recognition_time.exit:                    ; preds = %215, %245
 281:                                              ; preds = %.sink.split.i249, %277
   %282 = call zeroext i8 @tvb_get_guint8(ptr noundef %258, i32 noundef 3) #3
   %283 = and i8 %282, 127
-  %284 = icmp ugt i8 %283, 106
+  %284 = icmp samesign ugt i8 %283, 106
   br i1 %284, label %.sink.split46.i, label %285
 
 285:                                              ; preds = %281
-  %286 = icmp ult i8 %283, 27
+  %286 = icmp samesign ult i8 %283, 27
   br i1 %286, label %.sink.split46.i, label %289
 
 .sink.split46.i:                                  ; preds = %285, %281
@@ -1336,11 +1336,11 @@ dissect_enable_auto_ack.exit:                     ; preds = %251, %296, %298
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %326, ptr noundef nonnull @.str.401, ptr noundef %328, i32 noundef %327) #3
   %329 = call zeroext i8 @tvb_get_guint8(ptr noundef %313, i32 noundef 2) #3
   %330 = and i8 %329, 127
-  %331 = icmp ugt i8 %330, 106
+  %331 = icmp samesign ugt i8 %330, 106
   br i1 %331, label %.sink.split.i252, label %332
 
 332:                                              ; preds = %321
-  %333 = icmp ult i8 %330, 27
+  %333 = icmp samesign ult i8 %330, 27
   br i1 %333, label %.sink.split.i252, label %dissect_disable_auto_ack.exit
 
 .sink.split.i252:                                 ; preds = %332, %321

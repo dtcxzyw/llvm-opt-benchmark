@@ -2000,7 +2000,7 @@ for.inc:                                          ; preds = %if.end12, %lor.lhs.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %in_num, align 8
   %17 = zext i32 %16 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %17
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %cmp, label %for.body, label %skip_element, !llvm.loop !12
 
 skip_element:                                     ; preds = %for.inc, %for.cond.preheader, %while.body, %lor.lhs.false.i, %virtio_balloon_inhibited.exit, %lor.lhs.false

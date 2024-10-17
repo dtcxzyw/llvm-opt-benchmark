@@ -1049,7 +1049,7 @@ define hidden void @"_ZN10zbus_names15well_known_name1_94_$LT$impl$u20$serde..se
   %5 = load i64, ptr %1, align 8, !range !41, !alias.scope !42, !noalias !43, !noundef !4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !42, !noalias !43, !nonnull !4, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %5, 2
   %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
   %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -1083,7 +1083,7 @@ define hidden void @"_ZN10zbus_names15well_known_name1_94_$LT$impl$u20$serde..se
   %5 = load i64, ptr %1, align 8, !range !41, !alias.scope !70, !noalias !71, !noundef !4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !70, !noalias !71, !nonnull !4, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %5, 2
   %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
   %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -1117,7 +1117,7 @@ define hidden void @"_ZN10zbus_names15well_known_name1_94_$LT$impl$u20$serde..se
   %5 = load i64, ptr %1, align 8, !range !41, !alias.scope !97, !noalias !98, !noundef !4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !97, !noalias !98, !nonnull !4, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %5, 2
   %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
   %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -1151,7 +1151,7 @@ define hidden void @"_ZN10zbus_names15well_known_name1_94_$LT$impl$u20$serde..se
   %5 = load i64, ptr %1, align 8, !range !41, !alias.scope !124, !noalias !125, !noundef !4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !124, !noalias !125, !nonnull !4, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %5, 2
   %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
   %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -5347,7 +5347,7 @@ common.ret:                                       ; preds = %134, %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !624)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !627)
   %148 = load i64, ptr %10, align 8, !range !41, !alias.scope !630, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %148, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %148, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit", label %149
 
 149:                                              ; preds = %147
@@ -5838,7 +5838,7 @@ common.ret:                                       ; preds = %134, %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !702)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !705)
   %148 = load i64, ptr %10, align 8, !range !41, !alias.scope !708, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %148, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %148, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit", label %149
 
 149:                                              ; preds = %147
@@ -6364,7 +6364,7 @@ common.resume:                                    ; preds = %.body, %80, %64, %3
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9)
   %71 = load i64, ptr %12, align 8, !range !739, !noalias !746, !noundef !4
-  %72 = icmp ult i64 %71, 22
+  %72 = icmp samesign ult i64 %71, 22
   %switch2.i55 = icmp eq i64 %71, 23
   %switch.i56 = or i1 %72, %switch2.i55
   br i1 %switch.i56, label %73, label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h276f907b8182a8d1E.exit57.thread"
@@ -6585,7 +6585,7 @@ default.unreachable79:                            ; preds = %78, %3
   call void @llvm.experimental.noalias.scope.decl(metadata !758)
   call void @llvm.experimental.noalias.scope.decl(metadata !761)
   %23 = load i64, ptr %10, align 8, !range !41, !alias.scope !764, !noundef !4
-  %switch.i.i.i = icmp ult i64 %23, 2
+  %switch.i.i.i = icmp samesign ult i64 %23, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit", label %24
 
 24:                                               ; preds = %21
@@ -6609,7 +6609,7 @@ default.unreachable79:                            ; preds = %78, %3
   call void @llvm.experimental.noalias.scope.decl(metadata !775)
   call void @llvm.experimental.noalias.scope.decl(metadata !778)
   %31 = load i64, ptr %10, align 8, !range !41, !alias.scope !781, !noundef !4
-  %switch.i.i.i20 = icmp ult i64 %31, 2
+  %switch.i.i.i20 = icmp samesign ult i64 %31, 2
   br i1 %switch.i.i.i20, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit22", label %32
 
 32:                                               ; preds = %30
@@ -6630,7 +6630,7 @@ default.unreachable79:                            ; preds = %78, %3
   call void @llvm.experimental.noalias.scope.decl(metadata !792)
   call void @llvm.experimental.noalias.scope.decl(metadata !795)
   %38 = load i64, ptr %10, align 8, !range !41, !alias.scope !798, !noundef !4
-  %switch.i.i.i23 = icmp ult i64 %38, 2
+  %switch.i.i.i23 = icmp samesign ult i64 %38, 2
   br i1 %switch.i.i.i23, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit25", label %39
 
 39:                                               ; preds = %37
@@ -7082,7 +7082,7 @@ common.ret:                                       ; preds = %189, %170
   call void @llvm.experimental.noalias.scope.decl(metadata !863)
   call void @llvm.experimental.noalias.scope.decl(metadata !866)
   %180 = load i64, ptr %179, align 8, !range !41, !alias.scope !869, !noundef !4
-  %switch.i.i.i31 = icmp ult i64 %180, 2
+  %switch.i.i.i31 = icmp samesign ult i64 %180, 2
   br i1 %switch.i.i.i31, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit33", label %181
 
 181:                                              ; preds = %178
@@ -7129,7 +7129,7 @@ common.ret:                                       ; preds = %189, %170
   call void @llvm.experimental.noalias.scope.decl(metadata !880)
   call void @llvm.experimental.noalias.scope.decl(metadata !883)
   %193 = load i64, ptr %192, align 8, !range !41, !alias.scope !886, !noundef !4
-  %switch.i.i.i34 = icmp ult i64 %193, 2
+  %switch.i.i.i34 = icmp samesign ult i64 %193, 2
   br i1 %switch.i.i.i34, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit36", label %194
 
 194:                                              ; preds = %191
@@ -7381,7 +7381,7 @@ default.unreachable229:                           ; preds = %109, %88, %63, %3
   %79 = load i64, ptr %78, align 8, !range !41, !alias.scope !900, !noalias !899, !noundef !4
   %80 = getelementptr inbounds i8, ptr %.val.i, i64 88
   %81 = load ptr, ptr %80, align 8, !alias.scope !900, !noalias !899, !nonnull !4, !noundef !4
-  %switch.i.i = icmp ult i64 %79, 2
+  %switch.i.i = icmp samesign ult i64 %79, 2
   %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
   %spec.select.i.i = getelementptr inbounds i8, ptr %81, i64 %spec.select.idx.i.i
   %.sroa.4.0.in.i.i = getelementptr inbounds i8, ptr %.val.i, i64 96
@@ -9116,7 +9116,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h4428f904
   call void @llvm.experimental.noalias.scope.decl(metadata !1175)
   call void @llvm.experimental.noalias.scope.decl(metadata !1178)
   %608 = load i64, ptr %598, align 8, !range !41, !alias.scope !1181, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %608, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %608, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr133drop_in_place$LT$oo7..dbus..api..session..Session..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbc804d8b303832e2E.exit", label %609
 
 609:                                              ; preds = %607
@@ -9302,7 +9302,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h4428f904
   call void @llvm.experimental.noalias.scope.decl(metadata !1204)
   call void @llvm.experimental.noalias.scope.decl(metadata !1207)
   %660 = load i64, ptr %33, align 8, !range !41, !alias.scope !1210, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %660, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %660, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit", label %661
 
 661:                                              ; preds = %659
@@ -9807,7 +9807,7 @@ common.ret:                                       ; preds = %134, %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1282)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1285)
   %148 = load i64, ptr %10, align 8, !range !41, !alias.scope !1288, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %148, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %148, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit", label %149
 
 149:                                              ; preds = %147
@@ -11424,7 +11424,7 @@ common.resume:                                    ; preds = %84, %60, %27
   unreachable
 
 37:                                               ; preds = %34
-  %38 = icmp ult i64 %30, 41
+  %38 = icmp samesign ult i64 %30, 41
   %switch6.i = icmp eq i64 %30, 42
   %switch.i = or i1 %38, %switch6.i
   br i1 %switch.i, label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h91b2cab402b7e701E.exit", label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h91b2cab402b7e701E.exit.thread"
@@ -11505,7 +11505,7 @@ common.resume:                                    ; preds = %84, %60, %27
 65:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
   %66 = load i64, ptr %10, align 8, !range !1685, !noalias !1700, !noundef !4
-  %67 = icmp ult i64 %66, 41
+  %67 = icmp samesign ult i64 %66, 41
   %switch6.i43 = icmp eq i64 %66, 42
   %switch.i44 = or i1 %67, %switch6.i43
   br i1 %switch.i44, label %68, label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h91b2cab402b7e701E.exit45.thread"
@@ -16962,7 +16962,7 @@ default.unreachable184:                           ; preds = %950, %724, %170, %1
   %132 = load i64, ptr %131, align 8, !range !41, !alias.scope !2816, !noalias !2815, !noundef !4
   %133 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 88
   %134 = load ptr, ptr %133, align 8, !alias.scope !2816, !noalias !2815, !nonnull !4, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %132, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %132, 2
   %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
   %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %134, i64 %spec.select.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i, i64 96
@@ -18827,7 +18827,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h734c96a8
   call void @llvm.experimental.noalias.scope.decl(metadata !3084)
   call void @llvm.experimental.noalias.scope.decl(metadata !3087)
   %801 = load i64, ptr %791, align 8, !range !41, !alias.scope !3090, !noalias !3062, !noundef !4
-  %switch.i.i.i.i.i.i.i.i = icmp ult i64 %801, 2
+  %switch.i.i.i.i.i.i.i.i = icmp samesign ult i64 %801, 2
   br i1 %switch.i.i.i.i.i.i.i.i, label %"_ZN4core3ptr127drop_in_place$LT$oo7..dbus..api..item..Item..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h30a73beb6a598d02E.exit.i.i.i", label %802
 
 802:                                              ; preds = %800
@@ -21889,7 +21889,7 @@ common.ret:                                       ; preds = %3463, %2500, %1662,
   %729 = load i64, ptr %712, align 8, !range !41, !alias.scope !3635, !noalias !3613, !noundef !4
   %730 = getelementptr inbounds i8, ptr %712, i64 8
   %731 = load ptr, ptr %730, align 8, !alias.scope !3635, !noalias !3613, !nonnull !4, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %729, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %729, 2
   %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
   %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %731, i64 %spec.select.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %712, i64 16
@@ -22767,7 +22767,7 @@ common.ret:                                       ; preds = %3463, %2500, %1662,
   call void @llvm.experimental.noalias.scope.decl(metadata !3817)
   call void @llvm.experimental.noalias.scope.decl(metadata !3820)
   %1013 = load i64, ptr %108, align 8, !range !41, !alias.scope !3823, !noalias !3609, !noundef !4
-  %switch.i.i.i.i.i.i = icmp ult i64 %1013, 2
+  %switch.i.i.i.i.i.i = icmp samesign ult i64 %1013, 2
   br i1 %switch.i.i.i.i.i.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit.i.i.i", label %1014
 
 1014:                                             ; preds = %1012
@@ -22800,7 +22800,7 @@ common.ret:                                       ; preds = %3463, %2500, %1662,
   call void @llvm.experimental.noalias.scope.decl(metadata !3850)
   call void @llvm.experimental.noalias.scope.decl(metadata !3853)
   %1026 = load i64, ptr %108, align 8, !range !41, !alias.scope !3856, !noalias !3609, !noundef !4
-  %switch.i.i.i81.i.i.i = icmp ult i64 %1026, 2
+  %switch.i.i.i81.i.i.i = icmp samesign ult i64 %1026, 2
   br i1 %switch.i.i.i81.i.i.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit83.i.i.i", label %1027
 
 1027:                                             ; preds = %1025
@@ -25209,7 +25209,7 @@ common.ret:                                       ; preds = %3463, %2500, %1662,
   %1735 = load i64, ptr %1734, align 8, !range !41, !alias.scope !4292, !noalias !4291, !noundef !4
   %1736 = getelementptr inbounds i8, ptr %.val.i.i.i.i116, i64 88
   %1737 = load ptr, ptr %1736, align 8, !alias.scope !4292, !noalias !4291, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %1735, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %1735, 2
   %spec.select.idx.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 16
   %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %1737, i64 %spec.select.idx.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i116, i64 96
@@ -26761,7 +26761,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h94139554
   call void @llvm.experimental.noalias.scope.decl(metadata !4511)
   call void @llvm.experimental.noalias.scope.decl(metadata !4514)
   %2296 = load i64, ptr %63, align 8, !range !41, !alias.scope !4517, !noalias !4283, !noundef !4
-  %switch.i.i.i.i.i.i.i = icmp ult i64 %2296, 2
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i64 %2296, 2
   br i1 %switch.i.i.i.i.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit.i.i.i", label %2297
 
 2297:                                             ; preds = %2294
@@ -26786,7 +26786,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h94139554
   call void @llvm.experimental.noalias.scope.decl(metadata !4532)
   call void @llvm.experimental.noalias.scope.decl(metadata !4535)
   %2304 = load i64, ptr %63, align 8, !range !41, !alias.scope !4538, !noalias !4283, !noundef !4
-  %switch.i.i.i.i45.i.i.i = icmp ult i64 %2304, 2
+  %switch.i.i.i.i45.i.i.i = icmp samesign ult i64 %2304, 2
   br i1 %switch.i.i.i.i45.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit47.i.i.i", label %2305
 
 2305:                                             ; preds = %2303
@@ -26808,7 +26808,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h94139554
   call void @llvm.experimental.noalias.scope.decl(metadata !4553)
   call void @llvm.experimental.noalias.scope.decl(metadata !4556)
   %2311 = load i64, ptr %63, align 8, !range !41, !alias.scope !4559, !noalias !4283, !noundef !4
-  %switch.i.i.i.i48.i.i.i = icmp ult i64 %2311, 2
+  %switch.i.i.i.i48.i.i.i = icmp samesign ult i64 %2311, 2
   br i1 %switch.i.i.i.i48.i.i.i, label %2326, label %2312
 
 2312:                                             ; preds = %2310
@@ -27087,7 +27087,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h94139554
   call void @llvm.experimental.noalias.scope.decl(metadata !4633)
   call void @llvm.experimental.noalias.scope.decl(metadata !4636)
   %2406 = load i64, ptr %2396, align 8, !range !41, !alias.scope !4639, !noalias !4283, !noundef !4
-  %switch.i.i.i.i.i.i.i.i = icmp ult i64 %2406, 2
+  %switch.i.i.i.i.i.i.i.i = icmp samesign ult i64 %2406, 2
   br i1 %switch.i.i.i.i.i.i.i.i, label %"_ZN4core3ptr139drop_in_place$LT$oo7..dbus..api..collection..Collection..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbd85bfc1d46efc42E.exit.i.i.i", label %2407
 
 2407:                                             ; preds = %2405
@@ -27151,7 +27151,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h94139554
   call void @llvm.experimental.noalias.scope.decl(metadata !4654)
   call void @llvm.experimental.noalias.scope.decl(metadata !4657)
   %2429 = load i64, ptr %2428, align 8, !range !41, !alias.scope !4660, !noalias !4283, !noundef !4
-  %switch.i.i.i.i64.i.i.i = icmp ult i64 %2429, 2
+  %switch.i.i.i.i64.i.i.i = icmp samesign ult i64 %2429, 2
   br i1 %switch.i.i.i.i64.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit66.i.i.i", label %2430
 
 2430:                                             ; preds = %2427
@@ -27184,7 +27184,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h94139554
   call void @llvm.experimental.noalias.scope.decl(metadata !4675)
   call void @llvm.experimental.noalias.scope.decl(metadata !4678)
   %2441 = load i64, ptr %2440, align 8, !range !41, !alias.scope !4681, !noalias !4283, !noundef !4
-  %switch.i.i.i.i67.i.i.i = icmp ult i64 %2441, 2
+  %switch.i.i.i.i67.i.i.i = icmp samesign ult i64 %2441, 2
   br i1 %switch.i.i.i.i67.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit69.i.i.i", label %2442
 
 2442:                                             ; preds = %2439
@@ -27795,7 +27795,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h94139554
   %2594 = load i64, ptr %2593, align 8, !range !41, !alias.scope !4716, !noalias !4715, !noundef !4
   %2595 = getelementptr inbounds i8, ptr %.val.i.i.i184, i64 88
   %2596 = load ptr, ptr %2595, align 8, !alias.scope !4716, !noalias !4715, !nonnull !4, !noundef !4
-  %switch.i.i.i.i185 = icmp ult i64 %2594, 2
+  %switch.i.i.i.i185 = icmp samesign ult i64 %2594, 2
   %spec.select.idx.i.i.i.i186 = select i1 %switch.i.i.i.i185, i64 0, i64 16
   %spec.select.i.i.i.i187 = getelementptr inbounds i8, ptr %2596, i64 %spec.select.idx.i.i.i.i186
   %.sroa.4.0.in.i.i.i.i188 = getelementptr inbounds i8, ptr %.val.i.i.i184, i64 96
@@ -29591,7 +29591,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !5048)
   call void @llvm.experimental.noalias.scope.decl(metadata !5051)
   %3219 = load i64, ptr %3209, align 8, !range !41, !alias.scope !5054, !noalias !4706, !noundef !4
-  %switch.i.i.i.i.i.i.i151 = icmp ult i64 %3219, 2
+  %switch.i.i.i.i.i.i.i151 = icmp samesign ult i64 %3219, 2
   br i1 %switch.i.i.i.i.i.i.i151, label %"_ZN4core3ptr131drop_in_place$LT$oo7..dbus..api..prompt..Prompt..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6afe5c3737f693baE.exit.i.i", label %3220
 
 3220:                                             ; preds = %3218
@@ -29719,7 +29719,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !5076)
   call void @llvm.experimental.noalias.scope.decl(metadata !5079)
   %3265 = load i64, ptr %3264, align 8, !range !41, !alias.scope !5082, !noalias !4706, !noundef !4
-  %switch.i.i.i.i.i.i150 = icmp ult i64 %3265, 2
+  %switch.i.i.i.i.i.i150 = icmp samesign ult i64 %3265, 2
   br i1 %switch.i.i.i.i.i.i150, label %3436, label %3266
 
 3266:                                             ; preds = %"_ZN4core3ptr51drop_in_place$LT$oo7..dbus..api..prompt..Prompt$GT$17h8d6d8f09c51962d1E.exit105.i.i"
@@ -29875,7 +29875,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !5129)
   call void @llvm.experimental.noalias.scope.decl(metadata !5132)
   %3311 = load i64, ptr %32, align 8, !range !41, !alias.scope !5135, !noalias !4706, !noundef !4
-  %switch.i.i.i.i95.i.i = icmp ult i64 %3311, 2
+  %switch.i.i.i.i95.i.i = icmp samesign ult i64 %3311, 2
   br i1 %switch.i.i.i.i95.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit97.i.i", label %3312
 
 3312:                                             ; preds = %3309
@@ -29999,7 +29999,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !5178)
   call void @llvm.experimental.noalias.scope.decl(metadata !5181)
   %3350 = load i64, ptr %36, align 8, !range !41, !alias.scope !5184, !noalias !4706, !noundef !4
-  %switch.i.i.i.i108.i.i = icmp ult i64 %3350, 2
+  %switch.i.i.i.i108.i.i = icmp samesign ult i64 %3350, 2
   br i1 %switch.i.i.i.i108.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit110.i.i", label %3351
 
 3351:                                             ; preds = %3349
@@ -30023,7 +30023,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !5199)
   call void @llvm.experimental.noalias.scope.decl(metadata !5202)
   %3359 = load i64, ptr %3358, align 8, !range !41, !alias.scope !5205, !noalias !4706, !noundef !4
-  %switch.i.i.i.i111.i.i = icmp ult i64 %3359, 2
+  %switch.i.i.i.i111.i.i = icmp samesign ult i64 %3359, 2
   br i1 %switch.i.i.i.i111.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit113.i.i", label %3360
 
 3360:                                             ; preds = %3357
@@ -30101,7 +30101,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !5220)
   call void @llvm.experimental.noalias.scope.decl(metadata !5223)
   %3386 = load i64, ptr %3376, align 8, !range !41, !alias.scope !5226, !noalias !4706, !noundef !4
-  %switch.i.i.i.i.i114.i.i = icmp ult i64 %3386, 2
+  %switch.i.i.i.i.i114.i.i = icmp samesign ult i64 %3386, 2
   br i1 %switch.i.i.i.i.i114.i.i, label %"_ZN4core3ptr139drop_in_place$LT$oo7..dbus..api..collection..Collection..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbd85bfc1d46efc42E.exit.i.i", label %3387
 
 3387:                                             ; preds = %3385
@@ -30179,7 +30179,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !5241)
   call void @llvm.experimental.noalias.scope.decl(metadata !5244)
   %3413 = load i64, ptr %3412, align 8, !range !41, !alias.scope !5247, !noalias !4706, !noundef !4
-  %switch.i.i.i.i118.i.i = icmp ult i64 %3413, 2
+  %switch.i.i.i.i118.i.i = icmp samesign ult i64 %3413, 2
   br i1 %switch.i.i.i.i118.i.i, label %.thread31.i, label %3414
 
 3414:                                             ; preds = %3411
@@ -30214,7 +30214,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !5262)
   call void @llvm.experimental.noalias.scope.decl(metadata !5265)
   %3425 = load i64, ptr %3424, align 8, !range !41, !alias.scope !5268, !noalias !4706, !noundef !4
-  %switch.i.i.i.i121.i.i = icmp ult i64 %3425, 2
+  %switch.i.i.i.i121.i.i = icmp samesign ult i64 %3425, 2
   br i1 %switch.i.i.i.i121.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit123.i.i", label %3426
 
 3426:                                             ; preds = %3423
@@ -30897,7 +30897,7 @@ default.unreachable92:                            ; preds = %171, %142, %117, %9
   %133 = load i64, ptr %132, align 8, !range !41, !alias.scope !5315, !noalias !5314, !noundef !4
   %134 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 88
   %135 = load ptr, ptr %134, align 8, !alias.scope !5315, !noalias !5314, !nonnull !4, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %133, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %133, 2
   %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
   %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %135, i64 %spec.select.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i, i64 96
@@ -32676,7 +32676,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h0caa2b95
   call void @llvm.experimental.noalias.scope.decl(metadata !5594)
   call void @llvm.experimental.noalias.scope.decl(metadata !5597)
   %753 = load i64, ptr %743, align 8, !range !41, !alias.scope !5600, !noalias !5306, !noundef !4
-  %switch.i.i.i.i.i.i.i = icmp ult i64 %753, 2
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i64 %753, 2
   br i1 %switch.i.i.i.i.i.i.i, label %"_ZN4core3ptr131drop_in_place$LT$oo7..dbus..api..prompt..Prompt..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6afe5c3737f693baE.exit.i.i", label %754
 
 754:                                              ; preds = %752
@@ -33083,7 +33083,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h0caa2b95
   call void @llvm.experimental.noalias.scope.decl(metadata !5692)
   call void @llvm.experimental.noalias.scope.decl(metadata !5695)
   %871 = load i64, ptr %35, align 8, !range !41, !alias.scope !5698, !noalias !5306, !noundef !4
-  %switch.i.i.i.i.i.i = icmp ult i64 %871, 2
+  %switch.i.i.i.i.i.i = icmp samesign ult i64 %871, 2
   br i1 %switch.i.i.i.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit.i.i", label %872
 
 872:                                              ; preds = %870
@@ -38219,7 +38219,7 @@ define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..option..Opti
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6858)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6861)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6864)
-  %switch.i.i.i = icmp ult i64 %2, 2
+  %switch.i.i.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr72drop_in_place$LT$zbus..connection..handshake..cookies..CookieContext$GT$17h9275fadba384e99cE.exit", label %5
 
 5:                                                ; preds = %4
@@ -38981,7 +38981,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7187)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7190)
   %27 = load i64, ptr %26, align 8, !range !41, !alias.scope !7193, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %27, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %27, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr131drop_in_place$LT$oo7..dbus..api..prompt..Prompt..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6afe5c3737f693baE.exit", label %28
 
 28:                                               ; preds = %25
@@ -39035,7 +39035,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7207)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7210)
   %48 = load i64, ptr %47, align 8, !range !41, !alias.scope !7213, !noundef !4
-  %switch.i.i.i.i.i17 = icmp ult i64 %48, 2
+  %switch.i.i.i.i.i17 = icmp samesign ult i64 %48, 2
   br i1 %switch.i.i.i.i.i17, label %"_ZN4core3ptr139drop_in_place$LT$oo7..dbus..api..collection..Collection..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbd85bfc1d46efc42E.exit", label %49
 
 49:                                               ; preds = %46
@@ -39125,7 +39125,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7254)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7257)
   %81 = load i64, ptr %80, align 8, !range !41, !alias.scope !7260, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %81, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %81, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit", label %82
 
 82:                                               ; preds = %"_ZN4core3ptr131drop_in_place$LT$oo7..dbus..api..prompt..Prompt..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6afe5c3737f693baE.exit"
@@ -39154,7 +39154,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7274)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7277)
   %91 = load i64, ptr %90, align 8, !range !41, !alias.scope !7280, !noundef !4
-  %switch.i.i.i.i23 = icmp ult i64 %91, 2
+  %switch.i.i.i.i23 = icmp samesign ult i64 %91, 2
   br i1 %switch.i.i.i.i23, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit25", label %92
 
 92:                                               ; preds = %.body15
@@ -39265,7 +39265,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7320)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7323)
   %131 = load i64, ptr %130, align 8, !range !41, !alias.scope !7326, !noundef !4
-  %switch.i.i.i.i29 = icmp ult i64 %131, 2
+  %switch.i.i.i.i29 = icmp samesign ult i64 %131, 2
   br i1 %switch.i.i.i.i29, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit31", label %132
 
 132:                                              ; preds = %129
@@ -39300,7 +39300,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7340)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7343)
   %143 = load i64, ptr %142, align 8, !range !41, !alias.scope !7346, !noundef !4
-  %switch.i.i.i.i32 = icmp ult i64 %143, 2
+  %switch.i.i.i.i32 = icmp samesign ult i64 %143, 2
   br i1 %switch.i.i.i.i32, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit34", label %144
 
 144:                                              ; preds = %141
@@ -41050,7 +41050,7 @@ common.ret:                                       ; preds = %11, %6, %4, %1, %"_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8149)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8152)
   %5 = load i64, ptr %0, align 8, !range !41, !alias.scope !8155, !noundef !4
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %common.ret, label %6
 
 6:                                                ; preds = %4
@@ -41200,7 +41200,7 @@ common.ret:                                       ; preds = %11, %6, %4, %1, %"_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8206)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8209)
   %63 = load i64, ptr %62, align 8, !range !41, !alias.scope !8212, !noundef !4
-  %switch.i.i.i20 = icmp ult i64 %63, 2
+  %switch.i.i.i20 = icmp samesign ult i64 %63, 2
   br i1 %switch.i.i.i20, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit22", label %64
 
 64:                                               ; preds = %61
@@ -41240,7 +41240,7 @@ common.ret:                                       ; preds = %11, %6, %4, %1, %"_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8223)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8226)
   %77 = load i64, ptr %76, align 8, !range !41, !alias.scope !8229, !noundef !4
-  %switch.i.i.i23 = icmp ult i64 %77, 2
+  %switch.i.i.i23 = icmp samesign ult i64 %77, 2
   br i1 %switch.i.i.i23, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit25", label %78
 
 78:                                               ; preds = %75
@@ -41897,7 +41897,7 @@ common.ret:                                       ; preds = %11, %6, %4, %1, %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8438)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8441)
   %5 = load i64, ptr %0, align 8, !range !41, !alias.scope !8444, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i.i, label %common.ret, label %6
 
 6:                                                ; preds = %4
@@ -42117,7 +42117,7 @@ common.ret:                                       ; preds = %11, %6, %4, %1, %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8489)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8492)
   %5 = load i64, ptr %0, align 8, !range !41, !alias.scope !8495, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i.i, label %common.ret, label %6
 
 6:                                                ; preds = %4
@@ -42268,7 +42268,7 @@ common.ret:                                       ; preds = %11, %6, %4, %12, %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8542)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8545)
   %5 = load i64, ptr %0, align 8, !range !41, !alias.scope !8548, !noundef !4
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %common.ret, label %6
 
 6:                                                ; preds = %4
@@ -42309,7 +42309,7 @@ common.ret:                                       ; preds = %11, %6, %4, %1, %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8562)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8565)
   %5 = load i64, ptr %0, align 8, !range !41, !alias.scope !8568, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i.i, label %common.ret, label %6
 
 6:                                                ; preds = %4
@@ -42439,7 +42439,7 @@ common.ret:                                       ; preds = %4, %1, %36
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8625)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8628)
   %10 = load i64, ptr %9, align 8, !range !41, !alias.scope !8631, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %10, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %10, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr127drop_in_place$LT$oo7..dbus..api..item..Item..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h30a73beb6a598d02E.exit", label %11
 
 11:                                               ; preds = %8
@@ -42821,7 +42821,7 @@ common.resume:                                    ; preds = %.body, %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8748)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8751)
   %26 = load i64, ptr %25, align 8, !range !41, !alias.scope !8754, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %26, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %26, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr131drop_in_place$LT$oo7..dbus..api..prompt..Prompt..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6afe5c3737f693baE.exit", label %27
 
 27:                                               ; preds = %24
@@ -43123,7 +43123,7 @@ common.ret:                                       ; preds = %11, %6, %4, %1, %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8807)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8810)
   %5 = load i64, ptr %0, align 8, !range !41, !alias.scope !8813, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i.i, label %common.ret, label %6
 
 6:                                                ; preds = %4
@@ -45543,7 +45543,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9418)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9421)
   %27 = load i64, ptr %26, align 8, !range !41, !alias.scope !9424, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %27, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %27, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr131drop_in_place$LT$oo7..dbus..api..prompt..Prompt..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6afe5c3737f693baE.exit", label %28
 
 28:                                               ; preds = %25
@@ -45597,7 +45597,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9438)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9441)
   %48 = load i64, ptr %47, align 8, !range !41, !alias.scope !9444, !noundef !4
-  %switch.i.i.i.i.i17 = icmp ult i64 %48, 2
+  %switch.i.i.i.i.i17 = icmp samesign ult i64 %48, 2
   br i1 %switch.i.i.i.i.i17, label %"_ZN4core3ptr127drop_in_place$LT$oo7..dbus..api..item..Item..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h30a73beb6a598d02E.exit", label %49
 
 49:                                               ; preds = %46
@@ -45687,7 +45687,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9485)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9488)
   %81 = load i64, ptr %80, align 8, !range !41, !alias.scope !9491, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %81, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %81, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit", label %82
 
 82:                                               ; preds = %"_ZN4core3ptr131drop_in_place$LT$oo7..dbus..api..prompt..Prompt..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6afe5c3737f693baE.exit"
@@ -45716,7 +45716,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9505)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9508)
   %91 = load i64, ptr %90, align 8, !range !41, !alias.scope !9511, !noundef !4
-  %switch.i.i.i.i23 = icmp ult i64 %91, 2
+  %switch.i.i.i.i23 = icmp samesign ult i64 %91, 2
   br i1 %switch.i.i.i.i23, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit25", label %92
 
 92:                                               ; preds = %.body15
@@ -45827,7 +45827,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9551)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9554)
   %131 = load i64, ptr %130, align 8, !range !41, !alias.scope !9557, !noundef !4
-  %switch.i.i.i.i29 = icmp ult i64 %131, 2
+  %switch.i.i.i.i29 = icmp samesign ult i64 %131, 2
   br i1 %switch.i.i.i.i29, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit31", label %132
 
 132:                                              ; preds = %129
@@ -45862,7 +45862,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9571)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9574)
   %143 = load i64, ptr %142, align 8, !range !41, !alias.scope !9577, !noundef !4
-  %switch.i.i.i.i32 = icmp ult i64 %143, 2
+  %switch.i.i.i.i32 = icmp samesign ult i64 %143, 2
   br i1 %switch.i.i.i.i32, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit34", label %144
 
 144:                                              ; preds = %141
@@ -46060,7 +46060,7 @@ common.ret:                                       ; preds = %11, %6, %4, %1, %"_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9618)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9621)
   %5 = load i64, ptr %0, align 8, !range !41, !alias.scope !9624, !noundef !4
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %common.ret, label %6
 
 6:                                                ; preds = %4
@@ -46091,7 +46091,7 @@ common.ret:                                       ; preds = %11, %6, %4, %1, %"_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9635)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9638)
   %17 = load i64, ptr %16, align 8, !range !41, !alias.scope !9641, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %17, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %17, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr133drop_in_place$LT$ashpd..proxy..Proxy..new_desktop_with_path$LT$zvariant..object_path..ObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfb9c7c1e23e2cf0fE.exit", label %18
 
 18:                                               ; preds = %15
@@ -53715,7 +53715,7 @@ define internal void @"_ZN4core3ptr39drop_in_place$LT$zbus..error..Error$GT$17h2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11813)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11816)
   %5 = load i64, ptr %4, align 8, !range !41, !alias.scope !11819, !noundef !4
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h12801dbe9380dfafE.exit", label %6
 
 6:                                                ; preds = %3
@@ -53943,7 +53943,7 @@ define internal void @"_ZN4core3ptr39drop_in_place$LT$zbus..error..Error$GT$17h2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12023)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12026)
   %89 = load i64, ptr %88, align 8, !range !41, !alias.scope !12029, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %89, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %89, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zbus_names..error_name..OwnedErrorName$GT$17h06a2b930433595adE.exit", label %90
 
 90:                                               ; preds = %87
@@ -54916,7 +54916,7 @@ common.resume:                                    ; preds = %421, %"_ZN4core3ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12991)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12994)
   %432 = load i64, ptr %431, align 8, !range !41, !alias.scope !12997, !noundef !4
-  %switch.i.i.i14 = icmp ult i64 %432, 2
+  %switch.i.i.i14 = icmp samesign ult i64 %432, 2
   br i1 %switch.i.i.i14, label %common.resume, label %433
 
 433:                                              ; preds = %429
@@ -54939,7 +54939,7 @@ common.resume:                                    ; preds = %421, %"_ZN4core3ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13008)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13011)
   %440 = load i64, ptr %439, align 8, !range !41, !alias.scope !13014, !noundef !4
-  %switch.i.i.i16 = icmp ult i64 %440, 2
+  %switch.i.i.i16 = icmp samesign ult i64 %440, 2
   br i1 %switch.i.i.i16, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd9f69489c7cab3deE.exit", label %441
 
 441:                                              ; preds = %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h12801dbe9380dfafE.exit"
@@ -55138,7 +55138,7 @@ define internal void @"_ZN4core3ptr40drop_in_place$LT$ashpd..error..Error$GT$17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13172)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13175)
   %64 = load i64, ptr %63, align 8, !range !41, !alias.scope !13178, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %64, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %64, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr46drop_in_place$LT$ashpd..error..PortalError$GT$17hb6bb94edc7c09997E.exit", label %65
 
 65:                                               ; preds = %62
@@ -55276,7 +55276,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$zvariant..error..Error$GT$17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13242)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13245)
   %20 = load i64, ptr %19, align 8, !range !41, !alias.scope !13248, !noundef !4
-  %switch.i.i = icmp ult i64 %20, 2
+  %switch.i.i = icmp samesign ult i64 %20, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd9f69489c7cab3deE.exit", label %21
 
 21:                                               ; preds = %18
@@ -55296,7 +55296,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$zvariant..error..Error$GT$17
 27:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13256)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13259)
-  %switch.i.i1 = icmp ult i64 %2, 2
+  %switch.i.i1 = icmp samesign ult i64 %2, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %28
 
 28:                                               ; preds = %27
@@ -55397,7 +55397,7 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$zvariant..value..Va
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13305)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13308)
   %14 = load i64, ptr %13, align 8, !range !41, !alias.scope !13311, !noundef !4
-  %switch.i.i = icmp ult i64 %14, 2
+  %switch.i.i = icmp samesign ult i64 %14, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr37drop_in_place$LT$zvariant..fd..Fd$GT$17h8eb271d104545632E.exit", label %15
 
 15:                                               ; preds = %12
@@ -55419,7 +55419,7 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$zvariant..value..Va
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13319)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13322)
   %23 = load i64, ptr %22, align 8, !range !41, !alias.scope !13325, !noundef !4
-  %switch.i.i2 = icmp ult i64 %23, 2
+  %switch.i.i2 = icmp samesign ult i64 %23, 2
   br i1 %switch.i.i2, label %"_ZN4core3ptr37drop_in_place$LT$zvariant..fd..Fd$GT$17h8eb271d104545632E.exit", label %24
 
 24:                                               ; preds = %21
@@ -55442,7 +55442,7 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$zvariant..value..Va
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13336)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13339)
   %32 = load i64, ptr %31, align 8, !range !41, !alias.scope !13342, !noundef !4
-  %switch.i.i.i = icmp ult i64 %32, 2
+  %switch.i.i.i = icmp samesign ult i64 %32, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr37drop_in_place$LT$zvariant..fd..Fd$GT$17h8eb271d104545632E.exit", label %33
 
 33:                                               ; preds = %30
@@ -55537,7 +55537,7 @@ define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$oo7..dbus..error..E
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !range !6784, !alias.scope !13366, !noundef !4
-  %15 = icmp ult i64 %14, 21
+  %15 = icmp samesign ult i64 %14, 21
   br i1 %15, label %16, label %"_ZN4core3ptr51drop_in_place$LT$oo7..dbus..error..ServiceError$GT$17h685eec82a1d22081E.exit"
 
 16:                                               ; preds = %12
@@ -56185,7 +56185,7 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$core..option..Optio
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13808)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13811)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13814)
-  %switch.i.i.i = icmp ult i64 %2, 2
+  %switch.i.i.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr37drop_in_place$LT$zbus..guid..Guid$GT$17h1f10b79926a3b74dE.exit", label %5
 
 5:                                                ; preds = %4
@@ -56339,7 +56339,7 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Optio
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13876)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13879)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13882)
-  %switch.i.i.i.i = icmp ult i64 %2, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$zbus..guid..OwnedGuid$GT$17h57c7a487064f6944E.exit", label %5
 
 5:                                                ; preds = %4
@@ -56772,7 +56772,7 @@ define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..option..Optio
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14076)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14079)
   %8 = load i64, ptr %6, align 8, !range !41, !alias.scope !14082, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %8, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr47drop_in_place$LT$zbus..match_rule..PathSpec$GT$17habba184c5f2ee5afE.exit", label %9
 
 9:                                                ; preds = %7
@@ -56789,7 +56789,7 @@ define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..option..Optio
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14093)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14096)
   %15 = load i64, ptr %6, align 8, !range !41, !alias.scope !14099, !noundef !4
-  %switch.i.i.i1.i = icmp ult i64 %15, 2
+  %switch.i.i.i1.i = icmp samesign ult i64 %15, 2
   br i1 %switch.i.i.i1.i, label %"_ZN4core3ptr47drop_in_place$LT$zbus..match_rule..PathSpec$GT$17habba184c5f2ee5afE.exit", label %16
 
 16:                                               ; preds = %14
@@ -57446,7 +57446,7 @@ define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Optio
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14262)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14265)
   %8 = load i64, ptr %6, align 8, !range !41, !alias.scope !14268, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %8, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr50drop_in_place$LT$zbus_names..bus_name..BusName$GT$17h5a0798931e283680E.exit", label %9
 
 9:                                                ; preds = %7
@@ -57463,7 +57463,7 @@ define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Optio
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14279)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14282)
   %15 = load i64, ptr %6, align 8, !range !41, !alias.scope !14285, !noundef !4
-  %switch.i.i.i1.i = icmp ult i64 %15, 2
+  %switch.i.i.i1.i = icmp samesign ult i64 %15, 2
   br i1 %switch.i.i.i1.i, label %"_ZN4core3ptr50drop_in_place$LT$zbus_names..bus_name..BusName$GT$17h5a0798931e283680E.exit", label %16
 
 16:                                               ; preds = %14
@@ -58270,7 +58270,7 @@ common.ret:                                       ; preds = %216, %"_ZN4core3ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14496)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14499)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14502)
-  %switch.i.i.i.i = icmp ult i64 %68, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %68, 2
   br i1 %switch.i.i.i.i, label %common.ret, label %71
 
 71:                                               ; preds = %70
@@ -58319,7 +58319,7 @@ common.ret:                                       ; preds = %216, %"_ZN4core3ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14515)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14518)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14521)
-  %switch.i.i.i.i39 = icmp ult i64 %83, 2
+  %switch.i.i.i.i39 = icmp samesign ult i64 %83, 2
   br i1 %switch.i.i.i.i39, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..UniqueName$GT$$GT$17h02349f016d799ca3E.exit", label %86
 
 86:                                               ; preds = %85
@@ -58356,7 +58356,7 @@ common.ret:                                       ; preds = %216, %"_ZN4core3ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14534)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14537)
   %99 = load i64, ptr %98, align 8, !range !41, !alias.scope !14540, !noundef !4
-  %switch.i.i.i = icmp ult i64 %99, 2
+  %switch.i.i.i = icmp samesign ult i64 %99, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..UniqueName$GT$$GT$17h02349f016d799ca3E.exit", label %100
 
 100:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$zbus..message_stream..MessageStream..for_match_rule$LT$zbus..match_rule..MatchRule$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd956d9d80b0fce75E.exit"
@@ -58384,7 +58384,7 @@ common.ret:                                       ; preds = %216, %"_ZN4core3ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14551)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14554)
   %109 = load i64, ptr %108, align 8, !range !41, !alias.scope !14557, !noundef !4
-  %switch.i.i.i42 = icmp ult i64 %109, 2
+  %switch.i.i.i42 = icmp samesign ult i64 %109, 2
   br i1 %switch.i.i.i42, label %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h6c01cc6b8e8695e2E.exit44", label %110
 
 110:                                              ; preds = %.body30
@@ -58479,7 +58479,7 @@ common.ret:                                       ; preds = %216, %"_ZN4core3ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14568)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14571)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14574)
-  %switch.i.i.i.i48 = icmp ult i64 %145, 2
+  %switch.i.i.i.i48 = icmp samesign ult i64 %145, 2
   br i1 %switch.i.i.i.i48, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..UniqueName$GT$$GT$17h02349f016d799ca3E.exit50", label %148
 
 148:                                              ; preds = %147
@@ -58602,7 +58602,7 @@ common.ret:                                       ; preds = %216, %"_ZN4core3ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14603)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14606)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14609)
-  %switch.i.i.i.i57 = icmp ult i64 %188, 2
+  %switch.i.i.i.i57 = icmp samesign ult i64 %188, 2
   br i1 %switch.i.i.i.i57, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus_names..member_name..MemberName$GT$$GT$17hef6a895ee7fd8c87E.exit59", label %191
 
 191:                                              ; preds = %190
@@ -58743,7 +58743,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14652)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14655)
   %5 = load i64, ptr %0, align 8, !range !41, !alias.scope !14658, !noundef !4
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %common.ret, label %6
 
 6:                                                ; preds = %4
@@ -58802,7 +58802,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14680)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14683)
   %30 = load i64, ptr %29, align 8, !range !41, !alias.scope !14686, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %30, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %30, 2
   br i1 %switch.i.i.i.i.i, label %.noexc, label %32
 
 "_ZN4core3ptr299drop_in_place$LT$zbus..connection..Connection..call_method$LT$$RF$zbus_names..bus_name..BusName$C$$RF$str$C$$RF$zbus_names..interface_name..InterfaceName$C$$RF$str$C$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..interface_name..InterfaceName$C$$RF$str$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h64026d129389842dE.exit.i.i": ; preds = %26, %22, %20, %17
@@ -58835,7 +58835,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14703)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14706)
   %39 = load i64, ptr %38, align 8, !range !41, !alias.scope !14709, !noundef !4
-  %switch.i.i.i.i.i2 = icmp ult i64 %39, 2
+  %switch.i.i.i.i.i2 = icmp samesign ult i64 %39, 2
   br i1 %switch.i.i.i.i.i2, label %common.ret, label %40
 
 40:                                               ; preds = %"_ZN4core3ptr224drop_in_place$LT$zbus..proxy..Proxy..call$LT$$RF$str$C$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..interface_name..InterfaceName$C$$RF$str$RP$$GT$$C$zvariant..owned_value..OwnedValue$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha55e5adf00c46860E.exit"
@@ -59426,7 +59426,7 @@ define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Optio
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14860)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14863)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14866)
-  %switch.i.i.i = icmp ult i64 %2, 2
+  %switch.i.i.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr56drop_in_place$LT$zbus_names..member_name..MemberName$GT$17h347309a6ec8f2da5E.exit", label %5
 
 5:                                                ; preds = %4
@@ -59457,7 +59457,7 @@ define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Optio
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14876)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14879)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14882)
-  %switch.i.i.i = icmp ult i64 %2, 2
+  %switch.i.i.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr56drop_in_place$LT$zbus_names..unique_name..UniqueName$GT$17h64506fc52400a09eE.exit", label %5
 
 5:                                                ; preds = %4
@@ -59537,7 +59537,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14903)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14906)
   %24 = load i64, ptr %23, align 8, !range !41, !alias.scope !14909, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %24, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %24, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr107drop_in_place$LT$zbus..proxy..Proxy..call_method$LT$$RF$str$C$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf7b599f4cac4bb04E.exit.sink.split", label %25
 
 25:                                               ; preds = %22
@@ -59956,7 +59956,7 @@ common.ret:                                       ; preds = %13, %8, %7, %4, %1,
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15012)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15015)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15018)
-  %switch.i.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i.i, label %common.ret, label %8
 
 8:                                                ; preds = %7
@@ -60083,7 +60083,7 @@ common.ret:                                       ; preds = %13, %8, %7, %4, %1,
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15031)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15034)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15037)
-  %switch.i.i.i.i5 = icmp ult i64 %54, 2
+  %switch.i.i.i.i5 = icmp samesign ult i64 %54, 2
   br i1 %switch.i.i.i.i5, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus_names..member_name..MemberName$GT$$GT$17hef6a895ee7fd8c87E.exit6", label %57
 
 57:                                               ; preds = %56
@@ -60484,7 +60484,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Optio
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15130)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15133)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15136)
-  %switch.i.i.i.i = icmp ult i64 %2, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr61drop_in_place$LT$zbus_names..unique_name..OwnedUniqueName$GT$17hf9a2041477b38cf3E.exit", label %5
 
 5:                                                ; preds = %4
@@ -60955,7 +60955,7 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Optio
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15237)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15240)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15243)
-  %switch.i.i.i = icmp ult i64 %2, 2
+  %switch.i.i.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h12801dbe9380dfafE.exit", label %5
 
 5:                                                ; preds = %4
@@ -61117,7 +61117,7 @@ common.ret:                                       ; preds = %44, %"_ZN4core3ptr1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15305)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15308)
   %5 = load i64, ptr %0, align 8, !range !41, !alias.scope !15311, !noundef !4
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %common.ret, label %6
 
 6:                                                ; preds = %4
@@ -61413,7 +61413,7 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15464)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15467)
   %10 = load i64, ptr %9, align 8, !range !41, !alias.scope !15470, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %10, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %10, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr133drop_in_place$LT$oo7..dbus..api..session..Session..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbc804d8b303832e2E.exit", label %11
 
 11:                                               ; preds = %8
@@ -62217,7 +62217,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   call void @llvm.experimental.noalias.scope.decl(metadata !15803)
   call void @llvm.experimental.noalias.scope.decl(metadata !15806)
   call void @llvm.experimental.noalias.scope.decl(metadata !15809)
-  %switch.i.i.i.i.i.i.i = icmp ult i64 %112, 2
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i64 %112, 2
   br i1 %switch.i.i.i.i.i.i.i, label %"_ZN4core3ptr81drop_in_place$LT$zbus..address..Address..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0b184849099ecfcE.exit.i", label %115
 
 115:                                              ; preds = %114
@@ -62267,7 +62267,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   call void @llvm.experimental.noalias.scope.decl(metadata !15825)
   call void @llvm.experimental.noalias.scope.decl(metadata !15828)
   call void @llvm.experimental.noalias.scope.decl(metadata !15831)
-  %switch.i.i.i.i.i.i = icmp ult i64 %129, 2
+  %switch.i.i.i.i.i.i = icmp samesign ult i64 %129, 2
   br i1 %switch.i.i.i.i.i.i, label %"_ZN4core3ptr100drop_in_place$LT$zbus..connection..builder..Builder..target_connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1bcfb3b085ae1f25E.exit", label %132
 
 132:                                              ; preds = %131
@@ -62366,7 +62366,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15860)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15863)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15866)
-  %switch.i.i.i.i.i.i35 = icmp ult i64 %170, 2
+  %switch.i.i.i.i.i.i35 = icmp samesign ult i64 %170, 2
   br i1 %switch.i.i.i.i.i.i35, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$zbus..guid..OwnedGuid$GT$$GT$17h0569fca4f9d6896bE.exit.i", label %173
 
 173:                                              ; preds = %172
@@ -62510,7 +62510,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15933)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15936)
   %226 = load i64, ptr %225, align 8, !range !41, !alias.scope !15939, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %226, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %226, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit.i", label %227
 
 227:                                              ; preds = %224
@@ -62656,7 +62656,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15980)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15983)
   %284 = load i64, ptr %283, align 8, !range !41, !alias.scope !15986, !noundef !4
-  %switch.i.i.i32.i = icmp ult i64 %284, 2
+  %switch.i.i.i32.i = icmp samesign ult i64 %284, 2
   br i1 %switch.i.i.i32.i, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h12801dbe9380dfafE.exit.i", label %285
 
 285:                                              ; preds = %281
@@ -62679,7 +62679,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15997)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16000)
   %292 = load i64, ptr %291, align 8, !range !41, !alias.scope !16003, !noundef !4
-  %switch.i.i.i34.i = icmp ult i64 %292, 2
+  %switch.i.i.i34.i = icmp samesign ult i64 %292, 2
   br i1 %switch.i.i.i34.i, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h12801dbe9380dfafE.exit36.i", label %293
 
 293:                                              ; preds = %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit.i"
@@ -62811,7 +62811,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16037)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16040)
   %339 = load i64, ptr %338, align 8, !range !41, !alias.scope !16043, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %339, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %339, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit.i", label %340
 
 340:                                              ; preds = %"_ZN4core3ptr215drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$17h6343a83c68ed4729E.exit.i"
@@ -62840,7 +62840,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16057)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16060)
   %349 = load i64, ptr %348, align 8, !range !41, !alias.scope !16063, !noundef !4
-  %switch.i.i.i.i46.i = icmp ult i64 %349, 2
+  %switch.i.i.i.i46.i = icmp samesign ult i64 %349, 2
   br i1 %switch.i.i.i.i46.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit48.i", label %350
 
 350:                                              ; preds = %"_ZN4core3ptr215drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$17h6343a83c68ed4729E.exit44.i"
@@ -62978,7 +62978,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16083)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16086)
   %401 = load i64, ptr %400, align 8, !range !41, !alias.scope !16089, !noundef !4
-  %switch.i.i.i57.i = icmp ult i64 %401, 2
+  %switch.i.i.i57.i = icmp samesign ult i64 %401, 2
   br i1 %switch.i.i.i57.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit59.i", label %402
 
 402:                                              ; preds = %399
@@ -63006,7 +63006,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16100)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16103)
   %412 = load i64, ptr %411, align 8, !range !41, !alias.scope !16106, !noundef !4
-  %switch.i.i.i60.i = icmp ult i64 %412, 2
+  %switch.i.i.i60.i = icmp samesign ult i64 %412, 2
   br i1 %switch.i.i.i60.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit62.i", label %413
 
 413:                                              ; preds = %410
@@ -63046,7 +63046,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16114)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16117)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16120)
-  %switch.i.i.i64.i = icmp ult i64 %374, 2
+  %switch.i.i.i64.i = icmp samesign ult i64 %374, 2
   br i1 %switch.i.i.i64.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit66.i", label %428
 
 428:                                              ; preds = %427
@@ -63095,7 +63095,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16133)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16136)
   %445 = load i64, ptr %444, align 8, !range !41, !alias.scope !16139, !noundef !4
-  %switch.i.i.i69.i = icmp ult i64 %445, 2
+  %switch.i.i.i69.i = icmp samesign ult i64 %445, 2
   br i1 %switch.i.i.i69.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit71.i", label %446
 
 446:                                              ; preds = %443
@@ -63172,7 +63172,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16160)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16163)
   %475 = load i64, ptr %474, align 8, !range !41, !alias.scope !16166, !noundef !4
-  %switch.i.i.i74.i = icmp ult i64 %475, 2
+  %switch.i.i.i74.i = icmp samesign ult i64 %475, 2
   br i1 %switch.i.i.i74.i, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h12801dbe9380dfafE.exit76.i", label %476
 
 476:                                              ; preds = %473
@@ -63210,7 +63210,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16174)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16177)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16180)
-  %switch.i.i.i77.i = icmp ult i64 %377, 2
+  %switch.i.i.i77.i = icmp samesign ult i64 %377, 2
   br i1 %switch.i.i.i77.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit79.i", label %490
 
 490:                                              ; preds = %489
@@ -63233,7 +63233,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16193)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16196)
   %498 = load i64, ptr %497, align 8, !range !41, !alias.scope !16199, !noundef !4
-  %switch.i.i.i80.i = icmp ult i64 %498, 2
+  %switch.i.i.i80.i = icmp samesign ult i64 %498, 2
   br i1 %switch.i.i.i80.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit82.i", label %499
 
 499:                                              ; preds = %496
@@ -63271,7 +63271,7 @@ common.ret.sink.split.i.i.i.i.i:                  ; preds = %68, %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16220)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16223)
   %513 = load i64, ptr %512, align 8, !range !41, !alias.scope !16226, !noundef !4
-  %switch.i.i.i85.i = icmp ult i64 %513, 2
+  %switch.i.i.i85.i = icmp samesign ult i64 %513, 2
   br i1 %switch.i.i.i85.i, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h12801dbe9380dfafE.exit87.i", label %514
 
 514:                                              ; preds = %511
@@ -63327,7 +63327,7 @@ common.ret.sink.split.i:                          ; preds = %689, %543, %532
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16250)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16253)
   %531 = load i64, ptr %530, align 8, !range !41, !alias.scope !16256, !noundef !4
-  %switch.i.i.i.i54 = icmp ult i64 %531, 2
+  %switch.i.i.i.i54 = icmp samesign ult i64 %531, 2
   br i1 %switch.i.i.i.i54, label %"_ZN4core3ptr142drop_in_place$LT$zbus..connection..Connection..request_name$LT$zbus_names..well_known_name..WellKnownName$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb25bbd5af4b2739cE.exit", label %532
 
 532:                                              ; preds = %529
@@ -63357,7 +63357,7 @@ common.ret.sink.split.i:                          ; preds = %689, %543, %532
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16267)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16270)
   %542 = load i64, ptr %541, align 8, !range !41, !alias.scope !16273, !noundef !4
-  %switch.i.i.i.i.i53 = icmp ult i64 %542, 2
+  %switch.i.i.i.i.i53 = icmp samesign ult i64 %542, 2
   br i1 %switch.i.i.i.i.i53, label %"_ZN4core3ptr142drop_in_place$LT$zbus..connection..Connection..request_name$LT$zbus_names..well_known_name..WellKnownName$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb25bbd5af4b2739cE.exit", label %543
 
 543:                                              ; preds = %540
@@ -63451,7 +63451,7 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16284)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16287)
   %583 = load i64, ptr %582, align 8, !range !41, !alias.scope !16290, !noundef !4
-  %switch.i.i.i.i.i.i51 = icmp ult i64 %583, 2
+  %switch.i.i.i.i.i.i51 = icmp samesign ult i64 %583, 2
   br i1 %switch.i.i.i.i.i.i51, label %"_ZN4core3ptr84drop_in_place$LT$zbus..fdo..DBusProxy..request_name..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2dffa340025057c2E.exit.i.i", label %584
 
 584:                                              ; preds = %581
@@ -63669,7 +63669,7 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16360)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16363)
   %668 = load i64, ptr %667, align 8, !range !41, !alias.scope !16366, !noundef !4
-  %switch.i.i.i.i.i.i.i.i = icmp ult i64 %668, 2
+  %switch.i.i.i.i.i.i.i.i = icmp samesign ult i64 %668, 2
   br i1 %switch.i.i.i.i.i.i.i.i, label %.body.i.i49, label %670
 
 "_ZN4core3ptr354drop_in_place$LT$zbus..connection..Connection..call_method$LT$$RF$zbus_names..bus_name..BusName$C$$RF$str$C$$RF$zbus_names..interface_name..InterfaceName$C$$RF$str$C$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0337cd0d1c3f09a4E.exit.i.i.i.i.i": ; preds = %663, %659, %"_ZN4core3ptr96drop_in_place$LT$zbus..connection..acquire_serial_num_semaphore..$u7b$$u7b$closure$u7d$$u7d$$GT$17h152682751bf3a223E.exit.i.i.i.i.i.i.i", %598, %595
@@ -63699,7 +63699,7 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16383)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16386)
   %677 = load i64, ptr %676, align 8, !range !41, !alias.scope !16389, !noundef !4
-  %switch.i.i.i.i.i2.i.i.i = icmp ult i64 %677, 2
+  %switch.i.i.i.i.i2.i.i.i = icmp samesign ult i64 %677, 2
   br i1 %switch.i.i.i.i.i2.i.i.i, label %"_ZN4core3ptr84drop_in_place$LT$zbus..fdo..DBusProxy..request_name..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2dffa340025057c2E.exit.i.i", label %678
 
 678:                                              ; preds = %"_ZN4core3ptr273drop_in_place$LT$zbus..proxy..Proxy..call$LT$$RF$str$C$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$C$zbus..fdo..RequestNameReply$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5060648e749e3cb3E.exit.i.i.i"
@@ -63728,7 +63728,7 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16400)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16403)
   %688 = load i64, ptr %687, align 8, !range !41, !alias.scope !16406, !noundef !4
-  %switch.i.i.i19.i.i = icmp ult i64 %688, 2
+  %switch.i.i.i19.i.i = icmp samesign ult i64 %688, 2
   br i1 %switch.i.i.i19.i.i, label %"_ZN4core3ptr142drop_in_place$LT$zbus..connection..Connection..request_name$LT$zbus_names..well_known_name..WellKnownName$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb25bbd5af4b2739cE.exit", label %689
 
 689:                                              ; preds = %"_ZN4core3ptr169drop_in_place$LT$async_lock..mutex..Lock$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h51b7a23224c773f9E.exit.i.i"
@@ -63747,7 +63747,7 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16417)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16420)
   %695 = load i64, ptr %694, align 8, !range !41, !alias.scope !16423, !noundef !4
-  %switch.i.i.i21.i.i = icmp ult i64 %695, 2
+  %switch.i.i.i21.i.i = icmp samesign ult i64 %695, 2
   br i1 %switch.i.i.i21.i.i, label %.body56, label %696
 
 696:                                              ; preds = %"_ZN4core3ptr175drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h546c03a06192fbdfE.exit26.i.i"
@@ -64026,7 +64026,7 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16500)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16503)
   %790 = load i64, ptr %789, align 8, !range !41, !alias.scope !16506, !noundef !4
-  %switch.i.i.i = icmp ult i64 %790, 2
+  %switch.i.i.i = icmp samesign ult i64 %790, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h12801dbe9380dfafE.exit", label %791
 
 791:                                              ; preds = %"_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h6246fc3e166b4e53E.exit"
@@ -64054,7 +64054,7 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16517)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16520)
   %800 = load i64, ptr %799, align 8, !range !41, !alias.scope !16523, !noundef !4
-  %switch.i.i.i64 = icmp ult i64 %800, 2
+  %switch.i.i.i64 = icmp samesign ult i64 %800, 2
   br i1 %switch.i.i.i64, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h12801dbe9380dfafE.exit66", label %801
 
 801:                                              ; preds = %"_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h6246fc3e166b4e53E.exit62"
@@ -64106,7 +64106,7 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16543)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16546)
   %822 = load i64, ptr %821, align 8, !range !41, !alias.scope !16549, !noundef !4
-  %switch.i.i.i68 = icmp ult i64 %822, 2
+  %switch.i.i.i68 = icmp samesign ult i64 %822, 2
   br i1 %switch.i.i.i68, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit", label %823
 
 823:                                              ; preds = %820
@@ -64134,7 +64134,7 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16560)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16563)
   %832 = load i64, ptr %831, align 8, !range !41, !alias.scope !16566, !noundef !4
-  %switch.i.i.i70 = icmp ult i64 %832, 2
+  %switch.i.i.i70 = icmp samesign ult i64 %832, 2
   br i1 %switch.i.i.i70, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit72", label %833
 
 833:                                              ; preds = %"_ZN4core3ptr154drop_in_place$LT$std..collections..hash..map..IntoIter$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$17h9db1606cb2583578E.exit"
@@ -64430,7 +64430,7 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   call void @llvm.experimental.noalias.scope.decl(metadata !16677)
   call void @llvm.experimental.noalias.scope.decl(metadata !16680)
   call void @llvm.experimental.noalias.scope.decl(metadata !16683)
-  %switch.i.i.i.i.i81 = icmp ult i64 %950, 2
+  %switch.i.i.i.i.i81 = icmp samesign ult i64 %950, 2
   br i1 %switch.i.i.i.i.i81, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit", label %953
 
 953:                                              ; preds = %952
@@ -64541,7 +64541,7 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   call void @llvm.experimental.noalias.scope.decl(metadata !16713)
   call void @llvm.experimental.noalias.scope.decl(metadata !16716)
   call void @llvm.experimental.noalias.scope.decl(metadata !16719)
-  %switch.i.i.i.i88 = icmp ult i64 %990, 2
+  %switch.i.i.i.i88 = icmp samesign ult i64 %990, 2
   br i1 %switch.i.i.i.i88, label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E.exit", label %993
 
 993:                                              ; preds = %992
@@ -64635,7 +64635,7 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   call void @llvm.experimental.noalias.scope.decl(metadata !16732)
   call void @llvm.experimental.noalias.scope.decl(metadata !16735)
   call void @llvm.experimental.noalias.scope.decl(metadata !16738)
-  %switch.i.i.i.i92 = icmp ult i64 %1031, 2
+  %switch.i.i.i.i92 = icmp samesign ult i64 %1031, 2
   br i1 %switch.i.i.i.i92, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17hbecdb26fd9bebea7E.exit", label %1034
 
 1034:                                             ; preds = %1033
@@ -64893,7 +64893,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr62drop
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16826)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16829)
   %24 = load i64, ptr %23, align 8, !range !41, !alias.scope !16832, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %24, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %24, 2
   br i1 %switch.i.i.i.i, label %common.ret, label %25
 
 25:                                               ; preds = %22
@@ -65001,7 +65001,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr62drop
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16869)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16872)
   %66 = load i64, ptr %65, align 8, !range !41, !alias.scope !16875, !noundef !4
-  %switch.i.i.i13.i = icmp ult i64 %66, 2
+  %switch.i.i.i13.i = icmp samesign ult i64 %66, 2
   br i1 %switch.i.i.i13.i, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h12801dbe9380dfafE.exit15.i", label %67
 
 67:                                               ; preds = %64
@@ -65048,7 +65048,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr62drop
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16886)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16889)
   %84 = load i64, ptr %83, align 8, !range !41, !alias.scope !16892, !noundef !4
-  %switch.i.i.i16.i = icmp ult i64 %84, 2
+  %switch.i.i.i16.i = icmp samesign ult i64 %84, 2
   br i1 %switch.i.i.i16.i, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h12801dbe9380dfafE.exit18.i", label %85
 
 85:                                               ; preds = %82
@@ -65661,7 +65661,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17128)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17131)
   %26 = load i64, ptr %25, align 8, !range !41, !alias.scope !17134, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %26, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %26, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr106drop_in_place$LT$zbus..proxy..Proxy..call_method$LT$$RF$str$C$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4581d3d48ef14227E.exit", label %27
 
 27:                                               ; preds = %24
@@ -65782,7 +65782,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr89
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17153)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17156)
   %26 = load i64, ptr %25, align 8, !range !41, !alias.scope !17159, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %26, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %26, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr133drop_in_place$LT$oo7..dbus..api..session..Session..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbc804d8b303832e2E.exit", label %27
 
 27:                                               ; preds = %24
@@ -79336,7 +79336,7 @@ define internal fastcc void @"_ZN4zbus5proxy12SignalStream3new28_$u7b$$u7b$closu
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %switch = icmp ult i64 %8, 4
+  %switch = icmp samesign ult i64 %8, 4
   br i1 %switch, label %10, label %11
 
 10:                                               ; preds = %7, %11, %25, %1
@@ -79597,7 +79597,7 @@ common.ret:                                       ; preds = %94, %"_ZN4core3ptr8
           to label %.noexc24 unwind label %86
 
 .noexc24:                                         ; preds = %79
-  %switch.i.i = icmp ult i8 %84, 2
+  %switch.i.i = icmp samesign ult i8 %84, 2
   br i1 %switch.i.i, label %88, label %85
 
 85:                                               ; preds = %.noexc24
@@ -81039,7 +81039,7 @@ default.unreachable197:                           ; preds = %1249, %1136, %845, 
   %206 = load i64, ptr %205, align 8, !range !41, !alias.scope !22908, !noalias !22880, !noundef !4
   %207 = getelementptr inbounds i8, ptr %162, i64 16
   %208 = load ptr, ptr %207, align 8, !alias.scope !22908, !noalias !22880, !nonnull !4, !noundef !4
-  %switch.i.i = icmp ult i64 %206, 2
+  %switch.i.i = icmp samesign ult i64 %206, 2
   %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
   %spec.select.i.i = getelementptr inbounds i8, ptr %208, i64 %spec.select.idx.i.i
   %.sroa.4.0.in.i.i = getelementptr inbounds i8, ptr %162, i64 24
@@ -83064,7 +83064,7 @@ common.ret:                                       ; preds = %2115, %"_ZN4core3pt
   call void @llvm.experimental.noalias.scope.decl(metadata !23179)
   call void @llvm.experimental.noalias.scope.decl(metadata !23182)
   call void @llvm.experimental.noalias.scope.decl(metadata !23185)
-  %switch.i.i.i.i = icmp ult i64 %825, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %825, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus_names..member_name..MemberName$GT$$GT$17hef6a895ee7fd8c87E.exit", label %828
 
 828:                                              ; preds = %827
@@ -83514,7 +83514,7 @@ common.ret:                                       ; preds = %2115, %"_ZN4core3pt
   call void @llvm.experimental.noalias.scope.decl(metadata !23236)
   call void @llvm.experimental.noalias.scope.decl(metadata !23239)
   call void @llvm.experimental.noalias.scope.decl(metadata !23242)
-  %switch.i.i.i.i.i = icmp ult i64 %911, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %911, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus_names..member_name..MemberName$GT$$GT$17hef6a895ee7fd8c87E.exit.i", label %914
 
 914:                                              ; preds = %913
@@ -83912,7 +83912,7 @@ common.ret:                                       ; preds = %2115, %"_ZN4core3pt
   %1002 = load i64, ptr %959, align 8, !range !41, !alias.scope !23284, !noalias !23195, !noundef !4
   %1003 = getelementptr inbounds i8, ptr %1, i64 424
   %1004 = load ptr, ptr %1003, align 8, !alias.scope !23284, !noalias !23195, !nonnull !4, !noundef !4
-  %switch.i.i45 = icmp ult i64 %1002, 2
+  %switch.i.i45 = icmp samesign ult i64 %1002, 2
   %spec.select.idx.i.i46 = select i1 %switch.i.i45, i64 0, i64 16
   %spec.select.i.i47 = getelementptr inbounds i8, ptr %1004, i64 %spec.select.idx.i.i46
   %.sroa.4.0.in.i.i48 = getelementptr inbounds i8, ptr %1, i64 432
@@ -84092,7 +84092,7 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17h0d46b5b9b4e3f4b6E.exit.i50: ; pre
   call void @llvm.experimental.noalias.scope.decl(metadata !23305)
   call void @llvm.experimental.noalias.scope.decl(metadata !23308)
   %1027 = load i64, ptr %1026, align 8, !range !41, !alias.scope !23311, !noalias !23195, !noundef !4
-  %switch.i.i.i.i21 = icmp ult i64 %1027, 2
+  %switch.i.i.i.i21 = icmp samesign ult i64 %1027, 2
   br i1 %switch.i.i.i.i21, label %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h6c01cc6b8e8695e2E.exit.i", label %1028
 
 1028:                                             ; preds = %1022
@@ -84121,7 +84121,7 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17h0d46b5b9b4e3f4b6E.exit.i50: ; pre
   call void @llvm.experimental.noalias.scope.decl(metadata !23323)
   call void @llvm.experimental.noalias.scope.decl(metadata !23326)
   %1039 = load i64, ptr %1038, align 8, !range !41, !alias.scope !23329, !noalias !23195, !noundef !4
-  %switch.i.i.i209.i = icmp ult i64 %1039, 2
+  %switch.i.i.i209.i = icmp samesign ult i64 %1039, 2
   br i1 %switch.i.i.i209.i, label %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h6c01cc6b8e8695e2E.exit211.i", label %1040
 
 1040:                                             ; preds = %1034
@@ -84452,7 +84452,7 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17h0d46b5b9b4e3f4b6E.exit.i50: ; pre
   call void @llvm.experimental.noalias.scope.decl(metadata !23357)
   call void @llvm.experimental.noalias.scope.decl(metadata !23360)
   call void @llvm.experimental.noalias.scope.decl(metadata !23363)
-  %switch.i.i.i.i221.i = icmp ult i64 %1120, 2
+  %switch.i.i.i.i221.i = icmp samesign ult i64 %1120, 2
   br i1 %switch.i.i.i.i221.i, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..UniqueName$GT$$GT$17h02349f016d799ca3E.exit.i", label %1123
 
 1123:                                             ; preds = %1122
@@ -86028,7 +86028,7 @@ _ZN4zbus7message7Message6method17h2bba1c6a734a47a5E.exit.i.i: ; preds = %"_ZN4co
   br i1 %1595, label %1603, label %1596
 
 1596:                                             ; preds = %.noexc246.i
-  %.not.i.i.i.i23 = icmp ult i64 %1594, 2
+  %.not.i.i.i.i23 = icmp samesign ult i64 %1594, 2
   br i1 %.not.i.i.i.i23, label %1600, label %.thread930.i
 
 .thread930.i:                                     ; preds = %1596
@@ -86466,7 +86466,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h95068513
   call void @llvm.experimental.noalias.scope.decl(metadata !23579)
   call void @llvm.experimental.noalias.scope.decl(metadata !23582)
   %1714 = load i64, ptr %60, align 8, !range !41, !alias.scope !23585, !noalias !23195, !noundef !4
-  %switch.i.i.i265.i = icmp ult i64 %1714, 2
+  %switch.i.i.i265.i = icmp samesign ult i64 %1714, 2
   br i1 %switch.i.i.i265.i, label %"_ZN4core3ptr56drop_in_place$LT$zbus_names..unique_name..UniqueName$GT$17h64506fc52400a09eE.exit.i", label %1715
 
 1715:                                             ; preds = %1712
@@ -86489,7 +86489,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h95068513
   call void @llvm.experimental.noalias.scope.decl(metadata !23597)
   call void @llvm.experimental.noalias.scope.decl(metadata !23600)
   %1721 = load i64, ptr %60, align 8, !range !41, !alias.scope !23603, !noalias !23195, !noundef !4
-  %switch.i.i.i267.i = icmp ult i64 %1721, 2
+  %switch.i.i.i267.i = icmp samesign ult i64 %1721, 2
   br i1 %switch.i.i.i267.i, label %"_ZN4core3ptr56drop_in_place$LT$zbus_names..unique_name..UniqueName$GT$17h64506fc52400a09eE.exit269.i", label %1722
 
 1722:                                             ; preds = %1720
@@ -86630,7 +86630,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h95068513
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %58), !noalias !23195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %58, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4587.0..sroa_idx.i, i64 72, i1 false), !noalias !23195
   %1757 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hc22d9c5b20821beaE monotonic, align 8, !noalias !23195
-  %1758 = icmp ult i64 %1757, 2
+  %1758 = icmp samesign ult i64 %1757, 2
   br i1 %1758, label %1759, label %1771
 
 1759:                                             ; preds = %1756
@@ -86668,7 +86668,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h95068513
   %1774 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !23195
   %1775 = icmp ult i64 %1774, 6
   call void @llvm.assume(i1 %1775)
-  %switch.i276.i = icmp ugt i64 %1774, 3
+  %switch.i276.i = icmp samesign ugt i64 %1774, 3
   br i1 %switch.i276.i, label %1778, label %1820
 
 1776:                                             ; preds = %1778
@@ -87453,7 +87453,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h95068513
   call void @llvm.experimental.noalias.scope.decl(metadata !23756)
   call void @llvm.experimental.noalias.scope.decl(metadata !23759)
   %2015 = load i64, ptr %2014, align 8, !range !41, !alias.scope !23762, !noalias !23195, !noundef !4
-  %switch.i.i.i329.i = icmp ult i64 %2015, 2
+  %switch.i.i.i329.i = icmp samesign ult i64 %2015, 2
   br i1 %switch.i.i.i329.i, label %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h6c01cc6b8e8695e2E.exit331.i", label %2016
 
 2016:                                             ; preds = %2004
@@ -87516,7 +87516,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h95068513
   call void @llvm.experimental.noalias.scope.decl(metadata !23774)
   call void @llvm.experimental.noalias.scope.decl(metadata !23777)
   call void @llvm.experimental.noalias.scope.decl(metadata !23780)
-  %switch.i.i.i.i333.i = icmp ult i64 %2036, 2
+  %switch.i.i.i.i333.i = icmp samesign ult i64 %2036, 2
   br i1 %switch.i.i.i.i333.i, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..UniqueName$GT$$GT$17h02349f016d799ca3E.exit335.i", label %2039
 
 2039:                                             ; preds = %2038
@@ -87916,7 +87916,7 @@ default.unreachable48:                            ; preds = %153, %124, %99, %85
   %45 = load i64, ptr %44, align 8, !range !41, !alias.scope !23836, !noalias !23839, !noundef !4
   %46 = getelementptr inbounds i8, ptr %.val, i64 112
   %47 = load ptr, ptr %46, align 8, !alias.scope !23836, !noalias !23839, !nonnull !4, !noundef !4
-  %switch = icmp ult i64 %45, 2
+  %switch = icmp samesign ult i64 %45, 2
   %spec.select = select i1 %switch, i64 %45, i64 1
   %spec.select50.idx = select i1 %switch, i64 0, i64 16
   %spec.select50 = getelementptr inbounds i8, ptr %47, i64 %spec.select50.idx
@@ -88034,7 +88034,7 @@ default.unreachable48:                            ; preds = %153, %124, %99, %85
   call void @llvm.experimental.noalias.scope.decl(metadata !23867)
   call void @llvm.experimental.noalias.scope.decl(metadata !23870)
   %76 = load i64, ptr %75, align 8, !range !41, !alias.scope !23873, !noalias !23854, !noundef !4
-  %switch.i.i.i.i.i.i = icmp ult i64 %76, 2
+  %switch.i.i.i.i.i.i = icmp samesign ult i64 %76, 2
   br i1 %switch.i.i.i.i.i.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..owned_value..OwnedValue$GT$17h25cd3d0ac014c83eE.exit.i", label %77
 
 77:                                               ; preds = %72
@@ -88174,7 +88174,7 @@ default.unreachable48:                            ; preds = %153, %124, %99, %85
   %115 = load i64, ptr %114, align 8, !range !41, !alias.scope !23892, !noalias !23891, !noundef !4
   %116 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 88
   %117 = load ptr, ptr %116, align 8, !alias.scope !23892, !noalias !23891, !nonnull !4, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %115, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %115, 2
   %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
   %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %117, i64 %spec.select.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i, i64 96
@@ -89776,7 +89776,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h3c34b4a8
   call void @llvm.experimental.noalias.scope.decl(metadata !24111)
   call void @llvm.experimental.noalias.scope.decl(metadata !24114)
   %675 = load i64, ptr %674, align 8, !range !41, !alias.scope !24117, !noalias !23854, !noundef !4
-  %switch.i.i.i.i.i14.i = icmp ult i64 %675, 2
+  %switch.i.i.i.i.i14.i = icmp samesign ult i64 %675, 2
   br i1 %switch.i.i.i.i.i14.i, label %"_ZN4core3ptr117drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..interface_name..InterfaceName$C$$RF$str$RP$$GT$$GT$17h3a8a70e47c23325eE.exit16.i", label %676
 
 676:                                              ; preds = %673
@@ -89841,7 +89841,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h3c34b4a8
   call void @llvm.experimental.noalias.scope.decl(metadata !24141)
   call void @llvm.experimental.noalias.scope.decl(metadata !24144)
   %692 = load i64, ptr %691, align 8, !range !41, !alias.scope !24147, !noalias !23854, !noundef !4
-  %switch.i.i.i.i.i19.i = icmp ult i64 %692, 2
+  %switch.i.i.i.i.i19.i = icmp samesign ult i64 %692, 2
   br i1 %switch.i.i.i.i.i19.i, label %706, label %693
 
 693:                                              ; preds = %690
@@ -90100,7 +90100,7 @@ default.unreachable65:                            ; preds = %88, %67, %42, %3
   %58 = load i64, ptr %57, align 8, !range !41, !alias.scope !24193, !noalias !24192, !noundef !4
   %59 = getelementptr inbounds i8, ptr %.val.i, i64 88
   %60 = load ptr, ptr %59, align 8, !alias.scope !24193, !noalias !24192, !nonnull !4, !noundef !4
-  %switch.i.i = icmp ult i64 %58, 2
+  %switch.i.i = icmp samesign ult i64 %58, 2
   %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
   %spec.select.i.i = getelementptr inbounds i8, ptr %60, i64 %spec.select.idx.i.i
   %.sroa.4.0.in.i.i = getelementptr inbounds i8, ptr %.val.i, i64 96
@@ -95550,7 +95550,7 @@ common.resume:                                    ; preds = %85, %59, %26
   unreachable
 
 36:                                               ; preds = %33
-  %37 = icmp ult i8 %29, 12
+  %37 = icmp samesign ult i8 %29, 12
   %switch8.i = icmp eq i8 %29, 13
   %switch.i = or i1 %37, %switch8.i
   br i1 %switch.i, label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h28cad858bd9efe40E.exit", label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h28cad858bd9efe40E.exit.thread"
@@ -95634,7 +95634,7 @@ common.resume:                                    ; preds = %85, %59, %26
 65:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9)
   %66 = load i8, ptr %10, align 8, !range !11101, !noalias !24802, !noundef !4
-  %67 = icmp ult i8 %66, 12
+  %67 = icmp samesign ult i8 %66, 12
   %switch8.i42 = icmp eq i8 %66, 13
   %switch.i43 = or i1 %67, %switch8.i42
   br i1 %switch.i43, label %68, label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h28cad858bd9efe40E.exit44.thread"
@@ -95839,7 +95839,7 @@ common.resume:                                    ; preds = %85, %59, %26
   unreachable
 
 36:                                               ; preds = %33
-  %37 = icmp ult i8 %29, 12
+  %37 = icmp samesign ult i8 %29, 12
   %switch8.i = icmp eq i8 %29, 13
   %switch.i = or i1 %37, %switch8.i
   br i1 %switch.i, label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h28cad858bd9efe40E.exit", label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h28cad858bd9efe40E.exit.thread"
@@ -95923,7 +95923,7 @@ common.resume:                                    ; preds = %85, %59, %26
 65:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9)
   %66 = load i8, ptr %10, align 8, !range !11101, !noalias !24820, !noundef !4
-  %67 = icmp ult i8 %66, 12
+  %67 = icmp samesign ult i8 %66, 12
   %switch8.i42 = icmp eq i8 %66, 13
   %switch.i43 = or i1 %67, %switch8.i42
   br i1 %switch.i43, label %68, label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h28cad858bd9efe40E.exit44.thread"
@@ -96705,7 +96705,7 @@ common.ret:                                       ; preds = %321, %"_ZN4core3ptr
   br i1 %199, label %203, label %200
 
 200:                                              ; preds = %198
-  %201 = icmp ult i8 %194, 12
+  %201 = icmp samesign ult i8 %194, 12
   %switch8.i.i.i.i.i = icmp eq i8 %194, 13
   %switch.i.i.i.i.i = or i1 %201, %switch8.i.i.i.i.i
   br i1 %switch.i.i.i.i.i, label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h832a8abfbc0b637fE.exit.i.i.i.i", label %.noexc31.invoke.i.i
@@ -96770,7 +96770,7 @@ common.ret:                                       ; preds = %321, %"_ZN4core3ptr
 224:                                              ; preds = %213
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9), !noalias !24924
   %225 = load i8, ptr %.val.i.i, align 8, !range !11101, !noalias !24925, !noundef !4
-  %226 = icmp ult i8 %225, 12
+  %226 = icmp samesign ult i8 %225, 12
   %switch8.i42.i.i.i.i = icmp eq i8 %225, 13
   %switch.i43.i.i.i.i = or i1 %226, %switch8.i42.i.i.i.i
   br i1 %switch.i43.i.i.i.i, label %227, label %.noexc31.invoke.i.i
@@ -97920,7 +97920,7 @@ common.ret:                                       ; preds = %321, %"_ZN4core3ptr
   br i1 %199, label %203, label %200
 
 200:                                              ; preds = %198
-  %201 = icmp ult i8 %194, 12
+  %201 = icmp samesign ult i8 %194, 12
   %switch8.i.i.i.i.i = icmp eq i8 %194, 13
   %switch.i.i.i.i.i = or i1 %201, %switch8.i.i.i.i.i
   br i1 %switch.i.i.i.i.i, label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h832a8abfbc0b637fE.exit.i.i.i.i", label %.noexc31.invoke.i.i
@@ -97985,7 +97985,7 @@ common.ret:                                       ; preds = %321, %"_ZN4core3ptr
 224:                                              ; preds = %213
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9), !noalias !25119
   %225 = load i8, ptr %.val.i.i, align 8, !range !11101, !noalias !25120, !noundef !4
-  %226 = icmp ult i8 %225, 12
+  %226 = icmp samesign ult i8 %225, 12
   %switch8.i42.i.i.i.i = icmp eq i8 %225, 13
   %switch.i43.i.i.i.i = or i1 %226, %switch8.i42.i.i.i.i
   br i1 %switch.i43.i.i.i.i, label %227, label %.noexc31.invoke.i.i
@@ -99670,7 +99670,7 @@ default.unreachable70:                            ; preds = %.noexc23.i, %208, %
   %98 = load i64, ptr %88, align 8, !range !41, !alias.scope !25324, !noalias !25320, !noundef !4
   %99 = getelementptr inbounds i8, ptr %88, i64 8
   %100 = load ptr, ptr %99, align 8, !alias.scope !25324, !noalias !25320, !nonnull !4, !noundef !4
-  %switch.i.i = icmp ult i64 %98, 2
+  %switch.i.i = icmp samesign ult i64 %98, 2
   %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
   %spec.select.i.i = getelementptr inbounds i8, ptr %100, i64 %spec.select.idx.i.i
   %.sroa.4.0.in.i.i = getelementptr inbounds i8, ptr %88, i64 16
@@ -100855,7 +100855,7 @@ common.ret:                                       ; preds = %600, %177, %170
   call void @llvm.experimental.noalias.scope.decl(metadata !25530)
   call void @llvm.experimental.noalias.scope.decl(metadata !25533)
   %466 = load i64, ptr %465, align 8, !range !41, !alias.scope !25536, !noalias !25432, !noundef !4
-  %switch.i.i.i.i.i.i = icmp ult i64 %466, 2
+  %switch.i.i.i.i.i.i = icmp samesign ult i64 %466, 2
   br i1 %switch.i.i.i.i.i.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit.i.i.i", label %467
 
 467:                                              ; preds = %464
@@ -100896,7 +100896,7 @@ common.ret:                                       ; preds = %600, %177, %170
   call void @llvm.experimental.noalias.scope.decl(metadata !25548)
   call void @llvm.experimental.noalias.scope.decl(metadata !25551)
   %484 = load i64, ptr %483, align 8, !range !41, !alias.scope !25554, !noalias !25432, !noundef !4
-  %switch.i.i.i61.i.i.i = icmp ult i64 %484, 2
+  %switch.i.i.i61.i.i.i = icmp samesign ult i64 %484, 2
   br i1 %switch.i.i.i61.i.i.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit63.i.i.i", label %485
 
 485:                                              ; preds = %482
@@ -102815,7 +102815,7 @@ default.unreachable:                              ; preds = %.noexc211, %.noexc2
   ]
 
 203:                                              ; preds = %197
-  %204 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i, 127
+  %204 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i, 127
   br i1 %204, label %205, label %225
 
 205:                                              ; preds = %203
@@ -103818,7 +103818,7 @@ define internal fastcc noundef zeroext i1 @"_ZN61_$LT$std..path..Component$u20$a
   %7 = add nsw i64 %6, -5
   %8 = select i1 %5, i64 %7, i64 0
   %9 = load i8, ptr %1, align 8, !range !1902, !noundef !4
-  %10 = icmp ult i8 %9, 6
+  %10 = icmp samesign ult i8 %9, 6
   %11 = zext nneg i8 %9 to i64
   %12 = add nsw i64 %11, -5
   %13 = select i1 %10, i64 0, i64 %12
@@ -105283,7 +105283,7 @@ define internal fastcc void @"_ZN66_$LT$zbus..match_rule..MatchRule$u20$as$u20$c
   %20 = load i64, ptr %16, align 8, !range !41, !alias.scope !26602, !noalias !26603, !noundef !4
   %21 = load ptr, ptr %17, align 8, !alias.scope !26602, !noalias !26603, !nonnull !4, !noundef !4
   %22 = load i64, ptr %18, align 8, !alias.scope !26602, !noalias !26603, !noundef !4
-  %switch18.i = icmp ult i64 %20, 2
+  %switch18.i = icmp samesign ult i64 %20, 2
   br i1 %switch18.i, label %"_ZN68_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..clone..Clone$GT$5clone17h5c8820590881cc8dE.exit", label %23
 
 23:                                               ; preds = %19
@@ -105300,7 +105300,7 @@ define internal fastcc void @"_ZN66_$LT$zbus..match_rule..MatchRule$u20$as$u20$c
   %28 = load i64, ptr %16, align 8, !range !41, !alias.scope !26610, !noalias !26611, !noundef !4
   %29 = load ptr, ptr %17, align 8, !alias.scope !26610, !noalias !26611, !nonnull !4, !noundef !4
   %30 = load i64, ptr %18, align 8, !alias.scope !26610, !noalias !26611, !noundef !4
-  %switch19.i = icmp ult i64 %28, 2
+  %switch19.i = icmp samesign ult i64 %28, 2
   br i1 %switch19.i, label %"_ZN68_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..clone..Clone$GT$5clone17h5c8820590881cc8dE.exit", label %31
 
 31:                                               ; preds = %27
@@ -105343,7 +105343,7 @@ define internal fastcc void @"_ZN66_$LT$zbus..match_rule..MatchRule$u20$as$u20$c
   %42 = load ptr, ptr %41, align 8, !alias.scope !26614, !noalias !26617, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds i8, ptr %1, i64 80
   %44 = load i64, ptr %43, align 8, !alias.scope !26614, !noalias !26617, !noundef !4
-  %switch = icmp ult i64 %37, 2
+  %switch = icmp samesign ult i64 %37, 2
   br i1 %switch, label %"_ZN59_$LT$zvariant..str..Inner$u20$as$u20$core..clone..Clone$GT$5clone17h35dd4821a49f3e93E.exit", label %45
 
 45:                                               ; preds = %40
@@ -105384,7 +105384,7 @@ define internal fastcc void @"_ZN66_$LT$zbus..match_rule..MatchRule$u20$as$u20$c
   %57 = load ptr, ptr %56, align 8, !alias.scope !26620, !noalias !26623, !nonnull !4, !noundef !4
   %58 = getelementptr inbounds i8, ptr %1, i64 104
   %59 = load i64, ptr %58, align 8, !alias.scope !26620, !noalias !26623, !noundef !4
-  %switch63 = icmp ult i64 %51, 2
+  %switch63 = icmp samesign ult i64 %51, 2
   br i1 %switch63, label %"_ZN59_$LT$zvariant..str..Inner$u20$as$u20$core..clone..Clone$GT$5clone17h35dd4821a49f3e93E.exit13", label %60
 
 60:                                               ; preds = %55
@@ -105432,7 +105432,7 @@ define internal fastcc void @"_ZN66_$LT$zbus..match_rule..MatchRule$u20$as$u20$c
   %75 = load i64, ptr %71, align 8, !range !41, !alias.scope !26632, !noalias !26633, !noundef !4
   %76 = load ptr, ptr %72, align 8, !alias.scope !26632, !noalias !26633, !nonnull !4, !noundef !4
   %77 = load i64, ptr %73, align 8, !alias.scope !26632, !noalias !26633, !noundef !4
-  %switch18.i15 = icmp ult i64 %75, 2
+  %switch18.i15 = icmp samesign ult i64 %75, 2
   br i1 %switch18.i15, label %"_ZN65_$LT$zbus..match_rule..PathSpec$u20$as$u20$core..clone..Clone$GT$5clone17h817d3287dcc9aa7dE.exit", label %78
 
 78:                                               ; preds = %74
@@ -105449,7 +105449,7 @@ define internal fastcc void @"_ZN66_$LT$zbus..match_rule..MatchRule$u20$as$u20$c
   %83 = load i64, ptr %71, align 8, !range !41, !alias.scope !26640, !noalias !26641, !noundef !4
   %84 = load ptr, ptr %72, align 8, !alias.scope !26640, !noalias !26641, !nonnull !4, !noundef !4
   %85 = load i64, ptr %73, align 8, !alias.scope !26640, !noalias !26641, !noundef !4
-  %switch19.i22 = icmp ult i64 %83, 2
+  %switch19.i22 = icmp samesign ult i64 %83, 2
   br i1 %switch19.i22, label %"_ZN65_$LT$zbus..match_rule..PathSpec$u20$as$u20$core..clone..Clone$GT$5clone17h817d3287dcc9aa7dE.exit", label %86
 
 86:                                               ; preds = %82
@@ -105496,7 +105496,7 @@ define internal fastcc void @"_ZN66_$LT$zbus..match_rule..MatchRule$u20$as$u20$c
   %98 = load ptr, ptr %97, align 8, !alias.scope !26644, !noalias !26647, !nonnull !4, !noundef !4
   %99 = getelementptr inbounds i8, ptr %1, i64 128
   %100 = load i64, ptr %99, align 8, !alias.scope !26644, !noalias !26647, !noundef !4
-  %switch65 = icmp ult i64 %92, 2
+  %switch65 = icmp samesign ult i64 %92, 2
   br i1 %switch65, label %"_ZN59_$LT$zvariant..str..Inner$u20$as$u20$core..clone..Clone$GT$5clone17h35dd4821a49f3e93E.exit24", label %101
 
 101:                                              ; preds = %96
@@ -105566,7 +105566,7 @@ define internal fastcc void @"_ZN66_$LT$zbus..match_rule..MatchRule$u20$as$u20$c
   %125 = load ptr, ptr %124, align 8, !alias.scope !26660, !noalias !26663, !nonnull !4, !noundef !4
   %126 = getelementptr inbounds i8, ptr %1, i64 152
   %127 = load i64, ptr %126, align 8, !alias.scope !26660, !noalias !26663, !noundef !4
-  %switch67 = icmp ult i64 %121, 2
+  %switch67 = icmp samesign ult i64 %121, 2
   br i1 %switch67, label %"_ZN59_$LT$zvariant..str..Inner$u20$as$u20$core..clone..Clone$GT$5clone17h35dd4821a49f3e93E.exit26", label %128
 
 128:                                              ; preds = %123
@@ -107248,7 +107248,7 @@ select.unfold.i.i:                                ; preds = %84
   %88 = zext i1 %87 to i64
   %89 = select i1 %87, i32 0, i32 1000000000
   %90 = udiv i32 %89, %85
-  %91 = icmp ugt i32 %90, 999999999
+  %91 = icmp samesign ugt i32 %90, 999999999
   %92 = zext i1 %91 to i64
   %.sroa.0.0.i.i.i.i = add nuw nsw i64 %92, %88
   %spec.select.i.i = select i1 %91, i32 0, i32 %90
@@ -109420,7 +109420,7 @@ define hidden void @_ZN8zvariant2de15deserialize_any17h217451aaec49c0a1E(ptr dea
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27186)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27189)
   %41 = load i64, ptr %3, align 8, !range !41, !alias.scope !27192, !noundef !4
-  %switch.i.i.i = icmp ult i64 %41, 2
+  %switch.i.i.i = icmp samesign ult i64 %41, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr77drop_in_place$LT$zvariant..value..ValueSeed$LT$zvariant..value..Value$GT$$GT$17ha05ad376eb54817dE.exit", label %42
 
 42:                                               ; preds = %39
@@ -109444,7 +109444,7 @@ define hidden void @_ZN8zvariant2de15deserialize_any17h217451aaec49c0a1E(ptr dea
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27203)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27206)
   %49 = load i64, ptr %3, align 8, !range !41, !alias.scope !27209, !noundef !4
-  %switch.i.i.i4 = icmp ult i64 %49, 2
+  %switch.i.i.i4 = icmp samesign ult i64 %49, 2
   br i1 %switch.i.i.i4, label %"_ZN4core3ptr77drop_in_place$LT$zvariant..value..ValueSeed$LT$zvariant..value..Value$GT$$GT$17ha05ad376eb54817dE.exit5", label %50
 
 50:                                               ; preds = %48
@@ -110058,7 +110058,7 @@ define hidden void @_ZN8zvariant2de15deserialize_any17hd71f5fa9d8181002E(ptr dea
   call void @llvm.experimental.noalias.scope.decl(metadata !27249)
   call void @llvm.experimental.noalias.scope.decl(metadata !27252)
   %45 = load i64, ptr %9, align 8, !range !41, !alias.scope !27255, !noalias !27235, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %45, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %45, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr77drop_in_place$LT$zvariant..value..ValueSeed$LT$zvariant..value..Value$GT$$GT$17ha05ad376eb54817dE.exit6", label %46
 
 46:                                               ; preds = %43
@@ -110086,7 +110086,7 @@ define hidden void @_ZN8zvariant2de15deserialize_any17hd71f5fa9d8181002E(ptr dea
   call void @llvm.experimental.noalias.scope.decl(metadata !27268)
   call void @llvm.experimental.noalias.scope.decl(metadata !27271)
   %54 = load i64, ptr %9, align 8, !range !41, !alias.scope !27274, !noalias !27235, !noundef !4
-  %switch.i.i.i1.i = icmp ult i64 %54, 2
+  %switch.i.i.i1.i = icmp samesign ult i64 %54, 2
   br i1 %switch.i.i.i1.i, label %"_ZN97_$LT$$RF$mut$u20$zvariant..dbus..de..Deserializer$LT$F$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h5856e1d82b3875a5E.exit", label %55
 
 55:                                               ; preds = %52
@@ -110126,7 +110126,7 @@ define hidden void @_ZN8zvariant2de15deserialize_any17hd71f5fa9d8181002E(ptr dea
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27286)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27289)
   %65 = load i64, ptr %3, align 8, !range !41, !alias.scope !27292, !noundef !4
-  %switch.i.i.i = icmp ult i64 %65, 2
+  %switch.i.i.i = icmp samesign ult i64 %65, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr77drop_in_place$LT$zvariant..value..ValueSeed$LT$zvariant..value..Value$GT$$GT$17ha05ad376eb54817dE.exit", label %66
 
 66:                                               ; preds = %63
@@ -110150,7 +110150,7 @@ define hidden void @_ZN8zvariant2de15deserialize_any17hd71f5fa9d8181002E(ptr dea
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27303)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27306)
   %73 = load i64, ptr %3, align 8, !range !41, !alias.scope !27309, !noundef !4
-  %switch.i.i.i4 = icmp ult i64 %73, 2
+  %switch.i.i.i4 = icmp samesign ult i64 %73, 2
   br i1 %switch.i.i.i4, label %"_ZN4core3ptr77drop_in_place$LT$zvariant..value..ValueSeed$LT$zvariant..value..Value$GT$$GT$17ha05ad376eb54817dE.exit6", label %74
 
 74:                                               ; preds = %72
@@ -111611,7 +111611,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h0215a018e787b733E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !27482)
   call void @llvm.experimental.noalias.scope.decl(metadata !27485)
   %96 = load i64, ptr %27, align 8, !range !41, !alias.scope !27488, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %96, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %96, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %97
 
 97:                                               ; preds = %93
@@ -111644,7 +111644,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h0215a018e787b733E(ptr de
 108:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !27500)
   call void @llvm.experimental.noalias.scope.decl(metadata !27503)
-  %switch.i.i.i1.i.i = icmp ult i64 %106, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %106, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %109
 
 109:                                              ; preds = %108
@@ -111676,7 +111676,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h0215a018e787b733E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !27523)
   call void @llvm.experimental.noalias.scope.decl(metadata !27526)
   %118 = load i64, ptr %27, align 8, !range !41, !alias.scope !27529, !noundef !4
-  %switch.i.i.i.i.i38 = icmp ult i64 %118, 2
+  %switch.i.i.i.i.i38 = icmp samesign ult i64 %118, 2
   br i1 %switch.i.i.i.i.i38, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i39", label %119
 
 119:                                              ; preds = %117
@@ -111709,7 +111709,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h0215a018e787b733E(ptr de
 130:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i39"
   call void @llvm.experimental.noalias.scope.decl(metadata !27541)
   call void @llvm.experimental.noalias.scope.decl(metadata !27544)
-  %switch.i.i.i1.i.i40 = icmp ult i64 %128, 2
+  %switch.i.i.i1.i.i40 = icmp samesign ult i64 %128, 2
   br i1 %switch.i.i.i1.i.i40, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit44", label %131
 
 131:                                              ; preds = %130
@@ -111981,7 +111981,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h0215a018e787b733E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !27622)
   call void @llvm.experimental.noalias.scope.decl(metadata !27625)
   %214 = load i64, ptr %24, align 8, !range !41, !alias.scope !27628, !noundef !4
-  %switch.i.i.i.i.i54 = icmp ult i64 %214, 2
+  %switch.i.i.i.i.i54 = icmp samesign ult i64 %214, 2
   br i1 %switch.i.i.i.i.i54, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i55", label %215
 
 215:                                              ; preds = %211
@@ -112014,7 +112014,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h0215a018e787b733E(ptr de
 226:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i55"
   call void @llvm.experimental.noalias.scope.decl(metadata !27640)
   call void @llvm.experimental.noalias.scope.decl(metadata !27643)
-  %switch.i.i.i1.i.i56 = icmp ult i64 %224, 2
+  %switch.i.i.i1.i.i56 = icmp samesign ult i64 %224, 2
   br i1 %switch.i.i.i1.i.i56, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %227
 
 227:                                              ; preds = %226
@@ -112046,7 +112046,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h0215a018e787b733E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !27663)
   call void @llvm.experimental.noalias.scope.decl(metadata !27666)
   %236 = load i64, ptr %24, align 8, !range !41, !alias.scope !27669, !noundef !4
-  %switch.i.i.i.i.i60 = icmp ult i64 %236, 2
+  %switch.i.i.i.i.i60 = icmp samesign ult i64 %236, 2
   br i1 %switch.i.i.i.i.i60, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i61", label %237
 
 237:                                              ; preds = %235
@@ -112079,7 +112079,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h0215a018e787b733E(ptr de
 248:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i61"
   call void @llvm.experimental.noalias.scope.decl(metadata !27681)
   call void @llvm.experimental.noalias.scope.decl(metadata !27684)
-  %switch.i.i.i1.i.i62 = icmp ult i64 %246, 2
+  %switch.i.i.i1.i.i62 = icmp samesign ult i64 %246, 2
   br i1 %switch.i.i.i1.i.i62, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit66", label %249
 
 249:                                              ; preds = %248
@@ -112391,7 +112391,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h172a507c2eeffd8eE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !27740)
   call void @llvm.experimental.noalias.scope.decl(metadata !27743)
   %84 = load i64, ptr %25, align 8, !range !41, !alias.scope !27746, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %84, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %84, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %85
 
 85:                                               ; preds = %81
@@ -112424,7 +112424,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h172a507c2eeffd8eE(ptr de
 96:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !27758)
   call void @llvm.experimental.noalias.scope.decl(metadata !27761)
-  %switch.i.i.i1.i.i = icmp ult i64 %94, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %94, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %97
 
 97:                                               ; preds = %96
@@ -112456,7 +112456,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h172a507c2eeffd8eE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !27781)
   call void @llvm.experimental.noalias.scope.decl(metadata !27784)
   %106 = load i64, ptr %25, align 8, !range !41, !alias.scope !27787, !noundef !4
-  %switch.i.i.i.i.i36 = icmp ult i64 %106, 2
+  %switch.i.i.i.i.i36 = icmp samesign ult i64 %106, 2
   br i1 %switch.i.i.i.i.i36, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i37", label %107
 
 107:                                              ; preds = %105
@@ -112489,7 +112489,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h172a507c2eeffd8eE(ptr de
 118:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i37"
   call void @llvm.experimental.noalias.scope.decl(metadata !27799)
   call void @llvm.experimental.noalias.scope.decl(metadata !27802)
-  %switch.i.i.i1.i.i38 = icmp ult i64 %116, 2
+  %switch.i.i.i1.i.i38 = icmp samesign ult i64 %116, 2
   br i1 %switch.i.i.i1.i.i38, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit42", label %119
 
 119:                                              ; preds = %118
@@ -112734,7 +112734,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h172a507c2eeffd8eE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !27874)
   call void @llvm.experimental.noalias.scope.decl(metadata !27877)
   %192 = load i64, ptr %22, align 8, !range !41, !alias.scope !27880, !noundef !4
-  %switch.i.i.i.i.i52 = icmp ult i64 %192, 2
+  %switch.i.i.i.i.i52 = icmp samesign ult i64 %192, 2
   br i1 %switch.i.i.i.i.i52, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i53", label %193
 
 193:                                              ; preds = %189
@@ -112767,7 +112767,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h172a507c2eeffd8eE(ptr de
 204:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i53"
   call void @llvm.experimental.noalias.scope.decl(metadata !27892)
   call void @llvm.experimental.noalias.scope.decl(metadata !27895)
-  %switch.i.i.i1.i.i54 = icmp ult i64 %202, 2
+  %switch.i.i.i1.i.i54 = icmp samesign ult i64 %202, 2
   br i1 %switch.i.i.i1.i.i54, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %205
 
 205:                                              ; preds = %204
@@ -112799,7 +112799,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h172a507c2eeffd8eE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !27915)
   call void @llvm.experimental.noalias.scope.decl(metadata !27918)
   %214 = load i64, ptr %22, align 8, !range !41, !alias.scope !27921, !noundef !4
-  %switch.i.i.i.i.i58 = icmp ult i64 %214, 2
+  %switch.i.i.i.i.i58 = icmp samesign ult i64 %214, 2
   br i1 %switch.i.i.i.i.i58, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i59", label %215
 
 215:                                              ; preds = %213
@@ -112832,7 +112832,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h172a507c2eeffd8eE(ptr de
 226:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i59"
   call void @llvm.experimental.noalias.scope.decl(metadata !27933)
   call void @llvm.experimental.noalias.scope.decl(metadata !27936)
-  %switch.i.i.i1.i.i60 = icmp ult i64 %224, 2
+  %switch.i.i.i1.i.i60 = icmp samesign ult i64 %224, 2
   br i1 %switch.i.i.i1.i.i60, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit64", label %227
 
 227:                                              ; preds = %226
@@ -112998,7 +112998,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h1992589f3d9b0d5fE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !27956)
   call void @llvm.experimental.noalias.scope.decl(metadata !27959)
   %36 = load i64, ptr %13, align 8, !range !41, !alias.scope !27962, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %36, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %36, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %37
 
 37:                                               ; preds = %33
@@ -113031,7 +113031,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h1992589f3d9b0d5fE(ptr de
 48:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !27974)
   call void @llvm.experimental.noalias.scope.decl(metadata !27977)
-  %switch.i.i.i1.i.i = icmp ult i64 %46, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %46, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %49
 
 49:                                               ; preds = %48
@@ -113063,7 +113063,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h1992589f3d9b0d5fE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !27997)
   call void @llvm.experimental.noalias.scope.decl(metadata !28000)
   %58 = load i64, ptr %13, align 8, !range !41, !alias.scope !28003, !noundef !4
-  %switch.i.i.i.i.i28 = icmp ult i64 %58, 2
+  %switch.i.i.i.i.i28 = icmp samesign ult i64 %58, 2
   br i1 %switch.i.i.i.i.i28, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i29", label %59
 
 59:                                               ; preds = %57
@@ -113096,7 +113096,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h1992589f3d9b0d5fE(ptr de
 70:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i29"
   call void @llvm.experimental.noalias.scope.decl(metadata !28015)
   call void @llvm.experimental.noalias.scope.decl(metadata !28018)
-  %switch.i.i.i1.i.i30 = icmp ult i64 %68, 2
+  %switch.i.i.i1.i.i30 = icmp samesign ult i64 %68, 2
   br i1 %switch.i.i.i1.i.i30, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit34", label %71
 
 71:                                               ; preds = %70
@@ -113223,7 +113223,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h1992589f3d9b0d5fE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28065)
   call void @llvm.experimental.noalias.scope.decl(metadata !28068)
   %112 = load i64, ptr %10, align 8, !range !41, !alias.scope !28071, !noundef !4
-  %switch.i.i.i.i.i36 = icmp ult i64 %112, 2
+  %switch.i.i.i.i.i36 = icmp samesign ult i64 %112, 2
   br i1 %switch.i.i.i.i.i36, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i37", label %113
 
 113:                                              ; preds = %109
@@ -113256,7 +113256,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h1992589f3d9b0d5fE(ptr de
 124:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i37"
   call void @llvm.experimental.noalias.scope.decl(metadata !28083)
   call void @llvm.experimental.noalias.scope.decl(metadata !28086)
-  %switch.i.i.i1.i.i38 = icmp ult i64 %122, 2
+  %switch.i.i.i1.i.i38 = icmp samesign ult i64 %122, 2
   br i1 %switch.i.i.i1.i.i38, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %125
 
 125:                                              ; preds = %124
@@ -113288,7 +113288,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h1992589f3d9b0d5fE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28106)
   call void @llvm.experimental.noalias.scope.decl(metadata !28109)
   %134 = load i64, ptr %10, align 8, !range !41, !alias.scope !28112, !noundef !4
-  %switch.i.i.i.i.i42 = icmp ult i64 %134, 2
+  %switch.i.i.i.i.i42 = icmp samesign ult i64 %134, 2
   br i1 %switch.i.i.i.i.i42, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i43", label %135
 
 135:                                              ; preds = %133
@@ -113321,7 +113321,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h1992589f3d9b0d5fE(ptr de
 146:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i43"
   call void @llvm.experimental.noalias.scope.decl(metadata !28124)
   call void @llvm.experimental.noalias.scope.decl(metadata !28127)
-  %switch.i.i.i1.i.i44 = icmp ult i64 %144, 2
+  %switch.i.i.i1.i.i44 = icmp samesign ult i64 %144, 2
   br i1 %switch.i.i.i1.i.i44, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit48", label %147
 
 147:                                              ; preds = %146
@@ -113487,7 +113487,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h20e1cbdc795e968bE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28147)
   call void @llvm.experimental.noalias.scope.decl(metadata !28150)
   %36 = load i64, ptr %13, align 8, !range !41, !alias.scope !28153, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %36, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %36, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %37
 
 37:                                               ; preds = %33
@@ -113520,7 +113520,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h20e1cbdc795e968bE(ptr de
 48:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !28165)
   call void @llvm.experimental.noalias.scope.decl(metadata !28168)
-  %switch.i.i.i1.i.i = icmp ult i64 %46, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %46, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %49
 
 49:                                               ; preds = %48
@@ -113552,7 +113552,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h20e1cbdc795e968bE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28188)
   call void @llvm.experimental.noalias.scope.decl(metadata !28191)
   %58 = load i64, ptr %13, align 8, !range !41, !alias.scope !28194, !noundef !4
-  %switch.i.i.i.i.i28 = icmp ult i64 %58, 2
+  %switch.i.i.i.i.i28 = icmp samesign ult i64 %58, 2
   br i1 %switch.i.i.i.i.i28, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i29", label %59
 
 59:                                               ; preds = %57
@@ -113585,7 +113585,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h20e1cbdc795e968bE(ptr de
 70:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i29"
   call void @llvm.experimental.noalias.scope.decl(metadata !28206)
   call void @llvm.experimental.noalias.scope.decl(metadata !28209)
-  %switch.i.i.i1.i.i30 = icmp ult i64 %68, 2
+  %switch.i.i.i1.i.i30 = icmp samesign ult i64 %68, 2
   br i1 %switch.i.i.i1.i.i30, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit34", label %71
 
 71:                                               ; preds = %70
@@ -113712,7 +113712,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h20e1cbdc795e968bE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28256)
   call void @llvm.experimental.noalias.scope.decl(metadata !28259)
   %112 = load i64, ptr %10, align 8, !range !41, !alias.scope !28262, !noundef !4
-  %switch.i.i.i.i.i36 = icmp ult i64 %112, 2
+  %switch.i.i.i.i.i36 = icmp samesign ult i64 %112, 2
   br i1 %switch.i.i.i.i.i36, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i37", label %113
 
 113:                                              ; preds = %109
@@ -113745,7 +113745,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h20e1cbdc795e968bE(ptr de
 124:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i37"
   call void @llvm.experimental.noalias.scope.decl(metadata !28274)
   call void @llvm.experimental.noalias.scope.decl(metadata !28277)
-  %switch.i.i.i1.i.i38 = icmp ult i64 %122, 2
+  %switch.i.i.i1.i.i38 = icmp samesign ult i64 %122, 2
   br i1 %switch.i.i.i1.i.i38, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %125
 
 125:                                              ; preds = %124
@@ -113777,7 +113777,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h20e1cbdc795e968bE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28297)
   call void @llvm.experimental.noalias.scope.decl(metadata !28300)
   %134 = load i64, ptr %10, align 8, !range !41, !alias.scope !28303, !noundef !4
-  %switch.i.i.i.i.i42 = icmp ult i64 %134, 2
+  %switch.i.i.i.i.i42 = icmp samesign ult i64 %134, 2
   br i1 %switch.i.i.i.i.i42, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i43", label %135
 
 135:                                              ; preds = %133
@@ -113810,7 +113810,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h20e1cbdc795e968bE(ptr de
 146:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i43"
   call void @llvm.experimental.noalias.scope.decl(metadata !28315)
   call void @llvm.experimental.noalias.scope.decl(metadata !28318)
-  %switch.i.i.i1.i.i44 = icmp ult i64 %144, 2
+  %switch.i.i.i1.i.i44 = icmp samesign ult i64 %144, 2
   br i1 %switch.i.i.i1.i.i44, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit48", label %147
 
 147:                                              ; preds = %146
@@ -114151,7 +114151,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h385c069cda08ab0aE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28380)
   call void @llvm.experimental.noalias.scope.decl(metadata !28383)
   %96 = load i64, ptr %27, align 8, !range !41, !alias.scope !28386, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %96, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %96, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %97
 
 97:                                               ; preds = %93
@@ -114184,7 +114184,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h385c069cda08ab0aE(ptr de
 108:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !28398)
   call void @llvm.experimental.noalias.scope.decl(metadata !28401)
-  %switch.i.i.i1.i.i = icmp ult i64 %106, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %106, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %109
 
 109:                                              ; preds = %108
@@ -114216,7 +114216,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h385c069cda08ab0aE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28421)
   call void @llvm.experimental.noalias.scope.decl(metadata !28424)
   %118 = load i64, ptr %27, align 8, !range !41, !alias.scope !28427, !noundef !4
-  %switch.i.i.i.i.i38 = icmp ult i64 %118, 2
+  %switch.i.i.i.i.i38 = icmp samesign ult i64 %118, 2
   br i1 %switch.i.i.i.i.i38, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i39", label %119
 
 119:                                              ; preds = %117
@@ -114249,7 +114249,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h385c069cda08ab0aE(ptr de
 130:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i39"
   call void @llvm.experimental.noalias.scope.decl(metadata !28439)
   call void @llvm.experimental.noalias.scope.decl(metadata !28442)
-  %switch.i.i.i1.i.i40 = icmp ult i64 %128, 2
+  %switch.i.i.i1.i.i40 = icmp samesign ult i64 %128, 2
   br i1 %switch.i.i.i1.i.i40, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit44", label %131
 
 131:                                              ; preds = %130
@@ -114521,7 +114521,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h385c069cda08ab0aE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28520)
   call void @llvm.experimental.noalias.scope.decl(metadata !28523)
   %214 = load i64, ptr %24, align 8, !range !41, !alias.scope !28526, !noundef !4
-  %switch.i.i.i.i.i54 = icmp ult i64 %214, 2
+  %switch.i.i.i.i.i54 = icmp samesign ult i64 %214, 2
   br i1 %switch.i.i.i.i.i54, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i55", label %215
 
 215:                                              ; preds = %211
@@ -114554,7 +114554,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h385c069cda08ab0aE(ptr de
 226:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i55"
   call void @llvm.experimental.noalias.scope.decl(metadata !28538)
   call void @llvm.experimental.noalias.scope.decl(metadata !28541)
-  %switch.i.i.i1.i.i56 = icmp ult i64 %224, 2
+  %switch.i.i.i1.i.i56 = icmp samesign ult i64 %224, 2
   br i1 %switch.i.i.i1.i.i56, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %227
 
 227:                                              ; preds = %226
@@ -114586,7 +114586,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h385c069cda08ab0aE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28561)
   call void @llvm.experimental.noalias.scope.decl(metadata !28564)
   %236 = load i64, ptr %24, align 8, !range !41, !alias.scope !28567, !noundef !4
-  %switch.i.i.i.i.i60 = icmp ult i64 %236, 2
+  %switch.i.i.i.i.i60 = icmp samesign ult i64 %236, 2
   br i1 %switch.i.i.i.i.i60, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i61", label %237
 
 237:                                              ; preds = %235
@@ -114619,7 +114619,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h385c069cda08ab0aE(ptr de
 248:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i61"
   call void @llvm.experimental.noalias.scope.decl(metadata !28579)
   call void @llvm.experimental.noalias.scope.decl(metadata !28582)
-  %switch.i.i.i1.i.i62 = icmp ult i64 %246, 2
+  %switch.i.i.i1.i.i62 = icmp samesign ult i64 %246, 2
   br i1 %switch.i.i.i1.i.i62, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit66", label %249
 
 249:                                              ; preds = %248
@@ -114785,7 +114785,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h40f3f11061f32a57E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28602)
   call void @llvm.experimental.noalias.scope.decl(metadata !28605)
   %37 = load i64, ptr %13, align 8, !range !41, !alias.scope !28608, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %37, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %37, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %38
 
 38:                                               ; preds = %34
@@ -114818,7 +114818,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h40f3f11061f32a57E(ptr de
 49:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !28620)
   call void @llvm.experimental.noalias.scope.decl(metadata !28623)
-  %switch.i.i.i1.i.i = icmp ult i64 %47, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %47, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %50
 
 50:                                               ; preds = %49
@@ -114850,7 +114850,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h40f3f11061f32a57E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28643)
   call void @llvm.experimental.noalias.scope.decl(metadata !28646)
   %59 = load i64, ptr %13, align 8, !range !41, !alias.scope !28649, !noundef !4
-  %switch.i.i.i.i.i28 = icmp ult i64 %59, 2
+  %switch.i.i.i.i.i28 = icmp samesign ult i64 %59, 2
   br i1 %switch.i.i.i.i.i28, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i29", label %60
 
 60:                                               ; preds = %58
@@ -114883,7 +114883,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h40f3f11061f32a57E(ptr de
 71:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i29"
   call void @llvm.experimental.noalias.scope.decl(metadata !28661)
   call void @llvm.experimental.noalias.scope.decl(metadata !28664)
-  %switch.i.i.i1.i.i30 = icmp ult i64 %69, 2
+  %switch.i.i.i1.i.i30 = icmp samesign ult i64 %69, 2
   br i1 %switch.i.i.i1.i.i30, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit34", label %72
 
 72:                                               ; preds = %71
@@ -115010,7 +115010,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h40f3f11061f32a57E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28711)
   call void @llvm.experimental.noalias.scope.decl(metadata !28714)
   %114 = load i64, ptr %10, align 8, !range !41, !alias.scope !28717, !noundef !4
-  %switch.i.i.i.i.i35 = icmp ult i64 %114, 2
+  %switch.i.i.i.i.i35 = icmp samesign ult i64 %114, 2
   br i1 %switch.i.i.i.i.i35, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i36", label %115
 
 115:                                              ; preds = %111
@@ -115043,7 +115043,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h40f3f11061f32a57E(ptr de
 126:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i36"
   call void @llvm.experimental.noalias.scope.decl(metadata !28729)
   call void @llvm.experimental.noalias.scope.decl(metadata !28732)
-  %switch.i.i.i1.i.i37 = icmp ult i64 %124, 2
+  %switch.i.i.i1.i.i37 = icmp samesign ult i64 %124, 2
   br i1 %switch.i.i.i1.i.i37, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %127
 
 127:                                              ; preds = %126
@@ -115075,7 +115075,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h40f3f11061f32a57E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28752)
   call void @llvm.experimental.noalias.scope.decl(metadata !28755)
   %136 = load i64, ptr %10, align 8, !range !41, !alias.scope !28758, !noundef !4
-  %switch.i.i.i.i.i41 = icmp ult i64 %136, 2
+  %switch.i.i.i.i.i41 = icmp samesign ult i64 %136, 2
   br i1 %switch.i.i.i.i.i41, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i42", label %137
 
 137:                                              ; preds = %135
@@ -115108,7 +115108,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h40f3f11061f32a57E(ptr de
 148:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i42"
   call void @llvm.experimental.noalias.scope.decl(metadata !28770)
   call void @llvm.experimental.noalias.scope.decl(metadata !28773)
-  %switch.i.i.i1.i.i43 = icmp ult i64 %146, 2
+  %switch.i.i.i1.i.i43 = icmp samesign ult i64 %146, 2
   br i1 %switch.i.i.i1.i.i43, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit47", label %149
 
 149:                                              ; preds = %148
@@ -115274,7 +115274,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4383d5b34ed70cc2E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28793)
   call void @llvm.experimental.noalias.scope.decl(metadata !28796)
   %36 = load i64, ptr %13, align 8, !range !41, !alias.scope !28799, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %36, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %36, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %37
 
 37:                                               ; preds = %33
@@ -115307,7 +115307,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4383d5b34ed70cc2E(ptr de
 48:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !28811)
   call void @llvm.experimental.noalias.scope.decl(metadata !28814)
-  %switch.i.i.i1.i.i = icmp ult i64 %46, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %46, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %49
 
 49:                                               ; preds = %48
@@ -115339,7 +115339,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4383d5b34ed70cc2E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28834)
   call void @llvm.experimental.noalias.scope.decl(metadata !28837)
   %58 = load i64, ptr %13, align 8, !range !41, !alias.scope !28840, !noundef !4
-  %switch.i.i.i.i.i28 = icmp ult i64 %58, 2
+  %switch.i.i.i.i.i28 = icmp samesign ult i64 %58, 2
   br i1 %switch.i.i.i.i.i28, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i29", label %59
 
 59:                                               ; preds = %57
@@ -115372,7 +115372,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4383d5b34ed70cc2E(ptr de
 70:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i29"
   call void @llvm.experimental.noalias.scope.decl(metadata !28852)
   call void @llvm.experimental.noalias.scope.decl(metadata !28855)
-  %switch.i.i.i1.i.i30 = icmp ult i64 %68, 2
+  %switch.i.i.i1.i.i30 = icmp samesign ult i64 %68, 2
   br i1 %switch.i.i.i1.i.i30, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit34", label %71
 
 71:                                               ; preds = %70
@@ -115499,7 +115499,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4383d5b34ed70cc2E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28902)
   call void @llvm.experimental.noalias.scope.decl(metadata !28905)
   %112 = load i64, ptr %10, align 8, !range !41, !alias.scope !28908, !noundef !4
-  %switch.i.i.i.i.i36 = icmp ult i64 %112, 2
+  %switch.i.i.i.i.i36 = icmp samesign ult i64 %112, 2
   br i1 %switch.i.i.i.i.i36, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i37", label %113
 
 113:                                              ; preds = %109
@@ -115532,7 +115532,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4383d5b34ed70cc2E(ptr de
 124:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i37"
   call void @llvm.experimental.noalias.scope.decl(metadata !28920)
   call void @llvm.experimental.noalias.scope.decl(metadata !28923)
-  %switch.i.i.i1.i.i38 = icmp ult i64 %122, 2
+  %switch.i.i.i1.i.i38 = icmp samesign ult i64 %122, 2
   br i1 %switch.i.i.i1.i.i38, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %125
 
 125:                                              ; preds = %124
@@ -115564,7 +115564,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4383d5b34ed70cc2E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !28943)
   call void @llvm.experimental.noalias.scope.decl(metadata !28946)
   %134 = load i64, ptr %10, align 8, !range !41, !alias.scope !28949, !noundef !4
-  %switch.i.i.i.i.i42 = icmp ult i64 %134, 2
+  %switch.i.i.i.i.i42 = icmp samesign ult i64 %134, 2
   br i1 %switch.i.i.i.i.i42, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i43", label %135
 
 135:                                              ; preds = %133
@@ -115597,7 +115597,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4383d5b34ed70cc2E(ptr de
 146:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i43"
   call void @llvm.experimental.noalias.scope.decl(metadata !28961)
   call void @llvm.experimental.noalias.scope.decl(metadata !28964)
-  %switch.i.i.i1.i.i44 = icmp ult i64 %144, 2
+  %switch.i.i.i1.i.i44 = icmp samesign ult i64 %144, 2
   br i1 %switch.i.i.i1.i.i44, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit48", label %147
 
 147:                                              ; preds = %146
@@ -115938,7 +115938,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4f45061f6b7939baE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29026)
   call void @llvm.experimental.noalias.scope.decl(metadata !29029)
   %96 = load i64, ptr %27, align 8, !range !41, !alias.scope !29032, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %96, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %96, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %97
 
 97:                                               ; preds = %93
@@ -115971,7 +115971,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4f45061f6b7939baE(ptr de
 108:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !29044)
   call void @llvm.experimental.noalias.scope.decl(metadata !29047)
-  %switch.i.i.i1.i.i = icmp ult i64 %106, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %106, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %109
 
 109:                                              ; preds = %108
@@ -116003,7 +116003,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4f45061f6b7939baE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29067)
   call void @llvm.experimental.noalias.scope.decl(metadata !29070)
   %118 = load i64, ptr %27, align 8, !range !41, !alias.scope !29073, !noundef !4
-  %switch.i.i.i.i.i38 = icmp ult i64 %118, 2
+  %switch.i.i.i.i.i38 = icmp samesign ult i64 %118, 2
   br i1 %switch.i.i.i.i.i38, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i39", label %119
 
 119:                                              ; preds = %117
@@ -116036,7 +116036,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4f45061f6b7939baE(ptr de
 130:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i39"
   call void @llvm.experimental.noalias.scope.decl(metadata !29085)
   call void @llvm.experimental.noalias.scope.decl(metadata !29088)
-  %switch.i.i.i1.i.i40 = icmp ult i64 %128, 2
+  %switch.i.i.i1.i.i40 = icmp samesign ult i64 %128, 2
   br i1 %switch.i.i.i1.i.i40, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit44", label %131
 
 131:                                              ; preds = %130
@@ -116308,7 +116308,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4f45061f6b7939baE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29166)
   call void @llvm.experimental.noalias.scope.decl(metadata !29169)
   %214 = load i64, ptr %24, align 8, !range !41, !alias.scope !29172, !noundef !4
-  %switch.i.i.i.i.i54 = icmp ult i64 %214, 2
+  %switch.i.i.i.i.i54 = icmp samesign ult i64 %214, 2
   br i1 %switch.i.i.i.i.i54, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i55", label %215
 
 215:                                              ; preds = %211
@@ -116341,7 +116341,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4f45061f6b7939baE(ptr de
 226:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i55"
   call void @llvm.experimental.noalias.scope.decl(metadata !29184)
   call void @llvm.experimental.noalias.scope.decl(metadata !29187)
-  %switch.i.i.i1.i.i56 = icmp ult i64 %224, 2
+  %switch.i.i.i1.i.i56 = icmp samesign ult i64 %224, 2
   br i1 %switch.i.i.i1.i.i56, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %227
 
 227:                                              ; preds = %226
@@ -116373,7 +116373,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4f45061f6b7939baE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29207)
   call void @llvm.experimental.noalias.scope.decl(metadata !29210)
   %236 = load i64, ptr %24, align 8, !range !41, !alias.scope !29213, !noundef !4
-  %switch.i.i.i.i.i60 = icmp ult i64 %236, 2
+  %switch.i.i.i.i.i60 = icmp samesign ult i64 %236, 2
   br i1 %switch.i.i.i.i.i60, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i61", label %237
 
 237:                                              ; preds = %235
@@ -116406,7 +116406,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h4f45061f6b7939baE(ptr de
 248:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i61"
   call void @llvm.experimental.noalias.scope.decl(metadata !29225)
   call void @llvm.experimental.noalias.scope.decl(metadata !29228)
-  %switch.i.i.i1.i.i62 = icmp ult i64 %246, 2
+  %switch.i.i.i1.i.i62 = icmp samesign ult i64 %246, 2
   br i1 %switch.i.i.i1.i.i62, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit66", label %249
 
 249:                                              ; preds = %248
@@ -116572,7 +116572,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h5869a1d71dc06febE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29248)
   call void @llvm.experimental.noalias.scope.decl(metadata !29251)
   %36 = load i64, ptr %13, align 8, !range !41, !alias.scope !29254, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %36, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %36, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %37
 
 37:                                               ; preds = %33
@@ -116605,7 +116605,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h5869a1d71dc06febE(ptr de
 48:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !29266)
   call void @llvm.experimental.noalias.scope.decl(metadata !29269)
-  %switch.i.i.i1.i.i = icmp ult i64 %46, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %46, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %49
 
 49:                                               ; preds = %48
@@ -116637,7 +116637,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h5869a1d71dc06febE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29289)
   call void @llvm.experimental.noalias.scope.decl(metadata !29292)
   %58 = load i64, ptr %13, align 8, !range !41, !alias.scope !29295, !noundef !4
-  %switch.i.i.i.i.i28 = icmp ult i64 %58, 2
+  %switch.i.i.i.i.i28 = icmp samesign ult i64 %58, 2
   br i1 %switch.i.i.i.i.i28, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i29", label %59
 
 59:                                               ; preds = %57
@@ -116670,7 +116670,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h5869a1d71dc06febE(ptr de
 70:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i29"
   call void @llvm.experimental.noalias.scope.decl(metadata !29307)
   call void @llvm.experimental.noalias.scope.decl(metadata !29310)
-  %switch.i.i.i1.i.i30 = icmp ult i64 %68, 2
+  %switch.i.i.i1.i.i30 = icmp samesign ult i64 %68, 2
   br i1 %switch.i.i.i1.i.i30, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit34", label %71
 
 71:                                               ; preds = %70
@@ -116797,7 +116797,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h5869a1d71dc06febE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29357)
   call void @llvm.experimental.noalias.scope.decl(metadata !29360)
   %112 = load i64, ptr %10, align 8, !range !41, !alias.scope !29363, !noundef !4
-  %switch.i.i.i.i.i36 = icmp ult i64 %112, 2
+  %switch.i.i.i.i.i36 = icmp samesign ult i64 %112, 2
   br i1 %switch.i.i.i.i.i36, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i37", label %113
 
 113:                                              ; preds = %109
@@ -116830,7 +116830,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h5869a1d71dc06febE(ptr de
 124:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i37"
   call void @llvm.experimental.noalias.scope.decl(metadata !29375)
   call void @llvm.experimental.noalias.scope.decl(metadata !29378)
-  %switch.i.i.i1.i.i38 = icmp ult i64 %122, 2
+  %switch.i.i.i1.i.i38 = icmp samesign ult i64 %122, 2
   br i1 %switch.i.i.i1.i.i38, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %125
 
 125:                                              ; preds = %124
@@ -116862,7 +116862,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h5869a1d71dc06febE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29398)
   call void @llvm.experimental.noalias.scope.decl(metadata !29401)
   %134 = load i64, ptr %10, align 8, !range !41, !alias.scope !29404, !noundef !4
-  %switch.i.i.i.i.i42 = icmp ult i64 %134, 2
+  %switch.i.i.i.i.i42 = icmp samesign ult i64 %134, 2
   br i1 %switch.i.i.i.i.i42, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i43", label %135
 
 135:                                              ; preds = %133
@@ -116895,7 +116895,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h5869a1d71dc06febE(ptr de
 146:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i43"
   call void @llvm.experimental.noalias.scope.decl(metadata !29416)
   call void @llvm.experimental.noalias.scope.decl(metadata !29419)
-  %switch.i.i.i1.i.i44 = icmp ult i64 %144, 2
+  %switch.i.i.i1.i.i44 = icmp samesign ult i64 %144, 2
   br i1 %switch.i.i.i1.i.i44, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit48", label %147
 
 147:                                              ; preds = %146
@@ -117205,7 +117205,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h632d41882bca225fE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29471)
   call void @llvm.experimental.noalias.scope.decl(metadata !29474)
   %84 = load i64, ptr %25, align 8, !range !41, !alias.scope !29477, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %84, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %84, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %85
 
 85:                                               ; preds = %81
@@ -117238,7 +117238,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h632d41882bca225fE(ptr de
 96:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !29489)
   call void @llvm.experimental.noalias.scope.decl(metadata !29492)
-  %switch.i.i.i1.i.i = icmp ult i64 %94, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %94, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %97
 
 97:                                               ; preds = %96
@@ -117270,7 +117270,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h632d41882bca225fE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29512)
   call void @llvm.experimental.noalias.scope.decl(metadata !29515)
   %106 = load i64, ptr %25, align 8, !range !41, !alias.scope !29518, !noundef !4
-  %switch.i.i.i.i.i35 = icmp ult i64 %106, 2
+  %switch.i.i.i.i.i35 = icmp samesign ult i64 %106, 2
   br i1 %switch.i.i.i.i.i35, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i36", label %107
 
 107:                                              ; preds = %105
@@ -117303,7 +117303,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h632d41882bca225fE(ptr de
 118:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i36"
   call void @llvm.experimental.noalias.scope.decl(metadata !29530)
   call void @llvm.experimental.noalias.scope.decl(metadata !29533)
-  %switch.i.i.i1.i.i37 = icmp ult i64 %116, 2
+  %switch.i.i.i1.i.i37 = icmp samesign ult i64 %116, 2
   br i1 %switch.i.i.i1.i.i37, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit41", label %119
 
 119:                                              ; preds = %118
@@ -117547,7 +117547,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h632d41882bca225fE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29602)
   call void @llvm.experimental.noalias.scope.decl(metadata !29605)
   %192 = load i64, ptr %22, align 8, !range !41, !alias.scope !29608, !noundef !4
-  %switch.i.i.i.i.i51 = icmp ult i64 %192, 2
+  %switch.i.i.i.i.i51 = icmp samesign ult i64 %192, 2
   br i1 %switch.i.i.i.i.i51, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i52", label %193
 
 193:                                              ; preds = %189
@@ -117580,7 +117580,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h632d41882bca225fE(ptr de
 204:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i52"
   call void @llvm.experimental.noalias.scope.decl(metadata !29620)
   call void @llvm.experimental.noalias.scope.decl(metadata !29623)
-  %switch.i.i.i1.i.i53 = icmp ult i64 %202, 2
+  %switch.i.i.i1.i.i53 = icmp samesign ult i64 %202, 2
   br i1 %switch.i.i.i1.i.i53, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %205
 
 205:                                              ; preds = %204
@@ -117612,7 +117612,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h632d41882bca225fE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29643)
   call void @llvm.experimental.noalias.scope.decl(metadata !29646)
   %214 = load i64, ptr %22, align 8, !range !41, !alias.scope !29649, !noundef !4
-  %switch.i.i.i.i.i57 = icmp ult i64 %214, 2
+  %switch.i.i.i.i.i57 = icmp samesign ult i64 %214, 2
   br i1 %switch.i.i.i.i.i57, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i58", label %215
 
 215:                                              ; preds = %213
@@ -117645,7 +117645,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h632d41882bca225fE(ptr de
 226:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i58"
   call void @llvm.experimental.noalias.scope.decl(metadata !29661)
   call void @llvm.experimental.noalias.scope.decl(metadata !29664)
-  %switch.i.i.i1.i.i59 = icmp ult i64 %224, 2
+  %switch.i.i.i1.i.i59 = icmp samesign ult i64 %224, 2
   br i1 %switch.i.i.i1.i.i59, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit63", label %227
 
 227:                                              ; preds = %226
@@ -117796,7 +117796,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h6e41e1c5e9886299E(ptr de
   %30 = load i64, ptr %2, align 8, !range !41, !alias.scope !29701, !noalias !29704, !noundef !4
   %31 = getelementptr inbounds i8, ptr %2, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !29701, !noalias !29704, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %30, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %30, 2
   %spec.select.idx.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 16
   %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 %spec.select.idx.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
@@ -117831,7 +117831,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h6e41e1c5e9886299E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29717)
   call void @llvm.experimental.noalias.scope.decl(metadata !29720)
   %41 = load i64, ptr %13, align 8, !range !41, !alias.scope !29723, !noundef !4
-  %switch.i.i.i.i.i28 = icmp ult i64 %41, 2
+  %switch.i.i.i.i.i28 = icmp samesign ult i64 %41, 2
   br i1 %switch.i.i.i.i.i28, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %42
 
 42:                                               ; preds = %38
@@ -117864,7 +117864,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h6e41e1c5e9886299E(ptr de
 53:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !29735)
   call void @llvm.experimental.noalias.scope.decl(metadata !29738)
-  %switch.i.i.i1.i.i = icmp ult i64 %51, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %51, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %54
 
 54:                                               ; preds = %53
@@ -117899,7 +117899,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h6e41e1c5e9886299E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29758)
   call void @llvm.experimental.noalias.scope.decl(metadata !29761)
   %63 = load i64, ptr %13, align 8, !range !41, !alias.scope !29764, !noundef !4
-  %switch.i.i.i.i.i30 = icmp ult i64 %63, 2
+  %switch.i.i.i.i.i30 = icmp samesign ult i64 %63, 2
   br i1 %switch.i.i.i.i.i30, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i31", label %64
 
 64:                                               ; preds = %62
@@ -117932,7 +117932,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h6e41e1c5e9886299E(ptr de
 75:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i31"
   call void @llvm.experimental.noalias.scope.decl(metadata !29776)
   call void @llvm.experimental.noalias.scope.decl(metadata !29779)
-  %switch.i.i.i1.i.i32 = icmp ult i64 %73, 2
+  %switch.i.i.i1.i.i32 = icmp samesign ult i64 %73, 2
   br i1 %switch.i.i.i1.i.i32, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit36", label %76
 
 76:                                               ; preds = %75
@@ -118036,7 +118036,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h6e41e1c5e9886299E(ptr de
   %109 = load i64, ptr %2, align 8, !range !41, !alias.scope !29838, !noalias !29841, !noundef !4
   %110 = getelementptr inbounds i8, ptr %2, i64 8
   %111 = load ptr, ptr %110, align 8, !alias.scope !29838, !noalias !29841, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i37 = icmp ult i64 %109, 2
+  %switch.i.i.i.i.i37 = icmp samesign ult i64 %109, 2
   %spec.select.idx.i.i.i.i.i38 = select i1 %switch.i.i.i.i.i37, i64 0, i64 16
   %spec.select.i.i.i.i.i39 = getelementptr inbounds i8, ptr %111, i64 %spec.select.idx.i.i.i.i.i38
   %.sroa.4.0.in.i.i.i.i.i40 = getelementptr inbounds i8, ptr %2, i64 16
@@ -118071,7 +118071,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h6e41e1c5e9886299E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29854)
   call void @llvm.experimental.noalias.scope.decl(metadata !29857)
   %120 = load i64, ptr %11, align 8, !range !41, !alias.scope !29860, !noundef !4
-  %switch.i.i.i.i.i45 = icmp ult i64 %120, 2
+  %switch.i.i.i.i.i45 = icmp samesign ult i64 %120, 2
   br i1 %switch.i.i.i.i.i45, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i46", label %121
 
 121:                                              ; preds = %117
@@ -118104,7 +118104,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h6e41e1c5e9886299E(ptr de
 132:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i46"
   call void @llvm.experimental.noalias.scope.decl(metadata !29872)
   call void @llvm.experimental.noalias.scope.decl(metadata !29875)
-  %switch.i.i.i1.i.i47 = icmp ult i64 %130, 2
+  %switch.i.i.i1.i.i47 = icmp samesign ult i64 %130, 2
   br i1 %switch.i.i.i1.i.i47, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %133
 
 133:                                              ; preds = %132
@@ -118139,7 +118139,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h6e41e1c5e9886299E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29895)
   call void @llvm.experimental.noalias.scope.decl(metadata !29898)
   %142 = load i64, ptr %11, align 8, !range !41, !alias.scope !29901, !noundef !4
-  %switch.i.i.i.i.i51 = icmp ult i64 %142, 2
+  %switch.i.i.i.i.i51 = icmp samesign ult i64 %142, 2
   br i1 %switch.i.i.i.i.i51, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i52", label %143
 
 143:                                              ; preds = %141
@@ -118172,7 +118172,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h6e41e1c5e9886299E(ptr de
 154:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i52"
   call void @llvm.experimental.noalias.scope.decl(metadata !29913)
   call void @llvm.experimental.noalias.scope.decl(metadata !29916)
-  %switch.i.i.i1.i.i53 = icmp ult i64 %152, 2
+  %switch.i.i.i1.i.i53 = icmp samesign ult i64 %152, 2
   br i1 %switch.i.i.i1.i.i53, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit57", label %155
 
 155:                                              ; preds = %154
@@ -118511,7 +118511,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h739f62337b8ad5d5E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !29974)
   call void @llvm.experimental.noalias.scope.decl(metadata !29977)
   %96 = load i64, ptr %27, align 8, !range !41, !alias.scope !29980, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %96, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %96, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %97
 
 97:                                               ; preds = %93
@@ -118544,7 +118544,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h739f62337b8ad5d5E(ptr de
 108:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !29992)
   call void @llvm.experimental.noalias.scope.decl(metadata !29995)
-  %switch.i.i.i1.i.i = icmp ult i64 %106, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %106, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %109
 
 109:                                              ; preds = %108
@@ -118576,7 +118576,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h739f62337b8ad5d5E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !30015)
   call void @llvm.experimental.noalias.scope.decl(metadata !30018)
   %118 = load i64, ptr %27, align 8, !range !41, !alias.scope !30021, !noundef !4
-  %switch.i.i.i.i.i37 = icmp ult i64 %118, 2
+  %switch.i.i.i.i.i37 = icmp samesign ult i64 %118, 2
   br i1 %switch.i.i.i.i.i37, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i38", label %119
 
 119:                                              ; preds = %117
@@ -118609,7 +118609,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h739f62337b8ad5d5E(ptr de
 130:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i38"
   call void @llvm.experimental.noalias.scope.decl(metadata !30033)
   call void @llvm.experimental.noalias.scope.decl(metadata !30036)
-  %switch.i.i.i1.i.i39 = icmp ult i64 %128, 2
+  %switch.i.i.i1.i.i39 = icmp samesign ult i64 %128, 2
   br i1 %switch.i.i.i1.i.i39, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit43", label %131
 
 131:                                              ; preds = %130
@@ -118880,7 +118880,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h739f62337b8ad5d5E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !30111)
   call void @llvm.experimental.noalias.scope.decl(metadata !30114)
   %214 = load i64, ptr %24, align 8, !range !41, !alias.scope !30117, !noundef !4
-  %switch.i.i.i.i.i53 = icmp ult i64 %214, 2
+  %switch.i.i.i.i.i53 = icmp samesign ult i64 %214, 2
   br i1 %switch.i.i.i.i.i53, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i54", label %215
 
 215:                                              ; preds = %211
@@ -118913,7 +118913,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h739f62337b8ad5d5E(ptr de
 226:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i54"
   call void @llvm.experimental.noalias.scope.decl(metadata !30129)
   call void @llvm.experimental.noalias.scope.decl(metadata !30132)
-  %switch.i.i.i1.i.i55 = icmp ult i64 %224, 2
+  %switch.i.i.i1.i.i55 = icmp samesign ult i64 %224, 2
   br i1 %switch.i.i.i1.i.i55, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %227
 
 227:                                              ; preds = %226
@@ -118945,7 +118945,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h739f62337b8ad5d5E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !30152)
   call void @llvm.experimental.noalias.scope.decl(metadata !30155)
   %236 = load i64, ptr %24, align 8, !range !41, !alias.scope !30158, !noundef !4
-  %switch.i.i.i.i.i59 = icmp ult i64 %236, 2
+  %switch.i.i.i.i.i59 = icmp samesign ult i64 %236, 2
   br i1 %switch.i.i.i.i.i59, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i60", label %237
 
 237:                                              ; preds = %235
@@ -118978,7 +118978,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h739f62337b8ad5d5E(ptr de
 248:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i60"
   call void @llvm.experimental.noalias.scope.decl(metadata !30170)
   call void @llvm.experimental.noalias.scope.decl(metadata !30173)
-  %switch.i.i.i1.i.i61 = icmp ult i64 %246, 2
+  %switch.i.i.i1.i.i61 = icmp samesign ult i64 %246, 2
   br i1 %switch.i.i.i1.i.i61, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit65", label %249
 
 249:                                              ; preds = %248
@@ -119159,7 +119159,7 @@ common.resume:                                    ; preds = %21, %.body
   %41 = load i64, ptr %40, align 8, !range !41, !noalias !30211, !noundef !4
   %42 = getelementptr inbounds i8, ptr %39, i64 88
   %43 = load ptr, ptr %42, align 8, !noalias !30211, !nonnull !4, !noundef !4
-  %switch.i.i = icmp ult i64 %41, 2
+  %switch.i.i = icmp samesign ult i64 %41, 2
   %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
   %spec.select.i.i = getelementptr inbounds i8, ptr %43, i64 %spec.select.idx.i.i
   %.sroa.6.0.in.i.i = getelementptr inbounds i8, ptr %39, i64 96
@@ -119194,7 +119194,7 @@ common.resume:                                    ; preds = %21, %.body
   call void @llvm.experimental.noalias.scope.decl(metadata !30221)
   call void @llvm.experimental.noalias.scope.decl(metadata !30224)
   %52 = load i64, ptr %15, align 8, !range !41, !alias.scope !30227, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %52, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %52, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %53
 
 53:                                               ; preds = %49
@@ -119227,7 +119227,7 @@ common.resume:                                    ; preds = %21, %.body
 64:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !30239)
   call void @llvm.experimental.noalias.scope.decl(metadata !30242)
-  %switch.i.i.i1.i.i = icmp ult i64 %62, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %62, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %65
 
 65:                                               ; preds = %64
@@ -119259,7 +119259,7 @@ common.resume:                                    ; preds = %21, %.body
   call void @llvm.experimental.noalias.scope.decl(metadata !30262)
   call void @llvm.experimental.noalias.scope.decl(metadata !30265)
   %74 = load i64, ptr %15, align 8, !range !41, !alias.scope !30268, !noundef !4
-  %switch.i.i.i.i.i29 = icmp ult i64 %74, 2
+  %switch.i.i.i.i.i29 = icmp samesign ult i64 %74, 2
   br i1 %switch.i.i.i.i.i29, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i30", label %75
 
 75:                                               ; preds = %73
@@ -119292,7 +119292,7 @@ common.resume:                                    ; preds = %21, %.body
 86:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i30"
   call void @llvm.experimental.noalias.scope.decl(metadata !30280)
   call void @llvm.experimental.noalias.scope.decl(metadata !30283)
-  %switch.i.i.i1.i.i31 = icmp ult i64 %84, 2
+  %switch.i.i.i1.i.i31 = icmp samesign ult i64 %84, 2
   br i1 %switch.i.i.i1.i.i31, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit35", label %87
 
 87:                                               ; preds = %86
@@ -119396,7 +119396,7 @@ common.resume:                                    ; preds = %21, %.body
   %122 = load i64, ptr %121, align 8, !range !41, !noalias !30330, !noundef !4
   %123 = getelementptr inbounds i8, ptr %120, i64 88
   %124 = load ptr, ptr %123, align 8, !noalias !30330, !nonnull !4, !noundef !4
-  %switch.i.i36 = icmp ult i64 %122, 2
+  %switch.i.i36 = icmp samesign ult i64 %122, 2
   %spec.select.idx.i.i37 = select i1 %switch.i.i36, i64 0, i64 16
   %spec.select.i.i38 = getelementptr inbounds i8, ptr %124, i64 %spec.select.idx.i.i37
   %.sroa.6.0.in.i.i39 = getelementptr inbounds i8, ptr %120, i64 96
@@ -119431,7 +119431,7 @@ common.resume:                                    ; preds = %21, %.body
   call void @llvm.experimental.noalias.scope.decl(metadata !30340)
   call void @llvm.experimental.noalias.scope.decl(metadata !30343)
   %133 = load i64, ptr %12, align 8, !range !41, !alias.scope !30346, !noundef !4
-  %switch.i.i.i.i.i42 = icmp ult i64 %133, 2
+  %switch.i.i.i.i.i42 = icmp samesign ult i64 %133, 2
   br i1 %switch.i.i.i.i.i42, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i43", label %134
 
 134:                                              ; preds = %130
@@ -119464,7 +119464,7 @@ common.resume:                                    ; preds = %21, %.body
 145:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i43"
   call void @llvm.experimental.noalias.scope.decl(metadata !30358)
   call void @llvm.experimental.noalias.scope.decl(metadata !30361)
-  %switch.i.i.i1.i.i44 = icmp ult i64 %143, 2
+  %switch.i.i.i1.i.i44 = icmp samesign ult i64 %143, 2
   br i1 %switch.i.i.i1.i.i44, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %146
 
 146:                                              ; preds = %145
@@ -119496,7 +119496,7 @@ common.resume:                                    ; preds = %21, %.body
   call void @llvm.experimental.noalias.scope.decl(metadata !30381)
   call void @llvm.experimental.noalias.scope.decl(metadata !30384)
   %155 = load i64, ptr %12, align 8, !range !41, !alias.scope !30387, !noundef !4
-  %switch.i.i.i.i.i48 = icmp ult i64 %155, 2
+  %switch.i.i.i.i.i48 = icmp samesign ult i64 %155, 2
   br i1 %switch.i.i.i.i.i48, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i49", label %156
 
 156:                                              ; preds = %154
@@ -119529,7 +119529,7 @@ common.resume:                                    ; preds = %21, %.body
 167:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i49"
   call void @llvm.experimental.noalias.scope.decl(metadata !30399)
   call void @llvm.experimental.noalias.scope.decl(metadata !30402)
-  %switch.i.i.i1.i.i50 = icmp ult i64 %165, 2
+  %switch.i.i.i1.i.i50 = icmp samesign ult i64 %165, 2
   br i1 %switch.i.i.i1.i.i50, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit54", label %168
 
 168:                                              ; preds = %167
@@ -119839,7 +119839,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h867edb0615663d8eE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !30454)
   call void @llvm.experimental.noalias.scope.decl(metadata !30457)
   %84 = load i64, ptr %25, align 8, !range !41, !alias.scope !30460, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %84, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %84, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %85
 
 85:                                               ; preds = %81
@@ -119872,7 +119872,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h867edb0615663d8eE(ptr de
 96:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !30472)
   call void @llvm.experimental.noalias.scope.decl(metadata !30475)
-  %switch.i.i.i1.i.i = icmp ult i64 %94, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %94, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %97
 
 97:                                               ; preds = %96
@@ -119904,7 +119904,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h867edb0615663d8eE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !30495)
   call void @llvm.experimental.noalias.scope.decl(metadata !30498)
   %106 = load i64, ptr %25, align 8, !range !41, !alias.scope !30501, !noundef !4
-  %switch.i.i.i.i.i35 = icmp ult i64 %106, 2
+  %switch.i.i.i.i.i35 = icmp samesign ult i64 %106, 2
   br i1 %switch.i.i.i.i.i35, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i36", label %107
 
 107:                                              ; preds = %105
@@ -119937,7 +119937,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h867edb0615663d8eE(ptr de
 118:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i36"
   call void @llvm.experimental.noalias.scope.decl(metadata !30513)
   call void @llvm.experimental.noalias.scope.decl(metadata !30516)
-  %switch.i.i.i1.i.i37 = icmp ult i64 %116, 2
+  %switch.i.i.i1.i.i37 = icmp samesign ult i64 %116, 2
   br i1 %switch.i.i.i1.i.i37, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit41", label %119
 
 119:                                              ; preds = %118
@@ -120181,7 +120181,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h867edb0615663d8eE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !30585)
   call void @llvm.experimental.noalias.scope.decl(metadata !30588)
   %192 = load i64, ptr %22, align 8, !range !41, !alias.scope !30591, !noundef !4
-  %switch.i.i.i.i.i51 = icmp ult i64 %192, 2
+  %switch.i.i.i.i.i51 = icmp samesign ult i64 %192, 2
   br i1 %switch.i.i.i.i.i51, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i52", label %193
 
 193:                                              ; preds = %189
@@ -120214,7 +120214,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h867edb0615663d8eE(ptr de
 204:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i52"
   call void @llvm.experimental.noalias.scope.decl(metadata !30603)
   call void @llvm.experimental.noalias.scope.decl(metadata !30606)
-  %switch.i.i.i1.i.i53 = icmp ult i64 %202, 2
+  %switch.i.i.i1.i.i53 = icmp samesign ult i64 %202, 2
   br i1 %switch.i.i.i1.i.i53, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %205
 
 205:                                              ; preds = %204
@@ -120246,7 +120246,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h867edb0615663d8eE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !30626)
   call void @llvm.experimental.noalias.scope.decl(metadata !30629)
   %214 = load i64, ptr %22, align 8, !range !41, !alias.scope !30632, !noundef !4
-  %switch.i.i.i.i.i57 = icmp ult i64 %214, 2
+  %switch.i.i.i.i.i57 = icmp samesign ult i64 %214, 2
   br i1 %switch.i.i.i.i.i57, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i58", label %215
 
 215:                                              ; preds = %213
@@ -120279,7 +120279,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h867edb0615663d8eE(ptr de
 226:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i58"
   call void @llvm.experimental.noalias.scope.decl(metadata !30644)
   call void @llvm.experimental.noalias.scope.decl(metadata !30647)
-  %switch.i.i.i1.i.i59 = icmp ult i64 %224, 2
+  %switch.i.i.i1.i.i59 = icmp samesign ult i64 %224, 2
   br i1 %switch.i.i.i1.i.i59, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit63", label %227
 
 227:                                              ; preds = %226
@@ -120423,7 +120423,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h90752d1352f7cae8E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !30669)
   call void @llvm.experimental.noalias.scope.decl(metadata !30672)
   call void @llvm.experimental.noalias.scope.decl(metadata !30675)
-  %switch.i.i.i.i.i = icmp ult i64 %22, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %22, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %28
 
 28:                                               ; preds = %25
@@ -120456,7 +120456,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h90752d1352f7cae8E(ptr de
 39:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !30689)
   call void @llvm.experimental.noalias.scope.decl(metadata !30692)
-  %switch.i.i.i1.i.i = icmp ult i64 %37, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %37, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %40
 
 40:                                               ; preds = %39
@@ -120558,7 +120558,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h90752d1352f7cae8E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !30748)
   call void @llvm.experimental.noalias.scope.decl(metadata !30751)
   call void @llvm.experimental.noalias.scope.decl(metadata !30754)
-  %switch.i.i.i.i.i35 = icmp ult i64 %68, 2
+  %switch.i.i.i.i.i35 = icmp samesign ult i64 %68, 2
   br i1 %switch.i.i.i.i.i35, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i36", label %74
 
 74:                                               ; preds = %71
@@ -120591,7 +120591,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h90752d1352f7cae8E(ptr de
 85:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i36"
   call void @llvm.experimental.noalias.scope.decl(metadata !30768)
   call void @llvm.experimental.noalias.scope.decl(metadata !30771)
-  %switch.i.i.i1.i.i37 = icmp ult i64 %83, 2
+  %switch.i.i.i1.i.i37 = icmp samesign ult i64 %83, 2
   br i1 %switch.i.i.i1.i.i37, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %86
 
 86:                                               ; preds = %85
@@ -120904,7 +120904,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h9fb7fa0993bd5597E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !30823)
   call void @llvm.experimental.noalias.scope.decl(metadata !30826)
   %84 = load i64, ptr %25, align 8, !range !41, !alias.scope !30829, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %84, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %84, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %85
 
 85:                                               ; preds = %81
@@ -120937,7 +120937,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h9fb7fa0993bd5597E(ptr de
 96:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !30841)
   call void @llvm.experimental.noalias.scope.decl(metadata !30844)
-  %switch.i.i.i1.i.i = icmp ult i64 %94, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %94, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %97
 
 97:                                               ; preds = %96
@@ -120969,7 +120969,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h9fb7fa0993bd5597E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !30864)
   call void @llvm.experimental.noalias.scope.decl(metadata !30867)
   %106 = load i64, ptr %25, align 8, !range !41, !alias.scope !30870, !noundef !4
-  %switch.i.i.i.i.i35 = icmp ult i64 %106, 2
+  %switch.i.i.i.i.i35 = icmp samesign ult i64 %106, 2
   br i1 %switch.i.i.i.i.i35, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i36", label %107
 
 107:                                              ; preds = %105
@@ -121002,7 +121002,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h9fb7fa0993bd5597E(ptr de
 118:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i36"
   call void @llvm.experimental.noalias.scope.decl(metadata !30882)
   call void @llvm.experimental.noalias.scope.decl(metadata !30885)
-  %switch.i.i.i1.i.i37 = icmp ult i64 %116, 2
+  %switch.i.i.i1.i.i37 = icmp samesign ult i64 %116, 2
   br i1 %switch.i.i.i1.i.i37, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit41", label %119
 
 119:                                              ; preds = %118
@@ -121246,7 +121246,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h9fb7fa0993bd5597E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !30954)
   call void @llvm.experimental.noalias.scope.decl(metadata !30957)
   %192 = load i64, ptr %22, align 8, !range !41, !alias.scope !30960, !noundef !4
-  %switch.i.i.i.i.i51 = icmp ult i64 %192, 2
+  %switch.i.i.i.i.i51 = icmp samesign ult i64 %192, 2
   br i1 %switch.i.i.i.i.i51, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i52", label %193
 
 193:                                              ; preds = %189
@@ -121279,7 +121279,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h9fb7fa0993bd5597E(ptr de
 204:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i52"
   call void @llvm.experimental.noalias.scope.decl(metadata !30972)
   call void @llvm.experimental.noalias.scope.decl(metadata !30975)
-  %switch.i.i.i1.i.i53 = icmp ult i64 %202, 2
+  %switch.i.i.i1.i.i53 = icmp samesign ult i64 %202, 2
   br i1 %switch.i.i.i1.i.i53, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %205
 
 205:                                              ; preds = %204
@@ -121311,7 +121311,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h9fb7fa0993bd5597E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !30995)
   call void @llvm.experimental.noalias.scope.decl(metadata !30998)
   %214 = load i64, ptr %22, align 8, !range !41, !alias.scope !31001, !noundef !4
-  %switch.i.i.i.i.i57 = icmp ult i64 %214, 2
+  %switch.i.i.i.i.i57 = icmp samesign ult i64 %214, 2
   br i1 %switch.i.i.i.i.i57, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i58", label %215
 
 215:                                              ; preds = %213
@@ -121344,7 +121344,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17h9fb7fa0993bd5597E(ptr de
 226:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i58"
   call void @llvm.experimental.noalias.scope.decl(metadata !31013)
   call void @llvm.experimental.noalias.scope.decl(metadata !31016)
-  %switch.i.i.i1.i.i59 = icmp ult i64 %224, 2
+  %switch.i.i.i1.i.i59 = icmp samesign ult i64 %224, 2
   br i1 %switch.i.i.i1.i.i59, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit63", label %227
 
 227:                                              ; preds = %226
@@ -121654,7 +121654,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hc39f700bbe2143dfE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31068)
   call void @llvm.experimental.noalias.scope.decl(metadata !31071)
   %84 = load i64, ptr %25, align 8, !range !41, !alias.scope !31074, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %84, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %84, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %85
 
 85:                                               ; preds = %81
@@ -121687,7 +121687,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hc39f700bbe2143dfE(ptr de
 96:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !31086)
   call void @llvm.experimental.noalias.scope.decl(metadata !31089)
-  %switch.i.i.i1.i.i = icmp ult i64 %94, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %94, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %97
 
 97:                                               ; preds = %96
@@ -121719,7 +121719,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hc39f700bbe2143dfE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31109)
   call void @llvm.experimental.noalias.scope.decl(metadata !31112)
   %106 = load i64, ptr %25, align 8, !range !41, !alias.scope !31115, !noundef !4
-  %switch.i.i.i.i.i35 = icmp ult i64 %106, 2
+  %switch.i.i.i.i.i35 = icmp samesign ult i64 %106, 2
   br i1 %switch.i.i.i.i.i35, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i36", label %107
 
 107:                                              ; preds = %105
@@ -121752,7 +121752,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hc39f700bbe2143dfE(ptr de
 118:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i36"
   call void @llvm.experimental.noalias.scope.decl(metadata !31127)
   call void @llvm.experimental.noalias.scope.decl(metadata !31130)
-  %switch.i.i.i1.i.i37 = icmp ult i64 %116, 2
+  %switch.i.i.i1.i.i37 = icmp samesign ult i64 %116, 2
   br i1 %switch.i.i.i1.i.i37, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit41", label %119
 
 119:                                              ; preds = %118
@@ -121996,7 +121996,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hc39f700bbe2143dfE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31199)
   call void @llvm.experimental.noalias.scope.decl(metadata !31202)
   %192 = load i64, ptr %22, align 8, !range !41, !alias.scope !31205, !noundef !4
-  %switch.i.i.i.i.i51 = icmp ult i64 %192, 2
+  %switch.i.i.i.i.i51 = icmp samesign ult i64 %192, 2
   br i1 %switch.i.i.i.i.i51, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i52", label %193
 
 193:                                              ; preds = %189
@@ -122029,7 +122029,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hc39f700bbe2143dfE(ptr de
 204:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i52"
   call void @llvm.experimental.noalias.scope.decl(metadata !31217)
   call void @llvm.experimental.noalias.scope.decl(metadata !31220)
-  %switch.i.i.i1.i.i53 = icmp ult i64 %202, 2
+  %switch.i.i.i1.i.i53 = icmp samesign ult i64 %202, 2
   br i1 %switch.i.i.i1.i.i53, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %205
 
 205:                                              ; preds = %204
@@ -122061,7 +122061,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hc39f700bbe2143dfE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31240)
   call void @llvm.experimental.noalias.scope.decl(metadata !31243)
   %214 = load i64, ptr %22, align 8, !range !41, !alias.scope !31246, !noundef !4
-  %switch.i.i.i.i.i57 = icmp ult i64 %214, 2
+  %switch.i.i.i.i.i57 = icmp samesign ult i64 %214, 2
   br i1 %switch.i.i.i.i.i57, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i58", label %215
 
 215:                                              ; preds = %213
@@ -122094,7 +122094,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hc39f700bbe2143dfE(ptr de
 226:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i58"
   call void @llvm.experimental.noalias.scope.decl(metadata !31258)
   call void @llvm.experimental.noalias.scope.decl(metadata !31261)
-  %switch.i.i.i1.i.i59 = icmp ult i64 %224, 2
+  %switch.i.i.i1.i.i59 = icmp samesign ult i64 %224, 2
   br i1 %switch.i.i.i1.i.i59, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit63", label %227
 
 227:                                              ; preds = %226
@@ -122263,7 +122263,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hd6743865e4d1df0bE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31281)
   call void @llvm.experimental.noalias.scope.decl(metadata !31284)
   %37 = load i64, ptr %13, align 8, !range !41, !alias.scope !31287, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %37, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %37, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %38
 
 38:                                               ; preds = %34
@@ -122296,7 +122296,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hd6743865e4d1df0bE(ptr de
 49:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !31299)
   call void @llvm.experimental.noalias.scope.decl(metadata !31302)
-  %switch.i.i.i1.i.i = icmp ult i64 %47, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %47, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %50
 
 50:                                               ; preds = %49
@@ -122328,7 +122328,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hd6743865e4d1df0bE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31322)
   call void @llvm.experimental.noalias.scope.decl(metadata !31325)
   %59 = load i64, ptr %13, align 8, !range !41, !alias.scope !31328, !noundef !4
-  %switch.i.i.i.i.i31 = icmp ult i64 %59, 2
+  %switch.i.i.i.i.i31 = icmp samesign ult i64 %59, 2
   br i1 %switch.i.i.i.i.i31, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i32", label %60
 
 60:                                               ; preds = %58
@@ -122361,7 +122361,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hd6743865e4d1df0bE(ptr de
 71:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i32"
   call void @llvm.experimental.noalias.scope.decl(metadata !31340)
   call void @llvm.experimental.noalias.scope.decl(metadata !31343)
-  %switch.i.i.i1.i.i33 = icmp ult i64 %69, 2
+  %switch.i.i.i1.i.i33 = icmp samesign ult i64 %69, 2
   br i1 %switch.i.i.i1.i.i33, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit37", label %72
 
 72:                                               ; preds = %71
@@ -122491,7 +122491,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hd6743865e4d1df0bE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31390)
   call void @llvm.experimental.noalias.scope.decl(metadata !31393)
   %114 = load i64, ptr %10, align 8, !range !41, !alias.scope !31396, !noundef !4
-  %switch.i.i.i.i.i39 = icmp ult i64 %114, 2
+  %switch.i.i.i.i.i39 = icmp samesign ult i64 %114, 2
   br i1 %switch.i.i.i.i.i39, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i40", label %115
 
 115:                                              ; preds = %111
@@ -122524,7 +122524,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hd6743865e4d1df0bE(ptr de
 126:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i40"
   call void @llvm.experimental.noalias.scope.decl(metadata !31408)
   call void @llvm.experimental.noalias.scope.decl(metadata !31411)
-  %switch.i.i.i1.i.i41 = icmp ult i64 %124, 2
+  %switch.i.i.i1.i.i41 = icmp samesign ult i64 %124, 2
   br i1 %switch.i.i.i1.i.i41, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %127
 
 127:                                              ; preds = %126
@@ -122556,7 +122556,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hd6743865e4d1df0bE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31431)
   call void @llvm.experimental.noalias.scope.decl(metadata !31434)
   %136 = load i64, ptr %10, align 8, !range !41, !alias.scope !31437, !noundef !4
-  %switch.i.i.i.i.i45 = icmp ult i64 %136, 2
+  %switch.i.i.i.i.i45 = icmp samesign ult i64 %136, 2
   br i1 %switch.i.i.i.i.i45, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i46", label %137
 
 137:                                              ; preds = %135
@@ -122589,7 +122589,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hd6743865e4d1df0bE(ptr de
 148:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i46"
   call void @llvm.experimental.noalias.scope.decl(metadata !31449)
   call void @llvm.experimental.noalias.scope.decl(metadata !31452)
-  %switch.i.i.i1.i.i47 = icmp ult i64 %146, 2
+  %switch.i.i.i1.i.i47 = icmp samesign ult i64 %146, 2
   br i1 %switch.i.i.i1.i.i47, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit51", label %149
 
 149:                                              ; preds = %148
@@ -122766,7 +122766,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17heee4d20cc1fd1961E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31479)
   call void @llvm.experimental.noalias.scope.decl(metadata !31482)
   %39 = load i64, ptr %13, align 8, !range !41, !alias.scope !31485, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %39, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %39, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %40
 
 40:                                               ; preds = %36
@@ -122799,7 +122799,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17heee4d20cc1fd1961E(ptr de
 51:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !31497)
   call void @llvm.experimental.noalias.scope.decl(metadata !31500)
-  %switch.i.i.i1.i.i = icmp ult i64 %49, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %49, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %52
 
 52:                                               ; preds = %51
@@ -122831,7 +122831,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17heee4d20cc1fd1961E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31520)
   call void @llvm.experimental.noalias.scope.decl(metadata !31523)
   %61 = load i64, ptr %13, align 8, !range !41, !alias.scope !31526, !noundef !4
-  %switch.i.i.i.i.i31 = icmp ult i64 %61, 2
+  %switch.i.i.i.i.i31 = icmp samesign ult i64 %61, 2
   br i1 %switch.i.i.i.i.i31, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i32", label %62
 
 62:                                               ; preds = %60
@@ -122864,7 +122864,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17heee4d20cc1fd1961E(ptr de
 73:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i32"
   call void @llvm.experimental.noalias.scope.decl(metadata !31538)
   call void @llvm.experimental.noalias.scope.decl(metadata !31541)
-  %switch.i.i.i1.i.i33 = icmp ult i64 %71, 2
+  %switch.i.i.i1.i.i33 = icmp samesign ult i64 %71, 2
   br i1 %switch.i.i.i1.i.i33, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit37", label %74
 
 74:                                               ; preds = %73
@@ -122994,7 +122994,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17heee4d20cc1fd1961E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31588)
   call void @llvm.experimental.noalias.scope.decl(metadata !31591)
   %116 = load i64, ptr %10, align 8, !range !41, !alias.scope !31594, !noundef !4
-  %switch.i.i.i.i.i39 = icmp ult i64 %116, 2
+  %switch.i.i.i.i.i39 = icmp samesign ult i64 %116, 2
   br i1 %switch.i.i.i.i.i39, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i40", label %117
 
 117:                                              ; preds = %113
@@ -123027,7 +123027,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17heee4d20cc1fd1961E(ptr de
 128:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i40"
   call void @llvm.experimental.noalias.scope.decl(metadata !31606)
   call void @llvm.experimental.noalias.scope.decl(metadata !31609)
-  %switch.i.i.i1.i.i41 = icmp ult i64 %126, 2
+  %switch.i.i.i1.i.i41 = icmp samesign ult i64 %126, 2
   br i1 %switch.i.i.i1.i.i41, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %129
 
 129:                                              ; preds = %128
@@ -123059,7 +123059,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17heee4d20cc1fd1961E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31629)
   call void @llvm.experimental.noalias.scope.decl(metadata !31632)
   %138 = load i64, ptr %10, align 8, !range !41, !alias.scope !31635, !noundef !4
-  %switch.i.i.i.i.i45 = icmp ult i64 %138, 2
+  %switch.i.i.i.i.i45 = icmp samesign ult i64 %138, 2
   br i1 %switch.i.i.i.i.i45, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i46", label %139
 
 139:                                              ; preds = %137
@@ -123092,7 +123092,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17heee4d20cc1fd1961E(ptr de
 150:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i46"
   call void @llvm.experimental.noalias.scope.decl(metadata !31647)
   call void @llvm.experimental.noalias.scope.decl(metadata !31650)
-  %switch.i.i.i1.i.i47 = icmp ult i64 %148, 2
+  %switch.i.i.i1.i.i47 = icmp samesign ult i64 %148, 2
   br i1 %switch.i.i.i1.i.i47, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit51", label %151
 
 151:                                              ; preds = %150
@@ -123433,7 +123433,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hef9622fff372dec9E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31712)
   call void @llvm.experimental.noalias.scope.decl(metadata !31715)
   %96 = load i64, ptr %27, align 8, !range !41, !alias.scope !31718, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %96, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %96, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %97
 
 97:                                               ; preds = %93
@@ -123466,7 +123466,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hef9622fff372dec9E(ptr de
 108:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !31730)
   call void @llvm.experimental.noalias.scope.decl(metadata !31733)
-  %switch.i.i.i1.i.i = icmp ult i64 %106, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %106, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit", label %109
 
 109:                                              ; preds = %108
@@ -123498,7 +123498,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hef9622fff372dec9E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31753)
   call void @llvm.experimental.noalias.scope.decl(metadata !31756)
   %118 = load i64, ptr %27, align 8, !range !41, !alias.scope !31759, !noundef !4
-  %switch.i.i.i.i.i38 = icmp ult i64 %118, 2
+  %switch.i.i.i.i.i38 = icmp samesign ult i64 %118, 2
   br i1 %switch.i.i.i.i.i38, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i39", label %119
 
 119:                                              ; preds = %117
@@ -123531,7 +123531,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hef9622fff372dec9E(ptr de
 130:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i39"
   call void @llvm.experimental.noalias.scope.decl(metadata !31771)
   call void @llvm.experimental.noalias.scope.decl(metadata !31774)
-  %switch.i.i.i1.i.i40 = icmp ult i64 %128, 2
+  %switch.i.i.i1.i.i40 = icmp samesign ult i64 %128, 2
   br i1 %switch.i.i.i1.i.i40, label %"_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17h998c5a45d9973a3aE.exit44", label %131
 
 131:                                              ; preds = %130
@@ -123803,7 +123803,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hef9622fff372dec9E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31852)
   call void @llvm.experimental.noalias.scope.decl(metadata !31855)
   %214 = load i64, ptr %24, align 8, !range !41, !alias.scope !31858, !noundef !4
-  %switch.i.i.i.i.i54 = icmp ult i64 %214, 2
+  %switch.i.i.i.i.i54 = icmp samesign ult i64 %214, 2
   br i1 %switch.i.i.i.i.i54, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i55", label %215
 
 215:                                              ; preds = %211
@@ -123836,7 +123836,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hef9622fff372dec9E(ptr de
 226:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i55"
   call void @llvm.experimental.noalias.scope.decl(metadata !31870)
   call void @llvm.experimental.noalias.scope.decl(metadata !31873)
-  %switch.i.i.i1.i.i56 = icmp ult i64 %224, 2
+  %switch.i.i.i1.i.i56 = icmp samesign ult i64 %224, 2
   br i1 %switch.i.i.i1.i.i56, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit", label %227
 
 227:                                              ; preds = %226
@@ -123868,7 +123868,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hef9622fff372dec9E(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !31893)
   call void @llvm.experimental.noalias.scope.decl(metadata !31896)
   %236 = load i64, ptr %24, align 8, !range !41, !alias.scope !31899, !noundef !4
-  %switch.i.i.i.i.i60 = icmp ult i64 %236, 2
+  %switch.i.i.i.i.i60 = icmp samesign ult i64 %236, 2
   br i1 %switch.i.i.i.i.i60, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i61", label %237
 
 237:                                              ; preds = %235
@@ -123901,7 +123901,7 @@ define hidden void @_ZN8zvariant3ser15serialized_size17hef9622fff372dec9E(ptr de
 248:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i61"
   call void @llvm.experimental.noalias.scope.decl(metadata !31911)
   call void @llvm.experimental.noalias.scope.decl(metadata !31914)
-  %switch.i.i.i1.i.i62 = icmp ult i64 %246, 2
+  %switch.i.i.i1.i.i62 = icmp samesign ult i64 %246, 2
   br i1 %switch.i.i.i1.i.i62, label %"_ZN4core3ptr92drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hbe9271c07be70d2dE.exit66", label %249
 
 249:                                              ; preds = %248
@@ -124072,7 +124072,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1483ac81d1e1df13
   call void @llvm.experimental.noalias.scope.decl(metadata !31934)
   call void @llvm.experimental.noalias.scope.decl(metadata !31937)
   %42 = load i64, ptr %19, align 8, !range !41, !alias.scope !31940, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %42, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %42, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %43
 
 43:                                               ; preds = %39
@@ -124105,7 +124105,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1483ac81d1e1df13
 54:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !31952)
   call void @llvm.experimental.noalias.scope.decl(metadata !31955)
-  %switch.i.i.i1.i.i = icmp ult i64 %52, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %52, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %55
 
 55:                                               ; preds = %54
@@ -124137,7 +124137,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1483ac81d1e1df13
   call void @llvm.experimental.noalias.scope.decl(metadata !31975)
   call void @llvm.experimental.noalias.scope.decl(metadata !31978)
   %64 = load i64, ptr %19, align 8, !range !41, !alias.scope !31981, !noundef !4
-  %switch.i.i.i.i.i33 = icmp ult i64 %64, 2
+  %switch.i.i.i.i.i33 = icmp samesign ult i64 %64, 2
   br i1 %switch.i.i.i.i.i33, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i34", label %65
 
 65:                                               ; preds = %63
@@ -124170,7 +124170,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1483ac81d1e1df13
 76:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i34"
   call void @llvm.experimental.noalias.scope.decl(metadata !31993)
   call void @llvm.experimental.noalias.scope.decl(metadata !31996)
-  %switch.i.i.i1.i.i35 = icmp ult i64 %74, 2
+  %switch.i.i.i1.i.i35 = icmp samesign ult i64 %74, 2
   br i1 %switch.i.i.i1.i.i35, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit39", label %77
 
 77:                                               ; preds = %76
@@ -124306,7 +124306,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1483ac81d1e1df13
   call void @llvm.experimental.noalias.scope.decl(metadata !32043)
   call void @llvm.experimental.noalias.scope.decl(metadata !32046)
   %120 = load i64, ptr %16, align 8, !range !41, !alias.scope !32049, !noundef !4
-  %switch.i.i.i.i.i40 = icmp ult i64 %120, 2
+  %switch.i.i.i.i.i40 = icmp samesign ult i64 %120, 2
   br i1 %switch.i.i.i.i.i40, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i41", label %121
 
 121:                                              ; preds = %117
@@ -124339,7 +124339,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1483ac81d1e1df13
 132:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i41"
   call void @llvm.experimental.noalias.scope.decl(metadata !32061)
   call void @llvm.experimental.noalias.scope.decl(metadata !32064)
-  %switch.i.i.i1.i.i42 = icmp ult i64 %130, 2
+  %switch.i.i.i1.i.i42 = icmp samesign ult i64 %130, 2
   br i1 %switch.i.i.i1.i.i42, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %133
 
 133:                                              ; preds = %132
@@ -124371,7 +124371,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1483ac81d1e1df13
   call void @llvm.experimental.noalias.scope.decl(metadata !32084)
   call void @llvm.experimental.noalias.scope.decl(metadata !32087)
   %142 = load i64, ptr %16, align 8, !range !41, !alias.scope !32090, !noundef !4
-  %switch.i.i.i.i.i46 = icmp ult i64 %142, 2
+  %switch.i.i.i.i.i46 = icmp samesign ult i64 %142, 2
   br i1 %switch.i.i.i.i.i46, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i47", label %143
 
 143:                                              ; preds = %141
@@ -124404,7 +124404,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1483ac81d1e1df13
 154:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i47"
   call void @llvm.experimental.noalias.scope.decl(metadata !32102)
   call void @llvm.experimental.noalias.scope.decl(metadata !32105)
-  %switch.i.i.i1.i.i48 = icmp ult i64 %152, 2
+  %switch.i.i.i1.i.i48 = icmp samesign ult i64 %152, 2
   br i1 %switch.i.i.i1.i.i48, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit52", label %155
 
 155:                                              ; preds = %154
@@ -124592,7 +124592,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1e67162ff20fac62
   call void @llvm.experimental.noalias.scope.decl(metadata !32125)
   call void @llvm.experimental.noalias.scope.decl(metadata !32128)
   %42 = load i64, ptr %19, align 8, !range !41, !alias.scope !32131, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %42, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %42, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %43
 
 43:                                               ; preds = %39
@@ -124625,7 +124625,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1e67162ff20fac62
 54:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !32143)
   call void @llvm.experimental.noalias.scope.decl(metadata !32146)
-  %switch.i.i.i1.i.i = icmp ult i64 %52, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %52, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %55
 
 55:                                               ; preds = %54
@@ -124657,7 +124657,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1e67162ff20fac62
   call void @llvm.experimental.noalias.scope.decl(metadata !32166)
   call void @llvm.experimental.noalias.scope.decl(metadata !32169)
   %64 = load i64, ptr %19, align 8, !range !41, !alias.scope !32172, !noundef !4
-  %switch.i.i.i.i.i36 = icmp ult i64 %64, 2
+  %switch.i.i.i.i.i36 = icmp samesign ult i64 %64, 2
   br i1 %switch.i.i.i.i.i36, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i37", label %65
 
 65:                                               ; preds = %63
@@ -124690,7 +124690,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1e67162ff20fac62
 76:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i37"
   call void @llvm.experimental.noalias.scope.decl(metadata !32184)
   call void @llvm.experimental.noalias.scope.decl(metadata !32187)
-  %switch.i.i.i1.i.i38 = icmp ult i64 %74, 2
+  %switch.i.i.i1.i.i38 = icmp samesign ult i64 %74, 2
   br i1 %switch.i.i.i1.i.i38, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit42", label %77
 
 77:                                               ; preds = %76
@@ -124829,7 +124829,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1e67162ff20fac62
   call void @llvm.experimental.noalias.scope.decl(metadata !32234)
   call void @llvm.experimental.noalias.scope.decl(metadata !32237)
   %120 = load i64, ptr %16, align 8, !range !41, !alias.scope !32240, !noundef !4
-  %switch.i.i.i.i.i44 = icmp ult i64 %120, 2
+  %switch.i.i.i.i.i44 = icmp samesign ult i64 %120, 2
   br i1 %switch.i.i.i.i.i44, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i45", label %121
 
 121:                                              ; preds = %117
@@ -124862,7 +124862,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1e67162ff20fac62
 132:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i45"
   call void @llvm.experimental.noalias.scope.decl(metadata !32252)
   call void @llvm.experimental.noalias.scope.decl(metadata !32255)
-  %switch.i.i.i1.i.i46 = icmp ult i64 %130, 2
+  %switch.i.i.i1.i.i46 = icmp samesign ult i64 %130, 2
   br i1 %switch.i.i.i1.i.i46, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %133
 
 133:                                              ; preds = %132
@@ -124894,7 +124894,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1e67162ff20fac62
   call void @llvm.experimental.noalias.scope.decl(metadata !32275)
   call void @llvm.experimental.noalias.scope.decl(metadata !32278)
   %142 = load i64, ptr %16, align 8, !range !41, !alias.scope !32281, !noundef !4
-  %switch.i.i.i.i.i50 = icmp ult i64 %142, 2
+  %switch.i.i.i.i.i50 = icmp samesign ult i64 %142, 2
   br i1 %switch.i.i.i.i.i50, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i51", label %143
 
 143:                                              ; preds = %141
@@ -124927,7 +124927,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h1e67162ff20fac62
 154:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i51"
   call void @llvm.experimental.noalias.scope.decl(metadata !32293)
   call void @llvm.experimental.noalias.scope.decl(metadata !32296)
-  %switch.i.i.i1.i.i52 = icmp ult i64 %152, 2
+  %switch.i.i.i1.i.i52 = icmp samesign ult i64 %152, 2
   br i1 %switch.i.i.i1.i.i52, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit56", label %155
 
 155:                                              ; preds = %154
@@ -125089,7 +125089,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h32367d878db8a09c
   %33 = load i64, ptr %4, align 8, !range !41, !alias.scope !32328, !noalias !32331, !noundef !4
   %34 = getelementptr inbounds i8, ptr %4, i64 8
   %35 = load ptr, ptr %34, align 8, !alias.scope !32328, !noalias !32331, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %33, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %33, 2
   %spec.select.idx.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 16
   %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 %spec.select.idx.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
@@ -125124,7 +125124,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h32367d878db8a09c
   call void @llvm.experimental.noalias.scope.decl(metadata !32344)
   call void @llvm.experimental.noalias.scope.decl(metadata !32347)
   %44 = load i64, ptr %19, align 8, !range !41, !alias.scope !32350, !noundef !4
-  %switch.i.i.i.i.i33 = icmp ult i64 %44, 2
+  %switch.i.i.i.i.i33 = icmp samesign ult i64 %44, 2
   br i1 %switch.i.i.i.i.i33, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %45
 
 45:                                               ; preds = %41
@@ -125157,7 +125157,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h32367d878db8a09c
 56:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !32362)
   call void @llvm.experimental.noalias.scope.decl(metadata !32365)
-  %switch.i.i.i1.i.i = icmp ult i64 %54, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %54, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %57
 
 57:                                               ; preds = %56
@@ -125192,7 +125192,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h32367d878db8a09c
   call void @llvm.experimental.noalias.scope.decl(metadata !32385)
   call void @llvm.experimental.noalias.scope.decl(metadata !32388)
   %66 = load i64, ptr %19, align 8, !range !41, !alias.scope !32391, !noundef !4
-  %switch.i.i.i.i.i35 = icmp ult i64 %66, 2
+  %switch.i.i.i.i.i35 = icmp samesign ult i64 %66, 2
   br i1 %switch.i.i.i.i.i35, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i36", label %67
 
 67:                                               ; preds = %65
@@ -125225,7 +125225,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h32367d878db8a09c
 78:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i36"
   call void @llvm.experimental.noalias.scope.decl(metadata !32403)
   call void @llvm.experimental.noalias.scope.decl(metadata !32406)
-  %switch.i.i.i1.i.i37 = icmp ult i64 %76, 2
+  %switch.i.i.i1.i.i37 = icmp samesign ult i64 %76, 2
   br i1 %switch.i.i.i1.i.i37, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit41", label %79
 
 79:                                               ; preds = %78
@@ -125338,7 +125338,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h32367d878db8a09c
   %113 = load i64, ptr %4, align 8, !range !41, !alias.scope !32465, !noalias !32468, !noundef !4
   %114 = getelementptr inbounds i8, ptr %4, i64 8
   %115 = load ptr, ptr %114, align 8, !alias.scope !32465, !noalias !32468, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i42 = icmp ult i64 %113, 2
+  %switch.i.i.i.i.i42 = icmp samesign ult i64 %113, 2
   %spec.select.idx.i.i.i.i.i43 = select i1 %switch.i.i.i.i.i42, i64 0, i64 16
   %spec.select.i.i.i.i.i44 = getelementptr inbounds i8, ptr %115, i64 %spec.select.idx.i.i.i.i.i43
   %.sroa.4.0.in.i.i.i.i.i45 = getelementptr inbounds i8, ptr %4, i64 16
@@ -125373,7 +125373,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h32367d878db8a09c
   call void @llvm.experimental.noalias.scope.decl(metadata !32481)
   call void @llvm.experimental.noalias.scope.decl(metadata !32484)
   %124 = load i64, ptr %17, align 8, !range !41, !alias.scope !32487, !noundef !4
-  %switch.i.i.i.i.i50 = icmp ult i64 %124, 2
+  %switch.i.i.i.i.i50 = icmp samesign ult i64 %124, 2
   br i1 %switch.i.i.i.i.i50, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i51", label %125
 
 125:                                              ; preds = %121
@@ -125406,7 +125406,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h32367d878db8a09c
 136:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i51"
   call void @llvm.experimental.noalias.scope.decl(metadata !32499)
   call void @llvm.experimental.noalias.scope.decl(metadata !32502)
-  %switch.i.i.i1.i.i52 = icmp ult i64 %134, 2
+  %switch.i.i.i1.i.i52 = icmp samesign ult i64 %134, 2
   br i1 %switch.i.i.i1.i.i52, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %137
 
 137:                                              ; preds = %136
@@ -125441,7 +125441,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h32367d878db8a09c
   call void @llvm.experimental.noalias.scope.decl(metadata !32522)
   call void @llvm.experimental.noalias.scope.decl(metadata !32525)
   %146 = load i64, ptr %17, align 8, !range !41, !alias.scope !32528, !noundef !4
-  %switch.i.i.i.i.i56 = icmp ult i64 %146, 2
+  %switch.i.i.i.i.i56 = icmp samesign ult i64 %146, 2
   br i1 %switch.i.i.i.i.i56, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i57", label %147
 
 147:                                              ; preds = %145
@@ -125474,7 +125474,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h32367d878db8a09c
 158:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i57"
   call void @llvm.experimental.noalias.scope.decl(metadata !32540)
   call void @llvm.experimental.noalias.scope.decl(metadata !32543)
-  %switch.i.i.i1.i.i58 = icmp ult i64 %156, 2
+  %switch.i.i.i1.i.i58 = icmp samesign ult i64 %156, 2
   br i1 %switch.i.i.i1.i.i58, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit62", label %159
 
 159:                                              ; preds = %158
@@ -125659,7 +125659,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h38a7ae0646e31dc1
   call void @llvm.experimental.noalias.scope.decl(metadata !32563)
   call void @llvm.experimental.noalias.scope.decl(metadata !32566)
   %41 = load i64, ptr %19, align 8, !range !41, !alias.scope !32569, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %41, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %41, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %42
 
 42:                                               ; preds = %38
@@ -125692,7 +125692,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h38a7ae0646e31dc1
 53:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !32581)
   call void @llvm.experimental.noalias.scope.decl(metadata !32584)
-  %switch.i.i.i1.i.i = icmp ult i64 %51, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %51, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %54
 
 54:                                               ; preds = %53
@@ -125724,7 +125724,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h38a7ae0646e31dc1
   call void @llvm.experimental.noalias.scope.decl(metadata !32604)
   call void @llvm.experimental.noalias.scope.decl(metadata !32607)
   %63 = load i64, ptr %19, align 8, !range !41, !alias.scope !32610, !noundef !4
-  %switch.i.i.i.i.i33 = icmp ult i64 %63, 2
+  %switch.i.i.i.i.i33 = icmp samesign ult i64 %63, 2
   br i1 %switch.i.i.i.i.i33, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i34", label %64
 
 64:                                               ; preds = %62
@@ -125757,7 +125757,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h38a7ae0646e31dc1
 75:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i34"
   call void @llvm.experimental.noalias.scope.decl(metadata !32622)
   call void @llvm.experimental.noalias.scope.decl(metadata !32625)
-  %switch.i.i.i1.i.i35 = icmp ult i64 %73, 2
+  %switch.i.i.i1.i.i35 = icmp samesign ult i64 %73, 2
   br i1 %switch.i.i.i1.i.i35, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit39", label %76
 
 76:                                               ; preds = %75
@@ -125893,7 +125893,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h38a7ae0646e31dc1
   call void @llvm.experimental.noalias.scope.decl(metadata !32672)
   call void @llvm.experimental.noalias.scope.decl(metadata !32675)
   %118 = load i64, ptr %16, align 8, !range !41, !alias.scope !32678, !noundef !4
-  %switch.i.i.i.i.i41 = icmp ult i64 %118, 2
+  %switch.i.i.i.i.i41 = icmp samesign ult i64 %118, 2
   br i1 %switch.i.i.i.i.i41, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i42", label %119
 
 119:                                              ; preds = %115
@@ -125926,7 +125926,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h38a7ae0646e31dc1
 130:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i42"
   call void @llvm.experimental.noalias.scope.decl(metadata !32690)
   call void @llvm.experimental.noalias.scope.decl(metadata !32693)
-  %switch.i.i.i1.i.i43 = icmp ult i64 %128, 2
+  %switch.i.i.i1.i.i43 = icmp samesign ult i64 %128, 2
   br i1 %switch.i.i.i1.i.i43, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %131
 
 131:                                              ; preds = %130
@@ -125958,7 +125958,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h38a7ae0646e31dc1
   call void @llvm.experimental.noalias.scope.decl(metadata !32713)
   call void @llvm.experimental.noalias.scope.decl(metadata !32716)
   %140 = load i64, ptr %16, align 8, !range !41, !alias.scope !32719, !noundef !4
-  %switch.i.i.i.i.i47 = icmp ult i64 %140, 2
+  %switch.i.i.i.i.i47 = icmp samesign ult i64 %140, 2
   br i1 %switch.i.i.i.i.i47, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i48", label %141
 
 141:                                              ; preds = %139
@@ -125991,7 +125991,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h38a7ae0646e31dc1
 152:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i48"
   call void @llvm.experimental.noalias.scope.decl(metadata !32731)
   call void @llvm.experimental.noalias.scope.decl(metadata !32734)
-  %switch.i.i.i1.i.i49 = icmp ult i64 %150, 2
+  %switch.i.i.i1.i.i49 = icmp samesign ult i64 %150, 2
   br i1 %switch.i.i.i1.i.i49, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit53", label %153
 
 153:                                              ; preds = %152
@@ -126176,7 +126176,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3a81b4a088d3a44a
   call void @llvm.experimental.noalias.scope.decl(metadata !32754)
   call void @llvm.experimental.noalias.scope.decl(metadata !32757)
   %41 = load i64, ptr %19, align 8, !range !41, !alias.scope !32760, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %41, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %41, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %42
 
 42:                                               ; preds = %38
@@ -126209,7 +126209,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3a81b4a088d3a44a
 53:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !32772)
   call void @llvm.experimental.noalias.scope.decl(metadata !32775)
-  %switch.i.i.i1.i.i = icmp ult i64 %51, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %51, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %54
 
 54:                                               ; preds = %53
@@ -126241,7 +126241,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3a81b4a088d3a44a
   call void @llvm.experimental.noalias.scope.decl(metadata !32795)
   call void @llvm.experimental.noalias.scope.decl(metadata !32798)
   %63 = load i64, ptr %19, align 8, !range !41, !alias.scope !32801, !noundef !4
-  %switch.i.i.i.i.i33 = icmp ult i64 %63, 2
+  %switch.i.i.i.i.i33 = icmp samesign ult i64 %63, 2
   br i1 %switch.i.i.i.i.i33, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i34", label %64
 
 64:                                               ; preds = %62
@@ -126274,7 +126274,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3a81b4a088d3a44a
 75:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i34"
   call void @llvm.experimental.noalias.scope.decl(metadata !32813)
   call void @llvm.experimental.noalias.scope.decl(metadata !32816)
-  %switch.i.i.i1.i.i35 = icmp ult i64 %73, 2
+  %switch.i.i.i1.i.i35 = icmp samesign ult i64 %73, 2
   br i1 %switch.i.i.i1.i.i35, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit39", label %76
 
 76:                                               ; preds = %75
@@ -126410,7 +126410,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3a81b4a088d3a44a
   call void @llvm.experimental.noalias.scope.decl(metadata !32863)
   call void @llvm.experimental.noalias.scope.decl(metadata !32866)
   %118 = load i64, ptr %16, align 8, !range !41, !alias.scope !32869, !noundef !4
-  %switch.i.i.i.i.i41 = icmp ult i64 %118, 2
+  %switch.i.i.i.i.i41 = icmp samesign ult i64 %118, 2
   br i1 %switch.i.i.i.i.i41, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i42", label %119
 
 119:                                              ; preds = %115
@@ -126443,7 +126443,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3a81b4a088d3a44a
 130:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i42"
   call void @llvm.experimental.noalias.scope.decl(metadata !32881)
   call void @llvm.experimental.noalias.scope.decl(metadata !32884)
-  %switch.i.i.i1.i.i43 = icmp ult i64 %128, 2
+  %switch.i.i.i1.i.i43 = icmp samesign ult i64 %128, 2
   br i1 %switch.i.i.i1.i.i43, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %131
 
 131:                                              ; preds = %130
@@ -126475,7 +126475,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3a81b4a088d3a44a
   call void @llvm.experimental.noalias.scope.decl(metadata !32904)
   call void @llvm.experimental.noalias.scope.decl(metadata !32907)
   %140 = load i64, ptr %16, align 8, !range !41, !alias.scope !32910, !noundef !4
-  %switch.i.i.i.i.i47 = icmp ult i64 %140, 2
+  %switch.i.i.i.i.i47 = icmp samesign ult i64 %140, 2
   br i1 %switch.i.i.i.i.i47, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i48", label %141
 
 141:                                              ; preds = %139
@@ -126508,7 +126508,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3a81b4a088d3a44a
 152:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i48"
   call void @llvm.experimental.noalias.scope.decl(metadata !32922)
   call void @llvm.experimental.noalias.scope.decl(metadata !32925)
-  %switch.i.i.i1.i.i49 = icmp ult i64 %150, 2
+  %switch.i.i.i1.i.i49 = icmp samesign ult i64 %150, 2
   br i1 %switch.i.i.i1.i.i49, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit53", label %153
 
 153:                                              ; preds = %152
@@ -126837,7 +126837,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3d65f8ab64bc92d3
   call void @llvm.experimental.noalias.scope.decl(metadata !32977)
   call void @llvm.experimental.noalias.scope.decl(metadata !32980)
   %89 = load i64, ptr %31, align 8, !range !41, !alias.scope !32983, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %89, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %89, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %90
 
 90:                                               ; preds = %86
@@ -126870,7 +126870,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3d65f8ab64bc92d3
 101:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !32995)
   call void @llvm.experimental.noalias.scope.decl(metadata !32998)
-  %switch.i.i.i1.i.i = icmp ult i64 %99, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %99, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %102
 
 102:                                              ; preds = %101
@@ -126902,7 +126902,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3d65f8ab64bc92d3
   call void @llvm.experimental.noalias.scope.decl(metadata !33018)
   call void @llvm.experimental.noalias.scope.decl(metadata !33021)
   %111 = load i64, ptr %31, align 8, !range !41, !alias.scope !33024, !noundef !4
-  %switch.i.i.i.i.i40 = icmp ult i64 %111, 2
+  %switch.i.i.i.i.i40 = icmp samesign ult i64 %111, 2
   br i1 %switch.i.i.i.i.i40, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i41", label %112
 
 112:                                              ; preds = %110
@@ -126935,7 +126935,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3d65f8ab64bc92d3
 123:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i41"
   call void @llvm.experimental.noalias.scope.decl(metadata !33036)
   call void @llvm.experimental.noalias.scope.decl(metadata !33039)
-  %switch.i.i.i1.i.i42 = icmp ult i64 %121, 2
+  %switch.i.i.i1.i.i42 = icmp samesign ult i64 %121, 2
   br i1 %switch.i.i.i1.i.i42, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit46", label %124
 
 124:                                              ; preds = %123
@@ -127188,7 +127188,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3d65f8ab64bc92d3
   call void @llvm.experimental.noalias.scope.decl(metadata !33108)
   call void @llvm.experimental.noalias.scope.decl(metadata !33111)
   %198 = load i64, ptr %28, align 8, !range !41, !alias.scope !33114, !noundef !4
-  %switch.i.i.i.i.i56 = icmp ult i64 %198, 2
+  %switch.i.i.i.i.i56 = icmp samesign ult i64 %198, 2
   br i1 %switch.i.i.i.i.i56, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i57", label %199
 
 199:                                              ; preds = %195
@@ -127221,7 +127221,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3d65f8ab64bc92d3
 210:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i57"
   call void @llvm.experimental.noalias.scope.decl(metadata !33126)
   call void @llvm.experimental.noalias.scope.decl(metadata !33129)
-  %switch.i.i.i1.i.i58 = icmp ult i64 %208, 2
+  %switch.i.i.i1.i.i58 = icmp samesign ult i64 %208, 2
   br i1 %switch.i.i.i1.i.i58, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %211
 
 211:                                              ; preds = %210
@@ -127253,7 +127253,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3d65f8ab64bc92d3
   call void @llvm.experimental.noalias.scope.decl(metadata !33149)
   call void @llvm.experimental.noalias.scope.decl(metadata !33152)
   %220 = load i64, ptr %28, align 8, !range !41, !alias.scope !33155, !noundef !4
-  %switch.i.i.i.i.i62 = icmp ult i64 %220, 2
+  %switch.i.i.i.i.i62 = icmp samesign ult i64 %220, 2
   br i1 %switch.i.i.i.i.i62, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i63", label %221
 
 221:                                              ; preds = %219
@@ -127286,7 +127286,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h3d65f8ab64bc92d3
 232:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i63"
   call void @llvm.experimental.noalias.scope.decl(metadata !33167)
   call void @llvm.experimental.noalias.scope.decl(metadata !33170)
-  %switch.i.i.i1.i.i64 = icmp ult i64 %230, 2
+  %switch.i.i.i1.i.i64 = icmp samesign ult i64 %230, 2
   br i1 %switch.i.i.i1.i.i64, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit68", label %233
 
 233:                                              ; preds = %232
@@ -127646,7 +127646,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h44bd0c01bd91a749
   call void @llvm.experimental.noalias.scope.decl(metadata !33232)
   call void @llvm.experimental.noalias.scope.decl(metadata !33235)
   %101 = load i64, ptr %33, align 8, !range !41, !alias.scope !33238, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %101, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %101, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %102
 
 102:                                              ; preds = %98
@@ -127679,7 +127679,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h44bd0c01bd91a749
 113:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !33250)
   call void @llvm.experimental.noalias.scope.decl(metadata !33253)
-  %switch.i.i.i1.i.i = icmp ult i64 %111, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %111, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %114
 
 114:                                              ; preds = %113
@@ -127711,7 +127711,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h44bd0c01bd91a749
   call void @llvm.experimental.noalias.scope.decl(metadata !33273)
   call void @llvm.experimental.noalias.scope.decl(metadata !33276)
   %123 = load i64, ptr %33, align 8, !range !41, !alias.scope !33279, !noundef !4
-  %switch.i.i.i.i.i43 = icmp ult i64 %123, 2
+  %switch.i.i.i.i.i43 = icmp samesign ult i64 %123, 2
   br i1 %switch.i.i.i.i.i43, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i44", label %124
 
 124:                                              ; preds = %122
@@ -127744,7 +127744,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h44bd0c01bd91a749
 135:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i44"
   call void @llvm.experimental.noalias.scope.decl(metadata !33291)
   call void @llvm.experimental.noalias.scope.decl(metadata !33294)
-  %switch.i.i.i1.i.i45 = icmp ult i64 %133, 2
+  %switch.i.i.i1.i.i45 = icmp samesign ult i64 %133, 2
   br i1 %switch.i.i.i1.i.i45, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit49", label %136
 
 136:                                              ; preds = %135
@@ -128025,7 +128025,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h44bd0c01bd91a749
   call void @llvm.experimental.noalias.scope.decl(metadata !33372)
   call void @llvm.experimental.noalias.scope.decl(metadata !33375)
   %220 = load i64, ptr %30, align 8, !range !41, !alias.scope !33378, !noundef !4
-  %switch.i.i.i.i.i59 = icmp ult i64 %220, 2
+  %switch.i.i.i.i.i59 = icmp samesign ult i64 %220, 2
   br i1 %switch.i.i.i.i.i59, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i60", label %221
 
 221:                                              ; preds = %217
@@ -128058,7 +128058,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h44bd0c01bd91a749
 232:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i60"
   call void @llvm.experimental.noalias.scope.decl(metadata !33390)
   call void @llvm.experimental.noalias.scope.decl(metadata !33393)
-  %switch.i.i.i1.i.i61 = icmp ult i64 %230, 2
+  %switch.i.i.i1.i.i61 = icmp samesign ult i64 %230, 2
   br i1 %switch.i.i.i1.i.i61, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %233
 
 233:                                              ; preds = %232
@@ -128090,7 +128090,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h44bd0c01bd91a749
   call void @llvm.experimental.noalias.scope.decl(metadata !33413)
   call void @llvm.experimental.noalias.scope.decl(metadata !33416)
   %242 = load i64, ptr %30, align 8, !range !41, !alias.scope !33419, !noundef !4
-  %switch.i.i.i.i.i65 = icmp ult i64 %242, 2
+  %switch.i.i.i.i.i65 = icmp samesign ult i64 %242, 2
   br i1 %switch.i.i.i.i.i65, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i66", label %243
 
 243:                                              ; preds = %241
@@ -128123,7 +128123,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h44bd0c01bd91a749
 254:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i66"
   call void @llvm.experimental.noalias.scope.decl(metadata !33431)
   call void @llvm.experimental.noalias.scope.decl(metadata !33434)
-  %switch.i.i.i1.i.i67 = icmp ult i64 %252, 2
+  %switch.i.i.i1.i.i67 = icmp samesign ult i64 %252, 2
   br i1 %switch.i.i.i1.i.i67, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit71", label %255
 
 255:                                              ; preds = %254
@@ -128282,7 +128282,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h5511e727eb323923
   call void @llvm.experimental.noalias.scope.decl(metadata !33451)
   call void @llvm.experimental.noalias.scope.decl(metadata !33454)
   call void @llvm.experimental.noalias.scope.decl(metadata !33457)
-  %switch.i.i.i.i.i = icmp ult i64 %27, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %27, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %33
 
 33:                                               ; preds = %30
@@ -128315,7 +128315,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h5511e727eb323923
 44:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !33471)
   call void @llvm.experimental.noalias.scope.decl(metadata !33474)
-  %switch.i.i.i1.i.i = icmp ult i64 %42, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %42, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %45
 
 45:                                               ; preds = %44
@@ -128499,7 +128499,7 @@ _ZN3std2io6cursor15reserve_and_pad17ha2430c41dc76bab0E.exit.i.i.i.us.i.i.i: ; pr
   call void @llvm.experimental.noalias.scope.decl(metadata !33560)
   call void @llvm.experimental.noalias.scope.decl(metadata !33563)
   %112 = load i64, ptr %15, align 8, !range !41, !alias.scope !33566, !noundef !4
-  %switch.i.i.i.i.i41 = icmp ult i64 %112, 2
+  %switch.i.i.i.i.i41 = icmp samesign ult i64 %112, 2
   br i1 %switch.i.i.i.i.i41, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i42", label %113
 
 113:                                              ; preds = %110
@@ -128532,7 +128532,7 @@ _ZN3std2io6cursor15reserve_and_pad17ha2430c41dc76bab0E.exit.i.i.i.us.i.i.i: ; pr
 124:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i42"
   call void @llvm.experimental.noalias.scope.decl(metadata !33578)
   call void @llvm.experimental.noalias.scope.decl(metadata !33581)
-  %switch.i.i.i1.i.i43 = icmp ult i64 %122, 2
+  %switch.i.i.i1.i.i43 = icmp samesign ult i64 %122, 2
   br i1 %switch.i.i.i1.i.i43, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %125
 
 125:                                              ; preds = %124
@@ -128864,7 +128864,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6ee38c7ee4fa9ab5
   call void @llvm.experimental.noalias.scope.decl(metadata !33633)
   call void @llvm.experimental.noalias.scope.decl(metadata !33636)
   %89 = load i64, ptr %31, align 8, !range !41, !alias.scope !33639, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %89, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %89, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %90
 
 90:                                               ; preds = %86
@@ -128897,7 +128897,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6ee38c7ee4fa9ab5
 101:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !33651)
   call void @llvm.experimental.noalias.scope.decl(metadata !33654)
-  %switch.i.i.i1.i.i = icmp ult i64 %99, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %99, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %102
 
 102:                                              ; preds = %101
@@ -128929,7 +128929,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6ee38c7ee4fa9ab5
   call void @llvm.experimental.noalias.scope.decl(metadata !33674)
   call void @llvm.experimental.noalias.scope.decl(metadata !33677)
   %111 = load i64, ptr %31, align 8, !range !41, !alias.scope !33680, !noundef !4
-  %switch.i.i.i.i.i40 = icmp ult i64 %111, 2
+  %switch.i.i.i.i.i40 = icmp samesign ult i64 %111, 2
   br i1 %switch.i.i.i.i.i40, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i41", label %112
 
 112:                                              ; preds = %110
@@ -128962,7 +128962,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6ee38c7ee4fa9ab5
 123:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i41"
   call void @llvm.experimental.noalias.scope.decl(metadata !33692)
   call void @llvm.experimental.noalias.scope.decl(metadata !33695)
-  %switch.i.i.i1.i.i42 = icmp ult i64 %121, 2
+  %switch.i.i.i1.i.i42 = icmp samesign ult i64 %121, 2
   br i1 %switch.i.i.i1.i.i42, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit46", label %124
 
 124:                                              ; preds = %123
@@ -129215,7 +129215,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6ee38c7ee4fa9ab5
   call void @llvm.experimental.noalias.scope.decl(metadata !33764)
   call void @llvm.experimental.noalias.scope.decl(metadata !33767)
   %198 = load i64, ptr %28, align 8, !range !41, !alias.scope !33770, !noundef !4
-  %switch.i.i.i.i.i56 = icmp ult i64 %198, 2
+  %switch.i.i.i.i.i56 = icmp samesign ult i64 %198, 2
   br i1 %switch.i.i.i.i.i56, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i57", label %199
 
 199:                                              ; preds = %195
@@ -129248,7 +129248,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6ee38c7ee4fa9ab5
 210:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i57"
   call void @llvm.experimental.noalias.scope.decl(metadata !33782)
   call void @llvm.experimental.noalias.scope.decl(metadata !33785)
-  %switch.i.i.i1.i.i58 = icmp ult i64 %208, 2
+  %switch.i.i.i1.i.i58 = icmp samesign ult i64 %208, 2
   br i1 %switch.i.i.i1.i.i58, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %211
 
 211:                                              ; preds = %210
@@ -129280,7 +129280,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6ee38c7ee4fa9ab5
   call void @llvm.experimental.noalias.scope.decl(metadata !33805)
   call void @llvm.experimental.noalias.scope.decl(metadata !33808)
   %220 = load i64, ptr %28, align 8, !range !41, !alias.scope !33811, !noundef !4
-  %switch.i.i.i.i.i62 = icmp ult i64 %220, 2
+  %switch.i.i.i.i.i62 = icmp samesign ult i64 %220, 2
   br i1 %switch.i.i.i.i.i62, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i63", label %221
 
 221:                                              ; preds = %219
@@ -129313,7 +129313,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6ee38c7ee4fa9ab5
 232:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i63"
   call void @llvm.experimental.noalias.scope.decl(metadata !33823)
   call void @llvm.experimental.noalias.scope.decl(metadata !33826)
-  %switch.i.i.i1.i.i64 = icmp ult i64 %230, 2
+  %switch.i.i.i1.i.i64 = icmp samesign ult i64 %230, 2
   br i1 %switch.i.i.i1.i.i64, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit68", label %233
 
 233:                                              ; preds = %232
@@ -129642,7 +129642,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6f9f5919840a5574
   call void @llvm.experimental.noalias.scope.decl(metadata !33878)
   call void @llvm.experimental.noalias.scope.decl(metadata !33881)
   %89 = load i64, ptr %31, align 8, !range !41, !alias.scope !33884, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %89, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %89, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %90
 
 90:                                               ; preds = %86
@@ -129675,7 +129675,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6f9f5919840a5574
 101:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !33896)
   call void @llvm.experimental.noalias.scope.decl(metadata !33899)
-  %switch.i.i.i1.i.i = icmp ult i64 %99, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %99, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %102
 
 102:                                              ; preds = %101
@@ -129707,7 +129707,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6f9f5919840a5574
   call void @llvm.experimental.noalias.scope.decl(metadata !33919)
   call void @llvm.experimental.noalias.scope.decl(metadata !33922)
   %111 = load i64, ptr %31, align 8, !range !41, !alias.scope !33925, !noundef !4
-  %switch.i.i.i.i.i40 = icmp ult i64 %111, 2
+  %switch.i.i.i.i.i40 = icmp samesign ult i64 %111, 2
   br i1 %switch.i.i.i.i.i40, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i41", label %112
 
 112:                                              ; preds = %110
@@ -129740,7 +129740,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6f9f5919840a5574
 123:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i41"
   call void @llvm.experimental.noalias.scope.decl(metadata !33937)
   call void @llvm.experimental.noalias.scope.decl(metadata !33940)
-  %switch.i.i.i1.i.i42 = icmp ult i64 %121, 2
+  %switch.i.i.i1.i.i42 = icmp samesign ult i64 %121, 2
   br i1 %switch.i.i.i1.i.i42, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit46", label %124
 
 124:                                              ; preds = %123
@@ -129993,7 +129993,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6f9f5919840a5574
   call void @llvm.experimental.noalias.scope.decl(metadata !34009)
   call void @llvm.experimental.noalias.scope.decl(metadata !34012)
   %198 = load i64, ptr %28, align 8, !range !41, !alias.scope !34015, !noundef !4
-  %switch.i.i.i.i.i56 = icmp ult i64 %198, 2
+  %switch.i.i.i.i.i56 = icmp samesign ult i64 %198, 2
   br i1 %switch.i.i.i.i.i56, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i57", label %199
 
 199:                                              ; preds = %195
@@ -130026,7 +130026,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6f9f5919840a5574
 210:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i57"
   call void @llvm.experimental.noalias.scope.decl(metadata !34027)
   call void @llvm.experimental.noalias.scope.decl(metadata !34030)
-  %switch.i.i.i1.i.i58 = icmp ult i64 %208, 2
+  %switch.i.i.i1.i.i58 = icmp samesign ult i64 %208, 2
   br i1 %switch.i.i.i1.i.i58, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %211
 
 211:                                              ; preds = %210
@@ -130058,7 +130058,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6f9f5919840a5574
   call void @llvm.experimental.noalias.scope.decl(metadata !34050)
   call void @llvm.experimental.noalias.scope.decl(metadata !34053)
   %220 = load i64, ptr %28, align 8, !range !41, !alias.scope !34056, !noundef !4
-  %switch.i.i.i.i.i62 = icmp ult i64 %220, 2
+  %switch.i.i.i.i.i62 = icmp samesign ult i64 %220, 2
   br i1 %switch.i.i.i.i.i62, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i63", label %221
 
 221:                                              ; preds = %219
@@ -130091,7 +130091,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h6f9f5919840a5574
 232:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i63"
   call void @llvm.experimental.noalias.scope.decl(metadata !34068)
   call void @llvm.experimental.noalias.scope.decl(metadata !34071)
-  %switch.i.i.i1.i.i64 = icmp ult i64 %230, 2
+  %switch.i.i.i1.i.i64 = icmp samesign ult i64 %230, 2
   br i1 %switch.i.i.i1.i.i64, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit68", label %233
 
 233:                                              ; preds = %232
@@ -130420,7 +130420,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h70d024f1f0d74f7f
   call void @llvm.experimental.noalias.scope.decl(metadata !34123)
   call void @llvm.experimental.noalias.scope.decl(metadata !34126)
   %89 = load i64, ptr %31, align 8, !range !41, !alias.scope !34129, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %89, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %89, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %90
 
 90:                                               ; preds = %86
@@ -130453,7 +130453,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h70d024f1f0d74f7f
 101:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !34141)
   call void @llvm.experimental.noalias.scope.decl(metadata !34144)
-  %switch.i.i.i1.i.i = icmp ult i64 %99, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %99, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %102
 
 102:                                              ; preds = %101
@@ -130485,7 +130485,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h70d024f1f0d74f7f
   call void @llvm.experimental.noalias.scope.decl(metadata !34164)
   call void @llvm.experimental.noalias.scope.decl(metadata !34167)
   %111 = load i64, ptr %31, align 8, !range !41, !alias.scope !34170, !noundef !4
-  %switch.i.i.i.i.i40 = icmp ult i64 %111, 2
+  %switch.i.i.i.i.i40 = icmp samesign ult i64 %111, 2
   br i1 %switch.i.i.i.i.i40, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i41", label %112
 
 112:                                              ; preds = %110
@@ -130518,7 +130518,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h70d024f1f0d74f7f
 123:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i41"
   call void @llvm.experimental.noalias.scope.decl(metadata !34182)
   call void @llvm.experimental.noalias.scope.decl(metadata !34185)
-  %switch.i.i.i1.i.i42 = icmp ult i64 %121, 2
+  %switch.i.i.i1.i.i42 = icmp samesign ult i64 %121, 2
   br i1 %switch.i.i.i1.i.i42, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit46", label %124
 
 124:                                              ; preds = %123
@@ -130771,7 +130771,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h70d024f1f0d74f7f
   call void @llvm.experimental.noalias.scope.decl(metadata !34254)
   call void @llvm.experimental.noalias.scope.decl(metadata !34257)
   %198 = load i64, ptr %28, align 8, !range !41, !alias.scope !34260, !noundef !4
-  %switch.i.i.i.i.i56 = icmp ult i64 %198, 2
+  %switch.i.i.i.i.i56 = icmp samesign ult i64 %198, 2
   br i1 %switch.i.i.i.i.i56, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i57", label %199
 
 199:                                              ; preds = %195
@@ -130804,7 +130804,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h70d024f1f0d74f7f
 210:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i57"
   call void @llvm.experimental.noalias.scope.decl(metadata !34272)
   call void @llvm.experimental.noalias.scope.decl(metadata !34275)
-  %switch.i.i.i1.i.i58 = icmp ult i64 %208, 2
+  %switch.i.i.i1.i.i58 = icmp samesign ult i64 %208, 2
   br i1 %switch.i.i.i1.i.i58, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %211
 
 211:                                              ; preds = %210
@@ -130836,7 +130836,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h70d024f1f0d74f7f
   call void @llvm.experimental.noalias.scope.decl(metadata !34295)
   call void @llvm.experimental.noalias.scope.decl(metadata !34298)
   %220 = load i64, ptr %28, align 8, !range !41, !alias.scope !34301, !noundef !4
-  %switch.i.i.i.i.i62 = icmp ult i64 %220, 2
+  %switch.i.i.i.i.i62 = icmp samesign ult i64 %220, 2
   br i1 %switch.i.i.i.i.i62, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i63", label %221
 
 221:                                              ; preds = %219
@@ -130869,7 +130869,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h70d024f1f0d74f7f
 232:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i63"
   call void @llvm.experimental.noalias.scope.decl(metadata !34313)
   call void @llvm.experimental.noalias.scope.decl(metadata !34316)
-  %switch.i.i.i1.i.i64 = icmp ult i64 %230, 2
+  %switch.i.i.i1.i.i64 = icmp samesign ult i64 %230, 2
   br i1 %switch.i.i.i1.i.i64, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit68", label %233
 
 233:                                              ; preds = %232
@@ -131057,7 +131057,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h7569602b44923364
   call void @llvm.experimental.noalias.scope.decl(metadata !34336)
   call void @llvm.experimental.noalias.scope.decl(metadata !34339)
   %42 = load i64, ptr %19, align 8, !range !41, !alias.scope !34342, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %42, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %42, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %43
 
 43:                                               ; preds = %39
@@ -131090,7 +131090,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h7569602b44923364
 54:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !34354)
   call void @llvm.experimental.noalias.scope.decl(metadata !34357)
-  %switch.i.i.i1.i.i = icmp ult i64 %52, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %52, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %55
 
 55:                                               ; preds = %54
@@ -131122,7 +131122,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h7569602b44923364
   call void @llvm.experimental.noalias.scope.decl(metadata !34377)
   call void @llvm.experimental.noalias.scope.decl(metadata !34380)
   %64 = load i64, ptr %19, align 8, !range !41, !alias.scope !34383, !noundef !4
-  %switch.i.i.i.i.i36 = icmp ult i64 %64, 2
+  %switch.i.i.i.i.i36 = icmp samesign ult i64 %64, 2
   br i1 %switch.i.i.i.i.i36, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i37", label %65
 
 65:                                               ; preds = %63
@@ -131155,7 +131155,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h7569602b44923364
 76:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i37"
   call void @llvm.experimental.noalias.scope.decl(metadata !34395)
   call void @llvm.experimental.noalias.scope.decl(metadata !34398)
-  %switch.i.i.i1.i.i38 = icmp ult i64 %74, 2
+  %switch.i.i.i1.i.i38 = icmp samesign ult i64 %74, 2
   br i1 %switch.i.i.i1.i.i38, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit42", label %77
 
 77:                                               ; preds = %76
@@ -131294,7 +131294,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h7569602b44923364
   call void @llvm.experimental.noalias.scope.decl(metadata !34445)
   call void @llvm.experimental.noalias.scope.decl(metadata !34448)
   %120 = load i64, ptr %16, align 8, !range !41, !alias.scope !34451, !noundef !4
-  %switch.i.i.i.i.i44 = icmp ult i64 %120, 2
+  %switch.i.i.i.i.i44 = icmp samesign ult i64 %120, 2
   br i1 %switch.i.i.i.i.i44, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i45", label %121
 
 121:                                              ; preds = %117
@@ -131327,7 +131327,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h7569602b44923364
 132:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i45"
   call void @llvm.experimental.noalias.scope.decl(metadata !34463)
   call void @llvm.experimental.noalias.scope.decl(metadata !34466)
-  %switch.i.i.i1.i.i46 = icmp ult i64 %130, 2
+  %switch.i.i.i1.i.i46 = icmp samesign ult i64 %130, 2
   br i1 %switch.i.i.i1.i.i46, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %133
 
 133:                                              ; preds = %132
@@ -131359,7 +131359,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h7569602b44923364
   call void @llvm.experimental.noalias.scope.decl(metadata !34486)
   call void @llvm.experimental.noalias.scope.decl(metadata !34489)
   %142 = load i64, ptr %16, align 8, !range !41, !alias.scope !34492, !noundef !4
-  %switch.i.i.i.i.i50 = icmp ult i64 %142, 2
+  %switch.i.i.i.i.i50 = icmp samesign ult i64 %142, 2
   br i1 %switch.i.i.i.i.i50, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i51", label %143
 
 143:                                              ; preds = %141
@@ -131392,7 +131392,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h7569602b44923364
 154:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i51"
   call void @llvm.experimental.noalias.scope.decl(metadata !34504)
   call void @llvm.experimental.noalias.scope.decl(metadata !34507)
-  %switch.i.i.i1.i.i52 = icmp ult i64 %152, 2
+  %switch.i.i.i1.i.i52 = icmp samesign ult i64 %152, 2
   br i1 %switch.i.i.i1.i.i52, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit56", label %155
 
 155:                                              ; preds = %154
@@ -131752,7 +131752,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h8cd6bd5ae90cdbfb
   call void @llvm.experimental.noalias.scope.decl(metadata !34569)
   call void @llvm.experimental.noalias.scope.decl(metadata !34572)
   %101 = load i64, ptr %33, align 8, !range !41, !alias.scope !34575, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %101, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %101, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %102
 
 102:                                              ; preds = %98
@@ -131785,7 +131785,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h8cd6bd5ae90cdbfb
 113:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !34587)
   call void @llvm.experimental.noalias.scope.decl(metadata !34590)
-  %switch.i.i.i1.i.i = icmp ult i64 %111, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %111, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %114
 
 114:                                              ; preds = %113
@@ -131817,7 +131817,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h8cd6bd5ae90cdbfb
   call void @llvm.experimental.noalias.scope.decl(metadata !34610)
   call void @llvm.experimental.noalias.scope.decl(metadata !34613)
   %123 = load i64, ptr %33, align 8, !range !41, !alias.scope !34616, !noundef !4
-  %switch.i.i.i.i.i43 = icmp ult i64 %123, 2
+  %switch.i.i.i.i.i43 = icmp samesign ult i64 %123, 2
   br i1 %switch.i.i.i.i.i43, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i44", label %124
 
 124:                                              ; preds = %122
@@ -131850,7 +131850,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h8cd6bd5ae90cdbfb
 135:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i44"
   call void @llvm.experimental.noalias.scope.decl(metadata !34628)
   call void @llvm.experimental.noalias.scope.decl(metadata !34631)
-  %switch.i.i.i1.i.i45 = icmp ult i64 %133, 2
+  %switch.i.i.i1.i.i45 = icmp samesign ult i64 %133, 2
   br i1 %switch.i.i.i1.i.i45, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit49", label %136
 
 136:                                              ; preds = %135
@@ -132131,7 +132131,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h8cd6bd5ae90cdbfb
   call void @llvm.experimental.noalias.scope.decl(metadata !34709)
   call void @llvm.experimental.noalias.scope.decl(metadata !34712)
   %220 = load i64, ptr %30, align 8, !range !41, !alias.scope !34715, !noundef !4
-  %switch.i.i.i.i.i59 = icmp ult i64 %220, 2
+  %switch.i.i.i.i.i59 = icmp samesign ult i64 %220, 2
   br i1 %switch.i.i.i.i.i59, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i60", label %221
 
 221:                                              ; preds = %217
@@ -132164,7 +132164,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h8cd6bd5ae90cdbfb
 232:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i60"
   call void @llvm.experimental.noalias.scope.decl(metadata !34727)
   call void @llvm.experimental.noalias.scope.decl(metadata !34730)
-  %switch.i.i.i1.i.i61 = icmp ult i64 %230, 2
+  %switch.i.i.i1.i.i61 = icmp samesign ult i64 %230, 2
   br i1 %switch.i.i.i1.i.i61, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %233
 
 233:                                              ; preds = %232
@@ -132196,7 +132196,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h8cd6bd5ae90cdbfb
   call void @llvm.experimental.noalias.scope.decl(metadata !34750)
   call void @llvm.experimental.noalias.scope.decl(metadata !34753)
   %242 = load i64, ptr %30, align 8, !range !41, !alias.scope !34756, !noundef !4
-  %switch.i.i.i.i.i65 = icmp ult i64 %242, 2
+  %switch.i.i.i.i.i65 = icmp samesign ult i64 %242, 2
   br i1 %switch.i.i.i.i.i65, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i66", label %243
 
 243:                                              ; preds = %241
@@ -132229,7 +132229,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17h8cd6bd5ae90cdbfb
 254:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i66"
   call void @llvm.experimental.noalias.scope.decl(metadata !34768)
   call void @llvm.experimental.noalias.scope.decl(metadata !34771)
-  %switch.i.i.i1.i.i67 = icmp ult i64 %252, 2
+  %switch.i.i.i1.i.i67 = icmp samesign ult i64 %252, 2
   br i1 %switch.i.i.i1.i.i67, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit71", label %255
 
 255:                                              ; preds = %254
@@ -132391,7 +132391,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hbd54208ab9697871
   %35 = load i64, ptr %34, align 8, !range !41, !noalias !34791, !noundef !4
   %36 = getelementptr inbounds i8, ptr %33, i64 88
   %37 = load ptr, ptr %36, align 8, !noalias !34791, !nonnull !4, !noundef !4
-  %switch.i.i = icmp ult i64 %35, 2
+  %switch.i.i = icmp samesign ult i64 %35, 2
   %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
   %spec.select.i.i = getelementptr inbounds i8, ptr %37, i64 %spec.select.idx.i.i
   %.sroa.6.0.in.i.i = getelementptr inbounds i8, ptr %33, i64 96
@@ -132426,7 +132426,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hbd54208ab9697871
   call void @llvm.experimental.noalias.scope.decl(metadata !34801)
   call void @llvm.experimental.noalias.scope.decl(metadata !34804)
   %46 = load i64, ptr %19, align 8, !range !41, !alias.scope !34807, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %46, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %46, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %47
 
 47:                                               ; preds = %43
@@ -132459,7 +132459,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hbd54208ab9697871
 58:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !34819)
   call void @llvm.experimental.noalias.scope.decl(metadata !34822)
-  %switch.i.i.i1.i.i = icmp ult i64 %56, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %56, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %59
 
 59:                                               ; preds = %58
@@ -132491,7 +132491,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hbd54208ab9697871
   call void @llvm.experimental.noalias.scope.decl(metadata !34842)
   call void @llvm.experimental.noalias.scope.decl(metadata !34845)
   %68 = load i64, ptr %19, align 8, !range !41, !alias.scope !34848, !noundef !4
-  %switch.i.i.i.i.i34 = icmp ult i64 %68, 2
+  %switch.i.i.i.i.i34 = icmp samesign ult i64 %68, 2
   br i1 %switch.i.i.i.i.i34, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i35", label %69
 
 69:                                               ; preds = %67
@@ -132524,7 +132524,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hbd54208ab9697871
 80:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i35"
   call void @llvm.experimental.noalias.scope.decl(metadata !34860)
   call void @llvm.experimental.noalias.scope.decl(metadata !34863)
-  %switch.i.i.i1.i.i36 = icmp ult i64 %78, 2
+  %switch.i.i.i1.i.i36 = icmp samesign ult i64 %78, 2
   br i1 %switch.i.i.i1.i.i36, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit40", label %81
 
 81:                                               ; preds = %80
@@ -132637,7 +132637,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hbd54208ab9697871
   %117 = load i64, ptr %116, align 8, !range !41, !noalias !34910, !noundef !4
   %118 = getelementptr inbounds i8, ptr %115, i64 88
   %119 = load ptr, ptr %118, align 8, !noalias !34910, !nonnull !4, !noundef !4
-  %switch.i.i41 = icmp ult i64 %117, 2
+  %switch.i.i41 = icmp samesign ult i64 %117, 2
   %spec.select.idx.i.i42 = select i1 %switch.i.i41, i64 0, i64 16
   %spec.select.i.i43 = getelementptr inbounds i8, ptr %119, i64 %spec.select.idx.i.i42
   %.sroa.6.0.in.i.i44 = getelementptr inbounds i8, ptr %115, i64 96
@@ -132672,7 +132672,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hbd54208ab9697871
   call void @llvm.experimental.noalias.scope.decl(metadata !34920)
   call void @llvm.experimental.noalias.scope.decl(metadata !34923)
   %128 = load i64, ptr %16, align 8, !range !41, !alias.scope !34926, !noundef !4
-  %switch.i.i.i.i.i47 = icmp ult i64 %128, 2
+  %switch.i.i.i.i.i47 = icmp samesign ult i64 %128, 2
   br i1 %switch.i.i.i.i.i47, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i48", label %129
 
 129:                                              ; preds = %125
@@ -132705,7 +132705,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hbd54208ab9697871
 140:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i48"
   call void @llvm.experimental.noalias.scope.decl(metadata !34938)
   call void @llvm.experimental.noalias.scope.decl(metadata !34941)
-  %switch.i.i.i1.i.i49 = icmp ult i64 %138, 2
+  %switch.i.i.i1.i.i49 = icmp samesign ult i64 %138, 2
   br i1 %switch.i.i.i1.i.i49, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %141
 
 141:                                              ; preds = %140
@@ -132737,7 +132737,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hbd54208ab9697871
   call void @llvm.experimental.noalias.scope.decl(metadata !34961)
   call void @llvm.experimental.noalias.scope.decl(metadata !34964)
   %150 = load i64, ptr %16, align 8, !range !41, !alias.scope !34967, !noundef !4
-  %switch.i.i.i.i.i53 = icmp ult i64 %150, 2
+  %switch.i.i.i.i.i53 = icmp samesign ult i64 %150, 2
   br i1 %switch.i.i.i.i.i53, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i54", label %151
 
 151:                                              ; preds = %149
@@ -132770,7 +132770,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hbd54208ab9697871
 162:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i54"
   call void @llvm.experimental.noalias.scope.decl(metadata !34979)
   call void @llvm.experimental.noalias.scope.decl(metadata !34982)
-  %switch.i.i.i1.i.i55 = icmp ult i64 %160, 2
+  %switch.i.i.i1.i.i55 = icmp samesign ult i64 %160, 2
   br i1 %switch.i.i.i1.i.i55, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit59", label %163
 
 163:                                              ; preds = %162
@@ -133130,7 +133130,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hc805335ce758e38d
   call void @llvm.experimental.noalias.scope.decl(metadata !35044)
   call void @llvm.experimental.noalias.scope.decl(metadata !35047)
   %101 = load i64, ptr %33, align 8, !range !41, !alias.scope !35050, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %101, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %101, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %102
 
 102:                                              ; preds = %98
@@ -133163,7 +133163,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hc805335ce758e38d
 113:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !35062)
   call void @llvm.experimental.noalias.scope.decl(metadata !35065)
-  %switch.i.i.i1.i.i = icmp ult i64 %111, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %111, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %114
 
 114:                                              ; preds = %113
@@ -133195,7 +133195,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hc805335ce758e38d
   call void @llvm.experimental.noalias.scope.decl(metadata !35085)
   call void @llvm.experimental.noalias.scope.decl(metadata !35088)
   %123 = load i64, ptr %33, align 8, !range !41, !alias.scope !35091, !noundef !4
-  %switch.i.i.i.i.i43 = icmp ult i64 %123, 2
+  %switch.i.i.i.i.i43 = icmp samesign ult i64 %123, 2
   br i1 %switch.i.i.i.i.i43, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i44", label %124
 
 124:                                              ; preds = %122
@@ -133228,7 +133228,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hc805335ce758e38d
 135:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i44"
   call void @llvm.experimental.noalias.scope.decl(metadata !35103)
   call void @llvm.experimental.noalias.scope.decl(metadata !35106)
-  %switch.i.i.i1.i.i45 = icmp ult i64 %133, 2
+  %switch.i.i.i1.i.i45 = icmp samesign ult i64 %133, 2
   br i1 %switch.i.i.i1.i.i45, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit49", label %136
 
 136:                                              ; preds = %135
@@ -133509,7 +133509,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hc805335ce758e38d
   call void @llvm.experimental.noalias.scope.decl(metadata !35184)
   call void @llvm.experimental.noalias.scope.decl(metadata !35187)
   %220 = load i64, ptr %30, align 8, !range !41, !alias.scope !35190, !noundef !4
-  %switch.i.i.i.i.i59 = icmp ult i64 %220, 2
+  %switch.i.i.i.i.i59 = icmp samesign ult i64 %220, 2
   br i1 %switch.i.i.i.i.i59, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i60", label %221
 
 221:                                              ; preds = %217
@@ -133542,7 +133542,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hc805335ce758e38d
 232:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i60"
   call void @llvm.experimental.noalias.scope.decl(metadata !35202)
   call void @llvm.experimental.noalias.scope.decl(metadata !35205)
-  %switch.i.i.i1.i.i61 = icmp ult i64 %230, 2
+  %switch.i.i.i1.i.i61 = icmp samesign ult i64 %230, 2
   br i1 %switch.i.i.i1.i.i61, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %233
 
 233:                                              ; preds = %232
@@ -133574,7 +133574,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hc805335ce758e38d
   call void @llvm.experimental.noalias.scope.decl(metadata !35225)
   call void @llvm.experimental.noalias.scope.decl(metadata !35228)
   %242 = load i64, ptr %30, align 8, !range !41, !alias.scope !35231, !noundef !4
-  %switch.i.i.i.i.i65 = icmp ult i64 %242, 2
+  %switch.i.i.i.i.i65 = icmp samesign ult i64 %242, 2
   br i1 %switch.i.i.i.i.i65, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i66", label %243
 
 243:                                              ; preds = %241
@@ -133607,7 +133607,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hc805335ce758e38d
 254:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i66"
   call void @llvm.experimental.noalias.scope.decl(metadata !35243)
   call void @llvm.experimental.noalias.scope.decl(metadata !35246)
-  %switch.i.i.i1.i.i67 = icmp ult i64 %252, 2
+  %switch.i.i.i1.i.i67 = icmp samesign ult i64 %252, 2
   br i1 %switch.i.i.i1.i.i67, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit71", label %255
 
 255:                                              ; preds = %254
@@ -133965,7 +133965,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17heb4b22ca600713ed
   call void @llvm.experimental.noalias.scope.decl(metadata !35304)
   call void @llvm.experimental.noalias.scope.decl(metadata !35307)
   %101 = load i64, ptr %33, align 8, !range !41, !alias.scope !35310, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %101, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %101, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %102
 
 102:                                              ; preds = %98
@@ -133998,7 +133998,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17heb4b22ca600713ed
 113:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !35322)
   call void @llvm.experimental.noalias.scope.decl(metadata !35325)
-  %switch.i.i.i1.i.i = icmp ult i64 %111, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %111, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %114
 
 114:                                              ; preds = %113
@@ -134030,7 +134030,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17heb4b22ca600713ed
   call void @llvm.experimental.noalias.scope.decl(metadata !35345)
   call void @llvm.experimental.noalias.scope.decl(metadata !35348)
   %123 = load i64, ptr %33, align 8, !range !41, !alias.scope !35351, !noundef !4
-  %switch.i.i.i.i.i42 = icmp ult i64 %123, 2
+  %switch.i.i.i.i.i42 = icmp samesign ult i64 %123, 2
   br i1 %switch.i.i.i.i.i42, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i43", label %124
 
 124:                                              ; preds = %122
@@ -134063,7 +134063,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17heb4b22ca600713ed
 135:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i43"
   call void @llvm.experimental.noalias.scope.decl(metadata !35363)
   call void @llvm.experimental.noalias.scope.decl(metadata !35366)
-  %switch.i.i.i1.i.i44 = icmp ult i64 %133, 2
+  %switch.i.i.i1.i.i44 = icmp samesign ult i64 %133, 2
   br i1 %switch.i.i.i1.i.i44, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit48", label %136
 
 136:                                              ; preds = %135
@@ -134343,7 +134343,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17heb4b22ca600713ed
   call void @llvm.experimental.noalias.scope.decl(metadata !35441)
   call void @llvm.experimental.noalias.scope.decl(metadata !35444)
   %220 = load i64, ptr %30, align 8, !range !41, !alias.scope !35447, !noundef !4
-  %switch.i.i.i.i.i58 = icmp ult i64 %220, 2
+  %switch.i.i.i.i.i58 = icmp samesign ult i64 %220, 2
   br i1 %switch.i.i.i.i.i58, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i59", label %221
 
 221:                                              ; preds = %217
@@ -134376,7 +134376,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17heb4b22ca600713ed
 232:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i59"
   call void @llvm.experimental.noalias.scope.decl(metadata !35459)
   call void @llvm.experimental.noalias.scope.decl(metadata !35462)
-  %switch.i.i.i1.i.i60 = icmp ult i64 %230, 2
+  %switch.i.i.i1.i.i60 = icmp samesign ult i64 %230, 2
   br i1 %switch.i.i.i1.i.i60, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %233
 
 233:                                              ; preds = %232
@@ -134408,7 +134408,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17heb4b22ca600713ed
   call void @llvm.experimental.noalias.scope.decl(metadata !35482)
   call void @llvm.experimental.noalias.scope.decl(metadata !35485)
   %242 = load i64, ptr %30, align 8, !range !41, !alias.scope !35488, !noundef !4
-  %switch.i.i.i.i.i64 = icmp ult i64 %242, 2
+  %switch.i.i.i.i.i64 = icmp samesign ult i64 %242, 2
   br i1 %switch.i.i.i.i.i64, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i65", label %243
 
 243:                                              ; preds = %241
@@ -134441,7 +134441,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17heb4b22ca600713ed
 254:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i65"
   call void @llvm.experimental.noalias.scope.decl(metadata !35500)
   call void @llvm.experimental.noalias.scope.decl(metadata !35503)
-  %switch.i.i.i1.i.i66 = icmp ult i64 %252, 2
+  %switch.i.i.i1.i.i66 = icmp samesign ult i64 %252, 2
   br i1 %switch.i.i.i1.i.i66, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit70", label %255
 
 255:                                              ; preds = %254
@@ -134801,7 +134801,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf29b036980870c50
   call void @llvm.experimental.noalias.scope.decl(metadata !35565)
   call void @llvm.experimental.noalias.scope.decl(metadata !35568)
   %101 = load i64, ptr %33, align 8, !range !41, !alias.scope !35571, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %101, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %101, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %102
 
 102:                                              ; preds = %98
@@ -134834,7 +134834,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf29b036980870c50
 113:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !35583)
   call void @llvm.experimental.noalias.scope.decl(metadata !35586)
-  %switch.i.i.i1.i.i = icmp ult i64 %111, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %111, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %114
 
 114:                                              ; preds = %113
@@ -134866,7 +134866,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf29b036980870c50
   call void @llvm.experimental.noalias.scope.decl(metadata !35606)
   call void @llvm.experimental.noalias.scope.decl(metadata !35609)
   %123 = load i64, ptr %33, align 8, !range !41, !alias.scope !35612, !noundef !4
-  %switch.i.i.i.i.i43 = icmp ult i64 %123, 2
+  %switch.i.i.i.i.i43 = icmp samesign ult i64 %123, 2
   br i1 %switch.i.i.i.i.i43, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i44", label %124
 
 124:                                              ; preds = %122
@@ -134899,7 +134899,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf29b036980870c50
 135:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i44"
   call void @llvm.experimental.noalias.scope.decl(metadata !35624)
   call void @llvm.experimental.noalias.scope.decl(metadata !35627)
-  %switch.i.i.i1.i.i45 = icmp ult i64 %133, 2
+  %switch.i.i.i1.i.i45 = icmp samesign ult i64 %133, 2
   br i1 %switch.i.i.i1.i.i45, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit49", label %136
 
 136:                                              ; preds = %135
@@ -135180,7 +135180,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf29b036980870c50
   call void @llvm.experimental.noalias.scope.decl(metadata !35705)
   call void @llvm.experimental.noalias.scope.decl(metadata !35708)
   %220 = load i64, ptr %30, align 8, !range !41, !alias.scope !35711, !noundef !4
-  %switch.i.i.i.i.i59 = icmp ult i64 %220, 2
+  %switch.i.i.i.i.i59 = icmp samesign ult i64 %220, 2
   br i1 %switch.i.i.i.i.i59, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i60", label %221
 
 221:                                              ; preds = %217
@@ -135213,7 +135213,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf29b036980870c50
 232:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i60"
   call void @llvm.experimental.noalias.scope.decl(metadata !35723)
   call void @llvm.experimental.noalias.scope.decl(metadata !35726)
-  %switch.i.i.i1.i.i61 = icmp ult i64 %230, 2
+  %switch.i.i.i1.i.i61 = icmp samesign ult i64 %230, 2
   br i1 %switch.i.i.i1.i.i61, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %233
 
 233:                                              ; preds = %232
@@ -135245,7 +135245,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf29b036980870c50
   call void @llvm.experimental.noalias.scope.decl(metadata !35746)
   call void @llvm.experimental.noalias.scope.decl(metadata !35749)
   %242 = load i64, ptr %30, align 8, !range !41, !alias.scope !35752, !noundef !4
-  %switch.i.i.i.i.i65 = icmp ult i64 %242, 2
+  %switch.i.i.i.i.i65 = icmp samesign ult i64 %242, 2
   br i1 %switch.i.i.i.i.i65, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i66", label %243
 
 243:                                              ; preds = %241
@@ -135278,7 +135278,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf29b036980870c50
 254:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i66"
   call void @llvm.experimental.noalias.scope.decl(metadata !35764)
   call void @llvm.experimental.noalias.scope.decl(metadata !35767)
-  %switch.i.i.i1.i.i67 = icmp ult i64 %252, 2
+  %switch.i.i.i1.i.i67 = icmp samesign ult i64 %252, 2
   br i1 %switch.i.i.i1.i.i67, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit71", label %255
 
 255:                                              ; preds = %254
@@ -135463,7 +135463,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf7e0b8be5ec84aee
   call void @llvm.experimental.noalias.scope.decl(metadata !35787)
   call void @llvm.experimental.noalias.scope.decl(metadata !35790)
   %41 = load i64, ptr %19, align 8, !range !41, !alias.scope !35793, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %41, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %41, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %42
 
 42:                                               ; preds = %38
@@ -135496,7 +135496,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf7e0b8be5ec84aee
 53:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !35805)
   call void @llvm.experimental.noalias.scope.decl(metadata !35808)
-  %switch.i.i.i1.i.i = icmp ult i64 %51, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %51, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %54
 
 54:                                               ; preds = %53
@@ -135528,7 +135528,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf7e0b8be5ec84aee
   call void @llvm.experimental.noalias.scope.decl(metadata !35828)
   call void @llvm.experimental.noalias.scope.decl(metadata !35831)
   %63 = load i64, ptr %19, align 8, !range !41, !alias.scope !35834, !noundef !4
-  %switch.i.i.i.i.i33 = icmp ult i64 %63, 2
+  %switch.i.i.i.i.i33 = icmp samesign ult i64 %63, 2
   br i1 %switch.i.i.i.i.i33, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i34", label %64
 
 64:                                               ; preds = %62
@@ -135561,7 +135561,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf7e0b8be5ec84aee
 75:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i34"
   call void @llvm.experimental.noalias.scope.decl(metadata !35846)
   call void @llvm.experimental.noalias.scope.decl(metadata !35849)
-  %switch.i.i.i1.i.i35 = icmp ult i64 %73, 2
+  %switch.i.i.i1.i.i35 = icmp samesign ult i64 %73, 2
   br i1 %switch.i.i.i1.i.i35, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit39", label %76
 
 76:                                               ; preds = %75
@@ -135697,7 +135697,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf7e0b8be5ec84aee
   call void @llvm.experimental.noalias.scope.decl(metadata !35896)
   call void @llvm.experimental.noalias.scope.decl(metadata !35899)
   %118 = load i64, ptr %16, align 8, !range !41, !alias.scope !35902, !noundef !4
-  %switch.i.i.i.i.i41 = icmp ult i64 %118, 2
+  %switch.i.i.i.i.i41 = icmp samesign ult i64 %118, 2
   br i1 %switch.i.i.i.i.i41, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i42", label %119
 
 119:                                              ; preds = %115
@@ -135730,7 +135730,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf7e0b8be5ec84aee
 130:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i42"
   call void @llvm.experimental.noalias.scope.decl(metadata !35914)
   call void @llvm.experimental.noalias.scope.decl(metadata !35917)
-  %switch.i.i.i1.i.i43 = icmp ult i64 %128, 2
+  %switch.i.i.i1.i.i43 = icmp samesign ult i64 %128, 2
   br i1 %switch.i.i.i1.i.i43, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %131
 
 131:                                              ; preds = %130
@@ -135762,7 +135762,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf7e0b8be5ec84aee
   call void @llvm.experimental.noalias.scope.decl(metadata !35937)
   call void @llvm.experimental.noalias.scope.decl(metadata !35940)
   %140 = load i64, ptr %16, align 8, !range !41, !alias.scope !35943, !noundef !4
-  %switch.i.i.i.i.i47 = icmp ult i64 %140, 2
+  %switch.i.i.i.i.i47 = icmp samesign ult i64 %140, 2
   br i1 %switch.i.i.i.i.i47, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i48", label %141
 
 141:                                              ; preds = %139
@@ -135795,7 +135795,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hf7e0b8be5ec84aee
 152:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i48"
   call void @llvm.experimental.noalias.scope.decl(metadata !35955)
   call void @llvm.experimental.noalias.scope.decl(metadata !35958)
-  %switch.i.i.i1.i.i49 = icmp ult i64 %150, 2
+  %switch.i.i.i1.i.i49 = icmp samesign ult i64 %150, 2
   br i1 %switch.i.i.i1.i.i49, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit53", label %153
 
 153:                                              ; preds = %152
@@ -135980,7 +135980,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hfcd82d1ccb1b0e46
   call void @llvm.experimental.noalias.scope.decl(metadata !35978)
   call void @llvm.experimental.noalias.scope.decl(metadata !35981)
   %41 = load i64, ptr %19, align 8, !range !41, !alias.scope !35984, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %41, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %41, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %42
 
 42:                                               ; preds = %38
@@ -136013,7 +136013,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hfcd82d1ccb1b0e46
 53:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !35996)
   call void @llvm.experimental.noalias.scope.decl(metadata !35999)
-  %switch.i.i.i1.i.i = icmp ult i64 %51, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %51, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %54
 
 54:                                               ; preds = %53
@@ -136045,7 +136045,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hfcd82d1ccb1b0e46
   call void @llvm.experimental.noalias.scope.decl(metadata !36019)
   call void @llvm.experimental.noalias.scope.decl(metadata !36022)
   %63 = load i64, ptr %19, align 8, !range !41, !alias.scope !36025, !noundef !4
-  %switch.i.i.i.i.i33 = icmp ult i64 %63, 2
+  %switch.i.i.i.i.i33 = icmp samesign ult i64 %63, 2
   br i1 %switch.i.i.i.i.i33, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i34", label %64
 
 64:                                               ; preds = %62
@@ -136078,7 +136078,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hfcd82d1ccb1b0e46
 75:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i34"
   call void @llvm.experimental.noalias.scope.decl(metadata !36037)
   call void @llvm.experimental.noalias.scope.decl(metadata !36040)
-  %switch.i.i.i1.i.i35 = icmp ult i64 %73, 2
+  %switch.i.i.i1.i.i35 = icmp samesign ult i64 %73, 2
   br i1 %switch.i.i.i1.i.i35, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit39", label %76
 
 76:                                               ; preds = %75
@@ -136214,7 +136214,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hfcd82d1ccb1b0e46
   call void @llvm.experimental.noalias.scope.decl(metadata !36087)
   call void @llvm.experimental.noalias.scope.decl(metadata !36090)
   %118 = load i64, ptr %16, align 8, !range !41, !alias.scope !36093, !noundef !4
-  %switch.i.i.i.i.i41 = icmp ult i64 %118, 2
+  %switch.i.i.i.i.i41 = icmp samesign ult i64 %118, 2
   br i1 %switch.i.i.i.i.i41, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i42", label %119
 
 119:                                              ; preds = %115
@@ -136247,7 +136247,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hfcd82d1ccb1b0e46
 130:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i42"
   call void @llvm.experimental.noalias.scope.decl(metadata !36105)
   call void @llvm.experimental.noalias.scope.decl(metadata !36108)
-  %switch.i.i.i1.i.i43 = icmp ult i64 %128, 2
+  %switch.i.i.i1.i.i43 = icmp samesign ult i64 %128, 2
   br i1 %switch.i.i.i1.i.i43, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %131
 
 131:                                              ; preds = %130
@@ -136279,7 +136279,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hfcd82d1ccb1b0e46
   call void @llvm.experimental.noalias.scope.decl(metadata !36128)
   call void @llvm.experimental.noalias.scope.decl(metadata !36131)
   %140 = load i64, ptr %16, align 8, !range !41, !alias.scope !36134, !noundef !4
-  %switch.i.i.i.i.i47 = icmp ult i64 %140, 2
+  %switch.i.i.i.i.i47 = icmp samesign ult i64 %140, 2
   br i1 %switch.i.i.i.i.i47, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i48", label %141
 
 141:                                              ; preds = %139
@@ -136312,7 +136312,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hfcd82d1ccb1b0e46
 152:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i48"
   call void @llvm.experimental.noalias.scope.decl(metadata !36146)
   call void @llvm.experimental.noalias.scope.decl(metadata !36149)
-  %switch.i.i.i1.i.i49 = icmp ult i64 %150, 2
+  %switch.i.i.i1.i.i49 = icmp samesign ult i64 %150, 2
   br i1 %switch.i.i.i1.i.i49, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit53", label %153
 
 153:                                              ; preds = %152
@@ -136643,7 +136643,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hff68667bb1dea7b1
   call void @llvm.experimental.noalias.scope.decl(metadata !36205)
   call void @llvm.experimental.noalias.scope.decl(metadata !36208)
   %89 = load i64, ptr %31, align 8, !range !41, !alias.scope !36211, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %89, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %89, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i", label %90
 
 90:                                               ; preds = %86
@@ -136676,7 +136676,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hff68667bb1dea7b1
 101:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !36223)
   call void @llvm.experimental.noalias.scope.decl(metadata !36226)
-  %switch.i.i.i1.i.i = icmp ult i64 %99, 2
+  %switch.i.i.i1.i.i = icmp samesign ult i64 %99, 2
   br i1 %switch.i.i.i1.i.i, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit", label %102
 
 102:                                              ; preds = %101
@@ -136708,7 +136708,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hff68667bb1dea7b1
   call void @llvm.experimental.noalias.scope.decl(metadata !36246)
   call void @llvm.experimental.noalias.scope.decl(metadata !36249)
   %111 = load i64, ptr %31, align 8, !range !41, !alias.scope !36252, !noundef !4
-  %switch.i.i.i.i.i41 = icmp ult i64 %111, 2
+  %switch.i.i.i.i.i41 = icmp samesign ult i64 %111, 2
   br i1 %switch.i.i.i.i.i41, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i42", label %112
 
 112:                                              ; preds = %110
@@ -136741,7 +136741,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hff68667bb1dea7b1
 123:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i42"
   call void @llvm.experimental.noalias.scope.decl(metadata !36264)
   call void @llvm.experimental.noalias.scope.decl(metadata !36267)
-  %switch.i.i.i1.i.i43 = icmp ult i64 %121, 2
+  %switch.i.i.i1.i.i43 = icmp samesign ult i64 %121, 2
   br i1 %switch.i.i.i1.i.i43, label %"_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h2b9f61066b31dbcbE.exit47", label %124
 
 124:                                              ; preds = %123
@@ -136995,7 +136995,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hff68667bb1dea7b1
   call void @llvm.experimental.noalias.scope.decl(metadata !36339)
   call void @llvm.experimental.noalias.scope.decl(metadata !36342)
   %198 = load i64, ptr %28, align 8, !range !41, !alias.scope !36345, !noundef !4
-  %switch.i.i.i.i.i57 = icmp ult i64 %198, 2
+  %switch.i.i.i.i.i57 = icmp samesign ult i64 %198, 2
   br i1 %switch.i.i.i.i.i57, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i58", label %199
 
 199:                                              ; preds = %195
@@ -137028,7 +137028,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hff68667bb1dea7b1
 210:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i58"
   call void @llvm.experimental.noalias.scope.decl(metadata !36357)
   call void @llvm.experimental.noalias.scope.decl(metadata !36360)
-  %switch.i.i.i1.i.i59 = icmp ult i64 %208, 2
+  %switch.i.i.i1.i.i59 = icmp samesign ult i64 %208, 2
   br i1 %switch.i.i.i1.i.i59, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit", label %211
 
 211:                                              ; preds = %210
@@ -137060,7 +137060,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hff68667bb1dea7b1
   call void @llvm.experimental.noalias.scope.decl(metadata !36380)
   call void @llvm.experimental.noalias.scope.decl(metadata !36383)
   %220 = load i64, ptr %28, align 8, !range !41, !alias.scope !36386, !noundef !4
-  %switch.i.i.i.i.i63 = icmp ult i64 %220, 2
+  %switch.i.i.i.i.i63 = icmp samesign ult i64 %220, 2
   br i1 %switch.i.i.i.i.i63, label %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i64", label %221
 
 221:                                              ; preds = %219
@@ -137093,7 +137093,7 @@ define hidden void @_ZN8zvariant3ser23to_writer_for_signature17hff68667bb1dea7b1
 232:                                              ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.i.i64"
   call void @llvm.experimental.noalias.scope.decl(metadata !36398)
   call void @llvm.experimental.noalias.scope.decl(metadata !36401)
-  %switch.i.i.i1.i.i65 = icmp ult i64 %230, 2
+  %switch.i.i.i1.i.i65 = icmp samesign ult i64 %230, 2
   br i1 %switch.i.i.i1.i.i65, label %"_ZN4core3ptr132drop_in_place$LT$zvariant..gvariant..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h40be6a2b487d02cdE.exit69", label %233
 
 233:                                              ; preds = %232
@@ -138749,7 +138749,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h024cf7b1e3474516E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !36830)
   call void @llvm.experimental.noalias.scope.decl(metadata !36833)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !36836, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -138770,7 +138770,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h024cf7b1e3474516E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !36844)
   call void @llvm.experimental.noalias.scope.decl(metadata !36847)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !36850, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -138815,7 +138815,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h07ea686ed73e5c27E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !36858)
   call void @llvm.experimental.noalias.scope.decl(metadata !36861)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !36864, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -138836,7 +138836,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h07ea686ed73e5c27E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !36872)
   call void @llvm.experimental.noalias.scope.decl(metadata !36875)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !36878, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -138881,7 +138881,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h0ccd3756ddce2c01E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !36886)
   call void @llvm.experimental.noalias.scope.decl(metadata !36889)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !36892, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -138902,7 +138902,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h0ccd3756ddce2c01E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !36900)
   call void @llvm.experimental.noalias.scope.decl(metadata !36903)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !36906, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -138947,7 +138947,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h17cc9ed016796fd0E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !36914)
   call void @llvm.experimental.noalias.scope.decl(metadata !36917)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !36920, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -138968,7 +138968,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h17cc9ed016796fd0E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !36928)
   call void @llvm.experimental.noalias.scope.decl(metadata !36931)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !36934, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -139013,7 +139013,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h29439fdc21090801E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !36942)
   call void @llvm.experimental.noalias.scope.decl(metadata !36945)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !36948, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -139034,7 +139034,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h29439fdc21090801E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !36956)
   call void @llvm.experimental.noalias.scope.decl(metadata !36959)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !36962, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -139079,7 +139079,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h2bfdd6a6effd28c1E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !36970)
   call void @llvm.experimental.noalias.scope.decl(metadata !36973)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !36976, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -139100,7 +139100,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h2bfdd6a6effd28c1E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !36984)
   call void @llvm.experimental.noalias.scope.decl(metadata !36987)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !36990, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -139164,7 +139164,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h540dbd69b60a38f7E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37003)
   call void @llvm.experimental.noalias.scope.decl(metadata !37006)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !37009, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -139185,7 +139185,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h540dbd69b60a38f7E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37017)
   call void @llvm.experimental.noalias.scope.decl(metadata !37020)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !37023, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -139230,7 +139230,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h5fc93410ff93385aE(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37031)
   call void @llvm.experimental.noalias.scope.decl(metadata !37034)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !37037, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -139251,7 +139251,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h5fc93410ff93385aE(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37045)
   call void @llvm.experimental.noalias.scope.decl(metadata !37048)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !37051, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -139296,7 +139296,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h605b1d8fdee6eb12E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37059)
   call void @llvm.experimental.noalias.scope.decl(metadata !37062)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !37065, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -139317,7 +139317,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h605b1d8fdee6eb12E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37073)
   call void @llvm.experimental.noalias.scope.decl(metadata !37076)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !37079, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -139362,7 +139362,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h7e81c8496028b46dE(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37087)
   call void @llvm.experimental.noalias.scope.decl(metadata !37090)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !37093, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -139383,7 +139383,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h7e81c8496028b46dE(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37101)
   call void @llvm.experimental.noalias.scope.decl(metadata !37104)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !37107, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -139443,7 +139443,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h92413ab5d712fae6E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37120)
   call void @llvm.experimental.noalias.scope.decl(metadata !37123)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !37126, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -139464,7 +139464,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17h92413ab5d712fae6E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37134)
   call void @llvm.experimental.noalias.scope.decl(metadata !37137)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !37140, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -139509,7 +139509,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17hae2e4943792334f8E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37148)
   call void @llvm.experimental.noalias.scope.decl(metadata !37151)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !37154, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -139530,7 +139530,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17hae2e4943792334f8E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37162)
   call void @llvm.experimental.noalias.scope.decl(metadata !37165)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !37168, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -139575,7 +139575,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17hc8e778271e710e00E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37176)
   call void @llvm.experimental.noalias.scope.decl(metadata !37179)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !37182, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -139596,7 +139596,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17hc8e778271e710e00E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37190)
   call void @llvm.experimental.noalias.scope.decl(metadata !37193)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !37196, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -139641,7 +139641,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17hcc26174669ec2d2fE(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37204)
   call void @llvm.experimental.noalias.scope.decl(metadata !37207)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !37210, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -139662,7 +139662,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17hcc26174669ec2d2fE(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37218)
   call void @llvm.experimental.noalias.scope.decl(metadata !37221)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !37224, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -139745,7 +139745,7 @@ common.resume:                                    ; preds = %25, %17, %20, %11
   call void @llvm.experimental.noalias.scope.decl(metadata !37250)
   call void @llvm.experimental.noalias.scope.decl(metadata !37253)
   %19 = load i64, ptr %7, align 8, !range !41, !alias.scope !37256, !noundef !4
-  %switch.i.i = icmp ult i64 %19, 2
+  %switch.i.i = icmp samesign ult i64 %19, 2
   br i1 %switch.i.i, label %common.resume, label %20
 
 20:                                               ; preds = %17
@@ -139766,7 +139766,7 @@ common.resume:                                    ; preds = %25, %17, %20, %11
   call void @llvm.experimental.noalias.scope.decl(metadata !37264)
   call void @llvm.experimental.noalias.scope.decl(metadata !37267)
   %27 = load i64, ptr %7, align 8, !range !41, !alias.scope !37270, !noundef !4
-  %switch.i.i1 = icmp ult i64 %27, 2
+  %switch.i.i1 = icmp samesign ult i64 %27, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %28
 
 28:                                               ; preds = %26
@@ -139827,7 +139827,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17he91d45cfd6458459E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37285)
   call void @llvm.experimental.noalias.scope.decl(metadata !37288)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !37291, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -139848,7 +139848,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17he91d45cfd6458459E(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37299)
   call void @llvm.experimental.noalias.scope.decl(metadata !37302)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !37305, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -139893,7 +139893,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17hf35fc0b75d11a8eaE(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37313)
   call void @llvm.experimental.noalias.scope.decl(metadata !37316)
   %8 = load i64, ptr %5, align 8, !range !41, !alias.scope !37319, !noundef !4
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit", label %9
 
 9:                                                ; preds = %6
@@ -139914,7 +139914,7 @@ define hidden void @_ZN8zvariant3ser9to_writer17hf35fc0b75d11a8eaE(ptr dead_on_u
   call void @llvm.experimental.noalias.scope.decl(metadata !37327)
   call void @llvm.experimental.noalias.scope.decl(metadata !37330)
   %16 = load i64, ptr %5, align 8, !range !41, !alias.scope !37333, !noundef !4
-  %switch.i.i1 = icmp ult i64 %16, 2
+  %switch.i.i1 = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit2", label %17
 
 17:                                               ; preds = %15
@@ -150395,7 +150395,7 @@ define hidden void @"_ZN4gpui8platform5linux8platform56_$LT$impl$u20$gpui..platf
   %73 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %74 = icmp ult i64 %73, 6
   call void @llvm.assume(i1 %74)
-  %switch = icmp ult i64 %73, 3
+  %switch = icmp samesign ult i64 %73, 3
   br i1 %switch, label %87, label %75
 
 75:                                               ; preds = %72
@@ -150922,7 +150922,7 @@ define hidden void @"_ZN4gpui8platform5linux8platform56_$LT$impl$u20$gpui..platf
   %5 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %6 = icmp ult i64 %5, 6
   tail call void @llvm.assume(i1 %6)
-  %switch = icmp ult i64 %5, 3
+  %switch = icmp samesign ult i64 %5, 3
   br i1 %switch, label %17, label %7
 
 7:                                                ; preds = %2
@@ -150963,7 +150963,7 @@ define hidden void @"_ZN4gpui8platform5linux8platform56_$LT$impl$u20$gpui..platf
   %4 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %5 = icmp ult i64 %4, 6
   tail call void @llvm.assume(i1 %5)
-  %switch = icmp ult i64 %4, 3
+  %switch = icmp samesign ult i64 %4, 3
   br i1 %switch, label %16, label %6
 
 6:                                                ; preds = %1
@@ -151004,7 +151004,7 @@ define hidden void @"_ZN4gpui8platform5linux8platform56_$LT$impl$u20$gpui..platf
   %4 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %5 = icmp ult i64 %4, 6
   tail call void @llvm.assume(i1 %5)
-  %switch = icmp ult i64 %4, 3
+  %switch = icmp samesign ult i64 %4, 3
   br i1 %switch, label %16, label %6
 
 6:                                                ; preds = %1
@@ -151045,7 +151045,7 @@ define hidden void @"_ZN4gpui8platform5linux8platform56_$LT$impl$u20$gpui..platf
   %4 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %5 = icmp ult i64 %4, 6
   tail call void @llvm.assume(i1 %5)
-  %switch = icmp ult i64 %4, 3
+  %switch = icmp samesign ult i64 %4, 3
   br i1 %switch, label %16, label %6
 
 6:                                                ; preds = %1
@@ -158497,7 +158497,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
   %378 = load i64, ptr %377, align 8, !range !41, !alias.scope !41613, !noalias !41612, !noundef !4
   %379 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 88
   %380 = load ptr, ptr %379, align 8, !alias.scope !41613, !noalias !41612, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %378, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %378, 2
   %spec.select.idx.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 16
   %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %380, i64 %spec.select.idx.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 96
@@ -160418,7 +160418,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !41945)
   call void @llvm.experimental.noalias.scope.decl(metadata !41948)
   %1078 = load i64, ptr %1068, align 8, !range !41, !alias.scope !41951, !noalias !41603, !noundef !4
-  %switch.i.i.i.i.i.i.i.i = icmp ult i64 %1078, 2
+  %switch.i.i.i.i.i.i.i.i = icmp samesign ult i64 %1078, 2
   br i1 %switch.i.i.i.i.i.i.i.i, label %"_ZN4core3ptr131drop_in_place$LT$oo7..dbus..api..prompt..Prompt..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6afe5c3737f693baE.exit.i.i.i", label %1079
 
 1079:                                             ; preds = %1077
@@ -160561,7 +160561,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !41973)
   call void @llvm.experimental.noalias.scope.decl(metadata !41976)
   %1133 = load i64, ptr %1132, align 8, !range !41, !alias.scope !41979, !noalias !41603, !noundef !4
-  %switch.i.i.i.i.i.i.i = icmp ult i64 %1133, 2
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i64 %1133, 2
   br i1 %switch.i.i.i.i.i.i.i, label %1320, label %1134
 
 1134:                                             ; preds = %"_ZN4core3ptr51drop_in_place$LT$oo7..dbus..api..prompt..Prompt$GT$17h8d6d8f09c51962d1E.exit105.i.i.i"
@@ -160722,7 +160722,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !42026)
   call void @llvm.experimental.noalias.scope.decl(metadata !42029)
   %1182 = load i64, ptr %38, align 8, !range !41, !alias.scope !42032, !noalias !41603, !noundef !4
-  %switch.i.i.i.i95.i.i.i = icmp ult i64 %1182, 2
+  %switch.i.i.i.i95.i.i.i = icmp samesign ult i64 %1182, 2
   br i1 %switch.i.i.i.i95.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit97.i.i.i", label %1183
 
 1183:                                             ; preds = %1180
@@ -160856,7 +160856,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !42075)
   call void @llvm.experimental.noalias.scope.decl(metadata !42078)
   %1227 = load i64, ptr %42, align 8, !range !41, !alias.scope !42081, !noalias !41603, !noundef !4
-  %switch.i.i.i.i108.i.i.i = icmp ult i64 %1227, 2
+  %switch.i.i.i.i108.i.i.i = icmp samesign ult i64 %1227, 2
   br i1 %switch.i.i.i.i108.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit110.i.i.i", label %1228
 
 1228:                                             ; preds = %1226
@@ -160880,7 +160880,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !42096)
   call void @llvm.experimental.noalias.scope.decl(metadata !42099)
   %1236 = load i64, ptr %1235, align 8, !range !41, !alias.scope !42102, !noalias !41603, !noundef !4
-  %switch.i.i.i.i111.i.i.i = icmp ult i64 %1236, 2
+  %switch.i.i.i.i111.i.i.i = icmp samesign ult i64 %1236, 2
   br i1 %switch.i.i.i.i111.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit113.i.i.i", label %1237
 
 1237:                                             ; preds = %1234
@@ -160968,7 +160968,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !42117)
   call void @llvm.experimental.noalias.scope.decl(metadata !42120)
   %1269 = load i64, ptr %1259, align 8, !range !41, !alias.scope !42123, !noalias !41603, !noundef !4
-  %switch.i.i.i.i.i114.i.i.i = icmp ult i64 %1269, 2
+  %switch.i.i.i.i.i114.i.i.i = icmp samesign ult i64 %1269, 2
   br i1 %switch.i.i.i.i.i114.i.i.i, label %"_ZN4core3ptr127drop_in_place$LT$oo7..dbus..api..item..Item..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h30a73beb6a598d02E.exit.i.i.i", label %1270
 
 1270:                                             ; preds = %1268
@@ -161046,7 +161046,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !42138)
   call void @llvm.experimental.noalias.scope.decl(metadata !42141)
   %1296 = load i64, ptr %1295, align 8, !range !41, !alias.scope !42144, !noalias !41603, !noundef !4
-  %switch.i.i.i.i118.i.i.i = icmp ult i64 %1296, 2
+  %switch.i.i.i.i118.i.i.i = icmp samesign ult i64 %1296, 2
   br i1 %switch.i.i.i.i118.i.i.i, label %.thread108.i.i, label %1297
 
 1297:                                             ; preds = %1294
@@ -161081,7 +161081,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1c57d0a7
   call void @llvm.experimental.noalias.scope.decl(metadata !42159)
   call void @llvm.experimental.noalias.scope.decl(metadata !42162)
   %1308 = load i64, ptr %1307, align 8, !range !41, !alias.scope !42165, !noalias !41603, !noundef !4
-  %switch.i.i.i.i121.i.i.i = icmp ult i64 %1308, 2
+  %switch.i.i.i.i121.i.i.i = icmp samesign ult i64 %1308, 2
   br i1 %switch.i.i.i.i121.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit123.i.i.i", label %1309
 
 1309:                                             ; preds = %1306
@@ -165124,7 +165124,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i.i, 
   %803 = load i64, ptr %802, align 8, !range !41, !alias.scope !42918, !noalias !42917, !noundef !4
   %804 = getelementptr inbounds i8, ptr %.val.i.i.i.i123, i64 88
   %805 = load ptr, ptr %804, align 8, !alias.scope !42918, !noalias !42917, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %803, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %803, 2
   %spec.select.idx.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 16
   %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %805, i64 %spec.select.idx.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i123, i64 96
@@ -167019,7 +167019,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17ha216772b
   call void @llvm.experimental.noalias.scope.decl(metadata !43204)
   call void @llvm.experimental.noalias.scope.decl(metadata !43207)
   %1483 = load i64, ptr %1473, align 8, !range !41, !alias.scope !43210, !noalias !43192, !noundef !4
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i64 %1483, 2
+  %switch.i.i.i.i.i.i.i.i.i = icmp samesign ult i64 %1483, 2
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %"_ZN4core3ptr133drop_in_place$LT$oo7..dbus..api..session..Session..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbc804d8b303832e2E.exit.i.i.i.i", label %1484
 
 1484:                                             ; preds = %1482
@@ -169574,7 +169574,7 @@ common.ret:                                       ; preds = %1357, %"_ZN4core3pt
   %511 = load i64, ptr %510, align 8, !range !41, !alias.scope !43712, !noalias !43711, !noundef !4
   %512 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 88
   %513 = load ptr, ptr %512, align 8, !alias.scope !43712, !noalias !43711, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %511, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %511, 2
   %spec.select.idx.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 16
   %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %513, i64 %spec.select.idx.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 96
@@ -171374,7 +171374,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h94139554
   call void @llvm.experimental.noalias.scope.decl(metadata !43991)
   call void @llvm.experimental.noalias.scope.decl(metadata !43994)
   %1180 = load i64, ptr %1170, align 8, !range !41, !alias.scope !43997, !noalias !43703, !noundef !4
-  %switch.i.i.i.i.i.i.i.i = icmp ult i64 %1180, 2
+  %switch.i.i.i.i.i.i.i.i = icmp samesign ult i64 %1180, 2
   br i1 %switch.i.i.i.i.i.i.i.i, label %"_ZN4core3ptr131drop_in_place$LT$oo7..dbus..api..prompt..Prompt..new$LT$zvariant..object_path..OwnedObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6afe5c3737f693baE.exit.i.i.i", label %1181
 
 1181:                                             ; preds = %1179
@@ -171656,7 +171656,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h94139554
   call void @llvm.experimental.noalias.scope.decl(metadata !44070)
   call void @llvm.experimental.noalias.scope.decl(metadata !44073)
   %1278 = load i64, ptr %33, align 8, !range !41, !alias.scope !44076, !noalias !43703, !noundef !4
-  %switch.i.i.i.i.i.i.i = icmp ult i64 %1278, 2
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i64 %1278, 2
   br i1 %switch.i.i.i.i.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zvariant..object_path..OwnedObjectPath$GT$17he9683a2475bd9063E.exit.i.i.i", label %1279
 
 1279:                                             ; preds = %1277
@@ -176924,7 +176924,7 @@ define hidden void @_ZN4gpui8platform5linux7wayland6window21WaylandWindowStatePt
   %14 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %15 = icmp ult i64 %14, 6
   tail call void @llvm.assume(i1 %15)
-  %switch29 = icmp ult i64 %14, 2
+  %switch29 = icmp samesign ult i64 %14, 2
   br i1 %switch29, label %78, label %68
 
 16:                                               ; preds = %8

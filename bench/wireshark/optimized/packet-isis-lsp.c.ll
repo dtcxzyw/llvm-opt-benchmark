@@ -1574,7 +1574,7 @@ thread-pre-split:                                 ; preds = %29, %21
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   %55 = add nuw nsw i32 %54, 14
-  %56 = icmp ugt i32 %55, %51
+  %56 = icmp samesign ugt i32 %55, %51
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %46
@@ -1602,7 +1602,7 @@ thread-pre-split:                                 ; preds = %29, %21
   %76 = load i8, ptr %4, align 8
   %77 = zext i8 %76 to i32
   %78 = add nuw nsw i32 %75, 18
-  %79 = icmp ugt i32 %78, %77
+  %79 = icmp samesign ugt i32 %78, %77
   br i1 %79, label %80, label %86
 
 80:                                               ; preds = %63
@@ -1631,7 +1631,7 @@ thread-pre-split:                                 ; preds = %29, %21
   %99 = load i8, ptr %52, align 1
   %100 = zext i8 %99 to i32
   %101 = add nuw nsw i32 %100, 20
-  %102 = icmp ugt i32 %101, %98
+  %102 = icmp samesign ugt i32 %101, %98
   br i1 %102, label %103, label %109
 
 103:                                              ; preds = %86
@@ -1699,7 +1699,7 @@ thread-pre-split:                                 ; preds = %29, %21
   %139 = load i8, ptr %52, align 1
   %140 = zext i8 %139 to i32
   %141 = add nuw nsw i32 %140, 21
-  %142 = icmp ugt i32 %141, %138
+  %142 = icmp samesign ugt i32 %141, %138
   br i1 %142, label %143, label %149
 
 143:                                              ; preds = %135
@@ -2123,7 +2123,7 @@ define internal void @dissect_lsp_ext_ip_reachability_clv(ptr noundef %0, ptr no
   %76 = add i32 %60, 2
   call fastcc void @dissect_ipreach_subclv(ptr noundef %0, ptr noundef %1, ptr noundef %68, ptr noundef %75, i32 noundef %76, i32 noundef %62, i32 noundef %65)
   %77 = add nuw nsw i32 %66, %.09196
-  %78 = icmp ult i32 %77, %55
+  %78 = icmp samesign ult i32 %77, %55
   br i1 %78, label %59, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %59, %52
@@ -2272,7 +2272,7 @@ define internal void @dissect_lsp_ipv6_reachability_clv(ptr noundef %0, ptr noun
   %85 = add i32 %69, 2
   call fastcc void @dissect_ipreach_subclv(ptr noundef %0, ptr noundef %1, ptr noundef %77, ptr noundef %84, i32 noundef %85, i32 noundef %71, i32 noundef %74)
   %86 = add nuw nsw i32 %75, %.0103112
-  %87 = icmp ult i32 %86, %64
+  %87 = icmp samesign ult i32 %86, %64
   br i1 %87, label %68, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %68, %61
@@ -3253,7 +3253,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr null, ptr %8, align 8
   store ptr null, ptr %11, align 8
-  %26 = icmp ult i32 %.02363, 9
+  %26 = icmp samesign ult i32 %.02363, 9
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
@@ -3276,7 +3276,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
   %37 = add nuw nsw i32 %32, 7
   %38 = lshr i32 %37, 3
   %39 = add nuw nsw i32 %38, 8
-  %40 = icmp ult i32 %.02363, %39
+  %40 = icmp samesign ult i32 %.02363, %39
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %36
@@ -3289,7 +3289,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
   %46 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %45) #3
   %47 = zext i8 %46 to i32
   %48 = add nuw nsw i32 %39, %47
-  %49 = icmp ult i32 %.02363, %48
+  %49 = icmp samesign ult i32 %.02363, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %43
@@ -4581,7 +4581,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
 
 dissect_subclv_admin_group.exit:                  ; preds = %416, %368, %.lr.ph358, %.lr.ph.i, %68, %36, %372, %327, %.preheader, %279, %275, %267, %260, %252, %227, %225, %217, %215, %84, %410, %362, %306, %313, %130, %132, %420, %324, %321, %318, %300, %287, %280, %133, %81, %78, %58, %51, %48, %45, %39
   %423 = add nuw nsw i32 %24, %.0315359
-  %424 = icmp ult i32 %423, %4
+  %424 = icmp samesign ult i32 %423, %4
   br i1 %424, label %8, label %425, !llvm.loop !38
 
 425:                                              ; preds = %dissect_subclv_admin_group.exit
@@ -4664,11 +4664,11 @@ define internal fastcc void @dissect_ipreach_subclv(ptr noundef %0, ptr noundef 
   ]
 
 .preheader66:                                     ; preds = %7
-  %9 = icmp ugt i32 %6, 7
+  %9 = icmp samesign ugt i32 %6, 7
   br i1 %9, label %.lr.ph, label %dissect_prefix_attr_flags_subclv.exit
 
 .preheader:                                       ; preds = %7
-  %10 = icmp ugt i32 %6, 3
+  %10 = icmp samesign ugt i32 %6, 3
   br i1 %10, label %.lr.ph73, label %dissect_prefix_attr_flags_subclv.exit
 
 .lr.ph73:                                         ; preds = %.preheader, %.lr.ph73
@@ -4771,7 +4771,7 @@ define internal fastcc void @dissect_ipreach_subclv(ptr noundef %0, ptr noundef 
 63:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  %64 = icmp ult i32 %6, 5
+  %64 = icmp samesign ult i32 %6, 5
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %63
@@ -5000,7 +5000,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_isis_trill_clv(ptr noundef 
   %89 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #3
   %90 = load i32, ptr @hf_isis_lsp_rt_capable_tree_root_id_starting_tree_no, align 4
   %91 = tail call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %90, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #3
-  %92 = icmp ugt i32 %5, 3
+  %92 = icmp samesign ugt i32 %5, 3
   br i1 %92, label %.lr.ph396, label %.loopexit
 
 .lr.ph396:                                        ; preds = %84, %.lr.ph396
@@ -5023,7 +5023,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_isis_trill_clv(ptr noundef 
   %102 = add nuw nsw i32 %5, 2
   %103 = load i32, ptr @ett_isis_lsp_clv_nickname, align 4
   %104 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %101, i32 noundef %102, i32 noundef %103, ptr noundef null, ptr noundef nonnull @.str.867, i32 noundef 6, i32 noundef %5) #3
-  %105 = icmp ugt i32 %5, 4
+  %105 = icmp samesign ugt i32 %5, 4
   br i1 %105, label %.lr.ph392, label %.loopexit
 
 .lr.ph392:                                        ; preds = %100, %.lr.ph392
@@ -5062,7 +5062,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_isis_trill_clv(ptr noundef 
   %134 = add i32 %3, 6
   %135 = load i32, ptr @hf_isis_lsp_rt_capable_interested_vlans_afs_lost_counter, align 4
   %136 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %135, ptr noundef %0, i32 noundef %134, i32 noundef 4, i32 noundef 0) #3
-  %137 = icmp ugt i32 %5, 15
+  %137 = icmp samesign ugt i32 %5, 15
   br i1 %137, label %.lr.ph389.preheader, label %.loopexit
 
 .lr.ph389.preheader:                              ; preds = %117
@@ -5088,7 +5088,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_isis_trill_clv(ptr noundef 
   %150 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #3
   %151 = load i32, ptr @hf_isis_lsp_rt_capable_tree_used_id_starting_tree_no, align 4
   %152 = tail call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %151, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #3
-  %153 = icmp ugt i32 %5, 3
+  %153 = icmp samesign ugt i32 %5, 3
   br i1 %153, label %.lr.ph386, label %.loopexit
 
 .lr.ph386:                                        ; preds = %145, %.lr.ph386
@@ -5113,7 +5113,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_isis_trill_clv(ptr noundef 
   %165 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %162, i32 noundef %163, i32 noundef %164, ptr noundef null, ptr noundef nonnull @.str.870, i32 noundef 14, i32 noundef %5) #3
   %166 = load i32, ptr @hf_isis_lsp_rt_capable_vlan_group_primary_vlan_id, align 4
   %167 = tail call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %166, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #3
-  %168 = icmp ugt i32 %5, 3
+  %168 = icmp samesign ugt i32 %5, 3
   br i1 %168, label %.lr.ph382, label %.loopexit
 
 .lr.ph382:                                        ; preds = %161, %.lr.ph382
@@ -5152,7 +5152,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_isis_trill_clv(ptr noundef 
   %187 = tail call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %186, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #3
   %188 = add i32 %3, 1
   %189 = add nsw i32 %5, -1
-  %190 = icmp ugt i32 %5, 1
+  %190 = icmp samesign ugt i32 %5, 1
   br i1 %190, label %.lr.ph377, label %.loopexit
 
 .lr.ph377:                                        ; preds = %181, %206
@@ -5202,7 +5202,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_isis_trill_clv(ptr noundef 
   %220 = add nuw nsw i32 %5, 2
   %221 = load i32, ptr @ett_isis_lsp_clv_node_msd, align 4
   %222 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %219, i32 noundef %220, i32 noundef %221, ptr noundef null, ptr noundef nonnull @.str.875, i32 noundef 23, i32 noundef %5) #3
-  %223 = icmp ugt i32 %5, 1
+  %223 = icmp samesign ugt i32 %5, 1
   br i1 %223, label %.lr.ph375, label %.loopexit
 
 .lr.ph375:                                        ; preds = %218, %.lr.ph375
@@ -5234,7 +5234,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_isis_trill_clv(ptr noundef 
   %245 = load i32, ptr @hf_isis_lsp_clv_flex_algo_priority, align 4
   %246 = add i32 %3, 3
   %247 = tail call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %245, ptr noundef %0, i32 noundef %246, i32 noundef 1, i32 noundef 0) #3
-  %248 = icmp ugt i32 %5, 5
+  %248 = icmp samesign ugt i32 %5, 5
   br i1 %248, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %232

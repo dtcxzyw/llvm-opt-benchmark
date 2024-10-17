@@ -1485,7 +1485,7 @@ RARRAY_AREF.exit61:                               ; preds = %.thread, %55
   br i1 %64, label %RARRAY_AREF.exit70, label %89
 
 .thread78:                                        ; preds = %rb_array_len.exit.thread
-  %65 = icmp ugt i64 %51, 3
+  %65 = icmp samesign ugt i64 %51, 3
   br i1 %65, label %RARRAY_AREF.exit70.thread, label %89
 
 RARRAY_AREF.exit70:                               ; preds = %63

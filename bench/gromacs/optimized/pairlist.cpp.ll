@@ -5261,7 +5261,7 @@ _ZL14clear_pairlistP16NbnxnPairlistGpu.exit:      ; preds = %204, %207, %209, %2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28)
   %270 = icmp sgt i32 %268, 0
   %271 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %268)
-  %272 = icmp ult i32 %271, 2
+  %272 = icmp samesign ult i32 %271, 2
   %273 = select i1 %270, i1 %272, i1 false
   br i1 %273, label %_ZL8get_2logi.exit.i, label %274
 
@@ -6430,7 +6430,7 @@ _ZL11icell_set_xiRKN3gmx11BasicVectorIfEEiPKf25ClusterDistanceKernelTypeP20Nbnxn
 
 884:                                              ; preds = %882
   %indvars.iv.next171.i.i.i = add nuw nsw i64 %indvars.iv170.i.i.i, 1
-  %885 = icmp ugt i64 %indvars.iv170.i.i.i, 2
+  %885 = icmp samesign ugt i64 %indvars.iv170.i.i.i, 2
   %886 = trunc nuw i8 %883 to i1
   %.not111.i.i.i = select i1 %885, i1 true, i1 %886
   br i1 %.not111.i.i.i, label %._crit_edge.i.i.i, label %.preheader137.i.i.i, !llvm.loop !94
@@ -6546,7 +6546,7 @@ _ZL11icell_set_xiRKN3gmx11BasicVectorIfEEiPKf25ClusterDistanceKernelTypeP20Nbnxn
 
 946:                                              ; preds = %944
   %indvars.iv.next176.i.i.i = add nuw nsw i64 %indvars.iv175.i.i.i, 1
-  %947 = icmp ugt i64 %indvars.iv175.i.i.i, 2
+  %947 = icmp samesign ugt i64 %indvars.iv175.i.i.i, 2
   %948 = trunc nuw i8 %945 to i1
   %.not109.i.i.i = select i1 %947, i1 true, i1 %948
   br i1 %.not109.i.i.i, label %._crit_edge154.i.i.i, label %.preheader135.i.i.i, !llvm.loop !97
@@ -8886,7 +8886,7 @@ _ZL24nbnxn_make_pairlist_partI16NbnxnPairlistCpuEvRKN5Nbnxm7GridSetERKNS1_4GridE
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18)
   %2116 = icmp sgt i32 %2114, 0
   %2117 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %2114)
-  %2118 = icmp ult i32 %2117, 2
+  %2118 = icmp samesign ult i32 %2117, 2
   %2119 = select i1 %2116, i1 %2118, i1 false
   br i1 %2119, label %_ZL8get_2logi.exit.i92, label %2120
 
@@ -9749,7 +9749,7 @@ _ZL12addNewIEntryP16NbnxnPairlistGpuiii.exit.i:   ; preds = %_ZNSt6vectorI9nbnxn
 
 2564:                                             ; preds = %2563
   %indvars.iv.next60.i.i.i = add nuw nsw i64 %indvars.iv59.i.i.i, 24
-  %2565 = icmp ult i64 %indvars.iv59.i.i.i, 24
+  %2565 = icmp samesign ult i64 %indvars.iv59.i.i.i, 24
   br i1 %2565, label %.preheader33.i.i.i, label %_ZL12set_icell_bbRKN5Nbnxm4GridEiRKN3gmx11BasicVectorIfEEP20NbnxnPairlistGpuWork.exit.i, !llvm.loop !128
 
 _ZL12set_icell_bbRKN5Nbnxm4GridEiRKN3gmx11BasicVectorIfEEP20NbnxnPairlistGpuWork.exit.i: ; preds = %2564

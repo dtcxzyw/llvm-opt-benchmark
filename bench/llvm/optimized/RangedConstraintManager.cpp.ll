@@ -550,7 +550,7 @@ _ZNK5clang4ento10APSIntType12getZeroValueEv.exit: ; preds = %37, %38
   br i1 %48, label %_ZSt3maxIN5clang4ento10APSIntTypeEERKT_S5_S5_.exit, label %_ZNK5clang4ento10APSIntTypeltERKS1_.exit.i
 
 _ZNK5clang4ento10APSIntTypeltERKS1_.exit.i:       ; preds = %47
-  %49 = icmp ult i8 %39, %45
+  %49 = icmp samesign ult i8 %39, %45
   %cond.fr.i = freeze i1 %49
   br i1 %cond.fr.i, label %_ZNK5clang4ento10APSIntTypeltERKS1_.exit.thread.i, label %_ZSt3maxIN5clang4ento10APSIntTypeEERKT_S5_S5_.exit
 
@@ -815,19 +815,19 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit.i:       ; preds = %_ZN5clang4ento3Loc9
   br i1 %or.cond.i, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread, label %67
 
 67:                                               ; preds = %_ZNK5clang4Type16isFixedPointTypeEv.exit.i
-  %68 = icmp ugt i32 %65, 454
+  %68 = icmp samesign ugt i32 %65, 454
   br i1 %68, label %69, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread39
 
 69:                                               ; preds = %67
-  %70 = icmp ult i32 %65, 458
+  %70 = icmp samesign ult i32 %65, 458
   br i1 %70, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread, label %71
 
 71:                                               ; preds = %69
-  %72 = icmp ugt i32 %65, 460
+  %72 = icmp samesign ugt i32 %65, 460
   br i1 %72, label %73, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread39
 
 73:                                               ; preds = %71
-  %74 = icmp ugt i32 %65, 463
+  %74 = icmp samesign ugt i32 %65, 463
   %75 = add nsw i32 %65, -470
   %spec.select.i4.i = icmp ult i32 %75, -3
   %or.cond = select i1 %74, i1 %spec.select.i4.i, i1 false
@@ -1320,7 +1320,7 @@ _ZNK5clang4ento10APSIntType12getZeroValueEv.exit: ; preds = %67, %68
   br i1 %78, label %_ZSt3maxIN5clang4ento10APSIntTypeEERKT_S5_S5_.exit, label %_ZNK5clang4ento10APSIntTypeltERKS1_.exit.i
 
 _ZNK5clang4ento10APSIntTypeltERKS1_.exit.i:       ; preds = %77
-  %79 = icmp ult i8 %69, %75
+  %79 = icmp samesign ult i8 %69, %75
   %cond.fr.i = freeze i1 %79
   br i1 %cond.fr.i, label %_ZNK5clang4ento10APSIntTypeltERKS1_.exit.thread.i, label %_ZSt3maxIN5clang4ento10APSIntTypeEERKT_S5_S5_.exit
 

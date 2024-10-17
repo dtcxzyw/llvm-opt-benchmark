@@ -677,7 +677,7 @@ for.inc257.i.i.i.i:                               ; preds = %if.end254.i.i.i.i, 
   %indvars.iv.next436.i.i.i.i = add nuw nsw i64 %indvars.iv435.i.i.i.i, 1
   %70 = load i32, ptr %data208.i.i.i.i, align 8
   %71 = zext i32 %70 to i64
-  %cmp213.i.i.i.i = icmp ult i64 %indvars.iv.next436.i.i.i.i, %71
+  %cmp213.i.i.i.i = icmp samesign ult i64 %indvars.iv.next436.i.i.i.i, %71
   br i1 %cmp213.i.i.i.i, label %for.body215.i.i.i.i, label %land.rhs.i.i.i, !llvm.loop !11
 
 sw.bb260.i.i.i.i:                                 ; preds = %if.end38.i.i.i.i
@@ -722,7 +722,7 @@ for.body288.us.i.i.i.i:                           ; preds = %for.body288.lr.ph.i
   %indvars.iv.next433.i.i.i.i = add nuw nsw i64 %indvars.iv432.i.i.i.i, 1
   %79 = load i32, ptr %num_comments.i.i.i.i, align 8
   %80 = zext i32 %79 to i64
-  %cmp286.us.i.i.i.i = icmp ult i64 %indvars.iv.next433.i.i.i.i, %80
+  %cmp286.us.i.i.i.i = icmp samesign ult i64 %indvars.iv.next433.i.i.i.i, %80
   br i1 %cmp286.us.i.i.i.i, label %for.body288.us.i.i.i.i, label %land.rhs.i.i.i, !llvm.loop !12
 
 for.body288.lr.ph.split.i.i.i.i:                  ; preds = %for.body288.lr.ph.i.i.i.i
@@ -740,7 +740,7 @@ for.body288.us398.i.i.i.i:                        ; preds = %for.body288.lr.ph.s
   %indvars.iv.next430.i.i.i.i = add nuw nsw i64 %indvars.iv429.i.i.i.i, 1
   %84 = load i32, ptr %num_comments.i.i.i.i, align 8
   %85 = zext i32 %84 to i64
-  %cmp286.us405.i.i.i.i = icmp ult i64 %indvars.iv.next430.i.i.i.i, %85
+  %cmp286.us405.i.i.i.i = icmp samesign ult i64 %indvars.iv.next430.i.i.i.i, %85
   br i1 %cmp286.us405.i.i.i.i, label %for.body288.us398.i.i.i.i, label %land.rhs.i.i.i, !llvm.loop !12
 
 for.body288.i.i.i.i:                              ; preds = %for.body288.lr.ph.split.i.i.i.i, %for.body288.i.i.i.i
@@ -755,7 +755,7 @@ for.body288.i.i.i.i:                              ; preds = %for.body288.lr.ph.s
   %indvars.iv.next427.i.i.i.i = add nuw nsw i64 %indvars.iv426.i.i.i.i, 1
   %89 = load i32, ptr %num_comments.i.i.i.i, align 8
   %90 = zext i32 %89 to i64
-  %cmp286.i.i.i.i = icmp ult i64 %indvars.iv.next427.i.i.i.i, %90
+  %cmp286.i.i.i.i = icmp samesign ult i64 %indvars.iv.next427.i.i.i.i, %90
   br i1 %cmp286.i.i.i.i, label %for.body288.i.i.i.i, label %land.rhs.i.i.i, !llvm.loop !12
 
 sw.bb305.i.i.i.i:                                 ; preds = %if.end38.i.i.i.i
@@ -928,7 +928,7 @@ for.body477.us.i.i.i.i:                           ; preds = %for.body477.lr.ph.i
   %indvars.iv.next421.i.i.i.i = add nuw nsw i64 %indvars.iv420.i.i.i.i, 1
   %116 = load i8, ptr %num_indices469.i.i.i.i, align 1
   %117 = zext i8 %116 to i64
-  %cmp475.us.i.i.i.i = icmp ult i64 %indvars.iv.next421.i.i.i.i, %117
+  %cmp475.us.i.i.i.i = icmp samesign ult i64 %indvars.iv.next421.i.i.i.i, %117
   br i1 %cmp475.us.i.i.i.i, label %for.body477.us.i.i.i.i, label %for.inc517.i.i.i.i, !llvm.loop !13
 
 for.body477.lr.ph.split.i.i.i.i:                  ; preds = %for.body477.lr.ph.i.i.i.i
@@ -952,7 +952,7 @@ for.body477.us380.i.i.i.i:                        ; preds = %for.body477.lr.ph.s
   %indvars.iv.next418.i.i.i.i = add nuw nsw i64 %indvars.iv417.i.i.i.i, 1
   %122 = load i8, ptr %num_indices469.i.i.i.i, align 1
   %123 = zext i8 %122 to i64
-  %cmp475.us390.i.i.i.i = icmp ult i64 %indvars.iv.next418.i.i.i.i, %123
+  %cmp475.us390.i.i.i.i = icmp samesign ult i64 %indvars.iv.next418.i.i.i.i, %123
   br i1 %cmp475.us390.i.i.i.i, label %for.body477.us380.i.i.i.i, label %for.inc517.i.i.i.i, !llvm.loop !13
 
 for.body477.i.i.i.i:                              ; preds = %for.body477.lr.ph.split.i.i.i.i, %for.body477.i.i.i.i
@@ -973,14 +973,14 @@ for.body477.i.i.i.i:                              ; preds = %for.body477.lr.ph.s
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %128 = load i8, ptr %num_indices469.i.i.i.i, align 1
   %129 = zext i8 %128 to i64
-  %cmp475.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i, %129
+  %cmp475.i.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i, %129
   br i1 %cmp475.i.i.i.i, label %for.body477.i.i.i.i, label %for.inc517.i.i.i.i, !llvm.loop !13
 
 for.inc517.i.i.i.i:                               ; preds = %for.body477.us380.i.i.i.i, %for.body477.i.i.i.i, %for.body477.us.i.i.i.i, %if.end468.i.i.i.i, %if.end417.i.i.i.i
   %indvars.iv.next424.i.i.i.i = add nuw nsw i64 %indvars.iv423.i.i.i.i, 1
   %130 = load i32, ptr %num_tracks.i.i.i.i, align 4
   %131 = zext i32 %130 to i64
-  %cmp355.i.i.i.i = icmp ult i64 %indvars.iv.next424.i.i.i.i, %131
+  %cmp355.i.i.i.i = icmp samesign ult i64 %indvars.iv.next424.i.i.i.i, %131
   br i1 %cmp355.i.i.i.i, label %for.body357.i.i.i.i, label %land.rhs.i.i.i, !llvm.loop !14
 
 sw.bb520.i.i.i.i:                                 ; preds = %if.end38.i.i.i.i
@@ -1648,7 +1648,7 @@ do_major_operation_on_file.exit.i:                ; preds = %return.sink.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %208 = load i32, ptr %num_files.i, align 8
   %209 = zext i32 %208 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %209
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %209
   br i1 %cmp.i, label %for.body.i, label %if.end13, !llvm.loop !22
 
 if.else5:                                         ; preds = %if.else
@@ -1738,7 +1738,7 @@ if.end15.i.i:                                     ; preds = %if.then9.i.i, %for.
   %ok.2.i.i = phi i32 [ %and.i.i, %if.then9.i.i ], [ 1, %for.body.i.i19 ]
   %indvars.iv.next.i.i23 = add nuw nsw i64 %indvars.iv.i.i20, 1
   %226 = zext i32 %224 to i64
-  %cmp5.i.i = icmp ult i64 %indvars.iv.next.i.i23, %226
+  %cmp5.i.i = icmp samesign ult i64 %indvars.iv.next.i.i23, %226
   %tobool6.i.i = icmp ne i32 %ok.2.i.i, 0
   %227 = select i1 %cmp5.i.i, i1 %tobool6.i.i, i1 false
   br i1 %227, label %for.body.i.i19, label %for.cond24.preheader.i.i, !llvm.loop !23
@@ -1765,7 +1765,7 @@ for.inc48.i.i:                                    ; preds = %if.then38.i.i, %for
   %ok.4.i.i = phi i32 [ %and46.i.i, %if.then38.i.i ], [ 1, %for.body31.i.i ]
   %indvars.iv.next53.i.i = add nuw nsw i64 %indvars.iv52.i.i, 1
   %234 = zext i32 %233 to i64
-  %cmp27.i.i = icmp ult i64 %indvars.iv.next53.i.i, %234
+  %cmp27.i.i = icmp samesign ult i64 %indvars.iv.next53.i.i, %234
   %tobool29.i.i = icmp ne i32 %ok.4.i.i, 0
   %235 = select i1 %cmp27.i.i, i1 %tobool29.i.i, i1 false
   br i1 %235, label %for.body31.i.i, label %for.end50.i.i, !llvm.loop !24
@@ -1806,7 +1806,7 @@ do_shorthand_operations_on_file.exit.i:           ; preds = %do_shorthand_operat
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i12, 1
   %238 = load i32, ptr %num_files.i6, align 8
   %239 = zext i32 %238 to i64
-  %cmp.i27 = icmp ult i64 %indvars.iv.next.i26, %239
+  %cmp.i27 = icmp samesign ult i64 %indvars.iv.next.i26, %239
   br i1 %cmp.i27, label %for.body.i11, label %for.end.i, !llvm.loop !25
 
 for.end.i:                                        ; preds = %do_shorthand_operations_on_file.exit.i
@@ -2093,7 +2093,7 @@ for.inc26.i:                                      ; preds = %do_shorthand_operat
   %ok.3.i = phi i32 [ %ok.229.i, %for.body5.i ], [ %retval.0.i, %do_shorthand_operation__add_replay_gain.exit ]
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %290 = zext i32 %289 to i64
-  %cmp4.i = icmp ult i64 %indvars.iv.next34.i, %290
+  %cmp4.i = icmp samesign ult i64 %indvars.iv.next34.i, %290
   br i1 %cmp4.i, label %for.body5.i, label %if.end13, !llvm.loop !29
 
 if.end13:                                         ; preds = %do_major_operation_on_file.exit.i, %for.inc26.i, %for.cond3.preheader.i, %for.end.i, %if.then9, %if.then3, %if.else5, %if.then2

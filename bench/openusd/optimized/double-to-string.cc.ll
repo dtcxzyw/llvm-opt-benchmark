@@ -237,7 +237,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doub
   %78 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv.next
   store i8 %77, ptr %78, align 1
   %79 = udiv i32 %.12634, 10
-  %.not40 = icmp ult i32 %.12634, 10
+  %.not40 = icmp samesign ult i32 %.12634, 10
   br i1 %.not40, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !5
 
 .loopexit.loopexit:                               ; preds = %.lr.ph

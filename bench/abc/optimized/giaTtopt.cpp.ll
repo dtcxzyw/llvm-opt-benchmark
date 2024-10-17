@@ -12526,7 +12526,7 @@ define linkonce_odr void @_ZN5Ttopt17TruthTableRewrite15ShiftToMajorityEii(ptr n
   %37 = trunc nuw nsw i64 %36 to i32
   %38 = add nsw i32 %6, -1
   %39 = shl nuw nsw i32 1, %38
-  %40 = icmp ult i32 %39, %37
+  %40 = icmp samesign ult i32 %39, %37
   %41 = select i1 %40, i64 %34, i64 0
   %42 = shl i64 %34, %30
   %43 = xor i64 %42, -1

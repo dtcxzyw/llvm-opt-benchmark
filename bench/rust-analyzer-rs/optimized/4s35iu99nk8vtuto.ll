@@ -1490,9 +1490,9 @@ define hidden void @_ZN6syntax7parsing10parse_text17hdaba953d92283f04E(ptr noali
   br i1 %15, label %.thread21, label %16
 
 16:                                               ; preds = %4
-  %17 = icmp ult i64 %14, 5
+  %17 = icmp samesign ult i64 %14, 5
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ult i64 %14, 3
+  %18 = icmp samesign ult i64 %14, 3
   br i1 %18, label %19, label %.thread21
 
 19:                                               ; preds = %16
@@ -1669,9 +1669,9 @@ define hidden void @_ZN6syntax7parsing10build_tree17hc11a0aca47375292E(ptr noali
   br label %.body
 
 20:                                               ; preds = %3
-  %21 = icmp ult i64 %16, 5
+  %21 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp ult i64 %16, 3
+  %22 = icmp samesign ult i64 %16, 3
   br i1 %22, label %23, label %.thread61
 
 23:                                               ; preds = %20
@@ -2279,9 +2279,9 @@ define void @_ZN6syntax10validation8validate17h21af1b7d35e0ecf4E(ptr noalias noc
   br label %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
 
 47:                                               ; preds = %2
-  %48 = icmp ult i64 %44, 5
+  %48 = icmp samesign ult i64 %44, 5
   tail call void @llvm.assume(i1 %48)
-  %49 = icmp ult i64 %44, 3
+  %49 = icmp samesign ult i64 %44, 3
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %47
@@ -3241,7 +3241,7 @@ _ZN6syntax3ast9token_ext8IsString6is_raw17h05bfaf79e1982593E.exit.i: ; preds = %
 "_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit75.i": ; preds = %351, %274, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h5d06d6aad57ea3c9E.exit.i"
   %350 = phi i8 [ %188, %351 ], [ %268, %274 ], [ %268, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h5d06d6aad57ea3c9E.exit.i" ]
   %.pn20.i = phi { ptr, i32 } [ %352, %351 ], [ %.pn.i, %274 ], [ %.pn.i, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h5d06d6aad57ea3c9E.exit.i" ]
-  %switch.i = icmp ult i8 %350, 3
+  %switch.i = icmp samesign ult i8 %350, 3
   br i1 %switch.i, label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit.i", label %384
 
 351:                                              ; preds = %206
@@ -3251,7 +3251,7 @@ _ZN6syntax3ast9token_ext8IsString6is_raw17h05bfaf79e1982593E.exit.i: ; preds = %
 
 "_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit41.i": ; preds = %206, %.thread137.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36), !noalias !658
-  %switch24.i = icmp ult i8 %188, 3
+  %switch24.i = icmp samesign ult i8 %188, 3
   br i1 %switch24.i, label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17hf340bbfe551fca58E.exit.i", label %353
 
 353:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit41.i"

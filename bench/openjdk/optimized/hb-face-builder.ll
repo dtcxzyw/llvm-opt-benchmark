@@ -4053,7 +4053,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %24, %26
   store i32 %5, ptr %3, align 8
   %34 = add i32 %18, -1
   store i32 %34, ptr %28, align 8
-  %35 = icmp ugt i32 %.0.i, 31
+  %35 = icmp samesign ugt i32 %.0.i, 31
   br i1 %35, label %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit, label %36
 
 36:                                               ; preds = %_ZL9hb_memsetPvij.exit
@@ -4505,7 +4505,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   %notmask = shl nsw i32 -1, %.0.i
   %32 = xor i32 %notmask, -1
   store i32 %32, ptr %26, align 8
-  %33 = icmp ugt i32 %.0.i, 31
+  %33 = icmp samesign ugt i32 %.0.i, 31
   br i1 %33, label %_ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.exit, label %34
 
 34:                                               ; preds = %_ZL9hb_memsetPvij.exit

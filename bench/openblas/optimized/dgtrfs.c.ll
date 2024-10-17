@@ -372,7 +372,7 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 283:                                              ; preds = %.loopexit25
   %284 = fmul double %281, 2.000000e+00
   %285 = fcmp ole double %284, %109
-  %286 = icmp ult i32 %108, 6
+  %286 = icmp samesign ult i32 %108, 6
   %287 = select i1 %285, i1 %286, i1 false
   br i1 %287, label %288, label %296
 
@@ -532,7 +532,7 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .thread22:                                        ; preds = %363, %382, %380
   %385 = add nuw nsw i64 %98, 1
-  %386 = icmp ult i64 %98, %96
+  %386 = icmp samesign ult i64 %98, %96
   br i1 %386, label %97, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.thread22, %76, %71, %82, %72, %64

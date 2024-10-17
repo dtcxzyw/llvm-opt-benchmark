@@ -18931,7 +18931,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br label %520
 
 520:                                              ; preds = %515, %.preheader505
-  %521 = icmp ult i64 %indvars.iv661, %480
+  %521 = icmp samesign ult i64 %indvars.iv661, %480
   br i1 %521, label %522, label %527
 
 522:                                              ; preds = %520
@@ -22867,7 +22867,7 @@ _ZN3vcg3tri2io11ImporterOBJI4MeshE12GoodObjIndexERii.exit440: ; preds = %426, %4
   %443 = fptrunc double %442 to float
   %444 = getelementptr inbounds i8, ptr %431, i64 8
   store float %443, ptr %444, align 4
-  %445 = icmp ult i64 %indvars.iv.next, %388
+  %445 = icmp samesign ult i64 %indvars.iv.next, %388
   br i1 %445, label %403, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN3vcg3tri2io11ImporterOBJI4MeshE12GoodObjIndexERii.exit440

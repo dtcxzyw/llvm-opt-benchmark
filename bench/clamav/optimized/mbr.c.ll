@@ -490,7 +490,7 @@ mbr_check_ebr.exit.i:                             ; preds = %109, %105
 
 .backedge.i:                                      ; preds = %.backedge.i.outer, %156
   %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i84, %156 ], [ %indvars.iv.i83.ph, %.backedge.i.outer ]
-  %114 = icmp ult i64 %indvars.iv.i83, 2
+  %114 = icmp samesign ult i64 %indvars.iv.i83, 2
   br i1 %114, label %115, label %151
 
 115:                                              ; preds = %.backedge.i

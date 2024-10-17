@@ -267,7 +267,7 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
 102:                                              ; preds = %.preheader67
   %103 = add nuw nsw i32 %52, 1
   %104 = getelementptr i8, ptr %53, i64 56
-  %105 = icmp ult i32 %103, %51
+  %105 = icmp samesign ult i32 %103, %51
   br i1 %105, label %.preheader67, label %.preheader.preheader, !llvm.loop !7
 
 .loopexit68:                                      ; preds = %.thread41, %97
@@ -670,7 +670,7 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
   %364 = add nuw nsw i32 %190, 1
   %365 = getelementptr i8, ptr %192, i64 56
   %366 = zext i16 %355 to i32
-  %367 = icmp ult i32 %364, %366
+  %367 = icmp samesign ult i32 %364, %366
   br i1 %367, label %184, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %354, %179
@@ -1214,7 +1214,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %195 = add nuw nsw i64 %200, 1
   %196 = load i32, ptr %24, align 8
   %197 = zext i32 %196 to i64
-  %198 = icmp ult i64 %195, %197
+  %198 = icmp samesign ult i64 %195, %197
   br i1 %198, label %199, label %.loopexit67, !llvm.loop !25
 
 199:                                              ; preds = %194, %192
@@ -1956,7 +1956,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %659 = add nuw nsw i64 %656, 1
   %660 = load i32, ptr %642, align 8
   %661 = zext i32 %660 to i64
-  %662 = icmp ult i64 %659, %661
+  %662 = icmp samesign ult i64 %659, %661
   br i1 %662, label %.preheader, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.preheader, %653
@@ -2091,7 +2091,7 @@ define internal fastcc range(i64 0, -4095) i64 @maximum_alignment(ptr nocapture 
 
 15:                                               ; preds = %11
   %16 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.fr4)
-  %17 = icmp ult i64 %16, 2
+  %17 = icmp samesign ult i64 %16, 2
   %18 = tail call i64 @llvm.umax.i64(i64 %7, i64 %.fr4)
   %spec.select = select i1 %17, i64 %18, i64 %7
   br label %.thread
@@ -2231,7 +2231,7 @@ define internal fastcc i64 @elf_load(ptr noundef %0, i64 noundef %1, ptr nocaptu
 
 54:                                               ; preds = %50, %46, %43
   %55 = phi i64 [ %29, %43 ], [ %29, %46 ], [ %53, %50 ]
-  %56 = icmp ugt i32 %4, 1048575
+  %56 = icmp samesign ugt i32 %4, 1048575
   %57 = icmp eq i64 %55, -17
   %58 = select i1 %56, i1 %57, i1 false
   br i1 %58, label %59, label %67
@@ -2594,7 +2594,7 @@ define internal fastcc i64 @load_elf_interp(ptr nocapture noundef readonly %0, p
   %168 = add nuw nsw i32 %57, 1
   %169 = getelementptr i8, ptr %61, i64 56
   %170 = zext i16 %164 to i32
-  %171 = icmp ult i32 %168, %170
+  %171 = icmp samesign ult i32 %168, %170
   br i1 %171, label %55, label %.thread, !llvm.loop !49
 
 .thread:                                          ; preds = %123, %126, %144, %97, %163, %159, %48, %19, %13, %9, %4

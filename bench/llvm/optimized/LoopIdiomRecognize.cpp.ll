@@ -3382,7 +3382,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118LoopIdiomRecognize
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm10BasicBlock4sizeEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !31
 
 _ZNK4llvm10BasicBlock4sizeEv.exit.i:              ; preds = %.lr.ph.i.i.i.i.i
-  %101 = icmp ugt i64 %.06.i.i.i.i.i, 18
+  %101 = icmp samesign ugt i64 %.06.i.i.i.i.i, 18
   br i1 %101, label %145, label %_ZNK4llvm10BasicBlock4sizeEv.exit.thread.i
 
 _ZNK4llvm10BasicBlock4sizeEv.exit.thread.i:       ; preds = %_ZNK4llvm10BasicBlock4sizeEv.exit.i, %91
@@ -4142,7 +4142,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_7bind_tyIS2_EENS
 
 _ZNK4llvm5APInt10isPowerOf2Ev.exit.i.i.i:         ; preds = %453
   %458 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %454)
-  %459 = icmp ult i64 %458, 2
+  %459 = icmp samesign ult i64 %458, 2
   br i1 %459, label %460, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i.i.i
 
 460:                                              ; preds = %_ZNK4llvm5APInt10isPowerOf2Ev.exit.i.i.i, %455
@@ -7584,7 +7584,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInteqEm
   %120 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #22
   store i32 0, ptr %36, align 8
   %121 = add nuw nsw i64 %indvars.iv, 1
-  %122 = icmp ult i64 %121, %38
+  %122 = icmp samesign ult i64 %121, %38
   br i1 %122, label %.lr.ph.preheader, label %.preheader276
 
 .lr.ph.preheader:                                 ; preds = %119
@@ -9364,7 +9364,7 @@ define internal fastcc noundef ptr @_ZL21getMemSetPatternValuePN4llvm5ValueEPKNS
   %.not18 = icmp eq i64 %18, 0
   %or.cond = and i1 %17, %.not18
   %19 = call range(i64 1, 62) i64 @llvm.ctpop.i64(i64 %16)
-  %.not19 = icmp ult i64 %19, 2
+  %.not19 = icmp samesign ult i64 %19, 2
   %or.cond20 = select i1 %or.cond, i1 %.not19, i1 false
   br i1 %or.cond20, label %20, label %_ZNSt6vectorIPN4llvm8ConstantESaIS2_EED2Ev.exit
 
@@ -19442,7 +19442,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pr
 
 11:                                               ; preds = %9
   %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
-  %13 = icmp ult i64 %12, 2
+  %13 = icmp samesign ult i64 %12, 2
   br label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 
 14:                                               ; preds = %4
@@ -19488,7 +19488,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 36:                                               ; preds = %34
   %37 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %35)
-  %38 = icmp ult i64 %37, 2
+  %38 = icmp samesign ult i64 %37, 2
   br label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 
 39:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit

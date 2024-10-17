@@ -1108,7 +1108,7 @@ entry:
   %sub.ptr.rhs.cast.i36 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i37 = sub i64 %sub.ptr.lhs.cast.i35, %sub.ptr.rhs.cast.i36
   %conv2.i38 = and i64 %sub.ptr.sub.i37, 4294967294
-  %cmp39 = icmp ult i64 %conv2.i38, 6
+  %cmp39 = icmp samesign ult i64 %conv2.i38, 6
   br i1 %cmp39, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
@@ -1137,7 +1137,7 @@ if.end.while.body.backedge_crit_edge:             ; preds = %if.end
 while.body.backedge:                              ; preds = %if.end.while.body.backedge_crit_edge, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit26
   %sub.ptr.sub.i.pre-phi = phi i64 [ %.pre44, %if.end.while.body.backedge_crit_edge ], [ %sub.ptr.sub.i31, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit26 ]
   %conv2.i = and i64 %sub.ptr.sub.i.pre-phi, 4294967294
-  %cmp = icmp ult i64 %conv2.i, 6
+  %cmp = icmp samesign ult i64 %conv2.i, 6
   br i1 %cmp, label %return, label %if.end, !llvm.loop !7
 
 if.end5:                                          ; preds = %if.end
@@ -2472,7 +2472,7 @@ entry:
   %sub.ptr.rhs.cast.i39 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i40 = sub i64 %sub.ptr.lhs.cast.i38, %sub.ptr.rhs.cast.i39
   %conv2.i41 = and i64 %sub.ptr.sub.i40, 4294967294
-  %cmp42 = icmp ult i64 %conv2.i41, 6
+  %cmp42 = icmp samesign ult i64 %conv2.i41, 6
   br i1 %cmp42, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
@@ -2501,7 +2501,7 @@ if.end.while.body.backedge_crit_edge:             ; preds = %if.end
 while.body.backedge:                              ; preds = %if.end.while.body.backedge_crit_edge, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit29
   %sub.ptr.sub.i.pre-phi = phi i64 [ %.pre47, %if.end.while.body.backedge_crit_edge ], [ %sub.ptr.sub.i34, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit29 ]
   %conv2.i = and i64 %sub.ptr.sub.i.pre-phi, 4294967294
-  %cmp = icmp ult i64 %conv2.i, 6
+  %cmp = icmp samesign ult i64 %conv2.i, 6
   br i1 %cmp, label %return, label %if.end, !llvm.loop !18
 
 if.end5:                                          ; preds = %if.end
@@ -2730,7 +2730,7 @@ entry:
   %sub.ptr.rhs.cast.i88 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i89 = sub i64 %sub.ptr.lhs.cast.i87, %sub.ptr.rhs.cast.i88
   %conv2.i90 = and i64 %sub.ptr.sub.i89, 4294967294
-  %cmp91 = icmp ult i64 %conv2.i90, 6
+  %cmp91 = icmp samesign ult i64 %conv2.i90, 6
   br i1 %cmp91, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
@@ -2765,7 +2765,7 @@ if.end.while.body.backedge_crit_edge:             ; preds = %if.end
 while.body.backedge:                              ; preds = %if.end.while.body.backedge_crit_edge, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit62
   %sub.ptr.sub.i.pre-phi = phi i64 [ %.pre100, %if.end.while.body.backedge_crit_edge ], [ %sub.ptr.sub.i67, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit62 ]
   %conv2.i = and i64 %sub.ptr.sub.i.pre-phi, 4294967294
-  %cmp = icmp ult i64 %conv2.i, 6
+  %cmp = icmp samesign ult i64 %conv2.i, 6
   br i1 %cmp, label %return, label %if.end, !llvm.loop !20
 
 if.end5:                                          ; preds = %if.end
@@ -3141,7 +3141,7 @@ entry:
   %sub.ptr.rhs.cast.i36 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i37 = sub i64 %sub.ptr.lhs.cast.i35, %sub.ptr.rhs.cast.i36
   %conv2.i38 = and i64 %sub.ptr.sub.i37, 4294967294
-  %cmp39 = icmp ult i64 %conv2.i38, 6
+  %cmp39 = icmp samesign ult i64 %conv2.i38, 6
   br i1 %cmp39, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
@@ -3169,7 +3169,7 @@ if.end.while.body.backedge_crit_edge:             ; preds = %if.end
 while.body.backedge:                              ; preds = %if.end.while.body.backedge_crit_edge, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit26
   %sub.ptr.sub.i.pre-phi = phi i64 [ %.pre44, %if.end.while.body.backedge_crit_edge ], [ %sub.ptr.sub.i31, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit26 ]
   %conv2.i = and i64 %sub.ptr.sub.i.pre-phi, 4294967294
-  %cmp = icmp ult i64 %conv2.i, 6
+  %cmp = icmp samesign ult i64 %conv2.i, 6
   br i1 %cmp, label %return, label %if.end, !llvm.loop !26
 
 if.end5:                                          ; preds = %if.end
@@ -3358,7 +3358,7 @@ entry:
   %sub.ptr.rhs.cast.i236 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i237 = sub i64 %sub.ptr.lhs.cast.i235, %sub.ptr.rhs.cast.i236
   %conv2.i238 = and i64 %sub.ptr.sub.i237, 4294967294
-  %cmp239 = icmp ult i64 %conv2.i238, 6
+  %cmp239 = icmp samesign ult i64 %conv2.i238, 6
   br i1 %cmp239, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
@@ -3392,7 +3392,7 @@ if.end.while.body.backedge_crit_edge:             ; preds = %if.end
 while.body.backedge:                              ; preds = %if.end.while.body.backedge_crit_edge, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit203
   %sub.ptr.sub.i.pre-phi = phi i64 [ %.pre248, %if.end.while.body.backedge_crit_edge ], [ %sub.ptr.sub.i208, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit203 ]
   %conv2.i = and i64 %sub.ptr.sub.i.pre-phi, 4294967294
-  %cmp = icmp ult i64 %conv2.i, 6
+  %cmp = icmp samesign ult i64 %conv2.i, 6
   br i1 %cmp, label %return, label %if.end, !llvm.loop !27
 
 if.end5:                                          ; preds = %if.end
@@ -4335,7 +4335,7 @@ entry:
   %sub.ptr.rhs.cast.i123 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i124 = sub i64 %sub.ptr.lhs.cast.i122, %sub.ptr.rhs.cast.i123
   %conv2.i125 = and i64 %sub.ptr.sub.i124, 4294967294
-  %cmp126 = icmp ult i64 %conv2.i125, 6
+  %cmp126 = icmp samesign ult i64 %conv2.i125, 6
   br i1 %cmp126, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
@@ -4364,7 +4364,7 @@ if.end.while.body.backedge_crit_edge:             ; preds = %if.end
 while.body.backedge:                              ; preds = %if.end.while.body.backedge_crit_edge, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit105
   %sub.ptr.sub.i.pre-phi = phi i64 [ %.pre133, %if.end.while.body.backedge_crit_edge ], [ %sub.ptr.sub.i110, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit105 ]
   %conv2.i = and i64 %sub.ptr.sub.i.pre-phi, 4294967294
-  %cmp = icmp ult i64 %conv2.i, 6
+  %cmp = icmp samesign ult i64 %conv2.i, 6
   br i1 %cmp, label %return, label %if.end, !llvm.loop !28
 
 if.end5:                                          ; preds = %if.end
@@ -5223,7 +5223,7 @@ entry:
   %sub.ptr.rhs.cast.i447 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i448 = sub i64 %sub.ptr.lhs.cast.i446, %sub.ptr.rhs.cast.i447
   %conv2.i449 = and i64 %sub.ptr.sub.i448, 4294967294
-  %cmp450 = icmp ult i64 %conv2.i449, 6
+  %cmp450 = icmp samesign ult i64 %conv2.i449, 6
   br i1 %cmp450, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
@@ -5252,7 +5252,7 @@ if.end.while.body.backedge_crit_edge:             ; preds = %if.end
 while.body.backedge:                              ; preds = %if.end.while.body.backedge_crit_edge, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit426
   %sub.ptr.sub.i.pre-phi = phi i64 [ %.pre456, %if.end.while.body.backedge_crit_edge ], [ %sub.ptr.sub.i431, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit426 ]
   %conv2.i = and i64 %sub.ptr.sub.i.pre-phi, 4294967294
-  %cmp = icmp ult i64 %conv2.i, 6
+  %cmp = icmp samesign ult i64 %conv2.i, 6
   br i1 %cmp, label %return, label %if.end, !llvm.loop !31
 
 if.end5:                                          ; preds = %if.end
@@ -6531,7 +6531,7 @@ entry:
   %sub.ptr.rhs.cast.i138 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i139 = sub i64 %sub.ptr.lhs.cast.i137, %sub.ptr.rhs.cast.i138
   %conv2.i140 = and i64 %sub.ptr.sub.i139, 4294967294
-  %cmp141 = icmp ult i64 %conv2.i140, 6
+  %cmp141 = icmp samesign ult i64 %conv2.i140, 6
   br i1 %cmp141, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
@@ -6560,7 +6560,7 @@ if.end.while.body.backedge_crit_edge:             ; preds = %if.end
 while.body.backedge:                              ; preds = %if.end.while.body.backedge_crit_edge, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit128
   %sub.ptr.sub.i.pre-phi = phi i64 [ %.pre146, %if.end.while.body.backedge_crit_edge ], [ %sub.ptr.sub.i133, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit128 ]
   %conv2.i = and i64 %sub.ptr.sub.i.pre-phi, 4294967294
-  %cmp = icmp ult i64 %conv2.i, 6
+  %cmp = icmp samesign ult i64 %conv2.i, 6
   br i1 %cmp, label %return, label %if.end, !llvm.loop !61
 
 if.end5:                                          ; preds = %if.end
@@ -7047,7 +7047,7 @@ entry:
   %sub.ptr.rhs.cast.i48 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i49 = sub i64 %sub.ptr.lhs.cast.i47, %sub.ptr.rhs.cast.i48
   %conv2.i50 = and i64 %sub.ptr.sub.i49, 4294967294
-  %cmp51 = icmp ult i64 %conv2.i50, 6
+  %cmp51 = icmp samesign ult i64 %conv2.i50, 6
   br i1 %cmp51, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
@@ -7076,7 +7076,7 @@ if.end.while.body.backedge_crit_edge:             ; preds = %if.end
 while.body.backedge:                              ; preds = %if.end.while.body.backedge_crit_edge, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit38
   %sub.ptr.sub.i.pre-phi = phi i64 [ %.pre56, %if.end.while.body.backedge_crit_edge ], [ %sub.ptr.sub.i43, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit38 ]
   %conv2.i = and i64 %sub.ptr.sub.i.pre-phi, 4294967294
-  %cmp = icmp ult i64 %conv2.i, 6
+  %cmp = icmp samesign ult i64 %conv2.i, 6
   br i1 %cmp, label %return, label %if.end, !llvm.loop !65
 
 if.end5:                                          ; preds = %if.end
@@ -7280,7 +7280,7 @@ entry:
   %sub.ptr.rhs.cast.i894 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i895 = sub i64 %sub.ptr.lhs.cast.i893, %sub.ptr.rhs.cast.i894
   %conv2.i896 = and i64 %sub.ptr.sub.i895, 4294967294
-  %cmp897 = icmp ult i64 %conv2.i896, 6
+  %cmp897 = icmp samesign ult i64 %conv2.i896, 6
   br i1 %cmp897, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
@@ -7316,7 +7316,7 @@ if.end.while.body.backedge_crit_edge:             ; preds = %if.end
 while.body.backedge:                              ; preds = %if.end.while.body.backedge_crit_edge, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit794
   %sub.ptr.sub.i.pre-phi = phi i64 [ %.pre934, %if.end.while.body.backedge_crit_edge ], [ %sub.ptr.sub.i799, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit794 ]
   %conv2.i = and i64 %sub.ptr.sub.i.pre-phi, 4294967294
-  %cmp = icmp ult i64 %conv2.i, 6
+  %cmp = icmp samesign ult i64 %conv2.i, 6
   br i1 %cmp, label %return, label %if.end, !llvm.loop !66
 
 if.end5:                                          ; preds = %if.end
@@ -8630,7 +8630,7 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i354, %if.
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i359
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then5.i.i, label %while.body.i.i.i.i, !llvm.loop !82
 
 if.then5.i.i:                                     ; preds = %if.end4.i.i.i.i, %if.end.i.i354
@@ -10180,7 +10180,7 @@ entry:
   %sub.ptr.rhs.cast.i110 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i111 = sub i64 %sub.ptr.lhs.cast.i109, %sub.ptr.rhs.cast.i110
   %conv2.i112 = and i64 %sub.ptr.sub.i111, 4294967294
-  %cmp113 = icmp ult i64 %conv2.i112, 6
+  %cmp113 = icmp samesign ult i64 %conv2.i112, 6
   br i1 %cmp113, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
@@ -10209,7 +10209,7 @@ if.end.while.body.backedge_crit_edge:             ; preds = %if.end
 while.body.backedge:                              ; preds = %if.end.while.body.backedge_crit_edge, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit81
   %sub.ptr.sub.i.pre-phi = phi i64 [ %.pre120, %if.end.while.body.backedge_crit_edge ], [ %sub.ptr.sub.i86, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit81 ]
   %conv2.i = and i64 %sub.ptr.sub.i.pre-phi, 4294967294
-  %cmp = icmp ult i64 %conv2.i, 6
+  %cmp = icmp samesign ult i64 %conv2.i, 6
   br i1 %cmp, label %return, label %if.end, !llvm.loop !107
 
 if.end5:                                          ; preds = %if.end
@@ -10742,7 +10742,7 @@ entry:
   %sub.ptr.rhs.cast.i141 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i142 = sub i64 %sub.ptr.lhs.cast.i140, %sub.ptr.rhs.cast.i141
   %conv2.i143 = and i64 %sub.ptr.sub.i142, 4294967294
-  %cmp144 = icmp ult i64 %conv2.i143, 6
+  %cmp144 = icmp samesign ult i64 %conv2.i143, 6
   br i1 %cmp144, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
@@ -10777,7 +10777,7 @@ if.end.while.body.backedge_crit_edge:             ; preds = %if.end
 while.body.backedge:                              ; preds = %if.end.while.body.backedge_crit_edge, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit123
   %sub.ptr.sub.i.pre-phi = phi i64 [ %.pre151, %if.end.while.body.backedge_crit_edge ], [ %sub.ptr.sub.i128, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit123 ]
   %conv2.i = and i64 %sub.ptr.sub.i.pre-phi, 4294967294
-  %cmp = icmp ult i64 %conv2.i, 6
+  %cmp = icmp samesign ult i64 %conv2.i, 6
   br i1 %cmp, label %return, label %if.end, !llvm.loop !113
 
 if.end5:                                          ; preds = %if.end
@@ -13461,7 +13461,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then.i
 
 if.end4.i.i:                                      ; preds = %while.body.i.i
-  %cmp1.not.i.i = icmp ult i64 %storemerge27.i.i.in.in, 3
+  %cmp1.not.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in, 3
   br i1 %cmp1.not.i.i, label %if.then5, label %while.body.i.i, !llvm.loop !133
 
 if.then.i:                                        ; preds = %while.body.i.i
@@ -16005,7 +16005,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then.i
 
 if.end4.i.i:                                      ; preds = %while.body.i.i
-  %cmp1.not.i.i = icmp ult i64 %storemerge27.i.i.in.in, 3
+  %cmp1.not.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in, 3
   br i1 %cmp1.not.i.i, label %if.then5, label %while.body.i.i, !llvm.loop !167
 
 if.then.i:                                        ; preds = %while.body.i.i

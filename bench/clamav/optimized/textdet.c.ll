@@ -99,7 +99,7 @@ define range(i32 500, 505) i32 @cli_texttype(ptr nocapture noundef readonly %0, 
 41:                                               ; preds = %40, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ %10, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not.i12 = icmp ult i64 %indvars.iv.next, %wide.trip.count.i
+  %.not.i12 = icmp samesign ult i64 %indvars.iv.next, %wide.trip.count.i
   br i1 %.not.i12, label %42, label %td_isutf8.exit
 
 42:                                               ; preds = %41
@@ -178,7 +178,7 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
   br i1 %74, label %select.unfold, label %75
 
 75:                                               ; preds = %.lr.ph.split.us.split.us.i
-  %76 = icmp ult i32 %73, 128
+  %76 = icmp samesign ult i32 %73, 128
   br i1 %76, label %77, label %82
 
 77:                                               ; preds = %75
@@ -215,7 +215,7 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
   br i1 %97, label %select.unfold, label %98
 
 98:                                               ; preds = %.lr.ph.split.split.us.i
-  %99 = icmp ult i32 %96, 128
+  %99 = icmp samesign ult i32 %96, 128
   br i1 %99, label %100, label %105
 
 100:                                              ; preds = %98
@@ -251,7 +251,7 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
   br i1 %120, label %select.unfold, label %121
 
 121:                                              ; preds = %.lr.ph.split.split.i
-  %122 = icmp ult i32 %119, 128
+  %122 = icmp samesign ult i32 %119, 128
   br i1 %122, label %123, label %127
 
 123:                                              ; preds = %121

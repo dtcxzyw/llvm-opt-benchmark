@@ -6778,7 +6778,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   %coerce3.sroa.2.0.extract.shift.i.i53.i.i = lshr i128 %mul.i.i51.i.i, 64
   %coerce3.sroa.2.0.extract.trunc.i.i54.i.i = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i53.i.i to i64
   %shr.i.i = lshr i64 %n.addr.094.i.i, 1
-  %cmp.not.i.i = icmp ult i64 %n.addr.094.i.i, 2
+  %cmp.not.i.i = icmp samesign ult i64 %n.addr.094.i.i, 2
   br i1 %cmp.not.i.i, label %_ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EE7discardEm.exit, label %while.body.i.i, !llvm.loop !153
 
 _ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EE7discardEm.exit: ; preds = %if.end.i.i, %for.cond9.preheader
@@ -7100,7 +7100,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   %mul5.i.i = mul i64 %add4.i.i, %inc.013.i.i
   %mul6.i.i = mul i64 %mult.012.i.i, %mult.012.i.i
   %shr.i.i = lshr i64 %n.addr.011.i.i, 1
-  %cmp.not.i.i = icmp ult i64 %n.addr.011.i.i, 2
+  %cmp.not.i.i = icmp samesign ult i64 %n.addr.011.i.i, 2
   br i1 %cmp.not.i.i, label %_ZN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS0_16pcg_xsh_rr_64_32EE7discardEm.exit, label %while.body.i.i, !llvm.loop !159
 
 _ZN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS0_16pcg_xsh_rr_64_32EE7discardEm.exit: ; preds = %if.end.i.i, %for.cond9.preheader
@@ -8901,7 +8901,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   %coerce3.sroa.2.0.extract.shift.i.i53.i.i = lshr i128 %mul.i.i51.i.i, 64
   %coerce3.sroa.2.0.extract.trunc.i.i54.i.i = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i53.i.i to i64
   %shr.i.i = lshr i64 %n.addr.094.i.i, 1
-  %cmp.not.i.i = icmp ult i64 %n.addr.094.i.i, 2
+  %cmp.not.i.i = icmp samesign ult i64 %n.addr.094.i.i, 2
   br i1 %cmp.not.i.i, label %invoke.cont3, label %while.body.i.i, !llvm.loop !153
 
 invoke.cont3:                                     ; preds = %if.end.i.i, %invoke.cont
@@ -9586,7 +9586,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   %mul5.i.i = mul i64 %add4.i.i, %inc.013.i.i
   %mul6.i.i = mul i64 %mult.012.i.i, %mult.012.i.i
   %shr.i.i = lshr i64 %n.addr.011.i.i, 1
-  %cmp.not.i.i = icmp ult i64 %n.addr.011.i.i, 2
+  %cmp.not.i.i = icmp samesign ult i64 %n.addr.011.i.i, 2
   br i1 %cmp.not.i.i, label %invoke.cont3, label %while.body.i.i, !llvm.loop !159
 
 invoke.cont3:                                     ; preds = %if.end.i.i, %invoke.cont

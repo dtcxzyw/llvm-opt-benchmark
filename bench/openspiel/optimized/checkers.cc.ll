@@ -3555,14 +3555,14 @@ _ZNSt6vectorIlSaIlEED2Ev.exit128.thread:          ; preds = %.noexc74
 72:                                               ; preds = %.preheader
   %73 = load i32, ptr %19, align 4
   %74 = icmp eq i32 %73, 0
-  %75 = icmp ugt i64 %indvars.iv, 1
-  %or.cond = and i1 %75, %74
+  %75 = icmp samesign ugt i64 %indvars.iv, 1
+  %or.cond = select i1 %74, i1 %75, i1 false
   br i1 %or.cond, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit, label %76
 
 76:                                               ; preds = %72
   %77 = icmp eq i32 %73, 1
-  %78 = icmp ult i64 %indvars.iv, 2
-  %or.cond3 = and i1 %78, %77
+  %78 = icmp samesign ult i64 %indvars.iv, 2
+  %or.cond3 = select i1 %77, i1 %78, i1 false
   br i1 %or.cond3, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit, label %79
 
 .loopexit198:                                     ; preds = %99, %150, %179, %230
@@ -9096,7 +9096,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i

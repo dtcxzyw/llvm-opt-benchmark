@@ -864,7 +864,7 @@ define internal i32 @e1000_init_hw_80003es2lan(ptr noundef %0) #0 align 16 {
   %48 = add nuw nsw i64 %45, 1
   %49 = load i16, ptr %42, align 2
   %50 = zext i16 %49 to i64
-  %51 = icmp ult i64 %48, %50
+  %51 = icmp samesign ult i64 %48, %50
   br i1 %51, label %.preheader, label %52, !llvm.loop !14
 
 52:                                               ; preds = %.preheader
@@ -1149,7 +1149,7 @@ define internal i32 @e1000_cfg_on_link_up_80003es2lan(ptr noundef %0) #0 align 1
   %39 = load i16, ptr %4, align 2
   %40 = load i16, ptr %5, align 2
   %41 = icmp ne i16 %39, %40
-  %42 = icmp ult i32 %29, 4
+  %42 = icmp samesign ult i32 %29, 4
   %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %28, label %44, !llvm.loop !15
 
@@ -1206,7 +1206,7 @@ define internal i32 @e1000_cfg_on_link_up_80003es2lan(ptr noundef %0) #0 align 1
   %73 = load i16, ptr %2, align 2
   %74 = load i16, ptr %3, align 2
   %75 = icmp ne i16 %73, %74
-  %76 = icmp ult i32 %63, 4
+  %76 = icmp samesign ult i32 %63, 4
   %77 = select i1 %75, i1 %76, i1 false
   br i1 %77, label %62, label %78, !llvm.loop !16
 
@@ -1381,7 +1381,7 @@ define internal i32 @e1000_get_cable_length_80003es2lan(ptr noundef %0) #0 align
 7:                                                ; preds = %1
   %8 = load i16, ptr %2, align 2
   %9 = and i16 %8, 7
-  %10 = icmp ugt i16 %9, 5
+  %10 = icmp samesign ugt i16 %9, 5
   br i1 %10, label %27, label %11
 
 11:                                               ; preds = %7
@@ -1456,7 +1456,7 @@ define internal i32 @e1000_read_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32 
   tail call void @__ew32(ptr noundef %0, i64 noundef 23388, i32 noundef %27) #4
   tail call void @e1000e_put_hw_semaphore(ptr noundef %0) #4
   %28 = and i32 %1, 31
-  %29 = icmp ugt i32 %28, 29
+  %29 = icmp samesign ugt i32 %28, 29
   %30 = select i1 %29, i32 29, i32 22
   %31 = lshr i32 %1, 5
   %32 = and i32 %31, 2047
@@ -1601,7 +1601,7 @@ define internal i32 @e1000_write_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32
   tail call void @__ew32(ptr noundef %0, i64 noundef 23388, i32 noundef %27) #4
   tail call void @e1000e_put_hw_semaphore(ptr noundef %0) #4
   %28 = and i32 %1, 31
-  %29 = icmp ugt i32 %28, 29
+  %29 = icmp samesign ugt i32 %28, 29
   %30 = select i1 %29, i32 29, i32 22
   %31 = lshr i32 %1, 5
   %32 = and i32 %31, 2047

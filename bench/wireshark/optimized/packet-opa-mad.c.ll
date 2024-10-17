@@ -3989,7 +3989,7 @@ define internal void @cf_opa_mad_32b_mask(ptr nocapture noundef writeonly %0, i3
   %13 = add nuw nsw i32 %.01722, 1
   %14 = lshr i32 %.023, 1
   %15 = icmp ugt i32 %.023, 1
-  %16 = icmp ult i32 %.01722, 31
+  %16 = icmp samesign ult i32 %.01722, 31
   %or.cond = select i1 %15, i1 %16, i1 false
   %17 = icmp slt i32 %.1, 240
   %or.cond3 = select i1 %or.cond, i1 %17, i1 false
@@ -6633,7 +6633,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %40 = add nuw nsw i32 %.0228237.i.i, 1
   %41 = lshr i32 %.0239.i.i, 1
   %42 = icmp ugt i32 %.0239.i.i, 1
-  %43 = icmp ult i32 %.0228237.i.i, 31
+  %43 = icmp samesign ult i32 %.0228237.i.i, 31
   %44 = select i1 %42, i1 %43, i1 false
   br i1 %44, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !15
 
@@ -6824,7 +6824,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %202 = add nuw nsw i32 %.1229241.i.i, 1
   %203 = lshr i32 %.1242.i.i, 1
   %204 = icmp ugt i32 %.1242.i.i, 1
-  %205 = icmp ult i32 %.1229241.i.i, 31
+  %205 = icmp samesign ult i32 %.1229241.i.i, 31
   %206 = select i1 %204, i1 %205, i1 false
   br i1 %206, label %.lr.ph244.i.i, label %parse_PM_Attribute.exit, !llvm.loop !16
 
@@ -6876,7 +6876,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %231 = add nuw nsw i32 %.0200212.i.i, 1
   %232 = lshr i32 %.0202210.i.i, 1
   %233 = icmp ugt i32 %.0202210.i.i, 1
-  %234 = icmp ult i32 %.0200212.i.i, 31
+  %234 = icmp samesign ult i32 %.0200212.i.i, 31
   %235 = select i1 %233, i1 %234, i1 false
   br i1 %235, label %.lr.ph.i25.i, label %._crit_edge.loopexit.i26.i, !llvm.loop !17
 
@@ -7052,7 +7052,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %371 = add nuw nsw i32 %.1215.i.i, 1
   %372 = lshr i32 %.1203214.i.i, 1
   %373 = icmp ugt i32 %.1203214.i.i, 1
-  %374 = icmp ult i32 %.1215.i.i, 31
+  %374 = icmp samesign ult i32 %.1215.i.i, 31
   %375 = select i1 %373, i1 %374, i1 false
   br i1 %375, label %.lr.ph217.i.i, label %._crit_edge218.i.i, !llvm.loop !18
 
@@ -7084,7 +7084,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %386 = add nuw nsw i32 %.0133145.i.i, 1
   %387 = lshr i32 %.0135143.i.i, 1
   %388 = icmp ugt i32 %.0135143.i.i, 1
-  %389 = icmp ult i32 %.0133145.i.i, 31
+  %389 = icmp samesign ult i32 %.0133145.i.i, 31
   %390 = select i1 %388, i1 %389, i1 false
   br i1 %390, label %.lr.ph.i30.i, label %._crit_edge.loopexit.i31.i, !llvm.loop !20
 
@@ -7211,7 +7211,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %476 = add nuw nsw i32 %.1148.i.i, 1
   %477 = lshr i32 %.1136147.i.i, 1
   %478 = icmp ugt i32 %.1136147.i.i, 1
-  %479 = icmp ult i32 %.1148.i.i, 31
+  %479 = icmp samesign ult i32 %.1148.i.i, 31
   %480 = select i1 %478, i1 %479, i1 false
   br i1 %480, label %.lr.ph150.i.i, label %._crit_edge151.i.i, !llvm.loop !21
 
@@ -7464,7 +7464,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %671 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %662) #6
   %672 = and i8 %671, 15
   %673 = add i32 %.02971.i.i, 67
-  %674 = icmp ult i8 %672, 8
+  %674 = icmp samesign ult i8 %672, 8
   br i1 %674, label %switch.lookup, label %676
 
 switch.lookup:                                    ; preds = %650
@@ -8282,7 +8282,7 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %63, ptr noundef %1, i32 noundef %62, i32 noundef 4, i32 noundef 0) #6
   %65 = add i32 %.0322.i, 8
   %66 = add nuw nsw i32 %.0331.i, 1
-  %67 = icmp ult i32 %66, %57
+  %67 = icmp samesign ult i32 %66, %57
   br i1 %67, label %.lr.ph.i, label %parse_NodeDescription.exit, !llvm.loop !25
 
 68:                                               ; preds = %8
@@ -8382,7 +8382,7 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   %118 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %117, ptr noundef %1, i32 noundef %116, i32 noundef 2, i32 noundef 0) #6
   %119 = add i32 %.0312.i, 8
   %120 = add nuw nsw i32 %.0321.i, 1
-  %121 = icmp ult i32 %120, %108
+  %121 = icmp samesign ult i32 %120, %108
   br i1 %121, label %.lr.ph.i151, label %parse_NodeDescription.exit, !llvm.loop !27
 
 122:                                              ; preds = %8
@@ -9580,7 +9580,7 @@ define internal fastcc i32 @parse_PortInfo(ptr noundef %0, ptr noundef %1, ptr n
   %380 = load i32, ptr @hf_opa_reserved16, align 4
   %381 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %380, ptr noundef %1, i32 noundef %379, i32 noundef 2, i32 noundef 0) #6
   %382 = add nuw nsw i32 %.0515531, 1
-  %383 = icmp ult i32 %382, %22
+  %383 = icmp samesign ult i32 %382, %22
   %spec.select.v = select i1 %383, i32 72, i32 66
   %spec.select = add i32 %308, %spec.select.v
   br i1 %383, label %.lr.ph, label %.loopexit, !llvm.loop !32
@@ -9657,7 +9657,7 @@ define internal fastcc i32 @parse_P_KeyTable(ptr noundef %0, ptr noundef %1, i32
 
 36:                                               ; preds = %29
   %37 = add nuw nsw i32 %.0384, 1
-  %38 = icmp ult i32 %37, %26
+  %38 = icmp samesign ult i32 %37, %26
   br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %36, %20, %3, %4, %4
@@ -9756,7 +9756,7 @@ define internal fastcc i32 @parse_VLArbitrationTable(ptr noundef %0, ptr noundef
   br i1 %.not14, label %.loopexit2, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
-  %33 = icmp ult i32 %.061, 3
+  %33 = icmp samesign ult i32 %.061, 3
   br i1 %33, label %.preheader.us, label %.lr.ph.split
 
 .preheader.us:                                    ; preds = %.lr.ph, %.loopexit.us
@@ -9786,7 +9786,7 @@ define internal fastcc i32 @parse_VLArbitrationTable(ptr noundef %0, ptr noundef
 
 .loopexit.us:                                     ; preds = %36
   %46 = add nuw nsw i32 %.0628.us, 1
-  %47 = icmp ult i32 %46, %32
+  %47 = icmp samesign ult i32 %46, %32
   br i1 %47, label %.preheader.us, label %.loopexit2, !llvm.loop !37
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -9803,7 +9803,7 @@ define internal fastcc i32 @parse_VLArbitrationTable(ptr noundef %0, ptr noundef
 51:                                               ; preds = %55
   %52 = add i32 %.23.us, 132
   %53 = add nuw nsw i32 %.0628.us9, 1
-  %54 = icmp ult i32 %53, %32
+  %54 = icmp samesign ult i32 %53, %32
   br i1 %54, label %.preheader1.us, label %.loopexit2, !llvm.loop !37
 
 55:                                               ; preds = %.preheader1.us, %55
@@ -9824,7 +9824,7 @@ define internal fastcc i32 @parse_VLArbitrationTable(ptr noundef %0, ptr noundef
   %61 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %31, ptr noundef %1, i32 noundef %.0647, i32 noundef 256, i32 noundef %60, ptr noundef null, ptr noundef nonnull @.str.2307, ptr noundef %26, i32 noundef %.0628) #6
   %62 = add i32 %.0647, 256
   %63 = add nuw nsw i32 %.0628, 1
-  %64 = icmp ult i32 %63, %32
+  %64 = icmp samesign ult i32 %63, %32
   br i1 %64, label %.lr.ph.split.split, label %.loopexit2, !llvm.loop !37
 
 .loopexit2:                                       ; preds = %.lr.ph.split.split, %51, %.loopexit.us, %25, %3, %4, %4
@@ -9895,7 +9895,7 @@ define internal fastcc i32 @parse_LinearForwardingTable(ptr noundef %0, ptr noun
 
 32:                                               ; preds = %27
   %33 = add nuw nsw i32 %.0354, 1
-  %34 = icmp ult i32 %33, %24
+  %34 = icmp samesign ult i32 %33, %24
   br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %32, %18, %3, %4, %4
@@ -9971,7 +9971,7 @@ define internal fastcc i32 @parse_MulticastForwardingTable(ptr noundef %0, ptr n
 
 37:                                               ; preds = %32
   %38 = add nuw nsw i32 %.0404, 1
-  %39 = icmp ult i32 %38, %29
+  %39 = icmp samesign ult i32 %38, %29
   br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %37, %22, %3, %4, %4
@@ -10253,7 +10253,7 @@ define internal fastcc i32 @parse_SCtoVLxMappingTable(ptr noundef %0, ptr nounde
 
 40:                                               ; preds = %33
   %41 = add nuw nsw i32 %.0454, 1
-  %42 = icmp ult i32 %41, %30
+  %42 = icmp samesign ult i32 %41, %30
   br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %40, %20, %3, %4, %4
@@ -10324,7 +10324,7 @@ define internal fastcc i32 @parse_PortGroupForwardingTable(ptr noundef %0, ptr n
 
 32:                                               ; preds = %27
   %33 = add nuw nsw i32 %.0354, 1
-  %34 = icmp ult i32 %33, %24
+  %34 = icmp samesign ult i32 %33, %24
   br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %32, %18, %3, %4, %4
@@ -10401,7 +10401,7 @@ define internal fastcc i32 @parse_PortGroupTable(ptr noundef %0, ptr noundef %1,
 
 38:                                               ; preds = %33
   %39 = add nuw nsw i32 %.0404, 1
-  %40 = icmp ult i32 %39, %30
+  %40 = icmp samesign ult i32 %39, %30
   br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %38, %23, %3, %4, %4
@@ -10483,7 +10483,7 @@ define internal fastcc i32 @parse_BufferControlTable(ptr noundef %0, ptr noundef
 
 38:                                               ; preds = %31
   %39 = add nuw nsw i32 %.0535, 1
-  %40 = icmp ult i32 %39, %21
+  %40 = icmp samesign ult i32 %39, %21
   %41 = add i32 %.14, 8
   br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !53
 
@@ -10647,7 +10647,7 @@ define internal fastcc i32 @parse_SwitchPortCongestionSetting(ptr noundef %0, pt
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %41, ptr noundef %1, i32 noundef %40, i32 noundef 2, i32 noundef 0) #6
   %43 = add i32 %.0491, 4
   %44 = add nuw nsw i32 %.0472, 1
-  %45 = icmp ult i32 %44, %26
+  %45 = icmp samesign ult i32 %44, %26
   br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %3, %4, %4
@@ -10785,7 +10785,7 @@ define internal fastcc i32 @parse_HFICongestionControlTable(ptr noundef %0, ptr 
 
 40:                                               ; preds = %33
   %41 = add nuw nsw i32 %.0434, 1
-  %42 = icmp ult i32 %41, %30
+  %42 = icmp samesign ult i32 %41, %30
   br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %40, %20, %3, %4, %4
@@ -13051,7 +13051,7 @@ define internal fastcc ptr @opa_format_port_select_mask(ptr noundef %0, i32 noun
   %38 = add nuw nsw i32 %.0671, 1
   %39 = lshr i64 %.0575, 1
   %40 = icmp ugt i64 %.0575, 1
-  %41 = icmp ult i32 %.0671, 63
+  %41 = icmp samesign ult i32 %.0671, 63
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %23, label %._crit_edge, !llvm.loop !73
 

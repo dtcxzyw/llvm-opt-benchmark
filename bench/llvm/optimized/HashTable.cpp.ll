@@ -404,7 +404,7 @@ define dso_local void @_ZN4llvm3pdb20writeSparseBitVectorERNS_18BinaryStreamWrit
 
 22:                                               ; preds = %22, %16
   %.0.i.i = phi i32 [ 0, %16 ], [ %28, %22 ]
-  %23 = icmp ult i32 %.0.i.i, 2
+  %23 = icmp samesign ult i32 %.0.i.i, 2
   tail call void @llvm.assume(i1 %23)
   %24 = xor i32 %.0.i.i, 1
   %25 = zext nneg i32 %24 to i64

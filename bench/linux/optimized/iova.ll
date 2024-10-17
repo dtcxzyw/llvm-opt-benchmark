@@ -79,7 +79,7 @@ define dso_local void @init_iova_domain(ptr noundef %0, i64 noundef %1, i64 noun
   %4 = add i64 %1, -4097
   %5 = icmp ult i64 %4, -4096
   %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1), !range !5
-  %7 = icmp ugt i64 %6, 1
+  %7 = icmp samesign ugt i64 %6, 1
   %8 = select i1 %5, i1 true, i1 %7
   br i1 %8, label %9, label %10, !prof !6
 
@@ -935,7 +935,7 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
 .preheader16:                                     ; preds = %94
   %110 = add nuw nsw i64 %88, 1
   %111 = and i64 %110, 127
-  %112 = icmp ugt i64 %111, 63
+  %112 = icmp samesign ugt i64 %111, 63
   br i1 %112, label %.preheader.preheader, label %.preheader16.preheader, !prof !33, !llvm.loop !34
 
 .preheader.preheader:                             ; preds = %.preheader16.preheader, %.preheader16, %87
@@ -1299,7 +1299,7 @@ define dso_local i32 @iova_domain_init_rcaches(ptr noundef %0) #1 align 16 {
 .preheader:                                       ; preds = %.preheader9, %50
   %20 = phi i64 [ %54, %50 ], [ 0, %.preheader9 ]
   %21 = and i64 %20, 4294967295
-  %22 = icmp ugt i64 %21, 63
+  %22 = icmp samesign ugt i64 %21, 63
   br i1 %22, label %.thread, label %23, !prof !13
 
 23:                                               ; preds = %.preheader
@@ -1473,7 +1473,7 @@ define internal fastcc void @free_iova_rcaches(ptr nocapture noundef %0) unnamed
   tail call void @kfree(ptr noundef %31) #9
   %32 = add nuw nsw i64 %17, 1
   %33 = and i64 %32, 127
-  %34 = icmp ugt i64 %33, 63
+  %34 = icmp samesign ugt i64 %33, 63
   br i1 %34, label %.thread, label %.preheader, !prof !33, !llvm.loop !44
 
 .loopexit4:                                       ; preds = %16, %.thread

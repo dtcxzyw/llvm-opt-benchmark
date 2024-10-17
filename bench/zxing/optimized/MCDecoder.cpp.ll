@@ -2240,7 +2240,7 @@ _ZN5ZXing8MaxiCode22DecodedBitStreamParserL13ParseECIValueERKNS_9ByteArrayERi.ex
   %123 = and i32 %120, 7
   %124 = add nuw nsw i32 %123, 1
   %125 = icmp eq i32 %123, 0
-  %.not.not.i = icmp ult i32 %123, %122
+  %.not.not.i = icmp samesign ult i32 %123, %122
   %or.cond.i = select i1 %125, i1 true, i1 %.not.not.i
   %spec.store.select.i = select i1 %or.cond.i, i32 0, i32 %124
   store i32 %spec.store.select.i, ptr %8, align 4
@@ -2436,7 +2436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i

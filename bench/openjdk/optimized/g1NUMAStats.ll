@@ -108,7 +108,7 @@ define hidden void @_ZN11G1NUMAStats13NodeDataArrayC2Ej(ptr nocapture noundef no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %4, align 4
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -127,7 +127,7 @@ define hidden void @_ZN11G1NUMAStats13NodeDataArrayC2Ej(ptr nocapture noundef no
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %26 = load i32, ptr %4, align 4
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next.i, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next.i, %27
   br i1 %28, label %.lr.ph.i, label %_ZN11G1NUMAStats13NodeDataArray5clearEv.exit, !llvm.loop !8
 
 _ZN11G1NUMAStats13NodeDataArray5clearEv.exit:     ; preds = %.lr.ph.i, %2, %._crit_edge
@@ -159,7 +159,7 @@ define hidden void @_ZN11G1NUMAStats13NodeDataArray5clearEv(ptr nocapture nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %2, align 4
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %5, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %5, %1
@@ -186,7 +186,7 @@ define hidden void @_ZN11G1NUMAStats13NodeDataArrayD2Ev(ptr nocapture noundef no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %11, label %5, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %5, %1
@@ -368,7 +368,7 @@ define hidden void @_ZN11G1NUMAStats13NodeDataArray4copyEjPm(ptr nocapture nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %0, align 8
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %7, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %7, %3
@@ -414,7 +414,7 @@ define hidden void @_ZN11G1NUMAStatsC2EPKjj(ptr nocapture noundef nonnull align 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %23 = load i32, ptr %11, align 4
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next.i, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next.i, %24
   br i1 %25, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
@@ -433,7 +433,7 @@ define hidden void @_ZN11G1NUMAStatsC2EPKjj(ptr nocapture noundef nonnull align 
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %33 = load i32, ptr %11, align 4
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next.i.i, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next.i.i, %34
   br i1 %35, label %.lr.ph.i.i, label %_ZN11G1NUMAStats13NodeDataArrayC2Ej.exit, !llvm.loop !8
 
 _ZN11G1NUMAStats13NodeDataArrayC2Ej.exit:         ; preds = %.lr.ph.i.i, %6, %._crit_edge.i
@@ -477,7 +477,7 @@ define hidden void @_ZN11G1NUMAStatsD2Ev(ptr nocapture noundef nonnull readonly 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %16 = load i32, ptr %9, align 4
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next.i, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next.i, %17
   br i1 %18, label %12, label %_ZN11G1NUMAStats13NodeDataArrayD2Ev.exit, !llvm.loop !9
 
 _ZN11G1NUMAStats13NodeDataArrayD2Ev.exit:         ; preds = %12, %8
@@ -521,7 +521,7 @@ define hidden void @_ZN11G1NUMAStats5clearENS_13NodeDataItemsE(ptr nocapture nou
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = load i32, ptr %7, align 4
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next.i, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next.i, %18
   br i1 %19, label %10, label %_ZN11G1NUMAStats13NodeDataArray5clearEv.exit, !llvm.loop !8
 
 _ZN11G1NUMAStats13NodeDataArray5clearEv.exit:     ; preds = %10, %2
@@ -576,7 +576,7 @@ define hidden void @_ZN11G1NUMAStats4copyENS_13NodeDataItemsEjPm(ptr nocapture n
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = load i32, ptr %8, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next.i, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next.i, %22
   br i1 %23, label %12, label %_ZN11G1NUMAStats13NodeDataArray4copyEjPm.exit, !llvm.loop !14
 
 _ZN11G1NUMAStats13NodeDataArray4copyEjPm.exit:    ; preds = %12, %4

@@ -165,7 +165,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   %80 = fcmp olt double %79, 0.000000e+00
   %81 = select i1 %80, double 0.000000e+00, double %79
   %82 = fadd double %.0451564, %81
-  %83 = icmp ult i64 %indvars.iv714, %60
+  %83 = icmp samesign ult i64 %indvars.iv714, %60
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %61
@@ -862,7 +862,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   %327 = call double @llvm.fabs.f64(double %326)
   %328 = load double, ptr @Epsilon, align 8
   %329 = fcmp olt double %327, %328
-  %330 = icmp ugt i32 %.1439678, 1
+  %330 = icmp samesign ugt i32 %.1439678, 1
   %331 = fcmp ogt double %.1464.lcssa, %.0465677
   %332 = select i1 %330, i1 %331, i1 false
   %333 = or i1 %332, %329

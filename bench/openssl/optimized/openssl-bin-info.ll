@@ -104,7 +104,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %tobool.not, label %opthelp, label %if.end
 
 if.end:                                           ; preds = %while.end
-  %cmp19 = icmp ugt i32 %dirty.0, 1
+  %cmp19 = icmp samesign ugt i32 %dirty.0, 1
   br i1 %cmp19, label %opthelp.sink.split, label %if.end22
 
 if.end22:                                         ; preds = %if.end

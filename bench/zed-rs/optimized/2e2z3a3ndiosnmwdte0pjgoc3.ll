@@ -4154,7 +4154,7 @@ define hidden void @_ZN15live_kit_server3api13LiveKitClient7request17h2dc40b1e04
   %51 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %52 = icmp ult i64 %51, 6
   call void @llvm.assume(i1 %52)
-  %switch = icmp ult i64 %51, 3
+  %switch = icmp samesign ult i64 %51, 3
   br i1 %switch, label %66, label %53
 
 53:                                               ; preds = %50
@@ -4343,7 +4343,7 @@ define hidden void @_ZN15live_kit_server3api13LiveKitClient7request17hd1088988db
   %51 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %52 = icmp ult i64 %51, 6
   call void @llvm.assume(i1 %52)
-  %switch = icmp ult i64 %51, 3
+  %switch = icmp samesign ult i64 %51, 3
   br i1 %switch, label %66, label %53
 
 53:                                               ; preds = %50
@@ -4532,7 +4532,7 @@ define hidden void @_ZN15live_kit_server3api13LiveKitClient7request17hd216610e15
   %51 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %52 = icmp ult i64 %51, 6
   call void @llvm.assume(i1 %52)
-  %switch = icmp ult i64 %51, 3
+  %switch = icmp samesign ult i64 %51, 3
   br i1 %switch, label %66, label %53
 
 53:                                               ; preds = %50
@@ -4721,7 +4721,7 @@ define hidden void @_ZN15live_kit_server3api13LiveKitClient7request17he0f81b7cc9
   %51 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %52 = icmp ult i64 %51, 6
   call void @llvm.assume(i1 %52)
-  %switch = icmp ult i64 %51, 3
+  %switch = icmp samesign ult i64 %51, 3
   br i1 %switch, label %66, label %53
 
 53:                                               ; preds = %50

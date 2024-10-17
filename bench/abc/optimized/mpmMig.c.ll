@@ -249,11 +249,11 @@ Mig_ObjIsAnd.exit.i:                              ; preds = %Mig_ObjIsNode2.exit
   %18 = load i32, ptr %.01421, align 4
   %19 = lshr i32 %18, 1
   %20 = lshr i32 %.014.val19, 1
-  %.not.i = icmp ult i32 %19, %20
+  %.not.i = icmp samesign ult i32 %19, %20
   br i1 %.not.i, label %Mig_ObjNodeType.exit, label %Mig_ObjIsXor.exit.i
 
 Mig_ObjIsXor.exit.i:                              ; preds = %Mig_ObjIsAnd.exit.i
-  %21 = icmp ule i32 %19, %20
+  %21 = icmp samesign ule i32 %19, %20
   %cond.fr.i = freeze i1 %21
   br i1 %cond.fr.i, label %Mig_ObjIsXor.exit.thread.i, label %Mig_ObjNodeType.exit
 
@@ -337,7 +337,7 @@ Mig_ObjIsAnd.exit.i.i:                            ; preds = %Mig_ObjIsNode2.exit
   %17 = load i32, ptr %.01421.i, align 4
   %18 = lshr i32 %17, 1
   %19 = lshr i32 %.014.val19.i, 1
-  %.not.i.i = icmp ult i32 %18, %19
+  %.not.i.i = icmp samesign ult i32 %18, %19
   %spec.select = zext i1 %.not.i.i to i32
   br label %Mig_ObjNodeType.exit.i
 
@@ -416,11 +416,11 @@ Mig_ObjIsAnd.exit.i.i:                            ; preds = %Mig_ObjIsNode2.exit
   %17 = load i32, ptr %.01421.i, align 4
   %18 = lshr i32 %17, 1
   %19 = lshr i32 %.014.val19.i, 1
-  %.not.i.i = icmp ult i32 %18, %19
+  %.not.i.i = icmp samesign ult i32 %18, %19
   br i1 %.not.i.i, label %Mig_ObjNodeType.exit.i, label %Mig_ObjIsXor.exit.i.i
 
 Mig_ObjIsXor.exit.i.i:                            ; preds = %Mig_ObjIsAnd.exit.i.i
-  %20 = icmp ule i32 %18, %19
+  %20 = icmp samesign ule i32 %18, %19
   %cond.fr.i.i = freeze i1 %20
   br i1 %cond.fr.i.i, label %Mig_ObjIsXor.exit.thread.i.i, label %Mig_ObjNodeType.exit.i
 
@@ -502,11 +502,11 @@ Mig_ObjIsAnd.exit.i.i:                            ; preds = %Mig_ObjIsNode2.exit
   %17 = load i32, ptr %.01421.i, align 4
   %18 = lshr i32 %17, 1
   %19 = lshr i32 %.014.val19.i, 1
-  %.not.i.i = icmp ult i32 %18, %19
+  %.not.i.i = icmp samesign ult i32 %18, %19
   br i1 %.not.i.i, label %Mig_ObjNodeType.exit.i, label %Mig_ObjIsXor.exit.i.i
 
 Mig_ObjIsXor.exit.i.i:                            ; preds = %Mig_ObjIsAnd.exit.i.i
-  %20 = icmp ule i32 %18, %19
+  %20 = icmp samesign ule i32 %18, %19
   %cond.fr.i.i = freeze i1 %20
   br i1 %cond.fr.i.i, label %Mig_ObjIsXor.exit.thread.i.i, label %Mig_ObjNodeType.exit.i
 

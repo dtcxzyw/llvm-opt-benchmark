@@ -5018,7 +5018,7 @@ define internal fastcc noundef i32 @_ZL20evaluateICmpRelationPN4llvm8ConstantES1
 
 "_ZZL20evaluateICmpRelationPN4llvm8ConstantES1_ENK3$_0clES1_.exit58": ; preds = %"_ZZL20evaluateICmpRelationPN4llvm8ConstantES1_ENK3$_0clES1_.exit", %18, %19
   %.0.i57 = phi i32 [ 3, %"_ZZL20evaluateICmpRelationPN4llvm8ConstantES1_ENK3$_0clES1_.exit" ], [ 2, %18 ], [ %..i56, %19 ]
-  %21 = icmp ult i32 %.0.i, %.0.i57
+  %21 = icmp samesign ult i32 %.0.i, %.0.i57
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %"_ZZL20evaluateICmpRelationPN4llvm8ConstantES1_ENK3$_0clES1_.exit58"

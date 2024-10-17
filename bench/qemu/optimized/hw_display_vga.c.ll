@@ -176,7 +176,7 @@ sw.bb3:                                           ; preds = %if.else
   %ar_index4 = getelementptr inbounds i8, ptr %opaque, i64 1362
   %5 = load i8, ptr %ar_index4, align 2
   %6 = and i8 %5, 31
-  %cmp6 = icmp ult i8 %6, 21
+  %cmp6 = icmp samesign ult i8 %6, 21
   br i1 %cmp6, label %if.then8, label %if.end62
 
 if.then8:                                         ; preds = %sw.bb3
@@ -1523,7 +1523,7 @@ entry:
   ]
 
 sw.bb2:                                           ; preds = %entry
-  %cmp = icmp ugt i64 %and1, 65535
+  %cmp = icmp samesign ugt i64 %and1, 65535
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb2
@@ -1683,7 +1683,7 @@ entry:
   ]
 
 sw.bb2:                                           ; preds = %entry
-  %cmp = icmp ugt i64 %and1, 65535
+  %cmp = icmp samesign ugt i64 %and1, 65535
   br i1 %cmp, label %if.end178, label %if.end
 
 if.end:                                           ; preds = %sw.bb2
@@ -3697,7 +3697,7 @@ if.then240.i:                                     ; preds = %land.lhs.true236.i
   %79 = and i8 %78, 31
   %80 = call i8 @llvm.umin.i8(i8 %21, i8 %79)
   %spec.select161.i = zext nneg i8 %80 to i32
-  %cmp255.not.not.i = icmp ugt i32 %and244.i, %spec.select161.i
+  %cmp255.not.not.i = icmp samesign ugt i32 %and244.i, %spec.select161.i
   br i1 %cmp255.not.not.i, label %if.end278.i, label %if.then260.i
 
 if.then260.i:                                     ; preds = %if.then240.i
@@ -4103,7 +4103,7 @@ if.then46.i:                                      ; preds = %lor.lhs.false41.i, 
 
 if.end51.i:                                       ; preds = %if.then46.i, %lor.lhs.false41.i
   %full_update.addr.0.i44 = phi i32 [ 1, %if.then46.i ], [ %or.i35, %lor.lhs.false41.i ]
-  %switch.i = icmp ult i8 %112, 2
+  %switch.i = icmp samesign ult i8 %112, 2
   br i1 %switch.i, label %if.end74.sink.split.i, label %if.end74.i
 
 if.end74.sink.split.i:                            ; preds = %if.end51.i
@@ -4660,7 +4660,7 @@ if.else289.i:                                     ; preds = %if.else271.i
 
 if.end295.i:                                      ; preds = %if.else289.i, %if.end278.i68, %if.end250.i
   %update.0.shrunk.i = phi i1 [ %or288171.i, %if.end278.i68 ], [ %call292.i, %if.else289.i ], [ true, %if.end250.i ]
-  %cmp.i.i61 = icmp ugt i32 %y.0295.i, 2047
+  %cmp.i.i61 = icmp samesign ugt i32 %y.0295.i, 2047
   br i1 %cmp.i.i61, label %vga_scanline_invalidated.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end295.i
@@ -4976,7 +4976,7 @@ if.end54:                                         ; preds = %update_basic_params
   %22 = phi i32 [ %div.zext, %if.else38 ], [ 100, %update_basic_params.exit ]
   store i32 %22, ptr %height, align 4
   %mul = mul nuw nsw i32 %22, %add31
-  %cmp55 = icmp ugt i32 %mul, 16000
+  %cmp55 = icmp samesign ugt i32 %mul, 16000
   br i1 %cmp55, label %if.then57, label %if.end62
 
 if.then57:                                        ; preds = %if.end54
@@ -5206,7 +5206,7 @@ for.end189:                                       ; preds = %for.cond167.prehead
   %i.1153 = phi i32 [ %i.1159, %if.then183 ], [ 0, %for.cond167.preheader ]
   %src.1151 = phi ptr [ %src.1160, %if.then183 ], [ %add.ptr193, %for.cond167.preheader ]
   %dst.1149 = phi ptr [ %dst.1161, %if.then183 ], [ %chardata, %for.cond167.preheader ]
-  %cmp191164 = icmp ult i32 %i.1153, %mul
+  %cmp191164 = icmp samesign ult i32 %i.1153, %mul
   br i1 %cmp191164, label %for.body193, label %for.end212
 
 for.body193:                                      ; preds = %for.end189, %for.inc208

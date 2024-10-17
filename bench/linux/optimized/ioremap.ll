@@ -679,7 +679,7 @@ define internal range(i32 0, 2) i32 @__ioremap_collect_map_flags(ptr nocapture n
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 1
   %18 = lshr i64 %17, 12
-  %19 = icmp ugt i64 %18, %14
+  %19 = icmp samesign ugt i64 %18, %14
   br i1 %19, label %20, label %.loopexit
 
 20:                                               ; preds = %11
@@ -702,7 +702,7 @@ define internal range(i32 0, 2) i32 @__ioremap_collect_map_flags(ptr nocapture n
 
 29:                                               ; preds = %28, %26, %26
   %30 = phi i64 [ 524288, %28 ], [ 33554432, %26 ], [ 33554432, %26 ]
-  %31 = icmp ult i64 %27, %30
+  %31 = icmp samesign ult i64 %27, %30
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %29
@@ -715,7 +715,7 @@ define internal range(i32 0, 2) i32 @__ioremap_collect_map_flags(ptr nocapture n
 
 35:                                               ; preds = %34, %32, %32
   %36 = phi i64 [ 2048, %34 ], [ 131072, %32 ], [ 131072, %32 ]
-  %37 = icmp ult i64 %33, %36
+  %37 = icmp samesign ult i64 %33, %36
   br i1 %37, label %38, label %48, !prof !10
 
 38:                                               ; preds = %35

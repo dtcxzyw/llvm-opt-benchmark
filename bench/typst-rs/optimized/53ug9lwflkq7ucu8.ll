@@ -1828,7 +1828,7 @@ define hidden void @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_wi
   %17 = icmp eq i8 %2, 0
   %.0.in.sroa.speculate.load.3.sroa.speculated.i = tail call i8 @llvm.umin.i8(i8 %2, i8 100)
   %.0.in.sroa.speculated.i = select i1 %17, i8 1, i8 %.0.in.sroa.speculate.load.3.sroa.speculated.i
-  %18 = icmp ult i8 %.0.in.sroa.speculated.i, 50
+  %18 = icmp samesign ult i8 %.0.in.sroa.speculated.i, 50
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %12
@@ -1893,7 +1893,7 @@ define hidden void @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_wi
   %40 = mul nuw nsw i32 %storemerge, %39
   %41 = add nuw nsw i32 %40, 50
   %42 = udiv i32 %41, 100
-  %43 = icmp ult i32 %40, 50
+  %43 = icmp samesign ult i32 %40, 50
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %42, i32 255)
   %44 = trunc nuw i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i.i.i to i8
   %45 = select i1 %43, i8 1, i8 %44

@@ -14602,7 +14602,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %95 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !2451
   %96 = icmp ult i64 %95, 6
   call void @llvm.assume(i1 %96)
-  %switch.i.i = icmp ult i64 %95, 4
+  %switch.i.i = icmp samesign ult i64 %95, 4
   br i1 %switch.i.i, label %109, label %97
 
 97:                                               ; preds = %93
@@ -14970,7 +14970,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hfa39e50bf3aa8847E.exit.i.i: ; preds = 
   %233 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !2451
   %234 = icmp ult i64 %233, 6
   call void @llvm.assume(i1 %234)
-  %switch36.i.i = icmp ult i64 %233, 4
+  %switch36.i.i = icmp samesign ult i64 %233, 4
   br i1 %switch36.i.i, label %248, label %235
 
 235:                                              ; preds = %232
@@ -15032,7 +15032,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hfa39e50bf3aa8847E.exit.i.i: ; preds = 
   %251 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !2451
   %252 = icmp ult i64 %251, 6
   call void @llvm.assume(i1 %252)
-  %switch39.i.i = icmp ult i64 %251, 4
+  %switch39.i.i = icmp samesign ult i64 %251, 4
   br i1 %switch39.i.i, label %249, label %253
 
 253:                                              ; preds = %250

@@ -659,7 +659,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeBuildCutLevelOne_int(ptr noc
   %.lobit11.i = and i32 %30, 1
   %31 = xor i32 %.lobit11.i, 1
   %32 = add nuw nsw i32 %31, %23
-  %33 = icmp ult i32 %32, 2
+  %33 = icmp samesign ult i32 %32, 2
   br i1 %33, label %Abc_NodeGetLeafCostOne.exit, label %34
 
 34:                                               ; preds = %13
@@ -683,7 +683,7 @@ Abc_NodeGetLeafCostOne.exit:                      ; preds = %8, %8, %13, %34
   %42 = getelementptr inbounds i8, ptr %.03883, i64 20
   %43 = load i32, ptr %42, align 4
   %44 = lshr i32 %43, 12
-  %45 = icmp ugt i32 %41, %44
+  %45 = icmp samesign ugt i32 %41, %44
   br i1 %45, label %46, label %.thread
 
 46:                                               ; preds = %Abc_NodeGetLeafCostOne.exit, %40

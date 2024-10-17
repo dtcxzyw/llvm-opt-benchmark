@@ -1621,7 +1621,7 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr nocapture noun
   br i1 %.not, label %.loopexit8, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
-  %22 = icmp ult i32 %4, 4
+  %22 = icmp samesign ult i32 %4, 4
   %.pre16 = load i32, ptr %12, align 8
   br i1 %22, label %.lr.ph.split.us, label %.lr.ph.split
 

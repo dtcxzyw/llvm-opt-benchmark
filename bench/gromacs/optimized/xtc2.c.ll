@@ -631,7 +631,7 @@ buffer_large.exit:                                ; preds = %trajcoder_base_comp
   %256 = load i32, ptr %247, align 4
   %257 = sub nsw i32 %256, %166
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 3
-  %258 = icmp ult i64 %indvars.iv.next66.i, %233
+  %258 = icmp samesign ult i64 %indvars.iv.next66.i, %233
   br i1 %258, label %234, label %insert_batch.exit, !llvm.loop !18
 
 insert_batch.exit:                                ; preds = %234
@@ -1090,7 +1090,7 @@ buffer_large.exit501:                             ; preds = %trajcoder_base_comp
   %.sroa.0.0.i = phi i32 [ %404, %.loopexit ], [ %427, %.preheader.i503 ]
   %434 = mul i32 %414, 3
   %invariant.umin.i508 = call i32 @llvm.umin.i32(i32 %434, i32 21)
-  %435 = icmp ult i32 %424, %invariant.umin.i508
+  %435 = icmp samesign ult i32 %424, %invariant.umin.i508
   br i1 %435, label %.lr.ph.i510, label %insert_batch.exit518
 
 .lr.ph.i510:                                      ; preds = %.loopexit.i507
@@ -1127,7 +1127,7 @@ buffer_large.exit501:                             ; preds = %trajcoder_base_comp
   %457 = sub nsw i32 %446, %165
   %458 = sub nsw i32 %452, %166
   %indvars.iv.next66.i516 = add nuw nsw i64 %indvars.iv65.i512, 3
-  %459 = icmp ult i64 %indvars.iv.next66.i516, %437
+  %459 = icmp samesign ult i64 %indvars.iv.next66.i516, %437
   br i1 %459, label %438, label %._crit_edge.loopexit.i517, !llvm.loop !18
 
 ._crit_edge.loopexit.i517:                        ; preds = %438
@@ -1218,7 +1218,7 @@ positive_int.exit520:                             ; preds = %466, %469, %471
   %482 = load i32, ptr %481, align 4
   %spec.select423 = call i32 @llvm.smax.i32(i32 %482, i32 %.0362678)
   %indvars.iv.next788 = add nuw nsw i64 %indvars.iv787, 1
-  %483 = icmp ult i64 %indvars.iv.next788, %invariant.umin
+  %483 = icmp samesign ult i64 %indvars.iv.next788, %invariant.umin
   br i1 %483, label %.lr.ph680, label %._crit_edge681, !llvm.loop !29
 
 ._crit_edge681:                                   ; preds = %.lr.ph680, %.preheader644
@@ -1253,7 +1253,7 @@ Ptngc_find_magic_index.exit526:                   ; preds = %486
   br i1 %.not.i530, label %Ptngc_find_magic_index.exit532, label %491, !llvm.loop !4
 
 Ptngc_find_magic_index.exit532:                   ; preds = %491
-  %494 = icmp ult i64 %indvars.iv.i523, %indvars.iv.i529
+  %494 = icmp samesign ult i64 %indvars.iv.i523, %indvars.iv.i529
   %.0368..0390 = select i1 %494, i32 %.0368, i32 %.0390723
   %..v = call i64 @llvm.umin.i64(i64 %indvars.iv.i523, i64 %indvars.iv.i529)
   %. = trunc i64 %..v to i32

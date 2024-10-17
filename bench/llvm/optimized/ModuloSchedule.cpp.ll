@@ -2308,7 +2308,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %155, %._crit_
 
 191:                                              ; preds = %180
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %192 = icmp ult i64 %indvars.iv.next.i, %179
+  %192 = icmp samesign ult i64 %indvars.iv.next.i, %179
   br i1 %192, label %180, label %.loopexit.i, !llvm.loop !23
 
 .loopexit.i:                                      ; preds = %191, %185, %172
@@ -3893,7 +3893,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMa
   %.0291.neg1401 = phi i32 [ 0, %.lr.ph1402 ], [ %.0291.neg.pre-phi, %2027 ]
   %.11400 = phi i32 [ %.0283, %.lr.ph1402 ], [ %.5, %2027 ]
   %indvars1593 = trunc i64 %indvars.iv to i32
-  %342 = icmp ugt i64 %indvars.iv, %73
+  %342 = icmp samesign ugt i64 %indvars.iv, %73
   %or.cond343.not1810 = or i1 %.not317, %342
   %343 = add i32 %321, %indvars1593
   %.not318 = icmp ult i32 %.0, %343
@@ -8264,7 +8264,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixEOj.exit139: ; preds = %259, %248, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E20InsertIntoBucketImplIjEEPS6_RKjRKT_SA_.exit
   %.0.i.i135 = phi ptr [ %.0.i236, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E20InsertIntoBucketImplIjEEPS6_RKjRKT_SA_.exit ], [ %251, %248 ], [ %265, %259 ]
-  %.not115 = icmp ugt i64 %indvars.iv, %37
+  %.not115 = icmp samesign ugt i64 %indvars.iv, %37
   br i1 %.not115, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixEOj.exit152, label %455
 
 455:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixEOj.exit139
@@ -15011,7 +15011,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %33
 
 56:                                               ; preds = %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %57 = icmp ult i64 %indvars.iv.next, %44
+  %57 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %57, label %45, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %56, %37, %50
@@ -29920,7 +29920,7 @@ _ZN4llvm8DebugLocD2Ev.exit65:                     ; preds = %_ZN4llvm10MIMetadat
 
 228:                                              ; preds = %218
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 2
-  %229 = icmp ult i64 %indvars.iv.next.i68, %217
+  %229 = icmp samesign ult i64 %indvars.iv.next.i68, %217
   br i1 %229, label %218, label %_ZL13replacePhiSrcRN4llvm12MachineInstrENS_8RegisterES2_PNS_17MachineBasicBlockE.exit, !llvm.loop !355
 
 _ZL13replacePhiSrcRN4llvm12MachineInstrENS_8RegisterES2_PNS_17MachineBasicBlockE.exit: ; preds = %228, %_ZN4llvm8DebugLocD2Ev.exit65, %223

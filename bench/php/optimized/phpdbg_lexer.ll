@@ -1235,7 +1235,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 .lr.ph1295:                                       ; preds = %.preheader1095, %.backedge1097
   %496 = phi i8 [ %502, %.backedge1097 ], [ %367, %.preheader1095 ]
   %497 = phi ptr [ %501, %.backedge1097 ], [ %366, %.preheader1095 ]
-  %498 = icmp ult i8 %496, 13
+  %498 = icmp samesign ult i8 %496, 13
   br i1 %498, label %499, label %504
 
 499:                                              ; preds = %.lr.ph1295
@@ -1300,7 +1300,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
 ._crit_edge:                                      ; preds = %.backedge1100, %.preheader1098
   %522 = phi ptr [ %519, %.preheader1098 ], [ %537, %.backedge1100 ]
   %.lcssa1185 = phi i8 [ %520, %.preheader1098 ], [ %538, %.backedge1100 ]
-  %523 = icmp ult i8 %.lcssa1185, 13
+  %523 = icmp samesign ult i8 %.lcssa1185, 13
   br i1 %523, label %524, label %525
 
 524:                                              ; preds = %._crit_edge
@@ -1311,7 +1311,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   ]
 
 525:                                              ; preds = %._crit_edge
-  %526 = icmp ult i8 %.lcssa1185, 32
+  %526 = icmp samesign ult i8 %.lcssa1185, 32
   br i1 %526, label %527, label %528
 
 527:                                              ; preds = %525

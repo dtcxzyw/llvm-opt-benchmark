@@ -166,7 +166,7 @@ define hidden void @_ZN18ObjectSampleWriter5writeEPK10StoredEdge(ptr nocapture n
   %36 = add nsw i32 %31, 1
   %37 = icmp sgt i32 %31, -1
   %38 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %36)
-  %39 = icmp ult i32 %38, 2
+  %39 = icmp samesign ult i32 %38, 2
   %or.cond.i.i.i.i.i.i = select i1 %37, i1 %39, i1 false
   %40 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %36, i1 true)
   %41 = sub nuw nsw i32 32, %40
@@ -273,7 +273,7 @@ _ZL26add_old_object_sample_infoPK10StoredEdgem.exit: ; preds = %29, %35
   %94 = add nsw i32 %89, 1
   %95 = icmp sgt i32 %89, -1
   %96 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %94)
-  %97 = icmp ult i32 %96, 2
+  %97 = icmp samesign ult i32 %96, 2
   %or.cond.i.i.i.i.i.i.i = select i1 %95, i1 %97, i1 false
   %98 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %94, i1 true)
   %99 = sub nuw nsw i32 32, %98
@@ -410,7 +410,7 @@ _ZL17get_field_info_idRK4Edge.exit.i:             ; preds = %133, %115, %112
   %160 = add nsw i32 %155, 1
   %161 = icmp sgt i32 %155, -1
   %162 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %160)
-  %163 = icmp ult i32 %162, 2
+  %163 = icmp samesign ult i32 %162, 2
   %or.cond.i.i.i.i.i.i11 = select i1 %161, i1 %163, i1 false
   %164 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %160, i1 true)
   %165 = sub nuw nsw i32 32, %164
@@ -474,7 +474,7 @@ _ZL10is_gc_rootPK10StoredEdge.exit:               ; preds = %_ZL26add_old_object
   %194 = add nsw i32 %189, 1
   %195 = icmp sgt i32 %189, -1
   %196 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %194)
-  %197 = icmp ult i32 %196, 2
+  %197 = icmp samesign ult i32 %196, 2
   %or.cond.i.i.i.i.i.i.i14 = select i1 %195, i1 %197, i1 false
   %198 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %194, i1 true)
   %199 = sub nuw nsw i32 32, %198
@@ -3032,7 +3032,7 @@ _ZN13GrowableArrayIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEEC2
   %.val19.val.val.i.i = load i64, ptr %33, align 8
   %34 = lshr i64 %.val19.val.val.i.i, 1
   %35 = and i64 %34, 9223372036854775804
-  %36 = icmp ugt i64 %26, %35
+  %36 = icmp samesign ugt i64 %26, %35
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %27
@@ -3040,7 +3040,7 @@ _ZN13GrowableArrayIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEEC2
   br label %43
 
 39:                                               ; preds = %27
-  %40 = icmp ult i64 %26, %35
+  %40 = icmp samesign ult i64 %26, %35
   br i1 %40, label %41, label %_ZN26GrowableArrayWithAllocatorIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataE13GrowableArrayIS4_EE13insert_sortedIXadL_ZL19_root_desc_compare_RKS4_SA_EEEES4_SA_.exit
 
 41:                                               ; preds = %39
@@ -3064,7 +3064,7 @@ _ZN13GrowableArrayIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEEC2
   %48 = add nsw i32 %20, 1
   %49 = icmp sgt i32 %20, -1
   %50 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %48)
-  %51 = icmp ult i32 %50, 2
+  %51 = icmp samesign ult i32 %50, 2
   %or.cond.i.i.i.i.i = select i1 %49, i1 %51, i1 false
   %52 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %48, i1 true)
   %53 = sub nuw nsw i32 32, %52

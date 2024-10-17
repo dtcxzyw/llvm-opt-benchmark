@@ -237,7 +237,7 @@ define void @_ZN6Memory6ResizeEj8TTmemoryii(ptr noundef nonnull align 8 derefere
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %34 = load i32, ptr %6, align 8
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next60, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next60, %35
   br i1 %36, label %.lr.ph52, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %33

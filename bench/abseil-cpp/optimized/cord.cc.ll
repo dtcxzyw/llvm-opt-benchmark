@@ -433,7 +433,7 @@ if.then:                                          ; preds = %entry
   %spec.store.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %shr.i.i.i, i64 4083)
   %1 = add nuw nsw i64 %spec.store.select.i.i.i, 13
   %len.addr.0.i.i.i = select i1 %cmp.i.i.i, i64 32, i64 %1
-  %cmp.i.i.i.i = icmp ult i64 %len.addr.0.i.i.i, 513
+  %cmp.i.i.i.i = icmp samesign ult i64 %len.addr.0.i.i.i, 513
   %conv.i.neg.i.i.i = select i1 %cmp.i.i.i.i, i64 -8, i64 -64
   %conv.i.i.i.i = select i1 %cmp.i.i.i.i, i64 8, i64 64
   %add.i.i.i.i.i = add nsw i64 %len.addr.0.i.i.i, -1
@@ -741,7 +741,7 @@ if.then:                                          ; preds = %entry
   %spec.store.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %shr.i.i.i, i64 4083)
   %1 = add nuw nsw i64 %spec.store.select.i.i.i, 13
   %len.addr.0.i.i.i = select i1 %cmp.i.i.i, i64 32, i64 %1
-  %cmp.i.i.i.i = icmp ult i64 %len.addr.0.i.i.i, 513
+  %cmp.i.i.i.i = icmp samesign ult i64 %len.addr.0.i.i.i, 513
   %conv.i.neg.i.i.i = select i1 %cmp.i.i.i.i, i64 -8, i64 -64
   %conv.i.i.i.i = select i1 %cmp.i.i.i.i, i64 8, i64 64
   %add.i.i.i.i.i = add nsw i64 %len.addr.0.i.i.i, -1
@@ -1157,10 +1157,10 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit.i
 
 if.then.i:                                        ; preds = %if.end
-  %cmp.i.i.i.i = icmp ult i64 %length, 20
+  %cmp.i.i.i.i = icmp samesign ult i64 %length, 20
   %0 = add nuw nsw i64 %length, 13
   %len.addr.0.i.i.i.i = select i1 %cmp.i.i.i.i, i64 32, i64 %0
-  %cmp.i.i.i.i.i = icmp ult i64 %len.addr.0.i.i.i.i, 513
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %len.addr.0.i.i.i.i, 513
   %conv.i.neg.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 -8, i64 -64
   %conv.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 8, i64 64
   %add.i.i.i.i.i.i = add nsw i64 %len.addr.0.i.i.i.i, -1
@@ -1866,7 +1866,7 @@ if.end23:                                         ; preds = %invoke.cont12
   %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %add25, i64 4083)
   %27 = add nuw nsw i64 %spec.store.select.i.i, 13
   %len.addr.0.i.i = select i1 %cmp.i.i43, i64 32, i64 %27
-  %cmp.i.i.i = icmp ult i64 %len.addr.0.i.i, 513
+  %cmp.i.i.i = icmp samesign ult i64 %len.addr.0.i.i, 513
   %conv.i.neg.i.i = select i1 %cmp.i.i.i, i64 -8, i64 -64
   %conv.i.i.i44 = select i1 %cmp.i.i.i, i64 8, i64 64
   %add.i.i.i.i = add nsw i64 %len.addr.0.i.i, -1
@@ -2141,7 +2141,7 @@ cond.true:                                        ; preds = %if.end
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %capacity, i64 65536)
   %.sroa.speculated18.i.i = tail call i64 @llvm.umin.i64(i64 %block_size, i64 65536)
   %add.i.i = add nuw nsw i64 %.sroa.speculated.i.i, 13
-  %cmp.not.i.i = icmp ult i64 %add.i.i, %.sroa.speculated18.i.i
+  %cmp.not.i.i = icmp samesign ult i64 %add.i.i, %.sroa.speculated18.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %_ZN4absl10CordBuffer25CreateWithCustomLimitImplIJEEES0_mmDpT_.exit.i
 
 if.else.i.i:                                      ; preds = %cond.true
@@ -2150,7 +2150,7 @@ if.else.i.i:                                      ; preds = %cond.true
 
 _ZN4absl10CordBuffer6IsPow2Em.exit.i.i:           ; preds = %if.else.i.i
   %14 = tail call range(i64 1, 18) i64 @llvm.ctpop.i64(i64 %.sroa.speculated.i.i)
-  %cmp1.i.i.i.i = icmp ult i64 %14, 2
+  %cmp1.i.i.i.i = icmp samesign ult i64 %14, 2
   br i1 %cmp1.i.i.i.i, label %_ZN4absl10CordBuffer25CreateWithCustomLimitImplIJEEES0_mmDpT_.exit.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i
@@ -2176,8 +2176,8 @@ _ZN4absl10CordBuffer25CreateWithCustomLimitImplIJEEES0_mmDpT_.exit.i: ; preds = 
   %spec.store.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub18.i.i, i64 262131)
   %18 = add nuw nsw i64 %spec.store.select.i.i.i.i, 13
   %len.addr.0.i.i.i.i = select i1 %cmp.i.i.i.i11, i64 32, i64 %18
-  %cmp.i.i.i.i.i = icmp ult i64 %len.addr.0.i.i.i.i, 513
-  %cmp1.i.i.i.i.i = icmp ult i64 %len.addr.0.i.i.i.i, 8193
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %len.addr.0.i.i.i.i, 513
+  %cmp1.i.i.i.i.i = icmp samesign ult i64 %len.addr.0.i.i.i.i, 8193
   %19 = select i1 %cmp1.i.i.i.i.i, i64 64, i64 4096
   %conv.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 8, i64 %19
   %add.i.i.i.i.i.i = add nsw i64 %len.addr.0.i.i.i.i, -1
@@ -2215,7 +2215,7 @@ if.then.i15:                                      ; preds = %cond.false
   %spec.store.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %capacity, i64 4083)
   %21 = add nuw nsw i64 %spec.store.select.i.i.i, 13
   %len.addr.0.i.i.i = select i1 %cmp.i.i.i, i64 32, i64 %21
-  %cmp.i.i.i.i16 = icmp ult i64 %len.addr.0.i.i.i, 513
+  %cmp.i.i.i.i16 = icmp samesign ult i64 %len.addr.0.i.i.i, 513
   %conv.i.neg.i.i.i = select i1 %cmp.i.i.i.i16, i64 -8, i64 -64
   %conv.i.i.i.i17 = select i1 %cmp.i.i.i.i16, i64 8, i64 64
   %add.i.i.i.i.i = add nsw i64 %len.addr.0.i.i.i, -1
@@ -2275,7 +2275,7 @@ cond.true.i:                                      ; preds = %if.end16
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 65536)
   %.sroa.speculated18.i.i.i = tail call i64 @llvm.umin.i64(i64 %block_size, i64 65536)
   %add.i.i.i = add nuw nsw i64 %.sroa.speculated.i.i.i, 13
-  %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %.sroa.speculated18.i.i.i
+  %cmp.not.i.i.i = icmp samesign ult i64 %add.i.i.i, %.sroa.speculated18.i.i.i
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %_ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit.i
 
 if.else.i.i.i:                                    ; preds = %cond.true.i
@@ -2284,7 +2284,7 @@ if.else.i.i.i:                                    ; preds = %cond.true.i
 
 _ZN4absl10CordBuffer6IsPow2Em.exit.i.i.i:         ; preds = %if.else.i.i.i
   %26 = tail call range(i64 1, 18) i64 @llvm.ctpop.i64(i64 %.sroa.speculated.i.i.i)
-  %cmp1.i.i.i.i.i32 = icmp ult i64 %26, 2
+  %cmp1.i.i.i.i.i32 = icmp samesign ult i64 %26, 2
   br i1 %cmp1.i.i.i.i.i32, label %_ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit.i, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i.i
@@ -2310,8 +2310,8 @@ _ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit.i: ; preds = %if.else12.i.i.
   %spec.store.select.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub18.i.i.i, i64 262131)
   %30 = add nuw nsw i64 %spec.store.select.i.i.i.i.i, 13
   %len.addr.0.i.i.i.i.i = select i1 %cmp.i.i.i.i.i25, i64 32, i64 %30
-  %cmp.i.i.i.i.i.i26 = icmp ult i64 %len.addr.0.i.i.i.i.i, 513
-  %cmp1.i.i.i.i.i.i27 = icmp ult i64 %len.addr.0.i.i.i.i.i, 8193
+  %cmp.i.i.i.i.i.i26 = icmp samesign ult i64 %len.addr.0.i.i.i.i.i, 513
+  %cmp1.i.i.i.i.i.i27 = icmp samesign ult i64 %len.addr.0.i.i.i.i.i, 8193
   %31 = select i1 %cmp1.i.i.i.i.i.i27, i64 64, i64 4096
   %conv.i.i.i.i.i.i28 = select i1 %cmp.i.i.i.i.i.i26, i64 8, i64 %31
   %add.i.i.i.i.i.i.i = add nsw i64 %len.addr.0.i.i.i.i.i, -1
@@ -2348,7 +2348,7 @@ if.then.i.i:                                      ; preds = %cond.false.i
   %spec.store.select.i.i.i.i37 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 4083)
   %35 = add nuw nsw i64 %spec.store.select.i.i.i.i37, 13
   %len.addr.0.i.i.i.i38 = select i1 %cmp.i.i.i.i36, i64 32, i64 %35
-  %cmp.i.i.i.i8.i = icmp ult i64 %len.addr.0.i.i.i.i38, 513
+  %cmp.i.i.i.i8.i = icmp samesign ult i64 %len.addr.0.i.i.i.i38, 513
   %conv.i.neg.i.i.i.i = select i1 %cmp.i.i.i.i8.i, i64 -8, i64 -64
   %conv.i.i.i.i.i39 = select i1 %cmp.i.i.i.i8.i, i64 8, i64 64
   %add.i.i.i.i.i.i40 = add nsw i64 %len.addr.0.i.i.i.i38, -1
@@ -3325,7 +3325,7 @@ if.else:                                          ; preds = %entry
   %spec.store.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %src.coerce0, i64 4083)
   %2 = add nuw nsw i64 %spec.store.select.i.i.i, 13
   %len.addr.0.i.i.i = select i1 %cmp.i.i.i, i64 32, i64 %2
-  %cmp.i.i.i.i = icmp ult i64 %len.addr.0.i.i.i, 513
+  %cmp.i.i.i.i = icmp samesign ult i64 %len.addr.0.i.i.i, 513
   %conv.i.neg.i.i.i = select i1 %cmp.i.i.i.i, i64 -8, i64 -64
   %conv.i.i.i.i = select i1 %cmp.i.i.i.i, i64 8, i64 64
   %add.i.i.i.i.i = add nsw i64 %len.addr.0.i.i.i, -1
@@ -3396,7 +3396,7 @@ if.else:                                          ; preds = %entry
   %spec.store.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %src.coerce0, i64 4083)
   %2 = add nuw nsw i64 %spec.store.select.i.i.i, 13
   %len.addr.0.i.i.i = select i1 %cmp.i.i.i, i64 32, i64 %2
-  %cmp.i.i.i.i = icmp ult i64 %len.addr.0.i.i.i, 513
+  %cmp.i.i.i.i = icmp samesign ult i64 %len.addr.0.i.i.i, 513
   %conv.i.neg.i.i.i = select i1 %cmp.i.i.i.i, i64 -8, i64 -64
   %conv.i.i.i.i = select i1 %cmp.i.i.i.i, i64 8, i64 64
   %add.i.i.i.i.i = add nsw i64 %len.addr.0.i.i.i, -1
@@ -4965,7 +4965,7 @@ if.then6:                                         ; preds = %_ZNK4absl4Cord5empt
   %spec.store.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %shr.i.i.i, i64 4083)
   %10 = add nuw nsw i64 %spec.store.select.i.i.i, 13
   %len.addr.0.i.i.i = select i1 %cmp.i.i.i, i64 32, i64 %10
-  %cmp.i.i.i.i = icmp ult i64 %len.addr.0.i.i.i, 513
+  %cmp.i.i.i.i = icmp samesign ult i64 %len.addr.0.i.i.i, 513
   %conv.i.neg.i.i.i = select i1 %cmp.i.i.i.i, i64 -8, i64 -64
   %conv.i.i.i.i = select i1 %cmp.i.i.i.i, i64 8, i64 64
   %add.i.i.i.i.i = add nsw i64 %len.addr.0.i.i.i, -1
@@ -8131,7 +8131,7 @@ if.then:                                          ; preds = %_ZNK4absl4Cord4size
   %cmp.i.i = icmp ult i64 %cond.i.i, 20
   %4 = add nuw nsw i64 %cond.i.i, 13
   %len.addr.0.i.i = select i1 %cmp.i.i, i64 32, i64 %4
-  %cmp.i.i.i = icmp ult i64 %len.addr.0.i.i, 513
+  %cmp.i.i.i = icmp samesign ult i64 %len.addr.0.i.i, 513
   %conv.i.neg.i.i = select i1 %cmp.i.i.i, i64 -8, i64 -64
   %conv.i.i.i = select i1 %cmp.i.i.i, i64 8, i64 64
   %add.i.i.i.i = add nsw i64 %len.addr.0.i.i, -1
@@ -11741,7 +11741,7 @@ lpad:                                             ; preds = %for.body
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #23
-  %cmp913 = icmp ugt i64 %__i.012, 1
+  %cmp913 = icmp samesign ugt i64 %__i.012, 1
   br i1 %cmp913, label %for.body10, label %for.end18
 
 for.body10:                                       ; preds = %lpad, %for.body10
@@ -11983,7 +11983,7 @@ lpad:                                             ; preds = %for.body
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #23
-  %cmp913 = icmp ugt i64 %__i.012, 1
+  %cmp913 = icmp samesign ugt i64 %__i.012, 1
   br i1 %cmp913, label %for.body10, label %for.end17
 
 for.body10:                                       ; preds = %lpad, %for.body10

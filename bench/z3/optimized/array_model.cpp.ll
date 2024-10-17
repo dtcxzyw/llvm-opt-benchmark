@@ -1317,7 +1317,7 @@ _ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit.thread: ; preds = %for.c
   %arrayidx.i65 = getelementptr inbounds i8, ptr %80, i64 -4
   %81 = load i32, ptr %arrayidx.i65, align 4
   %82 = zext i32 %81 to i64
-  %cmp5974 = icmp ult i64 %indvars.iv95, %82
+  %cmp5974 = icmp samesign ult i64 %indvars.iv95, %82
   br i1 %cmp5974, label %for.body60, label %if.then.i.i.i
 
 for.body60:                                       ; preds = %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit.thread
@@ -2271,7 +2271,7 @@ _ZN14core_hashtableI14obj_hash_entryIN3euf5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = load i32, ptr %m_num_args.i, align 8
   %111 = zext i32 %110 to i64
-  %cmp28 = icmp ult i64 %indvars.iv.next, %111
+  %cmp28 = icmp samesign ult i64 %indvars.iv.next, %111
   br i1 %cmp28, label %for.body29, label %for.inc33, !llvm.loop !24
 
 for.inc33:                                        ; preds = %_ZN14core_hashtableI14obj_hash_entryIN3euf5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE6insertEOPS2_.exit, %_ZN8top_sortIN3euf5enodeEE3addEPS1_S3_.exit68
@@ -3991,7 +3991,7 @@ for.inc194:                                       ; preds = %.noexc328, %lor.lhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %184 = load i32, ptr %m_num_args.i.le, align 8
   %185 = zext i32 %184 to i64
-  %cmp183 = icmp ult i64 %indvars.iv.next, %185
+  %cmp183 = icmp samesign ult i64 %indvars.iv.next, %185
   br i1 %cmp183, label %invoke.cont190, label %for.end196, !llvm.loop !29
 
 for.end196:                                       ; preds = %for.inc194, %_ZN6vectorIP4exprLb0EjE5resetEv.exit

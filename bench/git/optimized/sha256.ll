@@ -1898,7 +1898,7 @@ entry:
 if.then.i15:                                      ; preds = %entry
   %sub.i = sub nuw nsw i32 64, %conv.i
   %conv2.i = zext nneg i32 %sub.i to i64
-  %cmp.i = icmp ult i64 %add, %conv2.i
+  %cmp.i = icmp samesign ult i64 %add, %conv2.i
   %conv5.i = trunc nuw nsw i64 %add to i32
   %spec.select.i = select i1 %cmp.i, i32 %conv5.i, i32 %sub.i
   %buf.i = getelementptr inbounds i8, ptr %ctx, i64 44
@@ -1969,7 +1969,7 @@ while.end.i39:                                    ; preds = %if.then.i20
   tail call fastcc void @blk_SHA256_Transform(ptr noundef nonnull %ctx, ptr noundef nonnull %buf.i25)
   %sub10.i34 = sub nuw nsw i64 8, %conv6.i28
   %add.ptr12.i33 = getelementptr inbounds i8, ptr %padlen, i64 %conv6.i28
-  %tobool23.not.i42 = icmp ult i32 %conv.i17, 57
+  %tobool23.not.i42 = icmp samesign ult i32 %conv.i17, 57
   br i1 %tobool23.not.i42, label %for.body.preheader, label %if.then24.i43
 
 if.then24.i43:                                    ; preds = %blk_SHA256_Update.exit, %while.end.i39

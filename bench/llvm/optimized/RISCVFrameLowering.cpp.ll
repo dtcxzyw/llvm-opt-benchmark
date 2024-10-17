@@ -3398,7 +3398,7 @@ define dso_local void @_ZNK4llvm18RISCVFrameLowering27emitCalleeSavedRVVPrologCF
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 22
   %127 = load i16, ptr %126, align 2
   %128 = zext i16 %127 to i32
-  %.not.i.i = icmp ult i32 %125, %128
+  %.not.i.i = icmp samesign ult i32 %125, %128
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %.thread99
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %123
@@ -3419,7 +3419,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %123
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 22
   %140 = load i16, ptr %139, align 2
   %141 = zext i16 %140 to i32
-  %.not.i.i60 = icmp ult i32 %125, %141
+  %.not.i.i60 = icmp samesign ult i32 %125, %141
   br i1 %.not.i.i60, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit61, label %.thread102
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit61: ; preds = %.thread99
@@ -3440,7 +3440,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit61: ; preds = %.thread
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 22
   %153 = load i16, ptr %152, align 2
   %154 = zext i16 %153 to i32
-  %.not.i.i64 = icmp ult i32 %125, %154
+  %.not.i.i64 = icmp samesign ult i32 %125, %154
   br i1 %.not.i.i64, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit65, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit65.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit65: ; preds = %.thread102
@@ -3558,7 +3558,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit.i: ; preds = %197, %_Z
   %.021.i.i = phi ptr [ %208, %204 ], [ %16, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit.i ]
   %.020.i.i = phi i64 [ %205, %204 ], [ %203, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit.i ]
   %205 = lshr i64 %.020.i.i, 7
-  %.not.i.i66 = icmp ugt i64 %.020.i.i, 127
+  %.not.i.i66 = icmp samesign ugt i64 %.020.i.i, 127
   %206 = trunc i64 %.020.i.i to i8
   %207 = or i8 %206, -128
   %.0.i.i = select i1 %.not.i.i66, i8 %207, i8 %206
@@ -7840,7 +7840,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %123 = load i32, ptr %114, align 4
   %124 = zext i32 %123 to i64
-  %125 = icmp ult i64 %indvars.iv.next, %124
+  %125 = icmp samesign ult i64 %indvars.iv.next, %124
   br i1 %125, label %119, label %.critedge2, !llvm.loop !184
 
 _ZNK4llvm8ArrayRefINS_15CalleeSavedInfoEEcvSt6vectorIS1_SaIS1_EEEv.exit65: ; preds = %"_ZZNK4llvm18RISCVFrameLowering27restoreCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_15MutableArrayRefINS_15CalleeSavedInfoEEEPKNS_18TargetRegisterInfoEENK3$_0clERKNS_11SmallVectorIS7_Lj8EEE.exit53", %80, %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit
@@ -8796,7 +8796,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit35: ; preds = %_ZN4llvm
   %.021.i = phi ptr [ %107, %103 ], [ %6, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit35 ]
   %.020.i = phi i64 [ %104, %103 ], [ %102, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit35 ]
   %104 = lshr i64 %.020.i, 7
-  %.not.i = icmp ugt i64 %.020.i, 127
+  %.not.i = icmp samesign ugt i64 %.020.i, 127
   %105 = trunc i64 %.020.i to i8
   %106 = or i8 %105, -128
   %.0.i36 = select i1 %.not.i, i8 %106, i8 %105

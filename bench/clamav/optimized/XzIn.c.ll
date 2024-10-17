@@ -328,7 +328,7 @@ define i32 @Xzs_ReadBackward(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   %.080.i = phi i64 [ 0, %37 ], [ %45, %55 ]
   %41 = load i64, ptr %2, align 8
   %42 = icmp slt i64 %41, 12
-  %43 = icmp ugt i64 %.080.i, 65536
+  %43 = icmp samesign ugt i64 %.080.i, 65536
   %or.cond.i = select i1 %42, i1 true, i1 %43
   br i1 %or.cond.i, label %Xz_ReadBackward.exit.thread, label %44
 
@@ -606,7 +606,7 @@ define internal fastcc i32 @Xz_ReadIndex(ptr noundef nonnull %0, ptr noundef %1,
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %15 = icmp ult i64 %2, 5
+  %15 = icmp samesign ult i64 %2, 5
   br i1 %15, label %Xz_ReadIndex2.exit, label %16
 
 16:                                               ; preds = %14

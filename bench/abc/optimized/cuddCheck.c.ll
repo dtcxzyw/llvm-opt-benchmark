@@ -195,7 +195,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 
 79:                                               ; preds = %69, %73
   %80 = phi i64 [ %78, %73 ], [ 2147483647, %69 ]
-  %.not217 = icmp ugt i64 %80, %indvars.iv341
+  %.not217 = icmp samesign ugt i64 %80, %indvars.iv341
   br i1 %.not217, label %81, label %96
 
 81:                                               ; preds = %79
@@ -217,7 +217,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 
 94:                                               ; preds = %81, %88
   %95 = phi i64 [ %93, %88 ], [ 2147483647, %81 ]
-  %.not218 = icmp ugt i64 %95, %indvars.iv341
+  %.not218 = icmp samesign ugt i64 %95, %indvars.iv341
   br i1 %.not218, label %113, label %96
 
 96:                                               ; preds = %94, %79
@@ -467,7 +467,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
   %256 = load i32, ptr %6, align 8
   %257 = zext i32 %256 to i64
-  %258 = icmp ult i64 %indvars.iv.next342, %257
+  %258 = icmp samesign ult i64 %indvars.iv.next342, %257
   br i1 %258, label %19, label %.preheader, !llvm.loop !7
 
 259:                                              ; preds = %.lr.ph301, %517
@@ -614,7 +614,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 
 344:                                              ; preds = %334, %338
   %345 = phi i64 [ %343, %338 ], [ 2147483647, %334 ]
-  %.not200 = icmp ugt i64 %345, %indvars.iv349
+  %.not200 = icmp samesign ugt i64 %345, %indvars.iv349
   br i1 %.not200, label %346, label %358
 
 346:                                              ; preds = %344
@@ -633,7 +633,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 
 356:                                              ; preds = %346, %350
   %357 = phi i64 [ %355, %350 ], [ 2147483647, %346 ]
-  %.not201 = icmp ugt i64 %357, %indvars.iv349
+  %.not201 = icmp samesign ugt i64 %357, %indvars.iv349
   br i1 %.not201, label %405, label %358
 
 358:                                              ; preds = %356, %344
@@ -877,7 +877,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
   %518 = load i32, ptr %12, align 4
   %519 = zext i32 %518 to i64
-  %520 = icmp ult i64 %indvars.iv.next350, %519
+  %520 = icmp samesign ult i64 %indvars.iv.next350, %519
   br i1 %520, label %259, label %._crit_edge302, !llvm.loop !10
 
 ._crit_edge302:                                   ; preds = %517, %.preheader

@@ -851,7 +851,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanTdlsForKeys(ptr nocapture no
   %.181 = phi i32 [ %.078111, %30 ], [ %.080109, %29 ], [ %.080109, %28 ], [ %.080109, %.lr.ph ]
   %.1 = phi i32 [ %.079110, %30 ], [ %.078111, %29 ], [ %.079110, %28 ], [ %.079110, %.lr.ph ]
   %.076 = phi i32 [ 18, %30 ], [ 5, %29 ], [ 82, %28 ], [ 1, %.lr.ph ]
-  %32 = icmp ugt i32 %.076, %27
+  %32 = icmp samesign ugt i32 %.076, %27
   br i1 %32, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %31
@@ -1819,7 +1819,7 @@ Dot11DecryptRsna4WHandshake.exit:                 ; preds = %Dot11DecryptIsWpaKe
   br label %Dot11DecryptGroupHandshake.exit
 
 219:                                              ; preds = %19
-  %220 = icmp ult i32 %3, 119
+  %220 = icmp samesign ult i32 %3, 119
   br i1 %220, label %Dot11DecryptGroupHandshake.exit, label %221
 
 221:                                              ; preds = %219
@@ -3763,9 +3763,10 @@ define internal fastcc range(i32 -1, 5) i32 @Dot11DecryptCopyBroadcastKey(ptr no
   %5 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION, align 8
   %6 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION_ID, align 1
   %7 = icmp eq ptr %1, null
-  %8 = add nsw i64 %2, -57
-  %9 = icmp ult i64 %8, -56
-  %or.cond28 = or i1 %7, %9
+  %8 = icmp eq i64 %2, 0
+  %or.cond = or i1 %7, %8
+  %9 = icmp samesign ugt i64 %2, 56
+  %or.cond28 = select i1 %or.cond, i1 true, i1 %9
   br i1 %or.cond28, label %Dot11DecryptAddSa.exit, label %10
 
 10:                                               ; preds = %4

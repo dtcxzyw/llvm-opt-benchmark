@@ -279,7 +279,7 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3), !noalias !24
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h15d0cd686ff3f2aaE.llvm.3518678287117667287"(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %3, ptr noundef nonnull align 8 %8), !noalias !24
   %10 = load i32, ptr %3, align 4, !range !27, !noundef !9
-  %.not.i = icmp ult i32 %10, 2
+  %.not.i = icmp samesign ult i32 %10, 2
   %11 = zext nneg i32 %10 to i64
   %12 = add nsw i64 %11, -1
   %13 = select i1 %.not.i, i64 0, i64 %12
@@ -373,7 +373,7 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$8try_n
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3), !noalias !41
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h15d0cd686ff3f2aaE.llvm.3518678287117667287"(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %3, ptr noundef nonnull align 8 %7), !noalias !41
   %9 = load i32, ptr %3, align 4, !range !27, !noalias !44, !noundef !9
-  %.not.i.i = icmp ult i32 %9, 2
+  %.not.i.i = icmp samesign ult i32 %9, 2
   %10 = zext nneg i32 %9 to i64
   %11 = add nsw i64 %10, -1
   %12 = select i1 %.not.i.i, i64 0, i64 %11
@@ -12410,7 +12410,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %104 = load i32, ptr %38, align 8, !noundef !9
   %105 = zext i32 %104 to i64
   %106 = add nuw nsw i64 %105, %103
-  %107 = icmp ugt i64 %106, 12
+  %107 = icmp samesign ugt i64 %106, 12
   br i1 %107, label %195, label %191
 
 108:                                              ; preds = %134, %125, %116, %95
@@ -13134,7 +13134,7 @@ _ZN8sum_tree3sum17h09a8a10e429baacaE.exit148:     ; preds = %.lr.ph.preheader.i1
   %354 = load i32, ptr %353, align 8, !noundef !9
   %355 = zext i32 %354 to i64
   %356 = add nuw nsw i64 %355, %352
-  %357 = icmp ugt i64 %356, 12
+  %357 = icmp samesign ugt i64 %356, 12
   br i1 %357, label %419, label %363
 
 "_ZN4core3ptr308drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapEntry$LT$core..any..TypeId$C$$LP$fn$LP$$RF$theme..styles..colors..ThemeColors$RP$$u20$.$GT$$u20$gpui..color..Hsla$C$alloc..sync..Arc$LT$$u5b$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$u5d$$GT$$RP$$GT$$C$12_usize$GT$$GT$17h25db494d4250316bE.exit267": ; preds = %495, %428, %431, %.body190.thread.thread, %545, %"_ZN4core3ptr308drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapEntry$LT$core..any..TypeId$C$$LP$fn$LP$$RF$theme..styles..colors..ThemeColors$RP$$u20$.$GT$$u20$gpui..color..Hsla$C$alloc..sync..Arc$LT$$u5b$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$u5d$$GT$$RP$$GT$$C$12_usize$GT$$GT$17h25db494d4250316bE.exit264", %361
@@ -13928,7 +13928,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %100 = load i32, ptr %45, align 8, !noundef !9
   %101 = zext i32 %100 to i64
   %102 = add nuw nsw i64 %101, %99
-  %103 = icmp ugt i64 %102, 12
+  %103 = icmp samesign ugt i64 %102, 12
   br i1 %103, label %169, label %166
 
 104:                                              ; preds = %126, %118, %109, %91
@@ -14524,7 +14524,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %271 = load i32, ptr %270, align 8, !noundef !9
   %272 = zext i32 %271 to i64
   %273 = add nuw nsw i64 %272, %269
-  %274 = icmp ugt i64 %273, 12
+  %274 = icmp samesign ugt i64 %273, 12
   br i1 %274, label %294, label %277
 
 "_ZN4core3ptr91drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..InsertionFragment$C$12_usize$GT$$GT$17ha90cb71ab83f8fe6E.exit265": ; preds = %.thread458, %357, %306, %303, %.thread458.thread.thread, %372, %"_ZN4core3ptr91drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..InsertionFragment$C$12_usize$GT$$GT$17ha90cb71ab83f8fe6E.exit262", %275
@@ -15183,7 +15183,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %112 = load i32, ptr %55, align 8, !noundef !9
   %113 = zext i32 %112 to i64
   %114 = add nuw nsw i64 %113, %111
-  %115 = icmp ugt i64 %114, 12
+  %115 = icmp samesign ugt i64 %114, 12
   br i1 %115, label %224, label %220
 
 116:                                              ; preds = %177, %159, %150, %103
@@ -15957,7 +15957,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %359 = load i32, ptr %358, align 8, !noundef !9
   %360 = zext i32 %359 to i64
   %361 = add nuw nsw i64 %360, %357
-  %362 = icmp ugt i64 %361, 12
+  %362 = icmp samesign ugt i64 %361, 12
   br i1 %362, label %388, label %368
 
 "_ZN4core3ptr82drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..Fragment$C$12_usize$GT$$GT$17ha1da82fb83a67a9eE.exit262": ; preds = %.thread451.thread485.thread, %456, %470, %482, %484, %"_ZN4core3ptr82drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..Fragment$C$12_usize$GT$$GT$17ha1da82fb83a67a9eE.exit259", %476, %366
@@ -16646,7 +16646,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %107 = load i32, ptr %46, align 8, !noundef !9
   %108 = zext i32 %107 to i64
   %109 = add nuw nsw i64 %108, %106
-  %110 = icmp ugt i64 %109, 12
+  %110 = icmp samesign ugt i64 %109, 12
   br i1 %110, label %190, label %188
 
 111:                                              ; preds = %149, %130, %121, %98
@@ -17326,7 +17326,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17h2786d016696b976aE.exit89: ;
   %291 = load i32, ptr %288, align 8, !noundef !9
   %292 = zext i32 %291 to i64
   %293 = add nuw nsw i64 %292, %290
-  %294 = icmp ugt i64 %293, 12
+  %294 = icmp samesign ugt i64 %293, 12
   br i1 %294, label %315, label %297
 
 "_ZN4core3ptr103drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$editor..display_map..fold_map..Fold$C$12_usize$GT$$GT$17h35e3fc31d69ac012E.exit183": ; preds = %"_ZN4core3ptr110drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$editor..display_map..fold_map..FoldSummary$C$12_usize$GT$$GT$17he2437e4a96a670a9E.exit175", %.thread405.thread437.thread, %366, %379, %381, %"_ZN4core3ptr103drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$editor..display_map..fold_map..Fold$C$12_usize$GT$$GT$17h35e3fc31d69ac012E.exit180", %295
@@ -21324,7 +21324,7 @@ define hidden void @"_ZN98_$LT$futures_channel..mpsc..UnboundedReceiver$LT$T$GT$
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !6588
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h15d0cd686ff3f2aaE.llvm.3518678287117667287"(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %5, ptr noundef nonnull align 8 %9), !noalias !6588
   %11 = load i32, ptr %5, align 4, !range !27, !noalias !6592, !noundef !9
-  %.not.i.i = icmp ult i32 %11, 2
+  %.not.i.i = icmp samesign ult i32 %11, 2
   %12 = zext nneg i32 %11 to i64
   %13 = add nsw i64 %12, -1
   %14 = select i1 %.not.i.i, i64 0, i64 %13
@@ -21432,7 +21432,7 @@ common.resume:                                    ; preds = %59, %28
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !6608
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h15d0cd686ff3f2aaE.llvm.3518678287117667287"(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 %39), !noalias !6608
   %41 = load i32, ptr %4, align 4, !range !27, !noalias !6611, !noundef !9
-  %.not.i.i8 = icmp ult i32 %41, 2
+  %.not.i.i8 = icmp samesign ult i32 %41, 2
   %42 = zext nneg i32 %41 to i64
   %43 = add nsw i64 %42, -1
   %44 = select i1 %.not.i.i8, i64 0, i64 %43

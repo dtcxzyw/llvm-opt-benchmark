@@ -325,7 +325,7 @@ Vec_IntGrow.exit.i:                               ; preds = %5, %36
   %.not3.i = icmp ne i32 %.015.val24.i, 0
   %.015.val.pre.i = load i32, ptr %.0159.i, align 4
   %.pre.i = and i32 %.015.val.pre.i, 15
-  %.not17.i = icmp ule i32 %.pre.i, %139
+  %.not17.i = icmp samesign ule i32 %.pre.i, %139
   %.unshifted.i = and i32 %.015.val.pre.i, %.015.val194.i
   %142 = icmp ult i32 %.unshifted.i, 16
   %143 = and i1 %.not17.i, %142
@@ -404,7 +404,7 @@ Sle_SetCutIsContainedOrder.exit.thread.i:         ; preds = %163, %.lr.ph.i.i, %
   %.not35.i = icmp ne i32 %.019.val27.i, 0
   %.019.val.pre.i = load i32, ptr %.01937.i, align 4
   %.pre39.i = and i32 %.019.val.pre.i, 15
-  %172 = icmp ult i32 %139, %.pre39.i
+  %172 = icmp samesign ult i32 %139, %.pre39.i
   %or.cond = select i1 %.not35.i, i1 %172, i1 false
   br i1 %or.cond, label %173, label %Sle_SetCutIsContainedOrder.exit.thread.i98
 
@@ -1469,7 +1469,7 @@ Sle_ManComputeDelayOne.exit:                      ; preds = %Sle_ManComputeDelay
 47:                                               ; preds = %Sle_ManComputeDelayOne.exit, %16
   %.1 = phi i32 [ %46, %Sle_ManComputeDelayOne.exit ], [ %.01321, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = icmp ult i64 %indvars.iv.next, %15
+  %48 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %48, label %16, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %47, %Vec_IntStart.exit
@@ -1741,7 +1741,7 @@ Vec_BitStart.exit:                                ; preds = %1, %10
 
 33:                                               ; preds = %25, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = icmp ult i64 %indvars.iv.next, %19
+  %34 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %34, label %20, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %33, %Vec_BitStart.exit
@@ -5856,7 +5856,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv177 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next178, %.critedge6.loopexit ]
   %indvars.iv172 = phi i64 [ 1, %.lr.ph149 ], [ %indvars.iv.next173, %.critedge6.loopexit ]
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %66 = icmp ult i64 %indvars.iv.next178, %64
+  %66 = icmp samesign ult i64 %indvars.iv.next178, %64
   br i1 %66, label %.lr.ph147, label %.critedge6.loopexit
 
 .lr.ph147:                                        ; preds = %65
@@ -6425,7 +6425,7 @@ Vec_IntPush.exit118:                              ; preds = %.Vec_IntGrow.exit10
   %.081.val = load i32, ptr %.081.lcssa, align 4
   %125 = and i32 %.081.val, 15
   %126 = zext nneg i32 %125 to i64
-  %127 = icmp ult i64 %indvars.iv.next167, %126
+  %127 = icmp samesign ult i64 %indvars.iv.next167, %126
   br i1 %127, label %94, label %._crit_edge141, !llvm.loop !70
 
 ._crit_edge141:                                   ; preds = %Vec_IntPush.exit118, %Vec_IntPush.exit

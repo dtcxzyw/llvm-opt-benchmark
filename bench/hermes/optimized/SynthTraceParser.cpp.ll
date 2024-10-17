@@ -2922,7 +2922,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -11803,7 +11803,7 @@ if.end:                                           ; preds = %for.inc.i
   %tobool.not.i = icmp ne i32 %radix, 0
   %or.cond34.not36 = and i1 %tobool.not.i, %cmp
   %3 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %radix)
-  %tobool1.not.i = icmp ult i32 %3, 2
+  %tobool1.not.i = icmp samesign ult i32 %3, 2
   %or.cond35 = select i1 %or.cond34.not36, i1 %tobool1.not.i, i1 false
   br i1 %or.cond35, label %for.cond.preheader, label %return
 

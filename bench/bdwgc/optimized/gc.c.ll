@@ -740,7 +740,7 @@ define void @GC_init_gcj_malloc_mp(i32 noundef %0, ptr noundef %1) local_unnamed
 
 17:                                               ; preds = %.preheader.i.i
   %18 = shl nuw nsw i32 %.079.i.i, 1
-  %19 = icmp ult i32 %.079.i.i, 65
+  %19 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %19, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %17, %9, %6
@@ -979,7 +979,7 @@ define void @GC_init() local_unnamed_addr #1 {
   %.046.i = phi i64 [ %23, %.lr.ph.i ], [ %13, %.preheader.i ]
   %22 = add nuw nsw i32 %.07.i, 1
   %23 = lshr i64 %.046.i, 1
-  %24 = icmp ugt i64 %.046.i, 3
+  %24 = icmp samesign ugt i64 %.046.i, 3
   br i1 %24, label %.lr.ph.i, label %GC_setpagesize.exit, !llvm.loop !6
 
 GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.preheader.i
@@ -2174,7 +2174,7 @@ GC_thr_init.exit:                                 ; preds = %416, %418, %setup_m
 
 484:                                              ; preds = %.preheader.i.i.i
   %485 = shl nuw nsw i32 %.079.i.i.i, 1
-  %486 = icmp ult i32 %.079.i.i.i, 65
+  %486 = icmp samesign ult i32 %.079.i.i.i, 65
   br i1 %486, label %.preheader.i.i.i, label %GC_generic_lock.exit.sink.split.i.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i.i:              ; preds = %484, %476, %473
@@ -2290,7 +2290,7 @@ define internal fastcc void @GC_lock() unnamed_addr #1 {
 
 11:                                               ; preds = %.preheader.i
   %12 = shl nuw nsw i32 %.079.i, 1
-  %13 = icmp ult i32 %.079.i, 65
+  %13 = icmp samesign ult i32 %.079.i, 65
   br i1 %13, label %.preheader.i, label %GC_generic_lock.exit.sink.split, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split:                  ; preds = %11, %0, %3
@@ -2493,7 +2493,7 @@ define internal fastcc ptr @GC_core_gcj_malloc(i64 noundef %0, ptr noundef %1, i
 
 18:                                               ; preds = %.preheader.i.i
   %19 = shl nuw nsw i32 %.079.i.i, 1
-  %20 = icmp ult i32 %.079.i.i, 65
+  %20 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
@@ -2697,7 +2697,7 @@ define noalias ptr @GC_debug_gcj_malloc(i64 noundef %0, ptr noundef %1, ptr noun
 
 18:                                               ; preds = %.preheader.i.i
   %19 = shl nuw nsw i32 %.079.i.i, 1
-  %20 = icmp ult i32 %.079.i.i, 65
+  %20 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
@@ -2933,7 +2933,7 @@ define internal fastcc void @maybe_finalize() unnamed_addr #1 {
 
 21:                                               ; preds = %.preheader.i.i
   %22 = shl nuw nsw i32 %.079.i.i, 1
-  %23 = icmp ult i32 %.079.i.i, 65
+  %23 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %23, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %21, %13, %10
@@ -3119,7 +3119,7 @@ define void @GC_register_displacement(i64 noundef %0) local_unnamed_addr #1 {
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -4548,7 +4548,7 @@ GC_lock.exit.thread:                              ; preds = %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -4614,7 +4614,7 @@ GC_lock.exit.thread:                              ; preds = %0
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -4702,7 +4702,7 @@ GC_lock.exit.thread:                              ; preds = %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -4768,7 +4768,7 @@ GC_lock.exit.thread:                              ; preds = %0
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -4843,7 +4843,7 @@ define void @GC_start_incremental_collection() local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = shl nuw nsw i32 %.079.i.i, 1
-  %16 = icmp ult i32 %.079.i.i, 65
+  %16 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
@@ -5261,7 +5261,7 @@ GC_lock.exit.thread:                              ; preds = %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -5327,7 +5327,7 @@ GC_lock.exit.thread:                              ; preds = %0
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -5394,7 +5394,7 @@ GC_lock.exit.thread:                              ; preds = %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -5460,7 +5460,7 @@ GC_lock.exit.thread:                              ; preds = %0
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -5555,7 +5555,7 @@ define range(i32 0, 2) i32 @GC_collect_a_little() local_unnamed_addr #1 {
 
 16:                                               ; preds = %.preheader.i.i
   %17 = shl nuw nsw i32 %.079.i.i, 1
-  %18 = icmp ult i32 %.079.i.i, 65
+  %18 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
@@ -5632,7 +5632,7 @@ define void @GC_stop_world_external() local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = shl nuw nsw i32 %.079.i.i, 1
-  %16 = icmp ult i32 %.079.i.i, 65
+  %16 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
@@ -5673,7 +5673,7 @@ define internal fastcc void @GC_stop_world() unnamed_addr #1 {
 
 8:                                                ; preds = %.preheader.i.i
   %9 = shl nuw nsw i32 %.079.i.i, 1
-  %10 = icmp ult i32 %.079.i.i, 65
+  %10 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %10, label %.preheader.i.i, label %11, !llvm.loop !4
 
 11:                                               ; preds = %8
@@ -5876,7 +5876,7 @@ define internal fastcc range(i32 0, 2) i32 @GC_try_to_collect_general(ptr nounde
 
 21:                                               ; preds = %.preheader.i.i
   %22 = shl nuw nsw i32 %.079.i.i, 1
-  %23 = icmp ult i32 %.079.i.i, 65
+  %23 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %23, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %21, %13, %10
@@ -6006,7 +6006,7 @@ define internal fastcc void @GC_print_all_errors() unnamed_addr #1 {
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -6136,7 +6136,7 @@ GC_lock.exit29.thread:                            ; preds = %._crit_edge.thread4
 
 53:                                               ; preds = %.preheader.i.i27
   %54 = shl nuw nsw i32 %.079.i.i28, 1
-  %55 = icmp ult i32 %.079.i.i28, 65
+  %55 = icmp samesign ult i32 %.079.i.i28, 65
   br i1 %55, label %.preheader.i.i27, label %GC_generic_lock.exit.sink.split.i26, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i26:              ; preds = %53, %45, %42
@@ -6373,7 +6373,7 @@ define range(i32 0, 2) i32 @GC_expand_hp(i64 noundef %0) local_unnamed_addr #1 {
 
 19:                                               ; preds = %.preheader.i.i
   %20 = shl nuw nsw i32 %.079.i.i, 1
-  %21 = icmp ult i32 %.079.i.i, 65
+  %21 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %21, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %19, %11, %8
@@ -6686,7 +6686,7 @@ define void @GC_debug_register_displacement(i64 noundef %0) local_unnamed_addr #
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -6822,7 +6822,7 @@ define internal fastcc ptr @store_debug_info(ptr noundef %0, i64 noundef %1, ptr
 
 22:                                               ; preds = %.preheader.i.i
   %23 = shl nuw nsw i32 %.079.i.i, 1
-  %24 = icmp ult i32 %.079.i.i, 65
+  %24 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %24, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %22, %14, %11
@@ -7618,7 +7618,7 @@ GC_lock.exit.thread:                              ; preds = %._crit_edge
 
 165:                                              ; preds = %.preheader.i.i
   %166 = shl nuw nsw i32 %.079.i.i, 1
-  %167 = icmp ult i32 %.079.i.i, 65
+  %167 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %167, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %165, %157, %154
@@ -7905,7 +7905,7 @@ GC_find_header.exit:                              ; preds = %8
 
 32:                                               ; preds = %.preheader.i.i
   %33 = shl nuw nsw i32 %.079.i.i, 1
-  %34 = icmp ult i32 %.079.i.i, 65
+  %34 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %34, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %32, %24, %21
@@ -9407,7 +9407,7 @@ define range(i32 0, 3) i32 @GC_toggleref_add(ptr noundef nonnull %0, i32 noundef
 
 16:                                               ; preds = %.preheader.i.i
   %17 = shl nuw nsw i32 %.079.i.i, 1
-  %18 = icmp ult i32 %.079.i.i, 65
+  %18 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
@@ -10321,7 +10321,7 @@ define internal fastcc range(i32 0, 4) i32 @GC_register_disappearing_link_inner(
 
 20:                                               ; preds = %.preheader.i.i
   %21 = shl nuw nsw i32 %.079.i.i, 1
-  %22 = icmp ult i32 %.079.i.i, 65
+  %22 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %22, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %20, %12, %9
@@ -10594,7 +10594,7 @@ define range(i32 0, 2) i32 @GC_unregister_disappearing_link(ptr noundef %0) loca
 
 18:                                               ; preds = %.preheader.i.i
   %19 = shl nuw nsw i32 %.079.i.i, 1
-  %20 = icmp ult i32 %.079.i.i, 65
+  %20 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
@@ -10749,7 +10749,7 @@ GC_lock.exit.thread:                              ; preds = %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -10815,7 +10815,7 @@ GC_lock.exit.thread:                              ; preds = %0
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -10882,7 +10882,7 @@ GC_lock.exit.thread:                              ; preds = %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -10948,7 +10948,7 @@ GC_lock.exit.thread:                              ; preds = %0
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -11035,7 +11035,7 @@ define range(i32 0, 2) i32 @GC_unregister_long_link(ptr noundef %0) local_unname
 
 18:                                               ; preds = %.preheader.i.i
   %19 = shl nuw nsw i32 %.079.i.i, 1
-  %20 = icmp ult i32 %.079.i.i, 65
+  %20 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
@@ -11208,7 +11208,7 @@ GC_lock.exit.thread:                              ; preds = %10
 
 25:                                               ; preds = %.preheader.i.i
   %26 = shl nuw nsw i32 %.079.i.i, 1
-  %27 = icmp ult i32 %.079.i.i, 65
+  %27 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %27, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %25, %17, %14
@@ -11449,7 +11449,7 @@ GC_lock.exit.thread:                              ; preds = %10
 
 25:                                               ; preds = %.preheader.i.i
   %26 = shl nuw nsw i32 %.079.i.i, 1
-  %27 = icmp ult i32 %.079.i.i, 65
+  %27 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %27, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %25, %17, %14
@@ -11517,7 +11517,7 @@ define internal fastcc void @GC_register_finalizer_inner(ptr noundef nonnull %0,
 
 22:                                               ; preds = %.preheader.i.i
   %23 = shl nuw nsw i32 %.079.i.i, 1
-  %24 = icmp ult i32 %.079.i.i, 65
+  %24 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %24, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %22, %14, %11
@@ -11914,7 +11914,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 206:                                              ; preds = %.preheader.i.i125
   %207 = shl nuw nsw i32 %.079.i.i126, 1
-  %208 = icmp ult i32 %.079.i.i126, 65
+  %208 = icmp samesign ult i32 %.079.i.i126, 65
   br i1 %208, label %.preheader.i.i125, label %GC_generic_lock.exit.sink.split.i124, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i124:             ; preds = %206, %198, %195
@@ -12411,7 +12411,7 @@ define void @GC_finalize_all() local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = shl nuw nsw i32 %.079.i.i, 1
-  %16 = icmp ult i32 %.079.i.i, 65
+  %16 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
@@ -12666,7 +12666,7 @@ GC_enqueue_all_finalizers.exit:                   ; preds = %._crit_edge.i, %.lr
 
 127:                                              ; preds = %.preheader.i.i10
   %128 = shl nuw nsw i32 %.079.i.i11, 1
-  %129 = icmp ult i32 %.079.i.i11, 65
+  %129 = icmp samesign ult i32 %.079.i.i11, 65
   br i1 %129, label %.preheader.i.i10, label %GC_generic_lock.exit.sink.split.i9, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i9:               ; preds = %127, %119, %116
@@ -12739,7 +12739,7 @@ define i32 @GC_invoke_finalizers() local_unnamed_addr #1 {
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -12863,7 +12863,7 @@ GC_lock.exit34.thread:                            ; preds = %47
 
 64:                                               ; preds = %.preheader.i.i32
   %65 = shl nuw nsw i32 %.079.i.i33, 1
-  %66 = icmp ult i32 %.079.i.i33, 65
+  %66 = icmp samesign ult i32 %.079.i.i33, 65
   br i1 %66, label %.preheader.i.i32, label %GC_generic_lock.exit.sink.split.i31, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i31:              ; preds = %64, %56, %53
@@ -12934,7 +12934,7 @@ GC_lock.exit.thread:                              ; preds = %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -13000,7 +13000,7 @@ GC_lock.exit.thread:                              ; preds = %0
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -13072,7 +13072,7 @@ define void @GC_init_finalized_malloc() local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = shl nuw nsw i32 %.079.i.i, 1
-  %16 = icmp ult i32 %.079.i.i, 65
+  %16 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
@@ -13242,7 +13242,7 @@ define void @GC_register_disclaim_proc(i32 noundef %0, ptr noundef %1, i32 nound
 
 17:                                               ; preds = %.preheader.i.i
   %18 = shl nuw nsw i32 %.079.i.i, 1
-  %19 = icmp ult i32 %.079.i.i, 65
+  %19 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %19, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %17, %9, %6
@@ -13339,7 +13339,7 @@ define noalias ptr @GC_malloc_kind(i64 noundef %0, i32 noundef %1) local_unnamed
   %18 = add i64 %17, %14
   %19 = lshr i64 %18, 4
   %20 = select i1 %16, i64 %19, i64 1152921504606846975
-  %21 = icmp ugt i64 %20, 24
+  %21 = icmp samesign ugt i64 %20, 24
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %12
@@ -13504,7 +13504,7 @@ define internal fastcc ptr @GC_generic_malloc_aligned(i64 noundef %0, i32 nounde
 
 29:                                               ; preds = %.preheader.i.i
   %30 = shl nuw nsw i32 %.079.i.i, 1
-  %31 = icmp ult i32 %.079.i.i, 65
+  %31 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %31, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %29, %21, %18
@@ -13594,7 +13594,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 68:                                               ; preds = %.preheader.i.i65
   %69 = shl nuw nsw i32 %.079.i.i66, 1
-  %70 = icmp ult i32 %.079.i.i66, 65
+  %70 = icmp samesign ult i32 %.079.i.i66, 65
   br i1 %70, label %.preheader.i.i65, label %GC_generic_lock.exit.sink.split.i64, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i64:              ; preds = %68, %60, %57
@@ -13729,7 +13729,7 @@ define internal fastcc ptr @GC_malloc_kind_aligned_global(i64 noundef %0, i32 no
 
 26:                                               ; preds = %.preheader.i.i
   %27 = shl nuw nsw i32 %.079.i.i, 1
-  %28 = icmp ult i32 %.079.i.i, 65
+  %28 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %28, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %26, %18, %15
@@ -13886,7 +13886,7 @@ define noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %0, i32 noundef 
 
 24:                                               ; preds = %.preheader.i.i
   %25 = shl nuw nsw i32 %.079.i.i, 1
-  %26 = icmp ult i32 %.079.i.i, 65
+  %26 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %26, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %24, %16, %13
@@ -14020,7 +14020,7 @@ GC_lock.exit51.thread:                            ; preds = %GC_find_header.exit
 
 88:                                               ; preds = %.preheader.i.i49
   %89 = shl nuw nsw i32 %.079.i.i50, 1
-  %90 = icmp ult i32 %.079.i.i50, 65
+  %90 = icmp samesign ult i32 %.079.i.i50, 65
   br i1 %90, label %.preheader.i.i49, label %GC_generic_lock.exit.sink.split.i48, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i48:              ; preds = %88, %80, %77
@@ -14091,7 +14091,7 @@ define internal fastcc void @GC_notify_or_invoke_finalizers() unnamed_addr #1 {
 
 16:                                               ; preds = %.preheader.i.i
   %17 = shl nuw nsw i32 %.079.i.i, 1
-  %18 = icmp ult i32 %.079.i.i, 65
+  %18 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
@@ -14298,7 +14298,7 @@ define internal fastcc noundef ptr @GC_generic_malloc_inner_small(i64 noundef %0
 
 31:                                               ; preds = %.preheader.i.i
   %32 = shl nuw nsw i32 %.079.i.i, 1
-  %33 = icmp ult i32 %.079.i.i, 65
+  %33 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %33, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %31, %23, %20
@@ -14664,7 +14664,7 @@ GC_set_hdr_marks.exit.i.i:                        ; preds = %198
   store i64 0, ptr %226, align 8
   %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx22.i.i.i.i, 32
   %.0.ptr.i.i.i.i = getelementptr inbounds i8, ptr %166, i64 %.0.add.i.i.i.i
-  %227 = icmp ult i64 %.0.idx22.i.i.i.i, 4064
+  %227 = icmp samesign ult i64 %.0.idx22.i.i.i.i, 4064
   br i1 %227, label %220, label %GC_build_fl_clear2.exit.i.i.i, !llvm.loop !67
 
 GC_build_fl_clear2.exit.i.i.i:                    ; preds = %220
@@ -14689,7 +14689,7 @@ GC_build_fl_clear2.exit.i.i.i:                    ; preds = %220
   store i64 %233, ptr %236, align 8
   %.0.add.i40.i.i.i = add nuw nsw i64 %.0.idx18.i.i.i.i, 32
   %.0.ptr.i41.i.i.i = getelementptr inbounds i8, ptr %166, i64 %.0.add.i40.i.i.i
-  %237 = icmp ult i64 %.0.idx18.i.i.i.i, 4064
+  %237 = icmp samesign ult i64 %.0.idx18.i.i.i.i, 4064
   br i1 %237, label %232, label %GC_build_fl2.exit.i.i.i, !llvm.loop !68
 
 GC_build_fl2.exit.i.i.i:                          ; preds = %232
@@ -14718,7 +14718,7 @@ GC_build_fl2.exit.i.i.i:                          ; preds = %232
   %248 = getelementptr inbounds i8, ptr %.0.ptr21.i43.i.i.i, i64 8
   %.0.add.i44.i.i.i = add nuw nsw i64 %.0.idx20.i.i.i.i, 32
   %.0.ptr.i45.i.i.i = getelementptr inbounds i8, ptr %166, i64 %.0.add.i44.i.i.i
-  %249 = icmp ult i64 %.0.idx20.i.i.i.i, 4064
+  %249 = icmp samesign ult i64 %.0.idx20.i.i.i.i, 4064
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %248, i8 0, i64 24, i1 false)
   br i1 %249, label %244, label %GC_build_fl_clear4.exit.i.i.i, !llvm.loop !69
 
@@ -14745,7 +14745,7 @@ GC_build_fl_clear4.exit.i.i.i:                    ; preds = %244
   store i64 %254, ptr %258, align 8
   %.0.add.i46.i.i.i = add nuw nsw i64 %.0.idx19.i.i.i.i, 64
   %.0.ptr.i47.i.i.i = getelementptr inbounds i8, ptr %166, i64 %.0.add.i46.i.i.i
-  %259 = icmp ult i64 %.0.idx19.i.i.i.i, 4032
+  %259 = icmp samesign ult i64 %.0.idx19.i.i.i.i, 4032
   br i1 %259, label %253, label %GC_build_fl4.exit.i.i.i, !llvm.loop !70
 
 GC_build_fl4.exit.i.i.i:                          ; preds = %253
@@ -15076,7 +15076,7 @@ GC_is_heap_ptr.exit:                              ; preds = %22
 
 61:                                               ; preds = %.preheader.i.i
   %62 = shl nuw nsw i32 %.079.i.i, 1
-  %63 = icmp ult i32 %.079.i.i, 65
+  %63 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %63, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %61, %53, %50
@@ -15187,7 +15187,7 @@ GC_find_header.exit:                              ; preds = %86
 
 115:                                              ; preds = %.preheader.i.i112
   %116 = shl nuw nsw i32 %.079.i.i113, 1
-  %117 = icmp ult i32 %.079.i.i113, 65
+  %117 = icmp samesign ult i32 %.079.i.i113, 65
   br i1 %117, label %.preheader.i.i112, label %118, !llvm.loop !4
 
 118:                                              ; preds = %115
@@ -15252,7 +15252,7 @@ GC_release_mark_lock.exit:                        ; preds = %124, %GC_find_heade
 
 140:                                              ; preds = %.preheader.i.i115
   %141 = shl nuw nsw i32 %.079.i.i116, 1
-  %142 = icmp ult i32 %.079.i.i116, 65
+  %142 = icmp samesign ult i32 %.079.i.i116, 65
   br i1 %142, label %.preheader.i.i115, label %143, !llvm.loop !4
 
 143:                                              ; preds = %140
@@ -15347,7 +15347,7 @@ GC_release_mark_lock.exit120:                     ; preds = %GC_notify_all_build
 
 182:                                              ; preds = %.preheader.i.i121
   %183 = shl nuw nsw i32 %.079.i.i122, 1
-  %184 = icmp ult i32 %.079.i.i122, 65
+  %184 = icmp samesign ult i32 %.079.i.i122, 65
   br i1 %184, label %.preheader.i.i121, label %185, !llvm.loop !4
 
 185:                                              ; preds = %182
@@ -15424,7 +15424,7 @@ GC_release_mark_lock.exit127:                     ; preds = %GC_notify_all_build
 
 210:                                              ; preds = %.preheader.i.i130
   %211 = shl nuw nsw i32 %.079.i.i131, 1
-  %212 = icmp ult i32 %.079.i.i131, 65
+  %212 = icmp samesign ult i32 %.079.i.i131, 65
   br i1 %212, label %.preheader.i.i130, label %GC_generic_lock.exit.sink.split.i129, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i129:             ; preds = %210, %202, %199
@@ -15578,7 +15578,7 @@ GC_set_hdr_marks.exit:                            ; preds = %266
 
 283:                                              ; preds = %.preheader.i.i137
   %284 = shl nuw nsw i32 %.079.i.i138, 1
-  %285 = icmp ult i32 %.079.i.i138, 65
+  %285 = icmp samesign ult i32 %.079.i.i138, 65
   br i1 %285, label %.preheader.i.i137, label %286, !llvm.loop !4
 
 286:                                              ; preds = %283
@@ -15655,7 +15655,7 @@ GC_release_mark_lock.exit141:                     ; preds = %292
   store i64 0, ptr %315, align 8
   %.0.add.i.i = add nuw nsw i64 %.0.idx22.i.i, 32
   %.0.ptr.i.i = getelementptr inbounds i8, ptr %233, i64 %.0.add.i.i
-  %316 = icmp ult i64 %.0.idx22.i.i, 4064
+  %316 = icmp samesign ult i64 %.0.idx22.i.i, 4064
   br i1 %316, label %309, label %GC_build_fl_clear2.exit.i, !llvm.loop !67
 
 GC_build_fl_clear2.exit.i:                        ; preds = %309
@@ -15680,7 +15680,7 @@ GC_build_fl_clear2.exit.i:                        ; preds = %309
   store i64 %322, ptr %325, align 8
   %.0.add.i40.i = add nuw nsw i64 %.0.idx18.i.i, 32
   %.0.ptr.i41.i = getelementptr inbounds i8, ptr %233, i64 %.0.add.i40.i
-  %326 = icmp ult i64 %.0.idx18.i.i, 4064
+  %326 = icmp samesign ult i64 %.0.idx18.i.i, 4064
   br i1 %326, label %321, label %GC_build_fl2.exit.i, !llvm.loop !68
 
 GC_build_fl2.exit.i:                              ; preds = %321
@@ -15708,7 +15708,7 @@ GC_build_fl2.exit.i:                              ; preds = %321
   %336 = getelementptr inbounds i8, ptr %.0.ptr21.i43.i, i64 8
   %.0.add.i44.i = add nuw nsw i64 %.0.idx20.i.i, 32
   %.0.ptr.i45.i = getelementptr inbounds i8, ptr %233, i64 %.0.add.i44.i
-  %337 = icmp ult i64 %.0.idx20.i.i, 4064
+  %337 = icmp samesign ult i64 %.0.idx20.i.i, 4064
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %336, i8 0, i64 24, i1 false)
   br i1 %337, label %332, label %GC_build_fl_clear4.exit.i, !llvm.loop !69
 
@@ -15735,7 +15735,7 @@ GC_build_fl_clear4.exit.i:                        ; preds = %332
   store i64 %342, ptr %346, align 8
   %.0.add.i46.i = add nuw nsw i64 %.0.idx19.i.i, 64
   %.0.ptr.i47.i = getelementptr inbounds i8, ptr %233, i64 %.0.add.i46.i
-  %347 = icmp ult i64 %.0.idx19.i.i, 4032
+  %347 = icmp samesign ult i64 %.0.idx19.i.i, 4032
   br i1 %347, label %341, label %GC_build_fl4.exit.i, !llvm.loop !70
 
 GC_build_fl4.exit.i:                              ; preds = %341
@@ -15795,7 +15795,7 @@ GC_build_fl.exit:                                 ; preds = %GC_build_fl_clear2.
 
 361:                                              ; preds = %.preheader.i.i142
   %362 = shl nuw nsw i32 %.079.i.i143, 1
-  %363 = icmp ult i32 %.079.i.i143, 65
+  %363 = icmp samesign ult i32 %.079.i.i143, 65
   br i1 %363, label %.preheader.i.i142, label %364, !llvm.loop !4
 
 364:                                              ; preds = %361
@@ -15899,7 +15899,7 @@ GC_release_mark_lock.exit148:                     ; preds = %GC_notify_all_build
   store i64 0, ptr %407, align 8
   %.0.add.i.i167 = add nuw nsw i64 %.0.idx22.i.i166, 32
   %.0.ptr.i.i168 = getelementptr inbounds i8, ptr %233, i64 %.0.add.i.i167
-  %408 = icmp ult i64 %.0.idx22.i.i166, 4064
+  %408 = icmp samesign ult i64 %.0.idx22.i.i166, 4064
   br i1 %408, label %401, label %GC_build_fl_clear2.exit.i169, !llvm.loop !67
 
 GC_build_fl_clear2.exit.i169:                     ; preds = %401
@@ -15924,7 +15924,7 @@ GC_build_fl_clear2.exit.i169:                     ; preds = %401
   store i64 %414, ptr %417, align 8
   %.0.add.i40.i173 = add nuw nsw i64 %.0.idx18.i.i172, 32
   %.0.ptr.i41.i174 = getelementptr inbounds i8, ptr %233, i64 %.0.add.i40.i173
-  %418 = icmp ult i64 %.0.idx18.i.i172, 4064
+  %418 = icmp samesign ult i64 %.0.idx18.i.i172, 4064
   br i1 %418, label %413, label %GC_build_fl2.exit.i175, !llvm.loop !68
 
 GC_build_fl2.exit.i175:                           ; preds = %413
@@ -15952,7 +15952,7 @@ GC_build_fl2.exit.i175:                           ; preds = %413
   %428 = getelementptr inbounds i8, ptr %.0.ptr21.i43.i152, i64 8
   %.0.add.i44.i154 = add nuw nsw i64 %.0.idx20.i.i153, 32
   %.0.ptr.i45.i155 = getelementptr inbounds i8, ptr %233, i64 %.0.add.i44.i154
-  %429 = icmp ult i64 %.0.idx20.i.i153, 4064
+  %429 = icmp samesign ult i64 %.0.idx20.i.i153, 4064
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %428, i8 0, i64 24, i1 false)
   br i1 %429, label %424, label %GC_build_fl_clear4.exit.i156, !llvm.loop !69
 
@@ -15979,7 +15979,7 @@ GC_build_fl_clear4.exit.i156:                     ; preds = %424
   store i64 %434, ptr %438, align 8
   %.0.add.i46.i161 = add nuw nsw i64 %.0.idx19.i.i160, 64
   %.0.ptr.i47.i162 = getelementptr inbounds i8, ptr %233, i64 %.0.add.i46.i161
-  %439 = icmp ult i64 %.0.idx19.i.i160, 4032
+  %439 = icmp samesign ult i64 %.0.idx19.i.i160, 4032
   br i1 %439, label %433, label %GC_build_fl4.exit.i163, !llvm.loop !70
 
 GC_build_fl4.exit.i163:                           ; preds = %433
@@ -16552,7 +16552,7 @@ GC_enough_large_bytes_left.exit:                  ; preds = %45
 51:                                               ; preds = %GC_enough_large_bytes_left.exit, %37, %22, %27, %35
   %.034 = phi i32 [ 1, %35 ], [ 1, %27 ], [ 1, %22 ], [ 1, %37 ], [ %spec.select, %GC_enough_large_bytes_left.exit ]
   %.0 = phi i32 [ 60, %35 ], [ 60, %27 ], [ 60, %22 ], [ 0, %37 ], [ %.0710.i, %GC_enough_large_bytes_left.exit ]
-  %52 = icmp ult i32 %.0.i, 32
+  %52 = icmp samesign ult i32 %.0.i, 32
   %53 = icmp eq i64 %3, 0
   %or.cond5 = and i1 %53, %52
   %54 = zext i1 %or.cond5 to i32
@@ -16621,7 +16621,7 @@ define noalias ptr @GC_memalign(i64 noundef %0, i64 noundef %1) local_unnamed_ad
 define range(i32 0, 23) i32 @GC_posix_memalign(ptr nocapture noundef nonnull writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp ult i64 %1, 8
   %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %6 = icmp ugt i64 %5, 1
+  %6 = icmp samesign ugt i64 %5, 1
   %7 = select i1 %4, i1 true, i1 %6
   br i1 %7, label %GC_memalign.exit.thread, label %8
 
@@ -17068,7 +17068,7 @@ GC_lock.exit.thread:                              ; preds = %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -17134,7 +17134,7 @@ GC_lock.exit.thread:                              ; preds = %0
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -18389,7 +18389,7 @@ define void @GC_add_roots(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 
 
 18:                                               ; preds = %.preheader.i.i
   %19 = shl nuw nsw i32 %.079.i.i, 1
-  %20 = icmp ult i32 %.079.i.i, 65
+  %20 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
@@ -18587,7 +18587,7 @@ GC_lock.exit.thread:                              ; preds = %2
 
 16:                                               ; preds = %.preheader.i.i
   %17 = shl nuw nsw i32 %.079.i.i, 1
-  %18 = icmp ult i32 %.079.i.i, 65
+  %18 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
@@ -18661,7 +18661,7 @@ define void @GC_remove_roots(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 22:                                               ; preds = %.preheader.i.i
   %23 = shl nuw nsw i32 %.079.i.i, 1
-  %24 = icmp ult i32 %.079.i.i, 65
+  %24 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %24, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %22, %14, %11
@@ -18818,7 +18818,7 @@ define i32 @GC_is_tmp_root(ptr noundef readnone %0) local_unnamed_addr #1 {
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -18956,7 +18956,7 @@ define void @GC_exclude_static_roots(ptr noundef %0, ptr noundef %1) local_unnam
 
 26:                                               ; preds = %.preheader.i.i
   %27 = shl nuw nsw i32 %.079.i.i, 1
-  %28 = icmp ult i32 %.079.i.i, 65
+  %28 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %28, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %26, %18, %15
@@ -19111,7 +19111,7 @@ define hidden i32 @GC_n_set_marks(ptr nocapture noundef readonly %0) local_unnam
   %15 = sext i8 %14 to i32
   %16 = add i32 %.014, %15
   %17 = add nuw nsw i64 %.01113, %4
-  %18 = icmp ult i64 %17, %10
+  %18 = icmp samesign ult i64 %17, %10
   br i1 %18, label %12, label %._crit_edge, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %12
@@ -19170,7 +19170,7 @@ GC_find_header.exit:                              ; preds = %7
   %31 = sext i8 %30 to i32
   %32 = add i32 %.014.i, %31
   %33 = add nuw nsw i64 %.01113.i, %20
-  %34 = icmp ult i64 %33, %26
+  %34 = icmp samesign ult i64 %33, %26
   br i1 %34, label %28, label %GC_n_set_marks.exit, !llvm.loop !95
 
 GC_n_set_marks.exit:                              ; preds = %28
@@ -19260,7 +19260,7 @@ GC_find_header.exit.i:                            ; preds = %21
   %44 = sext i8 %43 to i32
   %45 = add i32 %.014.i.i, %44
   %46 = add nuw nsw i64 %.01113.i.i, %33
-  %47 = icmp ult i64 %46, %39
+  %47 = icmp samesign ult i64 %46, %39
   br i1 %47, label %41, label %GC_print_block_descr.exit, !llvm.loop !95
 
 GC_print_block_descr.exit:                        ; preds = %41
@@ -19511,7 +19511,7 @@ define i64 @GC_make_descriptor(ptr nocapture noundef readonly %0, i64 noundef %1
 
 18:                                               ; preds = %.preheader.i.i
   %19 = shl nuw nsw i32 %.079.i.i, 1
-  %20 = icmp ult i32 %.079.i.i, 65
+  %20 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
@@ -19790,7 +19790,7 @@ GC_init_explicit_typing.exit:                     ; preds = %76
 
 131:                                              ; preds = %.preheader.i.i.i
   %132 = shl nuw nsw i32 %.079.i.i.i, 1
-  %133 = icmp ult i32 %.079.i.i.i, 65
+  %133 = icmp samesign ult i32 %.079.i.i.i, 65
   br i1 %133, label %.preheader.i.i.i, label %GC_generic_lock.exit.sink.split.i.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i.i:              ; preds = %131, %123, %120
@@ -19885,7 +19885,7 @@ GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %
 
 168:                                              ; preds = %.preheader.i.i45.i
   %169 = shl nuw nsw i32 %.079.i.i46.i, 1
-  %170 = icmp ult i32 %.079.i.i46.i, 65
+  %170 = icmp samesign ult i32 %.079.i.i46.i, 65
   br i1 %170, label %.preheader.i.i45.i, label %GC_generic_lock.exit.sink.split.i44.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i44.i:            ; preds = %168, %160, %157
@@ -20646,7 +20646,7 @@ GC_lock.exit.thread:                              ; preds = %91
 
 118:                                              ; preds = %.preheader.i.i
   %119 = shl nuw nsw i32 %.079.i.i, 1
-  %120 = icmp ult i32 %.079.i.i, 65
+  %120 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %120, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %118, %110, %107
@@ -20714,7 +20714,7 @@ GC_lock.exit41.thread:                            ; preds = %126
 
 145:                                              ; preds = %.preheader.i.i39
   %146 = shl nuw nsw i32 %.079.i.i40, 1
-  %147 = icmp ult i32 %.079.i.i40, 65
+  %147 = icmp samesign ult i32 %.079.i.i40, 65
   br i1 %147, label %.preheader.i.i39, label %GC_generic_lock.exit.sink.split.i38, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i38:              ; preds = %145, %137, %134
@@ -20830,7 +20830,7 @@ GC_lock.exit.thread:                              ; preds = %0
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -21072,7 +21072,7 @@ define void @GC_get_heap_usage_safe(ptr noundef writeonly %0, ptr noundef writeo
 
 19:                                               ; preds = %.preheader.i.i
   %20 = shl nuw nsw i32 %.079.i.i, 1
-  %21 = icmp ult i32 %.079.i.i, 65
+  %21 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %21, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %19, %11, %8
@@ -21185,7 +21185,7 @@ define range(i64 0, 97) i64 @GC_get_prof_stats(ptr nocapture noundef writeonly %
 
 17:                                               ; preds = %.preheader.i.i
   %18 = shl nuw nsw i32 %.079.i.i, 1
-  %19 = icmp ult i32 %.079.i.i, 65
+  %19 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %19, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %17, %9, %6
@@ -22635,7 +22635,7 @@ define void @GC_enable_incremental() local_unnamed_addr #1 {
 
 20:                                               ; preds = %.preheader.i.i
   %21 = shl nuw nsw i32 %.079.i.i, 1
-  %22 = icmp ult i32 %.079.i.i, 65
+  %22 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %22, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %20, %12, %9
@@ -22681,7 +22681,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %.046.i = phi i64 [ %37, %.lr.ph.i ], [ %27, %.preheader.i ]
   %36 = add nuw nsw i32 %.07.i, 1
   %37 = lshr i64 %.046.i, 1
-  %38 = icmp ugt i64 %.046.i, 3
+  %38 = icmp samesign ugt i64 %.046.i, 3
   br i1 %38, label %.lr.ph.i, label %GC_setpagesize.exit, !llvm.loop !6
 
 GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.preheader.i
@@ -23110,7 +23110,7 @@ define void @GC_start_mark_threads() local_unnamed_addr #1 {
 
 20:                                               ; preds = %.preheader.i.i
   %21 = shl nuw nsw i32 %.079.i.i, 1
-  %22 = icmp ult i32 %.079.i.i, 65
+  %22 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %22, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %20, %12, %9
@@ -23303,7 +23303,7 @@ GC_os_get_mem.exit.thread.i.i:                    ; preds = %92, %88
 
 101:                                              ; preds = %.preheader.i.i.i.i
   %102 = shl nuw nsw i32 %.079.i.i.i.i, 1
-  %103 = icmp ult i32 %.079.i.i.i.i, 65
+  %103 = icmp samesign ult i32 %.079.i.i.i.i, 65
   br i1 %103, label %.preheader.i.i.i.i, label %104, !llvm.loop !4
 
 104:                                              ; preds = %101
@@ -23490,7 +23490,7 @@ GC_lock.exit.thread:                              ; preds = %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -23556,7 +23556,7 @@ GC_lock.exit.thread:                              ; preds = %0
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -23734,7 +23734,7 @@ GC_lock.exit.thread:                              ; preds = %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -23800,7 +23800,7 @@ GC_lock.exit.thread:                              ; preds = %0
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -23863,7 +23863,7 @@ define void @GC_enable() local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = shl nuw nsw i32 %.079.i.i, 1
-  %16 = icmp ult i32 %.079.i.i, 65
+  %16 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
@@ -23944,7 +23944,7 @@ define void @GC_disable() local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = shl nuw nsw i32 %.079.i.i, 1
-  %16 = icmp ult i32 %.079.i.i, 65
+  %16 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
@@ -24025,7 +24025,7 @@ define nonnull ptr @GC_new_free_list() local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = shl nuw nsw i32 %.079.i.i, 1
-  %16 = icmp ult i32 %.079.i.i, 65
+  %16 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
@@ -24098,7 +24098,7 @@ define range(i32 0, 24) i32 @GC_new_kind(ptr noundef nonnull %0, i64 noundef %1,
 
 18:                                               ; preds = %.preheader.i.i
   %19 = shl nuw nsw i32 %.079.i.i, 1
-  %20 = icmp ult i32 %.079.i.i, 65
+  %20 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
@@ -24208,7 +24208,7 @@ define range(i32 0, 64) i32 @GC_new_proc(ptr noundef %0) local_unnamed_addr #1 {
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -24285,7 +24285,7 @@ define ptr @GC_call_with_alloc_lock(ptr nocapture noundef nonnull readonly %0, p
 
 16:                                               ; preds = %.preheader.i.i
   %17 = shl nuw nsw i32 %.079.i.i, 1
-  %18 = icmp ult i32 %.079.i.i, 65
+  %18 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
@@ -24347,7 +24347,7 @@ define void @GC_alloc_lock() local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = shl nuw nsw i32 %.079.i.i, 1
-  %16 = icmp ult i32 %.079.i.i, 65
+  %16 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
@@ -24413,7 +24413,7 @@ define ptr @GC_call_with_reader_lock(ptr nocapture noundef nonnull readonly %0, 
 
 17:                                               ; preds = %.preheader.i.i
   %18 = shl nuw nsw i32 %.079.i.i, 1
-  %19 = icmp ult i32 %.079.i.i, 65
+  %19 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %19, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %17, %9, %6
@@ -24502,7 +24502,7 @@ define internal void @GC_do_blocking_inner(ptr nocapture noundef %0, ptr nocaptu
 
 19:                                               ; preds = %.preheader.i.i
   %20 = shl nuw nsw i32 %.079.i.i, 1
-  %21 = icmp ult i32 %.079.i.i, 65
+  %21 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %21, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %19, %11, %8
@@ -24600,7 +24600,7 @@ GC_lookup_thread.exit:                            ; preds = %30, %31
 
 64:                                               ; preds = %.preheader.i.i20
   %65 = shl nuw nsw i32 %.079.i.i21, 1
-  %66 = icmp ult i32 %.079.i.i21, 65
+  %66 = icmp samesign ult i32 %.079.i.i21, 65
   br i1 %66, label %.preheader.i.i20, label %GC_generic_lock.exit.sink.split.i19, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i19:              ; preds = %64, %56, %53
@@ -24688,7 +24688,7 @@ GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %76
 
 98:                                               ; preds = %.preheader.i.i25
   %99 = shl nuw nsw i32 %.079.i.i26, 1
-  %100 = icmp ult i32 %.079.i.i26, 65
+  %100 = icmp samesign ult i32 %.079.i.i26, 65
   br i1 %100, label %.preheader.i.i25, label %GC_generic_lock.exit.sink.split.i24, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i24:              ; preds = %98, %90, %87
@@ -24758,7 +24758,7 @@ define void @GC_dump() local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = shl nuw nsw i32 %.079.i.i, 1
-  %16 = icmp ult i32 %.079.i.i, 65
+  %16 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
@@ -24820,7 +24820,7 @@ define i64 @GC_get_memory_use() local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = shl nuw nsw i32 %.079.i.i, 1
-  %16 = icmp ult i32 %.079.i.i, 65
+  %16 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
@@ -24990,7 +24990,7 @@ GC_lock.exit.thread:                              ; preds = %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -25056,7 +25056,7 @@ GC_lock.exit.thread:                              ; preds = %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -25122,7 +25122,7 @@ GC_lock.exit.thread:                              ; preds = %0
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -25189,7 +25189,7 @@ GC_lock.exit.thread:                              ; preds = %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -25255,7 +25255,7 @@ GC_lock.exit.thread:                              ; preds = %0
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -25337,7 +25337,7 @@ define void @GC_set_all_interior_pointers(i32 noundef %0) local_unnamed_addr #1 
 
 17:                                               ; preds = %.preheader.i.i
   %18 = shl nuw nsw i32 %.079.i.i, 1
-  %19 = icmp ult i32 %.079.i.i, 65
+  %19 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %19, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %17, %9, %6
@@ -26689,7 +26689,7 @@ define noalias ptr @GC_gcj_malloc(i64 noundef %0, ptr noundef %1) local_unnamed_
   %12 = add i64 %11, %8
   %13 = lshr i64 %12, 4
   %14 = select i1 %10, i64 %13, i64 1152921504606846975
-  %15 = icmp ugt i64 %14, 24
+  %15 = icmp samesign ugt i64 %14, 24
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %6
@@ -26824,7 +26824,7 @@ define ptr @GC_dlopen(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
 
 16:                                               ; preds = %.preheader.i.i.i
   %17 = shl nuw nsw i32 %.079.i.i.i, 1
-  %18 = icmp ult i32 %.079.i.i.i, 65
+  %18 = icmp samesign ult i32 %.079.i.i.i, 65
   br i1 %18, label %.preheader.i.i.i, label %GC_generic_lock.exit.sink.split.i.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i.i:              ; preds = %16, %8, %5
@@ -26955,7 +26955,7 @@ define void @GC_suspend_thread(i64 noundef %0) local_unnamed_addr #1 {
 
 16:                                               ; preds = %.preheader.i.i
   %17 = shl nuw nsw i32 %.079.i.i, 1
-  %18 = icmp ult i32 %.079.i.i, 65
+  %18 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
@@ -27069,7 +27069,7 @@ GC_lookup_thread.exit:                            ; preds = %27
   %69 = load i64, ptr %34, align 8
   %70 = call i32 @pthread_kill(i64 noundef %69, i32 noundef %64) #41
   %71 = icmp ne i32 %70, 11
-  %72 = icmp ugt i32 %.06.i, 14
+  %72 = icmp samesign ugt i32 %.06.i, 14
   %or.cond.i = select i1 %71, i1 true, i1 %72
   br i1 %or.cond.i, label %raise_signal.exit, label %.lr.ph.i
 
@@ -27217,7 +27217,7 @@ GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %23
 
 45:                                               ; preds = %.preheader.i.i
   %46 = shl nuw nsw i32 %.079.i.i, 1
-  %47 = icmp ult i32 %.079.i.i, 65
+  %47 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %47, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %45, %37, %34
@@ -27264,7 +27264,7 @@ define internal fastcc void @GC_wait_for_reclaim() unnamed_addr #1 {
 
 6:                                                ; preds = %.preheader.i.i
   %7 = shl nuw nsw i32 %.079.i.i, 1
-  %8 = icmp ult i32 %.079.i.i, 65
+  %8 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %8, label %.preheader.i.i, label %9, !llvm.loop !4
 
 9:                                                ; preds = %6
@@ -27348,7 +27348,7 @@ define void @GC_resume_thread(i64 noundef %0) local_unnamed_addr #1 {
 
 16:                                               ; preds = %.preheader.i.i
   %17 = shl nuw nsw i32 %.079.i.i, 1
-  %18 = icmp ult i32 %.079.i.i, 65
+  %18 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
@@ -27406,7 +27406,7 @@ GC_lookup_thread.exit:                            ; preds = %27
   %46 = load i64, ptr %31, align 8
   %47 = tail call i32 @pthread_kill(i64 noundef %46, i32 noundef %42) #41
   %48 = icmp ne i32 %47, 11
-  %49 = icmp ugt i32 %.06.i, 14
+  %49 = icmp samesign ugt i32 %.06.i, 14
   %or.cond.i = select i1 %48, i1 true, i1 %49
   br i1 %or.cond.i, label %raise_signal.exit, label %.lr.ph.i
 
@@ -27513,7 +27513,7 @@ define range(i32 0, 2) i32 @GC_is_thread_suspended(i64 noundef %0) local_unnamed
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -27637,7 +27637,7 @@ define range(i32 0, 2) i32 @GC_thread_is_registered() local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i.i
   %15 = shl nuw nsw i32 %.079.i.i.i, 1
-  %16 = icmp ult i32 %.079.i.i.i, 65
+  %16 = icmp samesign ult i32 %.079.i.i.i, 65
   br i1 %16, label %.preheader.i.i.i, label %GC_generic_lock.exit.sink.split.i.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i.i:              ; preds = %14, %6, %3
@@ -27732,7 +27732,7 @@ define void @GC_register_altstack(ptr noundef %0, i64 noundef %1, ptr noundef %2
 
 18:                                               ; preds = %.preheader.i.i
   %19 = shl nuw nsw i32 %.079.i.i, 1
-  %20 = icmp ult i32 %.079.i.i, 65
+  %20 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
@@ -27848,7 +27848,7 @@ define internal void @fork_prepare_proc() #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = shl nuw nsw i32 %.079.i.i, 1
-  %16 = icmp ult i32 %.079.i.i, 65
+  %16 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
@@ -27893,7 +27893,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 29:                                               ; preds = %.preheader.i.i3
   %30 = shl nuw nsw i32 %.079.i.i4, 1
-  %31 = icmp ult i32 %.079.i.i4, 65
+  %31 = icmp samesign ult i32 %.079.i.i4, 65
   br i1 %31, label %.preheader.i.i3, label %32, !llvm.loop !4
 
 32:                                               ; preds = %29
@@ -28408,7 +28408,7 @@ define ptr @GC_get_my_stackbottom(ptr nocapture noundef nonnull writeonly %0) lo
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -28500,7 +28500,7 @@ define ptr @GC_call_with_gc_active(ptr noundef nonnull %0, ptr noundef %1) local
 
 20:                                               ; preds = %.preheader.i.i
   %21 = shl nuw nsw i32 %.079.i.i, 1
-  %22 = icmp ult i32 %.079.i.i, 65
+  %22 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %22, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %20, %12, %9
@@ -28643,7 +28643,7 @@ GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %60
 
 82:                                               ; preds = %.preheader.i.i34
   %83 = shl nuw nsw i32 %.079.i.i35, 1
-  %84 = icmp ult i32 %.079.i.i35, 65
+  %84 = icmp samesign ult i32 %.079.i.i35, 65
   br i1 %84, label %.preheader.i.i34, label %GC_generic_lock.exit.sink.split.i33, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i33:              ; preds = %82, %74, %71
@@ -28722,7 +28722,7 @@ GC_lock.exit36:                                   ; preds = %.preheader.i.i34, %
 
 112:                                              ; preds = %.preheader.i.i39
   %113 = shl nuw nsw i32 %.079.i.i40, 1
-  %114 = icmp ult i32 %.079.i.i40, 65
+  %114 = icmp samesign ult i32 %.079.i.i40, 65
   br i1 %114, label %.preheader.i.i39, label %GC_generic_lock.exit.sink.split.i38, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i38:              ; preds = %112, %104, %101
@@ -28792,7 +28792,7 @@ define noundef i32 @GC_unregister_my_thread() local_unnamed_addr #1 {
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -28907,7 +28907,7 @@ define internal fastcc void @GC_wait_for_gc_completion(i32 noundef range(i32 0, 
 
 25:                                               ; preds = %.preheader.i.i
   %26 = shl nuw nsw i32 %.079.i.i, 1
-  %27 = icmp ult i32 %.079.i.i, 65
+  %27 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %27, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %25, %17, %14
@@ -29158,7 +29158,7 @@ define i32 @GC_pthread_cancel(i64 noundef %0) local_unnamed_addr #1 {
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -29258,7 +29258,7 @@ define void @GC_pthread_exit(ptr noundef %0) local_unnamed_addr #34 {
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -29373,7 +29373,7 @@ define range(i32 0, 2) i32 @GC_register_my_thread(ptr nocapture noundef nonnull 
 
 17:                                               ; preds = %.preheader.i.i
   %18 = shl nuw nsw i32 %.079.i.i, 1
-  %19 = icmp ult i32 %.079.i.i, 65
+  %19 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %19, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %17, %9, %6
@@ -29630,7 +29630,7 @@ define hidden void @GC_thread_exit_proc(ptr noundef %0) local_unnamed_addr #1 {
 
 16:                                               ; preds = %.preheader.i.i
   %17 = shl nuw nsw i32 %.079.i.i, 1
-  %18 = icmp ult i32 %.079.i.i, 65
+  %18 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
@@ -29696,7 +29696,7 @@ define i32 @GC_pthread_join(i64 noundef %0, ptr noundef %1) local_unnamed_addr #
 
 16:                                               ; preds = %.preheader.i.i
   %17 = shl nuw nsw i32 %.079.i.i, 1
-  %18 = icmp ult i32 %.079.i.i, 65
+  %18 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
@@ -29778,7 +29778,7 @@ GC_lookup_thread.exit:                            ; preds = %26, %27
 
 50:                                               ; preds = %.preheader.i.i14
   %51 = shl nuw nsw i32 %.079.i.i15, 1
-  %52 = icmp ult i32 %.079.i.i15, 65
+  %52 = icmp samesign ult i32 %.079.i.i15, 65
   br i1 %52, label %.preheader.i.i14, label %GC_generic_lock.exit.sink.split.i13, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i13:              ; preds = %50, %42, %39
@@ -30081,7 +30081,7 @@ define i32 @GC_pthread_detach(i64 noundef %0) local_unnamed_addr #1 {
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -30163,7 +30163,7 @@ GC_lookup_thread.exit:                            ; preds = %25, %26
 
 49:                                               ; preds = %.preheader.i.i14
   %50 = shl nuw nsw i32 %.079.i.i15, 1
-  %51 = icmp ult i32 %.079.i.i15, 65
+  %51 = icmp samesign ult i32 %.079.i.i15, 65
   br i1 %51, label %.preheader.i.i14, label %GC_generic_lock.exit.sink.split.i13, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i13:              ; preds = %49, %41, %38
@@ -30244,7 +30244,7 @@ define hidden noundef ptr @GC_start_rtn_prepare_thread(ptr nocapture noundef wri
 
 19:                                               ; preds = %.preheader.i.i
   %20 = shl nuw nsw i32 %.079.i.i, 1
-  %21 = icmp ult i32 %.079.i.i, 65
+  %21 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %21, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %19, %11, %8
@@ -30494,7 +30494,7 @@ GC_lock.exit.thread:                              ; preds = %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -30560,7 +30560,7 @@ GC_lock.exit.thread:                              ; preds = %0
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -30627,7 +30627,7 @@ GC_lock.exit.thread:                              ; preds = %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -30693,7 +30693,7 @@ GC_lock.exit.thread:                              ; preds = %0
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
@@ -31657,7 +31657,7 @@ GC_push_next_marked_uncollectable.exit:           ; preds = %.preheader34.i.i61,
 
 439:                                              ; preds = %.preheader.i.i.i
   %440 = shl nuw nsw i32 %.079.i.i.i, 1
-  %441 = icmp ult i32 %.079.i.i.i, 65
+  %441 = icmp samesign ult i32 %.079.i.i.i, 65
   br i1 %441, label %.preheader.i.i.i, label %442, !llvm.loop !4
 
 442:                                              ; preds = %439
@@ -32571,7 +32571,7 @@ GC_add_roots_inner.exit.i.i:                      ; preds = %165, %158, %155, %1
   %189 = getelementptr inbounds i8, ptr %.01730.i.i, i64 56
   %190 = load i16, ptr %109, align 8
   %191 = zext i16 %190 to i32
-  %192 = icmp ult i32 %188, %191
+  %192 = icmp samesign ult i32 %188, %191
   br i1 %192, label %.lr.ph.i5.i, label %._crit_edge.i6.i, !llvm.loop !159
 
 ._crit_edge.i6.i:                                 ; preds = %GC_add_roots_inner.exit.i.i, %.lr.ph40.i.i
@@ -33434,7 +33434,7 @@ GC_set_fl_marks.exit:                             ; preds = %63, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = load i32, ptr @GC_n_kinds, align 4
   %85 = zext i32 %84 to i64
-  %86 = icmp ult i64 %indvars.iv.next, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next, %85
   br i1 %86, label %.preheader59, label %._crit_edge, !llvm.loop !165
 
 ._crit_edge:                                      ; preds = %83, %.preheader60
@@ -34577,7 +34577,7 @@ GC_clear_fl_marks.exit:                           ; preds = %629, %589
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %652 = load i32, ptr @GC_n_kinds, align 4
   %653 = zext i32 %652 to i64
-  %654 = icmp ult i64 %indvars.iv.next73, %653
+  %654 = icmp samesign ult i64 %indvars.iv.next73, %653
   br i1 %654, label %.preheader, label %._crit_edge65, !llvm.loop !175
 
 ._crit_edge65:                                    ; preds = %651, %586
@@ -36410,7 +36410,7 @@ GC_release_mark_lock.exit:                        ; preds = %GC_release_mark_loc
 
 35:                                               ; preds = %.preheader.i.i
   %36 = shl nuw nsw i32 %.079.i.i, 1
-  %37 = icmp ult i32 %.079.i.i, 65
+  %37 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %37, label %.preheader.i.i, label %38, !llvm.loop !4
 
 38:                                               ; preds = %35
@@ -36637,7 +36637,7 @@ GC_steal_mark_stack.exit:                         ; preds = %103, %GC_release_ma
 
 126:                                              ; preds = %.preheader.i.i.i
   %127 = shl nuw nsw i32 %.079.i.i.i, 1
-  %128 = icmp ult i32 %.079.i.i.i, 65
+  %128 = icmp samesign ult i32 %.079.i.i.i, 65
   br i1 %128, label %.preheader.i.i.i, label %129, !llvm.loop !4
 
 129:                                              ; preds = %126
@@ -36736,7 +36736,7 @@ GC_release_mark_lock.exit.backedge:               ; preds = %111, %GC_release_ma
 
 166:                                              ; preds = %.preheader.i.i.i.i
   %167 = shl nuw nsw i32 %.079.i.i.i.i, 1
-  %168 = icmp ult i32 %.079.i.i.i.i, 65
+  %168 = icmp samesign ult i32 %.079.i.i.i.i, 65
   br i1 %168, label %.preheader.i.i.i.i, label %169, !llvm.loop !4
 
 169:                                              ; preds = %166
@@ -36815,7 +36815,7 @@ define internal fastcc void @GC_return_mark_stack(ptr noundef %0, ptr noundef %1
 
 15:                                               ; preds = %.preheader.i.i
   %16 = shl nuw nsw i32 %.079.i.i, 1
-  %17 = icmp ult i32 %.079.i.i, 65
+  %17 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %17, label %.preheader.i.i, label %18, !llvm.loop !4
 
 18:                                               ; preds = %15
@@ -38260,7 +38260,7 @@ define internal range(i32 -1, 1) i32 @GC_register_dynlib_callback(ptr nocapture 
   %49 = getelementptr inbounds i8, ptr %.04961, i64 56
   %50 = load i16, ptr %7, align 8
   %51 = zext i16 %50 to i32
-  %52 = icmp ult i32 %48, %51
+  %52 = icmp samesign ult i32 %48, %51
   br i1 %52, label %10, label %._crit_edge, !llvm.loop !209
 
 ._crit_edge:                                      ; preds = %47
@@ -38349,7 +38349,7 @@ define internal range(i32 -1, 1) i32 @GC_register_dynlib_callback(ptr nocapture 
   %90 = getelementptr inbounds i8, ptr %.15066, i64 56
   %91 = load i16, ptr %7, align 8
   %92 = zext i16 %91 to i32
-  %93 = icmp ult i32 %89, %92
+  %93 = icmp samesign ult i32 %89, %92
   br i1 %93, label %.lr.ph69, label %._crit_edge70, !llvm.loop !211
 
 ._crit_edge70:                                    ; preds = %.loopexit, %5, %._crit_edge
@@ -38406,7 +38406,7 @@ define internal fastcc void @GC_start_reclaim(i32 noundef range(i32 0, 2) %0) un
 
 GC_clear_fl_links.exit.us46:                      ; preds = %.lr.ph.i.us, %.split.us50
   %.016.add.us47 = add nuw nsw i64 %.016.idx40.us44, 8
-  %13 = icmp ult i64 %.016.idx40.us44, 1024
+  %13 = icmp samesign ult i64 %.016.idx40.us44, 1024
   br i1 %13, label %.split.us50, label %.loopexit.us, !llvm.loop !213
 
 14:                                               ; preds = %.loopexit.us, %.lr.ph.split.us
@@ -38431,7 +38431,7 @@ GC_clear_fl_links.exit.us46:                      ; preds = %.lr.ph.i.us, %.spli
 
 GC_clear_fl_links.exit.us.us:                     ; preds = %16, %.split.us.us
   %.016.add.us.us = add nuw nsw i64 %.016.idx40.us.us, 8
-  %17 = icmp ult i64 %.016.idx40.us.us, 1024
+  %17 = icmp samesign ult i64 %.016.idx40.us.us, 1024
   br i1 %17, label %.split.us.us, label %.loopexit.us, !llvm.loop !213
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %21
@@ -39141,7 +39141,7 @@ GC_find_header.exit:                              ; preds = %10
   %29 = trunc i64 %26 to i16
   %30 = sub i16 %29, %28
   %31 = zext i16 %30 to i32
-  %.not12 = icmp ugt i32 %2, %31
+  %.not12 = icmp samesign ugt i32 %2, %31
   br i1 %.not12, label %62, label %32
 
 32:                                               ; preds = %25
@@ -40246,7 +40246,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = load i32, ptr @GC_n_smashed, align 4
   %62 = zext i32 %61 to i64
-  %63 = icmp ult i64 %indvars.iv.next, %62
+  %63 = icmp samesign ult i64 %indvars.iv.next, %62
   br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !229
 
 ._crit_edge:                                      ; preds = %GC_find_starting_hblk.exit.i, %3
@@ -40911,7 +40911,7 @@ define internal fastcc ptr @GC_alloc_large(i64 noundef range(i64 0, -15) %0, i32
 
 27:                                               ; preds = %.preheader.i.i
   %28 = shl nuw nsw i32 %.079.i.i, 1
-  %29 = icmp ult i32 %.079.i.i, 65
+  %29 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %29, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %27, %19, %16
@@ -44319,7 +44319,7 @@ define internal i32 @GC_suspend_all() #1 {
   %26 = load i64, ptr %4, align 8
   %27 = tail call i32 @pthread_kill(i64 noundef %26, i32 noundef %22) #41
   %28 = icmp ne i32 %27, 11
-  %29 = icmp ugt i32 %.06.i, 14
+  %29 = icmp samesign ugt i32 %.06.i, 14
   %or.cond.i = select i1 %28, i1 true, i1 %29
   br i1 %or.cond.i, label %raise_signal.exit, label %.lr.ph.i
 
@@ -44603,7 +44603,7 @@ define internal i32 @GC_restart_all() #1 {
   %28 = load i64, ptr %4, align 8
   %29 = tail call i32 @pthread_kill(i64 noundef %28, i32 noundef %24) #41
   %30 = icmp ne i32 %29, 11
-  %31 = icmp ugt i32 %.06.i, 14
+  %31 = icmp samesign ugt i32 %.06.i, 14
   %or.cond.i = select i1 %30, i1 true, i1 %31
   br i1 %or.cond.i, label %raise_signal.exit, label %.lr.ph.i
 
@@ -44731,7 +44731,7 @@ set_marker_thread_name.exit:                      ; preds = %18, %29
 
 36:                                               ; preds = %.preheader.i.i
   %37 = shl nuw nsw i32 %.079.i.i, 1
-  %38 = icmp ult i32 %.079.i.i, 65
+  %38 = icmp samesign ult i32 %.079.i.i, 65
   br i1 %38, label %.preheader.i.i, label %39, !llvm.loop !4
 
 39:                                               ; preds = %36

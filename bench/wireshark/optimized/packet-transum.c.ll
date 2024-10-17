@@ -1334,7 +1334,7 @@ define internal void @init_globals() #0 {
   %51 = phi ptr [ %46, %._crit_edge.loopexit ], [ %34, %.lr.ph33 ]
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %52 = zext i32 %50 to i64
-  %53 = icmp ult i64 %indvars.iv.next46, %52
+  %53 = icmp samesign ult i64 %indvars.iv.next46, %52
   br i1 %53, label %.lr.ph33, label %.preheader, !llvm.loop !10
 
 .lr.ph40:                                         ; preds = %.preheader, %._crit_edge38
@@ -1374,7 +1374,7 @@ define internal void @init_globals() #0 {
   %72 = phi ptr [ %67, %._crit_edge38.loopexit ], [ %55, %.lr.ph40 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %73 = zext i32 %71 to i64
-  %74 = icmp ult i64 %indvars.iv.next49, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next49, %73
   br i1 %74, label %.lr.ph40, label %._crit_edge41, !llvm.loop !12
 
 ._crit_edge41:                                    ; preds = %._crit_edge38, %.preheader

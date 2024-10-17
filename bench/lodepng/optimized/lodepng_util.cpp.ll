@@ -1691,7 +1691,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 invoke.cont114:                                   ; preds = %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i164, %if.then.i142
   %add115 = add i64 %add106, %pos.2240
   %inc117 = add nuw nsw i64 %i107.0241, 1
-  %cmp110 = icmp ult i64 %inc117, %conv109
+  %cmp110 = icmp samesign ult i64 %inc117, %conv109
   br i1 %cmp110, label %for.body111, label %for.inc119, !llvm.loop !13
 
 for.inc119:                                       ; preds = %invoke.cont114, %invoke.cont104, %for.body81
@@ -1919,7 +1919,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIhSaIhE
   %inc = add nuw nsw i64 %i.023, 1
   %25 = load i32, ptr %h, align 4
   %conv = zext i32 %25 to i64
-  %cmp21 = icmp ult i64 %inc, %conv
+  %cmp21 = icmp samesign ult i64 %inc, %conv
   br i1 %cmp21, label %for.body, label %for.end, !llvm.loop !15
 
 lpad8.loopexit:                                   ; preds = %cond.true.i.i.i
@@ -2367,7 +2367,7 @@ declare void @_Z23lodepng_color_mode_make16LodePNGColorTypej(ptr sret(%struct.Lo
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL8parseICCEPNS_10LodePNGICCEPKhm(ptr nocapture noundef nonnull %icc, ptr noundef readonly %data, i64 noundef range(i64 0, 4294967296) %size) unnamed_addr #8 {
 entry:
-  %cmp = icmp ult i64 %size, 132
+  %cmp = icmp samesign ult i64 %size, 132
   br i1 %cmp, label %return, label %if.end37
 
 if.end37:                                         ; preds = %entry
@@ -2538,7 +2538,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.0869 = phi i64 [ 0, %for.body.lr.ph ], [ %inc256, %for.cond ]
   %pos.0868 = phi i64 [ 132, %for.body.lr.ph ], [ %add.i286, %for.cond ]
   %add.i267 = add nuw nsw i64 %pos.0868, 8
-  %cmp.i268 = icmp ugt i64 %add.i267, %size
+  %cmp.i268 = icmp samesign ugt i64 %add.i267, %size
   br i1 %cmp.i268, label %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit285, label %if.end.i269
 
 if.end.i269:                                      ; preds = %for.body
@@ -2566,7 +2566,7 @@ if.end.i269:                                      ; preds = %for.body
 _ZN7lodepngL15decodeICCUint32EPKhmPm.exit285:     ; preds = %for.body, %if.end.i269
   %retval.0.i284 = phi i64 [ %or14.i283, %if.end.i269 ], [ 0, %for.body ]
   %add.i286 = add nuw nsw i64 %pos.0868, 12
-  %cmp.i287 = icmp ugt i64 %add.i286, %size
+  %cmp.i287 = icmp samesign ugt i64 %add.i286, %size
   br i1 %cmp.i287, label %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit304, label %if.end.i288
 
 if.end.i288:                                      ; preds = %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit285
@@ -2592,7 +2592,7 @@ if.end.i288:                                      ; preds = %_ZN7lodepngL15decod
 
 _ZN7lodepngL15decodeICCUint32EPKhmPm.exit304:     ; preds = %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit285, %if.end.i288
   %retval.0.i303 = phi i32 [ %or14.i302, %if.end.i288 ], [ 0, %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit285 ]
-  %cmp64.not = icmp ult i64 %add.i286, %size
+  %cmp64.not = icmp samesign ult i64 %add.i286, %size
   br i1 %cmp64.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit304
@@ -3283,7 +3283,7 @@ _ZN7lodepngL15decodeICCUint16EPKhmPm.exit656:     ; preds = %if.then209
   %152 = load i8, ptr %arrayidx2.i652, align 1
   %conv3.i653 = zext i8 %152 to i32
   %or.i654 = or disjoint i32 %shl.i651, %conv3.i653
-  %cmp219 = icmp ugt i32 %or.i654, 4
+  %cmp219 = icmp samesign ugt i32 %or.i654, 4
   br i1 %cmp219, label %return, label %if.end221
 
 if.end221:                                        ; preds = %if.then209, %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit656
@@ -3423,7 +3423,7 @@ if.end235:                                        ; preds = %if.end.i.i716, %if.
   %retval.0.i.i731 = phi float [ %177, %if.end.i.i716 ], [ 0.000000e+00, %if.then232 ]
   %c234 = getelementptr inbounds i8, ptr %arrayidx214, i64 36
   store float %retval.0.i.i731, ptr %c234, align 4
-  %cmp236 = icmp ugt i32 %retval.0.i655854, 2
+  %cmp236 = icmp samesign ugt i32 %retval.0.i655854, 2
   br i1 %cmp236, label %if.then237, label %if.end251
 
 if.then237:                                       ; preds = %if.end235

@@ -1069,7 +1069,7 @@ fmap_readn.exit.thread:                           ; preds = %8, %1, %fmap_readn.
 19:                                               ; preds = %.critedge, %17
   %20 = phi i32 [ %18, %17 ], [ %.4..4..4., %.critedge ]
   %21 = and i32 %20, 65535
-  %22 = icmp ugt i32 %21, 38
+  %22 = icmp samesign ugt i32 %21, 38
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %19
@@ -1145,7 +1145,7 @@ fmap_readn.exit39.thread:                         ; preds = %30, %28, %fmap_read
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.52, i32 noundef %46) #7
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.53, i32 noundef %48) #7
   %50 = zext i32 %46 to i64
-  %51 = icmp ugt i64 %44, %50
+  %51 = icmp samesign ugt i64 %44, %50
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %43

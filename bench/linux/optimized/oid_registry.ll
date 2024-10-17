@@ -72,7 +72,7 @@ define dso_local range(i32 0, 256) i32 @look_up_OID(ptr nocapture noundef readon
   %33 = getelementptr [98 x %struct.anon], ptr @oid_search_table, i64 0, i64 %32
   %34 = load i8, ptr %33, align 4
   %35 = zext i8 %34 to i32
-  %36 = icmp ult i32 %24, %35
+  %36 = icmp samesign ult i32 %24, %35
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %46, %28
@@ -80,7 +80,7 @@ define dso_local range(i32 0, 256) i32 @look_up_OID(ptr nocapture noundef readon
   br i1 %38, label %28, label %.loopexit, !llvm.loop !8
 
 39:                                               ; preds = %28
-  %40 = icmp ugt i32 %24, %35
+  %40 = icmp samesign ugt i32 %24, %35
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %39
@@ -177,7 +177,7 @@ define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr nocapture noundef 
   %26 = add i32 %25, %20
   %27 = add i32 %21, 1
   %28 = zext i32 %27 to i64
-  %29 = icmp ugt i64 %11, %28
+  %29 = icmp samesign ugt i64 %11, %28
   br i1 %29, label %18, label %30, !llvm.loop !5
 
 30:                                               ; preds = %18
@@ -203,7 +203,7 @@ define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr nocapture noundef 
   %46 = getelementptr [98 x %struct.anon], ptr @oid_search_table, i64 0, i64 %45
   %47 = load i8, ptr %46, align 4
   %48 = zext i8 %47 to i32
-  %49 = icmp ult i32 %37, %48
+  %49 = icmp samesign ult i32 %37, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %59, %41
@@ -211,7 +211,7 @@ define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr nocapture noundef 
   br i1 %51, label %41, label %.loopexit, !llvm.loop !8
 
 52:                                               ; preds = %41
-  %53 = icmp ugt i32 %37, %48
+  %53 = icmp samesign ugt i32 %37, %48
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %52

@@ -10918,7 +10918,7 @@ define internal fastcc void @_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN
 select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i
   %17 = add nuw nsw i64 %storemerge28.i.i.i, 1
   %18 = lshr i64 %17, 1
-  %.not12.i.i.i = icmp ult i64 %storemerge28.i.i.i, 2
+  %.not12.i.i.i = icmp samesign ult i64 %storemerge28.i.i.i, 2
   br i1 %.not12.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN2cv4text12_GLOBAL__N_116ChainedComponentESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.thread.i, label %.lr.ph.i.i.i, !llvm.loop !176
 
 19:                                               ; preds = %.lr.ph.i.i.i

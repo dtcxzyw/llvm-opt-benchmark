@@ -116,7 +116,7 @@ define dso_local ptr @Curl_HMAC_init(ptr noundef %0, ptr noundef %1, i32 noundef
   %68 = add nuw nsw i64 %.15056, 1
   %69 = load i32, ptr %23, align 4
   %70 = zext i32 %69 to i64
-  %71 = icmp ult i64 %68, %70
+  %71 = icmp samesign ult i64 %68, %70
   br i1 %71, label %63, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %63, %.preheader, %3

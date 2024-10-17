@@ -119,7 +119,7 @@ VP8LRefsCursorNext.exit.i.i:                      ; preds = %42, %37
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
-  %56 = icmp ult i32 %spec.select.i.i.i, 2
+  %56 = icmp samesign ult i32 %spec.select.i.i.i, 2
   br i1 %56, label %._crit_edge.thread.i.i.i, label %59
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %._crit_edge.i.i
@@ -194,7 +194,7 @@ ConvertPopulationCountTableToBitEstimates.exit.i.i: ; preds = %VP8LFastLog2.exit
 
 ._crit_edge.i29.i.i:                              ; preds = %.lr.ph.i21.i.i
   %87 = getelementptr inbounds i8, ptr %23, i64 1024
-  %88 = icmp ult i32 %spec.select.i26.i.i, 2
+  %88 = icmp samesign ult i32 %spec.select.i26.i.i, 2
   br i1 %88, label %._crit_edge.thread.i36.i.i, label %89
 
 ._crit_edge.thread.i36.i.i:                       ; preds = %._crit_edge.i29.i.i
@@ -267,7 +267,7 @@ ConvertPopulationCountTableToBitEstimates.exit37.i.i: ; preds = %VP8LFastLog2.ex
 
 ._crit_edge.i47.i.i:                              ; preds = %.lr.ph.i39.i.i
   %117 = getelementptr inbounds i8, ptr %23, i64 2048
-  %118 = icmp ult i32 %spec.select.i44.i.i, 2
+  %118 = icmp samesign ult i32 %spec.select.i44.i.i, 2
   br i1 %118, label %._crit_edge.thread.i54.i.i, label %119
 
 ._crit_edge.thread.i54.i.i:                       ; preds = %._crit_edge.i47.i.i
@@ -339,7 +339,7 @@ ConvertPopulationCountTableToBitEstimates.exit55.i.i: ; preds = %VP8LFastLog2.ex
   br i1 %exitcond.not.i64.i.i, label %._crit_edge.i65.i.i, label %.lr.ph.i57.i.i, !llvm.loop !6
 
 ._crit_edge.i65.i.i:                              ; preds = %.lr.ph.i57.i.i
-  %147 = icmp ult i32 %spec.select.i62.i.i, 2
+  %147 = icmp samesign ult i32 %spec.select.i62.i.i, 2
   br i1 %147, label %._crit_edge.thread.i72.i.i, label %148
 
 ._crit_edge.thread.i72.i.i:                       ; preds = %._crit_edge.i65.i.i
@@ -412,7 +412,7 @@ ConvertPopulationCountTableToBitEstimates.exit73.i.i: ; preds = %VP8LFastLog2.ex
 
 ._crit_edge.i83.i.i:                              ; preds = %.lr.ph.i75.i.i
   %176 = getelementptr inbounds i8, ptr %23, i64 3072
-  %177 = icmp ult i32 %spec.select.i80.i.i, 2
+  %177 = icmp samesign ult i32 %spec.select.i80.i.i, 2
   br i1 %177, label %._crit_edge.thread.i90.i.i, label %178
 
 ._crit_edge.thread.i90.i.i:                       ; preds = %._crit_edge.i83.i.i
@@ -516,7 +516,7 @@ CostManagerInitFreeList.exit.i.i:                 ; preds = %207
 
 216:                                              ; preds = %GetLengthCost.exit.i.i, %.lr.ph.i113.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i113.i ], [ %indvars.iv.next.i.i, %GetLengthCost.exit.i.i ]
-  %217 = icmp ult i64 %indvars.iv.i.i, 512
+  %217 = icmp samesign ult i64 %indvars.iv.i.i, 512
   br i1 %217, label %218, label %222
 
 218:                                              ; preds = %216
@@ -827,7 +827,7 @@ AddSingleLiteralWithCostModel.exit.i:             ; preds = %319, %316
   br label %AddSingleLiteralWithCostModel.exit124.i
 
 AddSingleLiteralWithCostModel.exit124.i:          ; preds = %374, %370
-  %376 = icmp ugt i32 %330, 1
+  %376 = icmp samesign ugt i32 %330, 1
   br i1 %376, label %377, label %472
 
 377:                                              ; preds = %AddSingleLiteralWithCostModel.exit124.i

@@ -143,7 +143,7 @@ Encode.exit:                                      ; preds = %5
   %22 = load i32, ptr %4, align 4
   %23 = lshr i32 %22, 3
   %24 = and i32 %23, 63
-  %25 = icmp ult i32 %24, 56
+  %25 = icmp samesign ult i32 %24, 56
   %.v = select i1 %25, i32 56, i32 120
   %26 = sub nsw i32 %.v, %24
   %27 = zext i32 %26 to i64
@@ -170,7 +170,7 @@ Encode.exit:                                      ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull readonly align 16 dereferenceable(1) @PADDING, i64 %39, i1 false)
   tail call fastcc void @MD4Transform(ptr noundef nonnull %1, ptr noundef nonnull %40)
   %43 = add nuw nsw i64 %39, 63
-  %44 = icmp ult i64 %43, %27
+  %44 = icmp samesign ult i64 %43, %27
   br i1 %44, label %.lr.ph.i, label %PHP_MD4Update.exit
 
 .lr.ph.i:                                         ; preds = %38, %.lr.ph.i
@@ -179,7 +179,7 @@ Encode.exit:                                      ; preds = %5
   tail call fastcc void @MD4Transform(ptr noundef %1, ptr noundef nonnull readonly %45)
   %46 = add nuw nsw i64 %.031.i, 64
   %47 = add nuw nsw i64 %.031.i, 127
-  %48 = icmp ult i64 %47, %27
+  %48 = icmp samesign ult i64 %47, %27
   br i1 %48, label %.lr.ph.i, label %PHP_MD4Update.exit
 
 49:                                               ; preds = %Encode.exit
@@ -204,7 +204,7 @@ PHP_MD4Update.exit:                               ; preds = %.lr.ph.i, %38, %49
   %61 = zext i1 %59 to i32
   %62 = add i32 %60, %61
   store i32 %62, ptr %31, align 4
-  %.not.i10 = icmp ult i32 %57, 56
+  %.not.i10 = icmp samesign ult i32 %57, 56
   br i1 %.not.i10, label %68, label %63
 
 63:                                               ; preds = %PHP_MD4Update.exit

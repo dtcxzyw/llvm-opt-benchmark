@@ -1518,7 +1518,7 @@ if.then:                                          ; preds = %entry
   %div = udiv i32 %value, 1000
   %add.ptr = getelementptr inbounds i8, ptr %target, i64 %padding
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 -3
-  %cmp.i = icmp ugt i32 %rem2, 99
+  %cmp.i = icmp samesign ugt i32 %rem2, 99
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -1782,7 +1782,7 @@ while.body.i:                                     ; preds = %sw.bb41, %while.bod
 while.end.i:                                      ; preds = %while.body.i, %sw.bb41
   %ptr.addr.0.lcssa.i = phi ptr [ %add.ptr, %sw.bb41 ], [ %incdec.ptr3.i, %while.body.i ]
   %value.addr.0.lcssa.i = phi i32 [ %call45, %sw.bb41 ], [ %div.i122, %while.body.i ]
-  %cmp4.i = icmp ult i32 %value.addr.0.lcssa.i, 10
+  %cmp4.i = icmp samesign ult i32 %value.addr.0.lcssa.i, 10
   br i1 %cmp4.i, label %if.then.i118, label %if.end.i
 
 if.then.i118:                                     ; preds = %while.end.i
@@ -2116,7 +2116,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   %add.ptr467 = phi ptr [ %add.ptr, %if.end ], [ %add.ptr468, %while.body.i ]
   %ptr.addr.0.lcssa.i = phi ptr [ %add.ptr, %if.end ], [ %incdec.ptr3.i, %while.body.i ]
   %value.addr.0.lcssa.i = phi i32 [ %sub30, %if.end ], [ %div.i, %while.body.i ]
-  %cmp4.i = icmp ult i32 %value.addr.0.lcssa.i, 10
+  %cmp4.i = icmp samesign ult i32 %value.addr.0.lcssa.i, 10
   br i1 %cmp4.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -2230,7 +2230,7 @@ sw.bb57:                                          ; preds = %entry
   %rem2.i = urem i32 %mul, 1000
   %div.i263 = udiv i32 %mul, 1000
   %add.ptr3.i = getelementptr inbounds i8, ptr %target, i64 6
-  %cmp.i.i = icmp ugt i32 %rem2.i, 99
+  %cmp.i.i = icmp samesign ugt i32 %rem2.i, 99
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb57
@@ -2522,7 +2522,7 @@ sw.bb97:                                          ; preds = %entry
   %90 = load i32, ptr %data, align 4, !tbaa !48
   %cond.i367 = tail call noundef i32 @llvm.abs.i32(i32 %90, i1 true)
   %rem100455 = urem i32 %cond.i367, 100
-  %cmp.i368 = icmp ugt i32 %rem100455, 9
+  %cmp.i368 = icmp samesign ugt i32 %rem100455, 9
   br i1 %cmp.i368, label %if.then.i373, label %if.else.i369
 
 if.then.i373:                                     ; preds = %sw.bb97
@@ -8313,7 +8313,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %invoke.cont6.i
   %__val.addr.0.lcssa.i.i = phi i32 [ %203, %invoke.cont6.i ], [ %div.i.i, %while.body.i.i ]
-  %cmp9.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i, 9
+  %cmp9.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp9.i.i, label %if.then.i.i1144, label %if.else.i.i
 
 if.then.i.i1144:                                  ; preds = %while.end.i.i

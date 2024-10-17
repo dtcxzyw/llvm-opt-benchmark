@@ -120,7 +120,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
   %13 = getelementptr inbounds i8, ptr %2, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !21
   %15 = zext i32 %14 to i64
-  %16 = icmp ugt i64 %12, %15
+  %16 = icmp samesign ugt i64 %12, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %3
@@ -136,7 +136,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
   %24 = icmp sgt i32 %14, -1
   tail call void @llvm.assume(i1 %24)
   %25 = add nuw nsw i32 %10, 2
-  %26 = icmp ule i32 %25, %14
+  %26 = icmp samesign ule i32 %25, %14
   tail call void @llvm.assume(i1 %26)
   %27 = icmp sgt i32 %10, -1
   tail call void @llvm.assume(i1 %27)
@@ -149,7 +149,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
   store i32 %32, ptr %19, align 8, !tbaa !25
   %33 = zext nneg i32 %25 to i64
   %34 = add nuw nsw i64 %33, 2
-  %35 = icmp ugt i64 %34, %15
+  %35 = icmp samesign ugt i64 %34, %15
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %18
@@ -158,7 +158,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
 
 37:                                               ; preds = %18
   %38 = add nuw nsw i32 %10, 4
-  %39 = icmp ule i32 %38, %14
+  %39 = icmp samesign ule i32 %38, %14
   tail call void @llvm.assume(i1 %39)
   %40 = getelementptr inbounds i8, ptr %23, i64 %33
   %41 = load i16, ptr %40, align 1
@@ -178,7 +178,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
   store i32 %44, ptr %48, align 4, !tbaa !26
   %49 = zext nneg i32 %38 to i64
   %50 = add nuw nsw i64 %49, 4
-  %51 = icmp ugt i64 %50, %15
+  %51 = icmp samesign ugt i64 %50, %15
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %47
@@ -187,7 +187,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
 
 53:                                               ; preds = %47
   %54 = add nuw nsw i32 %10, 8
-  %55 = icmp ule i32 %54, %14
+  %55 = icmp samesign ule i32 %54, %14
   tail call void @llvm.assume(i1 %55)
   %56 = getelementptr inbounds i8, ptr %23, i64 %49
   %57 = load i32, ptr %56, align 1
@@ -216,7 +216,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
 71:                                               ; preds = %67
   %72 = zext nneg i32 %68 to i64
   %73 = add nuw nsw i64 %72, %70
-  %74 = icmp ugt i64 %73, %15
+  %74 = icmp samesign ugt i64 %73, %15
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %71
@@ -239,7 +239,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
   %85 = add nuw nsw i64 %84, 4
   %86 = load i32, ptr %13, align 8, !tbaa !21
   %87 = zext i32 %86 to i64
-  %88 = icmp ugt i64 %85, %87
+  %88 = icmp samesign ugt i64 %85, %87
   br i1 %88, label %89, label %90
 
 89:                                               ; preds = %76
@@ -250,7 +250,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
   %91 = icmp sgt i32 %86, -1
   tail call void @llvm.assume(i1 %91)
   %92 = add nuw nsw i32 %83, 4
-  %93 = icmp ule i32 %92, %86
+  %93 = icmp samesign ule i32 %92, %86
   tail call void @llvm.assume(i1 %93)
   %94 = icmp sgt i32 %83, -1
   tail call void @llvm.assume(i1 %94)
@@ -259,7 +259,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
 
 95:                                               ; preds = %67
   %96 = add nuw nsw i64 %70, 4
-  %97 = icmp ugt i64 %96, %15
+  %97 = icmp samesign ugt i64 %96, %15
   br i1 %97, label %98, label %99
 
 98:                                               ; preds = %95
@@ -268,7 +268,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
 
 99:                                               ; preds = %95
   %100 = add nuw nsw i32 %10, 12
-  %101 = icmp ule i32 %100, %14
+  %101 = icmp samesign ule i32 %100, %14
   tail call void @llvm.assume(i1 %101)
   %102 = getelementptr inbounds i8, ptr %23, i64 %70
   %103 = load i32, ptr %102, align 1
@@ -310,7 +310,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
   %127 = zext i32 %68 to i64
   %128 = add nuw nsw i64 %126, %127
   %129 = zext nneg i32 %120 to i64
-  %130 = icmp ugt i64 %128, %129
+  %130 = icmp samesign ugt i64 %128, %129
   br i1 %130, label %131, label %132
 
 131:                                              ; preds = %123
@@ -319,7 +319,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
 
 132:                                              ; preds = %123
   %133 = add nuw nsw i32 %105, %68
-  %134 = icmp ule i32 %133, %120
+  %134 = icmp samesign ule i32 %133, %120
   tail call void @llvm.assume(i1 %134)
   %135 = icmp sgt i32 %68, -1
   tail call void @llvm.assume(i1 %135)
@@ -329,7 +329,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
   %137 = zext i32 %105 to i64
   %138 = zext i32 %68 to i64
   %139 = add nuw nsw i64 %137, %138
-  %140 = icmp ugt i64 %139, %15
+  %140 = icmp samesign ugt i64 %139, %15
   br i1 %140, label %141, label %142
 
 141:                                              ; preds = %136
@@ -338,7 +338,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
 
 142:                                              ; preds = %136
   %143 = add nuw nsw i32 %105, %68
-  %144 = icmp ule i32 %143, %14
+  %144 = icmp samesign ule i32 %143, %14
   tail call void @llvm.assume(i1 %144)
   %145 = icmp sgt i32 %105, -1
   tail call void @llvm.assume(i1 %145)
@@ -622,7 +622,7 @@ define hidden noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr nocaptur
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !21
   %17 = zext i32 %16 to i64
-  %18 = icmp ugt i64 %14, %17
+  %18 = icmp samesign ugt i64 %14, %17
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %8
@@ -638,7 +638,7 @@ define hidden noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr nocaptur
   %26 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %26)
   %27 = add nuw nsw i32 %12, 2
-  %28 = icmp ule i32 %27, %16
+  %28 = icmp samesign ule i32 %27, %16
   tail call void @llvm.assume(i1 %28)
   %29 = icmp sgt i32 %12, -1
   tail call void @llvm.assume(i1 %29)
@@ -673,7 +673,7 @@ define hidden noundef signext i16 @_ZNK8rawspeed9TiffEntry6getI16Ej(ptr nocaptur
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8, !tbaa !21
   %19 = zext i32 %18 to i64
-  %20 = icmp ugt i64 %16, %19
+  %20 = icmp samesign ugt i64 %16, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %10
@@ -689,7 +689,7 @@ define hidden noundef signext i16 @_ZNK8rawspeed9TiffEntry6getI16Ej(ptr nocaptur
   %28 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %28)
   %29 = add nuw nsw i32 %14, 2
-  %30 = icmp ule i32 %29, %18
+  %30 = icmp samesign ule i32 %29, %18
   tail call void @llvm.assume(i1 %30)
   %31 = icmp sgt i32 %14, -1
   tail call void @llvm.assume(i1 %31)
@@ -723,7 +723,7 @@ define hidden noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr nocapture nounde
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !21
   %14 = zext i32 %13 to i64
-  %15 = icmp ugt i64 %11, %14
+  %15 = icmp samesign ugt i64 %11, %14
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %5
@@ -739,7 +739,7 @@ define hidden noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr nocapture nounde
   %23 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %23)
   %24 = add nuw nsw i32 %9, 2
-  %25 = icmp ule i32 %24, %13
+  %25 = icmp samesign ule i32 %24, %13
   tail call void @llvm.assume(i1 %25)
   %26 = icmp sgt i32 %9, -1
   tail call void @llvm.assume(i1 %26)
@@ -766,7 +766,7 @@ define hidden noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr nocapture nounde
   %42 = getelementptr inbounds i8, ptr %0, i64 24
   %43 = load i32, ptr %42, align 8, !tbaa !21
   %44 = zext i32 %43 to i64
-  %45 = icmp ugt i64 %41, %44
+  %45 = icmp samesign ugt i64 %41, %44
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %35
@@ -782,7 +782,7 @@ define hidden noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr nocapture nounde
   %53 = icmp sgt i32 %43, -1
   tail call void @llvm.assume(i1 %53)
   %54 = add nuw nsw i32 %39, 4
-  %55 = icmp ule i32 %54, %43
+  %55 = icmp samesign ule i32 %54, %43
   tail call void @llvm.assume(i1 %55)
   %56 = icmp sgt i32 %39, -1
   tail call void @llvm.assume(i1 %56)
@@ -818,7 +818,7 @@ define hidden noundef i32 @_ZNK8rawspeed9TiffEntry6getI32Ej(ptr nocapture nounde
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !21
   %14 = zext i32 %13 to i64
-  %15 = icmp ugt i64 %11, %14
+  %15 = icmp samesign ugt i64 %11, %14
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %5
@@ -834,7 +834,7 @@ define hidden noundef i32 @_ZNK8rawspeed9TiffEntry6getI32Ej(ptr nocapture nounde
   %23 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %23)
   %24 = add nuw nsw i32 %9, 2
-  %25 = icmp ule i32 %24, %13
+  %25 = icmp samesign ule i32 %24, %13
   tail call void @llvm.assume(i1 %25)
   %26 = icmp sgt i32 %9, -1
   tail call void @llvm.assume(i1 %26)
@@ -861,7 +861,7 @@ define hidden noundef i32 @_ZNK8rawspeed9TiffEntry6getI32Ej(ptr nocapture nounde
   %42 = getelementptr inbounds i8, ptr %0, i64 24
   %43 = load i32, ptr %42, align 8, !tbaa !21
   %44 = zext i32 %43 to i64
-  %45 = icmp ugt i64 %41, %44
+  %45 = icmp samesign ugt i64 %41, %44
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %35
@@ -877,7 +877,7 @@ define hidden noundef i32 @_ZNK8rawspeed9TiffEntry6getI32Ej(ptr nocapture nounde
   %53 = icmp sgt i32 %43, -1
   tail call void @llvm.assume(i1 %53)
   %54 = add nuw nsw i32 %39, 4
-  %55 = icmp ule i32 %54, %43
+  %55 = icmp samesign ule i32 %54, %43
   tail call void @llvm.assume(i1 %55)
   %56 = icmp sgt i32 %39, -1
   tail call void @llvm.assume(i1 %56)
@@ -997,7 +997,7 @@ define hidden noundef float @_ZNK8rawspeed9TiffEntry8getFloatEj(ptr nocapture no
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !21
   %17 = zext i32 %16 to i64
-  %18 = icmp ugt i64 %14, %17
+  %18 = icmp samesign ugt i64 %14, %17
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %8
@@ -1013,7 +1013,7 @@ define hidden noundef float @_ZNK8rawspeed9TiffEntry8getFloatEj(ptr nocapture no
   %26 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %26)
   %27 = add nuw nsw i32 %12, 8
-  %28 = icmp ule i32 %27, %16
+  %28 = icmp samesign ule i32 %27, %16
   tail call void @llvm.assume(i1 %28)
   %29 = icmp sgt i32 %12, -1
   tail call void @llvm.assume(i1 %29)
@@ -1036,7 +1036,7 @@ define hidden noundef float @_ZNK8rawspeed9TiffEntry8getFloatEj(ptr nocapture no
   %44 = getelementptr inbounds i8, ptr %0, i64 24
   %45 = load i32, ptr %44, align 8, !tbaa !21
   %46 = zext i32 %45 to i64
-  %47 = icmp ugt i64 %43, %46
+  %47 = icmp samesign ugt i64 %43, %46
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %37
@@ -1052,7 +1052,7 @@ define hidden noundef float @_ZNK8rawspeed9TiffEntry8getFloatEj(ptr nocapture no
   %55 = icmp sgt i32 %45, -1
   tail call void @llvm.assume(i1 %55)
   %56 = add nuw nsw i32 %41, 4
-  %57 = icmp ule i32 %56, %45
+  %57 = icmp samesign ule i32 %56, %45
   tail call void @llvm.assume(i1 %57)
   %58 = icmp sgt i32 %41, -1
   tail call void @llvm.assume(i1 %58)
@@ -1124,7 +1124,7 @@ define hidden void @_ZNK8rawspeed9TiffEntry9getStringB5cxx11Ev(ptr dead_on_unwin
   %10 = load i32, ptr %9, align 8, !tbaa !21
   %11 = getelementptr inbounds i8, ptr %1, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !23
-  %13 = icmp uge i32 %10, %12
+  %13 = icmp samesign uge i32 %10, %12
   tail call void @llvm.assume(i1 %13)
   %14 = icmp sgt i32 %10, -1
   tail call void @llvm.assume(i1 %14)
@@ -1135,7 +1135,7 @@ define hidden void @_ZNK8rawspeed9TiffEntry9getStringB5cxx11Ev(ptr dead_on_unwin
   %18 = zext i32 %16 to i64
   %19 = add nuw nsw i64 %18, %17
   %20 = zext nneg i32 %10 to i64
-  %21 = icmp ugt i64 %19, %20
+  %21 = icmp samesign ugt i64 %19, %20
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %8
@@ -1151,7 +1151,7 @@ define hidden void @_ZNK8rawspeed9TiffEntry9getStringB5cxx11Ev(ptr dead_on_unwin
   %28 = getelementptr inbounds i8, ptr %27, i64 %18
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %27 to i64
-  %31 = icmp ult i32 %16, 4
+  %31 = icmp samesign ult i32 %16, 4
   br i1 %31, label %59, label %32
 
 32:                                               ; preds = %23

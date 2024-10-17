@@ -1595,7 +1595,7 @@ define noundef nonnull ptr @_ZN6google8protobuf17FastInt64ToBufferElPc(i64 nound
   %9 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %8, ptr %.0, align 1
   %10 = udiv i64 %.026, 10
-  %.not30 = icmp ult i64 %.026, 10
+  %.not30 = icmp samesign ult i64 %.026, 10
   br i1 %.not30, label %.loopexit, label %.preheader, !llvm.loop !21
 
 11:                                               ; preds = %2
@@ -1659,7 +1659,7 @@ define noundef nonnull ptr @_ZN6google8protobuf17FastInt32ToBufferEiPc(i32 nound
   %9 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %8, ptr %.0, align 1
   %10 = udiv i32 %.026, 10
-  %.not30 = icmp ult i32 %.026, 10
+  %.not30 = icmp samesign ult i32 %.026, 10
   br i1 %.not30, label %.loopexit, label %.preheader, !llvm.loop !23
 
 11:                                               ; preds = %2
@@ -2159,7 +2159,7 @@ define void @_ZN6google8protobuf10SimpleItoaB5cxx11Ei(ptr dead_on_unwind noalias
   %11 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   store i8 %10, ptr %.0.i, align 1
   %12 = udiv i32 %.026.i, 10
-  %.not30.i = icmp ult i32 %.026.i, 10
+  %.not30.i = icmp samesign ult i32 %.026.i, 10
   br i1 %.not30.i, label %_ZN6google8protobuf17FastInt32ToBufferEiPc.exit, label %.preheader.i, !llvm.loop !23
 
 13:                                               ; preds = %2
@@ -2297,7 +2297,7 @@ define void @_ZN6google8protobuf10SimpleItoaB5cxx11El(ptr dead_on_unwind noalias
   %11 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   store i8 %10, ptr %.0.i, align 1
   %12 = udiv i64 %.026.i, 10
-  %.not30.i = icmp ult i64 %.026.i, 10
+  %.not30.i = icmp samesign ult i64 %.026.i, 10
   br i1 %.not30.i, label %_ZN6google8protobuf17FastInt64ToBufferElPc.exit, label %.preheader.i, !llvm.loop !21
 
 13:                                               ; preds = %2
@@ -2435,7 +2435,7 @@ define void @_ZN6google8protobuf10SimpleItoaB5cxx11Ex(ptr dead_on_unwind noalias
   %11 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   store i8 %10, ptr %.0.i, align 1
   %12 = udiv i64 %.026.i, 10
-  %.not30.i = icmp ult i64 %.026.i, 10
+  %.not30.i = icmp samesign ult i64 %.026.i, 10
   br i1 %.not30.i, label %_ZN6google8protobuf17FastInt64ToBufferElPc.exit, label %.preheader.i, !llvm.loop !21
 
 13:                                               ; preds = %2

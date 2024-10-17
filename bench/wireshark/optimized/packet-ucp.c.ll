@@ -6473,7 +6473,7 @@ define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32
   %30 = add nsw i32 %29, %25
   %31 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 %30, ptr %31, align 4
-  %32 = icmp ugt i32 %.0, 3
+  %32 = icmp samesign ugt i32 %.0, 3
   br i1 %32, label %34, label %.thread.i
 
 .thread.i:                                        ; preds = %22
@@ -6493,7 +6493,7 @@ define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32
   %43 = add nsw i32 %42, %38
   %44 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 %43, ptr %44, align 8
-  %45 = icmp ugt i32 %.0, 5
+  %45 = icmp samesign ugt i32 %.0, 5
   br i1 %45, label %46, label %.thread18.i
 
 46:                                               ; preds = %34
@@ -6519,7 +6519,7 @@ define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32
   br label %61
 
 61:                                               ; preds = %.thread18.i, %46
-  %62 = icmp ugt i32 %.0, 7
+  %62 = icmp samesign ugt i32 %.0, 7
   br i1 %62, label %64, label %.thread16.i
 
 .thread16.i:                                      ; preds = %61
@@ -6539,7 +6539,7 @@ define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32
   %73 = add nsw i32 %72, %68
   %74 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %73, ptr %74, align 8
-  %75 = icmp ugt i32 %.0, 9
+  %75 = icmp samesign ugt i32 %.0, 9
   br i1 %75, label %77, label %.thread17.i
 
 .thread17.i:                                      ; preds = %64, %.thread16.i
@@ -6559,7 +6559,7 @@ define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32
   %86 = add nsw i32 %85, %81
   %87 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %86, ptr %87, align 4
-  %88 = icmp ugt i32 %.0, 11
+  %88 = icmp samesign ugt i32 %.0, 11
   br i1 %88, label %89, label %ucp_mktime.exit
 
 89:                                               ; preds = %77

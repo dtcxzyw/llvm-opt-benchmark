@@ -266,7 +266,7 @@ define dso_local noundef range(i32 -19, 1) i32 @alloc_iommu_pmu(ptr noundef %0) 
   %36 = trunc nuw nsw i64 %17 to i32
   %37 = getelementptr inbounds i8, ptr %33, i64 8
   store i32 %36, ptr %37, align 8
-  %38 = icmp ugt i64 %17, 64
+  %38 = icmp samesign ugt i64 %17, 64
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %35
@@ -508,7 +508,7 @@ define dso_local noundef range(i32 -19, 1) i32 @alloc_iommu_pmu(ptr noundef %0) 
   %202 = or i64 %201, %198
   store i64 %202, ptr %200, align 8
   %203 = add nuw nsw i64 %184, 1
-  %204 = icmp ult i64 %203, %196
+  %204 = icmp samesign ult i64 %203, %196
   br i1 %204, label %183, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %183, %.loopexit7, %.preheader
@@ -2569,7 +2569,7 @@ define internal noundef i32 @iommu_pmu_cpu_offline(i32 noundef %0, ptr noundef %
 28:                                               ; preds = %36, %26
   %29 = phi i64 [ 0, %26 ], [ %42, %36 ]
   %30 = and i64 %29, 4294967295
-  %31 = icmp ult i64 %30, 64
+  %31 = icmp samesign ult i64 %30, 64
   br i1 %31, label %32, label %.thread, !prof !6
 
 32:                                               ; preds = %28

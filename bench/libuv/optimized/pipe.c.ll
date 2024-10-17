@@ -727,7 +727,7 @@ if.else.i.i31:                                    ; preds = %if.end.i.i28
 if.end11.i.i33:                                   ; preds = %if.else.i.i31, %if.then5.i.i45
   %storemerge.in.i.i34 = phi i64 [ %call9.i.i32, %if.else.i.i31 ], [ %sub.i.i47, %if.then5.i.i45 ]
   %conv12.i.i35 = and i64 %storemerge.in.i.i34, 4294967295
-  %cmp13.not.i.i36 = icmp ult i64 %conv12.i.i35, %name_len.055
+  %cmp13.not.i.i36 = icmp samesign ult i64 %conv12.i.i35, %name_len.055
   br i1 %cmp13.not.i.i36, label %if.end17.i.i41, label %if.then17
 
 if.end17.i.i41:                                   ; preds = %if.end11.i.i33

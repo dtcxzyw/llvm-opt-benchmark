@@ -8441,7 +8441,7 @@ define hidden noundef i64 @_ZN5tokio7runtime4time6source10TimeSource16deadline_t
   %19 = select i1 %13, i32 0, i32 %14
   %20 = zext nneg i32 %19 to i128
   %21 = add nuw nsw i128 %18, %20
-  %22 = icmp ult i128 %21, 18446744073709551616
+  %22 = icmp samesign ult i128 %21, 18446744073709551616
   %23 = trunc nuw i128 %21 to i64
   %spec.select.i = select i1 %22, i64 %23, i64 -3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -8468,7 +8468,7 @@ define hidden noundef i64 @_ZN5tokio7runtime4time6source10TimeSource15instant_to
   %16 = select i1 %10, i32 0, i32 %11
   %17 = zext nneg i32 %16 to i128
   %18 = add nuw nsw i128 %15, %17
-  %19 = icmp ult i128 %18, 18446744073709551616
+  %19 = icmp samesign ult i128 %18, 18446744073709551616
   %20 = trunc nuw i128 %18 to i64
   %spec.select = select i1 %19, i64 %20, i64 -3
   ret i64 %spec.select
@@ -8499,7 +8499,7 @@ define hidden noundef i64 @_ZN5tokio7runtime4time6source10TimeSource3now17h2bfa2
   %18 = select i1 %12, i32 0, i32 %13
   %19 = zext nneg i32 %18 to i128
   %20 = add nuw nsw i128 %17, %19
-  %21 = icmp ult i128 %20, 18446744073709551616
+  %21 = icmp samesign ult i128 %20, 18446744073709551616
   %22 = trunc nuw i128 %20 to i64
   %spec.select.i = select i1 %21, i64 %22, i64 -3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -8748,7 +8748,7 @@ _ZN5tokio7runtime7process6Driver4park17hdad69bc4fe2e7f2eE.exit.i: ; preds = %37
   %61 = select i1 %55, i32 0, i32 %56
   %62 = zext nneg i32 %61 to i128
   %63 = add nuw nsw i128 %60, %62
-  %64 = icmp ult i128 %63, 18446744073709551616
+  %64 = icmp samesign ult i128 %63, 18446744073709551616
   %65 = trunc nuw i128 %63 to i64
   %spec.select.i.i = select i1 %64, i64 %65, i64 -3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1580
@@ -8839,7 +8839,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb8071bbc9dd916eaE.exit.i: ; preds = %87
   %105 = select i1 %99, i32 0, i32 %100
   %106 = zext nneg i32 %105 to i128
   %107 = add nuw nsw i128 %104, %106
-  %108 = icmp ult i128 %107, 18446744073709551616
+  %108 = icmp samesign ult i128 %107, 18446744073709551616
   %109 = trunc nuw i128 %107 to i64
   %spec.select.i.i.i = select i1 %108, i64 %109, i64 -3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1602

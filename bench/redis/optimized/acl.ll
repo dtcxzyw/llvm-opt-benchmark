@@ -4265,7 +4265,7 @@ if.end5.i:                                        ; preds = %if.end.i
   %22 = load i64, ptr %ctime, align 8
   %sub.i = sub nsw i64 %21, %22
   %spec.select.i = call i64 @llvm.abs.i64(i64 %sub.i, i1 true)
-  %cmp11.i = icmp ugt i64 %spec.select.i, 60000
+  %cmp11.i = icmp samesign ugt i64 %spec.select.i, 60000
   br i1 %cmp11.i, label %while.cond.backedge, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end5.i
@@ -7859,7 +7859,7 @@ if.end5:                                          ; preds = %if.end
   %5 = load i64, ptr %ctime6, align 8
   %sub = sub nsw i64 %4, %5
   %spec.select = tail call i64 @llvm.abs.i64(i64 %sub, i1 true)
-  %cmp11 = icmp ugt i64 %spec.select, 60000
+  %cmp11 = icmp samesign ugt i64 %spec.select, 60000
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end5

@@ -267,7 +267,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_hwloc_topo_load(ptr noundef %0, ptr nounde
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %82 = load i32, ptr %4, align 4
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next.i, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next.i, %83
   br i1 %84, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %81
@@ -1173,7 +1173,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_mac(ptr noundef %0, ptr nocapture n
   %55 = getelementptr inbounds i8, ptr %54, i64 4158
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
-  %58 = icmp ult i32 %53, %57
+  %58 = icmp samesign ult i32 %53, %57
   br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %.lr.ph27
@@ -1344,7 +1344,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_mac_to_abs(ptr noundef %0, ptr nocapture n
   %64 = getelementptr inbounds i8, ptr %63, i64 4158
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i32
-  %67 = icmp ult i32 %62, %66
+  %67 = icmp samesign ult i32 %62, %66
   br i1 %67, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %61
@@ -1376,7 +1376,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_mac_to_abs(ptr noundef %0, ptr nocapture n
   %79 = getelementptr inbounds i8, ptr %78, i64 4158
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
-  %82 = icmp ult i32 %77, %81
+  %82 = icmp samesign ult i32 %77, %81
   br i1 %82, label %.lr.ph43, label %.loopexit, !llvm.loop !21
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %76
@@ -1565,8 +1565,8 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture n
   %50 = getelementptr inbounds i16, ptr %8, i64 %indvars.iv.i
   store i16 1, ptr %50, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %51 = icmp ult i64 %indvars.iv.i, %49
-  %52 = icmp ult i64 %indvars.iv.next.i, %12
+  %51 = icmp samesign ult i64 %indvars.iv.i, %49
+  %52 = icmp samesign ult i64 %indvars.iv.next.i, %12
   %53 = and i1 %51, %52
   br i1 %53, label %.lr.ph.i, label %.thread.i, !llvm.loop !24
 

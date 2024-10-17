@@ -1485,7 +1485,7 @@ define noalias noundef ptr @N_VCloneVectorArray_Serial(i32 noundef %0, ptr nound
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %.lr.ph
-  %13 = icmp ugt i64 %indvars.iv, 1
+  %13 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %13, label %.lr.ph.preheader.i, label %N_VDestroyVectorArray_Serial.exit
 
 .lr.ph.preheader.i:                               ; preds = %12
@@ -1606,7 +1606,7 @@ define noalias noundef ptr @N_VCloneVectorArrayEmpty_Serial(i32 noundef %0, ptr 
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %.lr.ph
-  %13 = icmp ugt i64 %indvars.iv, 1
+  %13 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %13, label %.lr.ph.preheader.i, label %N_VDestroyVectorArray_Serial.exit
 
 .lr.ph.preheader.i:                               ; preds = %12

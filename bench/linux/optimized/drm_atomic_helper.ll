@@ -6010,7 +6010,7 @@ define dso_local i32 @drm_atomic_helper_prepare_planes(ptr nocapture noundef rea
 116:                                              ; preds = %109
   %117 = getelementptr inbounds i8, ptr %113, i64 24
   %118 = load ptr, ptr %117, align 8
-  %119 = icmp ult i64 %111, %102
+  %119 = icmp samesign ult i64 %111, %102
   br i1 %119, label %120, label %127
 
 120:                                              ; preds = %116
@@ -6067,7 +6067,7 @@ define dso_local i32 @drm_atomic_helper_prepare_planes(ptr nocapture noundef rea
 149:                                              ; preds = %142
   %150 = getelementptr inbounds i8, ptr %146, i64 24
   %151 = load ptr, ptr %150, align 8
-  %152 = icmp ult i64 %144, %141
+  %152 = icmp samesign ult i64 %144, %141
   br i1 %152, label %153, label %160
 
 153:                                              ; preds = %149

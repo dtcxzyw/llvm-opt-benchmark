@@ -1669,7 +1669,7 @@ switch.early.test:                                ; preds = %2
   store i8 %52, ptr %1, align 1
   %53 = and i32 %50, 255
   %54 = add nuw nsw i32 %50, 64
-  %55 = icmp ugt i32 %53, 62
+  %55 = icmp samesign ugt i32 %53, 62
   %56 = zext i1 %55 to i32
   %57 = add nuw nsw i32 %54, %56
   %58 = trunc i32 %57 to i8
@@ -2285,7 +2285,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr nocaptur
   %53 = zext i16 %52 to i32
   %54 = tail call i32 @llvm.umin.i32(i32 %53, i32 562)
   %55 = add nuw nsw i32 %54, 255
-  %.not38 = icmp ult i32 %55, %53
+  %.not38 = icmp samesign ult i32 %55, %53
   br i1 %.not38, label %zueci_u_lookup_uro.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48, %80
@@ -2413,7 +2413,7 @@ define internal range(i32 0, 3) i32 @zueci_u_ksx1001(i32 noundef %0, ptr nocaptu
   %54 = zext i16 %53 to i32
   %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 3351)
   %56 = add nuw nsw i32 %55, 255
-  %.not38 = icmp ult i32 %56, %54
+  %.not38 = icmp samesign ult i32 %56, %54
   br i1 %.not38, label %zueci_u_lookup_uro.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49, %80
@@ -5641,7 +5641,7 @@ switch.early.test:                                ; preds = %8
   %36 = getelementptr inbounds [209 x i16], ptr @zueci_gbk_nonuro_mb, i64 0, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i32
-  %39 = icmp ugt i32 %31, %38
+  %39 = icmp samesign ugt i32 %31, %38
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %.preheader
@@ -5649,7 +5649,7 @@ switch.early.test:                                ; preds = %8
   br label %50
 
 42:                                               ; preds = %.preheader
-  %43 = icmp ult i32 %31, %38
+  %43 = icmp samesign ult i32 %31, %38
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
@@ -5930,7 +5930,7 @@ switch.early.test:                                ; preds = %8
   %124 = getelementptr inbounds [255 x i16], ptr @zueci_gb18030_2_mb_mb, i64 0, i64 %123
   %125 = load i16, ptr %124, align 2
   %126 = zext i16 %125 to i32
-  %127 = icmp ugt i32 %119, %126
+  %127 = icmp samesign ugt i32 %119, %126
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %.preheader195
@@ -5938,7 +5938,7 @@ switch.early.test:                                ; preds = %8
   br label %138
 
 130:                                              ; preds = %.preheader195
-  %131 = icmp ult i32 %119, %126
+  %131 = icmp samesign ult i32 %119, %126
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %130

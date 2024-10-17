@@ -160,7 +160,7 @@ define dso_local ptr @nfs4_negotiate_security(ptr noundef %0, ptr noundef %1, pt
   %49 = add nuw nsw i64 %30, 1
   %50 = load i32, ptr %13, align 4
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %49, %51
+  %52 = icmp samesign ult i64 %49, %51
   br i1 %52, label %29, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.thread, %48, %19, %16
@@ -389,7 +389,7 @@ select.unfold:                                    ; preds = %81, %77
   %107 = add nuw nsw i32 %105, 1
   %108 = zext nneg i32 %107 to i64
   %109 = add nuw nsw i64 %102, %108
-  %110 = icmp ult i64 %109, 4097
+  %110 = icmp samesign ult i64 %109, 4097
   %111 = select i1 %106, i1 %110, i1 false
   br i1 %111, label %97, label %.thread40
 
@@ -529,7 +529,7 @@ select.unfold:                                    ; preds = %81, %77
   %194 = add nuw nsw i32 %192, 1
   %195 = zext nneg i32 %194 to i64
   %196 = add nuw nsw i64 %189, %195
-  %197 = icmp ult i64 %196, 4097
+  %197 = icmp samesign ult i64 %196, 4097
   %198 = select i1 %193, i1 %197, i1 false
   br i1 %198, label %184, label %.thread49
 
@@ -688,7 +688,7 @@ select.unfold:                                    ; preds = %81, %77
   %289 = add nuw nsw i64 %244, 1
   %290 = load i32, ptr %149, align 16
   %291 = zext i32 %290 to i64
-  %292 = icmp ult i64 %289, %291
+  %292 = icmp samesign ult i64 %289, %291
   br i1 %292, label %243, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.thread54, %.thread49
@@ -829,7 +829,7 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
   %50 = add nuw nsw i64 %55, 1
   %51 = load i32, ptr %28, align 8
   %52 = zext i32 %51 to i64
-  %53 = icmp ult i64 %50, %52
+  %53 = icmp samesign ult i64 %50, %52
   br i1 %53, label %54, label %89, !llvm.loop !18
 
 54:                                               ; preds = %.thread13, %46

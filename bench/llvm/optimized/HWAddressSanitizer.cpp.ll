@@ -4356,7 +4356,7 @@ _ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iter
   %771 = getelementptr inbounds i8, ptr %.111.i4.i.i, i64 -1
   store i8 %770, ptr %771, align 1, !noalias !61
   %772 = udiv i64 %.0810.i5.i.i, 10
-  %.not.i6.i.i = icmp ult i64 %.0810.i5.i.i, 10
+  %.not.i6.i.i = icmp samesign ult i64 %.0810.i5.i.i, 10
   br i1 %.not.i6.i.i, label %_ZN4llvm6itostrB5cxx11El.exit.i, label %.lr.ph.i3.i.i, !llvm.loop !62
 
 _ZN4llvm6itostrB5cxx11El.exit.i:                  ; preds = %.lr.ph.i3.i.i

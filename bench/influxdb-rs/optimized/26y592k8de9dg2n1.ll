@@ -460,7 +460,7 @@ define hidden { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_loa
 
 .lr.ph:                                           ; preds = %10, %.thread.i
   %.07 = phi i32 [ %spec.select, %.thread.i ], [ 0, %10 ]
-  %19 = icmp ult i32 %.07, 7
+  %19 = icmp samesign ult i32 %.07, 7
   br i1 %19, label %.preheader.i, label %20
 
 20:                                               ; preds = %.lr.ph
@@ -468,7 +468,7 @@ define hidden { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_loa
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.preheader.i, %20
-  %21 = icmp ult i32 %.07, 11
+  %21 = icmp samesign ult i32 %.07, 11
   %22 = zext i1 %21 to i32
   %spec.select = add nuw nsw i32 %.07, %22
   %23 = atomicrmw xchg ptr %4, i64 1 acquire, align 8
@@ -504,7 +504,7 @@ define hidden void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exc
 
 .lr.ph:                                           ; preds = %6, %.thread.i
   %.015 = phi i32 [ %spec.select, %.thread.i ], [ 0, %6 ]
-  %12 = icmp ult i32 %.015, 7
+  %12 = icmp samesign ult i32 %.015, 7
   br i1 %12, label %.preheader.i, label %13
 
 13:                                               ; preds = %.lr.ph
@@ -512,7 +512,7 @@ define hidden void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exc
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.preheader.i, %13
-  %14 = icmp ult i32 %.015, 11
+  %14 = icmp samesign ult i32 %.015, 11
   %15 = zext i1 %14 to i32
   %spec.select = add nuw nsw i32 %.015, %15
   %16 = atomicrmw xchg ptr %9, i64 1 acquire, align 8
@@ -1630,7 +1630,7 @@ define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17
   br label %.preheader.split.us
 
 10:                                               ; preds = %7
-  %11 = icmp ult i32 %.0, 7
+  %11 = icmp samesign ult i32 %.0, 7
   br i1 %11, label %.preheader.i, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %10
@@ -2932,7 +2932,7 @@ _ZN3std4sync6poison4Flag4done17hd9bab5cd828871c1E.llvm.10746823393314531435.exit
 
 .lr.ph.i.i:                                       ; preds = %69, %.thread.i.i.i
   %.02.i.i = phi i32 [ %spec.select.i.i10, %.thread.i.i.i ], [ 0, %69 ]
-  %73 = icmp ult i32 %.02.i.i, 7
+  %73 = icmp samesign ult i32 %.02.i.i, 7
   br i1 %73, label %.preheader.i.i.i, label %74
 
 74:                                               ; preds = %.lr.ph.i.i
@@ -2940,7 +2940,7 @@ _ZN3std4sync6poison4Flag4done17hd9bab5cd828871c1E.llvm.10746823393314531435.exit
           to label %.thread.i.i.i unwind label %.loopexit
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %74
-  %75 = icmp ult i32 %.02.i.i, 11
+  %75 = icmp samesign ult i32 %.02.i.i, 11
   %76 = zext i1 %75 to i32
   %spec.select.i.i10 = add nuw nsw i32 %.02.i.i, %76
   %77 = load atomic i8, ptr %70 acquire, align 1, !noalias !495
@@ -3494,7 +3494,7 @@ _ZN3std4sync6poison4Flag4done17hd9bab5cd828871c1E.llvm.10746823393314531435.exit
 
 .lr.ph.i.i:                                       ; preds = %71, %.thread.i.i.i
   %.02.i.i = phi i32 [ %spec.select.i.i10, %.thread.i.i.i ], [ 0, %71 ]
-  %75 = icmp ult i32 %.02.i.i, 7
+  %75 = icmp samesign ult i32 %.02.i.i, 7
   br i1 %75, label %.preheader.i.i.i, label %76
 
 76:                                               ; preds = %.lr.ph.i.i
@@ -3502,7 +3502,7 @@ _ZN3std4sync6poison4Flag4done17hd9bab5cd828871c1E.llvm.10746823393314531435.exit
           to label %.thread.i.i.i unwind label %.loopexit
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %76
-  %77 = icmp ult i32 %.02.i.i, 11
+  %77 = icmp samesign ult i32 %.02.i.i, 11
   %78 = zext i1 %77 to i32
   %spec.select.i.i10 = add nuw nsw i32 %.02.i.i, %78
   %79 = load atomic i8, ptr %72 acquire, align 1, !noalias !648
@@ -4170,7 +4170,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr96drop
 
 .lr.ph.i:                                         ; preds = %82, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %82 ]
-  %85 = icmp ult i32 %.02.i, 7
+  %85 = icmp samesign ult i32 %.02.i, 7
   br i1 %85, label %.preheader.i.i, label %86
 
 86:                                               ; preds = %.lr.ph.i
@@ -4178,7 +4178,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr96drop
           to label %.thread.i.i unwind label %.loopexit
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %86
-  %87 = icmp ult i32 %.02.i, 11
+  %87 = icmp samesign ult i32 %.02.i, 11
   %88 = zext i1 %87 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %88
   %89 = load atomic i8, ptr %16 acquire, align 8
@@ -4817,7 +4817,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr96drop
 
 .lr.ph.i:                                         ; preds = %81, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %81 ]
-  %84 = icmp ult i32 %.02.i, 7
+  %84 = icmp samesign ult i32 %.02.i, 7
   br i1 %84, label %.preheader.i.i, label %85
 
 85:                                               ; preds = %.lr.ph.i
@@ -4825,7 +4825,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr96drop
           to label %.thread.i.i unwind label %.loopexit
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %85
-  %86 = icmp ult i32 %.02.i, 11
+  %86 = icmp samesign ult i32 %.02.i, 11
   %87 = zext i1 %86 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %87
   %88 = load atomic i8, ptr %15 acquire, align 8
@@ -6549,7 +6549,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr96drop
 
 .lr.ph.i:                                         ; preds = %82, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %82 ]
-  %85 = icmp ult i32 %.02.i, 7
+  %85 = icmp samesign ult i32 %.02.i, 7
   br i1 %85, label %.preheader.i.i, label %86
 
 86:                                               ; preds = %.lr.ph.i
@@ -6557,7 +6557,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr96drop
           to label %.thread.i.i unwind label %.loopexit
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %86
-  %87 = icmp ult i32 %.02.i, 11
+  %87 = icmp samesign ult i32 %.02.i, 11
   %88 = zext i1 %87 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %88
   %89 = load atomic i8, ptr %16 acquire, align 8
@@ -7183,7 +7183,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr96drop
 
 .lr.ph.i:                                         ; preds = %84, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %84 ]
-  %87 = icmp ult i32 %.02.i, 7
+  %87 = icmp samesign ult i32 %.02.i, 7
   br i1 %87, label %.preheader.i.i, label %88
 
 88:                                               ; preds = %.lr.ph.i
@@ -7191,7 +7191,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr96drop
           to label %.thread.i.i unwind label %.loopexit
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %88
-  %89 = icmp ult i32 %.02.i, 11
+  %89 = icmp samesign ult i32 %.02.i, 11
   %90 = zext i1 %89 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %90
   %91 = load atomic i8, ptr %18 acquire, align 8
@@ -7928,7 +7928,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4recv
   br i1 %43, label %69, label %66
 
 44:                                               ; preds = %38
-  %45 = icmp ult i32 %.024.i, 7
+  %45 = icmp samesign ult i32 %.024.i, 7
   br i1 %45, label %.preheader.i.i, label %46
 
 46:                                               ; preds = %44
@@ -7936,7 +7936,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4recv
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %46
-  %47 = icmp ult i32 %.024.i, 11
+  %47 = icmp samesign ult i32 %.024.i, 11
   %48 = load atomic i64, ptr %1 monotonic, align 128, !noalias !1671
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i
 
@@ -7962,7 +7962,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4recv
   br label %60
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i: ; preds = %60
-  %58 = icmp ult i32 %.024.i, 7
+  %58 = icmp samesign ult i32 %.024.i, 7
   %59 = load atomic i64, ptr %1 monotonic, align 128, !noalias !1671
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i
 
@@ -8003,7 +8003,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i: ; preds 
   br label %74
 
 72:                                               ; preds = %74
-  %73 = icmp ult i32 %.024.i, 7
+  %73 = icmp samesign ult i32 %.024.i, 7
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i
 
 74:                                               ; preds = %74, %71
@@ -8069,7 +8069,7 @@ common.resume:                                    ; preds = %112, %116, %138, %1
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd9988bc739bedbe6E.exit"
 
 89:                                               ; preds = %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$10start_recv17h979037b696ef2015E.exit"
-  %90 = icmp ult i32 %.0, 7
+  %90 = icmp samesign ult i32 %.0, 7
   br i1 %90, label %.preheader.i, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %89
@@ -8362,7 +8362,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4recv
   br i1 %43, label %69, label %66
 
 44:                                               ; preds = %38
-  %45 = icmp ult i32 %.024.i, 7
+  %45 = icmp samesign ult i32 %.024.i, 7
   br i1 %45, label %.preheader.i.i, label %46
 
 46:                                               ; preds = %44
@@ -8370,7 +8370,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4recv
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %46
-  %47 = icmp ult i32 %.024.i, 11
+  %47 = icmp samesign ult i32 %.024.i, 11
   %48 = load atomic i64, ptr %1 monotonic, align 128, !noalias !1732
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i
 
@@ -8396,7 +8396,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4recv
   br label %60
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i: ; preds = %60
-  %58 = icmp ult i32 %.024.i, 7
+  %58 = icmp samesign ult i32 %.024.i, 7
   %59 = load atomic i64, ptr %1 monotonic, align 128, !noalias !1732
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i
 
@@ -8437,7 +8437,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i: ; preds 
   br label %74
 
 72:                                               ; preds = %74
-  %73 = icmp ult i32 %.024.i, 7
+  %73 = icmp samesign ult i32 %.024.i, 7
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i
 
 74:                                               ; preds = %74, %71
@@ -8503,7 +8503,7 @@ common.resume:                                    ; preds = %112, %116, %138, %1
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9587b2a37e17eaacE.exit"
 
 89:                                               ; preds = %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$10start_recv17h524622832e586713E.exit"
-  %90 = icmp ult i32 %.0, 7
+  %90 = icmp samesign ult i32 %.0, 7
   br i1 %90, label %.preheader.i, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %89
@@ -8986,7 +8986,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
   br i1 %49, label %74, label %71
 
 50:                                               ; preds = %41
-  %51 = icmp ult i32 %.02431.i, 7
+  %51 = icmp samesign ult i32 %.02431.i, 7
   br i1 %51, label %.preheader.i.i, label %52
 
 52:                                               ; preds = %50
@@ -8994,7 +8994,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
           to label %.thread.i.i unwind label %.body.thread43.loopexit
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %52
-  %53 = icmp ult i32 %.02431.i, 11
+  %53 = icmp samesign ult i32 %.02431.i, 11
   %54 = load atomic i64, ptr %19 monotonic, align 128, !noalias !1823
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i
 
@@ -9019,7 +9019,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
   br label %65
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i: ; preds = %65
-  %63 = icmp ult i32 %.02431.i, 7
+  %63 = icmp samesign ult i32 %.02431.i, 7
   %64 = load atomic i64, ptr %19 monotonic, align 128, !noalias !1823
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i
 
@@ -9062,7 +9062,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i: ; preds 
   br label %81
 
 79:                                               ; preds = %81
-  %80 = icmp ult i32 %.02431.i, 7
+  %80 = icmp samesign ult i32 %.02431.i, 7
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i
 
 81:                                               ; preds = %81, %78
@@ -9108,7 +9108,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i: ; preds 
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17he7d9e2463ff49fb7E.exit"
 
 87:                                               ; preds = %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$10start_send17h4be54dac17c6efabE.exit"
-  %88 = icmp ult i32 %.080, 7
+  %88 = icmp samesign ult i32 %.080, 7
   br i1 %88, label %.preheader.i, label %89
 
 89:                                               ; preds = %87
@@ -9461,7 +9461,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
   br i1 %49, label %74, label %71
 
 50:                                               ; preds = %41
-  %51 = icmp ult i32 %.02431.i, 7
+  %51 = icmp samesign ult i32 %.02431.i, 7
   br i1 %51, label %.preheader.i.i, label %52
 
 52:                                               ; preds = %50
@@ -9469,7 +9469,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
           to label %.thread.i.i unwind label %.body.thread43.loopexit
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %52
-  %53 = icmp ult i32 %.02431.i, 11
+  %53 = icmp samesign ult i32 %.02431.i, 11
   %54 = load atomic i64, ptr %19 monotonic, align 128, !noalias !1892
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i
 
@@ -9494,7 +9494,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
   br label %65
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i: ; preds = %65
-  %63 = icmp ult i32 %.02431.i, 7
+  %63 = icmp samesign ult i32 %.02431.i, 7
   %64 = load atomic i64, ptr %19 monotonic, align 128, !noalias !1892
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i
 
@@ -9537,7 +9537,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i: ; preds 
   br label %81
 
 79:                                               ; preds = %81
-  %80 = icmp ult i32 %.02431.i, 7
+  %80 = icmp samesign ult i32 %.02431.i, 7
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i
 
 81:                                               ; preds = %81, %78
@@ -9583,7 +9583,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit18.i: ; preds 
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc46812b8fa39c412E.exit"
 
 87:                                               ; preds = %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$10start_send17h926cdf800df9b8d3E.exit"
-  %88 = icmp ult i32 %.080, 7
+  %88 = icmp samesign ult i32 %.080, 7
   br i1 %88, label %.preheader.i, label %89
 
 89:                                               ; preds = %87
@@ -10600,7 +10600,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   %33 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8, !noalias !2114
   %34 = icmp ult i64 %33, 6
   call void @llvm.assume(i1 %34)
-  %35 = icmp ugt i64 %.0.i7, %33
+  %35 = icmp samesign ugt i64 %.0.i7, %33
   br i1 %35, label %.noexc4, label %.critedge.i8
 
 .critedge.i8:                                     ; preds = %20
@@ -12252,7 +12252,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   br i1 %55, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread153.i, label %56
 
 56:                                               ; preds = %53
-  %57 = icmp ult i64 %54, 5
+  %57 = icmp samesign ult i64 %54, 5
   tail call void @llvm.assume(i1 %57)
   %58 = icmp eq i64 %54, 0
   br i1 %58, label %59, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread153.i
@@ -14009,9 +14009,9 @@ _ZN15influxdb3_write12write_buffer14buffer_segment17OpenBufferSegment11write_bat
   br i1 %71, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread122, label %72
 
 72:                                               ; preds = %69
-  %73 = icmp ult i64 %70, 5
+  %73 = icmp samesign ult i64 %70, 5
   call void @llvm.assume(i1 %73)
-  %74 = icmp ult i64 %70, 2
+  %74 = icmp samesign ult i64 %70, 2
   br i1 %74, label %75, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread122
 
 75:                                               ; preds = %72
@@ -14064,7 +14064,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %96 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8
   %97 = icmp ult i64 %96, 6
   call void @llvm.assume(i1 %97)
-  %switch.selectcmp68 = icmp ugt i64 %96, 3
+  %switch.selectcmp68 = icmp samesign ugt i64 %96, 3
   br i1 %switch.selectcmp68, label %98, label %132
 
 98:                                               ; preds = %95
@@ -14230,7 +14230,7 @@ default.unreachable:                              ; preds = %132
   %144 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8, !noalias !2365
   %145 = icmp ult i64 %144, 6
   call void @llvm.assume(i1 %145)
-  %146 = icmp ult i64 %144, 4
+  %146 = icmp samesign ult i64 %144, 4
   br i1 %146, label %"_ZN15influxdb3_write12write_buffer7flusher12run_io_flush28_$u7b$$u7b$closure$u7d$$u7d$17h86f7917f2c4d8cf6E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %143

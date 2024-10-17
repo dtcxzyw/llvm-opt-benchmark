@@ -2529,7 +2529,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %2 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %granularity)
-  %cmp2 = icmp ult i32 %2, 2
+  %cmp2 = icmp samesign ult i32 %2, 2
   br i1 %cmp2, label %if.end5, label %if.else4
 
 if.else4:                                         ; preds = %if.end
@@ -2548,7 +2548,7 @@ if.then7:                                         ; preds = %if.end5
   br label %return
 
 if.end11:                                         ; preds = %if.end5
-  %cmp12 = icmp ugt i32 %1, 31
+  %cmp12 = icmp samesign ugt i32 %1, 31
   br i1 %cmp12, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end11
@@ -2556,7 +2556,7 @@ if.then14:                                        ; preds = %if.end11
   br label %return
 
 if.end15:                                         ; preds = %if.end11
-  %cmp16 = icmp ult i32 %1, 9
+  %cmp16 = icmp samesign ult i32 %1, 9
   br i1 %cmp16, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end15

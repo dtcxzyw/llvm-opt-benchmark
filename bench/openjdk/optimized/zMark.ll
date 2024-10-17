@@ -1742,7 +1742,7 @@ define hidden void @_ZN5ZMark20follow_partial_arrayE15ZMarkStackEntryb(ptr nound
   %8 = inttoptr i64 %7 to ptr
   %9 = lshr i64 %1, 2
   %10 = and i64 %9, 1073741823
-  %11 = icmp ult i64 %10, 513
+  %11 = icmp samesign ult i64 %10, 513
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %3
@@ -2257,7 +2257,7 @@ define hidden void @_ZN5ZMark15mark_and_followEP12ZMarkContext15ZMarkStackEntry(
   %13 = inttoptr i64 %12 to ptr
   %14 = lshr i64 %2, 2
   %15 = and i64 %14, 1073741823
-  %16 = icmp ult i64 %15, 513
+  %16 = icmp samesign ult i64 %15, 513
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %8
@@ -9436,7 +9436,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 67:                                               ; preds = %70, %64
   %.025.i.i.i.i.i = phi i64 [ %56, %64 ], [ %68, %70 ]
   %68 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %69 = icmp ult i64 %68, %66
+  %69 = icmp samesign ult i64 %68, %66
   br i1 %69, label %70, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional1EEEEvP17stackChunkOopDescPT0_PlS9_.exit
 
 70:                                               ; preds = %67
@@ -9746,7 +9746,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %40, %44
   %.025.i.i.i.i = phi i64 [ %42, %44 ], [ %34, %40 ]
   %42 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %43 = icmp ult i64 %42, %32
+  %43 = icmp samesign ult i64 %42, %32
   br i1 %43, label %44, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional1EEEEEbPT_mm.exit
 
 44:                                               ; preds = %.preheader.i.i
@@ -11161,7 +11161,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 67:                                               ; preds = %70, %64
   %.025.i.i.i.i.i = phi i64 [ %56, %64 ], [ %68, %70 ]
   %68 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %69 = icmp ult i64 %68, %66
+  %69 = icmp samesign ult i64 %68, %66
   br i1 %69, label %70, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional1EEEEvP17stackChunkOopDescPT0_PlS9_.exit
 
 70:                                               ; preds = %67
@@ -11464,7 +11464,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %40, %44
   %.025.i.i.i.i = phi i64 [ %42, %44 ], [ %34, %40 ]
   %42 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %43 = icmp ult i64 %42, %32
+  %43 = icmp samesign ult i64 %42, %32
   br i1 %43, label %44, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional1EEEEEbPT_mm.exit
 
 44:                                               ; preds = %.preheader.i.i
@@ -13371,7 +13371,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 67:                                               ; preds = %70, %64
   %.025.i.i.i.i.i = phi i64 [ %56, %64 ], [ %68, %70 ]
   %68 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %69 = icmp ult i64 %68, %66
+  %69 = icmp samesign ult i64 %68, %66
   br i1 %69, label %70, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional0EEEEvP17stackChunkOopDescPT0_PlS9_.exit
 
 70:                                               ; preds = %67
@@ -13580,7 +13580,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %64, %68
   %.025.i.i.i.i.i = phi i64 [ %66, %68 ], [ %58, %64 ]
   %66 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %67 = icmp ult i64 %66, %56
+  %67 = icmp samesign ult i64 %66, %56
   br i1 %67, label %68, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional0EEEEvP17stackChunkOopDescPT0_PlSA_.exit
 
 68:                                               ; preds = %.preheader.i.i.i

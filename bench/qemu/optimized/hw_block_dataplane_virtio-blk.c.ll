@@ -635,7 +635,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %num_queues = getelementptr inbounds i8, ptr %4, i64 108
   %5 = load i16, ptr %num_queues, align 4
   %conv = zext i16 %5 to i32
-  %cmp = icmp ult i32 %inc, %conv
+  %cmp = icmp samesign ult i32 %inc, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.body, %entry

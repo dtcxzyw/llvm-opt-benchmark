@@ -593,8 +593,8 @@ define hidden noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %.preheader130, label %123
 
 .preheader130:                                    ; preds = %54
-  %.not140 = icmp eq i32 %50, 0
-  br i1 %.not140, label %._crit_edge, label %.lr.ph.preheader
+  %.not142 = icmp eq i32 %50, 0
+  br i1 %.not142, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader130
   %invariant.umin = tail call i64 @llvm.umin.i64(i64 %51, i64 4)
@@ -650,31 +650,31 @@ define hidden noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr noundef %1
   br i1 %.not127, label %.preheader129, label %123
 
 .preheader129:                                    ; preds = %80
-  %.not141 = icmp eq i32 %76, 0
-  br i1 %.not141, label %._crit_edge135, label %.lr.ph134
+  %.not143 = icmp eq i32 %76, 0
+  br i1 %.not143, label %._crit_edge136, label %.lr.ph135
 
-.lr.ph134:                                        ; preds = %.preheader129
+.lr.ph135:                                        ; preds = %.preheader129
   %88 = getelementptr inbounds i8, ptr %41, i64 4
-  %.not147 = icmp eq i32 %76, 1
-  %umax143 = select i1 %.not147, i64 1, i64 2
+  %.not149 = icmp eq i32 %76, 1
+  %umax145 = select i1 %.not149, i64 1, i64 2
   br label %89
 
-89:                                               ; preds = %.lr.ph134, %89
-  %.1133 = phi i64 [ 0, %.lr.ph134 ], [ %94, %89 ]
-  %90 = getelementptr inbounds i16, ptr %78, i64 %.1133
+89:                                               ; preds = %.lr.ph135, %89
+  %.1134 = phi i64 [ 0, %.lr.ph135 ], [ %94, %89 ]
+  %90 = getelementptr inbounds i16, ptr %78, i64 %.1134
   %91 = load i16, ptr %90, align 2
   %92 = trunc i16 %91 to i8
-  %93 = getelementptr inbounds [2 x i8], ptr %88, i64 0, i64 %.1133
+  %93 = getelementptr inbounds [2 x i8], ptr %88, i64 0, i64 %.1134
   store i8 %92, ptr %93, align 1
-  %94 = add nuw nsw i64 %.1133, 1
-  %exitcond144.not = icmp eq i64 %94, %umax143
-  br i1 %exitcond144.not, label %._crit_edge135, label %89, !llvm.loop !8
+  %94 = add nuw nsw i64 %.1134, 1
+  %exitcond146.not = icmp eq i64 %94, %umax145
+  br i1 %exitcond146.not, label %._crit_edge136, label %89, !llvm.loop !8
 
-._crit_edge135:                                   ; preds = %89, %.preheader129
+._crit_edge136:                                   ; preds = %89, %.preheader129
   tail call void @free(ptr noundef nonnull %78) #8
   br label %95
 
-95:                                               ; preds = %._crit_edge135, %69
+95:                                               ; preds = %._crit_edge136, %69
   %96 = icmp eq ptr %40, null
   br i1 %96, label %97, label %100
 
@@ -708,27 +708,27 @@ define hidden noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr noundef %1
   br i1 %.not128, label %.preheader, label %123
 
 .preheader:                                       ; preds = %108
-  %.not142 = icmp eq i32 %104, 0
-  br i1 %.not142, label %._crit_edge139, label %.lr.ph138
+  %.not144 = icmp eq i32 %104, 0
+  br i1 %.not144, label %._crit_edge141, label %.lr.ph140
 
-.lr.ph138:                                        ; preds = %.preheader
+.lr.ph140:                                        ; preds = %.preheader
   %116 = getelementptr inbounds i8, ptr %41, i64 6
-  %.not148 = icmp eq i32 %104, 1
-  %umax145 = select i1 %.not148, i64 1, i64 2
+  %.not150 = icmp eq i32 %104, 1
+  %umax147 = select i1 %.not150, i64 1, i64 2
   br label %117
 
-117:                                              ; preds = %.lr.ph138, %117
-  %.2137 = phi i64 [ 0, %.lr.ph138 ], [ %122, %117 ]
-  %118 = getelementptr inbounds i16, ptr %106, i64 %.2137
+117:                                              ; preds = %.lr.ph140, %117
+  %.2139 = phi i64 [ 0, %.lr.ph140 ], [ %122, %117 ]
+  %118 = getelementptr inbounds i16, ptr %106, i64 %.2139
   %119 = load i16, ptr %118, align 2
   %120 = trunc i16 %119 to i8
-  %121 = getelementptr inbounds [2 x i8], ptr %116, i64 0, i64 %.2137
+  %121 = getelementptr inbounds [2 x i8], ptr %116, i64 0, i64 %.2139
   store i8 %120, ptr %121, align 1
-  %122 = add nuw nsw i64 %.2137, 1
-  %exitcond146.not = icmp eq i64 %122, %umax145
-  br i1 %exitcond146.not, label %._crit_edge139, label %117, !llvm.loop !9
+  %122 = add nuw nsw i64 %.2139, 1
+  %exitcond148.not = icmp eq i64 %122, %umax147
+  br i1 %exitcond148.not, label %._crit_edge141, label %117, !llvm.loop !9
 
-._crit_edge139:                                   ; preds = %117, %.preheader
+._crit_edge141:                                   ; preds = %117, %.preheader
   tail call void @free(ptr noundef nonnull %106) #8
   br label %124
 
@@ -742,8 +742,8 @@ define hidden noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr noundef %1
   tail call void @free(ptr noundef nonnull %41) #8
   br label %124
 
-124:                                              ; preds = %97, %._crit_edge139, %26, %16, %10, %4, %2, %123, %43
-  %.0111 = phi ptr [ null, %43 ], [ null, %123 ], [ null, %2 ], [ null, %4 ], [ null, %10 ], [ null, %16 ], [ null, %26 ], [ %41, %._crit_edge139 ], [ %41, %97 ]
+124:                                              ; preds = %97, %._crit_edge141, %26, %16, %10, %4, %2, %123, %43
+  %.0111 = phi ptr [ null, %43 ], [ null, %123 ], [ null, %2 ], [ null, %4 ], [ null, %10 ], [ null, %16 ], [ null, %26 ], [ %41, %._crit_edge141 ], [ %41, %97 ]
   ret ptr %.0111
 }
 

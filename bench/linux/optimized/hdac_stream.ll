@@ -121,7 +121,7 @@ define dso_local range(i32 0, 4) i32 @snd_hdac_get_stream_stripe_ctl(ptr nocaptu
 
 28:                                               ; preds = %24
   %29 = lshr i32 %25, 1
-  %30 = icmp ult i32 %25, 2
+  %30 = icmp samesign ult i32 %25, 2
   br i1 %30, label %.loopexit.loopexit, label %24, !llvm.loop !7
 
 .loopexit.loopexit:                               ; preds = %24, %28
@@ -310,7 +310,7 @@ define dso_local void @snd_hdac_stream_start(ptr noundef %0) #0 align 16 {
 
 73:                                               ; preds = %69
   %74 = lshr i32 %70, 1
-  %75 = icmp ult i32 %70, 2
+  %75 = icmp samesign ult i32 %70, 2
   br i1 %75, label %.loopexit.loopexit, label %69, !llvm.loop !7
 
 .loopexit.loopexit:                               ; preds = %69, %73

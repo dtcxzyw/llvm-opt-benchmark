@@ -14,19 +14,19 @@ define internal fastcc noundef ptr @img_alloc_helper(ptr noundef %0, i32 noundef
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %4, i32 1)
   %12 = add i32 %spec.store.select, -1
   %13 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %spec.store.select)
-  %.not = icmp ult i32 %13, 2
+  %.not = icmp samesign ult i32 %13, 2
   br i1 %.not, label %14, label %152
 
 14:                                               ; preds = %11
   %spec.store.select1 = tail call i32 @llvm.umax.i32(i32 %5, i32 1)
   %15 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %spec.store.select1)
-  %.not106 = icmp ult i32 %15, 2
+  %.not106 = icmp samesign ult i32 %15, 2
   br i1 %.not106, label %16, label %152
 
 16:                                               ; preds = %14
   %spec.store.select2 = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
   %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %spec.store.select2)
-  %.not108 = icmp ult i32 %17, 2
+  %.not108 = icmp samesign ult i32 %17, 2
   br i1 %.not108, label %18, label %152
 
 18:                                               ; preds = %16

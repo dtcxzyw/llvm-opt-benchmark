@@ -120669,7 +120669,7 @@ _ZN10TestObjectD2Ev.exit33:                       ; preds = %for.body38, %if.the
   %inc3.i32 = add nsw i64 %20, 1
   store i64 %inc3.i32, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %p34.0.add = add nuw nsw i64 %p34.0.idx70, 24
-  %cmp37 = icmp ult i64 %p34.0.idx70, 168
+  %cmp37 = icmp samesign ult i64 %p34.0.idx70, 168
   br i1 %cmp37, label %for.body38, label %for.end41, !llvm.loop !4376
 
 for.end41:                                        ; preds = %_ZN10TestObjectD2Ev.exit33
@@ -132283,7 +132283,7 @@ _ZSt9iter_swapIP10TestObjectS1_EvT_T0_.exit:      ; preds = %_ZN10TestObjectaSEO
   %19 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %inc3.i.i.i = add nsw i64 %19, 1
   store i64 %inc3.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %cmp19.i = icmp ult i64 %__i.0.idx, -24
+  %cmp19.i = icmp samesign ult i64 %__i.0.idx, -24
   br i1 %cmp19.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i, label %return
 
 _ZN10TestObjectaSEOS_.exit.i.i.i:                 ; preds = %_ZSt9iter_swapIP10TestObjectS1_EvT_T0_.exit, %_ZSt9iter_swapIP10TestObjectS1_EvT_T0_.exit.i

@@ -1177,7 +1177,7 @@ _ZN10open_spiel10phantom_go21VirtualPointTo2DPointEt.exit: ; preds = %2
   %22 = urem i16 %1, 21
   %.zext16.i = trunc nuw nsw i16 %22 to i8
   %23 = or disjoint i8 %.zext16.i, 96
-  %24 = icmp ugt i8 %23, 104
+  %24 = icmp samesign ugt i8 %23, 104
   %25 = add nuw nsw i8 %.zext16.i, 97
   %spec.select = select i1 %24, i8 %25, i8 %23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #26
@@ -1423,7 +1423,7 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard5ClearEv(ptr nocapture n
   %9 = load i32, ptr %3, align 8
   %10 = mul nsw i32 %9, %9
   %11 = zext nneg i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %12, label %6, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %6, %1
@@ -1919,7 +1919,7 @@ _ZN10open_spiel10phantom_go24VirtualPointToBoardPointEti.exit49: ; preds = %"_ZZ
   %167 = load i32, ptr %22, align 8
   %168 = mul nsw i32 %167, %167
   %169 = zext nneg i32 %168 to i64
-  %170 = icmp ult i64 %indvars.iv.next, %169
+  %170 = icmp samesign ult i64 %indvars.iv.next, %169
   br i1 %170, label %144, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %166, %.preheader, %140
@@ -2193,7 +2193,7 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_
   %30 = getelementptr i8, ptr %29, i64 %.idx.i8.i
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
-  %33 = icmp ult i32 %.0, %32
+  %33 = icmp samesign ult i32 %.0, %32
   %spec.select72 = select i1 %33, i16 %27, i16 %.064
   %spec.select73 = tail call i32 @llvm.umax.i32(i32 %.0, i32 %32)
   br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit9.i"

@@ -4576,7 +4576,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %16, %_ZNSt6vectorId
   %43 = load i64, ptr %3, align 8
   %44 = shl i64 %43, 2
   %45 = and i64 %44, 9223372036854775804
-  %.not = icmp ult i64 %45, %indvars.iv.next
+  %.not = icmp samesign ult i64 %45, %indvars.iv.next
   br i1 %.not, label %.loopexit, label %11, !llvm.loop !54
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIdSaIdEE9push_backEOd.exit, %2
@@ -7224,7 +7224,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK5faiss14Pa
           to label %.preheader257 unwind label %.loopexit.split-lp247.loopexit.split-lp
 
 .preheader257:                                    ; preds = %172
-  %178 = icmp ugt i64 %.05.lcssa.i305313319, 2
+  %178 = icmp samesign ugt i64 %.05.lcssa.i305313319, 2
   br i1 %178, label %.lr.ph, label %.loopexit258
 
 .lr.ph:                                           ; preds = %.preheader257, %.lr.ph

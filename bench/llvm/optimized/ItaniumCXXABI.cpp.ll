@@ -1701,8 +1701,8 @@ define internal fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN
   store ptr %.0.i.i.i.i.i.i.i.i, ptr %.042.ptr55.i.i.i.i.i, align 8
   %14 = getelementptr inbounds i8, ptr %.sroa.039.054.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %14, %7
-  %.not47.i.i.i.i.i = icmp ugt i64 %.042.idx53.i.i.i.i.i, 48
-  %or.cond.i.i.i.i.i = or i1 %.not.i.i.i.i.i, %.not47.i.i.i.i.i
+  %.not47.i.i.i.i.i = icmp samesign ugt i64 %.042.idx53.i.i.i.i.i, 48
+  %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 true, i1 %.not47.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !27
 
 .critedge.i.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i.i, %5
@@ -1792,8 +1792,8 @@ define internal fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN
   store ptr %.0.i.i.i18.i.i.i.i.i, ptr %.2.ptr59.i.i.i.i.i, align 8
   %57 = getelementptr inbounds i8, ptr %.sroa.039.258.i.i.i.i.i, i64 8
   %.not49.i.i.i.i.i = icmp eq ptr %57, %7
-  %.not50.i.i.i.i.i = icmp ugt i64 %.2.idx57.i.i.i.i.i, 48
-  %or.cond51.i.i.i.i.i = or i1 %.not49.i.i.i.i.i, %.not50.i.i.i.i.i
+  %.not50.i.i.i.i.i = icmp samesign ugt i64 %.2.idx57.i.i.i.i.i, 48
+  %or.cond51.i.i.i.i.i = select i1 %.not49.i.i.i.i.i, i1 true, i1 %.not50.i.i.i.i.i
   br i1 %or.cond51.i.i.i.i.i, label %.critedge2.i.i.i.i.i, label %51, !llvm.loop !31
 
 .critedge2.i.i.i.i.i:                             ; preds = %51

@@ -15815,7 +15815,7 @@ define hidden void @_ZN17cranelift_codegen8machinst7compile7compile17h3a0d74ff48
   %64 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %65 = icmp ult i64 %64, 6
   tail call void @llvm.assume(i1 %65)
-  %66 = icmp ugt i64 %64, 3
+  %66 = icmp samesign ugt i64 %64, 3
   br i1 %66, label %67, label %81
 
 67:                                               ; preds = %63
@@ -15870,7 +15870,7 @@ define hidden void @_ZN17cranelift_codegen8machinst7compile7compile17h3a0d74ff48
   %82 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %83 = icmp ult i64 %82, 6
   call void @llvm.assume(i1 %83)
-  %84 = icmp ugt i64 %82, 3
+  %84 = icmp samesign ugt i64 %82, 3
   br i1 %84, label %85, label %76
 
 85:                                               ; preds = %81
@@ -16026,7 +16026,7 @@ define hidden void @_ZN17cranelift_codegen8machinst7compile7compile17h3a0d74ff48
   %142 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %143 = icmp ult i64 %142, 6
   call void @llvm.assume(i1 %143)
-  %144 = icmp ugt i64 %142, 3
+  %144 = icmp samesign ugt i64 %142, 3
   br i1 %144, label %145, label %154
 
 145:                                              ; preds = %141
@@ -16061,7 +16061,7 @@ define hidden void @_ZN17cranelift_codegen8machinst7compile7compile17h3a0d74ff48
   %155 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %156 = icmp ult i64 %155, 6
   call void @llvm.assume(i1 %156)
-  %157 = icmp ugt i64 %155, 3
+  %157 = icmp samesign ugt i64 %155, 3
   br i1 %157, label %158, label %167
 
 158:                                              ; preds = %154
@@ -16096,7 +16096,7 @@ define hidden void @_ZN17cranelift_codegen8machinst7compile7compile17h3a0d74ff48
   %168 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %169 = icmp ult i64 %168, 6
   call void @llvm.assume(i1 %169)
-  %170 = icmp ugt i64 %168, 4
+  %170 = icmp samesign ugt i64 %168, 4
   br i1 %170, label %171, label %178
 
 171:                                              ; preds = %167
@@ -18954,7 +18954,7 @@ common.resume.i.i:                                ; preds = %"_ZN63_$LT$alloc..a
   %120 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !1862
   %121 = icmp ult i64 %120, 6
   call void @llvm.assume(i1 %121)
-  %122 = icmp ugt i64 %120, 4
+  %122 = icmp samesign ugt i64 %120, 4
   br i1 %122, label %123, label %102
 
 123:                                              ; preds = %._crit_edge.i.i
@@ -21033,7 +21033,7 @@ _ZN17cranelift_codegen2ir5types4Type9lane_bits17h4ac41a99a03d1c96E.exit: ; preds
   %12 = zext nneg i16 %0 to i32
   %13 = shl nuw nsw i32 %11, 4
   %14 = add nuw nsw i32 %13, %12
-  %15 = icmp ult i32 %14, 256
+  %15 = icmp samesign ult i32 %14, 256
   %16 = trunc nuw nsw i32 %14 to i16
   %spec.select = select i1 %15, i16 %16, i16 undef
   %spec.select5 = zext i1 %15 to i16
@@ -21075,7 +21075,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %s
   %9 = lshr i16 %8, 4
   %10 = zext nneg i16 %9 to i32
   %11 = shl nuw nsw i32 %.0.i.i, %10
-  %12 = icmp ult i32 %11, 257
+  %12 = icmp samesign ult i32 %11, 257
   %13 = add nuw nsw i16 %0, 128
   %spec.select = select i1 %12, i16 %13, i16 undef
   %spec.select3 = zext i1 %12 to i16
@@ -21121,7 +21121,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.load = load i16, ptr %switch.gep, align 2
   %7 = and i16 %0, 240
   %8 = or disjoint i16 %switch.load, %7
-  %9 = icmp ult i16 %7, 128
+  %9 = icmp samesign ult i16 %7, 128
   %10 = or disjoint i16 %switch.load, 112
   %.0.i.i.i = select i1 %9, i16 %8, i16 %10
   %trunc = trunc nuw i16 %.0.i.i.i to i8
@@ -21257,7 +21257,7 @@ switch.lookup8:                                   ; preds = %_ZN17cranelift_code
 
 _ZN17cranelift_codegen2ir5types4Type9lane_bits17h4ac41a99a03d1c96E.exit7: ; preds = %switch.lookup8, %_ZN17cranelift_codegen2ir5types4Type9lane_bits17h4ac41a99a03d1c96E.exit
   %.0.i6 = phi i32 [ 0, %_ZN17cranelift_codegen2ir5types4Type9lane_bits17h4ac41a99a03d1c96E.exit ], [ %switch.load11, %switch.lookup8 ]
-  %25 = icmp uge i32 %.0.i4, %.0.i6
+  %25 = icmp samesign uge i32 %.0.i4, %.0.i6
   br label %26
 
 26:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit3, %_ZN17cranelift_codegen2ir5types4Type9lane_bits17h4ac41a99a03d1c96E.exit7
@@ -22147,7 +22147,7 @@ define hidden void @_ZN17cranelift_codegen3isa3x644inst10emit_state9EmitState24a
   %12 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %13 = icmp ult i64 %12, 6
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ugt i64 %12, 4
+  %14 = icmp samesign ugt i64 %12, 4
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %2, %17
@@ -22853,7 +22853,7 @@ default.unreachable344:                           ; preds = %.lr.ph436
   %23 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !2270
   %24 = icmp ult i64 %23, 6
   tail call void @llvm.assume(i1 %24)
-  %25 = icmp ugt i64 %23, 1
+  %25 = icmp samesign ugt i64 %23, 1
   br i1 %25, label %26, label %127
 
 26:                                               ; preds = %.lr.ph._crit_edge
@@ -22967,7 +22967,7 @@ _ZN5alloc7raw_vec11finish_grow17hf686cf92243996f7E.exit.i.i.i: ; preds = %56, %5
   %64 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !2287
   %65 = icmp ult i64 %64, 6
   tail call void @llvm.assume(i1 %65)
-  %66 = icmp ugt i64 %64, 1
+  %66 = icmp samesign ugt i64 %64, 1
   br i1 %66, label %67, label %127
 
 67:                                               ; preds = %63
@@ -23421,7 +23421,7 @@ define hidden void @_ZN17cranelift_codegen9legalizer15simple_legalize17he35c6ac9
   %37 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %38 = icmp ult i64 %37, 6
   tail call void @llvm.assume(i1 %38)
-  %39 = icmp ugt i64 %37, 4
+  %39 = icmp samesign ugt i64 %37, 4
   br i1 %39, label %67, label %40
 
 40:                                               ; preds = %4, %67
@@ -23802,7 +23802,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
   br i1 %.0, label %213, label %211
 
 207:                                              ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit.i
-  %208 = icmp ult i16 %203, 128
+  %208 = icmp samesign ult i16 %203, 128
   %209 = and i16 %202, 15
   %210 = or disjoint i16 %209, 112
   %.0.i.i = select i1 %208, i16 %203, i16 %210
@@ -23941,7 +23941,7 @@ _ZN17cranelift_codegen9legalizer9imm_const17h3d2c7ca0cae3b681E.exit: ; preds = %
   %259 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !2452
   %260 = icmp ult i64 %259, 6
   call void @llvm.assume(i1 %260)
-  %261 = icmp ugt i64 %259, 4
+  %261 = icmp samesign ugt i64 %259, 4
   br i1 %261, label %263, label %262
 
 262:                                              ; preds = %263, %258
@@ -24535,7 +24535,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
   %485 = lshr i64 %484, 48
   %486 = trunc nuw i64 %485 to i16
   %487 = and i16 %486, 16383
-  %488 = icmp ugt i16 %487, 255
+  %488 = icmp samesign ugt i16 %487, 255
   br i1 %488, label %490, label %489
 
 489:                                              ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
@@ -24815,7 +24815,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
   br label %_ZN17cranelift_codegen9legalizer9imm_const17h3d2c7ca0cae3b681E.exit79
 
 624:                                              ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit.i75
-  %625 = icmp ult i16 %619, 128
+  %625 = icmp samesign ult i16 %619, 128
   %626 = and i16 %618, 15
   %627 = or disjoint i16 %626, 112
   %.0.i.i76 = select i1 %625, i16 %619, i16 %627
@@ -25143,7 +25143,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder5store17h0287ce68be1a402eE.exit128
   %778 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %779 = icmp ult i64 %778, 6
   call void @llvm.assume(i1 %779)
-  %780 = icmp ugt i64 %778, 4
+  %780 = icmp samesign ugt i64 %778, 4
   br i1 %780, label %782, label %781
 
 781:                                              ; preds = %777, %782
@@ -25956,7 +25956,7 @@ define void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cr
   %43 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %44 = icmp ult i64 %43, 6
   call void @llvm.assume(i1 %44)
-  %45 = icmp ugt i64 %43, 4
+  %45 = icmp samesign ugt i64 %43, 4
   br i1 %45, label %51, label %47
 
 ._crit_edge:                                      ; preds = %.backedge, %3
@@ -26057,7 +26057,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12inst_results17h8abf8bfc17f44328E.e
   %85 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %86 = icmp ult i64 %85, 6
   call void @llvm.assume(i1 %86)
-  %87 = icmp ugt i64 %85, 4
+  %87 = icmp samesign ugt i64 %85, 4
   br i1 %87, label %158, label %123
 
 88:                                               ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12inst_results17h8abf8bfc17f44328E.exit
@@ -26088,7 +26088,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
   %103 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %104 = icmp ult i64 %103, 6
   call void @llvm.assume(i1 %104)
-  %105 = icmp ugt i64 %103, 4
+  %105 = icmp samesign ugt i64 %103, 4
   br i1 %105, label %116, label %106
 
 106:                                              ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit, %116
@@ -26538,7 +26538,7 @@ define noundef i32 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$
   %13 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %14 = icmp ult i64 %13, 6
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ugt i64 %13, 4
+  %15 = icmp samesign ugt i64 %13, 4
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %3, %18
@@ -26630,7 +26630,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %s
   %17 = lshr i16 %16, 4
   %18 = zext nneg i16 %17 to i32
   %19 = shl nuw nsw i32 %.0.i.i, %18
-  %20 = icmp ugt i32 %19, 63
+  %20 = icmp samesign ugt i32 %19, 63
   br i1 %20, label %_ZN17cranelift_codegen2ir10immediates5Imm6422sign_extend_from_width17h881a5af8de0226a2E.exit, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread
 
 _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread: ; preds = %7, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
@@ -26668,7 +26668,7 @@ define noundef i32 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$
   %9 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %10 = icmp ult i64 %9, 6
   tail call void @llvm.assume(i1 %10)
-  %11 = icmp ugt i64 %9, 4
+  %11 = icmp samesign ugt i64 %9, 4
   br i1 %11, label %33, label %12
 
 12:                                               ; preds = %2, %33
@@ -26746,7 +26746,7 @@ define noundef i32 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$
   %9 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %10 = icmp ult i64 %9, 6
   tail call void @llvm.assume(i1 %10)
-  %11 = icmp ugt i64 %9, 4
+  %11 = icmp samesign ugt i64 %9, 4
   br i1 %11, label %32, label %12
 
 12:                                               ; preds = %2, %32
@@ -27296,7 +27296,7 @@ _ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.578
   %109 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %110 = icmp ult i64 %109, 6
   call void @llvm.assume(i1 %110)
-  %111 = icmp ugt i64 %109, 4
+  %111 = icmp samesign ugt i64 %109, 4
   br i1 %111, label %112, label %_ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.5781664634918412060.exit.thread.i30
 
 112:                                              ; preds = %108
@@ -27329,7 +27329,7 @@ _ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.578
   %115 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %116 = icmp ult i64 %115, 6
   call void @llvm.assume(i1 %116)
-  %117 = icmp ugt i64 %115, 4
+  %117 = icmp samesign ugt i64 %115, 4
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %.lr.ph
@@ -28580,7 +28580,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %s
   %11 = lshr i16 %10, 4
   %12 = zext nneg i16 %11 to i32
   %13 = shl nuw nsw i32 %.0.i.i, %12
-  %14 = icmp ult i32 %13, 17
+  %14 = icmp samesign ult i32 %13, 17
   br i1 %14, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread, label %15
 
 _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread: ; preds = %2, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit

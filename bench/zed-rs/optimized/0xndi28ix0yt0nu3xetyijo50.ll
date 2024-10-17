@@ -2531,7 +2531,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h9cdeb518c6
   store i32 %164, ptr %162, align 8, !noalias !585
   %.pr.i.i.i.i = load i64, ptr %13, align 8, !alias.scope !586, !noalias !512
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !512
-  %switch.not.i.i.i.i.i = icmp ult i64 %.pr.i.i.i.i, 2
+  %switch.not.i.i.i.i.i = icmp samesign ult i64 %.pr.i.i.i.i, 2
   br i1 %switch.not.i.i.i.i.i, label %165, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h2c328c0b04d1c5c2E.exit.i.i.i.i"
 
 165:                                              ; preds = %153
@@ -5022,7 +5022,7 @@ default.unreachable:                              ; preds = %2
   store i32 %248, ptr %246, align 8, !noalias !1045
   %.pr.i.i.i.i.i.i = load i64, ptr %15, align 8, !alias.scope !1046, !noalias !955
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !955
-  %switch.not.i.i.i.i.i.i.i = icmp ult i64 %.pr.i.i.i.i.i.i, 2
+  %switch.not.i.i.i.i.i.i.i = icmp samesign ult i64 %.pr.i.i.i.i.i.i, 2
   br i1 %switch.not.i.i.i.i.i.i.i, label %249, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h2c328c0b04d1c5c2E.exit.i.i.i.i.i.i"
 
 249:                                              ; preds = %237

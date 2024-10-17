@@ -2120,7 +2120,7 @@ if.then6:                                         ; preds = %if.then, %_ZNK7SRBR
 
 if.else:                                          ; preds = %_ZNK7SRBRoot6mapKeyEi.exit
   %and = and i32 %6, 2147483647
-  %cmp12 = icmp ult i32 %and, 65536
+  %cmp12 = icmp samesign ult i32 %and, 65536
   br i1 %cmp12, label %if.then13, label %if.end21
 
 if.then13:                                        ; preds = %if.else

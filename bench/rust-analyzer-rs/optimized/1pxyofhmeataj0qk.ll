@@ -207,7 +207,7 @@ default.unreachable:                              ; preds = %80
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h49134d9bf00d2b4aE.exit.i.i": ; preds = %80
-  %93 = icmp ult i8 %47, 24
+  %93 = icmp samesign ult i8 %47, 24
   tail call void @llvm.assume(i1 %93)
   %94 = zext nneg i8 %47 to i64
   %95 = getelementptr inbounds i8, ptr %0, i64 9
@@ -223,7 +223,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i: ; preds = %"_ZN106_$LT$core
   %.0.lcssa.i.i.i = phi i64 [ %79, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i ], [ %100, %.lr.ph.i.i.i ]
   %.sroa.11.0.lcssa.i.i.i = phi i64 [ %.sroa.4.0.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i ], [ %101, %.lr.ph.i.i.i ]
   %.sroa.0.0.lcssa.i.i.i = phi ptr [ %.sroa.0.0.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i ], [ %102, %.lr.ph.i.i.i ]
-  %97 = icmp ugt i64 %.sroa.11.0.lcssa.i.i.i, 3
+  %97 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i.i, 3
   br i1 %97, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17heefd85a357e8329fE.exit.i.i.i", label %110
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i, %.lr.ph.i.i.i
@@ -842,7 +842,7 @@ default.unreachable:                              ; preds = %269, %103
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h49134d9bf00d2b4aE.exit.i.i.i": ; preds = %103
-  %116 = icmp ult i8 %97, 24
+  %116 = icmp samesign ult i8 %97, 24
   tail call void @llvm.assume(i1 %116)
   %117 = zext nneg i8 %97 to i64
   %118 = getelementptr inbounds i8, ptr %.tr, i64 25
@@ -858,7 +858,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i: ; preds = %"_ZN106_$LT$co
   %.0.lcssa.i.i.i.i = phi i64 [ %102, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i ], [ %123, %.lr.ph.i.i.i2.i ]
   %.sroa.11.0.lcssa.i.i.i.i = phi i64 [ %.sroa.4.0.i.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i ], [ %124, %.lr.ph.i.i.i2.i ]
   %.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %.sroa.0.0.i.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i ], [ %125, %.lr.ph.i.i.i2.i ]
-  %120 = icmp ugt i64 %.sroa.11.0.lcssa.i.i.i.i, 3
+  %120 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i.i.i, 3
   br i1 %120, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17heefd85a357e8329fE.exit.i.i.i.i", label %133
 
 .lr.ph.i.i.i2.i:                                  ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i, %.lr.ph.i.i.i2.i
@@ -1155,7 +1155,7 @@ _ZN4core4hash4Hash10hash_slice17hbad0210ef49ead14E.exit: ; preds = %_ZN4core4has
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h49134d9bf00d2b4aE.exit.i.i": ; preds = %269
-  %282 = icmp ult i8 %39, 24
+  %282 = icmp samesign ult i8 %39, 24
   tail call void @llvm.assume(i1 %282)
   %283 = zext nneg i8 %39 to i64
   %284 = getelementptr inbounds i8, ptr %.tr, i64 17
@@ -1171,7 +1171,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i: ; preds = %"_ZN106_$LT$core
   %.0.lcssa.i.i.i = phi i64 [ %268, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i ], [ %289, %.lr.ph.i.i.i ]
   %.sroa.11.0.lcssa.i.i.i = phi i64 [ %.sroa.4.0.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i ], [ %290, %.lr.ph.i.i.i ]
   %.sroa.0.0.lcssa.i.i.i = phi ptr [ %.sroa.0.0.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i ], [ %291, %.lr.ph.i.i.i ]
-  %286 = icmp ugt i64 %.sroa.11.0.lcssa.i.i.i, 3
+  %286 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i.i, 3
   br i1 %286, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17heefd85a357e8329fE.exit.i.i.i", label %299
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i, %.lr.ph.i.i.i
@@ -1542,7 +1542,7 @@ default.unreachable:                              ; preds = %"_ZN3std4sync9once_
   %148 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %144, i1 false)
   %149 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %147, i1 false)
   %narrow.i.i = add nuw nsw i16 %149, %148
-  %150 = icmp ugt i16 %narrow.i.i, 15
+  %150 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %150, label %156, label %151
 
 151:                                              ; preds = %132
@@ -1889,7 +1889,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h1b349aba19630ca4E
   %113 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %109, i1 false)
   %114 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %112, i1 false)
   %narrow.i.i = add nuw nsw i16 %114, %113
-  %115 = icmp ugt i16 %narrow.i.i, 15
+  %115 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %115, label %121, label %116
 
 116:                                              ; preds = %97
@@ -2171,7 +2171,7 @@ default.unreachable:                              ; preds = %64
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h49134d9bf00d2b4aE.exit.i.i.i.i": ; preds = %64
-  %77 = icmp ult i8 %58, 24
+  %77 = icmp samesign ult i8 %58, 24
   tail call void @llvm.assume(i1 %77)
   %78 = zext nneg i8 %58 to i64
   %79 = getelementptr inbounds i8, ptr %5, i64 17
@@ -2187,7 +2187,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i.i: ; preds = %"_ZN106_$LT$
   %.0.lcssa.i.i.i.i.i = phi i64 [ %63, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i.i ], [ %84, %.lr.ph.i.i.i.i.i ]
   %.sroa.11.0.lcssa.i.i.i.i.i = phi i64 [ %.sroa.4.0.i.i.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i.i ], [ %85, %.lr.ph.i.i.i.i.i ]
   %.sroa.0.0.lcssa.i.i.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i.i ], [ %86, %.lr.ph.i.i.i.i.i ]
-  %81 = icmp ugt i64 %.sroa.11.0.lcssa.i.i.i.i.i, 3
+  %81 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i.i.i.i, 3
   br i1 %81, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17heefd85a357e8329fE.exit.i.i.i.i.i", label %94
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i.i, %.lr.ph.i.i.i.i.i
@@ -2407,7 +2407,7 @@ _ZN4core4hash6Hasher9write_str17h2fa84d2c908ea84eE.exit.i.i.i: ; preds = %103, %
   %187 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %183, i1 false)
   %188 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %186, i1 false)
   %narrow.i.i = add nuw nsw i16 %188, %187
-  %189 = icmp ugt i16 %narrow.i.i, 15
+  %189 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %189, label %195, label %190
 
 190:                                              ; preds = %171
@@ -2825,7 +2825,7 @@ _ZN4core4hash4Hash10hash_slice17h0c5d001534d75142E.exit.i.i: ; preds = %"_ZN73_$
   %145 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %141, i1 false)
   %146 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %144, i1 false)
   %narrow.i.i = add nuw nsw i16 %146, %145
-  %147 = icmp ugt i16 %narrow.i.i, 15
+  %147 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %147, label %153, label %148
 
 148:                                              ; preds = %129
@@ -3222,7 +3222,7 @@ _ZN4core4hash4Hash10hash_slice17h0bde36aba8dbd236E.exit.loopexit.i.i: ; preds = 
   %138 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %134, i1 false)
   %139 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %137, i1 false)
   %narrow.i.i = add nuw nsw i16 %139, %138
-  %140 = icmp ugt i16 %narrow.i.i, 15
+  %140 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %140, label %146, label %141
 
 141:                                              ; preds = %122
@@ -3519,7 +3519,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h76eb15e952326aa5E
   %82 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %78, i1 false)
   %83 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %81, i1 false)
   %narrow.i.i = add nuw nsw i16 %83, %82
-  %84 = icmp ugt i16 %narrow.i.i, 15
+  %84 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %84, label %90, label %85
 
 85:                                               ; preds = %66
@@ -3873,7 +3873,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h7f7f669c0ee8c7f8E
   %112 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %108, i1 false)
   %113 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %111, i1 false)
   %narrow.i.i = add nuw nsw i16 %113, %112
-  %114 = icmp ugt i16 %narrow.i.i, 15
+  %114 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %114, label %120, label %115
 
 115:                                              ; preds = %96
@@ -4033,7 +4033,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h84f9eea281c3c829E
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hc814436e1cdf348aE.exit.i" ], [ %16, %.lr.ph.i.i.i.i ]
   %.sroa.11.0.lcssa.i.i.i.i = phi i64 [ %6, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hc814436e1cdf348aE.exit.i" ], [ %17, %.lr.ph.i.i.i.i ]
   %.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %7, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hc814436e1cdf348aE.exit.i" ], [ %18, %.lr.ph.i.i.i.i ]
-  %13 = icmp ugt i64 %.sroa.11.0.lcssa.i.i.i.i, 3
+  %13 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i.i.i, 3
   br i1 %13, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17heefd85a357e8329fE.exit.i.i.i.i", label %26
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hc814436e1cdf348aE.exit.i", %.lr.ph.i.i.i.i
@@ -4240,7 +4240,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h84f9eea281c3c829E
   %120 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %116, i1 false)
   %121 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %119, i1 false)
   %narrow.i.i = add nuw nsw i16 %121, %120
-  %122 = icmp ugt i16 %narrow.i.i, 15
+  %122 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %122, label %127, label %123
 
 123:                                              ; preds = %108
@@ -4588,7 +4588,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hb37d1a9819681b25E
   %113 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %109, i1 false)
   %114 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %112, i1 false)
   %narrow.i.i = add nuw nsw i16 %114, %113
-  %115 = icmp ugt i16 %narrow.i.i, 15
+  %115 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %115, label %121, label %116
 
 116:                                              ; preds = %97
@@ -5004,7 +5004,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hc95bb3d011b00dfdE
   %141 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %137, i1 false)
   %142 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %140, i1 false)
   %narrow.i.i = add nuw nsw i16 %142, %141
-  %143 = icmp ugt i16 %narrow.i.i, 15
+  %143 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %143, label %149, label %144
 
 144:                                              ; preds = %125
@@ -5686,7 +5686,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hce4ddcdc8ce67e17E
   %379 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %375, i1 false)
   %380 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %378, i1 false)
   %narrow.i.i = add nuw nsw i16 %380, %379
-  %381 = icmp ugt i16 %narrow.i.i, 15
+  %381 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %381, label %387, label %382
 
 382:                                              ; preds = %363
@@ -6021,7 +6021,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hd195fbe37850b96aE
   %97 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %93, i1 false)
   %98 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %96, i1 false)
   %narrow.i.i = add nuw nsw i16 %98, %97
-  %99 = icmp ugt i16 %narrow.i.i, 15
+  %99 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %99, label %105, label %100
 
 100:                                              ; preds = %81
@@ -6370,7 +6370,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hd5d48d6a500d62b3E
   %107 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %103, i1 false)
   %108 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %106, i1 false)
   %narrow.i.i = add nuw nsw i16 %108, %107
-  %109 = icmp ugt i16 %narrow.i.i, 15
+  %109 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %109, label %115, label %110
 
 110:                                              ; preds = %91
@@ -6719,7 +6719,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hea838c89755dcf72E
   %106 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %102, i1 false)
   %107 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %105, i1 false)
   %narrow.i.i = add nuw nsw i16 %107, %106
-  %108 = icmp ugt i16 %narrow.i.i, 15
+  %108 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %108, label %114, label %109
 
 109:                                              ; preds = %90

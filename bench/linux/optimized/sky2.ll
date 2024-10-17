@@ -929,7 +929,7 @@ define internal void @sky2_shutdown(ptr noundef %0) #2 align 16 {
   %19 = add nuw nsw i64 %10, 1
   %20 = load i8, ptr %4, align 1
   %21 = zext i8 %20 to i64
-  %22 = icmp ult i64 %19, %21
+  %22 = icmp samesign ult i64 %19, %21
   br i1 %22, label %9, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %18, %1
@@ -1205,7 +1205,7 @@ define internal fastcc void @sky2_reset(ptr noundef %0) unnamed_addr #2 align 16
   %122 = add nuw nsw i64 %109, 1
   %123 = load i8, ptr %106, align 1
   %124 = zext i8 %123 to i64
-  %125 = icmp ult i64 %122, %124
+  %125 = icmp samesign ult i64 %122, %124
   br i1 %125, label %.preheader3, label %.loopexit4, !llvm.loop !17
 
 .loopexit4:                                       ; preds = %121, %101
@@ -1349,7 +1349,7 @@ thread-pre-split.thread:                          ; preds = %128, %186, %thread-
   %212 = add nuw nsw i64 %207, 1
   %213 = load i8, ptr %106, align 1
   %214 = zext i8 %213 to i64
-  %215 = icmp ult i64 %212, %214
+  %215 = icmp samesign ult i64 %212, %214
   br i1 %215, label %.preheader2, label %205, !llvm.loop !18
 
 .preheader1:                                      ; preds = %205, %.preheader1
@@ -1423,7 +1423,7 @@ thread-pre-split.thread:                          ; preds = %128, %186, %thread-
   %270 = add nuw nsw i32 %216, 1
   %271 = load i8, ptr %106, align 1
   %272 = zext i8 %271 to i32
-  %273 = icmp ult i32 %270, %272
+  %273 = icmp samesign ult i32 %270, %272
   br i1 %273, label %.preheader1, label %.thread, !llvm.loop !19
 
 .thread:                                          ; preds = %.preheader1, %thread-pre-split.thread, %205
@@ -1469,7 +1469,7 @@ thread-pre-split.thread:                          ; preds = %128, %186, %thread-
   %303 = add nuw nsw i64 %278, 1
   %304 = load i8, ptr %106, align 1
   %305 = zext i8 %304 to i64
-  %306 = icmp ult i64 %303, %305
+  %306 = icmp samesign ult i64 %303, %305
   br i1 %306, label %.preheader, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader, %.thread
@@ -2348,7 +2348,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %268 = getelementptr inbounds i8, ptr %267, i64 2
   %269 = load i8, ptr %268, align 2
   %270 = zext i8 %269 to i64
-  %271 = icmp ult i64 %263, %270
+  %271 = icmp samesign ult i64 %263, %270
   br i1 %271, label %254, label %.loopexit17, !llvm.loop !27
 
 .loopexit17:                                      ; preds = %254, %232
@@ -2606,7 +2606,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %445 = getelementptr inbounds i8, ptr %444, i64 2
   %446 = load i8, ptr %445, align 2
   %447 = zext i8 %446 to i64
-  %448 = icmp ult i64 %437, %447
+  %448 = icmp samesign ult i64 %437, %447
   br i1 %448, label %413, label %.loopexit, !llvm.loop !31
 
 449:                                              ; preds = %149, %143
@@ -3191,7 +3191,7 @@ define internal void @sky2_watchdog(ptr noundef %0) #2 align 16 {
   %.ph = phi i32 [ %30, %29 ], [ %30, %88 ], [ %22, %19 ]
   %107 = add nuw nsw i64 %21, 1
   %108 = zext i8 %106 to i64
-  %109 = icmp ult i64 %107, %108
+  %109 = icmp samesign ult i64 %107, %108
   br i1 %109, label %19, label %110, !llvm.loop !37
 
 110:                                              ; preds = %105
@@ -9384,7 +9384,7 @@ define internal fastcc void @sky2_rx_clean(ptr nocapture noundef readonly %0) un
   %54 = getelementptr inbounds i8, ptr %53, i64 2
   %55 = load i8, ptr %54, align 2
   %56 = zext i8 %55 to i64
-  %57 = icmp ult i64 %49, %56
+  %57 = icmp samesign ult i64 %49, %56
   br i1 %57, label %40, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %40, %19
@@ -9398,7 +9398,7 @@ define internal fastcc void @sky2_rx_clean(ptr nocapture noundef readonly %0) un
   %60 = phi i16 [ %.pre, %.loopexit ], [ %13, %12 ]
   %61 = add nuw nsw i64 %14, 1
   %62 = zext i16 %60 to i64
-  %63 = icmp ult i64 %61, %62
+  %63 = icmp samesign ult i64 %61, %62
   br i1 %63, label %12, label %.loopexit3, !llvm.loop !57
 
 .loopexit3:                                       ; preds = %59, %6
@@ -9963,7 +9963,7 @@ gm_phy_write.exit:                                ; preds = %233, %245, %239, %2
   %274 = getelementptr i8, ptr %273, i64 %269
   %275 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %274) #23, !srcloc !16
   %276 = add nuw nsw i64 %271, 4
-  %277 = icmp ult i64 %271, 601
+  %277 = icmp samesign ult i64 %271, 601
   br i1 %277, label %270, label %278, !llvm.loop !60
 
 278:                                              ; preds = %270
@@ -10430,7 +10430,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @sky2_alloc_rx_skbs(ptr noc
   %10 = getelementptr inbounds i8, ptr %0, i64 168
   store i16 %9, ptr %10, align 8
   %11 = and i32 %7, 268431360
-  %12 = icmp ugt i32 %11, 8192
+  %12 = icmp samesign ugt i32 %11, 8192
   br i1 %12, label %13, label %14, !prof !26
 
 13:                                               ; preds = %1
@@ -10461,7 +10461,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @sky2_alloc_rx_skbs(ptr noc
   %29 = add nuw nsw i64 %34, 1
   %30 = load i16, ptr %22, align 4
   %31 = zext i16 %30 to i64
-  %32 = icmp ult i64 %29, %31
+  %32 = icmp samesign ult i64 %29, %31
   br i1 %32, label %33, label %.loopexit, !llvm.loop !63
 
 33:                                               ; preds = %28, %25
@@ -10632,7 +10632,7 @@ define internal fastcc ptr @sky2_rx_alloc(ptr nocapture noundef readonly %0, i32
   %100 = add nuw nsw i64 %46, 1
   %101 = load i16, ptr %38, align 8
   %102 = zext i16 %101 to i64
-  %103 = icmp ult i64 %100, %102
+  %103 = icmp samesign ult i64 %100, %102
   br i1 %103, label %45, label %.loopexit, !llvm.loop !64
 
 104:                                              ; preds = %45
@@ -10756,7 +10756,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @sky2_rx_map_skb(ptr noundef
   %77 = getelementptr inbounds i8, ptr %76, i64 2
   %78 = load i8, ptr %77, align 2
   %79 = zext i8 %78 to i64
-  %80 = icmp ult i64 %72, %79
+  %80 = icmp samesign ult i64 %72, %79
   br i1 %80, label %54, label %.loopexit3, !llvm.loop !70
 
 .preheader:                                       ; preds = %69, %.preheader
@@ -11167,14 +11167,14 @@ define internal fastcc void @sky2_rx_start(ptr nocapture noundef %0) unnamed_add
   %192 = getelementptr inbounds i8, ptr %191, i64 2
   %193 = load i8, ptr %192, align 2
   %194 = zext i8 %193 to i64
-  %195 = icmp ult i64 %184, %194
+  %195 = icmp samesign ult i64 %184, %194
   br i1 %195, label %160, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %160, %121
   %196 = add nuw nsw i64 %122, 1
   %197 = load i16, ptr %114, align 4
   %198 = zext i16 %197 to i64
-  %199 = icmp ult i64 %196, %198
+  %199 = icmp samesign ult i64 %196, %198
   br i1 %199, label %121, label %.loopexit2, !llvm.loop !72
 
 .loopexit2:                                       ; preds = %.loopexit, %113
@@ -11775,7 +11775,7 @@ define internal noundef range(i32 0, 17) i32 @sky2_xmit_frame(ptr noundef %0, pt
   %305 = getelementptr inbounds i8, ptr %304, i64 2
   %306 = load i8, ptr %305, align 2
   %307 = zext i8 %306 to i64
-  %308 = icmp ult i64 %300, %307
+  %308 = icmp samesign ult i64 %300, %307
   br i1 %308, label %.preheader, label %.loopexit, !llvm.loop !74
 
 .preheader:                                       ; preds = %248, %279
@@ -12218,7 +12218,7 @@ define internal noundef range(i32 -12, 1) i32 @sky2_change_mtu(ptr noundef %0, i
   %43 = add nuw nsw i64 %37, 1
   %44 = load i32, ptr %34, align 8
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %43, %45
+  %46 = icmp samesign ult i64 %43, %45
   br i1 %46, label %.preheader, label %.loopexit4, !llvm.loop !85
 
 .loopexit4:                                       ; preds = %.preheader, %29
@@ -14399,7 +14399,7 @@ define internal fastcc void @sky2_all_down(ptr noundef %0) unnamed_addr #2 align
   %49 = add nuw nsw i64 %43, 1
   %50 = load i32, ptr %37, align 8
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %49, %51
+  %52 = icmp samesign ult i64 %49, %51
   br i1 %52, label %42, label %.loopexit, !llvm.loop !85
 
 .loopexit:                                        ; preds = %42, %33
@@ -14413,7 +14413,7 @@ define internal fastcc void @sky2_all_down(ptr noundef %0) unnamed_addr #2 align
   %54 = phi i8 [ %.pre, %.loopexit ], [ %24, %23 ]
   %55 = add nuw nsw i64 %25, 1
   %56 = zext i8 %54 to i64
-  %57 = icmp ult i64 %55, %56
+  %57 = icmp samesign ult i64 %55, %56
   br i1 %57, label %23, label %.loopexit1, !llvm.loop !86
 
 .loopexit1:                                       ; preds = %53, %17
@@ -14461,7 +14461,7 @@ define internal fastcc void @sky2_all_up(ptr noundef %0) unnamed_addr #2 align 1
   %26 = phi i32 [ %21, %17 ], [ %10, %7 ]
   %27 = add nuw nsw i64 %9, 1
   %28 = zext i8 %25 to i64
-  %29 = icmp ult i64 %27, %28
+  %29 = icmp samesign ult i64 %27, %28
   br i1 %29, label %7, label %.loopexit, !llvm.loop !87
 
 .loopexit:                                        ; preds = %24, %1
@@ -14751,7 +14751,7 @@ gm_phy_write.exit:                                ; preds = %97, %111, %103, %12
   %174 = phi i8 [ %.pre, %165 ], [ %16, %15 ]
   %175 = add nuw nsw i64 %17, 1
   %176 = zext i8 %174 to i64
-  %177 = icmp ult i64 %175, %176
+  %177 = icmp samesign ult i64 %175, %176
   br i1 %177, label %15, label %.loopexit, !llvm.loop !88
 
 .loopexit:                                        ; preds = %173, %5

@@ -21,7 +21,7 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax3hir8interval8Interval13is_co
   %10 = tail call i8 @llvm.umin.i8(i8 %5, i8 %8)
   %.0.sroa.speculated.i1 = zext i8 %10 to i32
   %11 = add nuw nsw i32 %.0.sroa.speculated.i1, 1
-  %12 = icmp uge i32 %11, %.0.sroa.speculated.i
+  %12 = icmp samesign uge i32 %11, %.0.sroa.speculated.i
   ret i1 %12
 }
 
@@ -36,7 +36,7 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax3hir8interval8Interval13is_co
   %.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %3, i32 %6)
   %.0.sroa.speculated.i1 = tail call noundef i32 @llvm.umin.i32(i32 %5, i32 %8)
   %9 = add nuw nsw i32 %.0.sroa.speculated.i1, 1
-  %10 = icmp ule i32 %.0.sroa.speculated.i, %9
+  %10 = icmp samesign ule i32 %.0.sroa.speculated.i, %9
   ret i1 %10
 }
 
@@ -53,7 +53,7 @@ define hidden i24 @_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940
   %10 = tail call i8 @llvm.umin.i8(i8 %5, i8 %8)
   %.0.sroa.speculated.i1.i = zext i8 %10 to i32
   %11 = add nuw nsw i32 %.0.sroa.speculated.i1.i, 1
-  %.not = icmp ult i32 %11, %.0.sroa.speculated.i.i
+  %.not = icmp samesign ult i32 %11, %.0.sroa.speculated.i.i
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %2
@@ -88,7 +88,7 @@ define hidden { i32, i32 } @_ZN12regex_syntax3hir8interval8Interval5union17hf680
   %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umax.i32(i32 %3, i32 %6)
   %.0.sroa.speculated.i1.i = tail call noundef i32 @llvm.umin.i32(i32 %5, i32 %8)
   %9 = add nuw nsw i32 %.0.sroa.speculated.i1.i, 1
-  %.not = icmp ugt i32 %.0.sroa.speculated.i.i, %9
+  %.not = icmp samesign ugt i32 %.0.sroa.speculated.i.i, %9
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %2
@@ -194,7 +194,7 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls54_$LT$impl$u20$core..cmp..
 define hidden noundef zeroext i1 @"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$char$GT$2le17hbde0889d5e5d634eE.llvm.8118306253422699639"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i32, ptr %0, align 4, !range !17, !noundef !7
   %4 = load i32, ptr %1, align 4, !range !17, !noundef !7
-  %5 = icmp ule i32 %3, %4
+  %5 = icmp samesign ule i32 %3, %4
   ret i1 %5
 }
 

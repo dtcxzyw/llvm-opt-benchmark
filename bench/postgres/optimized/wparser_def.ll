@@ -2222,7 +2222,7 @@ define dso_local i64 @prsd_headline(ptr nocapture noundef readonly %0) local_unn
   %256 = zext i1 %254 to i32
   %257 = and i8 %.0361489.i, 1
   %258 = zext nneg i8 %257 to i32
-  %259 = icmp ugt i32 %256, %258
+  %259 = icmp samesign ugt i32 %256, %258
   br i1 %259, label %288, label %260
 
 260:                                              ; preds = %.loopexit428.i
@@ -2360,7 +2360,7 @@ define dso_local i64 @prsd_headline(ptr nocapture noundef readonly %0) local_unn
 305:                                              ; preds = %303, %299, %299, %299, %299, %299, %299
   %.11.i = phi i32 [ %.10496.i, %299 ], [ %304, %303 ], [ %.10496.i, %299 ], [ %.10496.i, %299 ], [ %.10496.i, %299 ], [ %.10496.i, %299 ], [ %.10496.i, %299 ]
   %indvars.iv.next508.i = add nuw nsw i64 %indvars.iv507.i, 1
-  %306 = icmp ult i64 %indvars.iv.next508.i, %298
+  %306 = icmp samesign ult i64 %indvars.iv.next508.i, %298
   %307 = icmp slt i32 %.11.i, %.076.lcssa201
   %308 = select i1 %306, i1 %307, i1 false
   br i1 %308, label %299, label %.loopexit.loopexit.i, !llvm.loop !16
@@ -3007,7 +3007,7 @@ get_next_fragment.exit.i:                         ; preds = %480, %.lr.ph88.i.i,
 511:                                              ; preds = %509, %505, %505, %505, %505, %505, %505
   %.10.i = phi i32 [ %510, %509 ], [ %.9458.i, %505 ], [ %.9458.i, %505 ], [ %.9458.i, %505 ], [ %.9458.i, %505 ], [ %.9458.i, %505 ], [ %.9458.i, %505 ]
   %indvars.iv.next478.i = add nuw nsw i64 %indvars.iv477.i, 1
-  %512 = icmp ult i64 %indvars.iv.next478.i, %504
+  %512 = icmp samesign ult i64 %indvars.iv.next478.i, %504
   %513 = icmp slt i32 %.10.i, %.076.lcssa201
   %514 = select i1 %512, i1 %513, i1 false
   br i1 %514, label %505, label %._crit_edge461.loopexit.i, !llvm.loop !29
@@ -3125,7 +3125,7 @@ define internal range(i32 0, 2) i32 @checkcondition_HL(ptr nocapture noundef rea
 
 14:                                               ; preds = %11
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %15 = icmp ult i64 %indvars.iv.next36, %10
+  %15 = icmp samesign ult i64 %indvars.iv.next36, %10
   br i1 %15, label %11, label %._crit_edge, !llvm.loop !30
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %44
@@ -4024,7 +4024,7 @@ define internal fastcc noundef zeroext i1 @hlCover(ptr nocapture noundef readonl
   %.pre-phi181 = phi i32 [ %.pre180, %._crit_edge ], [ %69, %65 ]
   %.pre-phi = phi i32 [ %.pre179, %._crit_edge ], [ %68, %65 ]
   %.3 = phi i32 [ %.076148, %._crit_edge ], [ %spec.select104, %65 ]
-  %.not99 = icmp ult i32 %spec.select, %.pre-phi
+  %.not99 = icmp samesign ult i32 %spec.select, %.pre-phi
   br i1 %.not99, label %._crit_edge152, label %71
 
 71:                                               ; preds = %70, %58

@@ -198,7 +198,7 @@ if.then.i.i:                                      ; preds = %for.body120.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   %shr.i.i = lshr i32 %and2.i.i, 8
-  %cmp5.i.i = icmp ult i32 %and2.i.i, 256
+  %cmp5.i.i = icmp samesign ult i32 %and2.i.i, 256
   %conv.i.i = zext i1 %cmp5.i.i to i32
   %or.i.i = or i32 %shr.i.i, %conv.i.i
   %or6.i.i = or disjoint i32 %or.i.i, 8355840

@@ -495,7 +495,7 @@ dissect_basic_paramset.exit:                      ; preds = %mka_add_ckn_info.ex
   %116 = load i32, ptr @hf_mka_param_body_length, align 4
   %117 = call ptr @proto_tree_add_uint(ptr noundef %106, i32 noundef %116, ptr noundef %0, i32 noundef %99, i32 noundef 2, i32 noundef %102) #8
   %.04652.i = add i32 %.08689, 4
-  %118 = icmp ugt i16 %101, 15
+  %118 = icmp samesign ugt i16 %101, 15
   br i1 %118, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %115, %.lr.ph.i
@@ -624,7 +624,7 @@ dissect_basic_paramset.exit:                      ; preds = %mka_add_ckn_info.ex
   br label %dissect_peer_list.exit
 
 213:                                              ; preds = %186
-  %214 = icmp ugt i16 %189, 35
+  %214 = icmp samesign ugt i16 %189, 35
   br i1 %214, label %215, label %226
 
 215:                                              ; preds = %213
@@ -779,7 +779,7 @@ mka_add_ckn_info.exit.i55:                        ; preds = %275, %272, %269, %c
   %316 = load i32, ptr @hf_mka_param_body_length, align 4
   %317 = call ptr @proto_tree_add_uint(ptr noundef %313, i32 noundef %316, ptr noundef %0, i32 noundef %305, i32 noundef 2, i32 noundef %309) #8
   %318 = add i32 %.08689, 4
-  %.not117.i = icmp ult i16 %307, 2
+  %.not117.i = icmp samesign ult i16 %307, 2
   br i1 %.not117.i, label %._crit_edge.i65, label %.lr.ph119.i
 
 .lr.ph119.i:                                      ; preds = %304, %.loopexit.i
@@ -819,7 +819,7 @@ mka_add_ckn_info.exit.i55:                        ; preds = %275, %272, %269, %c
   ]
 
 .preheader.i:                                     ; preds = %340
-  %.not113115.i = icmp ult i16 %323, 10
+  %.not113115.i = icmp samesign ult i16 %323, 10
   br i1 %.not113115.i, label %.loopexit.i, label %.lr.ph.i67
 
 .lr.ph.i67:                                       ; preds = %.preheader.i
@@ -851,7 +851,7 @@ mka_add_ckn_info.exit.i55:                        ; preds = %275, %272, %269, %c
   %363 = add nuw nsw i32 %360, 8
   %364 = and i32 %363, 65535
   %365 = add nuw nsw i32 %364, 10
-  %.not113.i = icmp ugt i32 %365, %324
+  %.not113.i = icmp samesign ugt i32 %365, %324
   br i1 %.not113.i, label %.loopexit.i, label %342, !llvm.loop !6
 
 366:                                              ; preds = %340, %340, %340
@@ -1145,7 +1145,7 @@ ckn_info_reset_cb.exit:                           ; preds = %0, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr @num_mka_ckn_uat_data, align 4
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %ckn_info_reset_cb.exit

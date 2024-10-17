@@ -3404,7 +3404,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %96, %103
 
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %115
   %116 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i60.fr)
-  %117 = icmp ult i64 %116, 2
+  %117 = icmp samesign ult i64 %116, 2
   br i1 %117, label %118, label %.thread
 
 118:                                              ; preds = %_ZN4llvm13isPowerOf2_64Em.exit
@@ -3427,7 +3427,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %115
 
 _ZN4llvm13isPowerOf2_64Em.exit63:                 ; preds = %128
   %129 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i60.fr)
-  %130 = icmp ult i64 %129, 2
+  %130 = icmp samesign ult i64 %129, 2
   %131 = sext i1 %130 to i64
   %spec.select = add i64 %.0.i.i60.fr, %131
   %spec.select129 = select i1 %130, i32 185, i32 62
@@ -3482,7 +3482,7 @@ define dso_local noundef i32 @_ZN4llvm8FastISel12fastEmit_ri_ENS_3MVTEjjmS1_(ptr
 
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %9
   %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %4)
-  %11 = icmp ult i64 %10, 2
+  %11 = icmp samesign ult i64 %10, 2
   br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %_ZN4llvm13isPowerOf2_64Em.exit
@@ -3496,7 +3496,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %9
 
 _ZN4llvm13isPowerOf2_64Em.exit40:                 ; preds = %15
   %16 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %4)
-  %17 = icmp ult i64 %16, 2
+  %17 = icmp samesign ult i64 %16, 2
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %_ZN4llvm13isPowerOf2_64Em.exit40

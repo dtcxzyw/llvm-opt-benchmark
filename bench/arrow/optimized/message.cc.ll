@@ -14468,7 +14468,7 @@ if.end.i:                                         ; preds = %_ZNK22arrow_vendore
   %5 = load i64, ptr %max_size.i, align 8
   %div.i2 = lshr i64 %5, 2
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp ugt i64 %div.i2, %conv.i
+  %cmp.i = icmp samesign ugt i64 %div.i2, %conv.i
   br i1 %cmp.i, label %if.end5.i, label %lor.end
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -14504,7 +14504,7 @@ for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1 = load i32, ptr %vec, align 4
   %2 = zext i32 %1 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %2
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %2
   br i1 %cmp, label %for.body, label %return, !llvm.loop !446
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
@@ -14676,7 +14676,7 @@ if.end.i.i52:                                     ; preds = %lor.rhs.i39
   %21 = load i64, ptr %max_size.i.i, align 8
   %div.i2.i = lshr i64 %21, 2
   %conv.i.i53 = zext i32 %20 to i64
-  %cmp.i.i54 = icmp ugt i64 %div.i2.i, %conv.i.i53
+  %cmp.i.i54 = icmp samesign ugt i64 %div.i2.i, %conv.i.i53
   br i1 %cmp.i.i54, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf5FieldEEEjEEbPKNS0_6VectorIT0_T1_EE.exit, label %land.end
 
 _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf5FieldEEEjEEbPKNS0_6VectorIT0_T1_EE.exit: ; preds = %if.end.i.i52
@@ -14706,7 +14706,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %25 = load i32, ptr %add.ptr4.i.i.i71, align 4
   %26 = zext i32 %25 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %26
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %26
   br i1 %cmp.i, label %for.body.i, label %land.lhs.true11.loopexit, !llvm.loop !447
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
@@ -14891,7 +14891,7 @@ if.end.i:                                         ; preds = %_ZNK22arrow_vendore
   %5 = load i64, ptr %max_size.i, align 8
   %div.i2 = lshr i64 %5, 2
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp ugt i64 %div.i2, %conv.i
+  %cmp.i = icmp samesign ugt i64 %div.i2, %conv.i
   br i1 %cmp.i, label %if.end5.i, label %lor.end
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -14927,7 +14927,7 @@ for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1 = load i32, ptr %vec, align 4
   %2 = zext i32 %1 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %2
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %2
   br i1 %cmp, label %for.body, label %return, !llvm.loop !447
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
@@ -14980,7 +14980,7 @@ if.end.i:                                         ; preds = %_ZNK22arrow_vendore
   %5 = load i64, ptr %max_size.i, align 8
   %div.i2 = lshr i64 %5, 3
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp ugt i64 %div.i2, %conv.i
+  %cmp.i = icmp samesign ugt i64 %div.i2, %conv.i
   br i1 %cmp.i, label %if.end5.i, label %lor.end
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -17716,7 +17716,7 @@ if.end.i.i46:                                     ; preds = %lor.rhs.i33
   %21 = load i64, ptr %max_size.i.i, align 8
   %div.i2.i = lshr i64 %21, 2
   %conv.i.i47 = zext i32 %20 to i64
-  %cmp.i.i48 = icmp ugt i64 %div.i2.i, %conv.i.i47
+  %cmp.i.i48 = icmp samesign ugt i64 %div.i2.i, %conv.i.i47
   br i1 %cmp.i.i48, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS0_6VectorIT0_T1_EE.exit, label %land.end
 
 _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS0_6VectorIT0_T1_EE.exit: ; preds = %if.end.i.i46
@@ -17771,7 +17771,7 @@ if.end.i:                                         ; preds = %_ZNK22arrow_vendore
   %5 = load i64, ptr %max_size.i, align 8
   %div.i2 = lshr i64 %5, 2
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp ugt i64 %div.i2, %conv.i
+  %cmp.i = icmp samesign ugt i64 %div.i2, %conv.i
   br i1 %cmp.i, label %if.end5.i, label %lor.end
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -18784,7 +18784,7 @@ if.end.i.i.i48:                                   ; preds = %lor.rhs.i.i
   %22 = load i64, ptr %max_size.i.i.i, align 8
   %div.i2.i.i = lshr i64 %22, 4
   %conv.i.i.i49 = zext i32 %21 to i64
-  %cmp.i.i.i50 = icmp ugt i64 %div.i2.i.i, %conv.i.i.i49
+  %cmp.i.i.i50 = icmp samesign ugt i64 %div.i2.i.i, %conv.i.i.i49
   br i1 %cmp.i.i.i50, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEN3org6apache5arrow7flatbuf9FieldNodeEjEEbPKNS0_6VectorIPKT0_T1_EE.exit, label %land.end
 
 _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEN3org6apache5arrow7flatbuf9FieldNodeEjEEbPKNS0_6VectorIPKT0_T1_EE.exit: ; preds = %if.end.i.i.i48
@@ -18850,7 +18850,7 @@ if.end.i.i.i115:                                  ; preds = %lor.rhs.i.i101
   %28 = load i64, ptr %max_size.i.i.i116, align 8
   %div.i2.i.i117 = lshr i64 %28, 4
   %conv.i.i.i118 = zext i32 %27 to i64
-  %cmp.i.i.i119 = icmp ugt i64 %div.i2.i.i117, %conv.i.i.i118
+  %cmp.i.i.i119 = icmp samesign ugt i64 %div.i2.i.i117, %conv.i.i.i118
   br i1 %cmp.i.i.i119, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEN3org6apache5arrow7flatbuf6BufferEjEEbPKNS0_6VectorIPKT0_T1_EE.exit, label %land.end
 
 _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEN3org6apache5arrow7flatbuf6BufferEjEEbPKNS0_6VectorIPKT0_T1_EE.exit: ; preds = %if.end.i.i.i115
@@ -18967,7 +18967,7 @@ if.end.i.i:                                       ; preds = %_ZNK22arrow_vendore
   %5 = load i64, ptr %max_size.i.i, align 8
   %div.i2.i = lshr i64 %5, 4
   %conv.i.i = zext i32 %4 to i64
-  %cmp.i.i = icmp ugt i64 %div.i2.i, %conv.i.i
+  %cmp.i.i = icmp samesign ugt i64 %div.i2.i, %conv.i.i
   br i1 %cmp.i.i, label %if.end5.i.i, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEN3org6apache5arrow7flatbuf6BufferEjEEbPKNS0_6VectorIT0_T1_EE.exit
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
@@ -19018,7 +19018,7 @@ if.end.i:                                         ; preds = %_ZNK22arrow_vendore
   %5 = load i64, ptr %max_size.i, align 8
   %div.i2 = lshr i64 %5, 3
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp ugt i64 %div.i2, %conv.i
+  %cmp.i = icmp samesign ugt i64 %div.i2, %conv.i
   br i1 %cmp.i, label %if.end5.i, label %lor.end
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -19378,7 +19378,7 @@ if.end.i.i99:                                     ; preds = %lor.rhs.i86
   %32 = load i64, ptr %max_size.i.i, align 8
   %div.i2.i = lshr i64 %32, 2
   %conv.i.i100 = zext i32 %31 to i64
-  %cmp.i.i101 = icmp ugt i64 %div.i2.i, %conv.i.i100
+  %cmp.i.i101 = icmp samesign ugt i64 %div.i2.i, %conv.i.i100
   br i1 %cmp.i.i101, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEEjEEbPKNS0_6VectorIT0_T1_EE.exit, label %land.end
 
 _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEEjEEbPKNS0_6VectorIT0_T1_EE.exit: ; preds = %if.end.i.i99
@@ -19524,7 +19524,7 @@ for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1 = load i32, ptr %vec, align 4
   %2 = zext i32 %1 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %2
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %2
   br i1 %cmp, label %for.body, label %return, !llvm.loop !448
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
@@ -19999,7 +19999,7 @@ if.end.i.i101:                                    ; preds = %lor.rhs.i88
   %32 = load i64, ptr %max_size.i.i, align 8
   %div.i2.i = lshr i64 %32, 2
   %conv.i.i102 = zext i32 %31 to i64
-  %cmp.i.i103 = icmp ugt i64 %div.i2.i, %conv.i.i102
+  %cmp.i.i103 = icmp samesign ugt i64 %div.i2.i, %conv.i.i102
   br i1 %cmp.i.i103, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEEjEEbPKNS0_6VectorIT0_T1_EE.exit, label %land.end
 
 _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEEjEEbPKNS0_6VectorIT0_T1_EE.exit: ; preds = %if.end.i.i101
@@ -20354,7 +20354,7 @@ if.end.i.i75:                                     ; preds = %_ZNK22arrow_vendore
   %32 = load i64, ptr %max_size.i.i, align 8
   %div.i2.i = lshr i64 %32, 3
   %conv.i.i76 = zext i32 %31 to i64
-  %cmp.i.i77 = icmp ugt i64 %div.i2.i, %conv.i.i76
+  %cmp.i.i77 = icmp samesign ugt i64 %div.i2.i, %conv.i.i76
   br i1 %cmp.i.i77, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEljEEbPKNS0_6VectorIT0_T1_EE.exit, label %land.end
 
 _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEljEEbPKNS0_6VectorIT0_T1_EE.exit: ; preds = %if.end.i.i75
@@ -20852,7 +20852,7 @@ if.end.i.i.i77:                                   ; preds = %lor.rhs.i.i
   %28 = load i64, ptr %max_size.i.i.i, align 8
   %div.i2.i.i = lshr i64 %28, 4
   %conv.i.i.i78 = zext i32 %27 to i64
-  %cmp.i.i.i79 = icmp ugt i64 %div.i2.i.i, %conv.i.i.i78
+  %cmp.i.i.i79 = icmp samesign ugt i64 %div.i2.i.i, %conv.i.i.i78
   br i1 %cmp.i.i.i79, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEN3org6apache5arrow7flatbuf6BufferEjEEbPKNS0_6VectorIPKT0_T1_EE.exit, label %land.end
 
 _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEN3org6apache5arrow7flatbuf6BufferEjEEbPKNS0_6VectorIPKT0_T1_EE.exit: ; preds = %if.end.i.i.i77

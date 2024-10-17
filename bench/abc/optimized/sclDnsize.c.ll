@@ -2104,7 +2104,7 @@ Vec_QuePrio.exit30.i:                             ; preds = %46, %42
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i32, ptr %53, i64 %57
   store i32 %.02732.i, ptr %58, align 4
-  %59 = icmp ugt i32 %.02732.i, 3
+  %59 = icmp samesign ugt i32 %.02732.i, 3
   br i1 %59, label %.lr.ph.i, label %Vec_QueMoveUp.exit, !llvm.loop !23
 
 Vec_QueMoveUp.exit:                               ; preds = %Vec_QuePrio.exit30.i, %50, %Vec_QuePrio.exit.i
@@ -2640,7 +2640,7 @@ Vec_QuePrio.exit30.i.i251:                        ; preds = %226, %222
   %237 = sext i32 %236 to i64
   %238 = getelementptr inbounds i32, ptr %233, i64 %237
   store i32 %.02732.i.i246, ptr %238, align 4
-  %239 = icmp ugt i32 %.02732.i.i246, 3
+  %239 = icmp samesign ugt i32 %.02732.i.i246, 3
   br i1 %239, label %.lr.ph.i.i245, label %Vec_QuePush.exit252, !llvm.loop !23
 
 Vec_QuePush.exit252:                              ; preds = %Vec_QuePrio.exit30.i.i251, %230, %Vec_QuePrio.exit.i.i243
@@ -3397,7 +3397,7 @@ Vec_QuePrio.exit30.i.i:                           ; preds = %602, %598
   %613 = sext i32 %612 to i64
   %614 = getelementptr inbounds i32, ptr %609, i64 %613
   store i32 %.02732.i.i, ptr %614, align 4
-  %615 = icmp ugt i32 %.02732.i.i, 3
+  %615 = icmp samesign ugt i32 %.02732.i.i, 3
   br i1 %615, label %.lr.ph.i.i205, label %Vec_QuePush.exit, !llvm.loop !23
 
 Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.i.i, %606, %Vec_QuePrio.exit.i.i204

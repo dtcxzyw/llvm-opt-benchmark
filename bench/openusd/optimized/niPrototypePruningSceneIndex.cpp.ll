@@ -1369,7 +1369,7 @@ _ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit.i.
 27:                                               ; preds = %_ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit.i
   %28 = add nuw nsw i64 %.038.i, 1
   %29 = zext i32 %.pre.pre.i to i64
-  %30 = icmp ult i64 %28, %29
+  %30 = icmp samesign ult i64 %28, %29
   br i1 %30, label %17, label %_ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit._crit_edge.i, !llvm.loop !7
 
 _ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit._crit_edge.i: ; preds = %27, %_ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit.i._ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit._crit_edge.i_crit_edge
@@ -1822,7 +1822,7 @@ _ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit.i.
 32:                                               ; preds = %_ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit.i
   %33 = add nuw nsw i64 %.038.i, 1
   %34 = zext i32 %.pre.pre.i to i64
-  %35 = icmp ult i64 %33, %34
+  %35 = icmp samesign ult i64 %33, %34
   br i1 %35, label %22, label %_ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit._crit_edge.i, !llvm.loop !10
 
 _ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit._crit_edge.i: ; preds = %32, %_ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit.i._ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit._crit_edge.i_crit_edge
@@ -2101,7 +2101,7 @@ _ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit.i.
 27:                                               ; preds = %_ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit.i
   %28 = add nuw nsw i64 %.038.i, 1
   %29 = zext i32 %.pre.pre.i to i64
-  %30 = icmp ult i64 %28, %29
+  %30 = icmp samesign ult i64 %28, %29
   br i1 %30, label %17, label %_ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit._crit_edge.i, !llvm.loop !13
 
 _ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit._crit_edge.i: ; preds = %27, %_ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit.i._ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit._crit_edge.i_crit_edge

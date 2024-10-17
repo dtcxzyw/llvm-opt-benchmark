@@ -113,7 +113,7 @@ define ptr @Lpk_CutTruthBdd(ptr nocapture noundef readonly %0, ptr nocapture nou
   %33 = load i32, ptr %1, align 4
   %34 = and i32 %33, 63
   %35 = zext nneg i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %36, label %15, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %15, %2
@@ -426,7 +426,7 @@ define ptr @Lpk_CutTruth(ptr nocapture noundef readonly %0, ptr nocapture nounde
   %26 = load i32, ptr %1, align 4
   %27 = and i32 %26, 63
   %28 = zext nneg i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next88, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next88, %28
   br i1 %29, label %.lr.ph.split.us, label %.critedge, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -457,7 +457,7 @@ define ptr @Lpk_CutTruth(ptr nocapture noundef readonly %0, ptr nocapture nounde
   %48 = load i32, ptr %1, align 4
   %49 = and i32 %48, 63
   %50 = zext nneg i32 %49 to i64
-  %51 = icmp ult i64 %indvars.iv.next, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next, %50
   br i1 %51, label %.lr.ph.split, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
@@ -544,7 +544,7 @@ define ptr @Lpk_CutTruth(ptr nocapture noundef readonly %0, ptr nocapture nounde
 97:                                               ; preds = %.critedge4
   %98 = load i32, ptr %1, align 4
   %99 = and i32 %98, 63
-  %100 = icmp ult i32 %99, 6
+  %100 = icmp samesign ult i32 %99, 6
   %101 = add nsw i32 %99, -5
   %102 = shl nuw i32 1, %101
   %spec.select.i = select i1 %100, i32 1, i32 %102
@@ -592,7 +592,7 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %9
   %122 = load ptr, ptr %121, align 8
   %123 = load i32, ptr %1, align 4
   %124 = and i32 %123, 63
-  %125 = icmp ult i32 %124, 6
+  %125 = icmp samesign ult i32 %124, 6
   %126 = add nsw i32 %124, -5
   %127 = shl nuw i32 1, %126
   %spec.select.i61 = select i1 %125, i32 1, i32 %127
@@ -829,7 +829,7 @@ Vec_PtrPush.exit43:                               ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %107 = and i32 %106, 63
   %108 = zext nneg i32 %107 to i64
-  %109 = icmp ult i64 %indvars.iv.next, %108
+  %109 = icmp samesign ult i64 %indvars.iv.next, %108
   br i1 %109, label %27, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %105
@@ -926,7 +926,7 @@ define range(i32 0, 2) i32 @Lpk_NodeCutsCheckDsd(ptr nocapture noundef %0, ptr n
   %31 = load i32, ptr %1, align 4
   %32 = and i32 %31, 63
   %33 = zext nneg i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %34, label %17, label %.critedge.preheader, !llvm.loop !20
 
 .critedge2.preheader:                             ; preds = %.critedge
@@ -1045,7 +1045,7 @@ define range(i32 0, 2) i32 @Lpk_NodeCutsCheckDsd(ptr nocapture noundef %0, ptr n
   %90 = lshr i32 %89, 6
   %91 = and i32 %90, 63
   %92 = zext nneg i32 %91 to i64
-  %93 = icmp ult i64 %indvars.iv.next108, %92
+  %93 = icmp samesign ult i64 %indvars.iv.next108, %92
   br i1 %93, label %41, label %.critedge2.preheader, !llvm.loop !22
 
 .critedge2:                                       ; preds = %.critedge6
@@ -1139,7 +1139,7 @@ define range(i32 0, 2) i32 @Lpk_NodeCutsCheckDsd(ptr nocapture noundef %0, ptr n
   %137 = load i32, ptr %1, align 4
   %138 = and i32 %137, 63
   %139 = zext nneg i32 %138 to i64
-  %140 = icmp ult i64 %indvars.iv.next119, %139
+  %140 = icmp samesign ult i64 %indvars.iv.next119, %139
   br i1 %140, label %125, label %.critedge8, !llvm.loop !25
 
 .critedge8:                                       ; preds = %125, %.critedge6._crit_edge
@@ -1214,7 +1214,7 @@ define range(i32 0, 2) i32 @Lpk_NodeCutsOneFilter(ptr nocapture noundef %0, i32 
   br i1 %34, label %Lpk_NodeCutsOneDominance.exit, label %Lpk_NodeCutsOneDominance.exit.thread
 
 35:                                               ; preds = %13
-  %36 = icmp ult i32 %11, %15
+  %36 = icmp samesign ult i32 %11, %15
   %37 = getelementptr inbounds i8, ptr %9, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = load i32, ptr %5, align 4
@@ -1361,7 +1361,7 @@ define void @Lpk_NodePrintCut(ptr nocapture noundef readonly %0, ptr nocapture n
   %22 = load i32, ptr %1, align 4
   %23 = and i32 %22, 63
   %24 = zext nneg i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %25, label %10, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %10, %5
@@ -1399,7 +1399,7 @@ define void @Lpk_NodePrintCut(ptr nocapture noundef readonly %0, ptr nocapture n
   %44 = lshr i32 %43, 6
   %45 = and i32 %44, 63
   %46 = zext nneg i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next26, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next26, %46
   br i1 %47, label %31, label %.critedge2, !llvm.loop !31
 
 .critedge2:                                       ; preds = %31, %26
@@ -1598,7 +1598,7 @@ define void @Lpk_NodeCutsOne(ptr nocapture noundef %0, ptr nocapture noundef rea
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %85 = and i32 %83, 63
   %86 = zext nneg i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next165, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next165, %86
   br i1 %87, label %69, label %.preheader126, !llvm.loop !34
 
 88:                                               ; preds = %.lr.ph147, %135
@@ -2271,7 +2271,7 @@ define range(i32 0, 2) i32 @Lpk_NodeCuts(ptr nocapture noundef %0) local_unnamed
   %36 = load i32, ptr %30, align 4
   %37 = and i32 %36, 63
   %38 = zext nneg i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next, %38
   br i1 %39, label %40, label %Lpk_NodeCutSignature.exit, !llvm.loop !45
 
 40:                                               ; preds = %.lr.ph, %35
@@ -2330,7 +2330,7 @@ Lpk_NodeCutSignature.exit._crit_edge:             ; preds = %Lpk_NodeCutSignatur
   %64 = getelementptr inbounds %struct.Lpk_Cut_t_, ptr %11, i64 %indvars.iv111
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, 63
-  %67 = icmp ult i32 %66, 2
+  %67 = icmp samesign ult i32 %66, 2
   br i1 %67, label %107, label %68
 
 68:                                               ; preds = %63

@@ -312,7 +312,7 @@ define dso_local range(i32 -22, -2147483648) i32 @snd_seq_create_port(ptr nounde
   br label %85
 
 69:                                               ; preds = %.split
-  %70 = icmp ult i32 %44, %67
+  %70 = icmp samesign ult i32 %44, %67
   br i1 %70, label %.loopexit, label %71
 
 71:                                               ; preds = %69

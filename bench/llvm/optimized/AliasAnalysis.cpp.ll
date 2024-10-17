@@ -1406,7 +1406,7 @@ _ZN4llvm9AAResults16getArgModRefInfoEPKNS_8CallBaseEj.exit95: ; preds = %155
 169:                                              ; preds = %_ZN4llvm9AAResults16getArgModRefInfoEPKNS_8CallBaseEj.exit95
   %170 = and i8 %162, 1
   %171 = icmp ne i8 %170, 0
-  %172 = icmp ugt i8 %165, 1
+  %172 = icmp samesign ugt i8 %165, 1
   %or.cond = and i1 %172, %171
   br i1 %or.cond, label %173, label %.thread
 
@@ -2097,7 +2097,7 @@ define dso_local noundef zeroext range(i8 0, 4) i8 @_ZN4llvm9AAResults13getModRe
 
 33:                                               ; preds = %.critedge, %._crit_edge.loopexit.i
   %34 = call noundef zeroext i8 @_ZN4llvm9AAResults17getModRefInfoMaskERKNS_14MemoryLocationEb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i1 noundef zeroext false)
-  %.not8 = icmp ult i8 %34, 2
+  %.not8 = icmp samesign ult i8 %34, 2
   br i1 %.not8, label %36, label %35
 
 35:                                               ; preds = %33, %14
@@ -2682,7 +2682,7 @@ _ZN4llvm9AAResults13getModRefInfoEPKNS_8LoadInstERKNS_14MemoryLocationERNS_11AAQ
 
 127:                                              ; preds = %.critedge.i59, %._crit_edge.loopexit.i.i56
   %128 = call noundef zeroext i8 @_ZN4llvm9AAResults17getModRefInfoMaskERKNS_14MemoryLocationEb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(48) %10, i1 noundef zeroext false)
-  %.not8.i = icmp ult i8 %128, 2
+  %.not8.i = icmp samesign ult i8 %128, 2
   br i1 %.not8.i, label %_ZN4llvm9AAResults13getModRefInfoEPKNS_9StoreInstERKNS_14MemoryLocationERNS_11AAQueryInfoE.exit, label %129
 
 129:                                              ; preds = %127, %108

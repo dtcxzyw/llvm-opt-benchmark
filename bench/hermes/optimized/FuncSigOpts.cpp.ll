@@ -365,7 +365,7 @@ for.body19.i:                                     ; preds = %for.body.i, %for.in
   %call.i.i = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %19) #14
   %sub.i = add i32 %call.i.i, -3
   %20 = zext i32 %sub.i to i64
-  %cmp21.i = icmp ult i64 %indvars.iv.i, %20
+  %cmp21.i = icmp samesign ult i64 %indvars.iv.i, %20
   br i1 %cmp21.i, label %if.then22.i, label %if.end24.i
 
 if.then22.i:                                      ; preds = %for.body19.i
@@ -415,7 +415,7 @@ for.body62.preheader.i:                           ; preds = %for.end.i
 
 for.body62.i:                                     ; preds = %for.inc73.i, %for.body62.preheader.i
   %indvars.iv128.i = phi i64 [ 1, %for.body62.preheader.i ], [ %indvars.iv.next129.i, %for.inc73.i ]
-  %cmp63.i = icmp ugt i64 %indvars.iv128.i, %conv.i.i
+  %cmp63.i = icmp samesign ugt i64 %indvars.iv128.i, %conv.i.i
   br i1 %cmp63.i, label %if.then70.i, label %lor.lhs.false64.i
 
 lor.lhs.false64.i:                                ; preds = %for.body62.i

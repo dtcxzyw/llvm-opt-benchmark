@@ -382,44 +382,44 @@ _ZSt7advanceIPKN4llvm5RISCV9VLEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
   %.val.i.i.fr = freeze i16 %.val.i.i
   %12 = and i16 %.val.i.i.fr, 1
   %13 = zext nneg i16 %12 to i32
-  %14 = icmp ult i32 %13, %5
+  %14 = icmp samesign ult i32 %13, %5
   br i1 %14, label %.thread.i.i, label %15
 
 15:                                               ; preds = %_ZSt7advanceIPKN4llvm5RISCV9VLEPseudoElEvRT_T0_.exit.i.i
-  %16 = icmp ugt i32 %13, %5
+  %16 = icmp samesign ugt i32 %13, %5
   br i1 %16, label %.thread27.i.i, label %17
 
 17:                                               ; preds = %15
   %18 = lshr i16 %.val.i.i.fr, 1
   %19 = and i16 %18, 1
   %20 = zext nneg i16 %19 to i32
-  %21 = icmp ult i32 %20, %6
+  %21 = icmp samesign ult i32 %20, %6
   br i1 %21, label %.thread.i.i, label %22
 
 22:                                               ; preds = %17
-  %23 = icmp ugt i32 %20, %6
+  %23 = icmp samesign ugt i32 %20, %6
   br i1 %23, label %.thread27.i.i, label %24
 
 24:                                               ; preds = %22
   %25 = lshr i16 %.val.i.i.fr, 2
   %26 = and i16 %25, 1
   %27 = zext nneg i16 %26 to i32
-  %28 = icmp ult i32 %27, %7
+  %28 = icmp samesign ult i32 %27, %7
   br i1 %28, label %.thread.i.i, label %29
 
 29:                                               ; preds = %24
-  %30 = icmp ugt i32 %27, %7
+  %30 = icmp samesign ugt i32 %27, %7
   br i1 %30, label %.thread27.i.i, label %31
 
 31:                                               ; preds = %29
   %32 = lshr i16 %.val.i.i.fr, 3
   %33 = and i16 %32, 7
   %34 = zext nneg i16 %33 to i32
-  %35 = icmp ult i32 %34, %8
+  %35 = icmp samesign ult i32 %34, %8
   br i1 %35, label %.thread.i.i, label %36
 
 36:                                               ; preds = %31
-  %37 = icmp ugt i32 %34, %8
+  %37 = icmp samesign ugt i32 %34, %8
   br i1 %37, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i
 
 .thread.i.i:                                      ; preds = %31, %24, %17, %_ZSt7advanceIPKN4llvm5RISCV9VLEPseudoElEvRT_T0_.exit.i.i
@@ -431,7 +431,7 @@ _ZSt7advanceIPKN4llvm5RISCV9VLEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %36
   %41 = lshr i16 %.val.i.i.fr, 6
   %42 = and i16 %41, 7
-  %43 = icmp ult i16 %42, %9
+  %43 = icmp samesign ult i16 %42, %9
   %44 = getelementptr inbounds i8, ptr %11, i64 4
   %45 = xor i64 %10, -1
   %46 = add nsw i64 %.01132.i.i, %45
@@ -509,55 +509,55 @@ _ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
   %.val.i.i.fr = freeze i16 %.val.i.i
   %14 = and i16 %.val.i.i.fr, 15
   %15 = zext nneg i16 %14 to i32
-  %16 = icmp ult i32 %15, %6
+  %16 = icmp samesign ult i32 %15, %6
   br i1 %16, label %.thread.i.i, label %17
 
 17:                                               ; preds = %_ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i
-  %18 = icmp ugt i32 %15, %6
+  %18 = icmp samesign ugt i32 %15, %6
   br i1 %18, label %.thread27.i.i, label %19
 
 19:                                               ; preds = %17
   %20 = lshr i16 %.val.i.i.fr, 4
   %21 = and i16 %20, 1
   %22 = zext nneg i16 %21 to i32
-  %23 = icmp ult i32 %22, %7
+  %23 = icmp samesign ult i32 %22, %7
   br i1 %23, label %.thread.i.i, label %24
 
 24:                                               ; preds = %19
-  %25 = icmp ugt i32 %22, %7
+  %25 = icmp samesign ugt i32 %22, %7
   br i1 %25, label %.thread27.i.i, label %26
 
 26:                                               ; preds = %24
   %27 = lshr i16 %.val.i.i.fr, 5
   %28 = and i16 %27, 1
   %29 = zext nneg i16 %28 to i32
-  %30 = icmp ult i32 %29, %8
+  %30 = icmp samesign ult i32 %29, %8
   br i1 %30, label %.thread.i.i, label %31
 
 31:                                               ; preds = %26
-  %32 = icmp ugt i32 %29, %8
+  %32 = icmp samesign ugt i32 %29, %8
   br i1 %32, label %.thread27.i.i, label %33
 
 33:                                               ; preds = %31
   %34 = lshr i16 %.val.i.i.fr, 6
   %35 = and i16 %34, 1
   %36 = zext nneg i16 %35 to i32
-  %37 = icmp ult i32 %36, %9
+  %37 = icmp samesign ult i32 %36, %9
   br i1 %37, label %.thread.i.i, label %38
 
 38:                                               ; preds = %33
-  %39 = icmp ugt i32 %36, %9
+  %39 = icmp samesign ugt i32 %36, %9
   br i1 %39, label %.thread27.i.i, label %40
 
 40:                                               ; preds = %38
   %41 = lshr i16 %.val.i.i.fr, 7
   %42 = and i16 %41, 7
   %43 = zext nneg i16 %42 to i32
-  %44 = icmp ult i32 %43, %10
+  %44 = icmp samesign ult i32 %43, %10
   br i1 %44, label %.thread.i.i, label %45
 
 45:                                               ; preds = %40
-  %46 = icmp ugt i32 %43, %10
+  %46 = icmp samesign ugt i32 %43, %10
   br i1 %46, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i
 
 .thread.i.i:                                      ; preds = %40, %33, %26, %19, %_ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i
@@ -569,7 +569,7 @@ _ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %45
   %50 = lshr i16 %.val.i.i.fr, 10
   %51 = and i16 %50, 7
-  %52 = icmp ult i16 %51, %11
+  %52 = icmp samesign ult i16 %51, %11
   %53 = getelementptr inbounds i8, ptr %13, i64 4
   %54 = xor i64 %12, -1
   %55 = add nsw i64 %.01132.i.i, %54
@@ -654,55 +654,55 @@ _ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   %.val.i.i.fr = freeze i16 %.val.i.i
   %14 = and i16 %.val.i.i.fr, 15
   %15 = zext nneg i16 %14 to i32
-  %16 = icmp ult i32 %15, %6
+  %16 = icmp samesign ult i32 %15, %6
   br i1 %16, label %.thread.i.i, label %17
 
 17:                                               ; preds = %_ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i
-  %18 = icmp ugt i32 %15, %6
+  %18 = icmp samesign ugt i32 %15, %6
   br i1 %18, label %.thread27.i.i, label %19
 
 19:                                               ; preds = %17
   %20 = lshr i16 %.val.i.i.fr, 4
   %21 = and i16 %20, 1
   %22 = zext nneg i16 %21 to i32
-  %23 = icmp ult i32 %22, %7
+  %23 = icmp samesign ult i32 %22, %7
   br i1 %23, label %.thread.i.i, label %24
 
 24:                                               ; preds = %19
-  %25 = icmp ugt i32 %22, %7
+  %25 = icmp samesign ugt i32 %22, %7
   br i1 %25, label %.thread27.i.i, label %26
 
 26:                                               ; preds = %24
   %27 = lshr i16 %.val.i.i.fr, 5
   %28 = and i16 %27, 1
   %29 = zext nneg i16 %28 to i32
-  %30 = icmp ult i32 %29, %8
+  %30 = icmp samesign ult i32 %29, %8
   br i1 %30, label %.thread.i.i, label %31
 
 31:                                               ; preds = %26
-  %32 = icmp ugt i32 %29, %8
+  %32 = icmp samesign ugt i32 %29, %8
   br i1 %32, label %.thread27.i.i, label %33
 
 33:                                               ; preds = %31
   %34 = lshr i16 %.val.i.i.fr, 6
   %35 = and i16 %34, 7
   %36 = zext nneg i16 %35 to i32
-  %37 = icmp ult i32 %36, %9
+  %37 = icmp samesign ult i32 %36, %9
   br i1 %37, label %.thread.i.i, label %38
 
 38:                                               ; preds = %33
-  %39 = icmp ugt i32 %36, %9
+  %39 = icmp samesign ugt i32 %36, %9
   br i1 %39, label %.thread27.i.i, label %40
 
 40:                                               ; preds = %38
   %41 = lshr i16 %.val.i.i.fr, 9
   %42 = and i16 %41, 7
   %43 = zext nneg i16 %42 to i32
-  %44 = icmp ult i32 %43, %10
+  %44 = icmp samesign ult i32 %43, %10
   br i1 %44, label %.thread.i.i, label %45
 
 45:                                               ; preds = %40
-  %46 = icmp ugt i32 %43, %10
+  %46 = icmp samesign ugt i32 %43, %10
   br i1 %46, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i
 
 .thread.i.i:                                      ; preds = %40, %33, %26, %19, %_ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i
@@ -714,7 +714,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %45
   %50 = lshr i16 %.val.i.i.fr, 12
   %51 = and i16 %50, 7
-  %52 = icmp ult i16 %51, %11
+  %52 = icmp samesign ult i16 %51, %11
   %53 = getelementptr inbounds i8, ptr %13, i64 4
   %54 = xor i64 %12, -1
   %55 = add nsw i64 %.01132.i.i, %54
@@ -798,44 +798,44 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
   %.val.i.i.fr = freeze i16 %.val.i.i
   %12 = and i16 %.val.i.i.fr, 1
   %13 = zext nneg i16 %12 to i32
-  %14 = icmp ult i32 %13, %5
+  %14 = icmp samesign ult i32 %13, %5
   br i1 %14, label %.thread.i.i, label %15
 
 15:                                               ; preds = %_ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i
-  %16 = icmp ugt i32 %13, %5
+  %16 = icmp samesign ugt i32 %13, %5
   br i1 %16, label %.thread27.i.i, label %17
 
 17:                                               ; preds = %15
   %18 = lshr i16 %.val.i.i.fr, 1
   %19 = and i16 %18, 1
   %20 = zext nneg i16 %19 to i32
-  %21 = icmp ult i32 %20, %6
+  %21 = icmp samesign ult i32 %20, %6
   br i1 %21, label %.thread.i.i, label %22
 
 22:                                               ; preds = %17
-  %23 = icmp ugt i32 %20, %6
+  %23 = icmp samesign ugt i32 %20, %6
   br i1 %23, label %.thread27.i.i, label %24
 
 24:                                               ; preds = %22
   %25 = lshr i16 %.val.i.i.fr, 2
   %26 = and i16 %25, 7
   %27 = zext nneg i16 %26 to i32
-  %28 = icmp ult i32 %27, %7
+  %28 = icmp samesign ult i32 %27, %7
   br i1 %28, label %.thread.i.i, label %29
 
 29:                                               ; preds = %24
-  %30 = icmp ugt i32 %27, %7
+  %30 = icmp samesign ugt i32 %27, %7
   br i1 %30, label %.thread27.i.i, label %31
 
 31:                                               ; preds = %29
   %32 = lshr i16 %.val.i.i.fr, 5
   %33 = and i16 %32, 7
   %34 = zext nneg i16 %33 to i32
-  %35 = icmp ult i32 %34, %8
+  %35 = icmp samesign ult i32 %34, %8
   br i1 %35, label %.thread.i.i, label %36
 
 36:                                               ; preds = %31
-  %37 = icmp ugt i32 %34, %8
+  %37 = icmp samesign ugt i32 %34, %8
   br i1 %37, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i
 
 .thread.i.i:                                      ; preds = %31, %24, %17, %_ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i
@@ -847,7 +847,7 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %36
   %41 = lshr i16 %.val.i.i.fr, 8
   %42 = and i16 %41, 7
-  %43 = icmp ult i16 %42, %9
+  %43 = icmp samesign ult i16 %42, %9
   %44 = getelementptr inbounds i8, ptr %11, i64 4
   %45 = xor i64 %10, -1
   %46 = add nsw i64 %.01132.i.i, %45
@@ -1019,44 +1019,44 @@ _ZSt7advanceIPKN4llvm5RISCV11VSSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
   %.val.i.i.fr = freeze i16 %.val.i.i
   %12 = and i16 %.val.i.i.fr, 15
   %13 = zext nneg i16 %12 to i32
-  %14 = icmp ult i32 %13, %5
+  %14 = icmp samesign ult i32 %13, %5
   br i1 %14, label %.thread.i.i, label %15
 
 15:                                               ; preds = %_ZSt7advanceIPKN4llvm5RISCV11VSSEGPseudoElEvRT_T0_.exit.i.i
-  %16 = icmp ugt i32 %13, %5
+  %16 = icmp samesign ugt i32 %13, %5
   br i1 %16, label %.thread27.i.i, label %17
 
 17:                                               ; preds = %15
   %18 = lshr i16 %.val.i.i.fr, 4
   %19 = and i16 %18, 1
   %20 = zext nneg i16 %19 to i32
-  %21 = icmp ult i32 %20, %6
+  %21 = icmp samesign ult i32 %20, %6
   br i1 %21, label %.thread.i.i, label %22
 
 22:                                               ; preds = %17
-  %23 = icmp ugt i32 %20, %6
+  %23 = icmp samesign ugt i32 %20, %6
   br i1 %23, label %.thread27.i.i, label %24
 
 24:                                               ; preds = %22
   %25 = lshr i16 %.val.i.i.fr, 5
   %26 = and i16 %25, 1
   %27 = zext nneg i16 %26 to i32
-  %28 = icmp ult i32 %27, %7
+  %28 = icmp samesign ult i32 %27, %7
   br i1 %28, label %.thread.i.i, label %29
 
 29:                                               ; preds = %24
-  %30 = icmp ugt i32 %27, %7
+  %30 = icmp samesign ugt i32 %27, %7
   br i1 %30, label %.thread27.i.i, label %31
 
 31:                                               ; preds = %29
   %32 = lshr i16 %.val.i.i.fr, 6
   %33 = and i16 %32, 7
   %34 = zext nneg i16 %33 to i32
-  %35 = icmp ult i32 %34, %8
+  %35 = icmp samesign ult i32 %34, %8
   br i1 %35, label %.thread.i.i, label %36
 
 36:                                               ; preds = %31
-  %37 = icmp ugt i32 %34, %8
+  %37 = icmp samesign ugt i32 %34, %8
   br i1 %37, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i
 
 .thread.i.i:                                      ; preds = %31, %24, %17, %_ZSt7advanceIPKN4llvm5RISCV11VSSEGPseudoElEvRT_T0_.exit.i.i
@@ -1068,7 +1068,7 @@ _ZSt7advanceIPKN4llvm5RISCV11VSSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %36
   %41 = lshr i16 %.val.i.i.fr, 9
   %42 = and i16 %41, 7
-  %43 = icmp ult i16 %42, %9
+  %43 = icmp samesign ult i16 %42, %9
   %44 = getelementptr inbounds i8, ptr %11, i64 4
   %45 = xor i64 %10, -1
   %46 = add nsw i64 %.01132.i.i, %45
@@ -1146,55 +1146,55 @@ _ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   %.val.i.i.fr = freeze i16 %.val.i.i
   %14 = and i16 %.val.i.i.fr, 15
   %15 = zext nneg i16 %14 to i32
-  %16 = icmp ult i32 %15, %6
+  %16 = icmp samesign ult i32 %15, %6
   br i1 %16, label %.thread.i.i, label %17
 
 17:                                               ; preds = %_ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i
-  %18 = icmp ugt i32 %15, %6
+  %18 = icmp samesign ugt i32 %15, %6
   br i1 %18, label %.thread27.i.i, label %19
 
 19:                                               ; preds = %17
   %20 = lshr i16 %.val.i.i.fr, 4
   %21 = and i16 %20, 1
   %22 = zext nneg i16 %21 to i32
-  %23 = icmp ult i32 %22, %7
+  %23 = icmp samesign ult i32 %22, %7
   br i1 %23, label %.thread.i.i, label %24
 
 24:                                               ; preds = %19
-  %25 = icmp ugt i32 %22, %7
+  %25 = icmp samesign ugt i32 %22, %7
   br i1 %25, label %.thread27.i.i, label %26
 
 26:                                               ; preds = %24
   %27 = lshr i16 %.val.i.i.fr, 5
   %28 = and i16 %27, 1
   %29 = zext nneg i16 %28 to i32
-  %30 = icmp ult i32 %29, %8
+  %30 = icmp samesign ult i32 %29, %8
   br i1 %30, label %.thread.i.i, label %31
 
 31:                                               ; preds = %26
-  %32 = icmp ugt i32 %29, %8
+  %32 = icmp samesign ugt i32 %29, %8
   br i1 %32, label %.thread27.i.i, label %33
 
 33:                                               ; preds = %31
   %34 = lshr i16 %.val.i.i.fr, 6
   %35 = and i16 %34, 7
   %36 = zext nneg i16 %35 to i32
-  %37 = icmp ult i32 %36, %9
+  %37 = icmp samesign ult i32 %36, %9
   br i1 %37, label %.thread.i.i, label %38
 
 38:                                               ; preds = %33
-  %39 = icmp ugt i32 %36, %9
+  %39 = icmp samesign ugt i32 %36, %9
   br i1 %39, label %.thread27.i.i, label %40
 
 40:                                               ; preds = %38
   %41 = lshr i16 %.val.i.i.fr, 9
   %42 = and i16 %41, 7
   %43 = zext nneg i16 %42 to i32
-  %44 = icmp ult i32 %43, %10
+  %44 = icmp samesign ult i32 %43, %10
   br i1 %44, label %.thread.i.i, label %45
 
 45:                                               ; preds = %40
-  %46 = icmp ugt i32 %43, %10
+  %46 = icmp samesign ugt i32 %43, %10
   br i1 %46, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i
 
 .thread.i.i:                                      ; preds = %40, %33, %26, %19, %_ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i
@@ -1206,7 +1206,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %45
   %50 = lshr i16 %.val.i.i.fr, 12
   %51 = and i16 %50, 7
-  %52 = icmp ult i16 %51, %11
+  %52 = icmp samesign ult i16 %51, %11
   %53 = getelementptr inbounds i8, ptr %13, i64 4
   %54 = xor i64 %12, -1
   %55 = add nsw i64 %.01132.i.i, %54
@@ -1290,44 +1290,44 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
   %.val.i.i.fr = freeze i16 %.val.i.i
   %12 = and i16 %.val.i.i.fr, 1
   %13 = zext nneg i16 %12 to i32
-  %14 = icmp ult i32 %13, %5
+  %14 = icmp samesign ult i32 %13, %5
   br i1 %14, label %.thread.i.i, label %15
 
 15:                                               ; preds = %_ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i
-  %16 = icmp ugt i32 %13, %5
+  %16 = icmp samesign ugt i32 %13, %5
   br i1 %16, label %.thread27.i.i, label %17
 
 17:                                               ; preds = %15
   %18 = lshr i16 %.val.i.i.fr, 1
   %19 = and i16 %18, 1
   %20 = zext nneg i16 %19 to i32
-  %21 = icmp ult i32 %20, %6
+  %21 = icmp samesign ult i32 %20, %6
   br i1 %21, label %.thread.i.i, label %22
 
 22:                                               ; preds = %17
-  %23 = icmp ugt i32 %20, %6
+  %23 = icmp samesign ugt i32 %20, %6
   br i1 %23, label %.thread27.i.i, label %24
 
 24:                                               ; preds = %22
   %25 = lshr i16 %.val.i.i.fr, 2
   %26 = and i16 %25, 7
   %27 = zext nneg i16 %26 to i32
-  %28 = icmp ult i32 %27, %7
+  %28 = icmp samesign ult i32 %27, %7
   br i1 %28, label %.thread.i.i, label %29
 
 29:                                               ; preds = %24
-  %30 = icmp ugt i32 %27, %7
+  %30 = icmp samesign ugt i32 %27, %7
   br i1 %30, label %.thread27.i.i, label %31
 
 31:                                               ; preds = %29
   %32 = lshr i16 %.val.i.i.fr, 5
   %33 = and i16 %32, 7
   %34 = zext nneg i16 %33 to i32
-  %35 = icmp ult i32 %34, %8
+  %35 = icmp samesign ult i32 %34, %8
   br i1 %35, label %.thread.i.i, label %36
 
 36:                                               ; preds = %31
-  %37 = icmp ugt i32 %34, %8
+  %37 = icmp samesign ugt i32 %34, %8
   br i1 %37, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i
 
 .thread.i.i:                                      ; preds = %31, %24, %17, %_ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i
@@ -1339,7 +1339,7 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %36
   %41 = lshr i16 %.val.i.i.fr, 8
   %42 = and i16 %41, 7
-  %43 = icmp ult i16 %42, %9
+  %43 = icmp samesign ult i16 %42, %9
   %44 = getelementptr inbounds i8, ptr %11, i64 4
   %45 = xor i64 %10, -1
   %46 = add nsw i64 %.01132.i.i, %45
@@ -10773,7 +10773,7 @@ _ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds =
   %54 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %53, i1 false)
   %55 = sub nsw i64 63, %54
   %56 = and i64 %55, 255
-  %57 = icmp ugt i64 %56, 2
+  %57 = icmp samesign ugt i64 %56, 2
   %.pre = load ptr, ptr %29, align 8
   br i1 %57, label %58, label %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRKT0_.exit._ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRKT0_.exit.thread_crit_edge
 
@@ -10815,7 +10815,7 @@ _ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds = 
   %74 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %73, i1 false)
   %75 = sub nsw i64 63, %74
   %76 = and i64 %75, 255
-  %77 = icmp ugt i64 %76, 2
+  %77 = icmp samesign ugt i64 %76, 2
   br i1 %77, label %78, label %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRKT0_.exit.thread
 
 78:                                               ; preds = %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRKT0_.exit
@@ -15873,7 +15873,7 @@ _ZNK4llvm13MachineSDNode11memoperandsEv.exit:     ; preds = %316, %319
   %328 = add nuw nsw i32 %.0149285, 1
   %329 = load i16, ptr %305, align 2
   %330 = zext i16 %329 to i32
-  %331 = icmp ult i32 %328, %330
+  %331 = icmp samesign ult i32 %328, %330
   br i1 %331, label %.lr.ph, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph, %323
@@ -15920,7 +15920,7 @@ define internal fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE(ptr
   %.sroa.0.0.copyload = load ptr, ptr %14, align 8
   %15 = tail call fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE(ptr %.sroa.0.0.copyload)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %16 = icmp ult i64 %indvars.iv.next, %12
+  %16 = icmp samesign ult i64 %indvars.iv.next, %12
   %or.cond = select i1 %15, i1 %16, i1 false
   br i1 %or.cond, label %13, label %.loopexit, !llvm.loop !56
 
@@ -22138,7 +22138,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit333: ; preds = %455, %462
 
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %472
   %473 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i331)
-  %474 = icmp ult i64 %473, 2
+  %474 = icmp samesign ult i64 %473, 2
   br label %_ZNK4llvm6SDNode9hasOneUseEv.exit
 
 475:                                              ; preds = %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit333
@@ -22151,7 +22151,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %472
 
 478:                                              ; preds = %476
   %479 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %477)
-  %480 = icmp ult i32 %479, 2
+  %480 = icmp samesign ult i32 %479, 2
   br label %_ZNK4llvm6SDNode9hasOneUseEv.exit
 
 481:                                              ; preds = %3
@@ -22267,7 +22267,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit356: ; preds = %528, %535
 
 542:                                              ; preds = %540
   %543 = tail call range(i64 1, 54) i64 @llvm.ctpop.i64(i64 %541)
-  %544 = icmp ult i64 %543, 2
+  %544 = icmp samesign ult i64 %543, 2
   br label %_ZNK4llvm6SDNode9hasOneUseEv.exit
 
 545:                                              ; preds = %3
@@ -22355,7 +22355,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit369: ; preds = %583, %590
 
 595:                                              ; preds = %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit369
   %596 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %594)
-  %597 = icmp ult i32 %596, 2
+  %597 = icmp samesign ult i32 %596, 2
   br label %_ZNK4llvm6SDNode9hasOneUseEv.exit
 
 598:                                              ; preds = %3
@@ -22494,7 +22494,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit384: ; preds = %665, %672
 
 683:                                              ; preds = %682
   %684 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i382)
-  %685 = icmp ugt i64 %684, 62
+  %685 = icmp samesign ugt i64 %684, 62
   br label %_ZNK4llvm6SDNode9hasOneUseEv.exit
 
 686:                                              ; preds = %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit384
@@ -22507,7 +22507,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit384: ; preds = %665, %672
 
 689:                                              ; preds = %687
   %690 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %688)
-  %691 = icmp ugt i32 %690, 30
+  %691 = icmp samesign ugt i32 %690, 30
   br label %_ZNK4llvm6SDNode9hasOneUseEv.exit
 
 692:                                              ; preds = %3
@@ -22776,7 +22776,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit428: ; preds = %829, %836
 
 849:                                              ; preds = %848
   %850 = tail call range(i64 11, 65) i64 @llvm.ctpop.i64(i64 %842)
-  %851 = icmp ugt i64 %850, 62
+  %851 = icmp samesign ugt i64 %850, 62
   br label %_ZNK4llvm6SDNode9hasOneUseEv.exit
 
 852:                                              ; preds = %841
@@ -22786,7 +22786,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit428: ; preds = %829, %836
 
 854:                                              ; preds = %852
   %855 = tail call range(i32 11, 33) i32 @llvm.ctpop.i32(i32 %853)
-  %856 = icmp ugt i32 %855, 30
+  %856 = icmp samesign ugt i32 %855, 30
   br label %_ZNK4llvm6SDNode9hasOneUseEv.exit
 
 857:                                              ; preds = %3

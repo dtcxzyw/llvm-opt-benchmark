@@ -1170,9 +1170,9 @@ if.end60.i:                                       ; preds = %if.else46.i, %if.el
   store i8 %0, ptr %fill, align 1
   %2 = load i8, ptr %incdec.ptr.i, align 1
   %conv62.i = zext i8 %2 to i32
-  %cmp64.i = icmp ugt i32 %lb.0.i, %conv62.i
-  %cmp68.i = icmp ult i32 %ub.0.i, %conv62.i
-  %or.cond30.i = or i1 %cmp64.i, %cmp68.i
+  %cmp64.i = icmp samesign ugt i32 %lb.0.i, %conv62.i
+  %cmp68.i = icmp samesign ult i32 %ub.0.i, %conv62.i
+  %or.cond30.i = select i1 %cmp64.i, i1 true, i1 %cmp68.i
   br i1 %or.cond30.i, label %_mpd_copy_utf8.exit, label %if.end71.i
 
 if.end60.thread.i:                                ; preds = %if.else8.i
@@ -1582,7 +1582,7 @@ if.then58:                                        ; preds = %sw.epilog.thread, %
   %flags2.498 = phi i32 [ %or54, %sw.epilog.thread ], [ %or45, %sw.epilog ]
   %type.294 = phi i8 [ 102, %sw.epilog.thread ], [ %type.0, %sw.epilog ]
   %dec.addr.291 = phi ptr [ %dec.addr.1, %sw.epilog.thread ], [ %dec, %sw.epilog ]
-  %cmp60 = icmp ugt i64 %11, 999999999999999999
+  %cmp60 = icmp samesign ugt i64 %11, 999999999999999999
   br i1 %cmp60, label %if.then62, label %if.end64
 
 if.then62:                                        ; preds = %if.then58

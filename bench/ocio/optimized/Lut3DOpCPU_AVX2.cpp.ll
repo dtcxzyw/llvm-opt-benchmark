@@ -212,7 +212,7 @@ for.body34.i:                                     ; preds = %for.body34.i, %for.
   store float %77, ptr %arrayidx48.i, align 4
   %add.ptr49.i = getelementptr inbounds i8, ptr %src.1169.i, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %cmp33.i = icmp ult i64 %indvars.iv.next.i, %71
+  %cmp33.i = icmp samesign ult i64 %indvars.iv.next.i, %71
   br i1 %cmp33.i, label %for.body34.i, label %for.end52.i, !llvm.loop !9
 
 for.end52.i:                                      ; preds = %for.body34.i, %if.then.i
@@ -364,7 +364,7 @@ for.body75.i:                                     ; preds = %for.body75.i, %for.
   store float %157, ptr %arrayidx91.i, align 4
   %add.ptr92.i = getelementptr inbounds i8, ptr %dst.1173.i, i64 16
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 4
-  %cmp74.i = icmp ult i64 %indvars.iv.next180.i, %150
+  %cmp74.i = icmp samesign ult i64 %indvars.iv.next180.i, %150
   br i1 %cmp74.i, label %for.body75.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124applyTetrahedralAVX2FuncILNS_8BitDepthE8ELS2_8EEEvPKfiPKvPvi.exit, !llvm.loop !13
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124applyTetrahedralAVX2FuncILNS_8BitDepthE8ELS2_8EEEvPKfiPKvPvi.exit: ; preds = %for.body75.i, %for.end.i, %for.end52.i

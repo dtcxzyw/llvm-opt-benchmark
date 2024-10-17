@@ -352,7 +352,7 @@ for.end198:                                       ; preds = %for.inc196
 
 if.then200:                                       ; preds = %for.cond136.preheader, %for.end198
   %conv4.i = zext i32 %input_cursor.0167 to i64
-  %cmp5.i = icmp ugt i64 %div, %conv4.i
+  %cmp5.i = icmp samesign ugt i64 %div, %conv4.i
   br i1 %cmp5.i, label %while.body.i, label %cleanup.loopexit
 
 while.body.i:                                     ; preds = %if.then200, %if.end.i
@@ -366,7 +366,7 @@ while.body.i:                                     ; preds = %if.then200, %if.end
 if.end.i:                                         ; preds = %while.body.i
   %inc.i142 = add i32 %input_cursor.2, 1
   %conv.i = zext i32 %inc.i142 to i64
-  %cmp.i143 = icmp ugt i64 %div, %conv.i
+  %cmp.i143 = icmp samesign ugt i64 %div, %conv.i
   br i1 %cmp.i143, label %while.body.i, label %cleanup.loopexit, !llvm.loop !13
 
 if.end204:                                        ; preds = %while.body.i, %for.end198

@@ -1675,7 +1675,7 @@ define internal fastcc void @dissect_h265_seq_parameter_set_rbsp(ptr noundef %0,
   %70 = load i32, ptr @hf_h265_sps_max_latency_increase_plus1, align 4
   %71 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %70, ptr noundef %1, ptr noundef %2, ptr noundef %7, i32 noundef 0)
   %72 = add nuw nsw i8 %.0287, 1
-  %.not226.not = icmp ult i8 %.0287, %11
+  %.not226.not = icmp samesign ult i8 %.0287, %11
   br i1 %.not226.not, label %65, label %73, !llvm.loop !12
 
 73:                                               ; preds = %65
@@ -3523,7 +3523,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %or.cond16 = icmp ult i32 %3, 8
+  %or.cond16 = icmp samesign ult i32 %3, 8
   br i1 %or.cond16, label %.lr.ph7, label %.lr.ph13.preheader
 
 .lr.ph7:                                          ; preds = %._crit_edge, %.lr.ph7
@@ -4573,7 +4573,7 @@ define internal fastcc i32 @dissect_h265_scaling_list_data(ptr noundef %0, ptr n
   %6 = shl nuw nsw i32 %.035, 1
   %7 = shl nuw nsw i32 16, %6
   %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 64)
-  %9 = icmp ugt i32 %.035, 1
+  %9 = icmp samesign ugt i32 %.035, 1
   %10 = icmp eq i32 %.035, 3
   %11 = select i1 %10, i32 3, i32 1
   br label %12
@@ -4615,7 +4615,7 @@ define internal fastcc i32 @dissect_h265_scaling_list_data(ptr noundef %0, ptr n
 
 .loopexit:                                        ; preds = %25, %18
   %29 = add nuw nsw i32 %.02934, %11
-  %30 = icmp ult i32 %29, 6
+  %30 = icmp samesign ult i32 %29, 6
   br i1 %30, label %12, label %31, !llvm.loop !45
 
 31:                                               ; preds = %.loopexit

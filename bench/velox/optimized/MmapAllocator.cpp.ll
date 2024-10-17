@@ -2379,7 +2379,7 @@ for.inc67:                                        ; preds = %for.inc67.loopexit,
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
   %sub.ptr.div.i.i27 = lshr exact i64 %sub.ptr.sub.i.i26, 3
   %37 = and i64 %sub.ptr.div.i.i27, 4294967295
-  %cmp11 = icmp ult i64 %indvars.iv.next97, %37
+  %cmp11 = icmp samesign ult i64 %indvars.iv.next97, %37
   br i1 %cmp11, label %for.body12, label %for.end69, !llvm.loop !36
 
 for.end69:                                        ; preds = %for.inc67, %for.cond9.preheader
@@ -4270,7 +4270,7 @@ for.inc:                                          ; preds = %for.body, %invoke.c
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %19 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp = icmp ult i64 %indvars.iv.next, %19
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !53
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -5334,7 +5334,7 @@ if.end7.i75.i.i:                                  ; preds = %while.body.i72.i.i
 
 "_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i": ; preds = %if.end7.i75.i.i, %for.body.i.i
   %needed.5 = phi i32 [ %needed.3, %for.body.i.i ], [ %dec.i.i94.i.i, %if.end7.i75.i.i ]
-  %cmp19.i.i = icmp ult i64 %indvars.iv, 129
+  %cmp19.i.i = icmp samesign ult i64 %indvars.iv, 129
   br i1 %cmp19.i.i, label %for.body.i.i, label %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit", !llvm.loop !60
 
 "_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit": ; preds = %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i"
@@ -5796,7 +5796,7 @@ for.inc:                                          ; preds = %for.body, %invoke.c
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %18 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp = icmp ult i64 %indvars.iv.next, %18
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !65
 
 for.end:                                          ; preds = %for.inc, %entry

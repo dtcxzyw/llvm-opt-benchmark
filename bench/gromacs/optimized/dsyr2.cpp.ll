@@ -227,7 +227,7 @@ define void @dsyr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 ._crit_edge336:                                   ; preds = %107
   %115 = fmul double %.pre337, %103
   %116 = fmul double %110, %103
-  %.not187223 = icmp ugt i64 %indvars.iv279, %105
+  %.not187223 = icmp samesign ugt i64 %indvars.iv279, %105
   br i1 %.not187223, label %.loopexit197, label %.lr.ph225
 
 .lr.ph225:                                        ; preds = %._crit_edge336

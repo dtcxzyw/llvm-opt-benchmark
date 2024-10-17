@@ -998,7 +998,7 @@ define internal void @post_update_config_pdu_transport_config_cb() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load i32, ptr @config_pdu_transport_config_items_num, align 4
   %8 = zext i32 %7 to i64
-  %9 = icmp ult i64 %indvars.iv.next, %8
+  %9 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
@@ -1457,7 +1457,7 @@ handle_pdu_transport_addresses.exit:              ; preds = %find_pdu_transport_
   br label %257
 
 167:                                              ; preds = %159
-  %or.cond3 = icmp ult i32 %3, 3
+  %or.cond3 = icmp samesign ult i32 %3, 3
   br i1 %or.cond3, label %168, label %257
 
 168:                                              ; preds = %167

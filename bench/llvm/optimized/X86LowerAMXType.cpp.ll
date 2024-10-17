@@ -4230,7 +4230,7 @@ _ZNK4llvm4User10getOperandEj.exit.i106:           ; preds = %1050, %1047
   %1062 = load i32, ptr %868, align 4
   %1063 = and i32 %1062, 134217727
   %1064 = zext nneg i32 %1063 to i64
-  %1065 = icmp ult i64 %indvars.iv.next.i, %1064
+  %1065 = icmp samesign ult i64 %indvars.iv.next.i, %1064
   br i1 %1065, label %874, label %.loopexit.i, !llvm.loop !18
 
 ._crit_edge.i107:                                 ; preds = %.loopexit.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit.i

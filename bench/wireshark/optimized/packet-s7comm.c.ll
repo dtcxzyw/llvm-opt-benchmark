@@ -5199,7 +5199,7 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
 
 82:                                               ; preds = %79, %75
   %83 = add nuw nsw i32 %indvars.iv, 1
-  %84 = icmp ult i32 %83, %47
+  %84 = icmp samesign ult i32 %83, %47
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %82
@@ -6020,7 +6020,7 @@ define internal fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, pt
   %23 = load ptr, ptr %9, align 8
   %24 = tail call ptr @tvb_format_text(ptr noundef %23, ptr noundef %0, i32 noundef %19, i32 noundef %17) #7
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %24) #7
-  %25 = icmp ult i64 %indvars.iv, %zext
+  %25 = icmp samesign ult i64 %indvars.iv, %zext
   %.str.2293..str.2292 = select i1 %25, ptr @.str.2293, ptr @.str.2292
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull %.str.2293..str.2292) #7
   %26 = or i32 %17, 1
@@ -6696,7 +6696,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
-  %or.cond = icmp ult i8 %3, 2
+  %or.cond = icmp samesign ult i8 %3, 2
   %38 = getelementptr inbounds i8, ptr %1, i64 8
   br i1 %or.cond, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -8195,7 +8195,7 @@ default.unreachable329:                           ; preds = %464, %358, %14
   %413 = load i32, ptr @hf_s7comm_tis_bstack_reserved, align 4
   %414 = tail call ptr @proto_tree_add_item(ptr noundef %372, i32 noundef %413, ptr noundef %0, i32 noundef %412, i32 noundef 2, i32 noundef 0) #7
   %415 = add i32 %.18493.i, 20
-  %416 = icmp ugt i32 %.08294.i, 27
+  %416 = icmp samesign ugt i32 %.08294.i, 27
   br i1 %416, label %417, label %420
 
 417:                                              ; preds = %406
@@ -8979,7 +8979,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_tis_item_address(ptr nounde
   br label %61
 
 49:                                               ; preds = %5
-  %50 = icmp ugt i32 %., 1
+  %50 = icmp samesign ugt i32 %., 1
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %49
@@ -8993,7 +8993,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_tis_item_address(ptr nounde
   br label %61
 
 55:                                               ; preds = %5
-  %56 = icmp ugt i32 %., 1
+  %56 = icmp samesign ugt i32 %., 1
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %55

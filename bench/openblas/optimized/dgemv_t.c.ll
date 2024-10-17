@@ -330,7 +330,7 @@ add_y.exit22:                                     ; preds = %.preheader.i21, %12
   store double %223, ptr %221, align 8, !tbaa !3
   %224 = getelementptr inbounds i8, ptr %173, i64 96
   %225 = add nuw nsw i64 %172, 4
-  %226 = icmp ult i64 %225, %167
+  %226 = icmp samesign ult i64 %225, %167
   br i1 %226, label %.preheader37, label %.loopexit38, !llvm.loop !19
 
 .preheader:                                       ; preds = %.loopexit38, %.preheader
@@ -430,7 +430,7 @@ add_y.exit22:                                     ; preds = %.preheader.i21, %12
   store double %302, ptr %300, align 8, !tbaa !3
   %303 = getelementptr inbounds double, ptr %252, i64 %30
   %304 = add nuw nsw i64 %251, 4
-  %305 = icmp ult i64 %304, %245
+  %305 = icmp samesign ult i64 %304, %245
   br i1 %305, label %250, label %.loopexit42, !llvm.loop !21
 
 .preheader39:                                     ; preds = %.loopexit42, %.preheader39
@@ -542,7 +542,7 @@ add_y.exit22:                                     ; preds = %.preheader.i21, %12
   store double %392, ptr %390, align 8, !tbaa !3
   %393 = getelementptr inbounds i8, ptr %354, i64 64
   %394 = add nuw nsw i64 %353, 4
-  %395 = icmp ult i64 %394, %348
+  %395 = icmp samesign ult i64 %394, %348
   br i1 %395, label %.preheader47, label %.loopexit48, !llvm.loop !24
 
 .preheader45:                                     ; preds = %.loopexit48, %.preheader45
@@ -627,7 +627,7 @@ add_y.exit22:                                     ; preds = %.preheader.i21, %12
   store double %456, ptr %454, align 8, !tbaa !3
   %457 = getelementptr inbounds double, ptr %418, i64 %30
   %458 = add nuw nsw i64 %417, 4
-  %459 = icmp ult i64 %458, %411
+  %459 = icmp samesign ult i64 %458, %411
   br i1 %459, label %416, label %.loopexit52, !llvm.loop !26
 
 .preheader49:                                     ; preds = %.loopexit52, %.preheader49
@@ -715,7 +715,7 @@ default.unreachable111:                           ; preds = %152
   %520 = call double @llvm.fmuladd.f64(double %517, double %489, double %519)
   store double %520, ptr %518, align 8, !tbaa !3
   %521 = add nuw nsw i64 %497, 4
-  %522 = icmp ult i64 %521, %493
+  %522 = icmp samesign ult i64 %521, %493
   br i1 %522, label %.preheader57, label %.loopexit58, !llvm.loop !29
 
 .preheader55:                                     ; preds = %.loopexit58, %.preheader55
@@ -779,7 +779,7 @@ default.unreachable111:                           ; preds = %152
   store double %562, ptr %560, align 8, !tbaa !3
   %563 = getelementptr inbounds double, ptr %539, i64 %30
   %564 = add nuw nsw i64 %540, 4
-  %565 = icmp ult i64 %564, %533
+  %565 = icmp samesign ult i64 %564, %533
   br i1 %565, label %538, label %.loopexit62, !llvm.loop !31
 
 .preheader59:                                     ; preds = %.loopexit62, %.preheader59

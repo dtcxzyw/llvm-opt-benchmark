@@ -699,7 +699,7 @@ define dso_local void @e1000_down(ptr noundef %0) local_unnamed_addr #4 align 16
   %26 = add nuw nsw i64 %20, 1
   %27 = load i32, ptr %14, align 8
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %26, %28
+  %29 = icmp samesign ult i64 %26, %28
   br i1 %29, label %19, label %.loopexit2, !llvm.loop !21
 
 .loopexit2:                                       ; preds = %19, %1
@@ -884,12 +884,12 @@ define dso_local void @e1000_reset(ptr noundef %0) local_unnamed_addr #4 align 1
   %40 = lshr i32 %39, 10
   %41 = add i32 %37, 1023
   %42 = lshr i32 %41, 10
-  %43 = icmp ult i32 %35, %40
+  %43 = icmp samesign ult i32 %35, %40
   br i1 %43, label %44, label %55
 
 44:                                               ; preds = %29
   %45 = sub nuw nsw i32 %40, %35
-  %46 = icmp ult i32 %45, %36
+  %46 = icmp samesign ult i32 %45, %36
   br i1 %46, label %47, label %55
 
 47:                                               ; preds = %44
@@ -3690,7 +3690,7 @@ thread-pre-split:                                 ; preds = %157
   br i1 %343, label %.thread16, label %337, !llvm.loop !42
 
 344:                                              ; preds = %337
-  %345 = icmp ugt i32 %338, 31
+  %345 = icmp samesign ugt i32 %338, 31
   br i1 %345, label %.thread16, label %346
 
 346:                                              ; preds = %344, %325
@@ -4680,7 +4680,7 @@ define internal i32 @e1000_clean(ptr noundef %0, i32 noundef %1) #4 align 16 {
   %543 = trunc i64 %527 to i32
   %544 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, i32 noundef %543, i32 noundef %531, i32 noundef %534, i32 noundef %538, i32 noundef %542) #15
   %545 = add nuw nsw i64 %527, 16
-  %546 = icmp ult i64 %527, 25584
+  %546 = icmp samesign ult i64 %527, 25584
   br i1 %546, label %526, label %547, !llvm.loop !55
 
 547:                                              ; preds = %526
@@ -4707,7 +4707,7 @@ define internal i32 @e1000_clean(ptr noundef %0, i32 noundef %1) #4 align 16 {
   %566 = trunc i64 %550 to i32
   %567 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.51, i32 noundef %566, i32 noundef %554, i32 noundef %557, i32 noundef %561, i32 noundef %565) #15
   %568 = add nuw nsw i64 %550, 16
-  %569 = icmp ult i64 %550, 29680
+  %569 = icmp samesign ult i64 %550, 29680
   br i1 %569, label %549, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %549, %.loopexit29, %220
@@ -5133,7 +5133,7 @@ define internal fastcc void @e1000_dump_eeprom(ptr %.1144.val) unnamed_addr #4 a
   %29 = or disjoint i16 %28, %23
   %30 = add i16 %29, %20
   %31 = add nuw nsw i64 %19, 2
-  %32 = icmp ult i64 %19, 124
+  %32 = icmp samesign ult i64 %19, 124
   br i1 %32, label %18, label %33, !llvm.loop !59
 
 33:                                               ; preds = %18
@@ -6857,7 +6857,7 @@ thread-pre-split.thread:                          ; preds = %110, %114, %155, %1
   %621 = call i32 @llvm.umin.i32(i32 %608, i32 %167)
   %622 = icmp ugt i32 %608, %167
   %623 = or i1 %598, %622
-  %624 = icmp ult i32 %621, 9
+  %624 = icmp samesign ult i32 %621, 9
   %625 = or i1 %624, %623
   br i1 %625, label %628, label %626, !prof !81
 
@@ -11008,7 +11008,7 @@ define internal fastcc void @e1000_clean_tx_ring(ptr nocapture noundef readonly 
   %28 = add nuw nsw i64 %10, 1
   %29 = load i32, ptr %3, align 4
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %28, %30
+  %31 = icmp samesign ult i64 %28, %30
   br i1 %31, label %9, label %.loopexit, !llvm.loop !116
 
 .loopexit:                                        ; preds = %26, %2
@@ -11185,7 +11185,7 @@ define internal fastcc void @e1000_clean_rx_ring(ptr nocapture noundef %0, ptr n
   %77 = add nuw nsw i64 %14, 1
   %78 = load i32, ptr %3, align 4
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %77, %79
+  %80 = icmp samesign ult i64 %77, %79
   br i1 %80, label %13, label %.loopexit, !llvm.loop !117
 
 .loopexit:                                        ; preds = %75, %2

@@ -6880,7 +6880,7 @@ _ZN14DDBufferAccessIN3gmx11BasicVectorIfEEED2Ev.exit.i: ; preds = %2780
   br label %.lr.ph.i219.i
 
 .preheader13.i.i:                                 ; preds = %.lr.ph.i219.i, %2945
-  %2954 = icmp ugt i64 %indvars.iv72.in.i.i, 1
+  %2954 = icmp samesign ugt i64 %indvars.iv72.in.i.i, 1
   br i1 %2954, label %.lr.ph19.us.i.i, label %.lr.ph26.split.i.i
 
 .lr.ph19.us.i.i:                                  ; preds = %.preheader13.i.i, %._crit_edge23.us.i.i
@@ -9556,7 +9556,7 @@ define internal fastcc void @_ZL14set_zones_sizeP12gmx_domdec_tPA3_fPK11gmx_ddbo
   br label %.loopexit375
 
 168:                                              ; preds = %154
-  %169 = icmp ult i64 %indvars.iv428, 4
+  %169 = icmp samesign ult i64 %indvars.iv428, 4
   br i1 %169, label %170, label %181
 
 170:                                              ; preds = %168

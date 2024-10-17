@@ -249,7 +249,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z34CodeCacheSegmentSizeConstraintFun
 define hidden noundef range(i32 0, 7) i32 @_Z32CodeEntryAlignmentConstraintFunclb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = icmp sgt i64 %0, 0
   %4 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %0)
-  %5 = icmp ult i64 %4, 2
+  %5 = icmp samesign ult i64 %4, 2
   %or.cond = select i1 %3, i1 %5, i1 false
   %6 = load i64, ptr @CodeEntryAlignment, align 8
   br i1 %or.cond, label %7, label %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
@@ -284,7 +284,7 @@ _Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 define hidden noundef range(i32 0, 7) i32 @_Z31OptoLoopAlignmentConstraintFunclb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = icmp sgt i64 %0, 0
   %4 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %0)
-  %5 = icmp ult i64 %4, 2
+  %5 = icmp samesign ult i64 %4, 2
   %or.cond = select i1 %3, i1 %5, i1 false
   br i1 %or.cond, label %6, label %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 
@@ -329,7 +329,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z27AVX3ThresholdConstraintFuncib(i32
 3:                                                ; preds = %2
   %4 = icmp sgt i32 %0, 0
   %5 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
-  %6 = icmp ult i32 %5, 2
+  %6 = icmp samesign ult i32 %5, 2
   %or.cond = select i1 %4, i1 %6, i1 false
   br i1 %or.cond, label %7, label %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 
@@ -365,7 +365,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z30TypeProfileLevelConstraintFuncjb(
   %.01316 = phi i32 [ %0, %2 ], [ %5, %8 ]
   %4 = urem i32 %.01316, 10
   %5 = udiv i32 %.01316, 10
-  %6 = icmp ugt i32 %4, 2
+  %6 = icmp samesign ugt i32 %4, 2
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
@@ -393,13 +393,13 @@ define hidden noundef range(i32 0, 7) i32 @_Z30TypeProfileLevelConstraintFuncjb(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 7) i32 @_Z32VerifyIterativeGVNConstraintFuncjb(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = urem i32 %0, 10
-  %4 = icmp ugt i32 %3, 1
+  %4 = icmp samesign ugt i32 %3, 1
   br i1 %4, label %._crit_edge, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
   %6 = udiv i32 %.0131624, 10
   %7 = urem i32 %6, 10
-  %8 = icmp ugt i32 %7, 1
+  %8 = icmp samesign ugt i32 %7, 1
   br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %5, %2
@@ -455,7 +455,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z36InteriorEntryAlignmentConstraintF
 7:                                                ; preds = %2
   %8 = icmp sgt i64 %0, 0
   %9 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %0)
-  %10 = icmp ult i64 %9, 2
+  %10 = icmp samesign ult i64 %9, 2
   %or.cond = select i1 %8, i1 %10, i1 false
   br i1 %or.cond, label %11, label %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 

@@ -159,14 +159,14 @@ define linkonce_odr noundef i32 @_ZN5ZXing4OneD9RowReader20NarrowWideBitPatternE
   %26 = zext i16 %25 to i32
   %27 = shl nuw nsw i32 %26, 2
   %28 = add nuw nsw i32 %27, 4
-  %29 = icmp ult i32 %28, %24
+  %29 = icmp samesign ult i32 %28, %24
   br i1 %29, label %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread, label %30
 
 30:                                               ; preds = %21
   %31 = load i16, ptr %indvars.iv27.i.sroa.phi24, align 2
   %32 = zext i16 %31 to i32
   %33 = mul nuw nsw i32 %32, 3
-  %34 = icmp ult i32 %33, %24
+  %34 = icmp samesign ult i32 %33, %24
   br i1 %34, label %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread, label %35
 
 35:                                               ; preds = %30
@@ -174,7 +174,7 @@ define linkonce_odr noundef i32 @_ZN5ZXing4OneD9RowReader20NarrowWideBitPatternE
   %37 = zext i16 %36 to i32
   %38 = shl nuw nsw i32 %37, 1
   %39 = add nuw nsw i32 %38, 2
-  %40 = icmp ult i32 %39, %26
+  %40 = icmp samesign ult i32 %39, %26
   br i1 %40, label %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread, label %41
 
 41:                                               ; preds = %35
@@ -230,7 +230,7 @@ _ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit: ; preds 
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   %57 = shl nuw nsw i32 %56, 1
-  %58 = icmp ult i32 %57, %52
+  %58 = icmp samesign ult i32 %57, %52
   br i1 %58, label %.loopexit, label %59
 
 59:                                               ; preds = %.lr.ph
@@ -632,7 +632,7 @@ _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %_ZN5ZXing11PatternV
 
 _ZN5ZXing11PatternView10skipSingleEi.exit:        ; preds = %_ZN5ZXing11PatternView5shiftEi.exit.i
   %149 = load i16, ptr %144, align 2
-  %.not79 = icmp ult i16 %.05.lcssa.i.i.i27, %149
+  %.not79 = icmp samesign ult i16 %.05.lcssa.i.i.i27, %149
   br i1 %.not79, label %_ZN5ZXing11PatternView10skipSymbolEv.exit.thread, label %167
 
 _ZN5ZXing11PatternView10skipSymbolEv.exit.thread: ; preds = %_ZN5ZXing11PatternView5shiftEi.exit.i, %.preheader, %_ZN5ZXing11PatternView10skipSingleEi.exit, %_ZN5ZXing11PatternView10skipSymbolEv.exit

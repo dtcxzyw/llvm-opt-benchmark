@@ -22474,7 +22474,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %1269, %1267, %1263,
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i6.i, %1276
   %.0.lcssa.i.i = phi i64 [ %1214, %1276 ], [ %1283, %.lr.ph.i6.i ]
-  %1296 = icmp ugt i64 %.0.lcssa.i.i, 9
+  %1296 = icmp samesign ugt i64 %.0.lcssa.i.i, 9
   br i1 %1296, label %1297, label %1305
 
 1297:                                             ; preds = %._crit_edge.i.i
@@ -22608,7 +22608,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %1333, %1331, %1327,
 
 ._crit_edge.i.i403:                               ; preds = %.lr.ph.i11.i, %1342
   %.0.lcssa.i.i404 = phi i32 [ %1320, %1342 ], [ %1347, %.lr.ph.i11.i ]
-  %1362 = icmp ugt i32 %.0.lcssa.i.i404, 9
+  %1362 = icmp samesign ugt i32 %.0.lcssa.i.i404, 9
   br i1 %1362, label %1363, label %1373
 
 1363:                                             ; preds = %._crit_edge.i.i403
@@ -24530,7 +24530,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %483, %481, %477, %4
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i11.i, %492
   %.0.lcssa.i.i = phi i32 [ %470, %492 ], [ %497, %.lr.ph.i11.i ]
-  %512 = icmp ugt i32 %.0.lcssa.i.i, 9
+  %512 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
   br i1 %512, label %513, label %523
 
 513:                                              ; preds = %._crit_edge.i.i
@@ -24661,7 +24661,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i146: ; preds = %549, %547, %543, %5
 
 ._crit_edge.i.i149:                               ; preds = %.lr.ph.i11.i153, %558
   %.0.lcssa.i.i150 = phi i32 [ %536, %558 ], [ %563, %.lr.ph.i11.i153 ]
-  %578 = icmp ugt i32 %.0.lcssa.i.i150, 9
+  %578 = icmp samesign ugt i32 %.0.lcssa.i.i150, 9
   br i1 %578, label %579, label %589
 
 579:                                              ; preds = %._crit_edge.i.i149
@@ -24925,7 +24925,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i176: ; preds = %670, %668, %664, %6
 
 ._crit_edge.i.i179:                               ; preds = %.lr.ph.i11.i183, %679
   %.0.lcssa.i.i180 = phi i32 [ %657, %679 ], [ %684, %.lr.ph.i11.i183 ]
-  %699 = icmp ugt i32 %.0.lcssa.i.i180, 9
+  %699 = icmp samesign ugt i32 %.0.lcssa.i.i180, 9
   br i1 %699, label %700, label %710
 
 700:                                              ; preds = %._crit_edge.i.i179
@@ -27453,7 +27453,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %860, %858, %854, %8
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i11.i, %869
   %.0.lcssa.i.i = phi i32 [ %847, %869 ], [ %874, %.lr.ph.i11.i ]
-  %889 = icmp ugt i32 %.0.lcssa.i.i, 9
+  %889 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
   br i1 %889, label %890, label %900
 
 890:                                              ; preds = %._crit_edge.i.i
@@ -29139,7 +29139,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %563, %561, %557, %5
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i11.i, %572
   %.0.lcssa.i.i = phi i32 [ %550, %572 ], [ %577, %.lr.ph.i11.i ]
-  %592 = icmp ugt i32 %.0.lcssa.i.i, 9
+  %592 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
   br i1 %592, label %593, label %603
 
 593:                                              ; preds = %._crit_edge.i.i
@@ -37994,7 +37994,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %26
   %.0.lcssa.i = phi i32 [ %4, %26 ], [ %31, %.lr.ph.i11 ]
-  %46 = icmp ugt i32 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %._crit_edge.i
@@ -38935,7 +38935,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN
   br i1 %208, label %._crit_edge.loopexit, label %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESE_EENS_5Graph12HandleMapperEEEE8iteratorneERKSK_.exit.i.i, !llvm.loop !652
 
 ._crit_edge.loopexit:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEEUlRKSH_E_EclINS4_4util5Range13IterableRangeINSS_8MapRangeINSS_9IterRangeINS_17__normal_iteratorIPSt10shared_ptrISG_ES8_ISY_SaISY_EEEES12_EENS5_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i
-  %209 = icmp ugt i64 %spec.select.i.i, 1
+  %209 = icmp samesign ugt i64 %spec.select.i.i, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeKindENS2_11FusedIslandENS2_8DataSlotENS2_10IslandExecENS2_7EmitterENS2_4SinkENS2_15IslandsCompiledENS2_13DesyncIslEdgeENS_6passes19TopologicalSortDataEEE5nodesEv.exit32

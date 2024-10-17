@@ -938,7 +938,7 @@ for.cond.preheader:                               ; preds = %if.end6
 for.cond:                                         ; preds = %new.cont22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.b = load i1, ptr @_ZL19fCSRecognizers_size, align 4
-  %cmp1210 = icmp ult i64 %indvars.iv, 27
+  %cmp1210 = icmp samesign ult i64 %indvars.iv, 27
   %cmp12 = select i1 %.b, i1 %cmp1210, i1 false
   br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !6
 
@@ -1032,8 +1032,8 @@ delete.notnull3:                                  ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %delete.notnull3
   %.b = phi i1 [ true, %for.body ], [ %.b.pre, %delete.notnull3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp5 = icmp ult i64 %indvars.iv, 27
-  %cmp = and i1 %.b, %cmp5
+  %cmp5 = icmp samesign ult i64 %indvars.iv, 27
+  %cmp = select i1 %.b, i1 %cmp5, i1 false
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %delete.end
@@ -1213,8 +1213,8 @@ if.then11:                                        ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.b = load i1, ptr @_ZL19fCSRecognizers_size, align 4
-  %cmp6 = icmp ult i64 %indvars.iv, 27
-  %cmp = and i1 %.b, %cmp6
+  %cmp6 = icmp samesign ult i64 %indvars.iv, 27
+  %cmp = select i1 %.b, i1 %cmp6, i1 false
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc
@@ -1297,8 +1297,8 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.b13 = load i1, ptr @_ZL19fCSRecognizers_size, align 4
-  %cmp14 = icmp ult i64 %indvars.iv, 27
-  %cmp = and i1 %.b13, %cmp14
+  %cmp14 = icmp samesign ult i64 %indvars.iv, 27
+  %cmp = select i1 %.b13, i1 %cmp14, i1 false
   br i1 %cmp, label %for.body, label %if.then11, !llvm.loop !9
 
 if.then11:                                        ; preds = %for.inc, %for.cond.preheader
@@ -1509,8 +1509,8 @@ delete.end:                                       ; preds = %_ZN6icu_7516CSRecog
   %arrayidx3 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
   store ptr null, ptr %arrayidx3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp14 = icmp ult i64 %indvars.iv, 27
-  %cmp1 = and i1 %.b, %cmp14
+  %cmp14 = icmp samesign ult i64 %indvars.iv, 27
+  %cmp1 = select i1 %.b, i1 %cmp14, i1 false
   br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %delete.end, %for.cond.preheader

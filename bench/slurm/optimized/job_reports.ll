@@ -906,7 +906,7 @@ _merge_cluster_groups.exit:                       ; preds = %.outer._crit_edge.i
 
 376:                                              ; preds = %368
   call void @list_iterator_destroy(ptr noundef %367) #12
-  %377 = icmp ugt i32 %.0103.ph, 1
+  %377 = icmp samesign ugt i32 %.0103.ph, 1
   br i1 %377, label %378, label %381
 
 378:                                              ; preds = %376

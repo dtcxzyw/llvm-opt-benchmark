@@ -6277,7 +6277,7 @@ Vec_IntStart.exit196:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %246, label %284, label %247
 
 247:                                              ; preds = %242, %238
-  %248 = icmp ult i64 %indvars.iv256, 10
+  %248 = icmp samesign ult i64 %indvars.iv256, 10
   %249 = trunc nuw nsw i64 %indvars.iv256 to i32
   br i1 %248, label %250, label %252
 
@@ -8124,7 +8124,7 @@ define void @Abc_NtkPrintSharing(ptr noundef %0) local_unnamed_addr #0 {
   %29 = getelementptr inbounds ptr, ptr %.val56.val, i64 %indvars.iv82
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %3, align 8
-  %.not = icmp ult i64 %indvars.iv88, %indvars.iv82
+  %.not = icmp samesign ult i64 %indvars.iv88, %indvars.iv82
   br i1 %.not, label %31, label %.critedge2
 
 31:                                               ; preds = %.lr.ph69

@@ -34,7 +34,7 @@ define noundef ptr @mktemp(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %.lr.ph
   %11 = add nuw nsw i32 %.02635, 1
-  %12 = icmp ult i32 %.02635, 5
+  %12 = icmp samesign ult i32 %.02635, 5
   %13 = icmp ult ptr %0, %7
   %or.cond = and i1 %12, %13
   br i1 %or.cond, label %.lr.ph, label %.critedge.thread54, !llvm.loop !6
@@ -46,7 +46,7 @@ define noundef ptr @mktemp(ptr noundef %0) local_unnamed_addr #0 {
 .critedge.thread54:                               ; preds = %10, %.critedge
   %.026.lcssa58 = phi i32 [ %.02635, %.critedge ], [ %11, %10 ]
   %.027.lcssa57 = phi ptr [ %.02734, %.critedge ], [ %7, %10 ]
-  %15 = icmp ugt i32 %.026.lcssa58, 4
+  %15 = icmp samesign ugt i32 %.026.lcssa58, 4
   br i1 %15, label %.lr.ph46, label %.preheader
 
 .preheader:                                       ; preds = %.critedge.thread54

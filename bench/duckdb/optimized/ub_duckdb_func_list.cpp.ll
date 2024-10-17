@@ -868,7 +868,7 @@ entry:
   br i1 %cmp6.not.i, label %_ZN6duckdb9LengthFun6LengthINS_8string_tElEET0_T_.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %entry
-  %min.iters.check = icmp ult i64 %conv.i.i, 4
+  %min.iters.check = icmp samesign ult i64 %conv.i.i, 4
   br i1 %min.iters.check, label %for.body.i.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.preheader
@@ -3527,7 +3527,7 @@ cond.true15.i.i:                                  ; preds = %cond.end12.i.i250
   br i1 %cmp6.not.i.i.i.i, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit.i.i, label %for.body.i.i.i.i.preheader
 
 for.body.i.i.i.i.preheader:                       ; preds = %cond.true15.i.i
-  %min.iters.check410 = icmp ult i64 %conv.i.i.i.i.i, 4
+  %min.iters.check410 = icmp samesign ult i64 %conv.i.i.i.i.i, 4
   br i1 %min.iters.check410, label %for.body.i.i.i.i.preheader132, label %vector.ph411
 
 vector.ph411:                                     ; preds = %for.body.i.i.i.i.preheader
@@ -3616,7 +3616,7 @@ cond.true33.i.i:                                  ; preds = %cond.end25.i.i257
   br i1 %cmp6.not.i.i164.i.i, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit175.i.i, label %for.body.i.i165.i.i.preheader
 
 for.body.i.i165.i.i.preheader:                    ; preds = %cond.true33.i.i
-  %min.iters.check427 = icmp ult i64 %conv.i.i.i163.i.i, 4
+  %min.iters.check427 = icmp samesign ult i64 %conv.i.i.i163.i.i, 4
   br i1 %min.iters.check427, label %for.body.i.i165.i.i.preheader129, label %vector.ph428
 
 vector.ph428:                                     ; preds = %for.body.i.i165.i.i.preheader
@@ -3776,7 +3776,7 @@ if.end.i.i.i298:                                  ; preds = %if.then.i.i.i297, %
   br i1 %cmp6.not.i.i.i.i.i, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit.i.i.i, label %for.body.i.i.i.i.i.preheader
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.end.i.i.i298
-  %min.iters.check444 = icmp ult i64 %conv.i.i.i.i.i.i, 4
+  %min.iters.check444 = icmp samesign ult i64 %conv.i.i.i.i.i.i, 4
   br i1 %min.iters.check444, label %for.body.i.i.i.i.i.preheader127, label %vector.ph445
 
 vector.ph445:                                     ; preds = %for.body.i.i.i.i.i.preheader
@@ -4259,7 +4259,7 @@ cond.true77.i.i:                                  ; preds = %cond.end74.i.i238
   br i1 %cmp6.not.i.i.i109.i, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit.i119.i, label %for.body.i.i.i110.i.preheader
 
 for.body.i.i.i110.i.preheader:                    ; preds = %cond.true77.i.i
-  %min.iters.check368 = icmp ult i64 %conv.i.i.i.i108.i, 4
+  %min.iters.check368 = icmp samesign ult i64 %conv.i.i.i.i108.i, 4
   br i1 %min.iters.check368, label %for.body.i.i.i110.i.preheader140, label %vector.ph369
 
 vector.ph369:                                     ; preds = %for.body.i.i.i110.i.preheader
@@ -4349,7 +4349,7 @@ cond.true101.i.i:                                 ; preds = %cond.end91.i.i
   br i1 %cmp6.not.i.i339.i.i, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit350.i.i, label %for.body.i.i340.i.i.preheader
 
 for.body.i.i340.i.i.preheader:                    ; preds = %cond.true101.i.i
-  %min.iters.check351 = icmp ult i64 %conv.i.i.i338.i.i, 4
+  %min.iters.check351 = icmp samesign ult i64 %conv.i.i.i338.i.i, 4
   br i1 %min.iters.check351, label %for.body.i.i340.i.i.preheader139, label %vector.ph352
 
 vector.ph352:                                     ; preds = %for.body.i.i340.i.i.preheader
@@ -4444,7 +4444,7 @@ if.end.i.i64.i:                                   ; preds = %if.then.i351.i.i, %
   br i1 %cmp6.not.i.i.i.i70.i, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit.i.i77.i, label %for.body.i.i.i.i71.i.preheader
 
 for.body.i.i.i.i71.i.preheader:                   ; preds = %if.end.i.i64.i
-  %min.iters.check = icmp ult i64 %conv.i.i.i.i.i69.i, 4
+  %min.iters.check = icmp samesign ult i64 %conv.i.i.i.i.i69.i, 4
   br i1 %min.iters.check, label %for.body.i.i.i.i71.i.preheader138, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i71.i.preheader
@@ -21664,7 +21664,7 @@ cleanup.i.i.epil:                                 ; preds = %while.body.i.i.epil
 for.body12.i.preheader.i:                         ; preds = %cleanup.i.i.epil, %for.body12.i.preheader.i.loopexit.unr-lcssa, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i
   %valid.050.i.lcssa.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i ], [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %valid.3.i.i.epil, %cleanup.i.i.epil ]
   %.lcssa.i = phi i64 [ %3, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i ], [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %9, %cleanup.i.i.epil ]
-  %min.iters.check = icmp ult i64 %rem.i.i, 4
+  %min.iters.check = icmp samesign ult i64 %rem.i.i, 4
   br i1 %min.iters.check, label %for.body12.i.i.preheader, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body12.i.preheader.i
@@ -21983,7 +21983,7 @@ cleanup.i.i79.epil:                               ; preds = %while.body.i.i98.ep
 for.body12.i.preheader.i84:                       ; preds = %cleanup.i.i79.epil, %for.body12.i.preheader.i84.loopexit.unr-lcssa, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74
   %valid.050.i.lcssa.i85 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74 ], [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %valid.3.i.i80.epil, %cleanup.i.i79.epil ]
   %.lcssa.i86 = phi i64 [ %30, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74 ], [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %36, %cleanup.i.i79.epil ]
-  %min.iters.check283 = icmp ult i64 %rem.i.i72, 4
+  %min.iters.check283 = icmp samesign ult i64 %rem.i.i72, 4
   br i1 %min.iters.check283, label %for.body12.i.i87.preheader, label %vector.ph284
 
 vector.ph284:                                     ; preds = %for.body12.i.preheader.i84
@@ -24711,7 +24711,7 @@ cleanup.i.i.epil:                                 ; preds = %while.body.i.i.epil
 for.body12.i.preheader.i:                         ; preds = %cleanup.i.i.epil, %for.body12.i.preheader.i.loopexit.unr-lcssa, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i
   %valid.050.i.lcssa.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i ], [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %valid.3.i.i.epil, %cleanup.i.i.epil ]
   %.lcssa.i = phi i64 [ %3, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i ], [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %9, %cleanup.i.i.epil ]
-  %min.iters.check = icmp ult i64 %rem.i.i, 4
+  %min.iters.check = icmp samesign ult i64 %rem.i.i, 4
   br i1 %min.iters.check, label %for.body12.i.i.preheader, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body12.i.preheader.i
@@ -25030,7 +25030,7 @@ cleanup.i.i79.epil:                               ; preds = %while.body.i.i98.ep
 for.body12.i.preheader.i84:                       ; preds = %cleanup.i.i79.epil, %for.body12.i.preheader.i84.loopexit.unr-lcssa, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74
   %valid.050.i.lcssa.i85 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74 ], [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %valid.3.i.i80.epil, %cleanup.i.i79.epil ]
   %.lcssa.i86 = phi i64 [ %30, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74 ], [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %36, %cleanup.i.i79.epil ]
-  %min.iters.check283 = icmp ult i64 %rem.i.i72, 4
+  %min.iters.check283 = icmp samesign ult i64 %rem.i.i72, 4
   br i1 %min.iters.check283, label %for.body12.i.i87.preheader, label %vector.ph284
 
 vector.ph284:                                     ; preds = %for.body12.i.preheader.i84
@@ -28502,7 +28502,7 @@ cleanup.i.i.epil:                                 ; preds = %while.body.i.i.epil
 for.body12.i.preheader.i:                         ; preds = %cleanup.i.i.epil, %for.body12.i.preheader.i.loopexit.unr-lcssa, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i
   %valid.050.i.lcssa.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i ], [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %valid.3.i.i.epil, %cleanup.i.i.epil ]
   %.lcssa.i = phi i64 [ %3, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i ], [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %9, %cleanup.i.i.epil ]
-  %min.iters.check = icmp ult i64 %rem.i.i, 4
+  %min.iters.check = icmp samesign ult i64 %rem.i.i, 4
   br i1 %min.iters.check, label %for.body12.i.i.preheader, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body12.i.preheader.i
@@ -28821,7 +28821,7 @@ cleanup.i.i79.epil:                               ; preds = %while.body.i.i98.ep
 for.body12.i.preheader.i84:                       ; preds = %cleanup.i.i79.epil, %for.body12.i.preheader.i84.loopexit.unr-lcssa, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74
   %valid.050.i.lcssa.i85 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74 ], [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %valid.3.i.i80.epil, %cleanup.i.i79.epil ]
   %.lcssa.i86 = phi i64 [ %30, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74 ], [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %36, %cleanup.i.i79.epil ]
-  %min.iters.check331 = icmp ult i64 %rem.i.i72, 4
+  %min.iters.check331 = icmp samesign ult i64 %rem.i.i72, 4
   br i1 %min.iters.check331, label %for.body12.i.i87.preheader, label %vector.ph332
 
 vector.ph332:                                     ; preds = %for.body12.i.preheader.i84
@@ -31537,7 +31537,7 @@ cleanup.i.i.epil:                                 ; preds = %while.body.i.i.epil
 for.body12.i.preheader.i:                         ; preds = %cleanup.i.i.epil, %for.body12.i.preheader.i.loopexit.unr-lcssa, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i
   %valid.050.i.lcssa.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i ], [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %valid.3.i.i.epil, %cleanup.i.i.epil ]
   %.lcssa.i = phi i64 [ %3, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i ], [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %9, %cleanup.i.i.epil ]
-  %min.iters.check = icmp ult i64 %rem.i.i, 4
+  %min.iters.check = icmp samesign ult i64 %rem.i.i, 4
   br i1 %min.iters.check, label %for.body12.i.i.preheader, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body12.i.preheader.i
@@ -31856,7 +31856,7 @@ cleanup.i.i79.epil:                               ; preds = %while.body.i.i98.ep
 for.body12.i.preheader.i84:                       ; preds = %cleanup.i.i79.epil, %for.body12.i.preheader.i84.loopexit.unr-lcssa, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74
   %valid.050.i.lcssa.i85 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74 ], [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %valid.3.i.i80.epil, %cleanup.i.i79.epil ]
   %.lcssa.i86 = phi i64 [ %30, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74 ], [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %36, %cleanup.i.i79.epil ]
-  %min.iters.check331 = icmp ult i64 %rem.i.i72, 4
+  %min.iters.check331 = icmp samesign ult i64 %rem.i.i72, 4
   br i1 %min.iters.check331, label %for.body12.i.i87.preheader, label %vector.ph332
 
 vector.ph332:                                     ; preds = %for.body12.i.preheader.i84
@@ -35334,7 +35334,7 @@ cleanup.i.i.epil:                                 ; preds = %while.body.i.i.epil
 for.body12.i.preheader.i:                         ; preds = %cleanup.i.i.epil, %for.body12.i.preheader.i.loopexit.unr-lcssa, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i
   %valid.050.i.lcssa.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i ], [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %valid.3.i.i.epil, %cleanup.i.i.epil ]
   %.lcssa.i = phi i64 [ %3, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i ], [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %9, %cleanup.i.i.epil ]
-  %min.iters.check = icmp ult i64 %rem.i.i, 4
+  %min.iters.check = icmp samesign ult i64 %rem.i.i, 4
   br i1 %min.iters.check, label %for.body12.i.i.preheader, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body12.i.preheader.i
@@ -35653,7 +35653,7 @@ cleanup.i.i79.epil:                               ; preds = %while.body.i.i98.ep
 for.body12.i.preheader.i84:                       ; preds = %cleanup.i.i79.epil, %for.body12.i.preheader.i84.loopexit.unr-lcssa, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74
   %valid.050.i.lcssa.i85 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74 ], [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %valid.3.i.i80.epil, %cleanup.i.i79.epil ]
   %.lcssa.i86 = phi i64 [ %30, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74 ], [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %36, %cleanup.i.i79.epil ]
-  %min.iters.check283 = icmp ult i64 %rem.i.i72, 4
+  %min.iters.check283 = icmp samesign ult i64 %rem.i.i72, 4
   br i1 %min.iters.check283, label %for.body12.i.i87.preheader, label %vector.ph284
 
 vector.ph284:                                     ; preds = %for.body12.i.preheader.i84
@@ -38312,7 +38312,7 @@ cleanup.i.i.epil:                                 ; preds = %while.body.i.i.epil
 for.body12.i.preheader.i:                         ; preds = %cleanup.i.i.epil, %for.body12.i.preheader.i.loopexit.unr-lcssa, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i
   %valid.050.i.lcssa.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i ], [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %valid.3.i.i.epil, %cleanup.i.i.epil ]
   %.lcssa.i = phi i64 [ %3, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i ], [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %9, %cleanup.i.i.epil ]
-  %min.iters.check = icmp ult i64 %rem.i.i, 4
+  %min.iters.check = icmp samesign ult i64 %rem.i.i, 4
   br i1 %min.iters.check, label %for.body12.i.i.preheader, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body12.i.preheader.i
@@ -38631,7 +38631,7 @@ cleanup.i.i79.epil:                               ; preds = %while.body.i.i98.ep
 for.body12.i.preheader.i84:                       ; preds = %cleanup.i.i79.epil, %for.body12.i.preheader.i84.loopexit.unr-lcssa, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74
   %valid.050.i.lcssa.i85 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74 ], [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %valid.3.i.i80.epil, %cleanup.i.i79.epil ]
   %.lcssa.i86 = phi i64 [ %30, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader.i74 ], [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %36, %cleanup.i.i79.epil ]
-  %min.iters.check283 = icmp ult i64 %rem.i.i72, 4
+  %min.iters.check283 = icmp samesign ult i64 %rem.i.i72, 4
   br i1 %min.iters.check283, label %for.body12.i.i87.preheader, label %vector.ph284
 
 vector.ph284:                                     ; preds = %for.body12.i.preheader.i84

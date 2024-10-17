@@ -381,7 +381,7 @@ define hidden void @_ZN8async_io6driver8block_on17hd98293694af0ada8E(ptr noalias
   br label %540
 
 50:                                               ; preds = %1
-  %51 = icmp ult i64 %47, 5
+  %51 = icmp samesign ult i64 %47, 5
   tail call void @llvm.assume(i1 %51)
   %52 = icmp eq i64 %47, 0
   br i1 %52, label %53, label %.thread

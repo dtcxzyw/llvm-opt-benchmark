@@ -884,7 +884,7 @@ define noundef i32 @_Z23tMPI_Get_processor_namePcPi(ptr nocapture noundef %0, pt
   %.02933 = phi i32 [ %11, %.lr.ph ], [ %9, %2 ]
   %11 = udiv i32 %.02933, 10
   %12 = add i32 %.034, 1
-  %.not37 = icmp ult i32 %.02933, 10
+  %.not37 = icmp samesign ult i32 %.02933, 10
   br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2

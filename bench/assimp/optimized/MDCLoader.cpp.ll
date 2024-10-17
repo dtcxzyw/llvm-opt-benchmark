@@ -323,7 +323,7 @@ if.end29:                                         ; preds = %if.then28, %if.end
   %fileSize = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load i32, ptr %fileSize, align 8
   %conv35 = zext i32 %10 to i64
-  %cmp36 = icmp ugt i64 %add34, %conv35
+  %cmp36 = icmp samesign ugt i64 %add34, %conv35
   br i1 %cmp36, label %if.then46, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end29
@@ -335,7 +335,7 @@ lor.lhs.false:                                    ; preds = %if.end29
   %conv40 = zext i32 %12 to i64
   %mul41 = mul nuw nsw i64 %conv40, 124
   %add42 = add nuw nsw i64 %mul41, %conv38
-  %cmp45 = icmp ugt i64 %add42, %conv35
+  %cmp45 = icmp samesign ugt i64 %add42, %conv35
   br i1 %cmp45, label %if.then46, label %if.end51
 
 if.then46:                                        ; preds = %lor.lhs.false, %if.end29
@@ -541,7 +541,7 @@ entry:
   %mul = shl nuw nsw i64 %conv3, 3
   %add = add nuw nsw i64 %mul, %conv2
   %conv4 = zext i32 %sub to i64
-  %cmp = icmp ugt i64 %add, %conv4
+  %cmp = icmp samesign ugt i64 %add, %conv4
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -556,7 +556,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   %conv5 = zext i32 %5 to i64
   %mul8 = shl nuw nsw i64 %conv3, 2
   %add9 = add nuw nsw i64 %mul8, %conv5
-  %cmp11 = icmp ugt i64 %add9, %conv4
+  %cmp11 = icmp samesign ugt i64 %add9, %conv4
   br i1 %cmp11, label %if.then, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %land.lhs.true, %lor.lhs.false
@@ -568,7 +568,7 @@ lor.lhs.false12:                                  ; preds = %land.lhs.true, %lor
   %conv14 = zext i32 %7 to i64
   %mul15 = mul nuw nsw i64 %conv14, 12
   %add16 = add nuw nsw i64 %mul15, %conv13
-  %cmp18 = icmp ugt i64 %add16, %conv4
+  %cmp18 = icmp samesign ugt i64 %add16, %conv4
   br i1 %cmp18, label %if.then, label %lor.lhs.false19
 
 lor.lhs.false19:                                  ; preds = %lor.lhs.false12
@@ -576,7 +576,7 @@ lor.lhs.false19:                                  ; preds = %lor.lhs.false12
   %8 = load i32, ptr %ulOffsetTexCoords, align 1
   %conv20 = zext i32 %8 to i64
   %add24 = add nuw nsw i64 %mul, %conv20
-  %cmp26 = icmp ugt i64 %add24, %conv4
+  %cmp26 = icmp samesign ugt i64 %add24, %conv4
   br i1 %cmp26, label %if.then, label %lor.lhs.false27
 
 lor.lhs.false27:                                  ; preds = %lor.lhs.false19
@@ -588,7 +588,7 @@ lor.lhs.false27:                                  ; preds = %lor.lhs.false19
   %conv29 = zext i32 %10 to i64
   %mul30 = mul nuw nsw i64 %conv29, 68
   %add31 = add nuw nsw i64 %mul30, %conv28
-  %cmp33 = icmp ugt i64 %add31, %conv4
+  %cmp33 = icmp samesign ugt i64 %add31, %conv4
   br i1 %cmp33, label %if.then, label %lor.lhs.false34
 
 lor.lhs.false34:                                  ; preds = %lor.lhs.false27
@@ -741,7 +741,7 @@ invoke.cont11:                                    ; preds = %if.end
   %fileSize = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %conv, ptr %fileSize, align 8
   %conv14 = and i64 %call12, 4294967295
-  %cmp = icmp ult i64 %conv14, 112
+  %cmp = icmp samesign ult i64 %conv14, 112
   br i1 %cmp, label %if.then15, label %if.then.i.i.i.i.i
 
 if.then15:                                        ; preds = %invoke.cont11
@@ -995,7 +995,7 @@ for.body67:                                       ; preds = %invoke.cont61, %for
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %mNumMeshes59, align 8
   %36 = zext i32 %35 to i64
-  %cmp66 = icmp ult i64 %indvars.iv.next, %36
+  %cmp66 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %cmp66, label %for.body67, label %for.cond73.preheader, !llvm.loop !9
 
 for.body77:                                       ; preds = %for.body77.lr.ph, %for.inc302
@@ -1722,7 +1722,7 @@ invoke.cont382:                                   ; preds = %_ZN8aiStringaSERKS_
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %140 = load i32, ptr %mNumMeshes59, align 8
   %141 = zext i32 %140 to i64
-  %cmp362 = icmp ult i64 %indvars.iv.next341, %141
+  %cmp362 = icmp samesign ult i64 %indvars.iv.next341, %141
   br i1 %cmp362, label %for.body363, label %if.end391, !llvm.loop !13
 
 lpad345:                                          ; preds = %invoke.cont343
@@ -1844,7 +1844,7 @@ for.inc439:                                       ; preds = %invoke.cont430, %_Z
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %152 = load i32, ptr %mNumMaterials, align 8
   %153 = zext i32 %152 to i64
-  %cmp401 = icmp ult i64 %indvars.iv.next344, %153
+  %cmp401 = icmp samesign ult i64 %indvars.iv.next344, %153
   br i1 %cmp401, label %for.body402, label %for.end441.loopexit, !llvm.loop !14
 
 for.end441.loopexit:                              ; preds = %for.inc439

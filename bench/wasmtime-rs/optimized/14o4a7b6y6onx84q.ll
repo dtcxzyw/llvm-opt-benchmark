@@ -8721,7 +8721,7 @@ select.unfold:                                    ; preds = %227
   %255 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %256 = icmp ult i64 %255, 6
   call void @llvm.assume(i1 %256)
-  %257 = icmp ugt i64 %255, 3
+  %257 = icmp samesign ugt i64 %255, 3
   br i1 %257, label %258, label %281
 
 258:                                              ; preds = %254
@@ -8795,7 +8795,7 @@ select.unfold:                                    ; preds = %227
   %282 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %283 = icmp ult i64 %282, 6
   call void @llvm.assume(i1 %283)
-  %284 = icmp ugt i64 %282, 4
+  %284 = icmp samesign ugt i64 %282, 4
   br i1 %284, label %285, label %272
 
 285:                                              ; preds = %281
@@ -10344,7 +10344,7 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
   %111 = urem i16 %.lhs.trunc.i, %.rhs.trunc.i
   %.zext.i = zext nneg i16 %111 to i32
   %112 = sub nuw nsw i32 %110, %.zext.i
-  %113 = icmp ult i32 %112, 256
+  %113 = icmp samesign ult i32 %112, 256
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !2461
   br i1 %113, label %114, label %.invoke179
 
@@ -10479,7 +10479,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder10stack_addr17h57529f9d24fa3293E.e
   %171 = urem i16 %.lhs.trunc.i91, %.rhs.trunc.i92
   %.zext.i93 = zext nneg i16 %171 to i32
   %172 = sub nuw nsw i32 %170, %.zext.i93
-  %173 = icmp ult i32 %172, 256
+  %173 = icmp samesign ult i32 %172, 256
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !2482
   br i1 %173, label %175, label %.invoke179
 
@@ -11768,7 +11768,7 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
   %128 = urem i16 %.lhs.trunc.i.i, %.rhs.trunc.i.i
   %.zext.i.i = zext nneg i16 %128 to i32
   %129 = sub nuw nsw i32 %127, %.zext.i.i
-  %130 = icmp ult i32 %129, 256
+  %130 = icmp samesign ult i32 %129, 256
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6), !noalias !2607
   br i1 %130, label %133, label %131
 
@@ -14086,7 +14086,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures3new17h00dde6d2f0fb7a62E.exit:
   %115 = urem i16 %.lhs.trunc.i, %.rhs.trunc.i
   %.zext.i = zext nneg i16 %115 to i32
   %116 = sub nuw nsw i32 %114, %.zext.i
-  %117 = icmp ult i32 %116, 256
+  %117 = icmp samesign ult i32 %116, 256
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !2859
   br i1 %117, label %118, label %.invoke94
 
@@ -14148,7 +14148,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h7aece662bcf97013E.exit: ; 
   %143 = urem i16 %.lhs.trunc.i47, %.rhs.trunc.i48
   %.zext.i49 = zext nneg i16 %143 to i32
   %144 = sub nuw nsw i32 %142, %.zext.i49
-  %145 = icmp ult i32 %144, 256
+  %145 = icmp samesign ult i32 %144, 256
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !2871
   br i1 %145, label %149, label %.invoke94
 

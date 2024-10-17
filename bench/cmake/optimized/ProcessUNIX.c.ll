@@ -3538,7 +3538,7 @@ kwsysProcessCleanupDescriptor.exit114:            ; preds = %336, %.critedge.i11
 
 .critedge:                                        ; preds = %356
   %spec.select = add nuw nsw i64 %358, %.049119
-  %364 = icmp ult i64 %spec.select, 1024
+  %364 = icmp samesign ult i64 %spec.select, 1024
   %365 = icmp ne i64 %358, 0
   %366 = and i1 %364, %365
   br i1 %366, label %.preheader, label %.loopexit, !llvm.loop !39

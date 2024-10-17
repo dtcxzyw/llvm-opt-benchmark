@@ -843,7 +843,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   %7 = phi i32 [ %3, %for.body ], [ %.pre, %if.then11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = zext i32 %7 to i64
-  %cmp9 = icmp ult i64 %indvars.iv.next, %8
+  %cmp9 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp9, label %for.body, label %if.end17, !llvm.loop !12
 
 if.else:                                          ; preds = %land.lhs.true, %if.then

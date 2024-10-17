@@ -1360,7 +1360,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %840 = fneg double %838
   %841 = select i1 %839, double %838, double %840
   %842 = add nuw nsw i64 %805, %801
-  %843 = icmp ult i64 %842, %802
+  %843 = icmp samesign ult i64 %842, %802
   br i1 %843, label %844, label %.loopexit103
 
 844:                                              ; preds = %._crit_edge406
@@ -1904,7 +1904,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %1212 = phi i64 [ %1275, %.loopexit96 ], [ 1, %1199 ]
   %1213 = phi i64 [ %1276, %.loopexit96 ], [ 0, %1199 ]
   %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
-  %1214 = icmp ult i64 %1212, 2
+  %1214 = icmp samesign ult i64 %1212, 2
   %.pre425 = mul nsw i64 %1212, %1205
   br i1 %1214, label %._crit_edge409, label %1215
 
@@ -1952,7 +1952,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %1247 = fneg double %1245
   %1248 = select i1 %1246, double %1245, double %1247
   %1249 = add nuw nsw i64 %1212, %1206
-  %1250 = icmp ult i64 %1249, %1207
+  %1250 = icmp samesign ult i64 %1249, %1207
   br i1 %1250, label %1251, label %.loopexit96
 
 1251:                                             ; preds = %._crit_edge409

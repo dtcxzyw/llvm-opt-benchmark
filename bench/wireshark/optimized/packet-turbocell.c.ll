@@ -209,8 +209,8 @@ define internal i32 @dissect_turbocell(ptr noundef %0, ptr noundef %1, ptr nound
   %.0117129 = phi i32 [ %72, %69 ], [ 0, %48 ]
   %66 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %65) #3
   %67 = icmp sgt i32 %66, 6
-  %68 = icmp ult i32 %.0117129, 32
-  %or.cond = and i1 %68, %67
+  %68 = icmp samesign ult i32 %.0117129, 32
+  %or.cond = select i1 %67, i1 %68, i1 false
   br i1 %or.cond, label %69, label %.critedge
 
 69:                                               ; preds = %.lr.ph

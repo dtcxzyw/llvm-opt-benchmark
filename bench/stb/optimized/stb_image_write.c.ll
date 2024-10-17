@@ -899,7 +899,7 @@ if.then50.us:                                     ; preds = %for.body43.us
   %inc53.us = add nuw nsw i32 %len.1195.us, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %cmp39.us = icmp slt i64 %indvars.iv.next, %5
-  %cmp41.us = icmp ult i32 %len.1195.us, 127
+  %cmp41.us = icmp samesign ult i32 %len.1195.us, 127
   %10 = select i1 %cmp39.us, i1 %cmp41.us, i1 false
   br i1 %10, label %for.body43.us, label %if.then83.us, !llvm.loop !9
 
@@ -1185,7 +1185,7 @@ if.then73.us:                                     ; preds = %for.body66.us
   %inc74.us = add nuw nsw i32 %len.2201.us, 1
   %indvars.iv.next218 = add nsw i64 %indvars.iv217, 1
   %cmp60.us = icmp slt i64 %indvars.iv.next218, %5
-  %cmp63.us = icmp ult i32 %len.2201.us, 127
+  %cmp63.us = icmp samesign ult i32 %len.2201.us, 127
   %68 = select i1 %cmp60.us, i1 %cmp63.us, i1 false
   br i1 %68, label %for.body66.us, label %if.else96.us, !llvm.loop !12
 
@@ -2351,7 +2351,7 @@ for.cond189:                                      ; preds = %for.cond189, %if.th
 
 cond.false225:                                    ; preds = %for.cond189
   %conv188 = trunc i64 %sub.ptr.sub187 to i32
-  %cmp227 = icmp ult i64 %indvars.iv1206, 23
+  %cmp227 = icmp samesign ult i64 %indvars.iv1206, 23
   br i1 %cmp227, label %while.body.i297.preheader, label %cond.false238
 
 while.body.i297.preheader:                        ; preds = %cond.false225
@@ -2702,7 +2702,7 @@ stbiw__zlib_flushf.exit473:                       ; preds = %cond.end.i461, %stb
   %bitbuf.19 = phi i32 [ %or283, %stbiw__zlib_bitrev.exit435 ], [ %shr.i468, %cond.end.i461 ]
   %bitcount.19 = phi i32 [ %add284, %stbiw__zlib_bitrev.exit435 ], [ %sub.i469, %cond.end.i461 ]
   %data.addr.0.lcssa.i438 = phi ptr [ %out.4, %stbiw__zlib_bitrev.exit435 ], [ %data.addr.1.i462, %cond.end.i461 ]
-  %tobool288.not = icmp ult i64 %indvars.iv1209, 4
+  %tobool288.not = icmp samesign ult i64 %indvars.iv1209, 4
   br i1 %tobool288.not, label %if.end332, label %if.then289
 
 if.then289:                                       ; preds = %stbiw__zlib_flushf.exit473
@@ -3832,10 +3832,10 @@ entry:
   %1 = tail call i32 @llvm.abs.i32(i32 %sub2, i1 true)
   %sub3 = sub nsw i32 %sub, %c
   %2 = tail call i32 @llvm.abs.i32(i32 %sub3, i1 true)
-  %cmp.not = icmp ugt i32 %0, %1
-  %cmp4.not = icmp ugt i32 %0, %2
+  %cmp.not = icmp samesign ugt i32 %0, %1
+  %cmp4.not = icmp samesign ugt i32 %0, %2
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp4.not
-  %cmp5.not = icmp ugt i32 %1, %2
+  %cmp5.not = icmp samesign ugt i32 %1, %2
   %c.b = select i1 %cmp5.not, i32 %c, i32 %b
   %retval.0.in = select i1 %or.cond, i32 %c.b, i32 %a
   %retval.0 = trunc i32 %retval.0.in to i8
@@ -4093,10 +4093,10 @@ for.body138:                                      ; preds = %for.body138.prehead
   %46 = tail call i32 @llvm.abs.i32(i32 %sub2.i, i1 true)
   %sub3.i = sub nsw i32 %sub.i, %conv154
   %47 = tail call i32 @llvm.abs.i32(i32 %sub3.i, i1 true)
-  %cmp.not.i123 = icmp ugt i32 %45, %46
-  %cmp4.not.i124 = icmp ugt i32 %45, %47
+  %cmp.not.i123 = icmp samesign ugt i32 %45, %46
+  %cmp4.not.i124 = icmp samesign ugt i32 %45, %47
   %or.cond.i125 = select i1 %cmp.not.i123, i1 true, i1 %cmp4.not.i124
-  %cmp5.not.i = icmp ugt i32 %46, %47
+  %cmp5.not.i = icmp samesign ugt i32 %46, %47
   %c.b.i = select i1 %cmp5.not.i, i8 %44, i8 %42
   %retval.0.in.i126 = select i1 %or.cond.i125, i8 %c.b.i, i8 %40
   %sub157 = sub i8 %38, %retval.0.in.i126
@@ -4694,7 +4694,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #18
 define void @stbiw__jpg_calcBits(i32 noundef %val, ptr nocapture noundef writeonly %bits) local_unnamed_addr #1 {
 entry:
   %cond = tail call i32 @llvm.abs.i32(i32 %val, i1 true)
-  %tobool.not11 = icmp ult i32 %cond, 2
+  %tobool.not11 = icmp samesign ult i32 %cond, 2
   %0 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %cond, i1 true)
   %1 = trunc nuw nsw i32 %0 to i16
   %2 = sub nuw nsw i16 32, %1
@@ -4988,7 +4988,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
 if.else:                                          ; preds = %for.end91
   %sub93 = sub nsw i32 %38, %DC
   %cond.i = tail call i32 @llvm.abs.i32(i32 %sub93, i1 true)
-  %tobool.not11.i = icmp ult i32 %cond.i, 2
+  %tobool.not11.i = icmp samesign ult i32 %cond.i, 2
   %48 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %cond.i, i1 true)
   %49 = trunc nuw nsw i32 %48 to i16
   %50 = sub nuw nsw i16 32, %49
@@ -5264,7 +5264,7 @@ if.end149:                                        ; preds = %for.end148, %for.en
   %90 = sub nuw nsw i32 32, %89
   %val.lobit.i241 = ashr i32 %77, 31
   %cond6.i242 = add nsw i32 %val.lobit.i241, %77
-  %tobool.not11.i238.inv = icmp ugt i32 %cond.i237, 1
+  %tobool.not11.i238.inv = icmp samesign ugt i32 %cond.i237, 1
   %conv.i243 = select i1 %tobool.not11.i238.inv, i32 %90, i32 1
   %notmask.i244 = shl nsw i32 -1, %conv.i243
   %sub9.i245 = xor i32 %notmask.i244, -1

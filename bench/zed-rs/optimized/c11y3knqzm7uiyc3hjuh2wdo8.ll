@@ -23790,7 +23790,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %51 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %52 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %52, i1 true)
-  %53 = icmp ult i32 %.sroa.07.0.i, 309
+  %53 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %53, label %._crit_edge.i, label %.lr.ph.i
 
 54:                                               ; preds = %48
@@ -23973,7 +23973,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %51 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %52 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %52, i1 true)
-  %53 = icmp ult i32 %.sroa.07.0.i, 309
+  %53 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %53, label %._crit_edge.i, label %.lr.ph.i
 
 54:                                               ; preds = %48
@@ -25266,7 +25266,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %64 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %65 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %65, i1 true)
-  %66 = icmp ult i32 %.sroa.07.0.i, 309
+  %66 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %66, label %._crit_edge.i, label %.lr.ph.i
 
 67:                                               ; preds = %61
@@ -25468,7 +25468,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %64 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %65 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %65, i1 true)
-  %66 = icmp ult i32 %.sroa.07.0.i, 309
+  %66 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %66, label %._crit_edge.i, label %.lr.ph.i
 
 67:                                               ; preds = %61
@@ -26561,7 +26561,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   %35 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %36 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %36, i1 true)
-  %37 = icmp ult i32 %.sroa.07.0.i, 309
+  %37 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %37, label %._crit_edge.i, label %.lr.ph.i
 
 38:                                               ; preds = %32
@@ -26692,7 +26692,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   %35 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %36 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %36, i1 true)
-  %37 = icmp ult i32 %.sroa.07.0.i, 309
+  %37 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %37, label %._crit_edge.i, label %.lr.ph.i
 
 38:                                               ; preds = %32
@@ -27412,7 +27412,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   %31 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %32 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %33 = icmp ult i32 %.sroa.07.0.i, 309
+  %33 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %33, label %._crit_edge.i, label %.lr.ph.i
 
 34:                                               ; preds = %28
@@ -27531,7 +27531,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   %31 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %32 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %33 = icmp ult i32 %.sroa.07.0.i, 309
+  %33 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %33, label %._crit_edge.i, label %.lr.ph.i
 
 34:                                               ; preds = %28
@@ -31760,7 +31760,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
   %51 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %52 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %52, i1 true)
-  %53 = icmp ult i32 %.sroa.07.0.i, 309
+  %53 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %53, label %._crit_edge.i, label %.lr.ph.i
 
 54:                                               ; preds = %48
@@ -32147,7 +32147,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
   %140 = fdiv double %.sroa.08.010.i, 1.000000e+308
   %141 = add nsw i32 %.sroa.0.011.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %141, i1 true)
-  %142 = icmp ult i32 %.sroa.07.0.i, 309
+  %142 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %142, label %._crit_edge.i, label %.lr.ph.i
 
 143:                                              ; preds = %137
@@ -34244,7 +34244,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
   %210 = fdiv double %.sroa.08.010.i, 1.000000e+308
   %211 = add nsw i32 %.sroa.0.011.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %211, i1 true)
-  %212 = icmp ult i32 %.sroa.07.0.i, 309
+  %212 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %212, label %._crit_edge.i, label %.lr.ph.i
 
 213:                                              ; preds = %207
@@ -34448,7 +34448,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
   %65 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %66 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %66, i1 true)
-  %67 = icmp ult i32 %.sroa.07.0.i, 309
+  %67 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %67, label %._crit_edge.i, label %.lr.ph.i
 
 68:                                               ; preds = %62
@@ -36482,7 +36482,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
   %69 = fdiv double %.sroa.08.010.i, 1.000000e+308
   %70 = add nsw i32 %.sroa.0.011.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %70, i1 true)
-  %71 = icmp ult i32 %.sroa.07.0.i, 309
+  %71 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %71, label %._crit_edge.i, label %.lr.ph.i
 
 72:                                               ; preds = %66
@@ -36614,7 +36614,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
   %35 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %36 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %36, i1 true)
-  %37 = icmp ult i32 %.sroa.07.0.i, 309
+  %37 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %37, label %._crit_edge.i, label %.lr.ph.i
 
 38:                                               ; preds = %32
@@ -37051,7 +37051,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$2
   %31 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %32 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %33 = icmp ult i32 %.sroa.07.0.i, 309
+  %33 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %33, label %._crit_edge.i, label %.lr.ph.i
 
 34:                                               ; preds = %28
@@ -37318,7 +37318,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$2
   %94 = fdiv double %.sroa.08.010.i, 1.000000e+308
   %95 = add nsw i32 %.sroa.0.011.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %95, i1 true)
-  %96 = icmp ult i32 %.sroa.07.0.i, 309
+  %96 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %96, label %._crit_edge.i, label %.lr.ph.i
 
 97:                                               ; preds = %91
@@ -114645,7 +114645,7 @@ common.resume:                                    ; preds = %.body, %48, %28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30357)
   %57 = getelementptr inbounds i8, ptr %32, i64 8
   %58 = load i32, ptr %57, align 8, !range !4537, !alias.scope !30357, !noalias !30360, !noundef !5
-  %59 = icmp ult i32 %58, 1000000002
+  %59 = icmp samesign ult i32 %58, 1000000002
   %switch4.i = icmp eq i32 %58, 1000000003
   %switch.i13 = or i1 %59, %switch4.i
   br i1 %switch.i13, label %60, label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h64eb4e09ae7fd08dE.exit.thread"
@@ -114711,7 +114711,7 @@ common.resume:                                    ; preds = %.body, %48, %28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30363)
   %78 = getelementptr inbounds i8, ptr %35, i64 8
   %79 = load i32, ptr %78, align 8, !range !4537, !alias.scope !30363, !noalias !30366, !noundef !5
-  %80 = icmp ult i32 %79, 1000000002
+  %80 = icmp samesign ult i32 %79, 1000000002
   %switch4.i14 = icmp eq i32 %79, 1000000003
   %switch.i15 = or i1 %80, %switch4.i14
   br i1 %switch.i15, label %81, label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h64eb4e09ae7fd08dE.exit18.thread"

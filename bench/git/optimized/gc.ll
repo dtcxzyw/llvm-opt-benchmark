@@ -2326,8 +2326,8 @@ for.body.i6:                                      ; preds = %for.body.i6, %if.en
   %19 = load i32, ptr %selected_order.i, align 8
   %cmp8.i = icmp slt i32 %19, 0
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
-  %cmp7.i = icmp ult i64 %indvars.iv.i7, 5
-  %20 = and i1 %cmp7.i, %cmp8.i
+  %cmp7.i = icmp samesign ult i64 %indvars.iv.i7, 5
+  %20 = select i1 %cmp8.i, i1 %cmp7.i, i1 false
   br i1 %20, label %for.body.i6, label %for.end.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %for.body.i6

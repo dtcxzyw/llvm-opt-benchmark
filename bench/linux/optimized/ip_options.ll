@@ -175,7 +175,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__ip_options_echo(ptr noundef %0
   %39 = zext i8 %25 to i32
   %40 = zext i8 %23 to i32
   %41 = add nuw nsw i32 %39, 3
-  %42 = icmp ugt i32 %41, %40
+  %42 = icmp samesign ugt i32 %41, %40
   br i1 %42, label %.loopexit, label %43
 
 43:                                               ; preds = %38
@@ -229,7 +229,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__ip_options_echo(ptr noundef %0
 
 77:                                               ; preds = %72
   %78 = add nuw nsw i32 %64, 3
-  %79 = icmp ugt i32 %78, %61
+  %79 = icmp samesign ugt i32 %78, %61
   br i1 %79, label %.loopexit, label %80
 
 80:                                               ; preds = %77
@@ -323,7 +323,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__ip_options_echo(ptr noundef %0
   %140 = zext i8 %135 to i32
   %141 = add nuw nsw i32 %140, 1
   %142 = select i1 %139, i32 %141, i32 %138
-  %143 = icmp ugt i32 %142, 7
+  %143 = icmp samesign ugt i32 %142, 7
   br i1 %143, label %144, label %.thread
 
 144:                                              ; preds = %131
@@ -333,7 +333,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__ip_options_echo(ptr noundef %0
   %148 = load i32, ptr %147, align 1
   %149 = add nsw i32 %142, -8
   %150 = getelementptr i8, ptr %133, i64 -1
-  %151 = icmp ugt i32 %142, 11
+  %151 = icmp samesign ugt i32 %142, 11
   br i1 %151, label %152, label %167
 
 152:                                              ; preds = %144
@@ -511,7 +511,7 @@ define dso_local void @ip_options_fragment(ptr nocapture noundef %0) local_unnam
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = icmp ult i8 %27, 2
-  %30 = icmp ult i32 %15, %28
+  %30 = icmp samesign ult i32 %15, %28
   %31 = or i1 %29, %30
   br i1 %31, label %.loopexit, label %32
 
@@ -745,7 +745,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 
 123:                                              ; preds = %121
   %124 = add nuw nsw i32 %119, 3
-  %125 = icmp ugt i32 %124, %69
+  %125 = icmp samesign ugt i32 %124, %69
   br i1 %125, label %.loopexit22.loopexit.split.loop.exit172, label %126
 
 126:                                              ; preds = %123
@@ -822,7 +822,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 
 166:                                              ; preds = %164
   %167 = add nuw nsw i32 %162, 3
-  %168 = icmp ugt i32 %167, %69
+  %168 = icmp samesign ugt i32 %167, %69
   br i1 %168, label %.loopexit22, label %169
 
 169:                                              ; preds = %166
@@ -846,7 +846,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 
 179:                                              ; preds = %169
   %180 = add nuw nsw i32 %162, 7
-  %181 = icmp ugt i32 %180, %69
+  %181 = icmp samesign ugt i32 %180, %69
   br i1 %181, label %.loopexit22, label %182
 
 182:                                              ; preds = %179
@@ -881,7 +881,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 
 200:                                              ; preds = %169
   %201 = add nuw nsw i32 %162, 7
-  %202 = icmp ugt i32 %201, %69
+  %202 = icmp samesign ugt i32 %201, %69
   br i1 %202, label %.loopexit22, label %203
 
 203:                                              ; preds = %200
@@ -1413,7 +1413,7 @@ define dso_local void @ip_forward_options(ptr noundef %0) local_unnamed_addr #0 
   %44 = getelementptr i8, ptr %36, i64 -1
   %45 = icmp ugt i8 %38, %41
   %46 = add nuw nsw i32 %39, 3
-  %47 = icmp ugt i32 %46, %42
+  %47 = icmp samesign ugt i32 %46, %42
   %48 = select i1 %45, i1 true, i1 %47
   br i1 %48, label %.loopexit, label %49
 
@@ -1434,9 +1434,9 @@ define dso_local void @ip_forward_options(ptr noundef %0) local_unnamed_addr #0 
 .preheader:                                       ; preds = %49, %55
   %59 = phi i64 [ %60, %55 ], [ %50, %49 ]
   %60 = add nuw nsw i64 %59, 4
-  %61 = icmp ugt i64 %60, %51
+  %61 = icmp samesign ugt i64 %60, %51
   %62 = add nuw nsw i64 %59, 7
-  %63 = icmp ugt i64 %62, %51
+  %63 = icmp samesign ugt i64 %62, %51
   %64 = select i1 %61, i1 true, i1 %63
   br i1 %64, label %.loopexit.loopexit, label %55, !llvm.loop !18
 
@@ -1601,7 +1601,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
 48:                                               ; preds = %119, %40
   %49 = phi i64 [ %46, %40 ], [ %122, %119 ]
   %50 = add nuw nsw i64 %49, 3
-  %51 = icmp ugt i64 %50, %47
+  %51 = icmp samesign ugt i64 %50, %47
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %48
@@ -1722,7 +1722,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   %121 = or i8 %120, 4
   store i8 %121, ptr %45, align 4
   %122 = add nuw nsw i64 %49, 4
-  %123 = icmp ugt i64 %122, %47
+  %123 = icmp samesign ugt i64 %122, %47
   br i1 %123, label %.thread9, label %48, !llvm.loop !21
 
 124:                                              ; preds = %116

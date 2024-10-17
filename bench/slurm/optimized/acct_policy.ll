@@ -1629,7 +1629,7 @@ define dso_local noundef zeroext i1 @acct_policy_validate_het_job(ptr noundef %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i32, ptr @g_tres_count, align 4
   %70 = zext i32 %69 to i64
-  %71 = icmp ult i64 %indvars.iv.next, %70
+  %71 = icmp samesign ult i64 %indvars.iv.next, %70
   br i1 %71, label %61, label %.outer, !llvm.loop !21
 
 .outer:                                           ; preds = %61, %56
@@ -1644,7 +1644,7 @@ define dso_local noundef zeroext i1 @acct_policy_validate_het_job(ptr noundef %0
 
 .outer._crit_edge:                                ; preds = %54
   call void @list_iterator_destroy(ptr noundef %45) #12
-  %74 = icmp ugt i32 %.0.ph68, 1
+  %74 = icmp samesign ugt i32 %.0.ph68, 1
   br i1 %74, label %75, label %89
 
 75:                                               ; preds = %.outer._crit_edge.thread, %.outer._crit_edge
@@ -4082,14 +4082,14 @@ default.unreachable:                              ; preds = %._crit_edge
   %indvars.iv.next119.i = add nuw nsw i64 %indvars.iv118.i, 1
   %240 = load i32, ptr @g_tres_count, align 4
   %241 = zext i32 %240 to i64
-  %242 = icmp ult i64 %indvars.iv.next119.i, %241
+  %242 = icmp samesign ult i64 %indvars.iv.next119.i, %241
   br i1 %242, label %.lr.ph.split.us.i, label %328, !llvm.loop !26
 
 243:                                              ; preds = %.thread124.i
   store i64 %203, ptr %202, align 8
   %244 = getelementptr inbounds i8, ptr %0, i64 896
   call void @slurm_xfree(ptr noundef nonnull %244) #12
-  %245 = icmp ult i64 %indvars.iv118.i, 5
+  %245 = icmp samesign ult i64 %indvars.iv118.i, 5
   br i1 %245, label %switch.lookup390, label %246
 
 246:                                              ; preds = %243
@@ -4158,7 +4158,7 @@ _get_tres_state_reason.exit224:                   ; preds = %switch.lookup390, %
   store i64 %203, ptr %202, align 8
   %284 = getelementptr inbounds i8, ptr %0, i64 896
   call void @slurm_xfree(ptr noundef nonnull %284) #12
-  %285 = icmp ult i64 %indvars.iv118.i, 5
+  %285 = icmp samesign ult i64 %indvars.iv118.i, 5
   br i1 %285, label %switch.lookup393, label %286
 
 286:                                              ; preds = %283
@@ -4313,7 +4313,7 @@ _get_tres_state_reason.exit229:                   ; preds = %switch.lookup393, %
   %indvars.iv.next119.i260 = add nuw nsw i64 %indvars.iv118.i251, 1
   %360 = load i32, ptr @g_tres_count, align 4
   %361 = zext i32 %360 to i64
-  %362 = icmp ult i64 %indvars.iv.next119.i260, %361
+  %362 = icmp samesign ult i64 %indvars.iv.next119.i260, %361
   br i1 %362, label %.lr.ph.split.us.i250, label %thread-pre-split, !llvm.loop !26
 
 _validate_tres_usage_limits.exit263:              ; preds = %.thread124.i254, %.thread124.i254.us
@@ -4424,7 +4424,7 @@ thread-pre-split:                                 ; preds = %359, %345
   %425 = phi i32 [ %.pre345, %._crit_edge344 ], [ %407, %417 ], [ %407, %.lr.ph.split.split.split.us.i ]
   %indvars.iv.next130.i = add nuw nsw i64 %indvars.iv129.i, 1
   %426 = zext i32 %425 to i64
-  %427 = icmp ult i64 %indvars.iv.next130.i, %426
+  %427 = icmp samesign ult i64 %indvars.iv.next130.i, %426
   br i1 %427, label %.lr.ph.split.split.split.us.i, label %thread-pre-split273, !llvm.loop !30
 
 _validate_tres_limits_for_qos.exit:               ; preds = %420
@@ -4502,7 +4502,7 @@ thread-pre-split273:                              ; preds = %424
   %469 = phi i32 [ %.pre348, %._crit_edge347 ], [ %451, %461 ], [ %451, %.lr.ph.split.split.split.us.i232 ]
   %indvars.iv.next130.i237 = add nuw nsw i64 %indvars.iv129.i233, 1
   %470 = zext i32 %469 to i64
-  %471 = icmp ult i64 %indvars.iv.next130.i237, %470
+  %471 = icmp samesign ult i64 %indvars.iv.next130.i237, %470
   br i1 %471, label %.lr.ph.split.split.split.us.i232, label %.loopexit291, !llvm.loop !30
 
 _validate_tres_limits_for_qos.exit238:            ; preds = %464
@@ -4630,7 +4630,7 @@ thread-pre-split273.thread:                       ; preds = %328, %thread-pre-sp
   %547 = phi i32 [ %.pre350, %._crit_edge349 ], [ %529, %539 ], [ %529, %.lr.ph.split.split.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %548 = zext i32 %547 to i64
-  %549 = icmp ult i64 %indvars.iv.next.i, %548
+  %549 = icmp samesign ult i64 %indvars.iv.next.i, %548
   br i1 %549, label %.lr.ph.split.split.split.i, label %.loopexit, !llvm.loop !30
 
 _validate_tres_limits_for_qos.exit242:            ; preds = %542
@@ -5497,7 +5497,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_assoc(ptr n
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %27 = load i32, ptr @g_tres_count, align 4
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next61, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next61, %28
   br i1 %29, label %.lr.ph.split.us.split.us, label %.loopexit, !llvm.loop !28
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %45
@@ -5531,7 +5531,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_assoc(ptr n
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %46 = load i32, ptr @g_tres_count, align 4
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next58, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next58, %47
   br i1 %48, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -5569,7 +5569,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_assoc(ptr n
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %66 = load i32, ptr @g_tres_count, align 4
   %67 = zext i32 %66 to i64
-  %68 = icmp ult i64 %indvars.iv.next55, %67
+  %68 = icmp samesign ult i64 %indvars.iv.next55, %67
   br i1 %68, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !28
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %86
@@ -5608,7 +5608,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_assoc(ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %87 = load i32, ptr @g_tres_count, align 4
   %88 = zext i32 %87 to i64
-  %89 = icmp ult i64 %indvars.iv.next, %88
+  %89 = icmp samesign ult i64 %indvars.iv.next, %88
   br i1 %89, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %83, %86, %60, %65, %41, %45, %22, %26, %8
@@ -6748,7 +6748,7 @@ define internal fastcc range(i32 0, 2) i32 @_qos_job_time_out(ptr noundef %0, pt
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %53 = load i32, ptr @g_tres_count, align 4
   %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next113.i, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next113.i, %54
   br i1 %55, label %.lr.ph.split.split.split.us.i, label %.loopexit, !llvm.loop !26
 
 _validate_tres_usage_limits.exit:                 ; preds = %48, %36
@@ -6905,7 +6905,7 @@ _validate_tres_usage_limits.exit._crit_edge:      ; preds = %_validate_tres_usag
   %124 = phi i32 [ %.pre100, %.thread124.i._crit_edge ], [ %115, %118 ], [ %115, %.lr.ph.split.us.i ]
   %indvars.iv.next119.i = add nuw nsw i64 %indvars.iv118.i, 1
   %125 = zext i32 %124 to i64
-  %126 = icmp ult i64 %indvars.iv.next119.i, %125
+  %126 = icmp samesign ult i64 %indvars.iv.next119.i, %125
   br i1 %126, label %.lr.ph.split.us.i, label %_validate_tres_usage_limits.exit68.thread, !llvm.loop !26
 
 _validate_tres_usage_limits.exit68:               ; preds = %.thread124.i, %.thread124.i.us
@@ -9449,7 +9449,7 @@ _validate_time_limit.exit.thread.i:               ; preds = %_validate_time_limi
   %260 = phi i32 [ %.pre, %_validate_time_limit.exit.i._validate_time_limit.exit.thread.i_crit_edge ], [ %231, %.thread.i ], [ %231, %243 ], [ %231, %240 ], [ %231, %.lr.ph.i242 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %261 = zext i32 %260 to i64
-  %262 = icmp ult i64 %indvars.iv.next.i, %261
+  %262 = icmp samesign ult i64 %indvars.iv.next.i, %261
   br i1 %262, label %.lr.ph.i242, label %.thread332, !llvm.loop !43
 
 _validate_tres_time_limits.exit:                  ; preds = %_validate_time_limit.exit.i
@@ -9458,7 +9458,7 @@ _validate_tres_time_limits.exit:                  ; preds = %_validate_time_limi
   br i1 %.not220, label %288, label %264
 
 264:                                              ; preds = %_validate_tres_time_limits.exit
-  %265 = icmp ult i64 %indvars.iv.i, 5
+  %265 = icmp samesign ult i64 %indvars.iv.i, 5
   br i1 %265, label %switch.lookup29, label %266
 
 266:                                              ; preds = %264
@@ -9624,7 +9624,7 @@ _validate_time_limit.exit.thread.i262:            ; preds = %_validate_time_limi
   %347 = phi i32 [ %.pre484, %_validate_time_limit.exit.i260._validate_time_limit.exit.thread.i262_crit_edge ], [ %318, %.thread.i255 ], [ %318, %330 ], [ %318, %327 ], [ %318, %.lr.ph.i251 ]
   %indvars.iv.next.i263 = add nuw nsw i64 %indvars.iv.i252, 1
   %348 = zext i32 %347 to i64
-  %349 = icmp ult i64 %indvars.iv.next.i263, %348
+  %349 = icmp samesign ult i64 %indvars.iv.next.i263, %348
   br i1 %349, label %.lr.ph.i251, label %.thread336, !llvm.loop !43
 
 _validate_tres_time_limits.exit268:               ; preds = %_validate_time_limit.exit.i260
@@ -10163,7 +10163,7 @@ _validate_time_limit.exit.thread.i307:            ; preds = %_validate_time_limi
   %627 = phi i32 [ %.pre487, %_validate_time_limit.exit.i305._validate_time_limit.exit.thread.i307_crit_edge ], [ %598, %.thread.i300 ], [ %598, %610 ], [ %598, %607 ], [ %598, %.lr.ph.i296 ]
   %indvars.iv.next.i308 = add nuw nsw i64 %indvars.iv.i297, 1
   %628 = zext i32 %627 to i64
-  %629 = icmp ult i64 %indvars.iv.next.i308, %628
+  %629 = icmp samesign ult i64 %indvars.iv.next.i308, %628
   br i1 %629, label %.lr.ph.i296, label %.thread344, !llvm.loop !43
 
 _validate_tres_time_limits.exit313:               ; preds = %_validate_time_limit.exit.i305
@@ -10384,7 +10384,7 @@ define internal fastcc range(i32 0, 2) i32 @_qos_policy_validate(ptr nocapture n
   %42 = phi i32 [ %.pre, %._crit_edge ], [ %24, %34 ], [ %24, %.lr.ph.split.split.split.us.i ]
   %indvars.iv.next130.i = add nuw nsw i64 %indvars.iv129.i, 1
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next130.i, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next130.i, %43
   br i1 %44, label %.lr.ph.split.split.split.us.i, label %_validate_tres_limits_for_qos.exit.thread.loopexit, !llvm.loop !30
 
 _validate_tres_limits_for_qos.exit:               ; preds = %37
@@ -10406,7 +10406,7 @@ _validate_tres_limits_for_qos.exit:               ; preds = %37
   br i1 %.not220, label %78, label %55
 
 55:                                               ; preds = %54
-  %56 = icmp ult i64 %indvars.iv129.i, 5
+  %56 = icmp samesign ult i64 %indvars.iv129.i, 5
   br i1 %56, label %switch.lookup, label %57
 
 57:                                               ; preds = %55
@@ -10797,7 +10797,7 @@ _validate_time_limit.exit.thread.i:               ; preds = %_validate_time_limi
   %277 = phi i32 [ %.pre391, %_validate_time_limit.exit.i._validate_time_limit.exit.thread.i_crit_edge ], [ %248, %.thread.i ], [ %248, %260 ], [ %248, %257 ], [ %248, %.lr.ph.i252 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %278 = zext i32 %277 to i64
-  %279 = icmp ult i64 %indvars.iv.next.i, %278
+  %279 = icmp samesign ult i64 %indvars.iv.next.i, %278
   br i1 %279, label %.lr.ph.i252, label %.thread, !llvm.loop !43
 
 _validate_tres_time_limits.exit:                  ; preds = %_validate_time_limit.exit.i
@@ -10805,7 +10805,7 @@ _validate_tres_time_limits.exit:                  ; preds = %_validate_time_limi
   br i1 %.not225, label %304, label %280
 
 280:                                              ; preds = %_validate_tres_time_limits.exit
-  %281 = icmp ult i64 %indvars.iv.i, 5
+  %281 = icmp samesign ult i64 %indvars.iv.i, 5
   br i1 %281, label %switch.lookup445, label %282
 
 282:                                              ; preds = %280
@@ -10967,7 +10967,7 @@ _validate_time_limit.exit.thread.i272:            ; preds = %_validate_time_limi
   %360 = phi i32 [ %.pre395, %_validate_time_limit.exit.i270._validate_time_limit.exit.thread.i272_crit_edge ], [ %331, %.thread.i265 ], [ %331, %343 ], [ %331, %340 ], [ %331, %.lr.ph.i261 ]
   %indvars.iv.next.i273 = add nuw nsw i64 %indvars.iv.i262, 1
   %361 = zext i32 %360 to i64
-  %362 = icmp ult i64 %indvars.iv.next.i273, %361
+  %362 = icmp samesign ult i64 %indvars.iv.next.i273, %361
   br i1 %362, label %.lr.ph.i261, label %.thread350.loopexit, !llvm.loop !43
 
 _validate_tres_time_limits.exit278:               ; preds = %_validate_time_limit.exit.i270
@@ -10975,7 +10975,7 @@ _validate_tres_time_limits.exit278:               ; preds = %_validate_time_limi
   br i1 %.not226, label %387, label %363
 
 363:                                              ; preds = %_validate_tres_time_limits.exit278
-  %364 = icmp ult i64 %indvars.iv.i262, 5
+  %364 = icmp samesign ult i64 %indvars.iv.i262, 5
   br i1 %364, label %switch.lookup448, label %365
 
 365:                                              ; preds = %363
@@ -11144,7 +11144,7 @@ _validate_time_limit.exit.thread.i297:            ; preds = %_validate_time_limi
   %447 = phi i32 [ %.pre399, %_validate_time_limit.exit.i295._validate_time_limit.exit.thread.i297_crit_edge ], [ %418, %.thread.i290 ], [ %418, %430 ], [ %418, %427 ], [ %418, %.lr.ph.i286 ]
   %indvars.iv.next.i298 = add nuw nsw i64 %indvars.iv.i287, 1
   %448 = zext i32 %447 to i64
-  %449 = icmp ult i64 %indvars.iv.next.i298, %448
+  %449 = icmp samesign ult i64 %indvars.iv.next.i298, %448
   br i1 %449, label %.lr.ph.i286, label %.thread349.loopexit, !llvm.loop !43
 
 _validate_tres_time_limits.exit303:               ; preds = %_validate_time_limit.exit.i295
@@ -11384,7 +11384,7 @@ _set_time_limit.exit311:                          ; preds = %515, %.thread355, %
   %561 = phi i32 [ %.pre401, %._crit_edge400 ], [ %543, %553 ], [ %543, %.lr.ph.split.split.split.us.i315 ]
   %indvars.iv.next130.i320 = add nuw nsw i64 %indvars.iv129.i316, 1
   %562 = zext i32 %561 to i64
-  %563 = icmp ult i64 %indvars.iv.next130.i320, %562
+  %563 = icmp samesign ult i64 %indvars.iv.next130.i320, %562
   br i1 %563, label %.lr.ph.split.split.split.us.i315, label %.loopexit368, !llvm.loop !30
 
 _validate_tres_limits_for_qos.exit321:            ; preds = %556
@@ -11392,7 +11392,7 @@ _validate_tres_limits_for_qos.exit321:            ; preds = %556
   br i1 %.not232, label %588, label %564
 
 564:                                              ; preds = %_validate_tres_limits_for_qos.exit321
-  %565 = icmp ult i64 %indvars.iv129.i316, 5
+  %565 = icmp samesign ult i64 %indvars.iv129.i316, 5
   br i1 %565, label %switch.lookup451, label %566
 
 566:                                              ; preds = %564
@@ -11530,7 +11530,7 @@ _get_tres_state_reason.exit326:                   ; preds = %switch.lookup451, %
   %637 = phi i32 [ %.pre404, %.thread.us115.i._crit_edge ], [ %617, %627 ], [ %617, %.lr.ph.split.split.split.us.i330 ]
   %indvars.iv.next130.i335 = add nuw nsw i64 %indvars.iv129.i331, 1
   %638 = zext i32 %637 to i64
-  %639 = icmp ult i64 %indvars.iv.next130.i335, %638
+  %639 = icmp samesign ult i64 %indvars.iv.next130.i335, %638
   br i1 %639, label %.lr.ph.split.split.split.us.i330, label %.loopexit, !llvm.loop !30
 
 _validate_tres_limits_for_qos.exit336:            ; preds = %.thread.us115.i
@@ -11717,7 +11717,7 @@ _validate_tres_limits_for_qos.exit336:            ; preds = %.thread.us115.i
   %750 = phi i32 [ %.pre406, %._crit_edge405 ], [ %732, %742 ], [ %732, %.lr.ph.split.split.split.i ]
   %indvars.iv.next.i343 = add nuw nsw i64 %indvars.iv.i340, 1
   %751 = zext i32 %750 to i64
-  %752 = icmp ult i64 %indvars.iv.next.i343, %751
+  %752 = icmp samesign ult i64 %indvars.iv.next.i343, %751
   br i1 %752, label %.lr.ph.split.split.split.i, label %_validate_tres_limits_for_qos.exit344.thread, !llvm.loop !30
 
 _validate_tres_limits_for_qos.exit344:            ; preds = %745
@@ -11853,7 +11853,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_qos(ptr noc
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %58 = load i32, ptr @g_tres_count, align 4
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %indvars.iv.next136, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next136, %59
   br i1 %60, label %.lr.ph.split.us.preheader, label %.loopexit, !llvm.loop !30
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -11914,7 +11914,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_qos(ptr noc
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %88 = load i32, ptr @g_tres_count, align 4
   %89 = zext i32 %88 to i64
-  %90 = icmp ult i64 %indvars.iv.next133, %89
+  %90 = icmp samesign ult i64 %indvars.iv.next133, %89
   br i1 %90, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !30
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
@@ -11962,7 +11962,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_qos(ptr noc
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %111 = load i32, ptr @g_tres_count, align 4
   %112 = zext i32 %111 to i64
-  %113 = icmp ult i64 %indvars.iv.next130, %112
+  %113 = icmp samesign ult i64 %indvars.iv.next130, %112
   br i1 %113, label %.lr.ph.split.split.split.us, label %.loopexit, !llvm.loop !30
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %133
@@ -12007,7 +12007,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_qos(ptr noc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %134 = load i32, ptr @g_tres_count, align 4
   %135 = zext i32 %134 to i64
-  %136 = icmp ult i64 %indvars.iv.next, %135
+  %136 = icmp samesign ult i64 %indvars.iv.next, %135
   br i1 %136, label %.lr.ph.split.split.split, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.thread83, %133, %.thread.us115, %110, %.thread.us104, %.thread83.us103, %87, %53, %49, %.thread.us, %.thread83.us, %57, %10
@@ -12122,7 +12122,7 @@ define internal fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noca
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %50 = load i32, ptr @g_tres_count, align 4
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next119, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next119, %51
   br i1 %52, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -12166,7 +12166,7 @@ define internal fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noca
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %68 = load i32, ptr @g_tres_count, align 4
   %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %indvars.iv.next116, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next116, %69
   br i1 %70, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !26
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
@@ -12222,7 +12222,7 @@ define internal fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noca
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %93 = load i32, ptr @g_tres_count, align 4
   %94 = zext i32 %93 to i64
-  %95 = icmp ult i64 %indvars.iv.next113, %94
+  %95 = icmp samesign ult i64 %indvars.iv.next113, %94
   br i1 %95, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !26
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
@@ -12273,7 +12273,7 @@ define internal fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noca
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %117 = load i32, ptr @g_tres_count, align 4
   %118 = zext i32 %117 to i64
-  %119 = icmp ult i64 %indvars.iv.next110, %118
+  %119 = icmp samesign ult i64 %indvars.iv.next110, %118
   br i1 %119, label %.lr.ph.split.split.split.split.us, label %._crit_edge, !llvm.loop !26
 
 .lr.ph.split.split.split.split.split:             ; preds = %.lr.ph.split.split.split, %134
@@ -12307,7 +12307,7 @@ define internal fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %135 = load i32, ptr @g_tres_count, align 4
   %136 = zext i32 %135 to i64
-  %137 = icmp ult i64 %indvars.iv.next, %136
+  %137 = icmp samesign ult i64 %indvars.iv.next, %136
   br i1 %137, label %.lr.ph.split.split.split.split.split, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %131, %134, %112, %116, %88, %92, %.thread129, %33, %36, %43, %49, %.thread127, %9

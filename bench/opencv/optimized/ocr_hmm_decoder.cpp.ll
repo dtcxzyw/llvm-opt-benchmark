@@ -3361,7 +3361,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc, %320
   %502 = getelementptr inbounds float, ptr %500, i64 %501
   store float %497, ptr %502, align 4
   %503 = add nuw nsw i32 %.0138756, 7
-  %504 = icmp ult i32 %.0138756, 28
+  %504 = icmp samesign ult i32 %.0138756, 28
   br i1 %504, label %487, label %511, !llvm.loop !69
 
 505:                                              ; preds = %487
@@ -3382,7 +3382,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc, %320
 
 511:                                              ; preds = %494
   %512 = add nuw nsw i32 %.0139757, 7
-  %513 = icmp ult i32 %.0139757, 28
+  %513 = icmp samesign ult i32 %.0139757, 28
   br i1 %513, label %.preheader, label %514, !llvm.loop !70
 
 514:                                              ; preds = %511

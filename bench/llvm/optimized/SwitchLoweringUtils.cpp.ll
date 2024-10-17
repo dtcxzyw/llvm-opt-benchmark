@@ -799,7 +799,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_17BranchProbabili
   %74 = zext i32 %.sroa.0159.0201 to i64
   %75 = zext i32 %.sroa.023.0.copyload to i64
   %76 = add nuw nsw i64 %75, %74
-  %77 = icmp ugt i64 %76, 2147483648
+  %77 = icmp samesign ugt i64 %76, 2147483648
   %78 = add i32 %.sroa.023.0.copyload, %.sroa.0159.0201
   %spec.select.i = select i1 %77, i32 -2147483648, i32 %78
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -1200,7 +1200,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_17BranchProbabili
   %249 = zext i32 %248 to i64
   %250 = zext i32 %.sroa.010.0.copyload to i64
   %251 = add nuw nsw i64 %249, %250
-  %252 = icmp ugt i64 %251, 2147483648
+  %252 = icmp samesign ugt i64 %251, 2147483648
   %253 = add i32 %248, %.sroa.010.0.copyload
   %spec.select.i113 = select i1 %252, i32 -2147483648, i32 %253
   store i32 %spec.select.i113, ptr %247, align 4
@@ -3215,7 +3215,7 @@ _ZN4llvm5APIntD2Ev.exit110:                       ; preds = %_ZN4llvm5APIntC2ERK
   %362 = zext i32 %361 to i64
   %363 = zext i32 %.sroa.09.0.copyload to i64
   %364 = add nuw nsw i64 %362, %363
-  %365 = icmp ugt i64 %364, 2147483648
+  %365 = icmp samesign ugt i64 %364, 2147483648
   %366 = add i32 %361, %.sroa.09.0.copyload
   %spec.select.i = select i1 %365, i32 -2147483648, i32 %366
   store i32 %spec.select.i, ptr %360, align 4
@@ -3226,7 +3226,7 @@ _ZN4llvm5APIntD2Ev.exit110:                       ; preds = %_ZN4llvm5APIntC2ERK
   %370 = zext i32 %369 to i64
   %371 = zext i32 %.sroa.08.0.copyload to i64
   %372 = add nuw nsw i64 %370, %371
-  %373 = icmp ugt i64 %372, 2147483648
+  %373 = icmp samesign ugt i64 %372, 2147483648
   %374 = add i32 %369, %.sroa.08.0.copyload
   %spec.select.i111 = select i1 %373, i32 -2147483648, i32 %374
   store i32 %spec.select.i111, ptr %20, align 4
@@ -4090,7 +4090,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.thread
   %128 = zext i32 %127 to i64
   %129 = zext i32 %.sroa.0.0.copyload to i64
   %130 = add nuw nsw i64 %128, %129
-  %131 = icmp ugt i64 %130, 2147483648
+  %131 = icmp samesign ugt i64 %130, 2147483648
   %132 = add i32 %127, %.sroa.0.0.copyload
   %spec.select.i = select i1 %131, i32 -2147483648, i32 %132
   store i32 %spec.select.i, ptr %126, align 4
@@ -4211,14 +4211,14 @@ define dso_local void @_ZN4llvm8SwitchCG14SwitchLowering24computeSplitWorkItemIn
   %15 = zext i32 %14 to i64
   %16 = zext nneg i32 %13 to i64
   %17 = add nuw nsw i64 %15, %16
-  %18 = icmp ugt i64 %17, 2147483648
+  %18 = icmp samesign ugt i64 %17, 2147483648
   %19 = add i32 %14, %13
   %spec.select.i.i = select i1 %18, i32 -2147483648, i32 %19
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
   %23 = add nuw nsw i64 %22, %16
-  %24 = icmp ugt i64 %23, 2147483648
+  %24 = icmp samesign ugt i64 %23, 2147483648
   %25 = add i32 %21, %13
   %spec.select.i.i36 = select i1 %24, i32 -2147483648, i32 %25
   %26 = getelementptr inbounds i8, ptr %6, i64 40
@@ -4259,7 +4259,7 @@ define dso_local void @_ZN4llvm8SwitchCG14SwitchLowering24computeSplitWorkItemIn
   %35 = zext i32 %.sroa.0105.0132 to i64
   %36 = zext i32 %.sroa.015.0.copyload to i64
   %37 = add nuw nsw i64 %36, %35
-  %38 = icmp ugt i64 %37, 2147483648
+  %38 = icmp samesign ugt i64 %37, 2147483648
   %39 = add i32 %.sroa.015.0.copyload, %.sroa.0105.0132
   %spec.select.i = select i1 %38, i32 -2147483648, i32 %39
   br label %46
@@ -4271,7 +4271,7 @@ define dso_local void @_ZN4llvm8SwitchCG14SwitchLowering24computeSplitWorkItemIn
   %41 = zext i32 %.sroa.0101.0131 to i64
   %42 = zext i32 %.sroa.014.0.copyload to i64
   %43 = add nuw nsw i64 %42, %41
-  %44 = icmp ugt i64 %43, 2147483648
+  %44 = icmp samesign ugt i64 %43, 2147483648
   %45 = add i32 %.sroa.014.0.copyload, %.sroa.0101.0131
   %spec.select.i37 = select i1 %44, i32 -2147483648, i32 %45
   br label %46

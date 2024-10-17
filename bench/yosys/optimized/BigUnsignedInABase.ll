@@ -46,7 +46,7 @@ define void @_ZN18BigUnsignedInABaseC2EPKtjt(ptr nocapture noundef nonnull align
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = load i32, ptr %5, align 4
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next.i, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next.i, %15
   br i1 %16, label %.lr.ph.i, label %_ZN15NumberlikeArrayItEC2EPKtj.exit, !llvm.loop !6
 
 _ZN15NumberlikeArrayItEC2EPKtj.exit:              ; preds = %.lr.ph.i
@@ -214,7 +214,7 @@ _ZN15NumberlikeArrayItE8allocateEj.exit:          ; preds = %.noexc, %_ZN12_GLOB
   %40 = getelementptr inbounds i64, ptr %33, i64 %indvars.iv.i.i
   store i64 %39, ptr %40, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %41 = icmp ult i64 %indvars.iv.next.i.i, %31
+  %41 = icmp samesign ult i64 %indvars.iv.next.i.i, %31
   br i1 %41, label %37, label %_ZN11BigUnsignedC2ERKS_.exit, !llvm.loop !10
 
 _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %37, %.noexc23
@@ -255,7 +255,7 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %37, %.noexc23
   %indvars.iv.next.i.i27 = add nuw nsw i64 %indvars.iv.i.i26, 1
   %56 = load i32, ptr %42, align 4
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %indvars.iv.next.i.i27, %57
+  %58 = icmp samesign ult i64 %indvars.iv.next.i.i27, %57
   br i1 %58, label %50, label %_ZN11BigUnsignedC2ERKS_.exit29, !llvm.loop !10
 
 _ZN11BigUnsignedC2ERKS_.exit29:                   ; preds = %50
@@ -582,7 +582,7 @@ _ZN15NumberlikeArrayItE8allocateEj.exit:          ; preds = %11, %.noexc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %15, align 4
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %33, label %._crit_edge, !llvm.loop !13
 
 33:                                               ; preds = %.lr.ph, %29

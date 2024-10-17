@@ -401,7 +401,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(p
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, %21
   store i64 %25, ptr %23, align 8
-  %26 = icmp ult i64 %8, %10
+  %26 = icmp samesign ult i64 %8, %10
   br i1 %26, label %.lr.ph.preheader.i.i, label %_ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %19
@@ -569,7 +569,7 @@ define hidden void @_ZN6BitMap9set_rangeEmm(ptr nocapture noundef nonnull readon
   %4 = add i64 %1, 63
   %5 = lshr i64 %4, 6
   %6 = lshr i64 %2, 6
-  %7 = icmp ult i64 %5, %6
+  %7 = icmp samesign ult i64 %5, %6
   %8 = and i64 %4, -64
   br i1 %7, label %9, label %28
 
@@ -661,7 +661,7 @@ define hidden void @_ZN6BitMap11clear_rangeEmm(ptr nocapture noundef nonnull rea
   %4 = add i64 %1, 63
   %5 = lshr i64 %4, 6
   %6 = lshr i64 %2, 6
-  %7 = icmp ult i64 %5, %6
+  %7 = icmp samesign ult i64 %5, %6
   %8 = and i64 %4, -64
   br i1 %7, label %9, label %28
 
@@ -761,7 +761,7 @@ define hidden void @_ZN6BitMap15set_large_rangeEmm(ptr nocapture noundef nonnull
   %5 = lshr i64 %4, 6
   %6 = lshr i64 %2, 6
   %7 = add nuw nsw i64 %5, 32
-  %.not = icmp ult i64 %7, %6
+  %.not = icmp samesign ult i64 %7, %6
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %3
@@ -814,7 +814,7 @@ define hidden void @_ZN6BitMap17clear_large_rangeEmm(ptr nocapture noundef nonnu
   %5 = lshr i64 %4, 6
   %6 = lshr i64 %2, 6
   %7 = add nuw nsw i64 %5, 32
-  %.not = icmp ult i64 %7, %6
+  %.not = icmp samesign ult i64 %7, %6
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %3
@@ -958,7 +958,7 @@ define hidden void @_ZN6BitMap16par_at_put_rangeEmmb(ptr nocapture noundef nonnu
   %5 = add i64 %1, 63
   %6 = lshr i64 %5, 6
   %7 = lshr i64 %2, 6
-  %8 = icmp ult i64 %6, %7
+  %8 = icmp samesign ult i64 %6, %7
   %9 = and i64 %5, -64
   br i1 %8, label %10, label %55
 
@@ -1144,7 +1144,7 @@ define hidden void @_ZN6BitMap18at_put_large_rangeEmmb(ptr nocapture noundef non
   %6 = lshr i64 %5, 6
   %7 = lshr i64 %2, 6
   %8 = add nuw nsw i64 %6, 32
-  %.not.i = icmp ult i64 %8, %7
+  %.not.i = icmp samesign ult i64 %8, %7
   br i1 %3, label %9, label %31
 
 9:                                                ; preds = %4
@@ -1243,7 +1243,7 @@ define hidden void @_ZN6BitMap22par_at_put_large_rangeEmmb(ptr nocapture noundef
   %6 = lshr i64 %5, 6
   %7 = lshr i64 %2, 6
   %8 = add nuw nsw i64 %6, 32
-  %.not = icmp ult i64 %8, %7
+  %.not = icmp samesign ult i64 %8, %7
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %4
@@ -2116,7 +2116,7 @@ define hidden noundef i64 @_ZNK6BitMap14count_one_bitsEmm(ptr nocapture noundef 
   %4 = add i64 %1, 63
   %5 = lshr i64 %4, 6
   %6 = lshr i64 %2, 6
-  %7 = icmp ult i64 %5, %6
+  %7 = icmp samesign ult i64 %5, %6
   %8 = and i64 %4, -64
   br i1 %7, label %9, label %32
 
@@ -2294,7 +2294,7 @@ define weak_odr hidden noundef ptr @_ZN14GrowableBitMapI11ArenaBitMapE13copy_of_
 _ZNK11ArenaBitMap8allocateEm.exit:                ; preds = %19, %21
   %.0.i.i.i = phi ptr [ %15, %19 ], [ %22, %21 ]
   %23 = and i64 %1, 63
-  %24 = icmp ugt i64 %6, %4
+  %24 = icmp samesign ugt i64 %6, %4
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNK11ArenaBitMap8allocateEm.exit
@@ -2461,7 +2461,7 @@ _ZNK11ArenaBitMap10reallocateEPmmm.exit:          ; preds = %_ZNK11ArenaBitMap8a
   %65 = load i64, ptr %64, align 8
   %66 = and i64 %65, %62
   store i64 %66, ptr %64, align 8
-  %67 = icmp ult i64 %8, %10
+  %67 = icmp samesign ult i64 %8, %10
   br i1 %67, label %.lr.ph.preheader.i, label %_ZN6BitMap20clear_range_of_wordsEPmmm.exit
 
 .lr.ph.preheader.i:                               ; preds = %60
@@ -2519,7 +2519,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11ArenaBitMapE8truncateEmm(ptr 
 _ZNK11ArenaBitMap8allocateEm.exit.i:              ; preds = %21, %19
   %.0.i.i.i.i = phi ptr [ %15, %19 ], [ %22, %21 ]
   %23 = and i64 %1, 63
-  %24 = icmp ugt i64 %6, %4
+  %24 = icmp samesign ugt i64 %6, %4
   br i1 %24, label %.lr.ph.i, label %_ZN14GrowableBitMapI11ArenaBitMapE13copy_of_rangeEmm.exit
 
 .lr.ph.i:                                         ; preds = %_ZNK11ArenaBitMap8allocateEm.exit.i
@@ -2581,7 +2581,7 @@ define weak_odr hidden noundef ptr @_ZN14GrowableBitMapI14ResourceBitMapE13copy_
   %9 = shl nsw i64 %8, 3
   %10 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %9, i32 noundef 0) #10
   %11 = and i64 %1, 63
-  %12 = icmp ugt i64 %6, %4
+  %12 = icmp samesign ugt i64 %6, %4
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -2726,7 +2726,7 @@ _ZNK14ResourceBitMap10reallocateEPmmm.exit:       ; preds = %12, %.split11.i.i, 
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %54, %51
   store i64 %55, ptr %53, align 8
-  %56 = icmp ult i64 %8, %10
+  %56 = icmp samesign ult i64 %8, %10
   br i1 %56, label %.lr.ph.preheader.i, label %_ZN6BitMap20clear_range_of_wordsEPmmm.exit
 
 .lr.ph.preheader.i:                               ; preds = %49
@@ -2762,7 +2762,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI14ResourceBitMapE8truncateEmm(p
   %9 = shl nsw i64 %8, 3
   %10 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %9, i32 noundef 0) #10
   %11 = and i64 %1, 63
-  %12 = icmp ugt i64 %6, %4
+  %12 = icmp samesign ugt i64 %6, %4
   br i1 %12, label %.lr.ph.i, label %_ZN14GrowableBitMapI14ResourceBitMapE13copy_of_rangeEmm.exit
 
 .lr.ph.i:                                         ; preds = %3
@@ -2826,7 +2826,7 @@ define weak_odr hidden noundef ptr @_ZN14GrowableBitMapI11CHeapBitMapE13copy_of_
   %11 = shl nsw i64 %8, 3
   %12 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %11, i8 noundef zeroext %10, i32 noundef 0) #10
   %13 = and i64 %1, 63
-  %14 = icmp ugt i64 %6, %4
+  %14 = icmp samesign ugt i64 %6, %4
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -2900,7 +2900,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb(ptr no
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, %21
   store i64 %25, ptr %23, align 8
-  %26 = icmp ult i64 %8, %10
+  %26 = icmp samesign ult i64 %8, %10
   br i1 %26, label %.lr.ph.preheader.i, label %_ZN6BitMap20clear_range_of_wordsEPmmm.exit
 
 .lr.ph.preheader.i:                               ; preds = %19
@@ -2966,7 +2966,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE8truncateEmm(ptr 
   %11 = shl nsw i64 %8, 3
   %12 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %11, i8 noundef zeroext %10, i32 noundef 0) #10
   %13 = and i64 %1, 63
-  %14 = icmp ugt i64 %7, %5
+  %14 = icmp samesign ugt i64 %7, %5
   br i1 %14, label %.lr.ph.i, label %_ZN14GrowableBitMapI11CHeapBitMapE13copy_of_rangeEmm.exit
 
 .lr.ph.i:                                         ; preds = %3

@@ -1679,7 +1679,7 @@ if.end:                                           ; preds = %if.else
   %sub = add i64 %7, -1
   %cmp17 = icmp ult i64 %diff_index.039, %sub
   %add = add nuw nsw i32 %conv12, 1
-  %cmp20 = icmp ult i32 %add, %conv13
+  %cmp20 = icmp samesign ult i32 %add, %conv13
   %or.cond = select i1 %cmp17, i1 true, i1 %cmp20
   br i1 %or.cond, label %if.then21, label %while.cond27
 

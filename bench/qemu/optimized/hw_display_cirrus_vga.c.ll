@@ -1152,7 +1152,7 @@ sw.bb5:                                           ; preds = %if.else
   %ar_index6 = getelementptr inbounds i8, ptr %opaque, i64 1362
   %3 = load i8, ptr %ar_index6, align 2
   %4 = and i8 %3, 31
-  %cmp8 = icmp ult i8 %4, 21
+  %cmp8 = icmp samesign ult i8 %4, 21
   br i1 %cmp8, label %if.then10, label %if.end48
 
 if.then10:                                        ; preds = %sw.bb5
@@ -2106,7 +2106,7 @@ sw.bb3:                                           ; preds = %entry, %entry, %ent
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %cmp = icmp ult i32 %reg_index, 58
+  %cmp = icmp samesign ult i32 %reg_index, 58
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %sw.epilog

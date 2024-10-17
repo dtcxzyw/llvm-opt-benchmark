@@ -36,7 +36,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 13:                                               ; preds = %2
   %14 = lshr i64 %4, 4
   %15 = and i64 %14, 15
-  %16 = icmp ugt i64 %15, 7
+  %16 = icmp samesign ugt i64 %15, 7
   br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i"
 
 17:                                               ; preds = %13
@@ -97,7 +97,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 13:                                               ; preds = %2
   %14 = lshr i64 %4, 4
   %15 = and i64 %14, 15
-  %16 = icmp ugt i64 %15, 7
+  %16 = icmp samesign ugt i64 %15, 7
   br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i"
 
 17:                                               ; preds = %13

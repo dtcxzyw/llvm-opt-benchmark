@@ -1587,7 +1587,7 @@ for.body.i:                                       ; preds = %land.rhs.i
 
 for.end.i:                                        ; preds = %land.rhs.i
   %28 = trunc nsw i64 %indvars.iv.i to i32
-  %cmp36.i = icmp ugt i32 %power.061.i, 1
+  %cmp36.i = icmp samesign ugt i32 %power.061.i, 1
   br i1 %cmp36.i, label %land.lhs.true40.i, label %if.end52.i
 
 land.lhs.true40.i:                                ; preds = %for.end.i

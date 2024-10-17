@@ -364,7 +364,7 @@ switch.early.test:                                ; preds = %45
   %narrow = add i8 %150, 32
   %151 = zext i8 %narrow to i32
   %152 = add nuw nsw i32 %151, %149
-  %153 = icmp ugt i32 %152, 71
+  %153 = icmp samesign ugt i32 %152, 71
   br i1 %153, label %.loopexit, label %.thread.i
 
 .thread.i:                                        ; preds = %148
@@ -403,7 +403,7 @@ switch.early.test:                                ; preds = %45
   %171 = zext nneg i8 %narrow109.i to i32
   %172 = add nuw nsw i32 %169, %171
   %173 = add nsw i32 %172, -48
-  %174 = icmp ugt i32 %172, 107
+  %174 = icmp samesign ugt i32 %172, 107
   br i1 %174, label %.loopexit, label %175
 
 175:                                              ; preds = %168
@@ -438,7 +438,7 @@ switch.early.test:                                ; preds = %45
   %narrow110.i = add nsw i8 %195, 32
   %196 = zext nneg i8 %narrow110.i to i32
   %197 = add nuw nsw i32 %194, %196
-  %198 = icmp ugt i32 %197, 107
+  %198 = icmp samesign ugt i32 %197, 107
   br i1 %198, label %.loopexit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %193

@@ -819,7 +819,7 @@ Vec_BitStart.exit:                                ; preds = %5, %18
   %42 = or i32 %41, %37
   store i32 %42, ptr %40, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = icmp ult i64 %indvars.iv.next, %28
+  %43 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %43, label %33, label %.critedge.preheader, !llvm.loop !8
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge2

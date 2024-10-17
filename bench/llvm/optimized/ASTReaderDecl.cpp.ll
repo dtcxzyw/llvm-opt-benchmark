@@ -14223,7 +14223,7 @@ define dso_local void @_ZN5clang13ASTDeclReader17VisitCapturedDeclEPNS_12Capture
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i32, ptr %24, align 8
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next, %45
   br i1 %46, label %30, label %._crit_edge, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %43, %2

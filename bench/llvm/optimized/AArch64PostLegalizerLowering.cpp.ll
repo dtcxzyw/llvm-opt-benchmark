@@ -2409,7 +2409,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit.i.i.i:       ; preds = %216, %_ZNK4llvm19Ma
   %217 = trunc i64 %.sroa.04.0.i.i.i.i to i32
   %218 = lshr i32 %217, 3
   %219 = and i32 %218, 65535
-  %220 = icmp ult i32 %spec.store.select.i.i, %219
+  %220 = icmp samesign ult i32 %spec.store.select.i.i, %219
   %221 = select i1 %220, i64 1, i64 2
   %222 = load ptr, ptr %198, align 8
   %223 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %222, i64 %221, i32 1
@@ -3621,7 +3621,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit.i.i.i77:     ; preds = %711, %_ZN4llvm12get
   br i1 %713, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK3$_2clEv.exit.thread", label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i.i77
-  %714 = icmp ugt i32 %408, 1
+  %714 = icmp samesign ugt i32 %408, 1
   br i1 %714, label %.lr.ph.preheader.i.i.i, label %.loopexit.i.i78
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.preheader.i.i.i
@@ -4288,7 +4288,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit.i.i126:      ; preds = %999, %_ZNK4llvm19Ma
 
 1023:                                             ; preds = %1016
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %1024 = icmp ult i64 %indvars.iv.next.i, %1010
+  %1024 = icmp samesign ult i64 %indvars.iv.next.i, %1010
   br i1 %1024, label %.lr.ph.i.i.i128, label %_ZN4llvm9isTRNMaskENS_8ArrayRefIiEEjRj.exit.i.i, !llvm.loop !64
 
 _ZN4llvm9isTRNMaskENS_8ArrayRefIiEEjRj.exit.i.i:  ; preds = %1023, %1004
@@ -5575,7 +5575,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.i.i:         ; preds = %1613, %1606
   %.sroa.04.0.i20.i.i = phi i32 [ %1639, %1635 ], [ %1598, %"_ZZN12_GLOBAL__N_119trySwapICmpOperandsERN4llvm12MachineInstrERNS0_19MachineRegisterInfoEENK3$_0clENS0_8RegisterE.exit.i.i" ]
   %1640 = call fastcc noundef i32 @_ZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoE(i32 %.sroa.04.0.i.i.i190, ptr noundef nonnull align 8 dereferenceable(512) %.val43.val)
   %1641 = call fastcc noundef i32 @_ZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoE(i32 %.sroa.04.0.i20.i.i, ptr noundef nonnull align 8 dereferenceable(512) %.val43.val)
-  %1642 = icmp ugt i32 %1640, %1641
+  %1642 = icmp samesign ugt i32 %1640, %1641
   %.pre.i.i = load i8, ptr %1599, align 8
   br label %1643
 
@@ -5753,7 +5753,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.i.i:         ; preds = %1613, %1606
   %1731 = zext i24 %1730 to i64
   %1732 = add nuw nsw i64 %1731, 4294967295
   %1733 = and i64 %1732, 4294967295
-  %1734 = icmp ult i64 %indvars.iv.next.i.i197, %1733
+  %1734 = icmp samesign ult i64 %indvars.iv.next.i.i197, %1733
   br i1 %1734, label %1716, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_12clEv.exit", !llvm.loop !69
 
 "_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_12clEv.exit": ; preds = %1729
@@ -5867,7 +5867,7 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_16ImplicitDefMatchEEEbT_RKNS_
   %1789 = zext i24 %1788 to i64
   %1790 = add nuw nsw i64 %1789, 4294967295
   %1791 = and i64 %1790, 4294967295
-  %1792 = icmp ult i64 %indvars.iv.next.i201, %1791
+  %1792 = icmp samesign ult i64 %indvars.iv.next.i201, %1791
   br i1 %1792, label %1770, label %_ZN12_GLOBAL__N_129applyLowerBuildToInsertVecEltERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit, !llvm.loop !70
 
 _ZN12_GLOBAL__N_129applyLowerBuildToInsertVecEltERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit: ; preds = %1787, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i198
@@ -11062,7 +11062,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vE
   %425 = load i32, ptr %424, align 8
   %426 = zext i32 %425 to i64
   %427 = zext i16 %.0.copyload.i.i1219 to i64
-  %428 = icmp uge i64 %426, %427
+  %428 = icmp samesign uge i64 %426, %427
   %429 = zext i16 %.0.copyload.i.i1220 to i32
   %.not692 = icmp ult i32 %425, %429
   %or.cond699 = and i1 %.not692, %428
@@ -13427,12 +13427,12 @@ _ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1499: ; preds = %1779
 1803:                                             ; preds = %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1499.thread, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1499
   %.sroa.012.0.i.i14941082 = phi i64 [ %.sroa.012.0.i.i14941081, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1499.thread ], [ %.sroa.012.0.i.i1494, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1499 ]
   %1804 = trunc nuw i8 %.sroa.3.0.i to i1
-  %1805 = icmp ult i64 %.sroa.012.0.i.i14941082, %.sroa.012.0.i
+  %1805 = icmp samesign ult i64 %.sroa.012.0.i.i14941082, %.sroa.012.0.i
   %or.cond416.not = select i1 %1804, i1 true, i1 %1805
   br i1 %or.cond416.not, label %.critedge4, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread346
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit: ; preds = %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1499
-  %.old.not = icmp ult i64 %.sroa.012.0.i.i1494, %.sroa.012.0.i
+  %.old.not = icmp samesign ult i64 %.sroa.012.0.i.i1494, %.sroa.012.0.i
   br i1 %.old.not, label %.critedge4, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread346
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread346: ; preds = %1803, %1775, %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit

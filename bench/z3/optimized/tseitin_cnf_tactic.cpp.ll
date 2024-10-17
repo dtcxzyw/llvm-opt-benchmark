@@ -6479,7 +6479,7 @@ for.inc214:                                       ; preds = %_ZN15ref_buffer_cor
   %indvars.iv.next767 = add nuw nsw i64 %indvars.iv766, 1
   %164 = load i32, ptr %num2179, align 4
   %165 = zext i32 %164 to i64
-  %cmp199 = icmp ult i64 %indvars.iv.next767, %165
+  %cmp199 = icmp samesign ult i64 %indvars.iv.next767, %165
   br i1 %cmp199, label %for.body200, label %for.end216, !llvm.loop !28
 
 for.end216:                                       ; preds = %for.inc214, %invoke.cont192
@@ -17251,7 +17251,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9pu
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !43
 
@@ -18147,7 +18147,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager28expr_dependency_array_configEE4cel
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !52
 

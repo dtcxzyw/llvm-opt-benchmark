@@ -81,7 +81,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %14
   br label %38
 
 Gia_ObjIsXor.exit:                                ; preds = %14
-  %35 = icmp uge i32 %16, %21
+  %35 = icmp samesign uge i32 %16, %21
   %36 = xor i64 %30, %27
   %37 = and i64 %30, %27
   %cond.fr = freeze i1 %35
@@ -175,7 +175,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %19
   br label %43
 
 Gia_ObjIsXor.exit:                                ; preds = %19
-  %40 = icmp uge i32 %21, %26
+  %40 = icmp samesign uge i32 %21, %26
   %41 = xor i64 %35, %32
   %42 = and i64 %35, %32
   %cond.fr = freeze i1 %40
@@ -1756,7 +1756,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
   %indvars.iv74.i = phi i64 [ 0, %.lr.ph33.split.us.split.us.preheader.i ], [ %indvars.iv.next75.i, %..loopexit27_crit_edge.us.us.i ]
   %53 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv74.i
   %54 = load ptr, ptr %53, align 8
-  %55 = icmp ult i64 %indvars.iv74.i, 5
+  %55 = icmp samesign ult i64 %indvars.iv74.i, 5
   br i1 %55, label %.preheader.us.us.i, label %.preheader26.us.us.i
 
 56:                                               ; preds = %.preheader26.us.us.i, %56
@@ -2573,7 +2573,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
   %indvars.iv74.i = phi i64 [ 0, %.lr.ph33.split.us.split.us.preheader.i ], [ %indvars.iv.next75.i, %..loopexit27_crit_edge.us.us.i ]
   %31 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv74.i
   %32 = load ptr, ptr %31, align 8
-  %33 = icmp ult i64 %indvars.iv74.i, 5
+  %33 = icmp samesign ult i64 %indvars.iv74.i, 5
   br i1 %33, label %.preheader.us.us.i, label %.preheader26.us.us.i
 
 34:                                               ; preds = %.preheader26.us.us.i, %34
@@ -3460,7 +3460,7 @@ define ptr @Gia_ManIsoNpnReduce(ptr noundef %0, ptr noundef writeonly %1, i32 no
 
 18:                                               ; preds = %3, %Vec_IntStartFull.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %Vec_IntStartFull.exit ]
-  %19 = icmp ult i64 %indvars.iv, 7
+  %19 = icmp samesign ult i64 %indvars.iv, 7
   %20 = trunc i64 %indvars.iv to i32
   %21 = add i32 %20, -6
   %22 = shl nuw nsw i32 1, %21
@@ -3779,7 +3779,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.split.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.08.i = phi i32 [ 0, %.lr.ph.split.split.preheader.i ], [ %.1.i, %.loopexit.i ]
   %.0237.i = phi i32 [ 0, %.lr.ph.split.split.preheader.i ], [ %.124.i, %.loopexit.i ]
-  %148 = icmp ult i64 %indvars.iv.i, 6
+  %148 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %148, label %.lr.ph.i.i117, label %.preheader.lr.ph.i.i
 
 .lr.ph.i.i117:                                    ; preds = %.lr.ph.split.split.i

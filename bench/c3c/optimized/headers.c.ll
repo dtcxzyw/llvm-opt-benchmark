@@ -1245,7 +1245,7 @@ define internal fastcc void @header_gen_global_var(ptr noundef %0, ptr noundef %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %104 = load i32, ptr %89, align 8
   %105 = zext i32 %104 to i64
-  %106 = icmp ult i64 %indvars.iv.next, %105
+  %106 = icmp samesign ult i64 %indvars.iv.next, %105
   br i1 %106, label %92, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %103, %87

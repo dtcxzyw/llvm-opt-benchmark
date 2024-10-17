@@ -366,7 +366,7 @@ do.body.i:                                        ; preds = %do.body.i, %do.body
   %arrayidx.i = getelementptr [10 x i8], ptr %tmp.i, i64 0, i64 %dec.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %div.i = udiv i32 %x.addr.0.i, 10
-  %cmp.i = icmp ugt i32 %x.addr.0.i, 9
+  %cmp.i = icmp samesign ugt i32 %x.addr.0.i, 9
   br i1 %cmp.i, label %do.body.i, label %u32_to_string.exit, !llvm.loop !4
 
 u32_to_string.exit:                               ; preds = %do.body.i

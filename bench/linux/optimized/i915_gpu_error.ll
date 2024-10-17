@@ -742,7 +742,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nocap
   %325 = load i8, ptr %324, align 1
   %326 = zext i8 %325 to i32
   %327 = or disjoint i32 %323, %326
-  %328 = icmp ugt i32 %327, 3121
+  %328 = icmp samesign ugt i32 %327, 3121
   br i1 %328, label %329, label %352
 
 329:                                              ; preds = %314
@@ -755,7 +755,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nocap
   %334 = getelementptr inbounds i8, ptr %318, i64 5137
   %335 = load i8, ptr %334, align 1
   %336 = zext i8 %335 to i64
-  %337 = icmp ult i64 %315, %336
+  %337 = icmp samesign ult i64 %315, %336
   br i1 %337, label %338, label %389
 
 338:                                              ; preds = %333
@@ -866,7 +866,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nocap
   %412 = load i8, ptr %411, align 1
   %413 = zext i8 %412 to i32
   %414 = or disjoint i32 %410, %413
-  %415 = icmp ugt i32 %414, 3121
+  %415 = icmp samesign ugt i32 %414, 3121
   br i1 %415, label %416, label %439
 
 416:                                              ; preds = %401
@@ -879,7 +879,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nocap
   %421 = getelementptr inbounds i8, ptr %405, i64 5137
   %422 = load i8, ptr %421, align 1
   %423 = zext i8 %422 to i64
-  %424 = icmp ult i64 %402, %423
+  %424 = icmp samesign ult i64 %402, %423
   br i1 %424, label %425, label %476
 
 425:                                              ; preds = %420
@@ -982,7 +982,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nocap
   %492 = load i8, ptr %491, align 1
   %493 = zext i8 %492 to i32
   %494 = or disjoint i32 %490, %493
-  %495 = icmp ugt i32 %494, 3126
+  %495 = icmp samesign ugt i32 %494, 3126
   br i1 %495, label %496, label %.loopexit79
 
 496:                                              ; preds = %488
@@ -1007,7 +1007,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nocap
   %512 = load i8, ptr %511, align 1
   %513 = zext i8 %512 to i32
   %514 = or disjoint i32 %510, %513
-  %515 = icmp ugt i32 %514, 3121
+  %515 = icmp samesign ugt i32 %514, 3121
   br i1 %515, label %516, label %539
 
 516:                                              ; preds = %501
@@ -1020,7 +1020,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nocap
   %521 = getelementptr inbounds i8, ptr %505, i64 5137
   %522 = load i8, ptr %521, align 1
   %523 = zext i8 %522 to i64
-  %524 = icmp ult i64 %502, %523
+  %524 = icmp samesign ult i64 %502, %523
   br i1 %524, label %525, label %576
 
 525:                                              ; preds = %520
@@ -2087,7 +2087,7 @@ define dso_local noundef ptr @intel_engine_coredump_alloc(ptr noundef %0, i32 no
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = or disjoint i32 %53, %56
-  %58 = icmp ugt i32 %57, 3121
+  %58 = icmp samesign ugt i32 %57, 3121
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %50
@@ -4051,7 +4051,7 @@ define dso_local noundef ptr @intel_gt_coredump_alloc(ptr noundef %0, i32 nounde
   %175 = load i8, ptr %174, align 1
   %176 = zext i8 %175 to i32
   %177 = or disjoint i32 %173, %176
-  %178 = icmp ugt i32 %177, 3121
+  %178 = icmp samesign ugt i32 %177, 3121
   br i1 %178, label %179, label %183
 
 179:                                              ; preds = %170

@@ -5675,7 +5675,7 @@ define void @_ZN10open_spiel11tiny_bridge10MakeScoresEv(ptr dead_on_unwind noali
   %14 = mul nuw nsw i32 %13, %storemerge.i.i
   %15 = lshr i32 %14, 1
   %16 = zext nneg i32 %15 to i64
-  %.not.i.i = icmp ult i64 %indvars.iv39, %16
+  %.not.i.i = icmp samesign ult i64 %indvars.iv39, %16
   br i1 %.not.i.i, label %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit.i, label %12, !llvm.loop !4
 
 _ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit.i: ; preds = %12, %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit.i
@@ -5684,7 +5684,7 @@ _ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit.i: ; pre
   %18 = mul nuw nsw i32 %17, %storemerge.i11.i
   %19 = lshr i32 %18, 1
   %20 = zext nneg i32 %19 to i64
-  %.not.i12.i = icmp ult i64 %indvars.iv35, %20
+  %.not.i12.i = icmp samesign ult i64 %indvars.iv35, %20
   br i1 %.not.i12.i, label %_ZN10open_spiel11tiny_bridge12IsConsistentEll.exit, label %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit.i, !llvm.loop !4
 
 _ZN10open_spiel11tiny_bridge12IsConsistentEll.exit: ; preds = %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit.i
@@ -5735,7 +5735,7 @@ _ZN10open_spiel11tiny_bridge12IsConsistentEll.exit: ; preds = %_ZN10open_spiel11
   %34 = mul nuw nsw i32 %33, %storemerge.i.i24
   %35 = lshr i32 %34, 1
   %36 = zext nneg i32 %35 to i64
-  %.not.i.i25 = icmp ult i64 %indvars.iv39, %36
+  %.not.i.i25 = icmp samesign ult i64 %indvars.iv39, %36
   br i1 %.not.i.i25, label %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit.i26, label %32, !llvm.loop !4
 
 _ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit.i26: ; preds = %32
@@ -5757,7 +5757,7 @@ _ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit.i26: ; p
   %45 = mul nuw nsw i32 %44, %storemerge.i33.i
   %46 = lshr i32 %45, 1
   %47 = zext nneg i32 %46 to i64
-  %.not.i34.i = icmp ult i64 %indvars.iv35, %47
+  %.not.i34.i = icmp samesign ult i64 %indvars.iv35, %47
   br i1 %.not.i34.i, label %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit40.i, label %43, !llvm.loop !4
 
 _ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit40.i: ; preds = %43
@@ -6004,7 +6004,7 @@ _ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit: ; preds
   %27 = getelementptr inbounds [8 x i32], ptr %0, i64 0, i64 %26
   store i32 %25, ptr %27, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %or.cond = icmp ult i64 %indvars.iv.next, %invariant.umin
+  %or.cond = icmp samesign ult i64 %indvars.iv.next, %invariant.umin
   br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_120ChanceOutcomeToCardsEi.exit, %_ZSt4fillIPN10open_spiel11tiny_bridge4SeatES2_EvT_S4_RKT0_.exit.preheader
@@ -6684,8 +6684,8 @@ _ZNK10open_spiel11tiny_bridge22TinyBridgeAuctionState11CardHoldersEv.exit: ; pre
   %30 = getelementptr inbounds [8 x i32], ptr %3, i64 0, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %.not = icmp eq i32 %31, -1
-  %32 = icmp ult i64 %indvars.iv, 7
-  %or.cond = and i1 %.not, %32
+  %32 = icmp samesign ult i64 %indvars.iv, 7
+  %or.cond = select i1 %.not, i1 %32, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit58
 
 .loopexit59:                                      ; preds = %52

@@ -3906,7 +3906,7 @@ _ZN12_GLOBAL__N_111VSETVLIInfo6setAVLES0_.exit:   ; preds = %195, %195, %196, %1
   %.val30 = select i1 %.not121, i8 %.sroa.gep63.val, i8 %.val33.fr
   %203 = or i8 %.val30, %.val33.fr
   %204 = and i8 %203, 1
-  %.not122 = icmp ult i56 %17, 281474976710656
+  %.not122 = icmp samesign ult i56 %17, 281474976710656
   %.val32 = select i1 %.not122, i8 %.sroa.gep63.val, i8 %.val33.fr
   %205 = and i8 %.val32, 2
   %.not116 = icmp eq i8 %205, 0
@@ -5739,7 +5739,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119areCompatibleVTYPE
   %21 = lshr i32 %20, 3
   %22 = and i32 %21, 7
   %23 = shl nuw nsw i32 8, %22
-  %24 = icmp ult i32 %19, %23
+  %24 = icmp samesign ult i32 %19, %23
   br i1 %24, label %91, label %36
 
 25:                                               ; preds = %3
@@ -5751,9 +5751,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119areCompatibleVTYPE
   %31 = lshr i32 %30, 3
   %32 = and i32 %31, 7
   %33 = shl nuw nsw i32 8, %32
-  %34 = icmp ult i32 %29, %33
-  %35 = icmp ugt i32 %28, 2
-  %or.cond = or i1 %35, %34
+  %34 = icmp samesign ult i32 %29, %33
+  %35 = icmp samesign ugt i32 %28, 2
+  %or.cond = select i1 %34, i1 true, i1 %35
   br i1 %or.cond, label %91, label %36
 
 36:                                               ; preds = %25, %15, %6, %3

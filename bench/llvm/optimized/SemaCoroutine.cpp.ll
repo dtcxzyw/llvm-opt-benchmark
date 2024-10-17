@@ -1495,7 +1495,7 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang4DeclEE5beginEv.exit: ; preds = %.lr.ph.i5.i
   %35 = load ptr, ptr %34, align 8
   %36 = call i64 %35(ptr noundef nonnull align 8 dereferenceable(33) %.val.i.i.i.i.i.i) #18
   %.sroa.1.0.extract.shift.i2.i.i.i.i.i.i.i.i = lshr i64 %36, 32
-  %37 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i.i.i.i.i
+  %37 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i.i.i.i.i
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %.preheader.i.i.i
@@ -1509,7 +1509,7 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang4DeclEE5beginEv.exit: ; preds = %.lr.ph.i5.i
   %42 = load ptr, ptr %41, align 8
   %43 = call i64 %42(ptr noundef nonnull align 8 dereferenceable(33) %.0.val11.i.i.i.i.i.i.i) #18
   %.sroa.1.0.extract.shift.i2.i.i13.i.i.i.i.i.i.i = lshr i64 %43, 32
-  %44 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i13.i.i.i.i.i.i.i
+  %44 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i13.i.i.i.i.i.i.i
   br i1 %44, label %.lr.ph.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPKN5clang4DeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %39, %.lr.ph.i.i.i.i.i.i.i
@@ -1529,7 +1529,7 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang4DeclEE5beginEv.exit: ; preds = %.lr.ph.i5.i
   %51 = load ptr, ptr %50, align 8
   %52 = call i64 %51(ptr noundef nonnull align 8 dereferenceable(33) %.0.val.i.i.i.i.i.i.i) #18
   %.sroa.1.0.extract.shift.i2.i.i.i.i.i.i.i.i.i = lshr i64 %52, 32
-  %53 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i.i.i.i.i.i
+  %53 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i.i.i.i.i.i
   br i1 %53, label %.lr.ph.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPKN5clang4DeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", !llvm.loop !11
 
 "_ZSt25__unguarded_linear_insertIPPKN5clang4DeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %39, %38
@@ -1558,7 +1558,7 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang4DeclEE5beginEv.exit: ; preds = %.lr.ph.i5.i
   %62 = load ptr, ptr %61, align 8
   %63 = call i64 %62(ptr noundef nonnull align 8 dereferenceable(33) %.0.val11.i.i13.i.i.i.i.i) #18
   %.sroa.1.0.extract.shift.i2.i.i13.i.i14.i.i.i.i.i = lshr i64 %63, 32
-  %64 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i12.i.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i13.i.i14.i.i.i.i.i
+  %64 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i12.i.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i13.i.i14.i.i.i.i.i
   br i1 %64, label %.lr.ph.i.i17.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPKN5clang4DeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_.exit.i15.i.i.i.i.i"
 
 .lr.ph.i.i17.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i17.i.i.i.i.i
@@ -1578,7 +1578,7 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang4DeclEE5beginEv.exit: ; preds = %.lr.ph.i5.i
   %71 = load ptr, ptr %70, align 8
   %72 = call i64 %71(ptr noundef nonnull align 8 dereferenceable(33) %.0.val.i.i22.i.i.i.i.i) #18
   %.sroa.1.0.extract.shift.i2.i.i.i.i24.i.i.i.i.i = lshr i64 %72, 32
-  %73 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i23.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i24.i.i.i.i.i
+  %73 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i23.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i24.i.i.i.i.i
   br i1 %73, label %.lr.ph.i.i17.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPKN5clang4DeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_.exit.i15.i.i.i.i.i", !llvm.loop !11
 
 "_ZSt25__unguarded_linear_insertIPPKN5clang4DeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_.exit.i15.i.i.i.i.i": ; preds = %.lr.ph.i.i17.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
@@ -1607,7 +1607,7 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang4DeclEE5beginEv.exit: ; preds = %.lr.ph.i5.i
   %82 = load ptr, ptr %81, align 8
   %83 = call i64 %82(ptr noundef nonnull align 8 dereferenceable(33) %.val.i30.i.i.i.i.i) #18
   %.sroa.1.0.extract.shift.i2.i.i.i32.i.i.i.i.i = lshr i64 %83, 32
-  %84 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i31.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i32.i.i.i.i.i
+  %84 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i31.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i32.i.i.i.i.i
   br i1 %84, label %85, label %91
 
 85:                                               ; preds = %.lr.ph.i26.i.i.i.i.i
@@ -1627,7 +1627,7 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang4DeclEE5beginEv.exit: ; preds = %.lr.ph.i5.i
   %94 = load ptr, ptr %93, align 8
   %95 = call i64 %94(ptr noundef nonnull align 8 dereferenceable(33) %.0.val11.i.i33.i.i.i.i.i) #18
   %.sroa.1.0.extract.shift.i2.i.i13.i.i34.i.i.i.i.i = lshr i64 %95, 32
-  %96 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i31.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i13.i.i34.i.i.i.i.i
+  %96 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i31.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i13.i.i34.i.i.i.i.i
   br i1 %96, label %.lr.ph.i.i39.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPKN5clang4DeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_.exit.i35.i.i.i.i.i"
 
 .lr.ph.i.i39.i.i.i.i.i:                           ; preds = %91, %.lr.ph.i.i39.i.i.i.i.i
@@ -1647,7 +1647,7 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang4DeclEE5beginEv.exit: ; preds = %.lr.ph.i5.i
   %103 = load ptr, ptr %102, align 8
   %104 = call i64 %103(ptr noundef nonnull align 8 dereferenceable(33) %.0.val.i.i44.i.i.i.i.i) #18
   %.sroa.1.0.extract.shift.i2.i.i.i.i46.i.i.i.i.i = lshr i64 %104, 32
-  %105 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i45.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i46.i.i.i.i.i
+  %105 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i45.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i46.i.i.i.i.i
   br i1 %105, label %.lr.ph.i.i39.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPKN5clang4DeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_.exit.i35.i.i.i.i.i", !llvm.loop !11
 
 "_ZSt25__unguarded_linear_insertIPPKN5clang4DeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_.exit.i35.i.i.i.i.i": ; preds = %.lr.ph.i.i39.i.i.i.i.i, %91, %85
@@ -2353,7 +2353,7 @@ define dso_local noundef i64 @_ZN5clang4Sema16ActOnCoawaitExprEPNS_5ScopeENS_14S
   %.not.i.i = icmp eq i8 %18, 13
   %19 = load i32, ptr %17, align 16
   %20 = and i32 %19, 267911168
-  %21 = icmp ugt i32 %20, 256901120
+  %21 = icmp samesign ugt i32 %20, 256901120
   %.0.i.i = select i1 %.not.i.i, i1 %21, i1 false
   br i1 %.0.i.i, label %22, label %28
 
@@ -2545,7 +2545,7 @@ define dso_local noundef i64 @_ZN5clang4Sema26BuildUnresolvedCoawaitExprENS_14So
   %.not.i.i = icmp eq i8 %18, 13
   %19 = load i32, ptr %17, align 16
   %20 = and i32 %19, 267911168
-  %21 = icmp ugt i32 %20, 256901120
+  %21 = icmp samesign ugt i32 %20, 256901120
   %.0.i.i = select i1 %.not.i.i, i1 %21, i1 false
   br i1 %.0.i.i, label %22, label %28
 
@@ -3058,7 +3058,7 @@ define dso_local noundef i64 @_ZN5clang4Sema24BuildResolvedCoawaitExprENS_14Sour
   %.not.i.i = icmp eq i8 %14, 13
   %15 = load i32, ptr %13, align 16
   %16 = and i32 %15, 267911168
-  %17 = icmp ugt i32 %16, 256901120
+  %17 = icmp samesign ugt i32 %16, 256901120
   %.0.i.i = select i1 %.not.i.i, i1 %17, i1 false
   br i1 %.0.i.i, label %18, label %24
 
@@ -3979,7 +3979,7 @@ define dso_local noundef i64 @_ZN5clang4Sema16BuildCoyieldExprENS_14SourceLocati
   %.not.i.i = icmp eq i8 %12, 13
   %13 = load i32, ptr %11, align 16
   %14 = and i32 %13, 267911168
-  %15 = icmp ugt i32 %14, 256901120
+  %15 = icmp samesign ugt i32 %14, 256901120
   %.0.i.i = select i1 %.not.i.i, i1 %15, i1 false
   br i1 %.0.i.i, label %16, label %22
 
@@ -4186,7 +4186,7 @@ define dso_local noundef i64 @_ZN5clang4Sema17BuildCoreturnStmtENS_14SourceLocat
   %.not.i.i = icmp ne i8 %18, 13
   %19 = load i32, ptr %17, align 16
   %20 = and i32 %19, 267911168
-  %21 = icmp ult i32 %20, 256901121
+  %21 = icmp samesign ult i32 %20, 256901121
   %22 = and i32 %19, 267911423
   %or.cond = icmp eq i32 %22, 257425421
   %23 = or i1 %21, %or.cond
@@ -11148,7 +11148,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %16 = load ptr, ptr %15, align 8
   %17 = add nsw i64 %12, -1
   %18 = lshr i64 %17, 1
-  %19 = icmp ult i64 %14, %18
+  %19 = icmp samesign ult i64 %14, %18
   br i1 %19, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
@@ -11170,7 +11170,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i64 %31(ptr noundef nonnull align 8 dereferenceable(33) %.val29.i.i.i.i) #18
   %.sroa.1.0.extract.shift.i2.i.i.i.i.i.i = lshr i64 %32, 32
-  %33 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i.i.i
+  %33 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %33, i64 %23, i64 %21
   %34 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
   %35 = load ptr, ptr %34, align 8
@@ -11218,7 +11218,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i64 %57(ptr noundef nonnull align 8 dereferenceable(33) %16) #18
   %.sroa.1.0.extract.shift.i2.i.i.i.i.i.i.i = lshr i64 %58, 32
-  %59 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i.i.i.i
+  %59 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i.i.i.i
   br i1 %59, label %60, label %"_ZSt13__adjust_heapIPPKN5clang4DeclElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
 
 60:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -11267,7 +11267,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %82 = load ptr, ptr %81, align 8
   %83 = tail call i64 %82(ptr noundef nonnull align 8 dereferenceable(33) %.val29.i30.i.i.i) #18
   %.sroa.1.0.extract.shift.i2.i.i.i32.i.i.i = lshr i64 %83, 32
-  %84 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i31.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i32.i.i.i
+  %84 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i31.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i32.i.i.i
   %spec.select.i33.i.i.i = select i1 %84, i64 %74, i64 %72
   %85 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i33.i.i.i
   %86 = load ptr, ptr %85, align 8
@@ -11308,7 +11308,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %100 = load ptr, ptr %99, align 8
   %101 = tail call i64 %100(ptr noundef nonnull align 8 dereferenceable(33) %70) #18
   %.sroa.1.0.extract.shift.i2.i.i.i.i26.i.i.i = lshr i64 %101, 32
-  %102 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i25.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i26.i.i.i
+  %102 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i25.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i26.i.i.i
   br i1 %102, label %103, label %"_ZSt13__adjust_heapIPPKN5clang4DeclElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_SF_T1_T2_.exit34.i.i.i"
 
 103:                                              ; preds = %.lr.ph.i.i20.i.i.i
@@ -11360,7 +11360,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %127 = load ptr, ptr %126, align 8
   %128 = tail call i64 %127(ptr noundef nonnull align 8 dereferenceable(33) %.val29.i.i18) #18
   %.sroa.1.0.extract.shift.i2.i.i.i.i20 = lshr i64 %128, 32
-  %129 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i19, %.sroa.1.0.extract.shift.i2.i.i.i.i20
+  %129 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i19, %.sroa.1.0.extract.shift.i2.i.i.i.i20
   %spec.select.i.i = select i1 %129, i64 %119, i64 %117
   %130 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i
   %131 = load ptr, ptr %130, align 8
@@ -11411,7 +11411,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %155 = load ptr, ptr %154, align 8
   %156 = tail call i64 %155(ptr noundef nonnull align 8 dereferenceable(33) %108) #18
   %.sroa.1.0.extract.shift.i2.i.i.i.i.i = lshr i64 %156, 32
-  %157 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i.i
+  %157 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i.i
   br i1 %157, label %158, label %"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.exit"
 
 158:                                              ; preds = %.lr.ph.i.i.i
@@ -11444,7 +11444,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %173 = load ptr, ptr %172, align 8
   %174 = tail call i64 %173(ptr noundef nonnull align 8 dereferenceable(33) %.val30.i.i) #18
   %.sroa.1.0.extract.shift.i2.i.i.i.i = lshr i64 %174, 32
-  %175 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i
+  %175 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i
   %.val28.i.i = load ptr, ptr %166, align 8
   %176 = load ptr, ptr %.val28.i.i, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 16
@@ -11454,7 +11454,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   br i1 %175, label %180, label %189
 
 180:                                              ; preds = %162
-  %181 = icmp ult i64 %.sroa.1.0.extract.shift.i2.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i32.i.i
+  %181 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i2.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i32.i.i
   br i1 %181, label %182, label %184
 
 182:                                              ; preds = %180
@@ -11464,7 +11464,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   br label %"_ZSt22__move_median_to_firstIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
 184:                                              ; preds = %180
-  %185 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i32.i.i
+  %185 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i32.i.i
   %186 = load ptr, ptr %0, align 8
   br i1 %185, label %187, label %188
 
@@ -11479,7 +11479,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   br label %"_ZSt22__move_median_to_firstIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
 189:                                              ; preds = %162
-  %190 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i32.i.i
+  %190 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i32.i.i
   br i1 %190, label %191, label %193
 
 191:                                              ; preds = %189
@@ -11489,7 +11489,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   br label %"_ZSt22__move_median_to_firstIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
 193:                                              ; preds = %189
-  %194 = icmp ult i64 %.sroa.1.0.extract.shift.i2.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i32.i.i
+  %194 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i2.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i32.i.i
   %195 = load ptr, ptr %0, align 8
   br i1 %194, label %196, label %197
 
@@ -11525,7 +11525,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %205 = load ptr, ptr %204, align 8
   %206 = tail call i64 %205(ptr noundef nonnull align 8 dereferenceable(33) %.1.val.i.i) #18
   %.sroa.1.0.extract.shift.i.i.i.i14.i = lshr i64 %206, 32
-  %207 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i14.i, %.sroa.1.0.extract.shift.i2.i.i.i13.i
+  %207 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i14.i, %.sroa.1.0.extract.shift.i2.i.i.i13.i
   %208 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
   br i1 %207, label %202, label %.preheader.i.i, !llvm.loop !53
 
@@ -11538,7 +11538,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %211 = load ptr, ptr %210, align 8
   %212 = tail call i64 %211(ptr noundef nonnull align 8 dereferenceable(33) %.114.val.i.i) #18
   %.sroa.1.0.extract.shift.i2.i.i17.i.i = lshr i64 %212, 32
-  %213 = icmp ult i64 %.sroa.1.0.extract.shift.i2.i.i.i13.i, %.sroa.1.0.extract.shift.i2.i.i17.i.i
+  %213 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i2.i.i.i13.i, %.sroa.1.0.extract.shift.i2.i.i17.i.i
   br i1 %213, label %.preheader.i.i, label %214, !llvm.loop !54
 
 214:                                              ; preds = %.preheader.i.i

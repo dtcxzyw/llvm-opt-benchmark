@@ -925,7 +925,7 @@ _ZN4llvm12InstrEmitter12CountResultsEPNS_6SDNodeE.exit: ; preds = %16, %.critedg
   %77 = trunc nuw i64 %indvars.iv to i32
   %78 = call noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(80) %72, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %77, ptr noundef %71, ptr noundef nonnull align 8 dereferenceable(1041) %73) #11
   %79 = call noundef ptr @_ZNK4llvm18TargetRegisterInfo19getAllocatableClassEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(308) %71, ptr noundef %78) #11
-  %80 = icmp ult i64 %indvars.iv, %69
+  %80 = icmp samesign ult i64 %indvars.iv, %69
   br i1 %80, label %81, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread
 
 81:                                               ; preds = %70

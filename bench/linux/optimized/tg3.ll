@@ -1288,7 +1288,7 @@ define internal void @tg3_reset_task(ptr noundef %0) #2 align 16 {
   %95 = add nuw nsw i64 %92, 1
   %96 = load i32, ptr %86, align 8
   %97 = zext i32 %96 to i64
-  %98 = icmp ult i64 %95, %97
+  %98 = icmp samesign ult i64 %95, %97
   br i1 %98, label %91, label %.loopexit1, !llvm.loop !22
 
 .loopexit1:                                       ; preds = %91, %84
@@ -5755,7 +5755,7 @@ thread-pre-split80.thread:                        ; preds = %.thread79, %1980, %
   %2323 = getelementptr i8, ptr %2313, i64 %2315
   store i32 %2322, ptr %2323, align 1
   %2324 = add nuw nsw i64 %2315, 4
-  %2325 = icmp ult i64 %2315, 12
+  %2325 = icmp samesign ult i64 %2315, 12
   br i1 %2325, label %2314, label %.loopexit, !llvm.loop !38
 
 2326:                                             ; preds = %.thread91, %2294
@@ -5837,8 +5837,8 @@ thread-pre-split80.thread:                        ; preds = %.thread79, %1980, %
   %2364 = lshr i32 %2363, 11
   %2365 = and i32 %2364, 31
   %2366 = and i32 %2363, 255
-  %2367 = icmp ugt i32 %2366, 99
-  %2368 = icmp ugt i32 %2365, 26
+  %2367 = icmp samesign ugt i32 %2366, 99
+  %2368 = icmp samesign ugt i32 %2365, 26
   %2369 = or i1 %2367, %2368
   br i1 %2369, label %2389, label %2370
 
@@ -7488,7 +7488,7 @@ define internal fastcc void @tg3_netif_stop(ptr noundef %0) unnamed_addr #8 alig
   %40 = add nuw nsw i64 %34, 1
   %41 = load i32, ptr %28, align 8
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %40, %42
+  %43 = icmp samesign ult i64 %40, %42
   br i1 %43, label %33, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %33, %.loopexit2
@@ -7589,7 +7589,7 @@ define internal fastcc void @tg3_netif_start(ptr noundef %0) unnamed_addr #8 ali
   %13 = add nuw nsw i64 %10, 1
   %14 = load i32, ptr %4, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %13, %15
+  %16 = icmp samesign ult i64 %13, %15
   br i1 %16, label %9, label %.loopexit1, !llvm.loop !22
 
 .loopexit1:                                       ; preds = %9, %1
@@ -7746,7 +7746,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @tg3_poll_fw(ptr noundef %0
   br i1 %54, label %.thread, label %35, !llvm.loop !49
 
 .loopexit3:                                       ; preds = %35, %48, %44
-  %55 = icmp ugt i32 %36, 99999
+  %55 = icmp samesign ugt i32 %36, 99999
   br i1 %55, label %.thread, label %63
 
 .thread:                                          ; preds = %52, %.loopexit3
@@ -9023,7 +9023,7 @@ define internal fastcc i32 @tg3_reset_hw(ptr noundef %0, i1 noundef zeroext %1) 
   br i1 %672, label %.thread35, label %664, !llvm.loop !57
 
 673:                                              ; preds = %664
-  %674 = icmp ugt i32 %665, 1999
+  %674 = icmp samesign ugt i32 %665, 1999
   br i1 %674, label %.thread35, label %676
 
 .thread35:                                        ; preds = %670, %673
@@ -9298,7 +9298,7 @@ select.unfold:                                    ; preds = %840, %836, %832, %8
   %847 = or disjoint i32 %846, 8
   tail call void @tg3_write_mem(ptr noundef %0, i32 noundef %847, i32 noundef 2)
   %848 = add nuw nsw i32 %846, 16
-  %849 = icmp ult i32 %848, %844
+  %849 = icmp samesign ult i32 %848, %844
   br i1 %849, label %845, label %.thread36, !llvm.loop !58
 
 .thread36:                                        ; preds = %845, %840
@@ -9336,7 +9336,7 @@ select.unfold:                                    ; preds = %840, %836, %832, %8
   %868 = or disjoint i32 %867, 8
   tail call void @tg3_write_mem(ptr noundef %0, i32 noundef %868, i32 noundef 2)
   %869 = add nuw nsw i32 %867, 16
-  %870 = icmp ult i32 %869, %865
+  %870 = icmp samesign ult i32 %869, %865
   br i1 %870, label %866, label %.thread38, !llvm.loop !59
 
 .thread38:                                        ; preds = %866, %860
@@ -9947,7 +9947,7 @@ select.unfold:                                    ; preds = %840, %836, %832, %8
   tail call void @tg3_write_mem(ptr noundef %0, i32 noundef %1249, i32 noundef 0)
   tail call void @__const_udelay(i64 noundef 171800) #27
   %1250 = add nuw nsw i32 %1249, 4
-  %1251 = icmp ult i32 %1249, 2892
+  %1251 = icmp samesign ult i32 %1249, 2892
   br i1 %1251, label %1248, label %.loopexit46, !llvm.loop !66
 
 .loopexit46:                                      ; preds = %1248, %1232
@@ -11758,7 +11758,7 @@ define internal fastcc void @tg3_abort_hw(ptr noundef %0, i1 noundef zeroext %1)
   br i1 %121, label %.thread, label %113, !llvm.loop !73
 
 122:                                              ; preds = %113
-  %123 = icmp ugt i32 %114, 999
+  %123 = icmp samesign ugt i32 %114, 999
   br i1 %123, label %.thread, label %128
 
 .thread:                                          ; preds = %119, %122
@@ -12579,7 +12579,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #27
   %268 = add nuw nsw i64 %222, 2
-  %269 = icmp ult i64 %222, 4
+  %269 = icmp samesign ult i64 %222, 4
   br i1 %269, label %.preheader45, label %271, !llvm.loop !76
 
 .critedge22:                                      ; preds = %227, %.preheader45, %241, %257
@@ -22580,7 +22580,7 @@ define internal range(i32 -22, 1) i32 @tg3_get_eeprom(ptr noundef %0, ptr nocapt
 
 115:                                              ; preds = %113, %86
   %116 = add nuw nsw i64 %87, 4
-  %117 = icmp ult i64 %116, %76
+  %117 = icmp samesign ult i64 %116, %76
   %118 = trunc i64 %116 to i32
   br i1 %117, label %82, label %.loopexit.loopexit, !llvm.loop !135
 
@@ -24185,7 +24185,7 @@ define internal i32 @tg3_set_pauseparam(ptr noundef %0, ptr noundef %1) #2 align
   %140 = add nuw nsw i64 %137, 1
   %141 = load i32, ptr %131, align 8
   %142 = zext i32 %141 to i64
-  %143 = icmp ult i64 %140, %142
+  %143 = icmp samesign ult i64 %140, %142
   br i1 %143, label %136, label %.loopexit3, !llvm.loop !22
 
 .loopexit3:                                       ; preds = %136, %128
@@ -24399,12 +24399,12 @@ define internal void @tg3_self_test(ptr noundef %0, ptr nocapture noundef %1, pt
   br i1 %85, label %88, label %75, !llvm.loop !143
 
 86:                                               ; preds = %75
-  %87 = icmp ult i32 %83, %64
+  %87 = icmp samesign ult i32 %83, %64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #27
   br i1 %87, label %.thread28, label %90
 
 88:                                               ; preds = %.preheader57
-  %89 = icmp ult i32 %83, %64
+  %89 = icmp samesign ult i32 %83, %64
   br i1 %89, label %.thread30, label %90
 
 90:                                               ; preds = %86, %88
@@ -25350,7 +25350,7 @@ tg3_read_mem.exit:                                ; preds = %563, %616
   %655 = load ptr, ptr %447, align 8
   call void %655(ptr noundef %10, i32 noundef %654, i32 noundef 0) #27
   %656 = add nuw nsw i32 %654, 4
-  %657 = icmp ult i32 %654, 1708
+  %657 = icmp samesign ult i32 %654, 1708
   br i1 %657, label %.preheader, label %.loopexit42, !llvm.loop !158
 
 .loopexit42:                                      ; preds = %.preheader, %650
@@ -25683,7 +25683,7 @@ tg3_read_mem.exit:                                ; preds = %563, %616
   %849 = add nuw nsw i64 %846, 1
   %850 = load i32, ptr %840, align 8
   %851 = zext i32 %850 to i64
-  %852 = icmp ult i64 %849, %851
+  %852 = icmp samesign ult i64 %849, %851
   br i1 %852, label %845, label %.loopexit41, !llvm.loop !22
 
 .loopexit41:                                      ; preds = %845, %838
@@ -26639,7 +26639,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %9 = getelementptr i8, ptr %6, i64 4
   store i32 %8, ptr %6, align 4
   %10 = add nuw nsw i32 %5, 4
-  %11 = icmp ult i32 %5, 172
+  %11 = icmp samesign ult i32 %5, 172
   br i1 %11, label %4, label %12, !llvm.loop !167
 
 12:                                               ; preds = %4
@@ -26655,7 +26655,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %20 = getelementptr i8, ptr %16, i64 4
   store i32 %19, ptr %16, align 4
   %21 = add nuw nsw i32 %15, 4
-  %22 = icmp ult i32 %15, 508
+  %22 = icmp samesign ult i32 %15, 508
   br i1 %22, label %14, label %23, !llvm.loop !167
 
 23:                                               ; preds = %14
@@ -26671,7 +26671,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %31 = getelementptr i8, ptr %27, i64 4
   store i32 %30, ptr %27, align 4
   %32 = add nuw nsw i32 %26, 4
-  %33 = icmp ult i32 %26, 1260
+  %33 = icmp samesign ult i32 %26, 1260
   br i1 %33, label %25, label %34, !llvm.loop !167
 
 34:                                               ; preds = %25
@@ -26687,7 +26687,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %42 = getelementptr i8, ptr %38, i64 4
   store i32 %41, ptr %38, align 4
   %43 = add nuw nsw i32 %37, 4
-  %44 = icmp ult i32 %37, 220
+  %44 = icmp samesign ult i32 %37, 220
   br i1 %44, label %36, label %45, !llvm.loop !167
 
 45:                                               ; preds = %36
@@ -26707,7 +26707,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %56 = getelementptr i8, ptr %52, i64 4
   store i32 %55, ptr %52, align 4
   %57 = add nuw nsw i32 %51, 4
-  %58 = icmp ult i32 %51, 124
+  %58 = icmp samesign ult i32 %51, 124
   br i1 %58, label %50, label %59, !llvm.loop !167
 
 59:                                               ; preds = %50
@@ -26723,7 +26723,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %67 = getelementptr i8, ptr %63, i64 4
   store i32 %66, ptr %63, align 4
   %68 = add nuw nsw i32 %62, 4
-  %69 = icmp ult i32 %62, 68
+  %69 = icmp samesign ult i32 %62, 68
   br i1 %69, label %61, label %70, !llvm.loop !167
 
 70:                                               ; preds = %61
@@ -26743,7 +26743,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %81 = getelementptr i8, ptr %77, i64 4
   store i32 %80, ptr %77, align 4
   %82 = add nuw nsw i32 %76, 4
-  %83 = icmp ult i32 %76, 28
+  %83 = icmp samesign ult i32 %76, 28
   br i1 %83, label %75, label %84, !llvm.loop !167
 
 84:                                               ; preds = %75
@@ -26759,7 +26759,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %92 = getelementptr i8, ptr %88, i64 4
   store i32 %91, ptr %88, align 4
   %93 = add nuw nsw i32 %87, 4
-  %94 = icmp ult i32 %87, 344
+  %94 = icmp samesign ult i32 %87, 344
   br i1 %94, label %86, label %95, !llvm.loop !167
 
 95:                                               ; preds = %86
@@ -26775,7 +26775,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %103 = getelementptr i8, ptr %99, i64 4
   store i32 %102, ptr %99, align 4
   %104 = add nuw nsw i32 %98, 4
-  %105 = icmp ult i32 %98, 8
+  %105 = icmp samesign ult i32 %98, 8
   br i1 %105, label %97, label %106, !llvm.loop !167
 
 106:                                              ; preds = %97
@@ -26791,7 +26791,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %114 = getelementptr i8, ptr %110, i64 4
   store i32 %113, ptr %110, align 4
   %115 = add nuw nsw i32 %109, 4
-  %116 = icmp ult i32 %109, 56
+  %116 = icmp samesign ult i32 %109, 56
   br i1 %116, label %108, label %117, !llvm.loop !167
 
 117:                                              ; preds = %108
@@ -26807,7 +26807,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %125 = getelementptr i8, ptr %121, i64 4
   store i32 %124, ptr %121, align 4
   %126 = add nuw nsw i32 %120, 4
-  %127 = icmp ult i32 %120, 64
+  %127 = icmp samesign ult i32 %120, 64
   br i1 %127, label %119, label %128, !llvm.loop !167
 
 128:                                              ; preds = %119
@@ -26827,7 +26827,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %139 = getelementptr i8, ptr %135, i64 4
   store i32 %138, ptr %135, align 4
   %140 = add nuw nsw i32 %134, 4
-  %141 = icmp ult i32 %134, 28
+  %141 = icmp samesign ult i32 %134, 28
   br i1 %141, label %133, label %142, !llvm.loop !167
 
 142:                                              ; preds = %133
@@ -26843,7 +26843,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %150 = getelementptr i8, ptr %146, i64 4
   store i32 %149, ptr %146, align 4
   %151 = add nuw nsw i32 %145, 4
-  %152 = icmp ult i32 %145, 16
+  %152 = icmp samesign ult i32 %145, 16
   br i1 %152, label %144, label %153, !llvm.loop !167
 
 153:                                              ; preds = %144
@@ -26887,7 +26887,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %179 = getelementptr i8, ptr %175, i64 4
   store i32 %178, ptr %175, align 4
   %180 = add nuw nsw i32 %174, 4
-  %181 = icmp ult i32 %174, 252
+  %181 = icmp samesign ult i32 %174, 252
   br i1 %181, label %173, label %182, !llvm.loop !167
 
 182:                                              ; preds = %173
@@ -26910,7 +26910,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %195 = getelementptr i8, ptr %191, i64 4
   store i32 %194, ptr %191, align 4
   %196 = add nuw nsw i32 %190, 4
-  %197 = icmp ult i32 %190, 380
+  %197 = icmp samesign ult i32 %190, 380
   br i1 %197, label %189, label %.loopexit1, !llvm.loop !167
 
 .loopexit1:                                       ; preds = %189, %182
@@ -26926,7 +26926,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %205 = getelementptr i8, ptr %201, i64 4
   store i32 %204, ptr %201, align 4
   %206 = add nuw nsw i32 %200, 4
-  %207 = icmp ult i32 %200, 12
+  %207 = icmp samesign ult i32 %200, 12
   br i1 %207, label %199, label %208, !llvm.loop !167
 
 208:                                              ; preds = %199
@@ -26942,7 +26942,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %216 = getelementptr i8, ptr %212, i64 4
   store i32 %215, ptr %212, align 4
   %217 = add nuw nsw i32 %211, 4
-  %218 = icmp ult i32 %211, 84
+  %218 = icmp samesign ult i32 %211, 84
   br i1 %218, label %210, label %219, !llvm.loop !167
 
 219:                                              ; preds = %210
@@ -27024,7 +27024,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %272 = getelementptr i8, ptr %268, i64 4
   store i32 %271, ptr %268, align 4
   %273 = add nuw nsw i32 %267, 4
-  %274 = icmp ult i32 %267, 268
+  %274 = icmp samesign ult i32 %267, 268
   br i1 %274, label %266, label %275, !llvm.loop !167
 
 275:                                              ; preds = %266
@@ -27040,7 +27040,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %283 = getelementptr i8, ptr %279, i64 4
   store i32 %282, ptr %279, align 4
   %284 = add nuw nsw i32 %278, 4
-  %285 = icmp ult i32 %278, 284
+  %285 = icmp samesign ult i32 %278, 284
   br i1 %285, label %277, label %286, !llvm.loop !167
 
 286:                                              ; preds = %277
@@ -27056,7 +27056,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %294 = getelementptr i8, ptr %290, i64 4
   store i32 %293, ptr %290, align 4
   %295 = add nuw nsw i32 %289, 4
-  %296 = icmp ult i32 %289, 8
+  %296 = icmp samesign ult i32 %289, 8
   br i1 %296, label %288, label %297, !llvm.loop !167
 
 297:                                              ; preds = %288
@@ -27076,7 +27076,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %308 = getelementptr i8, ptr %304, i64 4
   store i32 %307, ptr %304, align 4
   %309 = add nuw nsw i32 %303, 4
-  %310 = icmp ult i32 %303, 72
+  %310 = icmp samesign ult i32 %303, 72
   br i1 %310, label %302, label %311, !llvm.loop !167
 
 311:                                              ; preds = %302
@@ -27098,7 +27098,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %323 = getelementptr i8, ptr %319, i64 4
   store i32 %322, ptr %319, align 4
   %324 = add nuw nsw i32 %318, 4
-  %325 = icmp ult i32 %318, 32
+  %325 = icmp samesign ult i32 %318, 32
   br i1 %325, label %317, label %.loopexit, !llvm.loop !167
 
 .loopexit:                                        ; preds = %317, %311
@@ -29364,7 +29364,7 @@ define internal fastcc ptr @tg3_vpd_readblock(ptr noundef %0, ptr noundef %1) un
 
 24:                                               ; preds = %20
   %25 = add nuw nsw i32 %17, 12
-  %26 = icmp ult i32 %17, 108
+  %26 = icmp samesign ult i32 %17, 108
   br i1 %26, label %.preheader3, label %.thread, !llvm.loop !173
 
 27:                                               ; preds = %20
@@ -29411,7 +29411,7 @@ define internal fastcc ptr @tg3_vpd_readblock(ptr noundef %0, ptr noundef %1) un
   store i32 %53, ptr %51, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
   %54 = add nuw nsw i64 %45, 4
-  %55 = icmp ult i64 %54, %42
+  %55 = icmp samesign ult i64 %54, %42
   br i1 %55, label %.preheader, label %56, !llvm.loop !174
 
 56:                                               ; preds = %50
@@ -33927,7 +33927,7 @@ tg3_phy_start.exit:                               ; preds = %563, %599
   %668 = add nuw nsw i64 %665, 1
   %669 = load i32, ptr %659, align 8
   %670 = zext i32 %669 to i64
-  %671 = icmp ult i64 %668, %670
+  %671 = icmp samesign ult i64 %668, %670
   br i1 %671, label %664, label %.loopexit, !llvm.loop !200
 
 .loopexit:                                        ; preds = %664, %644
@@ -35079,7 +35079,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %154 = getelementptr inbounds i8, ptr %153, i64 2
   %155 = load i8, ptr %154, align 2
   %156 = zext i8 %155 to i64
-  %157 = icmp ult i64 %147, %156
+  %157 = icmp samesign ult i64 %147, %156
   br i1 %157, label %.preheader59, label %.loopexit60.loopexit, !llvm.loop !212
 
 .loopexit60.loopexit:                             ; preds = %.loopexit58
@@ -36158,7 +36158,7 @@ define internal fastcc void @tg3_dump_state(ptr noundef %0) unnamed_addr #2 alig
   %25 = getelementptr i8, ptr %11, i64 %21
   store i32 %24, ptr %25, align 4
   %26 = add nuw nsw i64 %21, 4
-  %27 = icmp ult i64 %21, 31740
+  %27 = icmp samesign ult i64 %21, 31740
   br i1 %27, label %20, label %.loopexit1, !llvm.loop !236
 
 28:                                               ; preds = %13
@@ -36214,7 +36214,7 @@ define internal fastcc void @tg3_dump_state(ptr noundef %0) unnamed_addr #2 alig
 
 61:                                               ; preds = %._crit_edge, %45
   %62 = add nuw nsw i64 %31, 4
-  %63 = icmp ult i64 %31, 8188
+  %63 = icmp samesign ult i64 %31, 8188
   br i1 %63, label %30, label %64, !llvm.loop !237
 
 64:                                               ; preds = %61
@@ -37493,7 +37493,7 @@ define internal i32 @tg3_change_mtu(ptr noundef %0, i32 noundef %1) #2 align 16 
   %89 = add nuw nsw i64 %86, 1
   %90 = load i32, ptr %80, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %89, %91
+  %92 = icmp samesign ult i64 %89, %91
   br i1 %92, label %85, label %.loopexit2, !llvm.loop !22
 
 .loopexit2:                                       ; preds = %85, %77
@@ -37868,7 +37868,7 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   %97 = zext i16 %96 to i32
   %98 = load i32, ptr %20, align 8
   %99 = udiv i32 %98, 3
-  %100 = icmp ugt i32 %99, %97
+  %100 = icmp samesign ugt i32 %99, %97
   br i1 %100, label %101, label %.thread15
 
 101:                                              ; preds = %91
@@ -37901,7 +37901,7 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   %120 = zext i16 %119 to i32
   %121 = load i32, ptr %20, align 8
   %122 = udiv i32 %121, 3
-  %123 = icmp ugt i32 %122, %120
+  %123 = icmp samesign ugt i32 %122, %120
   br i1 %123, label %124, label %.thread15
 
 124:                                              ; preds = %117
@@ -38010,7 +38010,7 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   %196 = icmp ne i32 %80, 0
   %.pre36 = load i8, ptr %70, align 4
   %197 = and i8 %.pre36, 14
-  %198 = icmp ugt i8 %197, 5
+  %198 = icmp samesign ugt i8 %197, 5
   %or.cond = select i1 %196, i1 true, i1 %198
   br i1 %or.cond, label %199, label %.thread
 
@@ -38028,7 +38028,7 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   %208 = icmp ne i32 %80, 0
   %.pre35 = load i8, ptr %70, align 4
   %209 = and i8 %.pre35, 14
-  %210 = icmp ugt i8 %209, 5
+  %210 = icmp samesign ugt i8 %209, 5
   %or.cond43 = select i1 %208, i1 true, i1 %210
   br i1 %or.cond43, label %211, label %.thread
 
@@ -38334,7 +38334,7 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   %429 = zext i16 %428 to i32
   %430 = load i32, ptr %20, align 8
   %431 = udiv i32 %430, 3
-  %432 = icmp ugt i32 %431, %429
+  %432 = icmp samesign ugt i32 %431, %429
   br i1 %432, label %433, label %441
 
 433:                                              ; preds = %422
@@ -40409,7 +40409,7 @@ define internal fastcc void @tg3_read_mgmtfw_ver(ptr noundef %0) unnamed_addr #2
 
 16:                                               ; preds = %12
   %17 = add nuw nsw i32 %9, 12
-  %18 = icmp ult i32 %9, 108
+  %18 = icmp samesign ult i32 %9, 108
   br i1 %18, label %8, label %.thread, !llvm.loop !263
 
 19:                                               ; preds = %12
@@ -41022,7 +41022,7 @@ select.unfold..thread_crit_edge:                  ; preds = %select.unfold
   %104 = add nuw nsw i64 %29, 1
   %105 = load i32, ptr %23, align 4
   %106 = zext i32 %105 to i64
-  %107 = icmp ult i64 %104, %106
+  %107 = icmp samesign ult i64 %104, %106
   br i1 %107, label %28, label %.loopexit, !llvm.loop !268
 
 .loopexit:                                        ; preds = %97, %78, %22, %18
@@ -42761,7 +42761,7 @@ define internal void @tg3_io_resume(ptr nocapture noundef readonly %0) #2 align 
   %42 = add nuw nsw i64 %39, 1
   %43 = load i32, ptr %33, align 8
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %42, %44
+  %45 = icmp samesign ult i64 %42, %44
   br i1 %45, label %38, label %.loopexit1, !llvm.loop !22
 
 .loopexit1:                                       ; preds = %38, %17
@@ -43088,7 +43088,7 @@ define internal i32 @tg3_resume(ptr nocapture noundef readonly %0) #2 align 16 {
   %43 = add nuw nsw i64 %40, 1
   %44 = load i32, ptr %34, align 8
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %43, %45
+  %46 = icmp samesign ult i64 %43, %45
   br i1 %46, label %39, label %.loopexit1, !llvm.loop !22
 
 .loopexit1:                                       ; preds = %39, %18

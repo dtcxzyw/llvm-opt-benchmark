@@ -671,7 +671,7 @@ define hidden void @"_ZN188_$LT$aws_sdk_glue..error_meta..Error$u20$as$u20$core.
   %.sroa.0 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, [5 x i64] } }, align 8
   %5 = alloca { { { { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64 } }, {} }, {} }, i16, [3 x i16] } }, { { i64, [4 x i64] }, { ptr, [1 x i64] }, { ptr, [3 x i64] } }, { ptr, ptr }, i16, [3 x i16] }, { i64, [17 x i64] } }, align 8
   %6 = load i64, ptr %1, align 8, !range !4, !noundef !5
-  %7 = icmp ugt i64 %6, 2
+  %7 = icmp samesign ugt i64 %6, 2
   br i1 %7, label %.noexc, label %8
 
 8:                                                ; preds = %2

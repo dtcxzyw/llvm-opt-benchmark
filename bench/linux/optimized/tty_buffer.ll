@@ -704,7 +704,7 @@ define dso_local i32 @tty_insert_flip_string_and_push_buffer(ptr noundef %0, ptr
   %24 = load i32, ptr %23, align 8
   %25 = sub i32 %22, %24
   %26 = zext i32 %25 to i64
-  %27 = icmp ugt i64 %14, %26
+  %27 = icmp samesign ugt i64 %14, %26
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %10
@@ -714,7 +714,7 @@ define dso_local i32 @tty_insert_flip_string_and_push_buffer(ptr noundef %0, ptr
 30:                                               ; preds = %10
   %31 = add nuw nsw i64 %14, 255
   %32 = and i64 %31, 3840
-  %33 = icmp ult i64 %32, 257
+  %33 = icmp samesign ult i64 %32, 257
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %30

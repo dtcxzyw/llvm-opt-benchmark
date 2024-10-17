@@ -118,7 +118,7 @@ rc_bittree_price.exit.i:                          ; preds = %50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %66 = load i32, ptr %38, align 8
   %67 = zext i32 %66 to i64
-  %68 = icmp ult i64 %indvars.iv.next.i, %67
+  %68 = icmp samesign ult i64 %indvars.iv.next.i, %67
   br i1 %68, label %47, label %.preheader55.i, !llvm.loop !21
 
 .lr.ph60.i:                                       ; preds = %.preheader55.i, %.lr.ph60.i
@@ -134,7 +134,7 @@ rc_bittree_price.exit.i:                          ; preds = %50
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %76 = load i32, ptr %38, align 8
   %77 = zext i32 %76 to i64
-  %78 = icmp ult i64 %indvars.iv.next68.i, %77
+  %78 = icmp samesign ult i64 %indvars.iv.next68.i, %77
   br i1 %78, label %.lr.ph60.i, label %.preheader54.i.preheader, !llvm.loop !22
 
 .preheader54.i.preheader:                         ; preds = %.lr.ph60.i, %.preheader55.i, %42
@@ -361,7 +361,7 @@ fill_align_prices.exit:                           ; preds = %rc_bittree_reverse_
 
 191:                                              ; preds = %.lr.ph.i73
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 8
-  %192 = icmp ult i64 %indvars.iv.next.i75, %173
+  %192 = icmp samesign ult i64 %indvars.iv.next.i75, %173
   br i1 %192, label %.lr.ph.i73, label %.loopexit235.i, !llvm.loop !36
 
 .loopexit235.i:                                   ; preds = %191, %183, %.preheader234.i
@@ -542,7 +542,7 @@ fill_align_prices.exit:                           ; preds = %rc_bittree_reverse_
   %303 = xor i32 %302, %286
   %304 = xor i32 %303, -1
   %305 = and i32 %.028.i.i, %304
-  %306 = icmp ult i32 %.026.i.i, 32768
+  %306 = icmp samesign ult i32 %.026.i.i, 32768
   br i1 %306, label %.preheader231.i, label %get_literal_price.exit.i, !llvm.loop !38
 
 get_literal_price.exit.i:                         ; preds = %.preheader232.i, %.preheader231.i
@@ -1179,7 +1179,7 @@ helper1.exit:                                     ; preds = %517, %445
   %694 = xor i32 %693, %677
   %695 = xor i32 %694, -1
   %696 = and i32 %.028.i.i101, %695
-  %697 = icmp ult i32 %.026.i.i103, 32768
+  %697 = icmp samesign ult i32 %.026.i.i103, 32768
   br i1 %697, label %.preheader686.i, label %get_literal_price.exit.i84, !llvm.loop !38
 
 get_literal_price.exit.i84:                       ; preds = %.preheader687.i, %.preheader686.i
@@ -1230,7 +1230,7 @@ get_literal_price.exit.i84:                       ; preds = %.preheader687.i, %.
   %726 = getelementptr inbounds i8, ptr %699, i64 20
   %727 = load i32, ptr %726, align 4
   %728 = zext i32 %727 to i64
-  %729 = icmp ugt i64 %indvars.iv, %728
+  %729 = icmp samesign ugt i64 %indvars.iv, %728
   br i1 %729, label %730, label %734
 
 730:                                              ; preds = %725
@@ -1673,7 +1673,7 @@ get_pure_rep_price.exit.i97:                      ; preds = %896, %890, %868
   %1005 = xor i32 %1004, %988
   %1006 = xor i32 %1005, -1
   %1007 = and i32 %.028.i634.i, %1006
-  %1008 = icmp ult i32 %.026.i636.i, 32768
+  %1008 = icmp samesign ult i32 %.026.i636.i, 32768
   br i1 %1008, label %987, label %get_literal_price.exit641.i, !llvm.loop !38
 
 get_literal_price.exit641.i:                      ; preds = %987
@@ -2028,7 +2028,7 @@ get_dist_len_price.exit.i93:                      ; preds = %1112, %1107
   %1219 = xor i32 %1218, %1202
   %1220 = xor i32 %1219, -1
   %1221 = and i32 %.028.i643.i, %1220
-  %1222 = icmp ult i32 %.026.i645.i, 32768
+  %1222 = icmp samesign ult i32 %.026.i645.i, 32768
   br i1 %1222, label %1201, label %get_literal_price.exit650.i, !llvm.loop !38
 
 get_literal_price.exit650.i:                      ; preds = %1201
@@ -2135,7 +2135,7 @@ get_literal_price.exit650.._crit_edge750_crit_edge.i: ; preds = %get_literal_pri
 helper2.exit:                                     ; preds = %1282, %754, %1079
   %.0547.i = phi i32 [ %.047143, %754 ], [ %.3.i, %1079 ], [ %.9.i, %1282 ]
   %1285 = zext i32 %.0547.i to i64
-  %1286 = icmp ult i64 %indvars.iv.next, %1285
+  %1286 = icmp samesign ult i64 %indvars.iv.next, %1285
   %indvar.next = add nuw nsw i64 %indvar, 1
   br i1 %1286, label %538, label %._crit_edge, !llvm.loop !54
 

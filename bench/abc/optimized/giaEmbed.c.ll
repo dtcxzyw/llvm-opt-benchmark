@@ -2947,7 +2947,7 @@ Vec_IntStart.exit165:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %201, label %239, label %202
 
 202:                                              ; preds = %197, %193
-  %203 = icmp ult i64 %indvars.iv, 10
+  %203 = icmp samesign ult i64 %indvars.iv, 10
   %204 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %203, label %205, label %207
 
@@ -3222,7 +3222,7 @@ Vec_IntPush.exit84:                               ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = lshr i32 %74, 4
   %76 = zext nneg i32 %75 to i64
-  %77 = icmp ult i64 %indvars.iv.next, %76
+  %77 = icmp samesign ult i64 %indvars.iv.next, %76
   br i1 %77, label %34, label %.critedge2.preheader, !llvm.loop !31
 
 78:                                               ; preds = %.lr.ph100, %.critedge2
@@ -3906,7 +3906,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = lshr i32 %78, 4
   %80 = zext nneg i32 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next, %80
+  %81 = icmp samesign ult i64 %indvars.iv.next, %80
   br i1 %81, label %38, label %.critedge2.preheader, !llvm.loop !38
 
 82:                                               ; preds = %.lr.ph80, %.critedge2
@@ -5400,7 +5400,7 @@ Emb_ManVecMultiplyOne.exit.loopexit:              ; preds = %.lr.ph.i97
 
 Emb_ManVecMultiplyOne.exit:                       ; preds = %30, %Emb_ManVecMultiplyOne.exit.loopexit
   %.08.lcssa.i = phi i1 [ %79, %Emb_ManVecMultiplyOne.exit.loopexit ], [ true, %30 ]
-  %80 = icmp ult i32 %.0, 99
+  %80 = icmp samesign ult i32 %.0, 99
   %81 = select i1 %.08.lcssa.i, i1 %80, i1 false
   br i1 %81, label %30, label %82, !llvm.loop !64
 

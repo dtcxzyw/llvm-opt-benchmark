@@ -329,7 +329,7 @@ makeDependencyGraph.exit.thread:                  ; preds = %._crit_edge.i
 
 137:                                              ; preds = %134, %132
   %indvars.iv.next48.i.i = add nuw nsw i64 %indvars.iv47.i.i, 1
-  %138 = icmp ult i64 %indvars.iv.next48.i.i, %115
+  %138 = icmp samesign ult i64 %indvars.iv.next48.i.i, %115
   br i1 %138, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %137

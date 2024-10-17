@@ -1847,7 +1847,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE3EEEP
   %10 = getelementptr inbounds i8, ptr %9, i64 48
   %11 = load i64, ptr %10, align 16
   %12 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %11)
-  %13 = icmp ugt i64 %12, 1
+  %13 = icmp samesign ugt i64 %12, 1
   br i1 %5, label %14, label %304
 
 14:                                               ; preds = %2

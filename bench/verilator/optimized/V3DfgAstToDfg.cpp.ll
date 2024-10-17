@@ -5312,7 +5312,7 @@ _ZN6DfgSel5frompEP9DfgVertex.exit:                ; preds = %_ZN18DfgVertexWithA
   br i1 %.not.i.i.i217, label %select.unfold.i.i.i, label %390
 
 select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i
-  %.not10.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i, 3
+  %.not10.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i, 3
   br i1 %.not10.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread.i, label %.lr.ph.i.i.i, !llvm.loop !22
 
 390:                                              ; preds = %.lr.ph.i.i.i
@@ -5751,7 +5751,7 @@ _ZN17DfgVertexVariadic12allocSourcesEm.exit.i:    ; preds = %.lr.ph.i.i222, %.no
   %553 = phi i32 [ %545, %.lr.ph.i224 ], [ %.pre.i226, %.noexc229 ]
   %554 = add nuw nsw i64 %.010.i, 1
   %555 = zext i32 %553 to i64
-  %556 = icmp ult i64 %554, %555
+  %556 = icmp samesign ult i64 %554, %555
   br i1 %556, label %.lr.ph.i224, label %._crit_edge.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %552, %_ZN17DfgVertexVariadic12allocSourcesEm.exit.i
@@ -45691,7 +45691,7 @@ define linkonce_odr dso_local void @_ZSt13__stable_sortIN9__gnu_cxx17__normal_it
   br i1 %.not.i.i, label %select.unfold.i.i, label %12
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !22
 
 12:                                               ; preds = %.lr.ph.i.i
@@ -46111,7 +46111,7 @@ _ZNK8FileLine5msgEnEv.exit12:                     ; preds = %_ZN8FileLine9single
 
 113:                                              ; preds = %_ZNK8FileLine5msgEnEv.exit12
   %114 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %32)
-  %115 = icmp ugt i64 %.036.i, 118
+  %115 = icmp samesign ugt i64 %.036.i, 118
   br i1 %115, label %116, label %_ZNKSt6bitsetILm119EE4testEm.exit
 
 116:                                              ; preds = %113
@@ -47001,7 +47001,7 @@ _ZNK8FileLine5msgEnEv.exit37:                     ; preds = %_ZN8FileLine9single
 
 105:                                              ; preds = %_ZNK8FileLine5msgEnEv.exit37
   %106 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %19)
-  %107 = icmp ugt i64 %.036.i, 118
+  %107 = icmp samesign ugt i64 %.036.i, 118
   br i1 %107, label %108, label %_ZNKSt6bitsetILm119EE4testEm.exit
 
 108:                                              ; preds = %105
@@ -47398,7 +47398,7 @@ _ZNK8FileLine5msgEnEv.exit44:                     ; preds = %_ZN8FileLine9single
 
 105:                                              ; preds = %_ZNK8FileLine5msgEnEv.exit44
   %106 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %19)
-  %107 = icmp ugt i64 %.036.i, 118
+  %107 = icmp samesign ugt i64 %.036.i, 118
   br i1 %107, label %108, label %_ZNKSt6bitsetILm119EE4testEm.exit
 
 108:                                              ; preds = %105
@@ -49069,7 +49069,7 @@ _ZN17DfgVertexVariadic12allocSourcesEm.exit:      ; preds = %.lr.ph.i, %1
   %23 = phi i32 [ %15, %14 ], [ %.pre, %20 ]
   %24 = add nuw nsw i64 %.010, 1
   %25 = zext i32 %23 to i64
-  %26 = icmp ult i64 %24, %25
+  %26 = icmp samesign ult i64 %24, %25
   br i1 %26, label %14, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %22, %_ZN17DfgVertexVariadic12allocSourcesEm.exit

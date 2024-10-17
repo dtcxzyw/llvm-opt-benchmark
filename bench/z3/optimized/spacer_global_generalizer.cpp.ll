@@ -1382,7 +1382,7 @@ if.end.i.i.i.i:                                   ; preds = %for.cond.i.i
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i: ; preds = %if.end.i.i.i.i, %for.cond.i.i
   %retval.0.i.i.i.i = phi i64 [ %41, %if.end.i.i.i.i ], [ 0, %for.cond.i.i ]
-  %cmp.i.i66 = icmp ult i64 %indvars.iv.i.i, %retval.0.i.i.i.i
+  %cmp.i.i66 = icmp samesign ult i64 %indvars.iv.i.i, %retval.0.i.i.i.i
   br i1 %cmp.i.i66, label %for.body.i.i, label %invoke.cont73
 
 for.body.i.i:                                     ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
@@ -3166,7 +3166,7 @@ for.cond:                                         ; preds = %invoke.cont4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load i32, ptr %sz1, align 4
   %3 = zext i32 %2 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %3
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %3
   br i1 %cmp, label %for.body, label %cleanup, !llvm.loop !23
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
@@ -5174,7 +5174,7 @@ if.end.i.i.i:                                     ; preds = %for.cond.i
 
 invoke.cont.i:                                    ; preds = %if.end.i.i.i, %for.cond.i
   %retval.0.i.i.i = phi i64 [ %6, %if.end.i.i.i ], [ 0, %for.cond.i ]
-  %cmp.not.not.not.i.not.not.not.not.not = icmp uge i64 %indvars.iv.i, %retval.0.i.i.i
+  %cmp.not.not.not.i.not.not.not.not.not = icmp samesign uge i64 %indvars.iv.i, %retval.0.i.i.i
   br i1 %cmp.not.not.not.i.not.not.not.not.not, label %cleanup.i, label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont.i

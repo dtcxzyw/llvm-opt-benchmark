@@ -2284,7 +2284,7 @@ if.then66.i:                                      ; preds = %if.then56.i
   br i1 %tobool.not.i, label %if.end32.i, label %if.then70.i
 
 if.end32.i:                                       ; preds = %if.then66.i
-  %cmp34.not.i = icmp ult i64 %sub.i164, %spec.select.i
+  %cmp34.not.i = icmp samesign ult i64 %sub.i164, %spec.select.i
   br i1 %cmp34.not.i, label %ohci_copy_td.exit, label %if.end74.i
 
 ohci_copy_td.exit:                                ; preds = %if.end32.i
@@ -2561,7 +2561,7 @@ if.then141.i:                                     ; preds = %if.then138.i
   br i1 %tobool.not.i.i49, label %if.end32.i.i, label %if.then146.i
 
 if.end32.i.i:                                     ; preds = %if.then141.i
-  %cmp34.not.i.i = icmp ult i64 %sub.i.i, %conv1.i.i
+  %cmp34.not.i.i = icmp samesign ult i64 %sub.i.i, %conv1.i.i
   br i1 %cmp34.not.i.i, label %ohci_copy_td.exit.i, label %if.end147.i
 
 ohci_copy_td.exit.i:                              ; preds = %if.end32.i.i

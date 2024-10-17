@@ -63,7 +63,7 @@ define void @dswap_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1,
   store double %23, ptr %29, align 8
   store double %26, ptr %31, align 8
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 3
-  %33 = icmp ult i64 %indvars.iv.next93, %15
+  %33 = icmp samesign ult i64 %indvars.iv.next93, %15
   br i1 %33, label %.lr.ph83, label %.preheader.loopexit, !llvm.loop !4
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85

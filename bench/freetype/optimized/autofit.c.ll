@@ -1873,7 +1873,7 @@ af_latin_metrics_init_widths.exit:                ; preds = %130
   %168 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %144, ptr noundef nonnull %6) #20
   %169 = load i32, ptr %6, align 4
   %170 = zext i32 %169 to i64
-  %.not.i.i = icmp ult i64 %indvars.iv793.i, %170
+  %.not.i.i = icmp samesign ult i64 %indvars.iv793.i, %170
   br i1 %.not.i.i, label %af_shaper_get_elem.exit.i18, label %af_shaper_get_elem.exit.thread.i17
 
 af_shaper_get_elem.exit.thread.i17:               ; preds = %166
@@ -2051,7 +2051,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %166
   %221 = load i64, ptr %220, align 8
   %222 = sub nsw i64 %221, %.1540.i
   %223 = call i64 @llvm.abs.i64(i64 %222, i1 true)
-  %224 = icmp ugt i64 %223, 5
+  %224 = icmp samesign ugt i64 %223, 5
   br i1 %224, label %225, label %230
 
 225:                                              ; preds = %215
@@ -2059,7 +2059,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %166
   %227 = sub nsw i64 %226, %210
   %228 = call i64 @llvm.abs.i64(i64 %227, i1 true)
   %229 = mul nuw nsw i64 %223, 20
-  %.not605.i = icmp ugt i64 %228, %229
+  %.not605.i = icmp samesign ugt i64 %228, %229
   br i1 %.not605.i, label %230, label %237
 
 230:                                              ; preds = %225, %215
@@ -2093,7 +2093,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %166
   %244 = load i64, ptr %243, align 8
   %245 = sub nsw i64 %244, %.1540.i
   %246 = call i64 @llvm.abs.i64(i64 %245, i1 true)
-  %247 = icmp ugt i64 %246, 5
+  %247 = icmp samesign ugt i64 %246, 5
   br i1 %247, label %248, label %253
 
 248:                                              ; preds = %238
@@ -2101,7 +2101,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %166
   %250 = sub nsw i64 %249, %210
   %251 = call i64 @llvm.abs.i64(i64 %250, i1 true)
   %252 = mul nuw nsw i64 %246, 20
-  %.not607.i = icmp ugt i64 %251, %252
+  %.not607.i = icmp samesign ugt i64 %251, %252
   br i1 %.not607.i, label %253, label %260
 
 253:                                              ; preds = %248, %238
@@ -2134,7 +2134,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %166
   %270 = load i64, ptr %269, align 8
   %271 = sub nsw i64 %267, %270
   %272 = call i64 @llvm.abs.i64(i64 %271, i1 true)
-  %273 = icmp ult i64 %272, %264
+  %273 = icmp samesign ult i64 %272, %264
   br i1 %273, label %274, label %.loopexit690.i
 
 274:                                              ; preds = %261
@@ -2201,7 +2201,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %166
   %298 = load i64, ptr %297, align 8
   %299 = sub nsw i64 %.1540.i, %298
   %300 = call i64 @llvm.abs.i64(i64 %299, i1 true)
-  %301 = icmp ugt i64 %300, %284
+  %301 = icmp samesign ugt i64 %300, %284
   br i1 %301, label %341, label %302
 
 302:                                              ; preds = %293
@@ -2211,13 +2211,13 @@ af_shaper_get_elem.exit.i18:                      ; preds = %166
   %306 = load i64, ptr %305, align 8
   %307 = sub nsw i64 %306, %298
   %308 = call i64 @llvm.abs.i64(i64 %307, i1 true)
-  %309 = icmp ult i64 %308, 6
+  %309 = icmp samesign ult i64 %308, 6
   %.pre829.i = load i64, ptr %296, align 8
   %.pre830.i = load i64, ptr %304, align 8
   %310 = sub nsw i64 %.pre830.i, %.pre829.i
   %311 = call i64 @llvm.abs.i64(i64 %310, i1 true)
   %312 = mul nuw nsw i64 %308, 20
-  %.not614.i = icmp ugt i64 %311, %312
+  %.not614.i = icmp samesign ugt i64 %311, %312
   %or.cond874.i = select i1 %309, i1 true, i1 %.not614.i
   br i1 %or.cond874.i, label %._crit_edge834.i, label %341
 
@@ -2232,7 +2232,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %166
   %.4469.i = select i1 %316, i32 %.1485.i, i32 %.1466.i
   %319 = icmp slt i64 %.pre829.i, %.pre830.i
   %.not634.i = xor i1 %285, %319
-  %.not615.i = icmp ult i64 %311, %264
+  %.not615.i = icmp samesign ult i64 %311, %264
   %or.cond635.i = select i1 %.not634.i, i1 true, i1 %.not615.i
   br i1 %or.cond635.i, label %341, label %.preheader689.i
 
@@ -2248,14 +2248,14 @@ af_shaper_get_elem.exit.i18:                      ; preds = %166
   %324 = load i64, ptr %323, align 8
   %325 = sub nsw i64 %324, %298
   %326 = call i64 @llvm.abs.i64(i64 %325, i1 true)
-  %327 = icmp ugt i64 %326, 5
+  %327 = icmp samesign ugt i64 %326, 5
   br i1 %327, label %328, label %335
 
 328:                                              ; preds = %.preheader689.i
   %329 = load i64, ptr %242, align 8
   %330 = sub nsw i64 %329, %.pre829.i
   %331 = call i64 @llvm.abs.i64(i64 %330, i1 true)
-  %.not616.i = icmp ugt i64 %331, %312
+  %.not616.i = icmp samesign ugt i64 %331, %312
   br i1 %.not616.i, label %335, label %332
 
 332:                                              ; preds = %328
@@ -2303,7 +2303,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %166
   %351 = load i64, ptr %350, align 8
   %352 = sub nsw i64 %348, %351
   %353 = call i64 @llvm.abs.i64(i64 %352, i1 true)
-  %354 = icmp ugt i64 %353, %143
+  %354 = icmp samesign ugt i64 %353, %143
   br i1 %354, label %.thread.i20, label %355
 
 355:                                              ; preds = %345, %.loopexit690.i
@@ -2661,7 +2661,7 @@ af_latin_sort_blue.exit.i:                        ; preds = %._crit_edge.i661.i
   %476 = phi i32 [ %461, %.lr.ph758.i ], [ %.pre832.i, %474 ]
   %477 = add i32 %476, -1
   %478 = zext i32 %477 to i64
-  %479 = icmp ult i64 %indvars.iv.next821.i, %478
+  %479 = icmp samesign ult i64 %indvars.iv.next821.i, %478
   br i1 %479, label %.lr.ph758.i, label %.loopexit, !llvm.loop !39
 
 480:                                              ; preds = %._crit_edge755.i
@@ -2694,7 +2694,7 @@ af_latin_sort_blue.exit.i:                        ; preds = %._crit_edge.i661.i
   %496 = phi i32 [ %487, %.lr.ph761.i ], [ %.pre833.i, %494 ]
   %indvars.iv.next824.i = add nuw nsw i64 %indvars.iv823.i, 1
   %497 = zext i32 %496 to i64
-  %498 = icmp ult i64 %indvars.iv.next824.i, %497
+  %498 = icmp samesign ult i64 %indvars.iv.next824.i, %497
   br i1 %498, label %.lr.ph761.i, label %af_latin_metrics_init_blues.exit, !llvm.loop !40
 
 af_latin_metrics_init_blues.exit:                 ; preds = %495, %480
@@ -5064,7 +5064,7 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef %0, ptr noundef %1
   %170 = call i64 @llvm.abs.i64(i64 %163, i1 true)
   %171 = call i64 @llvm.abs.i64(i64 %169, i1 true)
   %172 = add nuw nsw i64 %171, %170
-  %173 = icmp ult i64 %172, %112
+  %173 = icmp samesign ult i64 %172, %112
   br i1 %173, label %174, label %177
 
 174:                                              ; preds = %113
@@ -5220,7 +5220,7 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef %0, ptr noundef %1
   %262 = call i64 @llvm.abs.i64(i64 %253, i1 true)
   %263 = call i64 @llvm.abs.i64(i64 %261, i1 true)
   %264 = add nuw nsw i64 %263, %262
-  %265 = icmp ult i64 %264, %217
+  %265 = icmp samesign ult i64 %264, %217
   br i1 %265, label %266, label %269
 
 266:                                              ; preds = %243
@@ -5773,7 +5773,7 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
   %157 = call i64 @llvm.abs.i64(i64 %156, i1 true)
   %158 = sub nsw i64 %.2353, %spec.select510
   %159 = call i64 @llvm.abs.i64(i64 %158, i1 true)
-  %160 = icmp ugt i64 %157, %159
+  %160 = icmp samesign ugt i64 %157, %159
   %spec.select446 = call i64 @llvm.smin.i64(i64 %spec.select, i64 %.0312)
   %.4 = call i64 @llvm.smax.i64(i64 %.2367, i64 %.0308)
   br i1 %160, label %161, label %170
@@ -6567,7 +6567,7 @@ define internal fastcc void @af_sort_and_quantize_widths(ptr nocapture noundef n
   %.3 = phi i32 [ %51, %50 ], [ %.298, %.lr.ph99 ]
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next105, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next105, %56
   br i1 %57, label %.lr.ph99, label %._crit_edge100, !llvm.loop !83
 
 ._crit_edge100:                                   ; preds = %54, %3, %._crit_edge85, %.preheader
@@ -6804,7 +6804,7 @@ define internal fastcc void @af_cjk_metrics_scale_dim(ptr nocapture noundef %0, 
   %83 = phi i32 [ %23, %22 ], [ %.pre, %60 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = zext i32 %83 to i64
-  %85 = icmp ult i64 %indvars.iv.next, %84
+  %85 = icmp samesign ult i64 %indvars.iv.next, %84
   br i1 %85, label %22, label %.loopexit, !llvm.loop !85
 
 .loopexit:                                        ; preds = %82, %15, %11
@@ -7663,7 +7663,7 @@ define internal fastcc void @af_cjk_hints_compute_blue_edges(ptr nocapture nound
   %56 = load i64, ptr %55, align 8
   %57 = sub nsw i64 %51, %56
   %58 = tail call i64 @llvm.abs.i64(i64 %57, i1 true)
-  %59 = icmp ugt i64 %54, %58
+  %59 = icmp samesign ugt i64 %54, %58
   %60 = select i1 %59, i64 %56, i64 %52
   %.0 = select i1 %59, ptr %55, ptr %38
   %61 = sub nsw i64 %51, %60
@@ -8002,7 +8002,7 @@ define internal fastcc void @af_cjk_hint_edges(ptr nocapture noundef readonly %0
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds i8, ptr %140, i64 88
   %162 = icmp eq ptr %160, %161
-  %163 = icmp ult i64 %spec.select240, 8
+  %163 = icmp samesign ult i64 %spec.select240, 8
   %or.cond5 = select i1 %162, i1 %163, i1 false
   br i1 %or.cond5, label %164, label %193
 
@@ -8521,7 +8521,7 @@ define internal fastcc void @af_glyph_hints_align_weak_points(ptr nocapture noun
 55:                                               ; preds = %.lr.ph152
   %.5.add = add nsw i64 %.5.idx150, -80
   %.ptr = getelementptr inbounds i8, ptr %.4, i64 %.5.add
-  %56 = icmp ult i64 %.5.idx150, 160
+  %56 = icmp samesign ult i64 %.5.idx150, 160
   br i1 %56, label %.preheader135.backedge, label %57
 
 57:                                               ; preds = %55
@@ -9098,7 +9098,7 @@ define internal fastcc range(i64 -63, 65) i64 @af_hint_normal_stem(ptr nocapture
   br i1 %39, label %40, label %59
 
 40:                                               ; preds = %38
-  %.not119 = icmp ugt i64 %33, %32
+  %.not119 = icmp samesign ugt i64 %33, %32
   %41 = sub nsw i64 0, %32
   %spec.select126 = select i1 %.not119, i64 %41, i64 %33
   br label %59
@@ -9107,23 +9107,23 @@ define internal fastcc range(i64 -63, 65) i64 @af_hint_normal_stem(ptr nocapture
   br i1 %.not, label %43, label %44
 
 43:                                               ; preds = %42
-  %.not110 = icmp ult i64 %31, %.0
-  %.not111 = icmp ult i64 %33, %.0
+  %.not110 = icmp samesign ult i64 %31, %.0
+  %.not111 = icmp samesign ult i64 %33, %.0
   %or.cond122 = select i1 %.not110, i1 %.not111, i1 false
-  %.not112 = icmp ult i64 %32, %.0
+  %.not112 = icmp samesign ult i64 %32, %.0
   %or.cond123 = select i1 %or.cond122, i1 %.not112, i1 false
-  %.not113 = icmp ult i64 %34, %.0
+  %.not113 = icmp samesign ult i64 %34, %.0
   %or.cond124 = select i1 %or.cond123, i1 %.not113, i1 false
   br i1 %or.cond124, label %44, label %.thread131
 
 44:                                               ; preds = %43, %42
   %45 = and i64 %25, 63
-  %46 = icmp ult i64 %45, 32
+  %46 = icmp samesign ult i64 %45, 32
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %44
-  %.not114 = icmp ugt i64 %33, %45
-  %.not115 = icmp ugt i64 %32, %45
+  %.not114 = icmp samesign ugt i64 %33, %45
+  %.not115 = icmp samesign ugt i64 %32, %45
   %or.cond125 = select i1 %.not114, i1 %.not115, i1 false
   br i1 %or.cond125, label %50, label %59
 
@@ -9145,7 +9145,7 @@ define internal fastcc range(i64 -63, 65) i64 @af_hint_normal_stem(ptr nocapture
   %.093 = select i1 %.not117, i64 %53, i64 %56
   %57 = tail call i64 @llvm.abs.i64(i64 %spec.select, i1 true)
   %58 = tail call i64 @llvm.abs.i64(i64 %.093, i1 true)
-  %.not118 = icmp ugt i64 %57, %58
+  %.not118 = icmp samesign ugt i64 %57, %58
   %spec.select127 = select i1 %.not118, i64 %.093, i64 %spec.select
   br label %59
 
@@ -9213,7 +9213,7 @@ define internal fastcc i64 @af_cjk_compute_stem_width(i32 %.5148.val, ptr nocapt
   %17 = load i64, ptr %16, align 8
   %18 = sub nsw i64 %spec.select, %17
   %19 = tail call i64 @llvm.abs.i64(i64 %18, i1 true)
-  %20 = icmp ult i64 %19, 40
+  %20 = icmp samesign ult i64 %19, 40
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %15
@@ -9221,7 +9221,7 @@ define internal fastcc i64 @af_cjk_compute_stem_width(i32 %.5148.val, ptr nocapt
   br label %85
 
 22:                                               ; preds = %15, %12
-  %23 = icmp ult i64 %spec.select, 54
+  %23 = icmp samesign ult i64 %spec.select, 54
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %22
@@ -9231,17 +9231,17 @@ define internal fastcc i64 @af_cjk_compute_stem_width(i32 %.5148.val, ptr nocapt
   br label %85
 
 28:                                               ; preds = %22
-  %29 = icmp ult i64 %spec.select, 192
+  %29 = icmp samesign ult i64 %spec.select, 192
   br i1 %29, label %30, label %85
 
 30:                                               ; preds = %28
   %31 = and i64 %spec.select, 63
   %32 = and i64 %spec.select, 192
-  %33 = icmp ult i64 %31, 10
+  %33 = icmp samesign ult i64 %31, 10
   br i1 %33, label %85, label %34
 
 34:                                               ; preds = %30
-  %35 = icmp ult i64 %31, 22
+  %35 = icmp samesign ult i64 %31, 22
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %34
@@ -9554,7 +9554,7 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr nocapture noundef %0
   %99 = getelementptr inbounds i8, ptr %89, i64 16
   store i64 %97, ptr %99, align 8
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
-  %100 = icmp ult i64 %indvars.iv.next230, %87
+  %100 = icmp samesign ult i64 %indvars.iv.next230, %87
   br i1 %100, label %88, label %._crit_edge210, !llvm.loop !125
 
 ._crit_edge210:                                   ; preds = %88, %.._crit_edge210_crit_edge
@@ -9665,7 +9665,7 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr nocapture noundef %0
 
 168:                                              ; preds = %119, %156
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
-  %169 = icmp ult i64 %indvars.iv.next233, %116
+  %169 = icmp samesign ult i64 %indvars.iv.next233, %116
   br i1 %169, label %119, label %.lr.ph215, !llvm.loop !126
 
 170:                                              ; preds = %.lr.ph215, %.loopexit
@@ -9717,7 +9717,7 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr nocapture noundef %0
 
 .loopexit:                                        ; preds = %192, %190, %170
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
-  %193 = icmp ult i64 %indvars.iv.next241, %118
+  %193 = icmp samesign ult i64 %indvars.iv.next241, %118
   br i1 %193, label %170, label %.loopexit198, !llvm.loop !128
 
 .loopexit198:                                     ; preds = %.loopexit, %.preheader199, %11, %._crit_edge210
@@ -10098,7 +10098,7 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
   %205 = sext i16 %204 to i64
   %206 = sub nsw i64 %202, %205
   %.0.i = tail call i64 @llvm.abs.i64(i64 %206, i1 true)
-  %207 = icmp ult i64 %.0.i, %spec.select227.i
+  %207 = icmp samesign ult i64 %.0.i, %spec.select227.i
   br i1 %207, label %.sink.split.i, label %210
 
 .sink.split.i:                                    ; preds = %194, %193
@@ -10430,7 +10430,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
   %146 = or disjoint i64 %.434, %143
   %147 = sub nsw i64 %141, %146
   %.0350 = tail call i64 @llvm.abs.i64(i64 %147, i1 true)
-  %148 = icmp ult i64 %spec.select435, %.0350
+  %148 = icmp samesign ult i64 %spec.select435, %.0350
   %.0352 = select i1 %148, i64 %144, i64 %146
   %.neg418 = sdiv i64 %136, -2
   %149 = add i64 %.0352, %.neg418
@@ -10515,7 +10515,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
   %200 = or disjoint i64 %.437, %196
   %201 = sub nsw i64 %182, %200
   %.0342 = tail call i64 @llvm.abs.i64(i64 %201, i1 true)
-  %202 = icmp ult i64 %.0344, %.0342
+  %202 = icmp samesign ult i64 %.0344, %.0342
   %.0347 = select i1 %202, i64 %198, i64 %200
   %203 = sdiv i64 %186, 2
   %204 = sub nsw i64 %.0347, %203
@@ -10537,7 +10537,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
   %216 = sub i64 %210, %182
   %217 = add i64 %216, %215
   %.1343 = tail call i64 @llvm.abs.i64(i64 %217, i1 true)
-  %218 = icmp ult i64 %spec.select438, %.1343
+  %218 = icmp samesign ult i64 %spec.select438, %.1343
   %219 = select i1 %218, i64 %209, i64 %215
   %220 = getelementptr inbounds i8, ptr %.1495, i64 16
   store i64 %219, ptr %220, align 8
@@ -10583,7 +10583,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
   %242 = load i64, ptr %241, align 8
   %243 = sub nsw i64 %242, %233
   %244 = tail call i64 @llvm.abs.i64(i64 %243, i1 true)
-  %245 = icmp ugt i64 %244, 16
+  %245 = icmp samesign ugt i64 %244, 16
   br i1 %245, label %246, label %248
 
 246:                                              ; preds = %240
@@ -10637,7 +10637,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
   %268 = add i64 %265, %267
   %269 = sub i64 %factor, %268
   %spec.select439 = tail call i64 @llvm.abs.i64(i64 %269, i1 true)
-  %270 = icmp ult i64 %spec.select439, 8
+  %270 = icmp samesign ult i64 %spec.select439, 8
   br i1 %270, label %271, label %304
 
 271:                                              ; preds = %259
@@ -10721,7 +10721,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
   %316 = load i64, ptr %315, align 8
   %317 = sub nsw i64 %314, %316
   %spec.select440 = tail call i64 @llvm.abs.i64(i64 %317, i1 true)
-  %318 = icmp ult i64 %spec.select440, 80
+  %318 = icmp samesign ult i64 %spec.select440, 80
   br i1 %318, label %319, label %.thread480
 
 319:                                              ; preds = %312
@@ -10860,7 +10860,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
   %393 = load i64, ptr %392, align 8
   %394 = sub nsw i64 %393, %383
   %395 = tail call i64 @llvm.abs.i64(i64 %394, i1 true)
-  %396 = icmp ugt i64 %395, 16
+  %396 = icmp samesign ugt i64 %395, 16
   br i1 %396, label %397, label %399
 
 397:                                              ; preds = %391
@@ -10907,7 +10907,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
   %421 = load i64, ptr %420, align 8
   %422 = sub nsw i64 %419, %421
   %423 = tail call i64 @llvm.abs.i64(i64 %422, i1 true)
-  %424 = icmp ugt i64 %423, 16
+  %424 = icmp samesign ugt i64 %423, 16
   br i1 %424, label %425, label %427
 
 425:                                              ; preds = %417
@@ -10958,7 +10958,7 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
 17:                                               ; preds = %14
   %18 = and i32 %4, 2
   %19 = icmp ne i32 %18, 0
-  %20 = icmp ult i64 %spec.select, 192
+  %20 = icmp samesign ult i64 %spec.select, 192
   %or.cond3 = select i1 %19, i1 %20, i1 false
   br i1 %or.cond3, label %121, label %.thread
 
@@ -10968,7 +10968,7 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
   br i1 %.not111, label %24, label %22
 
 22:                                               ; preds = %.thread
-  %23 = icmp ult i64 %spec.select, 80
+  %23 = icmp samesign ult i64 %spec.select, 80
   %spec.store.select = select i1 %23, i64 64, i64 %spec.select
   br label %26
 
@@ -10988,7 +10988,7 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
   %31 = load i64, ptr %30, align 8
   %32 = sub nsw i64 %.2, %31
   %spec.select115 = tail call i64 @llvm.abs.i64(i64 %32, i1 true)
-  %33 = icmp ult i64 %spec.select115, 40
+  %33 = icmp samesign ult i64 %spec.select115, 40
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %29
@@ -11002,11 +11002,11 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
 37:                                               ; preds = %35
   %38 = and i64 %.2, 63
   %39 = and i64 %.2, 192
-  %40 = icmp ult i64 %38, 10
+  %40 = icmp samesign ult i64 %38, 10
   br i1 %40, label %121, label %41
 
 41:                                               ; preds = %37
-  %42 = icmp ult i64 %38, 32
+  %42 = icmp samesign ult i64 %38, 32
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
@@ -11014,7 +11014,7 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
   br label %121
 
 45:                                               ; preds = %41
-  %46 = icmp ult i64 %38, 54
+  %46 = icmp samesign ult i64 %38, 54
   %47 = or disjoint i64 %39, 54
   %spec.select120 = select i1 %46, i64 %47, i64 %.2
   br label %121
@@ -11159,11 +11159,11 @@ af_latin_snap_width.exit:                         ; preds = %82, %86
   %110 = and i64 %109, 192
   %111 = sub nsw i64 %110, %spec.select
   %spec.select118 = tail call i64 @llvm.abs.i64(i64 %111, i1 true)
-  %112 = icmp ugt i64 %spec.select118, 15
+  %112 = icmp samesign ugt i64 %spec.select118, 15
   br i1 %112, label %113, label %121
 
 113:                                              ; preds = %108
-  %114 = icmp ult i64 %spec.select, 48
+  %114 = icmp samesign ult i64 %spec.select, 48
   br i1 %114, label %115, label %121
 
 115:                                              ; preds = %113
@@ -11445,7 +11445,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %57 = load i32, ptr %19, align 8
   %58 = zext i32 %57 to i64
-  %59 = icmp ult i64 %indvars.iv.next.i, %58
+  %59 = icmp samesign ult i64 %indvars.iv.next.i, %58
   br i1 %59, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !143
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %hb_ft_font_create_.exit
@@ -11734,7 +11734,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
   %211 = phi i32 [ %198, %.lr.ph149.i ], [ %.pre.i, %203 ]
   %indvars.iv.next163.i = add nuw nsw i64 %indvars.iv162.i, 1
   %212 = zext i32 %211 to i64
-  %213 = icmp ult i64 %indvars.iv.next163.i, %212
+  %213 = icmp samesign ult i64 %indvars.iv.next163.i, %212
   br i1 %213, label %.lr.ph149.i, label %af_face_globals_compute_style_coverage.exit, !llvm.loop !149
 
 af_face_globals_compute_style_coverage.exit:      ; preds = %210, %.loopexit121.i, %.preheader.i
@@ -11935,7 +11935,7 @@ define internal fastcc i64 @af_loader_compute_darkening(ptr nocapture readonly %
   %44 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %43, i1 true)
   %45 = xor i32 %44, 31
   %46 = add nuw nsw i32 %42, %45
-  %47 = icmp ugt i32 %46, 45
+  %47 = icmp samesign ugt i32 %46, 45
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %39

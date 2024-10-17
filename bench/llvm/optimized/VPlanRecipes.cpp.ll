@@ -2945,7 +2945,7 @@ _ZN4llvm10BranchInst12setSuccessorEjPNS_10BasicBlockE.exit287: ; preds = %_ZN4ll
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %393 = load i32, ptr %381, align 8
   %394 = zext i32 %393 to i64
-  %395 = icmp ult i64 %indvars.iv.next, %394
+  %395 = icmp samesign ult i64 %indvars.iv.next, %394
   br i1 %395, label %386, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %386, %364
@@ -2989,7 +2989,7 @@ _ZN4llvm10BranchInst12setSuccessorEjPNS_10BasicBlockE.exit287: ; preds = %_ZN4ll
   %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
   %415 = load i32, ptr %381, align 8
   %416 = zext i32 %415 to i64
-  %417 = icmp ult i64 %indvars.iv.next352, %416
+  %417 = icmp samesign ult i64 %indvars.iv.next352, %416
   br i1 %417, label %408, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %408, %404, %401, %._crit_edge
@@ -3052,7 +3052,7 @@ _ZN4llvm10BranchInst12setSuccessorEjPNS_10BasicBlockE.exit287: ; preds = %_ZN4ll
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %455 = load i32, ptr %381, align 8
   %456 = zext i32 %455 to i64
-  %457 = icmp ult i64 %indvars.iv.next358, %456
+  %457 = icmp samesign ult i64 %indvars.iv.next358, %456
   br i1 %457, label %.lr.ph344.split.us, label %._crit_edge345, !llvm.loop !14
 
 .lr.ph344.split:                                  ; preds = %.lr.ph344, %.lr.ph344.split
@@ -3065,7 +3065,7 @@ _ZN4llvm10BranchInst12setSuccessorEjPNS_10BasicBlockE.exit287: ; preds = %_ZN4ll
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %462 = load i32, ptr %381, align 8
   %463 = zext i32 %462 to i64
-  %464 = icmp ult i64 %indvars.iv.next355, %463
+  %464 = icmp samesign ult i64 %indvars.iv.next355, %463
   br i1 %464, label %.lr.ph344.split, label %._crit_edge345, !llvm.loop !14
 
 ._crit_edge345:                                   ; preds = %.lr.ph344.split, %.lr.ph344.split.us, %433
@@ -9504,7 +9504,7 @@ _ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit: ; preds = %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %126 = load i32, ptr %24, align 8
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next, %127
   br i1 %128, label %48, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %124, %_ZN4llvm8DebugLocD2Ev.exit
@@ -9599,7 +9599,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZNK4llvm12VPRecipe
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %39 = load i32, ptr %20, align 8
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next48, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next48, %40
   br i1 %41, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !65
 
 .preheader:                                       ; preds = %._crit_edge, %_ZN4llvm8DebugLocD2Ev.exit
@@ -9643,7 +9643,7 @@ _ZNK4llvm13VPBlendRecipe7getMaskEj.exit:          ; preds = %.lr.ph, %_ZNK4llvm1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = load i32, ptr %20, align 8
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %indvars.iv.next, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next, %71
   br i1 %72, label %_ZNK4llvm13VPBlendRecipe7getMaskEj.exit, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm13VPBlendRecipe7getMaskEj.exit, %.lr.ph.split.us, %.preheader35
@@ -9663,7 +9663,7 @@ _ZNK4llvm13VPBlendRecipe7getMaskEj.exit:          ; preds = %.lr.ph, %_ZNK4llvm1
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %80 = load i32, ptr %20, align 8
   %81 = zext i32 %80 to i64
-  %82 = icmp ult i64 %indvars.iv.next51, %81
+  %82 = icmp samesign ult i64 %indvars.iv.next51, %81
   br i1 %82, label %.lr.ph39, label %._crit_edge40, !llvm.loop !67
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %.preheader35.lr.ph, %.preheader
@@ -12839,7 +12839,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit225: ; pred
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
   %294 = load i32, ptr %198, align 8
   %295 = zext i32 %294 to i64
-  %296 = icmp ult i64 %indvars.iv.next368, %295
+  %296 = icmp samesign ult i64 %indvars.iv.next368, %295
   br i1 %296, label %266, label %._crit_edge337, !llvm.loop !91
 
 ._crit_edge337:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit225, %256
@@ -13070,7 +13070,7 @@ _ZNK4llvm15InterleaveGroupINS_11InstructionEE9getMemberEj.exit.thread: ; preds =
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
   %404 = load i32, ptr %198, align 8
   %405 = zext i32 %404 to i64
-  %406 = icmp ult i64 %indvars.iv.next374, %405
+  %406 = icmp samesign ult i64 %indvars.iv.next374, %405
   br i1 %406, label %326, label %.loopexit, !llvm.loop !94
 
 407:                                              ; preds = %.lr.ph344, %_ZN4llvm11SmallVectorIiLj16EED2Ev.exit
@@ -13224,7 +13224,7 @@ _ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_
   %indvars.iv.next371 = add nuw nsw i64 %indvars.iv370, 1
   %484 = load i32, ptr %198, align 8
   %485 = zext i32 %484 to i64
-  %486 = icmp ult i64 %indvars.iv.next371, %485
+  %486 = icmp samesign ult i64 %indvars.iv.next371, %485
   br i1 %486, label %439, label %._crit_edge341, !llvm.loop !95
 
 ._crit_edge341:                                   ; preds = %481, %433
@@ -13503,7 +13503,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit:  ; preds = %629, %633
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %634 = load i32, ptr %198, align 8
   %635 = zext i32 %634 to i64
-  %636 = icmp ult i64 %indvars.iv.next, %635
+  %636 = icmp samesign ult i64 %indvars.iv.next, %635
   br i1 %636, label %518, label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit, !llvm.loop !98
 
 _ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit:  ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, %499, %498, %.loopexit
@@ -14869,7 +14869,7 @@ _ZN4llvm13IRBuilderBase9CreateMulEPNS_5ValueES2_RKNS_5TwineEbb.exit96: ; preds =
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %320 = load i32, ptr %125, align 8
   %321 = zext i32 %320 to i64
-  %322 = icmp ult i64 %indvars.iv.next, %321
+  %322 = icmp samesign ult i64 %indvars.iv.next, %321
   br i1 %322, label %241, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %_ZN4llvm13IRBuilderBase9CreateMulEPNS_5ValueES2_RKNS_5TwineEbb.exit96, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit88
@@ -17977,7 +17977,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm18VPInterleaveRecipe17on
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %.idx4.i = shl nuw nsw i64 %14, 3
   %16 = getelementptr inbounds i8, ptr %15, i64 %.idx4.i
-  %.not = icmp ult i64 %14, 4
+  %.not = icmp samesign ult i64 %14, 4
   br i1 %.not, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %7

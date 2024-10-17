@@ -2345,7 +2345,7 @@ if.then:                                          ; preds = %entry
   %4 = and i8 %3, 32
   %add21.i = add i8 %4, %1
   store i8 %add21.i, ptr %str, align 1, !tbaa !7
-  %exitcond.not = icmp ult i64 %.sroa.speculated, 2
+  %exitcond.not = icmp samesign ult i64 %.sroa.speculated, 2
   br i1 %exitcond.not, label %if.end, label %do.body.1, !llvm.loop !81
 
 do.body.1:                                        ; preds = %if.then

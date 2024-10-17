@@ -195,7 +195,7 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %61 = zext nneg i8 %60 to i32
   %62 = icmp eq i8 %56, 0
   %63 = icmp eq i8 %56, 1
-  %or.cond = icmp ult i8 %56, 2
+  %or.cond = icmp samesign ult i8 %56, 2
   br i1 %or.cond, label %64, label %75
 
 64:                                               ; preds = %33

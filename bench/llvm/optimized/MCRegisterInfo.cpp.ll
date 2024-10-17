@@ -463,7 +463,7 @@ define dso_local range(i32 0, 65536) i32 @_ZNK4llvm14MCRegisterInfo19getMatching
   %.sroa.311.024 = getelementptr inbounds i8, ptr %.pn, i64 2
   %23 = and i32 %.sroa.010.023, 65535
   %24 = lshr i32 %23, 3
-  %.not.i = icmp ult i32 %24, %18
+  %.not.i = icmp samesign ult i32 %24, %18
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %.critedge
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %22

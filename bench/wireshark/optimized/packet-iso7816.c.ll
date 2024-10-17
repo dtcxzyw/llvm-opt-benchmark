@@ -571,7 +571,7 @@ dissect_iso7816_class.exit.i:                     ; preds = %71
   br label %154
 
 144:                                              ; preds = %96
-  %145 = icmp ult i32 %108, 64
+  %145 = icmp samesign ult i32 %108, 64
   %146 = add i8 %99, -3
   %or.cond.i102.i = icmp ult i8 %146, 61
   %or.cond88.i.i = select i1 %145, i1 true, i1 %or.cond.i102.i

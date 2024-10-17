@@ -206,7 +206,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not166, label %57, label %54
 
 57:                                               ; preds = %54
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %57

@@ -313,7 +313,7 @@ define void @_ZN6colvar13groupcoordnum10calc_valueEv(ptr nocapture noundef nonnu
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %47
   %48 = lshr i32 %.023.i.i, 1
   %49 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -342,7 +342,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread40.i: ; preds = %_ZN12colvarmod
   %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %56
   %57 = lshr i32 %.023.i25.i, 1
   %58 = fmul double %.01522.i26.i, %.01522.i26.i
-  %.not.i30.i = icmp ult i32 %.023.i25.i, 2
+  %.not.i30.i = icmp samesign ult i32 %.023.i25.i, 2
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !5
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread40.i
@@ -417,7 +417,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread40.i: ; preds = %_ZN12colvarmod
   %.1.i.i12 = select i1 %.not19.i.i11, double %.01621.i.i10, double %91
   %92 = lshr i32 %.023.i.i8, 1
   %93 = fmul double %.01522.i.i9, %.01522.i.i9
-  %.not.i.i13 = icmp ult i32 %.023.i.i8, 2
+  %.not.i.i13 = icmp samesign ult i32 %.023.i.i8, 2
   br i1 %.not.i.i13, label %_ZN12colvarmodule13integer_powerERKdi.exit.i14, label %.lr.ph.i.i7, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i14:   ; preds = %.lr.ph.i.i7
@@ -446,7 +446,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread40.i15: ; preds = %_ZN12colvarm
   %.1.i29.i24 = select i1 %.not19.i28.i23, double %.01621.i27.i22, double %100
   %101 = lshr i32 %.023.i25.i20, 1
   %102 = fmul double %.01522.i26.i21, %.01522.i26.i21
-  %.not.i30.i25 = icmp ult i32 %.023.i25.i20, 2
+  %.not.i30.i25 = icmp samesign ult i32 %.023.i25.i20, 2
   br i1 %.not.i30.i25, label %._crit_edge.i31.i26, label %.lr.ph.i24.i19, !llvm.loop !5
 
 ._crit_edge.i31.i26:                              ; preds = %.lr.ph.i24.i19, %_ZN12colvarmodule13integer_powerERKdi.exit.thread40.i15
@@ -728,7 +728,7 @@ define void @_ZN6colvar6h_bond10calc_valueEv(ptr nocapture noundef nonnull align
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %34
   %35 = lshr i32 %.023.i.i, 1
   %36 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -757,7 +757,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread40.i: ; preds = %_ZN12colvarmod
   %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %43
   %44 = lshr i32 %.023.i25.i, 1
   %45 = fmul double %.01522.i26.i, %.01522.i26.i
-  %.not.i30.i = icmp ult i32 %.023.i25.i, 2
+  %.not.i30.i = icmp samesign ult i32 %.023.i25.i, 2
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !5
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread40.i
@@ -2345,7 +2345,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1793EEEvPPb(ptr nounde
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %107
   %108 = lshr i32 %.023.i.i, 1
   %109 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -2374,7 +2374,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread67.i: ; preds = %_ZN12colvarmod
   %.1.i44.i = select i1 %.not19.i43.i, double %.01621.i42.i, double %116
   %117 = lshr i32 %.023.i40.i, 1
   %118 = fmul double %.01522.i41.i, %.01522.i41.i
-  %.not.i45.i = icmp ult i32 %.023.i40.i, 2
+  %.not.i45.i = icmp samesign ult i32 %.023.i40.i, 2
   br i1 %.not.i45.i, label %._crit_edge.i46.i, label %.lr.ph.i39.i, !llvm.loop !5
 
 ._crit_edge.i46.i:                                ; preds = %.lr.ph.i39.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread67.i
@@ -2668,7 +2668,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi769EEEvPPb(ptr noundef
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %112
   %113 = lshr i32 %.023.i.i, 1
   %114 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -2697,7 +2697,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread66.i: ; preds = %_ZN12colvarmod
   %.1.i43.i = select i1 %.not19.i42.i, double %.01621.i41.i, double %121
   %122 = lshr i32 %.023.i39.i, 1
   %123 = fmul double %.01522.i40.i, %.01522.i40.i
-  %.not.i44.i = icmp ult i32 %.023.i39.i, 2
+  %.not.i44.i = icmp samesign ult i32 %.023.i39.i, 2
   br i1 %.not.i44.i, label %._crit_edge.i45.i, label %.lr.ph.i38.i, !llvm.loop !5
 
 ._crit_edge.i45.i:                                ; preds = %.lr.ph.i38.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread66.i
@@ -2972,7 +2972,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi257EEEvPPb(ptr noundef
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %107
   %108 = lshr i32 %.023.i.i, 1
   %109 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -3001,7 +3001,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread63.i: ; preds = %_ZN12colvarmod
   %.1.i40.i = select i1 %.not19.i39.i, double %.01621.i38.i, double %116
   %117 = lshr i32 %.023.i36.i, 1
   %118 = fmul double %.01522.i37.i, %.01522.i37.i
-  %.not.i41.i = icmp ult i32 %.023.i36.i, 2
+  %.not.i41.i = icmp samesign ult i32 %.023.i36.i, 2
   br i1 %.not.i41.i, label %._crit_edge.i42.i, label %.lr.ph.i35.i, !llvm.loop !5
 
 ._crit_edge.i42.i:                                ; preds = %.lr.ph.i35.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread63.i
@@ -3266,7 +3266,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1537EEEvPPb(ptr nounde
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %97
   %98 = lshr i32 %.023.i.i, 1
   %99 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -3295,7 +3295,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread72.i: ; preds = %_ZN12colvarmod
   %.1.i50.i = select i1 %.not19.i49.i, double %.01621.i48.i, double %106
   %107 = lshr i32 %.023.i46.i, 1
   %108 = fmul double %.01522.i47.i, %.01522.i47.i
-  %.not.i51.i = icmp ult i32 %.023.i46.i, 2
+  %.not.i51.i = icmp samesign ult i32 %.023.i46.i, 2
   br i1 %.not.i51.i, label %._crit_edge.i52.i, label %.lr.ph.i45.i, !llvm.loop !5
 
 ._crit_edge.i52.i:                                ; preds = %.lr.ph.i45.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread72.i
@@ -3579,7 +3579,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi513EEEvPPb(ptr noundef
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %102
   %103 = lshr i32 %.023.i.i, 1
   %104 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -3608,7 +3608,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread71.i: ; preds = %_ZN12colvarmod
   %.1.i49.i = select i1 %.not19.i48.i, double %.01621.i47.i, double %111
   %112 = lshr i32 %.023.i45.i, 1
   %113 = fmul double %.01522.i46.i, %.01522.i46.i
-  %.not.i50.i = icmp ult i32 %.023.i45.i, 2
+  %.not.i50.i = icmp samesign ult i32 %.023.i45.i, 2
   br i1 %.not.i50.i, label %._crit_edge.i51.i, label %.lr.ph.i44.i, !llvm.loop !5
 
 ._crit_edge.i51.i:                                ; preds = %.lr.ph.i44.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread71.i
@@ -3872,7 +3872,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1EEEvPPb(ptr noundef n
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %97
   %98 = lshr i32 %.023.i.i, 1
   %99 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -3901,7 +3901,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread68.i: ; preds = %_ZN12colvarmod
   %.1.i46.i = select i1 %.not19.i45.i, double %.01621.i44.i, double %106
   %107 = lshr i32 %.023.i42.i, 1
   %108 = fmul double %.01522.i43.i, %.01522.i43.i
-  %.not.i47.i = icmp ult i32 %.023.i42.i, 2
+  %.not.i47.i = icmp samesign ult i32 %.023.i42.i, 2
   br i1 %.not.i47.i, label %._crit_edge.i48.i, label %.lr.ph.i41.i, !llvm.loop !5
 
 ._crit_edge.i48.i:                                ; preds = %.lr.ph.i41.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread68.i
@@ -4052,7 +4052,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi17
   %.1.i = select i1 %.not19.i, double %.01621.i, double %41
   %42 = lshr i32 %.023.i, 1
   %43 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp ult i32 %.023.i, 2
+  %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %_ZN12colvarmodule13integer_powerERKdi.exit, label %.lr.ph.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %.lr.ph.i
@@ -4081,7 +4081,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread67: ; preds = %_ZN12colvarmodul
   %.1.i44 = select i1 %.not19.i43, double %.01621.i42, double %50
   %51 = lshr i32 %.023.i40, 1
   %52 = fmul double %.01522.i41, %.01522.i41
-  %.not.i45 = icmp ult i32 %.023.i40, 2
+  %.not.i45 = icmp samesign ult i32 %.023.i40, 2
   br i1 %.not.i45, label %._crit_edge.i46, label %.lr.ph.i39, !llvm.loop !5
 
 ._crit_edge.i46:                                  ; preds = %.lr.ph.i39, %_ZN12colvarmodule13integer_powerERKdi.exit.thread67
@@ -4235,7 +4235,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi76
   %.1.i = select i1 %.not19.i, double %.01621.i, double %46
   %47 = lshr i32 %.023.i, 1
   %48 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp ult i32 %.023.i, 2
+  %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %_ZN12colvarmodule13integer_powerERKdi.exit, label %.lr.ph.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %.lr.ph.i
@@ -4264,7 +4264,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread66: ; preds = %_ZN12colvarmodul
   %.1.i43 = select i1 %.not19.i42, double %.01621.i41, double %55
   %56 = lshr i32 %.023.i39, 1
   %57 = fmul double %.01522.i40, %.01522.i40
-  %.not.i44 = icmp ult i32 %.023.i39, 2
+  %.not.i44 = icmp samesign ult i32 %.023.i39, 2
   br i1 %.not.i44, label %._crit_edge.i45, label %.lr.ph.i38, !llvm.loop !5
 
 ._crit_edge.i45:                                  ; preds = %.lr.ph.i38, %_ZN12colvarmodule13integer_powerERKdi.exit.thread66
@@ -4389,7 +4389,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi25
   %.1.i = select i1 %.not19.i, double %.01621.i, double %41
   %42 = lshr i32 %.023.i, 1
   %43 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp ult i32 %.023.i, 2
+  %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %_ZN12colvarmodule13integer_powerERKdi.exit, label %.lr.ph.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %.lr.ph.i
@@ -4418,7 +4418,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread63: ; preds = %_ZN12colvarmodul
   %.1.i40 = select i1 %.not19.i39, double %.01621.i38, double %50
   %51 = lshr i32 %.023.i36, 1
   %52 = fmul double %.01522.i37, %.01522.i37
-  %.not.i41 = icmp ult i32 %.023.i36, 2
+  %.not.i41 = icmp samesign ult i32 %.023.i36, 2
   br i1 %.not.i41, label %._crit_edge.i42, label %.lr.ph.i35, !llvm.loop !5
 
 ._crit_edge.i42:                                  ; preds = %.lr.ph.i35, %_ZN12colvarmodule13integer_powerERKdi.exit.thread63
@@ -4533,7 +4533,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi15
   %.1.i = select i1 %.not19.i, double %.01621.i, double %31
   %32 = lshr i32 %.023.i, 1
   %33 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp ult i32 %.023.i, 2
+  %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %_ZN12colvarmodule13integer_powerERKdi.exit, label %.lr.ph.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %.lr.ph.i
@@ -4562,7 +4562,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread72: ; preds = %_ZN12colvarmodul
   %.1.i50 = select i1 %.not19.i49, double %.01621.i48, double %40
   %41 = lshr i32 %.023.i46, 1
   %42 = fmul double %.01522.i47, %.01522.i47
-  %.not.i51 = icmp ult i32 %.023.i46, 2
+  %.not.i51 = icmp samesign ult i32 %.023.i46, 2
   br i1 %.not.i51, label %._crit_edge.i52, label %.lr.ph.i45, !llvm.loop !5
 
 ._crit_edge.i52:                                  ; preds = %.lr.ph.i45, %_ZN12colvarmodule13integer_powerERKdi.exit.thread72
@@ -4696,7 +4696,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi51
   %.1.i = select i1 %.not19.i, double %.01621.i, double %36
   %37 = lshr i32 %.023.i, 1
   %38 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp ult i32 %.023.i, 2
+  %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %_ZN12colvarmodule13integer_powerERKdi.exit, label %.lr.ph.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %.lr.ph.i
@@ -4725,7 +4725,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread71: ; preds = %_ZN12colvarmodul
   %.1.i49 = select i1 %.not19.i48, double %.01621.i47, double %45
   %46 = lshr i32 %.023.i45, 1
   %47 = fmul double %.01522.i46, %.01522.i46
-  %.not.i50 = icmp ult i32 %.023.i45, 2
+  %.not.i50 = icmp samesign ult i32 %.023.i45, 2
   br i1 %.not.i50, label %._crit_edge.i51, label %.lr.ph.i44, !llvm.loop !5
 
 ._crit_edge.i51:                                  ; preds = %.lr.ph.i44, %_ZN12colvarmodule13integer_powerERKdi.exit.thread71
@@ -4839,7 +4839,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi1E
   %.1.i = select i1 %.not19.i, double %.01621.i, double %31
   %32 = lshr i32 %.023.i, 1
   %33 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp ult i32 %.023.i, 2
+  %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %_ZN12colvarmodule13integer_powerERKdi.exit, label %.lr.ph.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %.lr.ph.i
@@ -4868,7 +4868,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread68: ; preds = %_ZN12colvarmodul
   %.1.i46 = select i1 %.not19.i45, double %.01621.i44, double %40
   %41 = lshr i32 %.023.i42, 1
   %42 = fmul double %.01522.i43, %.01522.i43
-  %.not.i47 = icmp ult i32 %.023.i42, 2
+  %.not.i47 = icmp samesign ult i32 %.023.i42, 2
   br i1 %.not.i47, label %._crit_edge.i48, label %.lr.ph.i41, !llvm.loop !5
 
 ._crit_edge.i48:                                  ; preds = %.lr.ph.i41, %_ZN12colvarmodule13integer_powerERKdi.exit.thread68
@@ -5111,7 +5111,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1792EEEvPPb(ptr nounde
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %98
   %99 = lshr i32 %.023.i.i, 1
   %100 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -5140,7 +5140,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread44.i: ; preds = %_ZN12colvarmod
   %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %107
   %108 = lshr i32 %.023.i29.i, 1
   %109 = fmul double %.01522.i30.i, %.01522.i30.i
-  %.not.i34.i = icmp ult i32 %.023.i29.i, 2
+  %.not.i34.i = icmp samesign ult i32 %.023.i29.i, 2
   br i1 %.not.i34.i, label %._crit_edge.i35.i, label %.lr.ph.i28.i, !llvm.loop !5
 
 ._crit_edge.i35.i:                                ; preds = %.lr.ph.i28.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread44.i
@@ -5376,7 +5376,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi768EEEvPPb(ptr noundef
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %103
   %104 = lshr i32 %.023.i.i, 1
   %105 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -5405,7 +5405,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread43.i: ; preds = %_ZN12colvarmod
   %.1.i32.i = select i1 %.not19.i31.i, double %.01621.i30.i, double %112
   %113 = lshr i32 %.023.i28.i, 1
   %114 = fmul double %.01522.i29.i, %.01522.i29.i
-  %.not.i33.i = icmp ult i32 %.023.i28.i, 2
+  %.not.i33.i = icmp samesign ult i32 %.023.i28.i, 2
   br i1 %.not.i33.i, label %._crit_edge.i34.i, label %.lr.ph.i27.i, !llvm.loop !5
 
 ._crit_edge.i34.i:                                ; preds = %.lr.ph.i27.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread43.i
@@ -5629,7 +5629,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi256EEEvPPb(ptr noundef
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %98
   %99 = lshr i32 %.023.i.i, 1
   %100 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -5658,7 +5658,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread40.i: ; preds = %_ZN12colvarmod
   %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %107
   %108 = lshr i32 %.023.i25.i, 1
   %109 = fmul double %.01522.i26.i, %.01522.i26.i
-  %.not.i30.i = icmp ult i32 %.023.i25.i, 2
+  %.not.i30.i = icmp samesign ult i32 %.023.i25.i, 2
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !5
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread40.i
@@ -5874,7 +5874,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1536EEEvPPb(ptr nounde
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %94
   %95 = lshr i32 %.023.i.i, 1
   %96 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -5903,7 +5903,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread44.i: ; preds = %_ZN12colvarmod
   %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %103
   %104 = lshr i32 %.023.i29.i, 1
   %105 = fmul double %.01522.i30.i, %.01522.i30.i
-  %.not.i34.i = icmp ult i32 %.023.i29.i, 2
+  %.not.i34.i = icmp samesign ult i32 %.023.i29.i, 2
   br i1 %.not.i34.i, label %._crit_edge.i35.i, label %.lr.ph.i28.i, !llvm.loop !5
 
 ._crit_edge.i35.i:                                ; preds = %.lr.ph.i28.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread44.i
@@ -6135,7 +6135,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi512EEEvPPb(ptr noundef
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %99
   %100 = lshr i32 %.023.i.i, 1
   %101 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -6164,7 +6164,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread43.i: ; preds = %_ZN12colvarmod
   %.1.i32.i = select i1 %.not19.i31.i, double %.01621.i30.i, double %108
   %109 = lshr i32 %.023.i28.i, 1
   %110 = fmul double %.01522.i29.i, %.01522.i29.i
-  %.not.i33.i = icmp ult i32 %.023.i28.i, 2
+  %.not.i33.i = icmp samesign ult i32 %.023.i28.i, 2
   br i1 %.not.i33.i, label %._crit_edge.i34.i, label %.lr.ph.i27.i, !llvm.loop !5
 
 ._crit_edge.i34.i:                                ; preds = %.lr.ph.i27.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread43.i
@@ -6298,7 +6298,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi0EEEvPPb(ptr noundef n
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %49
   %50 = lshr i32 %.023.i.i, 1
   %51 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -6327,7 +6327,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread40.i: ; preds = %_ZN12colvarmod
   %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %58
   %59 = lshr i32 %.023.i25.i, 1
   %60 = fmul double %.01522.i26.i, %.01522.i26.i
-  %.not.i30.i = icmp ult i32 %.023.i25.i, 2
+  %.not.i30.i = icmp samesign ult i32 %.023.i25.i, 2
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !5
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread40.i
@@ -6473,7 +6473,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread40.i: ; preds = %_ZN12colvarmod
   %.1.i.i14 = select i1 %.not19.i.i13, double %.01621.i.i12, double %134
   %135 = lshr i32 %.023.i.i10, 1
   %136 = fmul double %.01522.i.i11, %.01522.i.i11
-  %.not.i.i15 = icmp ult i32 %.023.i.i10, 2
+  %.not.i.i15 = icmp samesign ult i32 %.023.i.i10, 2
   br i1 %.not.i.i15, label %_ZN12colvarmodule13integer_powerERKdi.exit.i16, label %.lr.ph.i.i9, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i16:   ; preds = %.lr.ph.i.i9
@@ -6502,7 +6502,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread40.i17: ; preds = %_ZN12colvarm
   %.1.i29.i26 = select i1 %.not19.i28.i25, double %.01621.i27.i24, double %143
   %144 = lshr i32 %.023.i25.i22, 1
   %145 = fmul double %.01522.i26.i23, %.01522.i26.i23
-  %.not.i30.i27 = icmp ult i32 %.023.i25.i22, 2
+  %.not.i30.i27 = icmp samesign ult i32 %.023.i25.i22, 2
   br i1 %.not.i30.i27, label %._crit_edge.i31.i28, label %.lr.ph.i24.i21, !llvm.loop !5
 
 ._crit_edge.i31.i28:                              ; preds = %.lr.ph.i24.i21, %_ZN12colvarmodule13integer_powerERKdi.exit.thread40.i17
@@ -6597,7 +6597,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi17
   %.1.i = select i1 %.not19.i, double %.01621.i, double %35
   %36 = lshr i32 %.023.i, 1
   %37 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp ult i32 %.023.i, 2
+  %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %_ZN12colvarmodule13integer_powerERKdi.exit, label %.lr.ph.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %.lr.ph.i
@@ -6626,7 +6626,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread44: ; preds = %_ZN12colvarmodul
   %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %44
   %45 = lshr i32 %.023.i29, 1
   %46 = fmul double %.01522.i30, %.01522.i30
-  %.not.i34 = icmp ult i32 %.023.i29, 2
+  %.not.i34 = icmp samesign ult i32 %.023.i29, 2
   br i1 %.not.i34, label %._crit_edge.i35, label %.lr.ph.i28, !llvm.loop !5
 
 ._crit_edge.i35:                                  ; preds = %.lr.ph.i28, %_ZN12colvarmodule13integer_powerERKdi.exit.thread44
@@ -6712,7 +6712,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi76
   %.1.i = select i1 %.not19.i, double %.01621.i, double %40
   %41 = lshr i32 %.023.i, 1
   %42 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp ult i32 %.023.i, 2
+  %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %_ZN12colvarmodule13integer_powerERKdi.exit, label %.lr.ph.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %.lr.ph.i
@@ -6741,7 +6741,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread43: ; preds = %_ZN12colvarmodul
   %.1.i32 = select i1 %.not19.i31, double %.01621.i30, double %49
   %50 = lshr i32 %.023.i28, 1
   %51 = fmul double %.01522.i29, %.01522.i29
-  %.not.i33 = icmp ult i32 %.023.i28, 2
+  %.not.i33 = icmp samesign ult i32 %.023.i28, 2
   br i1 %.not.i33, label %._crit_edge.i34, label %.lr.ph.i27, !llvm.loop !5
 
 ._crit_edge.i34:                                  ; preds = %.lr.ph.i27, %_ZN12colvarmodule13integer_powerERKdi.exit.thread43
@@ -6815,7 +6815,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi25
   %.1.i = select i1 %.not19.i, double %.01621.i, double %35
   %36 = lshr i32 %.023.i, 1
   %37 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp ult i32 %.023.i, 2
+  %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %_ZN12colvarmodule13integer_powerERKdi.exit, label %.lr.ph.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %.lr.ph.i
@@ -6844,7 +6844,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread40: ; preds = %_ZN12colvarmodul
   %.1.i29 = select i1 %.not19.i28, double %.01621.i27, double %44
   %45 = lshr i32 %.023.i25, 1
   %46 = fmul double %.01522.i26, %.01522.i26
-  %.not.i30 = icmp ult i32 %.023.i25, 2
+  %.not.i30 = icmp samesign ult i32 %.023.i25, 2
   br i1 %.not.i30, label %._crit_edge.i31, label %.lr.ph.i24, !llvm.loop !5
 
 ._crit_edge.i31:                                  ; preds = %.lr.ph.i24, %_ZN12colvarmodule13integer_powerERKdi.exit.thread40
@@ -6910,7 +6910,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi15
   %.1.i = select i1 %.not19.i, double %.01621.i, double %31
   %32 = lshr i32 %.023.i, 1
   %33 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp ult i32 %.023.i, 2
+  %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %_ZN12colvarmodule13integer_powerERKdi.exit, label %.lr.ph.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %.lr.ph.i
@@ -6939,7 +6939,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread44: ; preds = %_ZN12colvarmodul
   %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %40
   %41 = lshr i32 %.023.i29, 1
   %42 = fmul double %.01522.i30, %.01522.i30
-  %.not.i34 = icmp ult i32 %.023.i29, 2
+  %.not.i34 = icmp samesign ult i32 %.023.i29, 2
   br i1 %.not.i34, label %._crit_edge.i35, label %.lr.ph.i28, !llvm.loop !5
 
 ._crit_edge.i35:                                  ; preds = %.lr.ph.i28, %_ZN12colvarmodule13integer_powerERKdi.exit.thread44
@@ -7021,7 +7021,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi51
   %.1.i = select i1 %.not19.i, double %.01621.i, double %36
   %37 = lshr i32 %.023.i, 1
   %38 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp ult i32 %.023.i, 2
+  %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %_ZN12colvarmodule13integer_powerERKdi.exit, label %.lr.ph.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %.lr.ph.i
@@ -7050,7 +7050,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread43: ; preds = %_ZN12colvarmodul
   %.1.i32 = select i1 %.not19.i31, double %.01621.i30, double %45
   %46 = lshr i32 %.023.i28, 1
   %47 = fmul double %.01522.i29, %.01522.i29
-  %.not.i33 = icmp ult i32 %.023.i28, 2
+  %.not.i33 = icmp samesign ult i32 %.023.i28, 2
   br i1 %.not.i33, label %._crit_edge.i34, label %.lr.ph.i27, !llvm.loop !5
 
 ._crit_edge.i34:                                  ; preds = %.lr.ph.i27, %_ZN12colvarmodule13integer_powerERKdi.exit.thread43
@@ -8265,7 +8265,7 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %90
   %91 = lshr i32 %.023.i.i, 1
   %92 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -8294,7 +8294,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread72.i: ; preds = %_ZN12colvarmod
   %.1.i50.i = select i1 %.not19.i49.i, double %.01621.i48.i, double %99
   %100 = lshr i32 %.023.i46.i, 1
   %101 = fmul double %.01522.i47.i, %.01522.i47.i
-  %.not.i51.i = icmp ult i32 %.023.i46.i, 2
+  %.not.i51.i = icmp samesign ult i32 %.023.i46.i, 2
   br i1 %.not.i51.i, label %._crit_edge.i52.i, label %.lr.ph.i45.i, !llvm.loop !5
 
 ._crit_edge.i52.i:                                ; preds = %.lr.ph.i45.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread72.i
@@ -8453,7 +8453,7 @@ _ZN6colvar8coordnum18switching_functionILi1537EEEdRKdRKN12colvarmodule7rvectorEi
   %.1.i.i42 = select i1 %.not19.i.i41, double %.01621.i.i40, double %193
   %194 = lshr i32 %.023.i.i38, 1
   %195 = fmul double %.01522.i.i39, %.01522.i.i39
-  %.not.i.i43 = icmp ult i32 %.023.i.i38, 2
+  %.not.i.i43 = icmp samesign ult i32 %.023.i.i38, 2
   br i1 %.not.i.i43, label %_ZN12colvarmodule13integer_powerERKdi.exit.i44, label %.lr.ph.i.i37, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i44:   ; preds = %.lr.ph.i.i37
@@ -8482,7 +8482,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread71.i: ; preds = %_ZN12colvarmod
   %.1.i49.i = select i1 %.not19.i48.i, double %.01621.i47.i, double %202
   %203 = lshr i32 %.023.i45.i, 1
   %204 = fmul double %.01522.i46.i, %.01522.i46.i
-  %.not.i50.i = icmp ult i32 %.023.i45.i, 2
+  %.not.i50.i = icmp samesign ult i32 %.023.i45.i, 2
   br i1 %.not.i50.i, label %._crit_edge.i51.i, label %.lr.ph.i44.i, !llvm.loop !5
 
 ._crit_edge.i51.i:                                ; preds = %.lr.ph.i44.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread71.i
@@ -8617,7 +8617,7 @@ _ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEii
   %.1.i.i53 = select i1 %.not19.i.i52, double %.01621.i.i51, double %284
   %285 = lshr i32 %.023.i.i49, 1
   %286 = fmul double %.01522.i.i50, %.01522.i.i50
-  %.not.i.i54 = icmp ult i32 %.023.i.i49, 2
+  %.not.i.i54 = icmp samesign ult i32 %.023.i.i49, 2
   br i1 %.not.i.i54, label %_ZN12colvarmodule13integer_powerERKdi.exit.i55, label %.lr.ph.i.i48, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i55:   ; preds = %.lr.ph.i.i48
@@ -8646,7 +8646,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread68.i: ; preds = %_ZN12colvarmod
   %.1.i46.i = select i1 %.not19.i45.i, double %.01621.i44.i, double %293
   %294 = lshr i32 %.023.i42.i, 1
   %295 = fmul double %.01522.i43.i, %.01522.i43.i
-  %.not.i47.i = icmp ult i32 %.023.i42.i, 2
+  %.not.i47.i = icmp samesign ult i32 %.023.i42.i, 2
   br i1 %.not.i47.i, label %._crit_edge.i48.i, label %.lr.ph.i41.i, !llvm.loop !5
 
 ._crit_edge.i48.i:                                ; preds = %.lr.ph.i41.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread68.i
@@ -8870,7 +8870,7 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %88
   %89 = lshr i32 %.023.i.i, 1
   %90 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp ult i32 %.023.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %_ZN12colvarmodule13integer_powerERKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i:     ; preds = %.lr.ph.i.i
@@ -8899,7 +8899,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread44.i: ; preds = %_ZN12colvarmod
   %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %97
   %98 = lshr i32 %.023.i29.i, 1
   %99 = fmul double %.01522.i30.i, %.01522.i30.i
-  %.not.i34.i = icmp ult i32 %.023.i29.i, 2
+  %.not.i34.i = icmp samesign ult i32 %.023.i29.i, 2
   br i1 %.not.i34.i, label %._crit_edge.i35.i, label %.lr.ph.i28.i, !llvm.loop !5
 
 ._crit_edge.i35.i:                                ; preds = %.lr.ph.i28.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread44.i
@@ -9004,7 +9004,7 @@ _ZN6colvar8coordnum18switching_functionILi1536EEEdRKdRKN12colvarmodule7rvectorEi
   %.1.i.i41 = select i1 %.not19.i.i40, double %.01621.i.i39, double %148
   %149 = lshr i32 %.023.i.i37, 1
   %150 = fmul double %.01522.i.i38, %.01522.i.i38
-  %.not.i.i42 = icmp ult i32 %.023.i.i37, 2
+  %.not.i.i42 = icmp samesign ult i32 %.023.i.i37, 2
   br i1 %.not.i.i42, label %_ZN12colvarmodule13integer_powerERKdi.exit.i43, label %.lr.ph.i.i36, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i43:   ; preds = %.lr.ph.i.i36
@@ -9033,7 +9033,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread43.i: ; preds = %_ZN12colvarmod
   %.1.i32.i = select i1 %.not19.i31.i, double %.01621.i30.i, double %157
   %158 = lshr i32 %.023.i28.i, 1
   %159 = fmul double %.01522.i29.i, %.01522.i29.i
-  %.not.i33.i = icmp ult i32 %.023.i28.i, 2
+  %.not.i33.i = icmp samesign ult i32 %.023.i28.i, 2
   br i1 %.not.i33.i, label %._crit_edge.i34.i, label %.lr.ph.i27.i, !llvm.loop !5
 
 ._crit_edge.i34.i:                                ; preds = %.lr.ph.i27.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread43.i
@@ -9122,7 +9122,7 @@ _ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEii
   %.1.i.i53 = select i1 %.not19.i.i52, double %.01621.i.i51, double %200
   %201 = lshr i32 %.023.i.i49, 1
   %202 = fmul double %.01522.i.i50, %.01522.i.i50
-  %.not.i.i54 = icmp ult i32 %.023.i.i49, 2
+  %.not.i.i54 = icmp samesign ult i32 %.023.i.i49, 2
   br i1 %.not.i.i54, label %_ZN12colvarmodule13integer_powerERKdi.exit.i55, label %.lr.ph.i.i48, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i55:   ; preds = %.lr.ph.i.i48
@@ -9151,7 +9151,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.thread40.i: ; preds = %_ZN12colvarmod
   %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %209
   %210 = lshr i32 %.023.i25.i, 1
   %211 = fmul double %.01522.i26.i, %.01522.i26.i
-  %.not.i30.i = icmp ult i32 %.023.i25.i, 2
+  %.not.i30.i = icmp samesign ult i32 %.023.i25.i, 2
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !5
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread40.i

@@ -84,7 +84,7 @@ define hidden void @geod_set(i32 noundef %0, ptr nocapture noundef readonly %1) 
   %17 = phi ptr [ %.pre, %15 ], [ %14, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = icmp ne ptr %17, null
-  %19 = icmp ult i64 %indvars.iv.next, %11
+  %19 = icmp samesign ult i64 %indvars.iv.next, %11
   %20 = select i1 %18, i1 %19, i1 false
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 

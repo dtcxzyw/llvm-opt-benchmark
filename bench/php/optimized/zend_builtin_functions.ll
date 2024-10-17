@@ -1916,7 +1916,7 @@ define hidden void @zif_define(ptr noundef %0, ptr nocapture noundef writeonly %
   %31 = load i64, ptr %30, align 8
   %32 = icmp sgt i64 %31, -1
   call void @llvm.assume(i1 %32)
-  %33 = icmp ult i64 %31, 2
+  %33 = icmp samesign ult i64 %31, 2
   br i1 %33, label %.critedge191, label %34
 
 34:                                               ; preds = %.thread207

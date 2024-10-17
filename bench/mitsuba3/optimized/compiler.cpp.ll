@@ -1308,7 +1308,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler12setStackSizeEj
 9:                                                ; preds = %4
   %10 = icmp eq i32 %3, 0
   %11 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3), !range !115
-  %12 = icmp ult i32 %11, 2
+  %12 = icmp samesign ult i32 %11, 2
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %9

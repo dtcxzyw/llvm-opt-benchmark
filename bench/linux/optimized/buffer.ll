@@ -1921,7 +1921,7 @@ define dso_local ptr @alloc_buffer_head(i32 noundef %0) #2 align 16 {
   %31 = add i32 %30, %16
   %32 = add nuw nsw i64 %21, 1
   %33 = and i64 %32, 127
-  %34 = icmp ugt i64 %33, 63
+  %34 = icmp samesign ugt i64 %33, 63
   br i1 %34, label %.thread, label %14, !prof !87, !llvm.loop !88
 
 .thread:                                          ; preds = %14, %24, %20
@@ -2042,7 +2042,7 @@ define dso_local void @free_buffer_head(ptr noundef %0) #2 align 16 {
   %29 = add i32 %28, %14
   %30 = add nuw nsw i64 %19, 1
   %31 = and i64 %30, 127
-  %32 = icmp ugt i64 %31, 63
+  %32 = icmp samesign ugt i64 %31, 63
   br i1 %32, label %.thread, label %12, !prof !87, !llvm.loop !88
 
 .thread:                                          ; preds = %12, %22, %18
@@ -2576,7 +2576,7 @@ define dso_local zeroext i1 @has_bh_in_lru(i32 noundef %0, ptr nocapture readnon
   br i1 %16, label %.preheader, label %17, !llvm.loop !100
 
 17:                                               ; preds = %13, %.preheader
-  %18 = icmp ult i64 %10, 15
+  %18 = icmp samesign ult i64 %10, 15
   br label %19
 
 19:                                               ; preds = %17, %2
@@ -3714,7 +3714,7 @@ define dso_local void @folio_zero_new_buffers(ptr noundef %0, i64 noundef %1, i6
 
 74:                                               ; preds = %71, %65
   %75 = phi i64 [ %73, %71 ], [ 1, %65 ]
-  %76 = icmp ugt i64 %75, %67
+  %76 = icmp samesign ugt i64 %75, %67
   %77 = add i32 %66, 1
   br i1 %76, label %65, label %78, !llvm.loop !149
 
@@ -4231,7 +4231,7 @@ define dso_local i32 @__block_write_begin_int(ptr noundef %0, i64 noundef %1, i3
 
 291:                                              ; preds = %288, %283
   %292 = phi i64 [ %290, %288 ], [ 1, %283 ]
-  %293 = icmp ugt i64 %292, %284
+  %293 = icmp samesign ugt i64 %292, %284
   %294 = add nuw nsw i64 %284, 1
   br i1 %293, label %283, label %.loopexit12, !llvm.loop !149
 
@@ -5047,7 +5047,7 @@ define dso_local noundef i32 @block_read_full_folio(ptr noundef %0, ptr nocaptur
 
 109:                                              ; preds = %106, %101
   %110 = phi i64 [ %108, %106 ], [ 1, %101 ]
-  %111 = icmp ugt i64 %110, %102
+  %111 = icmp samesign ugt i64 %110, %102
   %112 = add nuw nsw i64 %102, 1
   br i1 %111, label %101, label %113, !llvm.loop !149
 
@@ -5417,7 +5417,7 @@ define dso_local i32 @cont_write_begin(ptr noundef %0, ptr noundef %1, i64 nound
   %53 = getelementptr inbounds i8, ptr %41, i64 64
   %54 = load i64, ptr %53, align 16
   %55 = and i64 %54, 252
-  %56 = icmp ugt i64 %55, 51
+  %56 = icmp samesign ugt i64 %55, 51
   br i1 %56, label %62, label %.critedge, !prof !18
 
 .critedge:                                        ; preds = %40, %52
@@ -5449,7 +5449,7 @@ define dso_local i32 @cont_write_begin(ptr noundef %0, ptr noundef %1, i64 nound
 
 72:                                               ; preds = %69, %63
   %73 = phi i64 [ %71, %69 ], [ 1, %63 ]
-  %74 = icmp ugt i64 %73, %65
+  %74 = icmp samesign ugt i64 %73, %65
   %75 = add i32 %64, 1
   br i1 %74, label %63, label %76, !llvm.loop !149
 
@@ -5501,7 +5501,7 @@ define dso_local i32 @cont_write_begin(ptr noundef %0, ptr noundef %1, i64 nound
 100:                                              ; preds = %.critedge12._crit_edge
   %101 = trunc i64 %.lcssa16 to i32
   %102 = and i32 %101, 4095
-  %103 = icmp ugt i32 %19, %102
+  %103 = icmp samesign ugt i32 %19, %102
   br i1 %103, label %104, label %165
 
 104:                                              ; preds = %100
@@ -5578,7 +5578,7 @@ define dso_local i32 @cont_write_begin(ptr noundef %0, ptr noundef %1, i64 nound
 
 152:                                              ; preds = %149, %143
   %153 = phi i64 [ %151, %149 ], [ 1, %143 ]
-  %154 = icmp ugt i64 %153, %145
+  %154 = icmp samesign ugt i64 %153, %145
   %155 = add i32 %144, 1
   br i1 %154, label %143, label %156, !llvm.loop !149
 
@@ -6208,7 +6208,7 @@ define dso_local i32 @block_truncate_page(ptr noundef %0, i64 noundef %1, ptr no
 
 139:                                              ; preds = %136, %131
   %140 = phi i64 [ %138, %136 ], [ 1, %131 ]
-  %141 = icmp ugt i64 %140, %132
+  %141 = icmp samesign ugt i64 %140, %132
   %142 = add nuw nsw i64 %132, 1
   br i1 %141, label %131, label %143, !llvm.loop !149
 
@@ -6385,7 +6385,7 @@ define dso_local i32 @block_write_full_folio(ptr noundef %0, ptr noundef %1, ptr
 
 93:                                               ; preds = %90, %84
   %94 = phi i64 [ %92, %90 ], [ 1, %84 ]
-  %95 = icmp ugt i64 %94, %86
+  %95 = icmp samesign ugt i64 %94, %86
   %96 = add i32 %85, 1
   br i1 %95, label %84, label %97, !llvm.loop !149
 

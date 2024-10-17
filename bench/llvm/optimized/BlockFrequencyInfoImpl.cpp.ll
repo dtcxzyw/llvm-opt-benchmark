@@ -420,7 +420,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm10bfi
   %9 = lshr i64 %6, %8
   %10 = trunc i64 %9 to i32
   %11 = and i32 %10, 15
-  %12 = icmp ult i32 %11, 10
+  %12 = icmp samesign ult i32 %11, 10
   %13 = trunc nuw nsw i32 %11 to i8
   %14 = or disjoint i8 %13, 48
   %15 = add nuw nsw i8 %13, 87
@@ -5124,7 +5124,7 @@ _ZN4llvm26BlockFrequencyInfoImplBase8LoopData14getHeaderIndexERKNS0_9BlockNodeE.
   %37 = phi i32 [ %.pre, %35 ], [ %14, %_ZN4llvm26BlockFrequencyInfoImplBase8LoopData14getHeaderIndexERKNS0_9BlockNodeE.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next, %38
   br i1 %39, label %13, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %36, %2
@@ -5862,7 +5862,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm26BlockFrequencyInfo
   %.sroa.23.0.copyload17.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx16.i.i.i, align 8
   %25 = add nsw i64 %21, -1
   %26 = lshr i64 %25, 1
-  %27 = icmp ult i64 %23, %26
+  %27 = icmp samesign ult i64 %23, %26
   br i1 %27, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i

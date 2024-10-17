@@ -551,7 +551,7 @@ define dso_local void @taskstats_init_early() local_unnamed_addr #3 section ".in
   tail call void @__init_rwsem(ptr noundef %22, ptr noundef nonnull @.str.1, ptr noundef nonnull @taskstats_init_early.__key) #10
   %23 = add nuw nsw i64 %9, 1
   %24 = and i64 %23, 127
-  %25 = icmp ugt i64 %24, 63
+  %25 = icmp samesign ugt i64 %24, 63
   br i1 %25, label %.thread, label %2, !prof !18, !llvm.loop !19
 
 .thread:                                          ; preds = %2, %12, %8
@@ -1194,7 +1194,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @add_del_listener(i32 nound
   tail call void @kfree(ptr noundef %57) #10
   %58 = add nuw nsw i64 %22, 1
   %59 = and i64 %58, 127
-  %60 = icmp ugt i64 %59, 63
+  %60 = icmp samesign ugt i64 %59, 63
   br i1 %60, label %.thread, label %.preheader12, !prof !18, !llvm.loop !28
 
 .loopexit14:                                      ; preds = %25, %14
@@ -1253,7 +1253,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @add_del_listener(i32 nound
   tail call void @up_write(ptr noundef %77) #10
   %92 = add nuw nsw i64 %69, 1
   %93 = and i64 %92, 127
-  %94 = icmp ugt i64 %93, 63
+  %94 = icmp samesign ugt i64 %93, 63
   br i1 %94, label %.thread, label %62, !prof !18, !llvm.loop !30
 
 .thread:                                          ; preds = %.preheader12, %.loopexit10, %21, %62, %.loopexit, %68, %9, %3

@@ -485,7 +485,7 @@ define hidden ptr @mate_make_config(ptr noundef %0, i32 noundef %1) local_unname
   %113 = getelementptr inbounds i8, ptr %112, i64 8
   %114 = load i32, ptr %113, align 8
   %115 = zext i32 %114 to i64
-  %116 = icmp ult i64 %indvars.iv.next.i.i, %115
+  %116 = icmp samesign ult i64 %indvars.iv.next.i.i, %115
   br i1 %116, label %102, label %analyze_pdu_config.exit.i, !llvm.loop !7
 
 analyze_pdu_config.exit.i:                        ; preds = %102, %68
@@ -512,7 +512,7 @@ analyze_pdu_config.exit.i:                        ; preds = %102, %68
   %129 = getelementptr inbounds i8, ptr %128, i64 8
   %130 = load i32, ptr %129, align 8
   %131 = zext i32 %130 to i64
-  %132 = icmp ult i64 %indvars.iv.next.i, %131
+  %132 = icmp samesign ult i64 %indvars.iv.next.i, %131
   br i1 %132, label %68, label %analyze_config.exit, !llvm.loop !8
 
 analyze_config.exit:                              ; preds = %analyze_pdu_config.exit.i, %55
@@ -1378,7 +1378,7 @@ define internal fastcc void @analyze_transform_hfrs(ptr nocapture noundef readon
   %39 = phi i32 [ %.pre, %._crit_edge23.loopexit ], [ %17, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %41, label %16, label %._crit_edge27, !llvm.loop !18
 
 ._crit_edge27:                                    ; preds = %._crit_edge23, %4

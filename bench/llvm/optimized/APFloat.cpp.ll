@@ -754,7 +754,7 @@ _ZN4llvm5APIntD2Ev.exit32:                        ; preds = %67, %60
   %77 = add nuw nsw i64 %76, 63
   %78 = lshr i64 %77, 6
   %79 = trunc nuw nsw i64 %78 to i32
-  %80 = icmp ugt i32 %39, %79
+  %80 = icmp samesign ugt i32 %39, %79
   br i1 %80, label %81, label %.thread74
 
 81:                                               ; preds = %.thread
@@ -3294,7 +3294,7 @@ _ZN4llvmL10shiftRightEPmjj.exit:                  ; preds = %94, %104, %109, %11
 .thread102:                                       ; preds = %46, %_ZN4llvmL10shiftRightEPmjj.exit, %90, %88, %80
   %.071100 = phi i32 [ %.071101, %_ZN4llvmL10shiftRightEPmjj.exit ], [ %.071101, %90 ], [ %.071101, %88 ], [ %.071, %80 ], [ %33, %46 ]
   %.068 = phi i32 [ %.0.i.i, %_ZN4llvmL10shiftRightEPmjj.exit ], [ 0, %90 ], [ 0, %88 ], [ 0, %80 ], [ 0, %46 ]
-  %113 = icmp ugt i32 %26, %30
+  %113 = icmp samesign ugt i32 %26, %30
   br i1 %113, label %114, label %145
 
 114:                                              ; preds = %.thread102
@@ -6878,7 +6878,7 @@ define dso_local noundef range(i32 0, 17) i32 @_ZNK4llvm6detail9IEEEFloat28conve
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i8, ptr %8, align 4
   %10 = and i8 %9, 7
-  %switch = icmp ult i8 %10, 2
+  %switch = icmp samesign ult i8 %10, 2
   br i1 %switch, label %102, label %11
 
 11:                                               ; preds = %7
@@ -7956,7 +7956,7 @@ define dso_local noundef i32 @_ZN4llvm6detail9IEEEFloat28roundSignificandWithExp
   %27 = getelementptr inbounds [8 x i64], ptr @_ZZN4llvmL8powerOf5EPmjE16firstEightPowers, i64 0, i64 %26
   %28 = load i64, ptr %27, align 8
   store i64 %28, ptr %10, align 16
-  %.not54.i = icmp ult i32 %24, 8
+  %.not54.i = icmp samesign ult i32 %24, 8
   br i1 %.not54.i, label %_ZN4llvmL8powerOf5EPmj.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %5
@@ -8013,7 +8013,7 @@ define dso_local noundef i32 @_ZN4llvm6detail9IEEEFloat28roundSignificandWithExp
   %51 = getelementptr inbounds i64, ptr %.04258.i, i64 %50
   %52 = lshr i32 %.061.i, 1
   %53 = add nuw nsw i32 %.04060.i, 1
-  %.not.i = icmp ult i32 %.061.i, 2
+  %.not.i = icmp samesign ult i32 %.061.i, 2
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !139
 
 ._crit_edge.i:                                    ; preds = %49
@@ -14021,7 +14021,7 @@ _ZN4llvm5APIntC2Ejmbb.exit26.i.i:                 ; preds = %227, %216
   br label %233
 
 233:                                              ; preds = %231, %229
-  %.not24.i.i = icmp ult i32 %.0.i138.i, 2
+  %.not24.i.i = icmp samesign ult i32 %.0.i138.i, 2
   br i1 %.not24.i.i, label %237, label %234
 
 234:                                              ; preds = %233
@@ -14288,7 +14288,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit150.i: ; preds = %326, 
 
 349:                                              ; preds = %.lr.ph54.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %350 = icmp ult i64 %indvars.iv.next.i.i, %344
+  %350 = icmp samesign ult i64 %indvars.iv.next.i.i, %344
   br i1 %350, label %.lr.ph54.i.i, label %.critedge.loopexit.i.i, !llvm.loop !341
 
 .critedge.loopexit.i.i:                           ; preds = %349, %.lr.ph54.i.i
@@ -14649,7 +14649,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit169.i: ; preds = %517, 
   %521 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #26
   %522 = add i64 %521, 1
   call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %522) #26
-  %.not127.i = icmp ult i32 %.4.i, 10
+  %.not127.i = icmp samesign ult i32 %.4.i, 10
   br i1 %.not127.i, label %523, label %509, !llvm.loop !344
 
 523:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit169.i
@@ -15230,7 +15230,7 @@ define dso_local noundef i32 @_ZNK4llvm6detail9IEEEFloat15getExactLog2AbsEv(ptr 
   %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
   %22 = trunc nuw nsw i64 %21 to i32
   %23 = add nuw nsw i32 %.01927, %22
-  %24 = icmp ugt i32 %23, 1
+  %24 = icmp samesign ugt i32 %23, 1
   br i1 %24, label %.loopexit, label %18
 
 ._crit_edge:                                      ; preds = %18, %8
@@ -15268,7 +15268,7 @@ define dso_local noundef i32 @_ZNK4llvm6detail9IEEEFloat15getExactLog2AbsEv(ptr 
   %.01730 = phi i32 [ 0, %.lr.ph32.preheader ], [ %37, %.lr.ph32 ]
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %37 = add i32 %.01730, 64
-  %38 = icmp ult i64 %indvars.iv.next40, %31
+  %38 = icmp samesign ult i64 %indvars.iv.next40, %31
   tail call void @llvm.assume(i1 %38)
   %39 = getelementptr inbounds i64, ptr %.0.i.i, i64 %indvars.iv.next40
   %40 = load i64, ptr %39, align 8

@@ -1460,7 +1460,7 @@ rb_array_len.exit:                                ; preds = %71
 rb_array_len.exit.thread:                         ; preds = %71
   %76 = lshr i64 %72, 15
   %77 = and i64 %76, 127
-  %78 = icmp ult i64 %.093, %77
+  %78 = icmp samesign ult i64 %.093, %77
   br i1 %78, label %rb_array_const_ptr.exit, label %.loopexit
 
 79:                                               ; preds = %rb_array_len.exit

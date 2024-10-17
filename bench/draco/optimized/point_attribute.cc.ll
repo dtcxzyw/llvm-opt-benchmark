@@ -1070,7 +1070,7 @@ _ZNSt13unordered_mapISt5arrayIjLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %50
@@ -1146,7 +1146,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !9
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -1166,7 +1166,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -1317,7 +1317,7 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %50
@@ -1393,7 +1393,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !13
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -1413,7 +1413,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -1568,7 +1568,7 @@ _ZNSt13unordered_mapISt5arrayIjLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %50
@@ -1644,7 +1644,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next76, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next76, %91
   br i1 %92, label %.lr.ph66, label %.loopexit, !llvm.loop !17
 
 .lr.ph64:                                         ; preds = %.preheader, %.lr.ph64
@@ -1664,7 +1664,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next73, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next73, %104
   br i1 %105, label %.lr.ph64, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph64, %.lr.ph66, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -1819,7 +1819,7 @@ _ZNSt13unordered_mapISt5arrayIjLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %50
@@ -1895,7 +1895,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next74, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next74, %91
   br i1 %92, label %.lr.ph64, label %.loopexit, !llvm.loop !21
 
 .lr.ph62:                                         ; preds = %.preheader, %.lr.ph62
@@ -1915,7 +1915,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next71, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next71, %104
   br i1 %105, label %.lr.ph62, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph62, %.lr.ph64, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -3669,7 +3669,7 @@ _ZNSt13unordered_mapISt5arrayIhLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %50
@@ -3745,7 +3745,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !44
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -3765,7 +3765,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -3916,7 +3916,7 @@ _ZNSt13unordered_mapISt5arrayIhLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %50
@@ -3992,7 +3992,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !48
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -4012,7 +4012,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -4163,7 +4163,7 @@ _ZNSt13unordered_mapISt5arrayIhLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %50
@@ -4239,7 +4239,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !52
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -4259,7 +4259,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -4410,7 +4410,7 @@ _ZNSt13unordered_mapISt5arrayIhLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %50
@@ -4486,7 +4486,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !56
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -4506,7 +4506,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -6041,7 +6041,7 @@ _ZNSt13unordered_mapISt5arrayIhLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %50
@@ -6117,7 +6117,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !75
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -6137,7 +6137,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -6288,7 +6288,7 @@ _ZNSt13unordered_mapISt5arrayIhLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %50
@@ -6364,7 +6364,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !78
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -6384,7 +6384,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !79
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -6535,7 +6535,7 @@ _ZNSt13unordered_mapISt5arrayIhLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %50
@@ -6611,7 +6611,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !81
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -6631,7 +6631,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !82
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -6782,7 +6782,7 @@ _ZNSt13unordered_mapISt5arrayIhLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %50
@@ -6858,7 +6858,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !84
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -6878,7 +6878,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !85
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -7029,7 +7029,7 @@ _ZNSt13unordered_mapISt5arrayItLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %50
@@ -7105,7 +7105,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !87
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -7125,7 +7125,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !88
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -7276,7 +7276,7 @@ _ZNSt13unordered_mapISt5arrayItLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %50
@@ -7352,7 +7352,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !91
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -7372,7 +7372,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !92
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -7523,7 +7523,7 @@ _ZNSt13unordered_mapISt5arrayItLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %50
@@ -7599,7 +7599,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !95
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -7619,7 +7619,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !96
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -7770,7 +7770,7 @@ _ZNSt13unordered_mapISt5arrayItLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %50
@@ -7846,7 +7846,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !99
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -7866,7 +7866,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !100
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -9401,7 +9401,7 @@ _ZNSt13unordered_mapISt5arrayItLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %50
@@ -9477,7 +9477,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !118
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -9497,7 +9497,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !119
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -9648,7 +9648,7 @@ _ZNSt13unordered_mapISt5arrayItLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %50
@@ -9724,7 +9724,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !121
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -9744,7 +9744,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !122
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -9895,7 +9895,7 @@ _ZNSt13unordered_mapISt5arrayItLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %50
@@ -9971,7 +9971,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !124
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -9991,7 +9991,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !125
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -10142,7 +10142,7 @@ _ZNSt13unordered_mapISt5arrayItLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %50
@@ -10218,7 +10218,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !127
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -10238,7 +10238,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !128
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -10389,7 +10389,7 @@ _ZNSt13unordered_mapISt5arrayIjLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %50
@@ -10465,7 +10465,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !130
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -10485,7 +10485,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !131
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -10636,7 +10636,7 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %50
@@ -10712,7 +10712,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !133
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -10732,7 +10732,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !134
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -10887,7 +10887,7 @@ _ZNSt13unordered_mapISt5arrayIjLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %50
@@ -10963,7 +10963,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next76, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next76, %91
   br i1 %92, label %.lr.ph66, label %.loopexit, !llvm.loop !136
 
 .lr.ph64:                                         ; preds = %.preheader, %.lr.ph64
@@ -10983,7 +10983,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next73, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next73, %104
   br i1 %105, label %.lr.ph64, label %.loopexit, !llvm.loop !137
 
 .loopexit:                                        ; preds = %.lr.ph64, %.lr.ph66, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -11138,7 +11138,7 @@ _ZNSt13unordered_mapISt5arrayIjLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !138
 
 ._crit_edge:                                      ; preds = %50
@@ -11214,7 +11214,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next74, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next74, %91
   br i1 %92, label %.lr.ph64, label %.loopexit, !llvm.loop !139
 
 .lr.ph62:                                         ; preds = %.preheader, %.lr.ph62
@@ -11234,7 +11234,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next71, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next71, %104
   br i1 %105, label %.lr.ph62, label %.loopexit, !llvm.loop !140
 
 .loopexit:                                        ; preds = %.lr.ph62, %.lr.ph64, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -11385,7 +11385,7 @@ _ZNSt13unordered_mapISt5arrayIjLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !141
 
 ._crit_edge:                                      ; preds = %50
@@ -11461,7 +11461,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !142
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -11481,7 +11481,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !143
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -11632,7 +11632,7 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !144
 
 ._crit_edge:                                      ; preds = %50
@@ -11708,7 +11708,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next73, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next73, %91
   br i1 %92, label %.lr.ph63, label %.loopexit, !llvm.loop !145
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
@@ -11728,7 +11728,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next70, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next70, %104
   br i1 %105, label %.lr.ph61, label %.loopexit, !llvm.loop !146
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph63, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -11883,7 +11883,7 @@ _ZNSt13unordered_mapISt5arrayIjLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !147
 
 ._crit_edge:                                      ; preds = %50
@@ -11959,7 +11959,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next76, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next76, %91
   br i1 %92, label %.lr.ph66, label %.loopexit, !llvm.loop !148
 
 .lr.ph64:                                         ; preds = %.preheader, %.lr.ph64
@@ -11979,7 +11979,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next73, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next73, %104
   br i1 %105, label %.lr.ph64, label %.loopexit, !llvm.loop !149
 
 .loopexit:                                        ; preds = %.lr.ph64, %.lr.ph66, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
@@ -12134,7 +12134,7 @@ _ZNSt13unordered_mapISt5arrayIjLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %20, label %._crit_edge, !llvm.loop !150
 
 ._crit_edge:                                      ; preds = %50
@@ -12210,7 +12210,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %90 = load i32, ptr %11, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next74, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next74, %91
   br i1 %92, label %.lr.ph64, label %.loopexit, !llvm.loop !151
 
 .lr.ph62:                                         ; preds = %.preheader, %.lr.ph62
@@ -12230,7 +12230,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
   %102 = sub i64 %100, %101
   %103 = lshr exact i64 %102, 2
   %104 = and i64 %103, 4294967295
-  %105 = icmp ult i64 %indvars.iv.next71, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next71, %104
   br i1 %105, label %.lr.ph62, label %.loopexit, !llvm.loop !152
 
 .loopexit:                                        ; preds = %.lr.ph62, %.lr.ph64, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit

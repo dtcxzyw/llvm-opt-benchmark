@@ -1083,7 +1083,7 @@ if.then177:                                       ; preds = %for.end173
   %.sroa.speculated418 = zext i8 %69 to i32
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %conv.i244.lcssa, i32 122)
   %sub192 = add nsw i32 %.sroa.speculated, -32
-  %cmp195.not578 = icmp ult i32 %.sroa.speculated, %.sroa.speculated418
+  %cmp195.not578 = icmp samesign ult i32 %.sroa.speculated, %.sroa.speculated418
   br i1 %cmp195.not578, label %if.end240, label %for.body196.lr.ph
 
 for.body196.lr.ph:                                ; preds = %if.then177

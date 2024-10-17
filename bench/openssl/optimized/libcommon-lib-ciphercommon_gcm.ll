@@ -465,7 +465,7 @@ if.end.i:                                         ; preds = %if.end31
   %11 = load i8, ptr %arrayidx3.i, align 1
   %conv4.i = zext i8 %11 to i64
   %or.i = or disjoint i64 %shl.i, %conv4.i
-  %cmp6.i = icmp ult i64 %or.i, 8
+  %cmp6.i = icmp samesign ult i64 %or.i, 8
   br i1 %cmp6.i, label %if.then35, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i

@@ -1493,7 +1493,7 @@ bitVectorRead.exit431:                            ; preds = %bitVectorRead.exit4
   br i1 %81, label %159, label %beforep.exit.thread16
 
 159:                                              ; preds = %158
-  %160 = icmp ult i16 %.0.i42411, %.0.i42813
+  %160 = icmp samesign ult i16 %.0.i42411, %.0.i42813
   br i1 %160, label %beforep.exit.thread, label %161
 
 161:                                              ; preds = %159
@@ -1502,7 +1502,7 @@ bitVectorRead.exit431:                            ; preds = %bitVectorRead.exit4
 
 163:                                              ; preds = %161
   %164 = icmp ugt i32 %27, %80
-  %165 = icmp ult i16 %.0.i426, %.0.i430
+  %165 = icmp samesign ult i16 %.0.i426, %.0.i430
   %166 = and i1 %83, %165
   %or.cond = select i1 %164, i1 true, i1 %166
   br i1 %or.cond, label %beforep.exit.thread, label %beforep.exit.thread16

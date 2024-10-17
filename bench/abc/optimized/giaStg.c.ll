@@ -262,7 +262,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %.1171218 = phi i32 [ 0, %21 ], [ %23, %.loopexit201 ]
   %.0174217 = phi i32 [ 0, %21 ], [ %.1175.lcssa, %.loopexit201 ]
   %23 = add nuw nsw i32 %.1171218, 1
-  %24 = icmp ult i32 %23, %.0.lcssa
+  %24 = icmp samesign ult i32 %23, %.0.lcssa
   br i1 %24, label %.lr.ph, label %.loopexit201
 
 25:                                               ; preds = %.lr.ph
@@ -308,7 +308,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %.2172229 = phi i32 [ 0, %36 ], [ %38, %.loopexit200 ]
   %.2176228 = phi i32 [ 0, %36 ], [ %.3177.lcssa, %.loopexit200 ]
   %38 = add nuw nsw i32 %.2172229, 1
-  %39 = icmp ult i32 %38, %.1.lcssa
+  %39 = icmp samesign ult i32 %38, %.1.lcssa
   br i1 %39, label %.lr.ph226, label %.loopexit200
 
 .loopexit198:                                     ; preds = %42, %.lr.ph226
@@ -320,7 +320,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %.1167225 = phi i32 [ %40, %.loopexit198 ], [ %38, %37 ]
   %.3177224 = phi i32 [ %.4178.lcssa, %.loopexit198 ], [ %.2176228, %37 ]
   %40 = add nuw nsw i32 %.1167225, 1
-  %41 = icmp ult i32 %40, %.1.lcssa
+  %41 = icmp samesign ult i32 %40, %.1.lcssa
   br i1 %41, label %.lr.ph222, label %.loopexit198
 
 42:                                               ; preds = %.lr.ph222
@@ -378,7 +378,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %.3173244 = phi i32 [ 0, %57 ], [ %59, %.loopexit197 ]
   %.5243 = phi i32 [ 0, %57 ], [ %.6.lcssa, %.loopexit197 ]
   %59 = add nuw nsw i32 %.3173244, 1
-  %60 = icmp ult i32 %59, %.2.lcssa
+  %60 = icmp samesign ult i32 %59, %.2.lcssa
   br i1 %60, label %.lr.ph241, label %.loopexit197
 
 .loopexit196:                                     ; preds = %.loopexit194, %.lr.ph241
@@ -390,7 +390,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %.2168240 = phi i32 [ %61, %.loopexit196 ], [ %59, %58 ]
   %.6239 = phi i32 [ %.7.lcssa, %.loopexit196 ], [ %.5243, %58 ]
   %61 = add nuw nsw i32 %.2168240, 1
-  %62 = icmp ult i32 %61, %.2.lcssa
+  %62 = icmp samesign ult i32 %61, %.2.lcssa
   br i1 %62, label %.lr.ph237, label %.loopexit196
 
 .loopexit194:                                     ; preds = %65, %.lr.ph237
@@ -402,7 +402,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %.1164236 = phi i32 [ %63, %.loopexit194 ], [ %61, %.lr.ph241 ]
   %.7235 = phi i32 [ %.8.lcssa, %.loopexit194 ], [ %.6239, %.lr.ph241 ]
   %63 = add nuw nsw i32 %.1164236, 1
-  %64 = icmp ult i32 %63, %.2.lcssa
+  %64 = icmp samesign ult i32 %63, %.2.lcssa
   br i1 %64, label %.lr.ph233, label %.loopexit194
 
 65:                                               ; preds = %.lr.ph233
@@ -462,7 +462,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %.4263 = phi i32 [ 0, %83 ], [ %85, %.loopexit192 ]
   %.9262 = phi i32 [ 0, %83 ], [ %.10.lcssa, %.loopexit192 ]
   %85 = add nuw nsw i32 %.4263, 1
-  %86 = icmp ult i32 %85, %.3.lcssa
+  %86 = icmp samesign ult i32 %85, %.3.lcssa
   br i1 %86, label %.lr.ph260, label %.loopexit192
 
 .loopexit191:                                     ; preds = %.loopexit190, %.lr.ph260
@@ -474,7 +474,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %.3169259 = phi i32 [ %87, %.loopexit191 ], [ %85, %84 ]
   %.10258 = phi i32 [ %.11.lcssa, %.loopexit191 ], [ %.9262, %84 ]
   %87 = add nuw nsw i32 %.3169259, 1
-  %88 = icmp ult i32 %87, %.3.lcssa
+  %88 = icmp samesign ult i32 %87, %.3.lcssa
   br i1 %88, label %.lr.ph256, label %.loopexit191
 
 .loopexit190:                                     ; preds = %.loopexit, %.lr.ph256
@@ -486,7 +486,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %.2165255 = phi i32 [ %89, %.loopexit190 ], [ %87, %.lr.ph260 ]
   %.11254 = phi i32 [ %.12.lcssa, %.loopexit190 ], [ %.10258, %.lr.ph260 ]
   %89 = add nuw nsw i32 %.2165255, 1
-  %90 = icmp ult i32 %89, %.3.lcssa
+  %90 = icmp samesign ult i32 %89, %.3.lcssa
   br i1 %90, label %.lr.ph252, label %.loopexit190
 
 .loopexit:                                        ; preds = %93, %.lr.ph252

@@ -1203,7 +1203,7 @@ _ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_.exit.thread20.i: ; preds = %_ZN
   %34 = add nsw i32 %3, 1
   %35 = icmp sgt i32 %3, -1
   %36 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %34)
-  %37 = icmp ult i32 %36, 2
+  %37 = icmp samesign ult i32 %36, 2
   %or.cond.i.i.i.i = select i1 %35, i1 %37, i1 false
   %38 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %34, i1 true)
   %39 = sub nuw nsw i32 32, %38
@@ -4399,7 +4399,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit: ; preds = %23, %
   %59 = add nsw i32 %54, 1
   %60 = icmp sgt i32 %54, -1
   %61 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %59)
-  %62 = icmp ult i32 %61, 2
+  %62 = icmp samesign ult i32 %61, 2
   %or.cond.i.i.i.i.i.i = select i1 %60, i1 %62, i1 false
   %63 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %59, i1 true)
   %64 = sub nuw nsw i32 32, %63
@@ -4569,7 +4569,7 @@ _ZNK7nmethod18can_be_deoptimizedEv.exit.thread:   ; preds = %36, %40, %_ZNK7nmet
   %61 = add nsw i32 %56, 1
   %62 = icmp sgt i32 %56, -1
   %63 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %61)
-  %64 = icmp ult i32 %63, 2
+  %64 = icmp samesign ult i32 %63, 2
   %or.cond.i.i.i.i.i.i = select i1 %62, i1 %64, i1 false
   %65 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %61, i1 true)
   %66 = sub nuw nsw i32 32, %65
@@ -7984,7 +7984,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25

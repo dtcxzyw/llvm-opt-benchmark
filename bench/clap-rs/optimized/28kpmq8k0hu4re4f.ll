@@ -989,7 +989,7 @@ define internal void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$cl
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !324)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !327)
-  %switch.i.i = icmp ult i64 %2, 4
+  %switch.i.i = icmp samesign ult i64 %2, 4
   br i1 %switch.i.i, label %"_ZN4core3ptr69drop_in_place$LT$clap_builder..builder..value_parser..ValueParser$GT$17h64fc3265e8ce61cfE.exit", label %5
 
 5:                                                ; preds = %4
@@ -2438,7 +2438,7 @@ _ZN12clap_builder7builder6action9ArgAction20default_value_parser17h677de5ca7fb5f
 90:                                               ; preds = %_ZN12clap_builder7builder6action9ArgAction20default_value_parser17h677de5ca7fb5f973E.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !567)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !570)
-  %switch.i.i.i = icmp ult i64 %.pre128, 4
+  %switch.i.i.i = icmp samesign ult i64 %.pre128, 4
   br i1 %switch.i.i.i, label %.thread111, label %91
 
 91:                                               ; preds = %90
@@ -2501,8 +2501,8 @@ _ZN12clap_builder7builder6action9ArgAction12takes_values17h8517f3e6786dc479E.exi
 103:                                              ; preds = %_ZN12clap_builder7builder6action9ArgAction12takes_values17h8517f3e6786dc479E.exit
   %104 = load i8, ptr %7, align 4, !range !437, !noundef !7
   %105 = icmp eq i8 %104, 9
-  %switch124 = icmp ult i8 %104, 2
-  %switch = or i1 %105, %switch124
+  %switch124 = icmp samesign ult i8 %104, 2
+  %switch = select i1 %105, i1 true, i1 %switch124
   %spec.select123 = zext i1 %switch to i64
   br label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17hbd34959a348268e9E.exit.sink.split"
 
@@ -3745,7 +3745,7 @@ define void @"_ZN114_$LT$clap_builder..builder..arg..Arg$u20$as$u20$core..conver
 
 50:                                               ; preds = %36
   tail call void @llvm.experimental.noalias.scope.decl(metadata !789)
-  %switch.i.i = icmp ult i64 %40, 4
+  %switch.i.i = icmp samesign ult i64 %40, 4
   br i1 %switch.i.i, label %"_ZN87_$LT$clap_builder..builder..value_parser..ValueParser$u20$as$u20$core..clone..Clone$GT$5clone17h0bf5a484f67fd1c3E.exit.i", label %51
 
 51:                                               ; preds = %50
@@ -6532,7 +6532,7 @@ define hidden noundef nonnull align 8 ptr @_ZN12clap_builder6parser6parser6Parse
 
 276:                                              ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4f83ad18c53d7015E.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1292)
-  %switch.i.i = icmp ult i64 %273, 4
+  %switch.i.i = icmp samesign ult i64 %273, 4
   br i1 %switch.i.i, label %"_ZN87_$LT$clap_builder..builder..value_parser..ValueParser$u20$as$u20$core..clone..Clone$GT$5clone17h0bf5a484f67fd1c3E.exit.i", label %277
 
 277:                                              ; preds = %276

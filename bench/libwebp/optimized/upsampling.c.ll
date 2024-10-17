@@ -111,7 +111,7 @@ define hidden void @WebPYuv444ToRgba_C(ptr nocapture noundef readonly %0, ptr no
   %23 = add nsw i32 %22, -14234
   %24 = icmp ult i32 %23, 16384
   %25 = lshr i32 %23, 6
-  %26 = icmp ult i32 %22, 14234
+  %26 = icmp samesign ult i32 %22, 14234
   %27 = select i1 %26, i32 0, i32 255
   %28 = select i1 %24, i32 %25, i32 %27
   %29 = trunc i32 %28 to i8
@@ -137,7 +137,7 @@ define hidden void @WebPYuv444ToRgba_C(ptr nocapture noundef readonly %0, ptr no
   %47 = add nsw i32 %46, -17685
   %48 = icmp ult i32 %47, 16384
   %49 = lshr i32 %47, 6
-  %50 = icmp ult i32 %46, 17685
+  %50 = icmp samesign ult i32 %46, 17685
   %51 = select i1 %50, i32 0, i32 255
   %52 = select i1 %48, i32 %49, i32 %51
   %53 = trunc i32 %52 to i8
@@ -183,7 +183,7 @@ define hidden void @WebPYuv444ToBgra_C(ptr nocapture noundef readonly %0, ptr no
   %23 = add nsw i32 %22, -17685
   %24 = icmp ult i32 %23, 16384
   %25 = lshr i32 %23, 6
-  %26 = icmp ult i32 %22, 17685
+  %26 = icmp samesign ult i32 %22, 17685
   %27 = select i1 %26, i32 0, i32 255
   %28 = select i1 %24, i32 %25, i32 %27
   %29 = trunc i32 %28 to i8
@@ -209,7 +209,7 @@ define hidden void @WebPYuv444ToBgra_C(ptr nocapture noundef readonly %0, ptr no
   %47 = add nsw i32 %46, -14234
   %48 = icmp ult i32 %47, 16384
   %49 = lshr i32 %47, 6
-  %50 = icmp ult i32 %46, 14234
+  %50 = icmp samesign ult i32 %46, 14234
   %51 = select i1 %50, i32 0, i32 255
   %52 = select i1 %48, i32 %49, i32 %51
   %53 = trunc i32 %52 to i8
@@ -255,7 +255,7 @@ define hidden void @WebPYuv444ToRgb_C(ptr nocapture noundef readonly %0, ptr noc
   %23 = add nsw i32 %22, -14234
   %24 = icmp ult i32 %23, 16384
   %25 = lshr i32 %23, 6
-  %26 = icmp ult i32 %22, 14234
+  %26 = icmp samesign ult i32 %22, 14234
   %27 = select i1 %26, i32 0, i32 255
   %28 = select i1 %24, i32 %25, i32 %27
   %29 = trunc i32 %28 to i8
@@ -281,7 +281,7 @@ define hidden void @WebPYuv444ToRgb_C(ptr nocapture noundef readonly %0, ptr noc
   %47 = add nsw i32 %46, -17685
   %48 = icmp ult i32 %47, 16384
   %49 = lshr i32 %47, 6
-  %50 = icmp ult i32 %46, 17685
+  %50 = icmp samesign ult i32 %46, 17685
   %51 = select i1 %50, i32 0, i32 255
   %52 = select i1 %48, i32 %49, i32 %51
   %53 = trunc i32 %52 to i8
@@ -325,7 +325,7 @@ define hidden void @WebPYuv444ToBgr_C(ptr nocapture noundef readonly %0, ptr noc
   %23 = add nsw i32 %22, -17685
   %24 = icmp ult i32 %23, 16384
   %25 = lshr i32 %23, 6
-  %26 = icmp ult i32 %22, 17685
+  %26 = icmp samesign ult i32 %22, 17685
   %27 = select i1 %26, i32 0, i32 255
   %28 = select i1 %24, i32 %25, i32 %27
   %29 = trunc i32 %28 to i8
@@ -351,7 +351,7 @@ define hidden void @WebPYuv444ToBgr_C(ptr nocapture noundef readonly %0, ptr noc
   %47 = add nsw i32 %46, -14234
   %48 = icmp ult i32 %47, 16384
   %49 = lshr i32 %47, 6
-  %50 = icmp ult i32 %46, 14234
+  %50 = icmp samesign ult i32 %46, 14234
   %51 = select i1 %50, i32 0, i32 255
   %52 = select i1 %48, i32 %49, i32 %51
   %53 = trunc i32 %52 to i8
@@ -397,7 +397,7 @@ define hidden void @WebPYuv444ToArgb_C(ptr nocapture noundef readonly %0, ptr no
   %24 = add nsw i32 %23, -14234
   %25 = icmp ult i32 %24, 16384
   %26 = lshr i32 %24, 6
-  %27 = icmp ult i32 %23, 14234
+  %27 = icmp samesign ult i32 %23, 14234
   %28 = select i1 %27, i32 0, i32 255
   %29 = select i1 %25, i32 %26, i32 %28
   %30 = trunc i32 %29 to i8
@@ -423,7 +423,7 @@ define hidden void @WebPYuv444ToArgb_C(ptr nocapture noundef readonly %0, ptr no
   %48 = add nsw i32 %47, -17685
   %49 = icmp ult i32 %48, 16384
   %50 = lshr i32 %48, 6
-  %51 = icmp ult i32 %47, 17685
+  %51 = icmp samesign ult i32 %47, 17685
   %52 = select i1 %51, i32 0, i32 255
   %53 = select i1 %49, i32 %50, i32 %52
   %54 = trunc i32 %53 to i8
@@ -467,7 +467,7 @@ define hidden void @WebPYuv444ToRgba4444_C(ptr nocapture noundef readonly %0, pt
   %23 = add nsw i32 %22, -14234
   %24 = icmp ult i32 %23, 16384
   %25 = lshr i32 %23, 6
-  %26 = icmp ult i32 %22, 14234
+  %26 = icmp samesign ult i32 %22, 14234
   %27 = select i1 %26, i32 0, i32 240
   %28 = select i1 %24, i32 %25, i32 %27
   %29 = mul nuw nsw i32 %12, 6419
@@ -488,7 +488,7 @@ define hidden void @WebPYuv444ToRgba4444_C(ptr nocapture noundef readonly %0, pt
   %44 = add nsw i32 %43, -17685
   %45 = icmp ult i32 %44, 16384
   %46 = lshr i32 %44, 6
-  %47 = icmp ult i32 %43, 17685
+  %47 = icmp samesign ult i32 %43, 17685
   %48 = select i1 %47, i32 0, i32 240
   %49 = select i1 %45, i32 %46, i32 %48
   %50 = and i32 %28, 240
@@ -537,7 +537,7 @@ define hidden void @WebPYuv444ToRgb565_C(ptr nocapture noundef readonly %0, ptr 
   %23 = add nsw i32 %22, -14234
   %24 = icmp ult i32 %23, 16384
   %25 = lshr i32 %23, 6
-  %26 = icmp ult i32 %22, 14234
+  %26 = icmp samesign ult i32 %22, 14234
   %27 = select i1 %26, i32 0, i32 248
   %28 = select i1 %24, i32 %25, i32 %27
   %29 = mul nuw nsw i32 %12, 6419
@@ -558,7 +558,7 @@ define hidden void @WebPYuv444ToRgb565_C(ptr nocapture noundef readonly %0, ptr 
   %44 = add nsw i32 %43, -17685
   %45 = icmp ult i32 %44, 16384
   %46 = lshr i32 %44, 9
-  %47 = icmp ult i32 %43, 17685
+  %47 = icmp samesign ult i32 %43, 17685
   %48 = select i1 %47, i32 0, i32 31
   %49 = select i1 %45, i32 %46, i32 %48
   %50 = and i32 %28, 248
@@ -679,7 +679,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %38 = add nsw i32 %37, -14234
   %39 = icmp ult i32 %38, 16384
   %40 = lshr i32 %38, 6
-  %41 = icmp ult i32 %37, 14234
+  %41 = icmp samesign ult i32 %37, 14234
   %42 = select i1 %41, i32 0, i32 255
   %43 = select i1 %39, i32 %40, i32 %42
   %44 = trunc i32 %43 to i8
@@ -705,7 +705,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %62 = add nsw i32 %61, -17685
   %63 = icmp ult i32 %62, 16384
   %64 = lshr i32 %62, 6
-  %65 = icmp ult i32 %61, 17685
+  %65 = icmp samesign ult i32 %61, 17685
   %66 = select i1 %65, i32 0, i32 255
   %67 = select i1 %63, i32 %64, i32 %66
   %68 = trunc i32 %67 to i8
@@ -734,7 +734,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %86 = add nsw i32 %85, -14234
   %87 = icmp ult i32 %86, 16384
   %88 = lshr i32 %86, 6
-  %89 = icmp ult i32 %85, 14234
+  %89 = icmp samesign ult i32 %85, 14234
   %90 = select i1 %89, i32 0, i32 255
   %91 = select i1 %87, i32 %88, i32 %90
   %92 = trunc i32 %91 to i8
@@ -760,7 +760,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %110 = add nsw i32 %109, -17685
   %111 = icmp ult i32 %110, 16384
   %112 = lshr i32 %110, 6
-  %113 = icmp ult i32 %109, 17685
+  %113 = icmp samesign ult i32 %109, 17685
   %114 = select i1 %113, i32 0, i32 255
   %115 = select i1 %111, i32 %112, i32 %114
   %116 = trunc i32 %115 to i8
@@ -833,7 +833,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %168 = add nsw i32 %167, -14234
   %169 = icmp ult i32 %168, 16384
   %170 = lshr i32 %168, 6
-  %171 = icmp ult i32 %167, 14234
+  %171 = icmp samesign ult i32 %167, 14234
   %172 = select i1 %171, i32 0, i32 255
   %173 = select i1 %169, i32 %170, i32 %172
   %174 = trunc i32 %173 to i8
@@ -859,7 +859,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %192 = add nsw i32 %191, -17685
   %193 = icmp ult i32 %192, 16384
   %194 = lshr i32 %192, 6
-  %195 = icmp ult i32 %191, 17685
+  %195 = icmp samesign ult i32 %191, 17685
   %196 = select i1 %195, i32 0, i32 255
   %197 = select i1 %193, i32 %194, i32 %196
   %198 = trunc i32 %197 to i8
@@ -883,7 +883,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %214 = add nsw i32 %213, -14234
   %215 = icmp ult i32 %214, 16384
   %216 = lshr i32 %214, 6
-  %217 = icmp ult i32 %213, 14234
+  %217 = icmp samesign ult i32 %213, 14234
   %218 = select i1 %217, i32 0, i32 255
   %219 = select i1 %215, i32 %216, i32 %218
   %220 = trunc i32 %219 to i8
@@ -909,7 +909,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %238 = add nsw i32 %237, -17685
   %239 = icmp ult i32 %238, 16384
   %240 = lshr i32 %238, 6
-  %241 = icmp ult i32 %237, 17685
+  %241 = icmp samesign ult i32 %237, 17685
   %242 = select i1 %241, i32 0, i32 255
   %243 = select i1 %239, i32 %240, i32 %242
   %244 = trunc i32 %243 to i8
@@ -939,7 +939,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %264 = add nsw i32 %263, -14234
   %265 = icmp ult i32 %264, 16384
   %266 = lshr i32 %264, 6
-  %267 = icmp ult i32 %263, 14234
+  %267 = icmp samesign ult i32 %263, 14234
   %268 = select i1 %267, i32 0, i32 255
   %269 = select i1 %265, i32 %266, i32 %268
   %270 = trunc i32 %269 to i8
@@ -965,7 +965,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %288 = add nsw i32 %287, -17685
   %289 = icmp ult i32 %288, 16384
   %290 = lshr i32 %288, 6
-  %291 = icmp ult i32 %287, 17685
+  %291 = icmp samesign ult i32 %287, 17685
   %292 = select i1 %291, i32 0, i32 255
   %293 = select i1 %289, i32 %290, i32 %292
   %294 = trunc i32 %293 to i8
@@ -988,7 +988,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %309 = add nsw i32 %308, -14234
   %310 = icmp ult i32 %309, 16384
   %311 = lshr i32 %309, 6
-  %312 = icmp ult i32 %308, 14234
+  %312 = icmp samesign ult i32 %308, 14234
   %313 = select i1 %312, i32 0, i32 255
   %314 = select i1 %310, i32 %311, i32 %313
   %315 = trunc i32 %314 to i8
@@ -1014,7 +1014,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %333 = add nsw i32 %332, -17685
   %334 = icmp ult i32 %333, 16384
   %335 = lshr i32 %333, 6
-  %336 = icmp ult i32 %332, 17685
+  %336 = icmp samesign ult i32 %332, 17685
   %337 = select i1 %336, i32 0, i32 255
   %338 = select i1 %334, i32 %335, i32 %337
   %339 = trunc i32 %338 to i8
@@ -1059,7 +1059,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %364 = add nsw i32 %363, -14234
   %365 = icmp ult i32 %364, 16384
   %366 = lshr i32 %364, 6
-  %367 = icmp ult i32 %363, 14234
+  %367 = icmp samesign ult i32 %363, 14234
   %368 = select i1 %367, i32 0, i32 255
   %369 = select i1 %365, i32 %366, i32 %368
   %370 = trunc i32 %369 to i8
@@ -1085,7 +1085,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %388 = add nsw i32 %387, -17685
   %389 = icmp ult i32 %388, 16384
   %390 = lshr i32 %388, 6
-  %391 = icmp ult i32 %387, 17685
+  %391 = icmp samesign ult i32 %387, 17685
   %392 = select i1 %391, i32 0, i32 255
   %393 = select i1 %389, i32 %390, i32 %392
   %394 = trunc i32 %393 to i8
@@ -1115,7 +1115,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %414 = add nsw i32 %413, -14234
   %415 = icmp ult i32 %414, 16384
   %416 = lshr i32 %414, 6
-  %417 = icmp ult i32 %413, 14234
+  %417 = icmp samesign ult i32 %413, 14234
   %418 = select i1 %417, i32 0, i32 255
   %419 = select i1 %415, i32 %416, i32 %418
   %420 = trunc i32 %419 to i8
@@ -1141,7 +1141,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %438 = add nsw i32 %437, -17685
   %439 = icmp ult i32 %438, 16384
   %440 = lshr i32 %438, 6
-  %441 = icmp ult i32 %437, 17685
+  %441 = icmp samesign ult i32 %437, 17685
   %442 = select i1 %441, i32 0, i32 255
   %443 = select i1 %439, i32 %440, i32 %442
   %444 = trunc i32 %443 to i8
@@ -1188,7 +1188,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %38 = add nsw i32 %37, -17685
   %39 = icmp ult i32 %38, 16384
   %40 = lshr i32 %38, 6
-  %41 = icmp ult i32 %37, 17685
+  %41 = icmp samesign ult i32 %37, 17685
   %42 = select i1 %41, i32 0, i32 255
   %43 = select i1 %39, i32 %40, i32 %42
   %44 = trunc i32 %43 to i8
@@ -1214,7 +1214,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %62 = add nsw i32 %61, -14234
   %63 = icmp ult i32 %62, 16384
   %64 = lshr i32 %62, 6
-  %65 = icmp ult i32 %61, 14234
+  %65 = icmp samesign ult i32 %61, 14234
   %66 = select i1 %65, i32 0, i32 255
   %67 = select i1 %63, i32 %64, i32 %66
   %68 = trunc i32 %67 to i8
@@ -1243,7 +1243,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %86 = add nsw i32 %85, -17685
   %87 = icmp ult i32 %86, 16384
   %88 = lshr i32 %86, 6
-  %89 = icmp ult i32 %85, 17685
+  %89 = icmp samesign ult i32 %85, 17685
   %90 = select i1 %89, i32 0, i32 255
   %91 = select i1 %87, i32 %88, i32 %90
   %92 = trunc i32 %91 to i8
@@ -1269,7 +1269,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %110 = add nsw i32 %109, -14234
   %111 = icmp ult i32 %110, 16384
   %112 = lshr i32 %110, 6
-  %113 = icmp ult i32 %109, 14234
+  %113 = icmp samesign ult i32 %109, 14234
   %114 = select i1 %113, i32 0, i32 255
   %115 = select i1 %111, i32 %112, i32 %114
   %116 = trunc i32 %115 to i8
@@ -1342,7 +1342,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %168 = add nsw i32 %167, -17685
   %169 = icmp ult i32 %168, 16384
   %170 = lshr i32 %168, 6
-  %171 = icmp ult i32 %167, 17685
+  %171 = icmp samesign ult i32 %167, 17685
   %172 = select i1 %171, i32 0, i32 255
   %173 = select i1 %169, i32 %170, i32 %172
   %174 = trunc i32 %173 to i8
@@ -1368,7 +1368,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %192 = add nsw i32 %191, -14234
   %193 = icmp ult i32 %192, 16384
   %194 = lshr i32 %192, 6
-  %195 = icmp ult i32 %191, 14234
+  %195 = icmp samesign ult i32 %191, 14234
   %196 = select i1 %195, i32 0, i32 255
   %197 = select i1 %193, i32 %194, i32 %196
   %198 = trunc i32 %197 to i8
@@ -1392,7 +1392,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %214 = add nsw i32 %213, -17685
   %215 = icmp ult i32 %214, 16384
   %216 = lshr i32 %214, 6
-  %217 = icmp ult i32 %213, 17685
+  %217 = icmp samesign ult i32 %213, 17685
   %218 = select i1 %217, i32 0, i32 255
   %219 = select i1 %215, i32 %216, i32 %218
   %220 = trunc i32 %219 to i8
@@ -1418,7 +1418,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %238 = add nsw i32 %237, -14234
   %239 = icmp ult i32 %238, 16384
   %240 = lshr i32 %238, 6
-  %241 = icmp ult i32 %237, 14234
+  %241 = icmp samesign ult i32 %237, 14234
   %242 = select i1 %241, i32 0, i32 255
   %243 = select i1 %239, i32 %240, i32 %242
   %244 = trunc i32 %243 to i8
@@ -1448,7 +1448,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %264 = add nsw i32 %263, -17685
   %265 = icmp ult i32 %264, 16384
   %266 = lshr i32 %264, 6
-  %267 = icmp ult i32 %263, 17685
+  %267 = icmp samesign ult i32 %263, 17685
   %268 = select i1 %267, i32 0, i32 255
   %269 = select i1 %265, i32 %266, i32 %268
   %270 = trunc i32 %269 to i8
@@ -1474,7 +1474,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %288 = add nsw i32 %287, -14234
   %289 = icmp ult i32 %288, 16384
   %290 = lshr i32 %288, 6
-  %291 = icmp ult i32 %287, 14234
+  %291 = icmp samesign ult i32 %287, 14234
   %292 = select i1 %291, i32 0, i32 255
   %293 = select i1 %289, i32 %290, i32 %292
   %294 = trunc i32 %293 to i8
@@ -1497,7 +1497,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %309 = add nsw i32 %308, -17685
   %310 = icmp ult i32 %309, 16384
   %311 = lshr i32 %309, 6
-  %312 = icmp ult i32 %308, 17685
+  %312 = icmp samesign ult i32 %308, 17685
   %313 = select i1 %312, i32 0, i32 255
   %314 = select i1 %310, i32 %311, i32 %313
   %315 = trunc i32 %314 to i8
@@ -1523,7 +1523,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %333 = add nsw i32 %332, -14234
   %334 = icmp ult i32 %333, 16384
   %335 = lshr i32 %333, 6
-  %336 = icmp ult i32 %332, 14234
+  %336 = icmp samesign ult i32 %332, 14234
   %337 = select i1 %336, i32 0, i32 255
   %338 = select i1 %334, i32 %335, i32 %337
   %339 = trunc i32 %338 to i8
@@ -1568,7 +1568,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %364 = add nsw i32 %363, -17685
   %365 = icmp ult i32 %364, 16384
   %366 = lshr i32 %364, 6
-  %367 = icmp ult i32 %363, 17685
+  %367 = icmp samesign ult i32 %363, 17685
   %368 = select i1 %367, i32 0, i32 255
   %369 = select i1 %365, i32 %366, i32 %368
   %370 = trunc i32 %369 to i8
@@ -1594,7 +1594,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %388 = add nsw i32 %387, -14234
   %389 = icmp ult i32 %388, 16384
   %390 = lshr i32 %388, 6
-  %391 = icmp ult i32 %387, 14234
+  %391 = icmp samesign ult i32 %387, 14234
   %392 = select i1 %391, i32 0, i32 255
   %393 = select i1 %389, i32 %390, i32 %392
   %394 = trunc i32 %393 to i8
@@ -1624,7 +1624,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %414 = add nsw i32 %413, -17685
   %415 = icmp ult i32 %414, 16384
   %416 = lshr i32 %414, 6
-  %417 = icmp ult i32 %413, 17685
+  %417 = icmp samesign ult i32 %413, 17685
   %418 = select i1 %417, i32 0, i32 255
   %419 = select i1 %415, i32 %416, i32 %418
   %420 = trunc i32 %419 to i8
@@ -1650,7 +1650,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %438 = add nsw i32 %437, -14234
   %439 = icmp ult i32 %438, 16384
   %440 = lshr i32 %438, 6
-  %441 = icmp ult i32 %437, 14234
+  %441 = icmp samesign ult i32 %437, 14234
   %442 = select i1 %441, i32 0, i32 255
   %443 = select i1 %439, i32 %440, i32 %442
   %444 = trunc i32 %443 to i8
@@ -1696,7 +1696,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %37 = add nsw i32 %36, -14234
   %38 = icmp ult i32 %37, 16384
   %39 = lshr i32 %37, 6
-  %40 = icmp ult i32 %36, 14234
+  %40 = icmp samesign ult i32 %36, 14234
   %41 = select i1 %40, i32 0, i32 255
   %42 = select i1 %38, i32 %39, i32 %41
   %43 = trunc i32 %42 to i8
@@ -1722,7 +1722,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %61 = add nsw i32 %60, -17685
   %62 = icmp ult i32 %61, 16384
   %63 = lshr i32 %61, 6
-  %64 = icmp ult i32 %60, 17685
+  %64 = icmp samesign ult i32 %60, 17685
   %65 = select i1 %64, i32 0, i32 255
   %66 = select i1 %62, i32 %63, i32 %65
   %67 = trunc i32 %66 to i8
@@ -1748,7 +1748,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %83 = add nsw i32 %82, -14234
   %84 = icmp ult i32 %83, 16384
   %85 = lshr i32 %83, 6
-  %86 = icmp ult i32 %82, 14234
+  %86 = icmp samesign ult i32 %82, 14234
   %87 = select i1 %86, i32 0, i32 255
   %88 = select i1 %84, i32 %85, i32 %87
   %89 = trunc i32 %88 to i8
@@ -1774,7 +1774,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %107 = add nsw i32 %106, -17685
   %108 = icmp ult i32 %107, 16384
   %109 = lshr i32 %107, 6
-  %110 = icmp ult i32 %106, 17685
+  %110 = icmp samesign ult i32 %106, 17685
   %111 = select i1 %110, i32 0, i32 255
   %112 = select i1 %108, i32 %109, i32 %111
   %113 = trunc i32 %112 to i8
@@ -1844,7 +1844,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %163 = add nsw i32 %162, -14234
   %164 = icmp ult i32 %163, 16384
   %165 = lshr i32 %163, 6
-  %166 = icmp ult i32 %162, 14234
+  %166 = icmp samesign ult i32 %162, 14234
   %167 = select i1 %166, i32 0, i32 255
   %168 = select i1 %164, i32 %165, i32 %167
   %169 = trunc i32 %168 to i8
@@ -1870,7 +1870,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %187 = add nsw i32 %186, -17685
   %188 = icmp ult i32 %187, 16384
   %189 = lshr i32 %187, 6
-  %190 = icmp ult i32 %186, 17685
+  %190 = icmp samesign ult i32 %186, 17685
   %191 = select i1 %190, i32 0, i32 255
   %192 = select i1 %188, i32 %189, i32 %191
   %193 = trunc i32 %192 to i8
@@ -1891,7 +1891,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %207 = add nsw i32 %206, -14234
   %208 = icmp ult i32 %207, 16384
   %209 = lshr i32 %207, 6
-  %210 = icmp ult i32 %206, 14234
+  %210 = icmp samesign ult i32 %206, 14234
   %211 = select i1 %210, i32 0, i32 255
   %212 = select i1 %208, i32 %209, i32 %211
   %213 = trunc i32 %212 to i8
@@ -1917,7 +1917,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %231 = add nsw i32 %230, -17685
   %232 = icmp ult i32 %231, 16384
   %233 = lshr i32 %231, 6
-  %234 = icmp ult i32 %230, 17685
+  %234 = icmp samesign ult i32 %230, 17685
   %235 = select i1 %234, i32 0, i32 255
   %236 = select i1 %232, i32 %233, i32 %235
   %237 = trunc i32 %236 to i8
@@ -1944,7 +1944,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %255 = add nsw i32 %254, -14234
   %256 = icmp ult i32 %255, 16384
   %257 = lshr i32 %255, 6
-  %258 = icmp ult i32 %254, 14234
+  %258 = icmp samesign ult i32 %254, 14234
   %259 = select i1 %258, i32 0, i32 255
   %260 = select i1 %256, i32 %257, i32 %259
   %261 = trunc i32 %260 to i8
@@ -1970,7 +1970,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %279 = add nsw i32 %278, -17685
   %280 = icmp ult i32 %279, 16384
   %281 = lshr i32 %279, 6
-  %282 = icmp ult i32 %278, 17685
+  %282 = icmp samesign ult i32 %278, 17685
   %283 = select i1 %282, i32 0, i32 255
   %284 = select i1 %280, i32 %281, i32 %283
   %285 = trunc i32 %284 to i8
@@ -1990,7 +1990,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %298 = add nsw i32 %297, -14234
   %299 = icmp ult i32 %298, 16384
   %300 = lshr i32 %298, 6
-  %301 = icmp ult i32 %297, 14234
+  %301 = icmp samesign ult i32 %297, 14234
   %302 = select i1 %301, i32 0, i32 255
   %303 = select i1 %299, i32 %300, i32 %302
   %304 = trunc i32 %303 to i8
@@ -2016,7 +2016,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %322 = add nsw i32 %321, -17685
   %323 = icmp ult i32 %322, 16384
   %324 = lshr i32 %322, 6
-  %325 = icmp ult i32 %321, 17685
+  %325 = icmp samesign ult i32 %321, 17685
   %326 = select i1 %325, i32 0, i32 255
   %327 = select i1 %323, i32 %324, i32 %326
   %328 = trunc i32 %327 to i8
@@ -2058,7 +2058,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %351 = add nsw i32 %350, -14234
   %352 = icmp ult i32 %351, 16384
   %353 = lshr i32 %351, 6
-  %354 = icmp ult i32 %350, 14234
+  %354 = icmp samesign ult i32 %350, 14234
   %355 = select i1 %354, i32 0, i32 255
   %356 = select i1 %352, i32 %353, i32 %355
   %357 = trunc i32 %356 to i8
@@ -2084,7 +2084,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %375 = add nsw i32 %374, -17685
   %376 = icmp ult i32 %375, 16384
   %377 = lshr i32 %375, 6
-  %378 = icmp ult i32 %374, 17685
+  %378 = icmp samesign ult i32 %374, 17685
   %379 = select i1 %378, i32 0, i32 255
   %380 = select i1 %376, i32 %377, i32 %379
   %381 = trunc i32 %380 to i8
@@ -2111,7 +2111,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %399 = add nsw i32 %398, -14234
   %400 = icmp ult i32 %399, 16384
   %401 = lshr i32 %399, 6
-  %402 = icmp ult i32 %398, 14234
+  %402 = icmp samesign ult i32 %398, 14234
   %403 = select i1 %402, i32 0, i32 255
   %404 = select i1 %400, i32 %401, i32 %403
   %405 = trunc i32 %404 to i8
@@ -2137,7 +2137,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %423 = add nsw i32 %422, -17685
   %424 = icmp ult i32 %423, 16384
   %425 = lshr i32 %423, 6
-  %426 = icmp ult i32 %422, 17685
+  %426 = icmp samesign ult i32 %422, 17685
   %427 = select i1 %426, i32 0, i32 255
   %428 = select i1 %424, i32 %425, i32 %427
   %429 = trunc i32 %428 to i8
@@ -2181,7 +2181,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %37 = add nsw i32 %36, -17685
   %38 = icmp ult i32 %37, 16384
   %39 = lshr i32 %37, 6
-  %40 = icmp ult i32 %36, 17685
+  %40 = icmp samesign ult i32 %36, 17685
   %41 = select i1 %40, i32 0, i32 255
   %42 = select i1 %38, i32 %39, i32 %41
   %43 = trunc i32 %42 to i8
@@ -2207,7 +2207,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %61 = add nsw i32 %60, -14234
   %62 = icmp ult i32 %61, 16384
   %63 = lshr i32 %61, 6
-  %64 = icmp ult i32 %60, 14234
+  %64 = icmp samesign ult i32 %60, 14234
   %65 = select i1 %64, i32 0, i32 255
   %66 = select i1 %62, i32 %63, i32 %65
   %67 = trunc i32 %66 to i8
@@ -2233,7 +2233,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %83 = add nsw i32 %82, -17685
   %84 = icmp ult i32 %83, 16384
   %85 = lshr i32 %83, 6
-  %86 = icmp ult i32 %82, 17685
+  %86 = icmp samesign ult i32 %82, 17685
   %87 = select i1 %86, i32 0, i32 255
   %88 = select i1 %84, i32 %85, i32 %87
   %89 = trunc i32 %88 to i8
@@ -2259,7 +2259,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %107 = add nsw i32 %106, -14234
   %108 = icmp ult i32 %107, 16384
   %109 = lshr i32 %107, 6
-  %110 = icmp ult i32 %106, 14234
+  %110 = icmp samesign ult i32 %106, 14234
   %111 = select i1 %110, i32 0, i32 255
   %112 = select i1 %108, i32 %109, i32 %111
   %113 = trunc i32 %112 to i8
@@ -2329,7 +2329,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %163 = add nsw i32 %162, -17685
   %164 = icmp ult i32 %163, 16384
   %165 = lshr i32 %163, 6
-  %166 = icmp ult i32 %162, 17685
+  %166 = icmp samesign ult i32 %162, 17685
   %167 = select i1 %166, i32 0, i32 255
   %168 = select i1 %164, i32 %165, i32 %167
   %169 = trunc i32 %168 to i8
@@ -2355,7 +2355,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %187 = add nsw i32 %186, -14234
   %188 = icmp ult i32 %187, 16384
   %189 = lshr i32 %187, 6
-  %190 = icmp ult i32 %186, 14234
+  %190 = icmp samesign ult i32 %186, 14234
   %191 = select i1 %190, i32 0, i32 255
   %192 = select i1 %188, i32 %189, i32 %191
   %193 = trunc i32 %192 to i8
@@ -2376,7 +2376,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %207 = add nsw i32 %206, -17685
   %208 = icmp ult i32 %207, 16384
   %209 = lshr i32 %207, 6
-  %210 = icmp ult i32 %206, 17685
+  %210 = icmp samesign ult i32 %206, 17685
   %211 = select i1 %210, i32 0, i32 255
   %212 = select i1 %208, i32 %209, i32 %211
   %213 = trunc i32 %212 to i8
@@ -2402,7 +2402,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %231 = add nsw i32 %230, -14234
   %232 = icmp ult i32 %231, 16384
   %233 = lshr i32 %231, 6
-  %234 = icmp ult i32 %230, 14234
+  %234 = icmp samesign ult i32 %230, 14234
   %235 = select i1 %234, i32 0, i32 255
   %236 = select i1 %232, i32 %233, i32 %235
   %237 = trunc i32 %236 to i8
@@ -2429,7 +2429,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %255 = add nsw i32 %254, -17685
   %256 = icmp ult i32 %255, 16384
   %257 = lshr i32 %255, 6
-  %258 = icmp ult i32 %254, 17685
+  %258 = icmp samesign ult i32 %254, 17685
   %259 = select i1 %258, i32 0, i32 255
   %260 = select i1 %256, i32 %257, i32 %259
   %261 = trunc i32 %260 to i8
@@ -2455,7 +2455,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %279 = add nsw i32 %278, -14234
   %280 = icmp ult i32 %279, 16384
   %281 = lshr i32 %279, 6
-  %282 = icmp ult i32 %278, 14234
+  %282 = icmp samesign ult i32 %278, 14234
   %283 = select i1 %282, i32 0, i32 255
   %284 = select i1 %280, i32 %281, i32 %283
   %285 = trunc i32 %284 to i8
@@ -2475,7 +2475,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %298 = add nsw i32 %297, -17685
   %299 = icmp ult i32 %298, 16384
   %300 = lshr i32 %298, 6
-  %301 = icmp ult i32 %297, 17685
+  %301 = icmp samesign ult i32 %297, 17685
   %302 = select i1 %301, i32 0, i32 255
   %303 = select i1 %299, i32 %300, i32 %302
   %304 = trunc i32 %303 to i8
@@ -2501,7 +2501,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %322 = add nsw i32 %321, -14234
   %323 = icmp ult i32 %322, 16384
   %324 = lshr i32 %322, 6
-  %325 = icmp ult i32 %321, 14234
+  %325 = icmp samesign ult i32 %321, 14234
   %326 = select i1 %325, i32 0, i32 255
   %327 = select i1 %323, i32 %324, i32 %326
   %328 = trunc i32 %327 to i8
@@ -2543,7 +2543,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %351 = add nsw i32 %350, -17685
   %352 = icmp ult i32 %351, 16384
   %353 = lshr i32 %351, 6
-  %354 = icmp ult i32 %350, 17685
+  %354 = icmp samesign ult i32 %350, 17685
   %355 = select i1 %354, i32 0, i32 255
   %356 = select i1 %352, i32 %353, i32 %355
   %357 = trunc i32 %356 to i8
@@ -2569,7 +2569,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %375 = add nsw i32 %374, -14234
   %376 = icmp ult i32 %375, 16384
   %377 = lshr i32 %375, 6
-  %378 = icmp ult i32 %374, 14234
+  %378 = icmp samesign ult i32 %374, 14234
   %379 = select i1 %378, i32 0, i32 255
   %380 = select i1 %376, i32 %377, i32 %379
   %381 = trunc i32 %380 to i8
@@ -2596,7 +2596,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %399 = add nsw i32 %398, -17685
   %400 = icmp ult i32 %399, 16384
   %401 = lshr i32 %399, 6
-  %402 = icmp ult i32 %398, 17685
+  %402 = icmp samesign ult i32 %398, 17685
   %403 = select i1 %402, i32 0, i32 255
   %404 = select i1 %400, i32 %401, i32 %403
   %405 = trunc i32 %404 to i8
@@ -2622,7 +2622,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %423 = add nsw i32 %422, -14234
   %424 = icmp ult i32 %423, 16384
   %425 = lshr i32 %423, 6
-  %426 = icmp ult i32 %422, 14234
+  %426 = icmp samesign ult i32 %422, 14234
   %427 = select i1 %426, i32 0, i32 255
   %428 = select i1 %424, i32 %425, i32 %427
   %429 = trunc i32 %428 to i8
@@ -2669,7 +2669,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %39 = add nsw i32 %38, -14234
   %40 = icmp ult i32 %39, 16384
   %41 = lshr i32 %39, 6
-  %42 = icmp ult i32 %38, 14234
+  %42 = icmp samesign ult i32 %38, 14234
   %43 = select i1 %42, i32 0, i32 255
   %44 = select i1 %40, i32 %41, i32 %43
   %45 = trunc i32 %44 to i8
@@ -2695,7 +2695,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %63 = add nsw i32 %62, -17685
   %64 = icmp ult i32 %63, 16384
   %65 = lshr i32 %63, 6
-  %66 = icmp ult i32 %62, 17685
+  %66 = icmp samesign ult i32 %62, 17685
   %67 = select i1 %66, i32 0, i32 255
   %68 = select i1 %64, i32 %65, i32 %67
   %69 = trunc i32 %68 to i8
@@ -2724,7 +2724,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %87 = add nsw i32 %86, -14234
   %88 = icmp ult i32 %87, 16384
   %89 = lshr i32 %87, 6
-  %90 = icmp ult i32 %86, 14234
+  %90 = icmp samesign ult i32 %86, 14234
   %91 = select i1 %90, i32 0, i32 255
   %92 = select i1 %88, i32 %89, i32 %91
   %93 = trunc i32 %92 to i8
@@ -2750,7 +2750,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %111 = add nsw i32 %110, -17685
   %112 = icmp ult i32 %111, 16384
   %113 = lshr i32 %111, 6
-  %114 = icmp ult i32 %110, 17685
+  %114 = icmp samesign ult i32 %110, 17685
   %115 = select i1 %114, i32 0, i32 255
   %116 = select i1 %112, i32 %113, i32 %115
   %117 = trunc i32 %116 to i8
@@ -2823,7 +2823,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %169 = add nsw i32 %168, -14234
   %170 = icmp ult i32 %169, 16384
   %171 = lshr i32 %169, 6
-  %172 = icmp ult i32 %168, 14234
+  %172 = icmp samesign ult i32 %168, 14234
   %173 = select i1 %172, i32 0, i32 255
   %174 = select i1 %170, i32 %171, i32 %173
   %175 = trunc i32 %174 to i8
@@ -2849,7 +2849,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %193 = add nsw i32 %192, -17685
   %194 = icmp ult i32 %193, 16384
   %195 = lshr i32 %193, 6
-  %196 = icmp ult i32 %192, 17685
+  %196 = icmp samesign ult i32 %192, 17685
   %197 = select i1 %196, i32 0, i32 255
   %198 = select i1 %194, i32 %195, i32 %197
   %199 = trunc i32 %198 to i8
@@ -2873,7 +2873,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %215 = add nsw i32 %214, -14234
   %216 = icmp ult i32 %215, 16384
   %217 = lshr i32 %215, 6
-  %218 = icmp ult i32 %214, 14234
+  %218 = icmp samesign ult i32 %214, 14234
   %219 = select i1 %218, i32 0, i32 255
   %220 = select i1 %216, i32 %217, i32 %219
   %221 = trunc i32 %220 to i8
@@ -2899,7 +2899,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %239 = add nsw i32 %238, -17685
   %240 = icmp ult i32 %239, 16384
   %241 = lshr i32 %239, 6
-  %242 = icmp ult i32 %238, 17685
+  %242 = icmp samesign ult i32 %238, 17685
   %243 = select i1 %242, i32 0, i32 255
   %244 = select i1 %240, i32 %241, i32 %243
   %245 = trunc i32 %244 to i8
@@ -2929,7 +2929,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %265 = add nsw i32 %264, -14234
   %266 = icmp ult i32 %265, 16384
   %267 = lshr i32 %265, 6
-  %268 = icmp ult i32 %264, 14234
+  %268 = icmp samesign ult i32 %264, 14234
   %269 = select i1 %268, i32 0, i32 255
   %270 = select i1 %266, i32 %267, i32 %269
   %271 = trunc i32 %270 to i8
@@ -2955,7 +2955,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %289 = add nsw i32 %288, -17685
   %290 = icmp ult i32 %289, 16384
   %291 = lshr i32 %289, 6
-  %292 = icmp ult i32 %288, 17685
+  %292 = icmp samesign ult i32 %288, 17685
   %293 = select i1 %292, i32 0, i32 255
   %294 = select i1 %290, i32 %291, i32 %293
   %295 = trunc i32 %294 to i8
@@ -2978,7 +2978,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %310 = add nsw i32 %309, -14234
   %311 = icmp ult i32 %310, 16384
   %312 = lshr i32 %310, 6
-  %313 = icmp ult i32 %309, 14234
+  %313 = icmp samesign ult i32 %309, 14234
   %314 = select i1 %313, i32 0, i32 255
   %315 = select i1 %311, i32 %312, i32 %314
   %316 = trunc i32 %315 to i8
@@ -3004,7 +3004,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %334 = add nsw i32 %333, -17685
   %335 = icmp ult i32 %334, 16384
   %336 = lshr i32 %334, 6
-  %337 = icmp ult i32 %333, 17685
+  %337 = icmp samesign ult i32 %333, 17685
   %338 = select i1 %337, i32 0, i32 255
   %339 = select i1 %335, i32 %336, i32 %338
   %340 = trunc i32 %339 to i8
@@ -3049,7 +3049,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %365 = add nsw i32 %364, -14234
   %366 = icmp ult i32 %365, 16384
   %367 = lshr i32 %365, 6
-  %368 = icmp ult i32 %364, 14234
+  %368 = icmp samesign ult i32 %364, 14234
   %369 = select i1 %368, i32 0, i32 255
   %370 = select i1 %366, i32 %367, i32 %369
   %371 = trunc i32 %370 to i8
@@ -3075,7 +3075,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %389 = add nsw i32 %388, -17685
   %390 = icmp ult i32 %389, 16384
   %391 = lshr i32 %389, 6
-  %392 = icmp ult i32 %388, 17685
+  %392 = icmp samesign ult i32 %388, 17685
   %393 = select i1 %392, i32 0, i32 255
   %394 = select i1 %390, i32 %391, i32 %393
   %395 = trunc i32 %394 to i8
@@ -3105,7 +3105,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %415 = add nsw i32 %414, -14234
   %416 = icmp ult i32 %415, 16384
   %417 = lshr i32 %415, 6
-  %418 = icmp ult i32 %414, 14234
+  %418 = icmp samesign ult i32 %414, 14234
   %419 = select i1 %418, i32 0, i32 255
   %420 = select i1 %416, i32 %417, i32 %419
   %421 = trunc i32 %420 to i8
@@ -3131,7 +3131,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %439 = add nsw i32 %438, -17685
   %440 = icmp ult i32 %439, 16384
   %441 = lshr i32 %439, 6
-  %442 = icmp ult i32 %438, 17685
+  %442 = icmp samesign ult i32 %438, 17685
   %443 = select i1 %442, i32 0, i32 255
   %444 = select i1 %440, i32 %441, i32 %443
   %445 = trunc i32 %444 to i8
@@ -3175,7 +3175,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %37 = add nsw i32 %36, -14234
   %38 = icmp ult i32 %37, 16384
   %39 = lshr i32 %37, 6
-  %40 = icmp ult i32 %36, 14234
+  %40 = icmp samesign ult i32 %36, 14234
   %41 = select i1 %40, i32 0, i32 240
   %42 = select i1 %38, i32 %39, i32 %41
   %43 = mul nuw nsw i32 %30, 6419
@@ -3196,7 +3196,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %58 = add nsw i32 %57, -17685
   %59 = icmp ult i32 %58, 16384
   %60 = lshr i32 %58, 6
-  %61 = icmp ult i32 %57, 17685
+  %61 = icmp samesign ult i32 %57, 17685
   %62 = select i1 %61, i32 0, i32 240
   %63 = select i1 %59, i32 %60, i32 %62
   %64 = and i32 %42, 240
@@ -3227,7 +3227,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %84 = add nsw i32 %83, -14234
   %85 = icmp ult i32 %84, 16384
   %86 = lshr i32 %84, 6
-  %87 = icmp ult i32 %83, 14234
+  %87 = icmp samesign ult i32 %83, 14234
   %88 = select i1 %87, i32 0, i32 240
   %89 = select i1 %85, i32 %86, i32 %88
   %90 = mul nuw nsw i32 %77, 6419
@@ -3248,7 +3248,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %105 = add nsw i32 %104, -17685
   %106 = icmp ult i32 %105, 16384
   %107 = lshr i32 %105, 6
-  %108 = icmp ult i32 %104, 17685
+  %108 = icmp samesign ult i32 %104, 17685
   %109 = select i1 %108, i32 0, i32 240
   %110 = select i1 %106, i32 %107, i32 %109
   %111 = and i32 %89, 240
@@ -3323,7 +3323,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %165 = add nsw i32 %164, -14234
   %166 = icmp ult i32 %165, 16384
   %167 = lshr i32 %165, 6
-  %168 = icmp ult i32 %164, 14234
+  %168 = icmp samesign ult i32 %164, 14234
   %169 = select i1 %168, i32 0, i32 240
   %170 = select i1 %166, i32 %167, i32 %169
   %171 = mul nuw nsw i32 %156, 6419
@@ -3344,7 +3344,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %186 = add nsw i32 %185, -17685
   %187 = icmp ult i32 %186, 16384
   %188 = lshr i32 %186, 6
-  %189 = icmp ult i32 %185, 17685
+  %189 = icmp samesign ult i32 %185, 17685
   %190 = select i1 %189, i32 0, i32 240
   %191 = select i1 %187, i32 %188, i32 %190
   %192 = and i32 %170, 240
@@ -3370,7 +3370,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %210 = add nsw i32 %209, -14234
   %211 = icmp ult i32 %210, 16384
   %212 = lshr i32 %210, 6
-  %213 = icmp ult i32 %209, 14234
+  %213 = icmp samesign ult i32 %209, 14234
   %214 = select i1 %213, i32 0, i32 240
   %215 = select i1 %211, i32 %212, i32 %214
   %216 = mul nuw nsw i32 %201, 6419
@@ -3391,7 +3391,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %231 = add nsw i32 %230, -17685
   %232 = icmp ult i32 %231, 16384
   %233 = lshr i32 %231, 6
-  %234 = icmp ult i32 %230, 17685
+  %234 = icmp samesign ult i32 %230, 17685
   %235 = select i1 %234, i32 0, i32 240
   %236 = select i1 %232, i32 %233, i32 %235
   %237 = and i32 %215, 240
@@ -3423,7 +3423,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %259 = add nsw i32 %258, -14234
   %260 = icmp ult i32 %259, 16384
   %261 = lshr i32 %259, 6
-  %262 = icmp ult i32 %258, 14234
+  %262 = icmp samesign ult i32 %258, 14234
   %263 = select i1 %262, i32 0, i32 240
   %264 = select i1 %260, i32 %261, i32 %263
   %265 = mul nuw nsw i32 %251, 6419
@@ -3444,7 +3444,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %280 = add nsw i32 %279, -17685
   %281 = icmp ult i32 %280, 16384
   %282 = lshr i32 %280, 6
-  %283 = icmp ult i32 %279, 17685
+  %283 = icmp samesign ult i32 %279, 17685
   %284 = select i1 %283, i32 0, i32 240
   %285 = select i1 %281, i32 %282, i32 %284
   %286 = and i32 %264, 240
@@ -3469,7 +3469,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %303 = add nsw i32 %302, -14234
   %304 = icmp ult i32 %303, 16384
   %305 = lshr i32 %303, 6
-  %306 = icmp ult i32 %302, 14234
+  %306 = icmp samesign ult i32 %302, 14234
   %307 = select i1 %306, i32 0, i32 240
   %308 = select i1 %304, i32 %305, i32 %307
   %309 = mul nuw nsw i32 %295, 6419
@@ -3490,7 +3490,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %324 = add nsw i32 %323, -17685
   %325 = icmp ult i32 %324, 16384
   %326 = lshr i32 %324, 6
-  %327 = icmp ult i32 %323, 17685
+  %327 = icmp samesign ult i32 %323, 17685
   %328 = select i1 %327, i32 0, i32 240
   %329 = select i1 %325, i32 %326, i32 %328
   %330 = and i32 %308, 240
@@ -3537,7 +3537,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %357 = add nsw i32 %356, -14234
   %358 = icmp ult i32 %357, 16384
   %359 = lshr i32 %357, 6
-  %360 = icmp ult i32 %356, 14234
+  %360 = icmp samesign ult i32 %356, 14234
   %361 = select i1 %360, i32 0, i32 240
   %362 = select i1 %358, i32 %359, i32 %361
   %363 = mul nuw nsw i32 %347, 6419
@@ -3558,7 +3558,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %378 = add nsw i32 %377, -17685
   %379 = icmp ult i32 %378, 16384
   %380 = lshr i32 %378, 6
-  %381 = icmp ult i32 %377, 17685
+  %381 = icmp samesign ult i32 %377, 17685
   %382 = select i1 %381, i32 0, i32 240
   %383 = select i1 %379, i32 %380, i32 %382
   %384 = and i32 %362, 240
@@ -3590,7 +3590,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %406 = add nsw i32 %405, -14234
   %407 = icmp ult i32 %406, 16384
   %408 = lshr i32 %406, 6
-  %409 = icmp ult i32 %405, 14234
+  %409 = icmp samesign ult i32 %405, 14234
   %410 = select i1 %409, i32 0, i32 240
   %411 = select i1 %407, i32 %408, i32 %410
   %412 = mul nuw nsw i32 %398, 6419
@@ -3611,7 +3611,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %427 = add nsw i32 %426, -17685
   %428 = icmp ult i32 %427, 16384
   %429 = lshr i32 %427, 6
-  %430 = icmp ult i32 %426, 17685
+  %430 = icmp samesign ult i32 %426, 17685
   %431 = select i1 %430, i32 0, i32 240
   %432 = select i1 %428, i32 %429, i32 %431
   %433 = and i32 %411, 240
@@ -3660,7 +3660,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %37 = add nsw i32 %36, -14234
   %38 = icmp ult i32 %37, 16384
   %39 = lshr i32 %37, 6
-  %40 = icmp ult i32 %36, 14234
+  %40 = icmp samesign ult i32 %36, 14234
   %41 = select i1 %40, i32 0, i32 248
   %42 = select i1 %38, i32 %39, i32 %41
   %43 = mul nuw nsw i32 %30, 6419
@@ -3681,7 +3681,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %58 = add nsw i32 %57, -17685
   %59 = icmp ult i32 %58, 16384
   %60 = lshr i32 %58, 9
-  %61 = icmp ult i32 %57, 17685
+  %61 = icmp samesign ult i32 %57, 17685
   %62 = select i1 %61, i32 0, i32 31
   %63 = select i1 %59, i32 %60, i32 %62
   %64 = and i32 %42, 248
@@ -3715,7 +3715,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %87 = add nsw i32 %86, -14234
   %88 = icmp ult i32 %87, 16384
   %89 = lshr i32 %87, 6
-  %90 = icmp ult i32 %86, 14234
+  %90 = icmp samesign ult i32 %86, 14234
   %91 = select i1 %90, i32 0, i32 248
   %92 = select i1 %88, i32 %89, i32 %91
   %93 = mul nuw nsw i32 %80, 6419
@@ -3736,7 +3736,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %108 = add nsw i32 %107, -17685
   %109 = icmp ult i32 %108, 16384
   %110 = lshr i32 %108, 9
-  %111 = icmp ult i32 %107, 17685
+  %111 = icmp samesign ult i32 %107, 17685
   %112 = select i1 %111, i32 0, i32 31
   %113 = select i1 %109, i32 %110, i32 %112
   %114 = and i32 %92, 248
@@ -3814,7 +3814,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %171 = add nsw i32 %170, -14234
   %172 = icmp ult i32 %171, 16384
   %173 = lshr i32 %171, 6
-  %174 = icmp ult i32 %170, 14234
+  %174 = icmp samesign ult i32 %170, 14234
   %175 = select i1 %174, i32 0, i32 248
   %176 = select i1 %172, i32 %173, i32 %175
   %177 = mul nuw nsw i32 %162, 6419
@@ -3835,7 +3835,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %192 = add nsw i32 %191, -17685
   %193 = icmp ult i32 %192, 16384
   %194 = lshr i32 %192, 9
-  %195 = icmp ult i32 %191, 17685
+  %195 = icmp samesign ult i32 %191, 17685
   %196 = select i1 %195, i32 0, i32 31
   %197 = select i1 %193, i32 %194, i32 %196
   %198 = and i32 %176, 248
@@ -3864,7 +3864,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %219 = add nsw i32 %218, -14234
   %220 = icmp ult i32 %219, 16384
   %221 = lshr i32 %219, 6
-  %222 = icmp ult i32 %218, 14234
+  %222 = icmp samesign ult i32 %218, 14234
   %223 = select i1 %222, i32 0, i32 248
   %224 = select i1 %220, i32 %221, i32 %223
   %225 = mul nuw nsw i32 %210, 6419
@@ -3885,7 +3885,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %240 = add nsw i32 %239, -17685
   %241 = icmp ult i32 %240, 16384
   %242 = lshr i32 %240, 9
-  %243 = icmp ult i32 %239, 17685
+  %243 = icmp samesign ult i32 %239, 17685
   %244 = select i1 %243, i32 0, i32 31
   %245 = select i1 %241, i32 %242, i32 %244
   %246 = and i32 %224, 248
@@ -3920,7 +3920,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %271 = add nsw i32 %270, -14234
   %272 = icmp ult i32 %271, 16384
   %273 = lshr i32 %271, 6
-  %274 = icmp ult i32 %270, 14234
+  %274 = icmp samesign ult i32 %270, 14234
   %275 = select i1 %274, i32 0, i32 248
   %276 = select i1 %272, i32 %273, i32 %275
   %277 = mul nuw nsw i32 %263, 6419
@@ -3941,7 +3941,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %292 = add nsw i32 %291, -17685
   %293 = icmp ult i32 %292, 16384
   %294 = lshr i32 %292, 9
-  %295 = icmp ult i32 %291, 17685
+  %295 = icmp samesign ult i32 %291, 17685
   %296 = select i1 %295, i32 0, i32 31
   %297 = select i1 %293, i32 %294, i32 %296
   %298 = and i32 %276, 248
@@ -3969,7 +3969,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %318 = add nsw i32 %317, -14234
   %319 = icmp ult i32 %318, 16384
   %320 = lshr i32 %318, 6
-  %321 = icmp ult i32 %317, 14234
+  %321 = icmp samesign ult i32 %317, 14234
   %322 = select i1 %321, i32 0, i32 248
   %323 = select i1 %319, i32 %320, i32 %322
   %324 = mul nuw nsw i32 %310, 6419
@@ -3990,7 +3990,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %339 = add nsw i32 %338, -17685
   %340 = icmp ult i32 %339, 16384
   %341 = lshr i32 %339, 9
-  %342 = icmp ult i32 %338, 17685
+  %342 = icmp samesign ult i32 %338, 17685
   %343 = select i1 %342, i32 0, i32 31
   %344 = select i1 %340, i32 %341, i32 %343
   %345 = and i32 %323, 248
@@ -4040,7 +4040,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %375 = add nsw i32 %374, -14234
   %376 = icmp ult i32 %375, 16384
   %377 = lshr i32 %375, 6
-  %378 = icmp ult i32 %374, 14234
+  %378 = icmp samesign ult i32 %374, 14234
   %379 = select i1 %378, i32 0, i32 248
   %380 = select i1 %376, i32 %377, i32 %379
   %381 = mul nuw nsw i32 %365, 6419
@@ -4061,7 +4061,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %396 = add nsw i32 %395, -17685
   %397 = icmp ult i32 %396, 16384
   %398 = lshr i32 %396, 9
-  %399 = icmp ult i32 %395, 17685
+  %399 = icmp samesign ult i32 %395, 17685
   %400 = select i1 %399, i32 0, i32 31
   %401 = select i1 %397, i32 %398, i32 %400
   %402 = and i32 %380, 248
@@ -4096,7 +4096,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %427 = add nsw i32 %426, -14234
   %428 = icmp ult i32 %427, 16384
   %429 = lshr i32 %427, 6
-  %430 = icmp ult i32 %426, 14234
+  %430 = icmp samesign ult i32 %426, 14234
   %431 = select i1 %430, i32 0, i32 248
   %432 = select i1 %428, i32 %429, i32 %431
   %433 = mul nuw nsw i32 %419, 6419
@@ -4117,7 +4117,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %448 = add nsw i32 %447, -17685
   %449 = icmp ult i32 %448, 16384
   %450 = lshr i32 %448, 9
-  %451 = icmp ult i32 %447, 17685
+  %451 = icmp samesign ult i32 %447, 17685
   %452 = select i1 %451, i32 0, i32 31
   %453 = select i1 %449, i32 %450, i32 %452
   %454 = and i32 %432, 248

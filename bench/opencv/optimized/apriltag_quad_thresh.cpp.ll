@@ -1256,7 +1256,7 @@ _ZN2cv10AutoBufferINS_5aruco7segmentELm0EE10deallocateEv.exit.i.i:
 .lr.ph107:                                        ; preds = %.lr.ph107.preheader, %.outer
   %indvars.iv121 = phi i64 [ %26, %.lr.ph107.preheader ], [ %indvars.iv.next122, %.outer ]
   %.051.ph110 = phi i32 [ %0, %.lr.ph107.preheader ], [ %112, %.outer ]
-  %114 = icmp ult i64 %indvars.iv121, %27
+  %114 = icmp samesign ult i64 %indvars.iv121, %27
   br i1 %114, label %.lr.ph107.split.split.us, label %60
 
 .lr.ph107.split.split.us:                         ; preds = %.lr.ph107, %.lr.ph107.split.split.us.backedge
@@ -3031,16 +3031,16 @@ define hidden void @_ZN2cv5aruco9thresholdENS_3MatERKNS0_18DetectorParametersERS
   %156 = add nsw i32 %48, -1
   %157 = getelementptr inbounds i8, ptr %0, i64 16
   %158 = getelementptr inbounds i8, ptr %2, i64 16
+  %159 = zext nneg i32 %153 to i64
   %sext497 = shl i64 %16, 32
-  %159 = ashr exact i64 %sext497, 32
-  %160 = zext nneg i32 %153 to i64
+  %160 = ashr exact i64 %sext497, 32
   %wide.trip.count446 = zext nneg i32 %14 to i64
   %wide.trip.count441 = sext i32 %12 to i64
   br label %161
 
 161:                                              ; preds = %.lr.ph369, %._crit_edge
   %indvars.iv443 = phi i64 [ 0, %.lr.ph369 ], [ %indvars.iv.next444, %._crit_edge ]
-  %.not311 = icmp ult i64 %indvars.iv443, %160
+  %.not311 = icmp samesign ult i64 %indvars.iv443, %159
   %.0262 = select i1 %.not311, i32 %154, i32 0
   %162 = icmp slt i32 %.0262, %12
   br i1 %162, label %.lr.ph, label %._crit_edge
@@ -3051,7 +3051,7 @@ define hidden void @_ZN2cv5aruco9thresholdENS_3MatERKNS0_18DetectorParametersERS
   %.not312 = icmp slt i32 %164, %49
   %.0261 = select i1 %.not312, i32 %164, i32 %155
   %165 = mul nsw i32 %.0261, %48
-  %166 = mul nsw i64 %indvars.iv443, %159
+  %166 = mul nsw i64 %indvars.iv443, %160
   %167 = sext i32 %.0262 to i64
   br label %168
 

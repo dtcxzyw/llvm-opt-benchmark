@@ -104,7 +104,7 @@ sw.bb7.i165:                                      ; preds = %for.body
 
 ZSTD_hashPtr.exit176:                             ; preds = %sw.bb7.i165, %sw.bb5.i167, %sw.bb3.i169, %sw.bb1.i171, %sw.bb.i173
   %retval.i161.0 = phi i64 [ %conv.i, %sw.bb.i173 ], [ %shr.i.i124, %sw.bb5.i167 ], [ %shr.i.i120, %sw.bb3.i169 ], [ %shr.i.i116, %sw.bb1.i171 ], [ %shr.i.i128, %sw.bb7.i165 ]
-  %cmp32.not = icmp ult i64 %indvars.iv, %8
+  %cmp32.not = icmp samesign ult i64 %indvars.iv, %8
   %.pre = and i64 %retval.i161.0, 4294967295
   br i1 %cmp32.not, label %if.end, label %if.then
 
@@ -121,7 +121,7 @@ if.end:                                           ; preds = %ZSTD_hashPtr.exit17
   %13 = trunc nuw i64 %indvars.iv to i32
   store i32 %13, ptr %arrayidx38, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp27 = icmp ult i64 %indvars.iv.next, %9
+  %cmp27 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp27, label %for.body, label %for.cond39.preheader, !llvm.loop !4
 
 for.body43:                                       ; preds = %for.cond39.preheader, %if.end91.thread
@@ -145,7 +145,7 @@ for.body51:                                       ; preds = %for.body43, %for.bo
   %inc61 = add nuw nsw i32 %count.0173, 1
   %i.0 = load i32, ptr %arrayidx59, align 4
   %cmp47 = icmp uge i32 %i.0, %cond26
-  %cmp49 = icmp ult i32 %count.0173, 2
+  %cmp49 = icmp samesign ult i32 %count.0173, 2
   %14 = select i1 %cmp47, i1 %cmp49, i1 false
   br i1 %14, label %for.body51, label %for.end62, !llvm.loop !6
 
@@ -326,7 +326,7 @@ for.end154:                                       ; preds = %for.body144
   %33 = trunc nuw i64 %indvars.iv218 to i32
   store i32 %33, ptr %arrayidx156, align 4
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
-  %cmp130 = icmp ult i64 %indvars.iv.next219, %28
+  %cmp130 = icmp samesign ult i64 %indvars.iv.next219, %28
   br i1 %cmp130, label %for.body132, label %for.end159, !llvm.loop !11
 
 for.end159:                                       ; preds = %for.end154, %for.end127
@@ -388,7 +388,7 @@ while.body.i.us:                                  ; preds = %while.body.i.lr.ph,
   store i32 %9, ptr %arrayidx6.i.us, align 4
   store i32 %10, ptr %arrayidx.i.us, align 4
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %cmp.i.us = icmp ult i64 %indvars.iv.next133, %8
+  %cmp.i.us = icmp samesign ult i64 %indvars.iv.next133, %8
   br i1 %cmp.i.us, label %while.body.i.us, label %while.end.i
 
 while.body.i.us83:                                ; preds = %while.body.i.lr.ph, %while.body.i.us83
@@ -406,7 +406,7 @@ while.body.i.us83:                                ; preds = %while.body.i.lr.ph,
   store i32 %11, ptr %arrayidx6.i.us92, align 4
   store i32 %12, ptr %arrayidx.i.us89, align 4
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %cmp.i.us94 = icmp ult i64 %indvars.iv.next130, %8
+  %cmp.i.us94 = icmp samesign ult i64 %indvars.iv.next130, %8
   br i1 %cmp.i.us94, label %while.body.i.us83, label %while.end.i
 
 while.body.i.us96:                                ; preds = %while.body.i.lr.ph, %while.body.i.us96
@@ -424,7 +424,7 @@ while.body.i.us96:                                ; preds = %while.body.i.lr.ph,
   store i32 %13, ptr %arrayidx6.i.us105, align 4
   store i32 %14, ptr %arrayidx.i.us102, align 4
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %cmp.i.us107 = icmp ult i64 %indvars.iv.next127, %8
+  %cmp.i.us107 = icmp samesign ult i64 %indvars.iv.next127, %8
   br i1 %cmp.i.us107, label %while.body.i.us96, label %while.end.i
 
 while.body.i.us109:                               ; preds = %while.body.i.lr.ph, %while.body.i.us109
@@ -442,7 +442,7 @@ while.body.i.us109:                               ; preds = %while.body.i.lr.ph,
   store i32 %15, ptr %arrayidx6.i.us118, align 4
   store i32 %16, ptr %arrayidx.i.us115, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i.us120 = icmp ult i64 %indvars.iv.next, %8
+  %cmp.i.us120 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp.i.us120, label %while.body.i.us109, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %while.body.i
@@ -461,7 +461,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   store i32 %17, ptr %arrayidx6.i, align 4
   store i32 %18, ptr %arrayidx.i, align 4
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
-  %cmp.i = icmp ult i64 %indvars.iv.next136, %8
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next136, %8
   br i1 %cmp.i, label %while.body.i, label %while.end.i
 
 while.end.i:                                      ; preds = %while.body.i.us109, %while.body.i.us96, %while.body.i.us83, %while.body.i.us, %while.body.i, %entry
@@ -592,7 +592,7 @@ cond.false.i60.us:                                ; preds = %cond.false.i60.lr.p
   %11 = trunc nuw i64 %indvars.iv231 to i32
   store i32 %11, ptr %arrayidx13.i81.us, align 4
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
-  %cmp.i57.us = icmp ult i64 %indvars.iv.next232, %8
+  %cmp.i57.us = icmp samesign ult i64 %indvars.iv.next232, %8
   br i1 %cmp.i57.us, label %cond.false.i60.us, label %ZSTD_row_update_internalImpl.exit87, !llvm.loop !12
 
 cond.false.i60.us203:                             ; preds = %cond.false.i60.lr.ph, %cond.false.i60.us203
@@ -626,7 +626,7 @@ cond.false.i60.us203:                             ; preds = %cond.false.i60.lr.p
   %14 = trunc nuw i64 %indvars.iv to i32
   store i32 %14, ptr %arrayidx13.i81.us225, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i57.us227 = icmp ult i64 %indvars.iv.next, %8
+  %cmp.i57.us227 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp.i57.us227, label %cond.false.i60.us203, label %ZSTD_row_update_internalImpl.exit87, !llvm.loop !12
 
 cond.false.i60:                                   ; preds = %cond.false.i60.lr.ph, %cond.false.i60
@@ -660,7 +660,7 @@ cond.false.i60:                                   ; preds = %cond.false.i60.lr.p
   %17 = trunc nuw i64 %indvars.iv234 to i32
   store i32 %17, ptr %arrayidx13.i81, align 4
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
-  %cmp.i57 = icmp ult i64 %indvars.iv.next235, %8
+  %cmp.i57 = icmp samesign ult i64 %indvars.iv.next235, %8
   br i1 %cmp.i57, label %cond.false.i60, label %ZSTD_row_update_internalImpl.exit87, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit87:              ; preds = %cond.false.i60.us203, %cond.false.i60.us, %cond.false.i60, %entry
@@ -28765,7 +28765,7 @@ sw.bb.i23.i.i.us:                                 ; preds = %sw.bb.i23.i.i.us.pr
   store i32 %14, ptr %arrayidx6.i.i.us, align 4
   store i32 %15, ptr %arrayidx.i.i.us, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i.i.us = icmp ult i64 %indvars.iv.next, %13
+  %cmp.i.i.us = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %cmp.i.i.us, label %sw.bb.i23.i.i.us, label %while.end.i.i
 
 while.cond.i.i:                                   ; preds = %entry
@@ -29171,7 +29171,7 @@ sw.bb1.i21.i.i.us:                                ; preds = %sw.bb1.i21.i.i.us.p
   store i32 %14, ptr %arrayidx6.i.i.us, align 4
   store i32 %15, ptr %arrayidx.i.i.us, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i.i.us = icmp ult i64 %indvars.iv.next, %13
+  %cmp.i.i.us = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %cmp.i.i.us, label %sw.bb1.i21.i.i.us, label %while.end.i.i
 
 while.cond.i.i:                                   ; preds = %entry
@@ -29575,7 +29575,7 @@ sw.bb3.i19.i.i.us:                                ; preds = %sw.bb3.i19.i.i.us.p
   store i32 %14, ptr %arrayidx6.i.i.us, align 4
   store i32 %15, ptr %arrayidx.i.i.us, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i.i.us = icmp ult i64 %indvars.iv.next, %13
+  %cmp.i.i.us = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %cmp.i.i.us, label %sw.bb3.i19.i.i.us, label %while.end.i.i
 
 while.cond.i.i:                                   ; preds = %entry
@@ -30123,7 +30123,7 @@ sw.bb.i508.i:                                     ; preds = %sw.bb.i508.i.lr.ph,
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %39, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next575 = add nuw nsw i64 %indvars.iv574, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next575, %35
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next575, %35
   br i1 %cmp.i327.i, label %sw.bb.i508.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb.i508.i, %ZSTD_row_update_internal.exit.i
@@ -30618,7 +30618,7 @@ sw.bb.i508.i:                                     ; preds = %sw.bb.i508.i.lr.ph,
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %39, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next574 = add nuw nsw i64 %indvars.iv573, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next574, %35
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next574, %35
   br i1 %cmp.i327.i, label %sw.bb.i508.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb.i508.i, %ZSTD_row_update_internal.exit.i
@@ -31122,7 +31122,7 @@ sw.bb.i508.i:                                     ; preds = %sw.bb.i508.i.lr.ph,
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %39, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next575 = add nuw nsw i64 %indvars.iv574, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next575, %35
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next575, %35
   br i1 %cmp.i327.i, label %sw.bb.i508.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb.i508.i, %ZSTD_row_update_internal.exit.i
@@ -31642,7 +31642,7 @@ sw.bb1.i506.i:                                    ; preds = %sw.bb1.i506.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %36, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next574 = add nuw nsw i64 %indvars.iv573, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next574, %33
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next574, %33
   br i1 %cmp.i327.i, label %sw.bb1.i506.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb1.i506.i, %ZSTD_row_update_internal.exit.i
@@ -32138,7 +32138,7 @@ sw.bb1.i506.i:                                    ; preds = %sw.bb1.i506.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %36, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next573 = add nuw nsw i64 %indvars.iv572, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next573, %33
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next573, %33
   br i1 %cmp.i327.i, label %sw.bb1.i506.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb1.i506.i, %ZSTD_row_update_internal.exit.i
@@ -32643,7 +32643,7 @@ sw.bb1.i506.i:                                    ; preds = %sw.bb1.i506.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %36, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next574 = add nuw nsw i64 %indvars.iv573, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next574, %33
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next574, %33
   br i1 %cmp.i327.i, label %sw.bb1.i506.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb1.i506.i, %ZSTD_row_update_internal.exit.i
@@ -33164,7 +33164,7 @@ sw.bb3.i504.i:                                    ; preds = %sw.bb3.i504.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %36, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next574 = add nuw nsw i64 %indvars.iv573, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next574, %33
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next574, %33
   br i1 %cmp.i327.i, label %sw.bb3.i504.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb3.i504.i, %ZSTD_row_update_internal.exit.i
@@ -33660,7 +33660,7 @@ sw.bb3.i504.i:                                    ; preds = %sw.bb3.i504.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %36, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next573 = add nuw nsw i64 %indvars.iv572, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next573, %33
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next573, %33
   br i1 %cmp.i327.i, label %sw.bb3.i504.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb3.i504.i, %ZSTD_row_update_internal.exit.i
@@ -34165,7 +34165,7 @@ sw.bb3.i504.i:                                    ; preds = %sw.bb3.i504.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %36, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next574 = add nuw nsw i64 %indvars.iv573, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next574, %33
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next574, %33
   br i1 %cmp.i327.i, label %sw.bb3.i504.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb3.i504.i, %ZSTD_row_update_internal.exit.i
@@ -34549,7 +34549,7 @@ sw.bb.i23.i.i.us:                                 ; preds = %sw.bb.i23.i.i.us.pr
   store i32 %16, ptr %arrayidx6.i.i.us, align 4
   store i32 %17, ptr %arrayidx.i.i.us, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i.i.us = icmp ult i64 %indvars.iv.next, %15
+  %cmp.i.i.us = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %cmp.i.i.us, label %sw.bb.i23.i.i.us, label %while.end.i.i
 
 while.cond.i.i:                                   ; preds = %entry
@@ -34828,7 +34828,7 @@ sw.bb1.i21.i.i.us:                                ; preds = %sw.bb1.i21.i.i.us.p
   store i32 %16, ptr %arrayidx6.i.i.us, align 4
   store i32 %17, ptr %arrayidx.i.i.us, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i.i.us = icmp ult i64 %indvars.iv.next, %15
+  %cmp.i.i.us = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %cmp.i.i.us, label %sw.bb1.i21.i.i.us, label %while.end.i.i
 
 while.cond.i.i:                                   ; preds = %entry
@@ -35105,7 +35105,7 @@ sw.bb3.i19.i.i.us:                                ; preds = %sw.bb3.i19.i.i.us.p
   store i32 %16, ptr %arrayidx6.i.i.us, align 4
   store i32 %17, ptr %arrayidx.i.i.us, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i.i.us = icmp ult i64 %indvars.iv.next, %15
+  %cmp.i.i.us = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %cmp.i.i.us, label %sw.bb3.i19.i.i.us, label %while.end.i.i
 
 while.cond.i.i:                                   ; preds = %entry
@@ -35526,7 +35526,7 @@ sw.bb.i508.i:                                     ; preds = %sw.bb.i508.i.lr.ph,
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %41, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next577, %37
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next577, %37
   br i1 %cmp.i327.i, label %sw.bb.i508.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb.i508.i, %ZSTD_row_update_internal.exit.i
@@ -36048,7 +36048,7 @@ sw.bb.i508.i:                                     ; preds = %sw.bb.i508.i.lr.ph,
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %41, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next576, %37
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next576, %37
   br i1 %cmp.i327.i, label %sw.bb.i508.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb.i508.i, %ZSTD_row_update_internal.exit.i
@@ -36579,7 +36579,7 @@ sw.bb.i508.i:                                     ; preds = %sw.bb.i508.i.lr.ph,
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %41, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next577, %37
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next577, %37
   br i1 %cmp.i327.i, label %sw.bb.i508.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb.i508.i, %ZSTD_row_update_internal.exit.i
@@ -37126,7 +37126,7 @@ sw.bb1.i506.i:                                    ; preds = %sw.bb1.i506.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %38, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next576, %35
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next576, %35
   br i1 %cmp.i327.i, label %sw.bb1.i506.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb1.i506.i, %ZSTD_row_update_internal.exit.i
@@ -37649,7 +37649,7 @@ sw.bb1.i506.i:                                    ; preds = %sw.bb1.i506.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %38, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next575 = add nuw nsw i64 %indvars.iv574, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next575, %35
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next575, %35
   br i1 %cmp.i327.i, label %sw.bb1.i506.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb1.i506.i, %ZSTD_row_update_internal.exit.i
@@ -38181,7 +38181,7 @@ sw.bb1.i506.i:                                    ; preds = %sw.bb1.i506.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %38, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next576, %35
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next576, %35
   br i1 %cmp.i327.i, label %sw.bb1.i506.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb1.i506.i, %ZSTD_row_update_internal.exit.i
@@ -38729,7 +38729,7 @@ sw.bb3.i504.i:                                    ; preds = %sw.bb3.i504.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %38, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next576, %35
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next576, %35
   br i1 %cmp.i327.i, label %sw.bb3.i504.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb3.i504.i, %ZSTD_row_update_internal.exit.i
@@ -39252,7 +39252,7 @@ sw.bb3.i504.i:                                    ; preds = %sw.bb3.i504.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %38, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next575 = add nuw nsw i64 %indvars.iv574, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next575, %35
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next575, %35
   br i1 %cmp.i327.i, label %sw.bb3.i504.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb3.i504.i, %ZSTD_row_update_internal.exit.i
@@ -39784,7 +39784,7 @@ sw.bb3.i504.i:                                    ; preds = %sw.bb3.i504.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %38, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next576, %35
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next576, %35
   br i1 %cmp.i327.i, label %sw.bb3.i504.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb3.i504.i, %ZSTD_row_update_internal.exit.i
@@ -40187,7 +40187,7 @@ sw.bb.i23.i.i.us:                                 ; preds = %sw.bb.i23.i.i.us.pr
   store i32 %16, ptr %arrayidx6.i.i.us, align 4
   store i32 %17, ptr %arrayidx.i.i.us, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i.i.us = icmp ult i64 %indvars.iv.next, %15
+  %cmp.i.i.us = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %cmp.i.i.us, label %sw.bb.i23.i.i.us, label %while.end.i.i
 
 while.cond.i.i:                                   ; preds = %entry
@@ -40617,7 +40617,7 @@ sw.bb1.i21.i.i.us:                                ; preds = %sw.bb1.i21.i.i.us.p
   store i32 %16, ptr %arrayidx6.i.i.us, align 4
   store i32 %17, ptr %arrayidx.i.i.us, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i.i.us = icmp ult i64 %indvars.iv.next, %15
+  %cmp.i.i.us = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %cmp.i.i.us, label %sw.bb1.i21.i.i.us, label %while.end.i.i
 
 while.cond.i.i:                                   ; preds = %entry
@@ -41045,7 +41045,7 @@ sw.bb3.i19.i.i.us:                                ; preds = %sw.bb3.i19.i.i.us.p
   store i32 %16, ptr %arrayidx6.i.i.us, align 4
   store i32 %17, ptr %arrayidx.i.i.us, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i.i.us = icmp ult i64 %indvars.iv.next, %15
+  %cmp.i.i.us = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %cmp.i.i.us, label %sw.bb3.i19.i.i.us, label %while.end.i.i
 
 while.cond.i.i:                                   ; preds = %entry
@@ -41636,7 +41636,7 @@ sw.bb.i508.i:                                     ; preds = %sw.bb.i508.i.lr.ph,
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %46, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next609 = add nuw nsw i64 %indvars.iv608, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next609, %42
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next609, %42
   br i1 %cmp.i327.i, label %sw.bb.i508.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb.i508.i, %ZSTD_row_update_internal.exit.i
@@ -42275,7 +42275,7 @@ sw.bb.i508.i:                                     ; preds = %sw.bb.i508.i.lr.ph,
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %46, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next603 = add nuw nsw i64 %indvars.iv602, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next603, %42
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next603, %42
   br i1 %cmp.i327.i, label %sw.bb.i508.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb.i508.i, %ZSTD_row_update_internal.exit.i
@@ -42927,7 +42927,7 @@ sw.bb.i508.i:                                     ; preds = %sw.bb.i508.i.lr.ph,
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %46, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next610 = add nuw nsw i64 %indvars.iv609, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next610, %42
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next610, %42
   br i1 %cmp.i327.i, label %sw.bb.i508.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb.i508.i, %ZSTD_row_update_internal.exit.i
@@ -43617,7 +43617,7 @@ sw.bb1.i506.i:                                    ; preds = %sw.bb1.i506.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %42, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next608 = add nuw nsw i64 %indvars.iv607, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next608, %39
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next608, %39
   br i1 %cmp.i327.i, label %sw.bb1.i506.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb1.i506.i, %ZSTD_row_update_internal.exit.i
@@ -44257,7 +44257,7 @@ sw.bb1.i506.i:                                    ; preds = %sw.bb1.i506.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %42, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next602 = add nuw nsw i64 %indvars.iv601, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next602, %39
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next602, %39
   br i1 %cmp.i327.i, label %sw.bb1.i506.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb1.i506.i, %ZSTD_row_update_internal.exit.i
@@ -44910,7 +44910,7 @@ sw.bb1.i506.i:                                    ; preds = %sw.bb1.i506.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %42, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next609 = add nuw nsw i64 %indvars.iv608, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next609, %39
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next609, %39
   br i1 %cmp.i327.i, label %sw.bb1.i506.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb1.i506.i, %ZSTD_row_update_internal.exit.i
@@ -45601,7 +45601,7 @@ sw.bb3.i504.i:                                    ; preds = %sw.bb3.i504.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %42, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next608 = add nuw nsw i64 %indvars.iv607, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next608, %39
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next608, %39
   br i1 %cmp.i327.i, label %sw.bb3.i504.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb3.i504.i, %ZSTD_row_update_internal.exit.i
@@ -46241,7 +46241,7 @@ sw.bb3.i504.i:                                    ; preds = %sw.bb3.i504.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %42, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next602 = add nuw nsw i64 %indvars.iv601, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next602, %39
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next602, %39
   br i1 %cmp.i327.i, label %sw.bb3.i504.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb3.i504.i, %ZSTD_row_update_internal.exit.i
@@ -46894,7 +46894,7 @@ sw.bb3.i504.i:                                    ; preds = %sw.bb3.i504.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %42, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next609 = add nuw nsw i64 %indvars.iv608, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next609, %39
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next609, %39
   br i1 %cmp.i327.i, label %sw.bb3.i504.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb3.i504.i, %ZSTD_row_update_internal.exit.i
@@ -47434,7 +47434,7 @@ sw.bb.i23.i.i.us:                                 ; preds = %sw.bb.i23.i.i.us.pr
   store i32 %18, ptr %arrayidx6.i.i.us, align 4
   store i32 %19, ptr %arrayidx.i.i.us, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i.i.us = icmp ult i64 %indvars.iv.next, %17
+  %cmp.i.i.us = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %cmp.i.i.us, label %sw.bb.i23.i.i.us, label %while.end.i.i
 
 while.cond.i.i:                                   ; preds = %entry
@@ -47872,7 +47872,7 @@ sw.bb1.i21.i.i.us:                                ; preds = %sw.bb1.i21.i.i.us.p
   store i32 %18, ptr %arrayidx6.i.i.us, align 4
   store i32 %19, ptr %arrayidx.i.i.us, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i.i.us = icmp ult i64 %indvars.iv.next, %17
+  %cmp.i.i.us = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %cmp.i.i.us, label %sw.bb1.i21.i.i.us, label %while.end.i.i
 
 while.cond.i.i:                                   ; preds = %entry
@@ -48308,7 +48308,7 @@ sw.bb3.i19.i.i.us:                                ; preds = %sw.bb3.i19.i.i.us.p
   store i32 %18, ptr %arrayidx6.i.i.us, align 4
   store i32 %19, ptr %arrayidx.i.i.us, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i.i.us = icmp ult i64 %indvars.iv.next, %17
+  %cmp.i.i.us = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %cmp.i.i.us, label %sw.bb3.i19.i.i.us, label %while.end.i.i
 
 while.cond.i.i:                                   ; preds = %entry
@@ -48892,7 +48892,7 @@ sw.bb.i508.i:                                     ; preds = %sw.bb.i508.i.lr.ph,
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %43, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next613 = add nuw nsw i64 %indvars.iv612, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next613, %39
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next613, %39
   br i1 %cmp.i327.i, label %sw.bb.i508.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb.i508.i, %ZSTD_row_update_internal.exit.i
@@ -49574,7 +49574,7 @@ sw.bb.i508.i:                                     ; preds = %sw.bb.i508.i.lr.ph,
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %43, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next612 = add nuw nsw i64 %indvars.iv611, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next612, %39
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next612, %39
   br i1 %cmp.i327.i, label %sw.bb.i508.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb.i508.i, %ZSTD_row_update_internal.exit.i
@@ -50265,7 +50265,7 @@ sw.bb.i508.i:                                     ; preds = %sw.bb.i508.i.lr.ph,
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %43, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next613 = add nuw nsw i64 %indvars.iv612, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next613, %39
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next613, %39
   br i1 %cmp.i327.i, label %sw.bb.i508.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb.i508.i, %ZSTD_row_update_internal.exit.i
@@ -50972,7 +50972,7 @@ sw.bb1.i506.i:                                    ; preds = %sw.bb1.i506.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %40, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next612 = add nuw nsw i64 %indvars.iv611, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next612, %37
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next612, %37
   br i1 %cmp.i327.i, label %sw.bb1.i506.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb1.i506.i, %ZSTD_row_update_internal.exit.i
@@ -51655,7 +51655,7 @@ sw.bb1.i506.i:                                    ; preds = %sw.bb1.i506.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %40, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next611 = add nuw nsw i64 %indvars.iv610, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next611, %37
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next611, %37
   br i1 %cmp.i327.i, label %sw.bb1.i506.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb1.i506.i, %ZSTD_row_update_internal.exit.i
@@ -52347,7 +52347,7 @@ sw.bb1.i506.i:                                    ; preds = %sw.bb1.i506.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %40, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next612 = add nuw nsw i64 %indvars.iv611, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next612, %37
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next612, %37
   br i1 %cmp.i327.i, label %sw.bb1.i506.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb1.i506.i, %ZSTD_row_update_internal.exit.i
@@ -53055,7 +53055,7 @@ sw.bb3.i504.i:                                    ; preds = %sw.bb3.i504.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %40, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next612 = add nuw nsw i64 %indvars.iv611, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next612, %37
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next612, %37
   br i1 %cmp.i327.i, label %sw.bb3.i504.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb3.i504.i, %ZSTD_row_update_internal.exit.i
@@ -53738,7 +53738,7 @@ sw.bb3.i504.i:                                    ; preds = %sw.bb3.i504.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %40, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next611 = add nuw nsw i64 %indvars.iv610, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next611, %37
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next611, %37
   br i1 %cmp.i327.i, label %sw.bb3.i504.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb3.i504.i, %ZSTD_row_update_internal.exit.i
@@ -54430,7 +54430,7 @@ sw.bb3.i504.i:                                    ; preds = %sw.bb3.i504.i.lr.ph
   %arrayidx13.i351.i = getelementptr inbounds i32, ptr %add.ptr7.i342.i, i64 %idxprom.i348.i
   store i32 %40, ptr %arrayidx13.i351.i, align 4
   %indvars.iv.next612 = add nuw nsw i64 %indvars.iv611, 1
-  %cmp.i327.i = icmp ult i64 %indvars.iv.next612, %37
+  %cmp.i327.i = icmp samesign ult i64 %indvars.iv.next612, %37
   br i1 %cmp.i327.i, label %sw.bb3.i504.i, label %ZSTD_row_update_internalImpl.exit357.i, !llvm.loop !12
 
 ZSTD_row_update_internalImpl.exit357.i:           ; preds = %sw.bb3.i504.i, %ZSTD_row_update_internal.exit.i

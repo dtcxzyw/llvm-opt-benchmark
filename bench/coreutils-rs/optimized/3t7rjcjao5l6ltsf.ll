@@ -304,7 +304,7 @@ define internal fastcc void @_ZN10bigdecimal10ten_to_the17h6fca0c83621867e5E(ptr
   %spec.select.i = mul i64 %30, %.01315.i
   %31 = lshr i32 %.017.i, 1
   %32 = mul i64 %.01216.i, %.01216.i
-  %33 = icmp ugt i32 %.017.i, 3
+  %33 = icmp samesign ugt i32 %.017.i, 3
   br i1 %33, label %.lr.ph.i, label %"_ZN4core3num21_$LT$impl$u20$u64$GT$3pow17hfc6702fd0fc8148cE.exit"
 
 "_ZN4core3num21_$LT$impl$u20$u64$GT$3pow17hfc6702fd0fc8148cE.exit": ; preds = %.lr.ph.i
@@ -1455,7 +1455,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN57_$LT$bigdecimal..BigDec
   %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = load i8, ptr %14, align 8, !range !4, !noundef !5
-  %16 = icmp ult i8 %13, %15
+  %16 = icmp samesign ult i8 %13, %15
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %2

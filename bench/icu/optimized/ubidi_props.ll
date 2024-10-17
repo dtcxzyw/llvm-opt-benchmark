@@ -47,7 +47,7 @@ for.cond4:                                        ; preds = %for.cond4.preheader
   %cmp20 = phi i1 [ false, %if.end18 ], [ true, %for.cond4.preheader ]
   %limit.0 = phi i32 [ 68900, %if.end18 ], [ 2252, %for.cond4.preheader ]
   %jgArray.0 = phi ptr [ @_ZL20ubidi_props_jgArray2, %if.end18 ], [ @_ZL19ubidi_props_jgArray, %for.cond4.preheader ]
-  %cmp517 = icmp ult i32 %start.0, %limit.0
+  %cmp517 = icmp samesign ult i32 %start.0, %limit.0
   br i1 %cmp517, label %while.body.preheader, label %if.end18
 
 while.body.preheader:                             ; preds = %for.cond4

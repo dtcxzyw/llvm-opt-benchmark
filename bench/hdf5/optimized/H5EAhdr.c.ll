@@ -396,7 +396,7 @@ define noalias ptr @H5EA__hdr_alloc_elmts(ptr nocapture noundef %0, i64 noundef 
   %22 = add i32 %17, 1
   %23 = zext i32 %22 to i64
   %24 = shl nuw nsw i64 %20, 1
-  %25 = icmp uge i64 %24, %23
+  %25 = icmp samesign uge i64 %24, %23
   %26 = icmp eq i64 %20, 0
   %27 = and i1 %26, %25
   %. = tail call i64 @llvm.umax.i64(i64 %24, i64 %23)

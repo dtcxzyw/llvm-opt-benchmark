@@ -341,7 +341,7 @@ define dso_local i32 @reg_query_regdb_wmm(ptr noundef readonly %0, i32 noundef %
 
 66:                                               ; preds = %43, %59, %53
   %67 = add nuw nsw i64 %44, 1
-  %68 = icmp ult i64 %67, %42
+  %68 = icmp samesign ult i64 %67, %42
   br i1 %68, label %43, label %.loopexit, !llvm.loop !6
 
 69:                                               ; preds = %24, %20, %.split
@@ -558,7 +558,7 @@ define internal fastcc noundef zeroext i1 @valid_regdb(ptr noundef %0, i32 nound
   %80 = zext i16 %79 to i64
   %81 = shl nuw nsw i64 %80, 2
   %82 = add nuw nsw i64 %81, 32
-  %83 = icmp ugt i64 %82, %4
+  %83 = icmp samesign ugt i64 %82, %4
   br i1 %83, label %.loopexit, label %84
 
 84:                                               ; preds = %76
@@ -570,7 +570,7 @@ define internal fastcc noundef zeroext i1 @valid_regdb(ptr noundef %0, i32 nound
   %90 = and i8 %86, 15
   %91 = zext nneg i8 %90 to i32
   %92 = shl nsw i32 -1, %91
-  %93 = icmp ugt i32 %89, %92
+  %93 = icmp samesign ugt i32 %89, %92
   br i1 %93, label %94, label %.loopexit
 
 94:                                               ; preds = %84
@@ -594,7 +594,7 @@ define internal fastcc noundef zeroext i1 @valid_regdb(ptr noundef %0, i32 nound
   %107 = and i8 %103, 15
   %108 = zext nneg i8 %107 to i32
   %109 = shl nsw i32 -1, %108
-  %110 = icmp ugt i32 %106, %109
+  %110 = icmp samesign ugt i32 %106, %109
   br i1 %110, label %111, label %115, !llvm.loop !11
 
 111:                                              ; preds = %101
@@ -604,7 +604,7 @@ define internal fastcc noundef zeroext i1 @valid_regdb(ptr noundef %0, i32 nound
   br i1 %114, label %115, label %.preheader, !llvm.loop !11
 
 115:                                              ; preds = %111, %101
-  %116 = icmp ugt i64 %98, 6
+  %116 = icmp samesign ugt i64 %98, 6
   br i1 %116, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %.preheader, %115, %74
@@ -1242,7 +1242,7 @@ define dso_local i32 @reg_get_max_bandwidth(ptr noundef readonly %0, ptr noundef
 
 7:                                                ; preds = %7, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %2 ]
-  %8 = icmp uge i64 %indvars.iv, %6
+  %8 = icmp samesign uge i64 %indvars.iv, %6
   %9 = getelementptr [0 x %struct.ieee80211_reg_rule], ptr %5, i64 0, i64 %indvars.iv
   %10 = icmp eq ptr %9, %1
   %11 = select i1 %8, i1 true, i1 %10
@@ -1646,7 +1646,7 @@ define internal fastcc void @handle_band_custom(ptr nocapture noundef readonly %
   %30 = add nuw nsw i64 %14, 1
   %31 = load i32, ptr %6, align 4
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %30, %32
+  %33 = icmp samesign ult i64 %30, %32
   br i1 %33, label %.thread6.us, label %.loopexit, !llvm.loop !50
 
 .split:                                           ; preds = %9, %205
@@ -1877,7 +1877,7 @@ define internal fastcc void @handle_band_custom(ptr nocapture noundef readonly %
   %206 = add nuw nsw i64 %34, 1
   %207 = load i32, ptr %6, align 4
   %208 = zext i32 %207 to i64
-  %209 = icmp ult i64 %206, %208
+  %209 = icmp samesign ult i64 %206, %208
   br i1 %209, label %.split, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %205, %29, %5, %3
@@ -4847,7 +4847,7 @@ define internal fastcc void @wiphy_update_regulatory(ptr noundef %0, i32 noundef
   %591 = add nuw nsw i64 %71, 1
   %592 = load i32, ptr %68, align 4
   %593 = zext i32 %592 to i64
-  %594 = icmp ult i64 %591, %593
+  %594 = icmp samesign ult i64 %591, %593
   br i1 %594, label %.preheader19, label %.loopexit20, !llvm.loop !145
 
 .loopexit20:                                      ; preds = %590, %67, %62
@@ -4960,7 +4960,7 @@ handle_reg_beacon.exit:                           ; preds = %618, %630, %635, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %659 = load i32, ptr %613, align 4
   %660 = zext i32 %659 to i64
-  %661 = icmp ult i64 %indvars.iv.next, %660
+  %661 = icmp samesign ult i64 %indvars.iv.next, %660
   br i1 %661, label %618, label %.loopexit, !llvm.loop !147
 
 .loopexit:                                        ; preds = %handle_reg_beacon.exit, %612, %604
@@ -5982,7 +5982,7 @@ define internal fastcc void @set_wmm_rule(ptr nocapture noundef readonly %0, ptr
   %16 = and i8 %12, 15
   %17 = zext nneg i8 %16 to i32
   %18 = shl nsw i32 -1, %17
-  %19 = icmp ugt i32 %15, %18
+  %19 = icmp samesign ugt i32 %15, %18
   br i1 %19, label %20, label %45
 
 20:                                               ; preds = %4
@@ -6006,7 +6006,7 @@ define internal fastcc void @set_wmm_rule(ptr nocapture noundef readonly %0, ptr
   %33 = and i8 %29, 15
   %34 = zext nneg i8 %33 to i32
   %35 = shl nsw i32 -1, %34
-  %36 = icmp ugt i32 %32, %35
+  %36 = icmp samesign ugt i32 %32, %35
   br i1 %36, label %37, label %41, !llvm.loop !11
 
 37:                                               ; preds = %27
@@ -6016,7 +6016,7 @@ define internal fastcc void @set_wmm_rule(ptr nocapture noundef readonly %0, ptr
   br i1 %40, label %41, label %.preheader, !llvm.loop !11
 
 41:                                               ; preds = %37, %27
-  %42 = icmp ugt i64 %24, 6
+  %42 = icmp samesign ugt i64 %24, 6
   br i1 %42, label %.thread, label %45
 
 .thread:                                          ; preds = %.preheader, %41
@@ -6490,7 +6490,7 @@ define internal fastcc range(i32 0, 532480) i32 @reg_rule_to_chan_bw_flags(ptr n
 
 24:                                               ; preds = %24, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %19 ]
-  %25 = icmp uge i64 %indvars.iv, %23
+  %25 = icmp samesign uge i64 %indvars.iv, %23
   %26 = getelementptr [0 x %struct.ieee80211_reg_rule], ptr %22, i64 0, i64 %indvars.iv
   %27 = icmp eq ptr %26, %1
   %28 = select i1 %25, i1 true, i1 %27
@@ -6923,7 +6923,7 @@ define internal fastcc i32 @query_regdb(ptr noundef readonly %0) unnamed_addr #2
   %114 = add nuw nsw i64 %61, 1
   %115 = load i32, ptr %48, align 8
   %116 = zext i32 %115 to i64
-  %117 = icmp ult i64 %114, %116
+  %117 = icmp samesign ult i64 %114, %116
   br i1 %117, label %60, label %.loopexit, !llvm.loop !222
 
 .loopexit:                                        ; preds = %.thread, %44
@@ -7400,7 +7400,7 @@ handle_reg_beacon.exit:                           ; preds = %146, %142, %140, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %168 = load i32, ptr %89, align 4
   %169 = zext i32 %168 to i64
-  %170 = icmp ult i64 %indvars.iv.next, %169
+  %170 = icmp samesign ult i64 %indvars.iv.next, %169
   br i1 %170, label %96, label %.loopexit, !llvm.loop !225
 
 .loopexit:                                        ; preds = %handle_reg_beacon.exit, %88, %79
@@ -7833,7 +7833,7 @@ split:                                            ; preds = %41, %._crit_edge
   %83 = add nuw nsw i64 %10, 1
   %84 = load i32, ptr %4, align 8
   %85 = zext i32 %84 to i64
-  %86 = icmp ult i64 %83, %85
+  %86 = icmp samesign ult i64 %83, %85
   br i1 %86, label %9, label %.loopexit, !llvm.loop !233
 
 .loopexit:                                        ; preds = %82, %1
@@ -7883,7 +7883,7 @@ define internal fastcc range(i32 -22, 1) i32 @reg_rules_intersect(ptr noundef no
 
 34:                                               ; preds = %34, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %29 ]
-  %35 = icmp uge i64 %indvars.iv, %33
+  %35 = icmp samesign uge i64 %indvars.iv, %33
   %36 = getelementptr [0 x %struct.ieee80211_reg_rule], ptr %32, i64 0, i64 %indvars.iv
   %37 = icmp eq ptr %36, %2
   %38 = select i1 %35, i1 true, i1 %37
@@ -7978,7 +7978,7 @@ split:                                            ; preds = %59, %._crit_edge
 
 97:                                               ; preds = %97, %92
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %97 ], [ 0, %92 ]
-  %98 = icmp uge i64 %indvars.iv21, %96
+  %98 = icmp samesign uge i64 %indvars.iv21, %96
   %99 = getelementptr [0 x %struct.ieee80211_reg_rule], ptr %95, i64 0, i64 %indvars.iv21
   %100 = icmp eq ptr %99, %3
   %101 = select i1 %98, i1 true, i1 %100
@@ -8445,7 +8445,7 @@ define internal fastcc void @reg_process_ht_flags(ptr noundef %0) unnamed_addr #
   %143 = add nuw nsw i64 %15, 1
   %144 = load i32, ptr %12, align 4
   %145 = zext i32 %144 to i64
-  %146 = icmp ult i64 %143, %145
+  %146 = icmp samesign ult i64 %143, %145
   br i1 %146, label %.preheader, label %.loopexit16, !llvm.loop !236
 
 .loopexit16:                                      ; preds = %142, %11, %6

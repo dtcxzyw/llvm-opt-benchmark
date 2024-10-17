@@ -584,7 +584,7 @@ define i32 @fsync_and_close(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
 
 15:                                               ; preds = %10, %13
   %16 = add nuw nsw i32 %.024, 1
-  %17 = icmp ult i32 %.024, 3
+  %17 = icmp samesign ult i32 %.024, 3
   br i1 %17, label %8, label %.thread, !llvm.loop !9
 
 .thread:                                          ; preds = %8, %15
@@ -611,7 +611,7 @@ define i32 @fsync_and_close(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
 
 27:                                               ; preds = %22, %25
   %28 = add nuw nsw i32 %.125, 1
-  %29 = icmp ult i32 %.125, 3
+  %29 = icmp samesign ult i32 %.125, 3
   br i1 %29, label %20, label %.thread28, !llvm.loop !10
 
 .thread28:                                        ; preds = %20, %27

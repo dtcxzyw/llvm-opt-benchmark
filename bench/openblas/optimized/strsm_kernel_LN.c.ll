@@ -143,7 +143,7 @@ define noundef i32 @strsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
 .thread30:                                        ; preds = %.thread.us, %.preheader53
   %97 = phi i64 [ %26, %.preheader53 ], [ %45, %.thread.us ]
   %98 = shl nuw nsw i64 %27, 1
-  %99 = icmp ult i64 %27, 8
+  %99 = icmp samesign ult i64 %27, 8
   br i1 %99, label %.preheader53, label %.loopexit54, !llvm.loop !12
 
 .loopexit54:                                      ; preds = %.thread30, %22
@@ -409,7 +409,7 @@ define noundef i32 @strsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
 .thread34:                                        ; preds = %.thread33.us, %195
   %270 = phi i64 [ %196, %195 ], [ %216, %.thread33.us ]
   %271 = shl nuw nsw i64 %197, 1
-  %272 = icmp ult i64 %197, 8
+  %272 = icmp samesign ult i64 %197, 8
   br i1 %272, label %195, label %.loopexit44, !llvm.loop !15
 
 .loopexit44:                                      ; preds = %.thread34, %194
@@ -533,7 +533,7 @@ define noundef i32 @strsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %350 = phi ptr [ %348, %.loopexit ], [ %191, %188 ]
   %351 = phi ptr [ %346, %.loopexit ], [ %190, %188 ]
   %352 = lshr i64 %189, 1
-  %353 = icmp ult i64 %189, 2
+  %353 = icmp samesign ult i64 %189, 2
   br i1 %353, label %.loopexit45, label %188, !llvm.loop !17
 
 .loopexit45:                                      ; preds = %349, %.loopexit55

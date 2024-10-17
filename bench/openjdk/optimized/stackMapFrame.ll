@@ -207,7 +207,7 @@ _ZNK16VerificationType6equalsERKS_.exit:          ; preds = %_ZNK16VerificationT
   %20 = phi i16 [ %13, %_ZNK16VerificationType6equalsERKS_.exit ], [ %.pre, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = zext i16 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %_ZNK16VerificationType6equalsERKS_.exit, label %.preheader, !llvm.loop !9
 
 _ZNK16VerificationType6equalsERKS_.exit9:         ; preds = %_ZNK16VerificationType6equalsERKS_.exit9.lr.ph, %29
@@ -495,7 +495,7 @@ define linkonce_odr hidden noundef ptr @_ZN13ClassVerifier23create_temporary_sym
   %27 = add nsw i32 %22, 1
   %28 = icmp sgt i32 %22, -1
   %29 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %27)
-  %30 = icmp ult i32 %29, 2
+  %30 = icmp samesign ult i32 %29, 2
   %or.cond.i.i.i.i.i = select i1 %28, i1 %30, i1 false
   %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
   %32 = sub nuw nsw i32 32, %31

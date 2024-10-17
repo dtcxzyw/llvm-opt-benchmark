@@ -678,11 +678,11 @@ define internal range(i32 -1, 2) i32 @compare_uni_maps(ptr nocapture noundef rea
   br label %16
 
 12:                                               ; preds = %2
-  %13 = icmp ugt i32 %4, %6
+  %13 = icmp samesign ugt i32 %4, %6
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %12
-  %15 = icmp ult i32 %4, %6
+  %15 = icmp samesign ult i32 %4, %6
   %.18 = sext i1 %15 to i32
   br label %16
 

@@ -567,7 +567,7 @@ define dso_local void @intel_rps_park(ptr noundef %0) local_unnamed_addr #0 alig
   %55 = getelementptr inbounds i8, ptr %0, i64 144
   %56 = load i8, ptr %55, align 8
   %57 = zext i8 %56 to i32
-  %58 = icmp ult i32 %54, %57
+  %58 = icmp samesign ult i32 %54, %57
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %34
@@ -774,7 +774,7 @@ define internal fastcc i32 @rps_set(ptr noundef %0, i8 noundef zeroext %1, i1 no
   %93 = load i8, ptr %92, align 8
   %94 = zext i8 %93 to i32
   %95 = add nuw nsw i32 %94, 1
-  %96 = icmp ult i32 %95, %91
+  %96 = icmp samesign ult i32 %95, %91
   br i1 %96, label %97, label %135
 
 97:                                               ; preds = %90
@@ -819,7 +819,7 @@ define internal fastcc i32 @rps_set(ptr noundef %0, i8 noundef zeroext %1, i1 no
   %126 = zext i8 %125 to i32
   %127 = add nuw nsw i32 %126, %123
   %128 = lshr i32 %127, 1
-  %129 = icmp ugt i32 %128, %120
+  %129 = icmp samesign ugt i32 %128, %120
   br i1 %129, label %130, label %135
 
 130:                                              ; preds = %119
@@ -1317,7 +1317,7 @@ define dso_local void @gen6_rps_get_freq_caps(ptr nocapture noundef readonly %0,
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = or disjoint i32 %8, %11
-  %13 = icmp ugt i32 %12, 3141
+  %13 = icmp samesign ugt i32 %12, 3141
   %14 = getelementptr i8, ptr %0, i64 -3672
   %15 = load ptr, ptr %14, align 8
   br i1 %13, label %16, label %35
@@ -1905,7 +1905,7 @@ gen9_rps_enable.exit:                             ; preds = %240
 
 272:                                              ; preds = %267, %261
   %273 = add nuw nsw i64 %262, 1
-  %274 = icmp ugt i64 %262, 25
+  %274 = icmp samesign ugt i64 %262, 25
   %275 = icmp eq i64 %273, 27
   br i1 %275, label %276, label %261, !llvm.loop !32
 
@@ -4072,7 +4072,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   %562 = mul nuw nsw i32 %561, %553
   %563 = load i8, ptr %524, align 4
   %564 = zext i8 %563 to i32
-  %565 = icmp ult i32 %562, %564
+  %565 = icmp samesign ult i32 %562, %564
   br i1 %565, label %566, label %571
 
 566:                                              ; preds = %558
@@ -4546,7 +4546,7 @@ define internal fastcc range(i32 -31, 512) i32 @__read_cagf(ptr nocapture nounde
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = or disjoint i32 %10, %13
-  %15 = icmp ugt i32 %14, 3141
+  %15 = icmp samesign ugt i32 %14, 3141
   br i1 %15, label %28, label %16
 
 16:                                               ; preds = %2
@@ -4610,7 +4610,7 @@ define internal fastcc range(i32 -31, 512) i32 @__read_cagf(ptr nocapture nounde
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = or disjoint i32 %48, %51
-  %53 = icmp ugt i32 %52, 3141
+  %53 = icmp samesign ugt i32 %52, 3141
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %42
@@ -4767,7 +4767,7 @@ define dso_local range(i32 -11993, 25551) i32 @intel_rps_read_punit_req_frequenc
   br label %.thread2
 
 60:                                               ; preds = %47
-  %61 = icmp ugt i8 %30, 5
+  %61 = icmp samesign ugt i8 %30, 5
   %62 = mul nuw nsw i32 %32, 50
   %63 = select i1 %61, i32 %62, i32 %32
   br label %.thread2
@@ -7175,7 +7175,7 @@ define dso_local i32 @intel_rps_set_max_frequency(ptr noundef %0, i32 noundef %1
   %132 = getelementptr inbounds i8, ptr %0, i64 136
   %133 = load i8, ptr %132, align 8
   %134 = zext i8 %133 to i32
-  %135 = icmp ugt i32 %65, %134
+  %135 = icmp samesign ugt i32 %65, %134
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %129

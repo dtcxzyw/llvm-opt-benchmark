@@ -269,7 +269,7 @@ define void @_ZN5Nbnxm22makeClusterListSimd4xMERKNS_4GridEP16NbnxnPairlistCpuiii
   %91 = or <8 x i32> %.sroa.059.0.copyload229.i, %.sroa.060.0.copyload228.i
   store <8 x i32> %91, ptr %88, align 32, !noalias !15
   %indvars.iv.next277.i = add nuw nsw i64 %indvars.iv276.i, %85
-  %92 = icmp ult i64 %indvars.iv.next277.i, 4
+  %92 = icmp samesign ult i64 %indvars.iv.next277.i, 4
   br i1 %92, label %87, label %93, !llvm.loop !19
 
 93:                                               ; preds = %87
@@ -417,7 +417,7 @@ define void @_ZN5Nbnxm22makeClusterListSimd4xMERKNS_4GridEP16NbnxnPairlistCpuiii
   %164 = or <8 x i32> %.sroa.04.0.copyload232.i, %.sroa.05.0.copyload231.i
   store <8 x i32> %164, ptr %161, align 32, !noalias !15
   %indvars.iv.next292.i = add nuw nsw i64 %indvars.iv291.i, %158
-  %165 = icmp ult i64 %indvars.iv.next292.i, 4
+  %165 = icmp samesign ult i64 %indvars.iv.next292.i, 4
   br i1 %165, label %160, label %166, !llvm.loop !25
 
 166:                                              ; preds = %160

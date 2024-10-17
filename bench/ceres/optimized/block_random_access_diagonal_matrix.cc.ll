@@ -1095,7 +1095,7 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %159, %156, %154
 
 222:                                              ; preds = %219
   %223 = mul nsw i64 %217, %217
-  %224 = icmp ugt i64 %223, 2305843009213693951
+  %224 = icmp samesign ugt i64 %223, 2305843009213693951
   br i1 %224, label %.invoke.i.i.i, label %225
 
 225:                                              ; preds = %222
@@ -1124,7 +1124,7 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %159, %156, %154
 
 233:                                              ; preds = %.noexc70.i.i.i
   %234 = and i64 %223, 2305843009213693950
-  %235 = icmp ugt i64 %223, 1
+  %235 = icmp samesign ugt i64 %223, 1
   br i1 %235, label %.lr.ph.i.i.i.i.i7, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i7:                                ; preds = %233, %.lr.ph.i.i.i.i.i7
@@ -1134,7 +1134,7 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %159, %156, %154
   %238 = load <2 x double>, ptr %237, align 1
   store <2 x double> %238, ptr %236, align 16
   %239 = add nuw nsw i64 %.011.i.i.i.i.i, 2
-  %240 = icmp ult i64 %239, %234
+  %240 = icmp samesign ult i64 %239, %234
   br i1 %240, label %.lr.ph.i.i.i.i.i7, label %._crit_edge.i.i.i.i.i, !llvm.loop !28
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i7, %233
@@ -1223,7 +1223,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELi
   %280 = load double, ptr %254, align 8
   %281 = load double, ptr %257, align 8
   %282 = fmul double %280, %281
-  %283 = icmp ugt i64 %.02956.i.i.i.i, 1
+  %283 = icmp samesign ugt i64 %.02956.i.i.i.i, 1
   br i1 %283, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i125.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEELi1ELin1ELb0EEEE3dotINS1_IKNS2_IKNS1_IS5_Li1ELin1ELb0EEEEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSH_17scalar_product_opIdSL_EEE10ReturnTypeERKNS0_ISJ_EE.exit.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i125.i.i.i:          ; preds = %279, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i125.i.i.i
@@ -1409,7 +1409,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELi
   %366 = load double, ptr %340, align 8
   %367 = load double, ptr %343, align 8
   %368 = fmul double %366, %367
-  %369 = icmp ugt i64 %.02964.i.i.i.i, 1
+  %369 = icmp samesign ugt i64 %.02964.i.i.i.i, 1
   br i1 %369, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEELin1ELin1ELb0EEELi1ELin1ELb0EEEE3dotINS1_IKNS2_IKNS1_IS6_Li1ELin1ELb0EEEEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSI_17scalar_product_opIdSM_EEE10ReturnTypeERKNS0_ISK_EE.exit.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %365, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4051,7 +4051,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELi
   %52 = load double, ptr %16, align 8
   %53 = load double, ptr %21, align 8
   %54 = fmul double %52, %53
-  %55 = icmp ugt i64 %.02956, 1
+  %55 = icmp samesign ugt i64 %.02956, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEELi1ELin1ELb0EEEE3dotINS1_IKNS2_IKNS1_IS5_Li1ELin1ELb0EEEEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSH_17scalar_product_opIdSL_EEE10ReturnTypeERKNS0_ISJ_EE.exit.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %50, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
@@ -4242,7 +4242,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELi
   %52 = load double, ptr %15, align 8
   %53 = load double, ptr %21, align 8
   %54 = fmul double %52, %53
-  %55 = icmp ugt i64 %.02964, 1
+  %55 = icmp samesign ugt i64 %.02964, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEELin1ELin1ELb0EEELi1ELin1ELb0EEEE3dotINS1_IKNS2_IKNS1_IS6_Li1ELin1ELb0EEEEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSI_17scalar_product_opIdSM_EEE10ReturnTypeERKNS0_ISK_EE.exit.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %50, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
@@ -4981,7 +4981,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit312:     ; preds = %47, %38, %44
 
 ._crit_edge.us.i:                                 ; preds = %74
   %90 = add nuw nsw i64 %.05365.us.i, 4
-  %91 = icmp ult i64 %90, %70
+  %91 = icmp samesign ult i64 %90, %70
   br i1 %91, label %.preheader61.us.i, label %.preheader60.i, !llvm.loop !66
 
 .preheader60.i:                                   ; preds = %._crit_edge.us.i, %66
@@ -5792,7 +5792,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal15queryCacheSizesERiS1_S1_(pt
 38:                                               ; preds = %.sink.split.i.i, %20, %15
   %39 = add nuw nsw i32 %.0.i.i, 1
   %40 = icmp ne i32 %18, 0
-  %41 = icmp ult i32 %.0.i.i, 15
+  %41 = icmp samesign ult i32 %.0.i.i, 15
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %15, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !89
 
@@ -5906,7 +5906,7 @@ _ZN5Eigen8internal15cpuid_is_vendorEPiPKi.exit11.thread: ; preds = %3, %9, %47, 
 95:                                               ; preds = %.sink.split.i.i14, %77, %72
   %96 = add nuw nsw i32 %.0.i.i12, 1
   %97 = icmp ne i32 %75, 0
-  %98 = icmp ult i32 %.0.i.i12, 15
+  %98 = icmp samesign ult i32 %.0.i.i12, 15
   %99 = select i1 %97, i1 %98, i1 false
   br i1 %99, label %72, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !89
 
@@ -8934,7 +8934,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit321:     ; preds = %47, %38, %44
 
 ._crit_edge.us.i:                                 ; preds = %80
   %95 = add nuw nsw i64 %.094109.us.i, 4
-  %96 = icmp ult i64 %95, %67
+  %96 = icmp samesign ult i64 %95, %67
   br i1 %96, label %.lr.ph.us.i, label %.preheader.i, !llvm.loop !213
 
 .preheader.i:                                     ; preds = %._crit_edge.us.i, %65
@@ -10158,7 +10158,7 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %107, %104, %102
 
 174:                                              ; preds = %171
   %175 = mul nsw i64 %169, %169
-  %176 = icmp ugt i64 %175, 2305843009213693951
+  %176 = icmp samesign ugt i64 %175, 2305843009213693951
   br i1 %176, label %.invoke, label %177
 
 177:                                              ; preds = %174
@@ -10203,7 +10203,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IllEERKT_RKT0_.exit.i: ; preds = %1
 
 190:                                              ; preds = %.noexc72
   %191 = and i64 %188, 2305843009213693950
-  %192 = icmp ugt i64 %188, 1
+  %192 = icmp samesign ugt i64 %188, 1
   br i1 %192, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %190, %.lr.ph.i.i
@@ -10213,7 +10213,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IllEERKT_RKT0_.exit.i: ; preds = %1
   %195 = load <2 x double>, ptr %194, align 1
   store <2 x double> %195, ptr %193, align 16
   %196 = add nuw nsw i64 %.011.i.i, 2
-  %197 = icmp ult i64 %196, %191
+  %197 = icmp samesign ult i64 %196, %191
   br i1 %197, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !28
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %190
@@ -10302,7 +10302,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELi
   %236 = load double, ptr %210, align 8
   %237 = load double, ptr %213, align 8
   %238 = fmul double %236, %237
-  %239 = icmp ugt i64 %.02956.i, 1
+  %239 = icmp samesign ugt i64 %.02956.i, 1
   br i1 %239, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i127, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEELi1ELin1ELb0EEEE3dotINS1_IKNS2_IKNS1_IS5_Li1ELin1ELb0EEEEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSH_17scalar_product_opIdSL_EEE10ReturnTypeERKNS0_ISJ_EE.exit.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i127:                ; preds = %235, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i127
@@ -10488,7 +10488,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELi
   %322 = load double, ptr %296, align 8
   %323 = load double, ptr %299, align 8
   %324 = fmul double %322, %323
-  %325 = icmp ugt i64 %.02964.i, 1
+  %325 = icmp samesign ugt i64 %.02964.i, 1
   br i1 %325, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEELin1ELin1ELb0EEELi1ELin1ELb0EEEE3dotINS1_IKNS2_IKNS1_IS6_Li1ELin1ELb0EEEEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSI_17scalar_product_opIdSM_EEE10ReturnTypeERKNS0_ISK_EE.exit.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %321, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i

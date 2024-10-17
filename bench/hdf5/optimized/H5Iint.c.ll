@@ -1129,7 +1129,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5I__register(i32 noundef %0, pt
   %243 = getelementptr inbounds i8, ptr %242, i64 8
   %244 = load i32, ptr %243, align 8
   %245 = zext i32 %244 to i64
-  %246 = icmp ult i64 %indvars.iv.next, %245
+  %246 = icmp samesign ult i64 %indvars.iv.next, %245
   br i1 %246, label %.lr.ph429, label %._crit_edge430
 
 ._crit_edge430:                                   ; preds = %._crit_edge, %183
@@ -1798,7 +1798,7 @@ define range(i32 -1, 1) i32 @H5I_register_using_existing_id(i32 noundef %0, ptr 
   %248 = getelementptr inbounds i8, ptr %247, i64 8
   %249 = load i32, ptr %248, align 8
   %250 = zext i32 %249 to i64
-  %251 = icmp ult i64 %indvars.iv.next, %250
+  %251 = icmp samesign ult i64 %indvars.iv.next, %250
   br i1 %251, label %.lr.ph429, label %._crit_edge430
 
 ._crit_edge430:                                   ; preds = %._crit_edge, %188

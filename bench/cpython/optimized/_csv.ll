@@ -3325,7 +3325,7 @@ if.then.i13:                                      ; preds = %if.end5
   %div.i1718 = and i64 %call2, 9223372036854743040
   %mul.i = add nuw i64 %div.i1718, 32768
   %rec.i = getelementptr inbounds i8, ptr %self, i64 32
-  %cmp1.i = icmp ugt i64 %div.i1718, 2305843009213661183
+  %cmp1.i = icmp samesign ugt i64 %div.i1718, 2305843009213661183
   br i1 %cmp1.i, label %join_check_rec_size.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i13

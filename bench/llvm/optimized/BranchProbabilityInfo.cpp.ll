@@ -3166,7 +3166,7 @@ _ZNK4llvm10BasicBlock13getTerminatorEv.exit:      ; preds = %2, %14
   store ptr %6, ptr %8, align 8
   store ptr %7, ptr %32, align 8
   %46 = call i64 @_ZNK4llvm21BranchProbabilityInfo22getEstimatedEdgeWeightERKSt4pairIRKNS0_9LoopBlockES4_E(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  %47 = icmp ugt i64 %46, 4294967295
+  %47 = icmp samesign ugt i64 %46, 4294967295
   %48 = and i64 %46, 4294967295
   %49 = icmp eq i64 %48, 0
   %or.cond = and i1 %47, %49
@@ -3376,7 +3376,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_17BranchProbabilityELb1EE9push_backES1_.exi
   %137 = zext i32 %.sroa.0116.0159 to i64
   %138 = zext i32 %.sroa.027.0.copyload to i64
   %139 = add nuw nsw i64 %138, %137
-  %140 = icmp ugt i64 %139, 2147483648
+  %140 = icmp samesign ugt i64 %139, 2147483648
   %141 = add i32 %.sroa.027.0.copyload, %.sroa.0116.0159
   %spec.select.i105 = select i1 %140, i32 -2147483648, i32 %141
   %142 = getelementptr inbounds i8, ptr %.089160, i64 4
@@ -3406,7 +3406,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_17BranchProbabilityELb1EE9push_backES1_.exi
   %151 = zext i32 %.sroa.0.0166 to i64
   %152 = zext i32 %.sroa.018.0.copyload to i64
   %153 = add nuw nsw i64 %152, %151
-  %154 = icmp ugt i64 %153, 2147483648
+  %154 = icmp samesign ugt i64 %153, 2147483648
   %155 = add i32 %.sroa.018.0.copyload, %.sroa.0.0166
   %spec.select.i106 = select i1 %154, i32 -2147483648, i32 %155
   %156 = getelementptr inbounds i8, ptr %.090167, i64 4
@@ -3471,7 +3471,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_17BranchProbabilityELb1EE9push_backES1_.exi
   %185 = mul nuw nsw i64 %184, %174
   %186 = urem i64 %185, %175
   %187 = udiv i64 %185, %175
-  %188 = icmp ugt i64 %186, %177
+  %188 = icmp samesign ugt i64 %186, %177
   %189 = zext i1 %188 to i64
   %190 = add nuw nsw i64 %187, %189
   %191 = trunc i64 %190 to i32
@@ -4708,7 +4708,7 @@ _ZN4llvm13SmallDenseMapISt4pairIPNS_4LoopEiENS_11SmallVectorIPNS_10BasicBlockELj
   %47 = getelementptr inbounds i8, ptr %.sroa.0128.0189, i64 -8
   %48 = load ptr, ptr %47, align 8
   %49 = call i64 @_ZN4llvm21BranchProbabilityInfo30getInitialEstimatedBlockWeightEPKNS_10BasicBlockE(ptr nonnull align 8 poison, ptr noundef %48)
-  %.not166 = icmp ult i64 %49, 4294967296
+  %.not166 = icmp samesign ult i64 %49, 4294967296
   br i1 %.not166, label %53, label %50
 
 50:                                               ; preds = %46
@@ -5103,7 +5103,7 @@ _ZNK4llvm21BranchProbabilityInfo23getEstimatedBlockWeightEPKNS_10BasicBlockE.exi
 
 _ZNK4llvm21BranchProbabilityInfo22getEstimatedEdgeWeightERKSt4pairIRKNS0_9LoopBlockES4_E.exit: ; preds = %_ZNK4llvm21BranchProbabilityInfo22getEstimatedLoopWeightERKSt4pairIPNS_4LoopEiE.exit.i, %_ZNK4llvm21BranchProbabilityInfo23getEstimatedBlockWeightEPKNS_10BasicBlockE.exit.i
   %.sroa.04.0.i = phi i64 [ %.sroa.04.0.insert.insert.i.i, %_ZNK4llvm21BranchProbabilityInfo22getEstimatedLoopWeightERKSt4pairIPNS_4LoopEiE.exit.i ], [ %.sroa.04.0.insert.insert.i11.i, %_ZNK4llvm21BranchProbabilityInfo23getEstimatedBlockWeightEPKNS_10BasicBlockE.exit.i ]
-  %.not19.i = icmp ult i64 %.sroa.04.0.i, 4294967296
+  %.not19.i = icmp samesign ult i64 %.sroa.04.0.i, 4294967296
   br i1 %.not19.i, label %.loopexit.i, label %278
 
 278:                                              ; preds = %_ZNK4llvm21BranchProbabilityInfo22getEstimatedEdgeWeightERKSt4pairIRKNS0_9LoopBlockES4_E.exit
@@ -5646,7 +5646,7 @@ _ZNK4llvm21BranchProbabilityInfo23getEstimatedBlockWeightEPKNS_10BasicBlockE.exi
 
 _ZNK4llvm21BranchProbabilityInfo22getEstimatedEdgeWeightERKSt4pairIRKNS0_9LoopBlockES4_E.exit101: ; preds = %_ZNK4llvm21BranchProbabilityInfo22getEstimatedLoopWeightERKSt4pairIPNS_4LoopEiE.exit.i78, %_ZNK4llvm21BranchProbabilityInfo23getEstimatedBlockWeightEPKNS_10BasicBlockE.exit.i96
   %.sroa.04.0.i82 = phi i64 [ %.sroa.04.0.insert.insert.i.i81, %_ZNK4llvm21BranchProbabilityInfo22getEstimatedLoopWeightERKSt4pairIPNS_4LoopEiE.exit.i78 ], [ %.sroa.04.0.insert.insert.i11.i99, %_ZNK4llvm21BranchProbabilityInfo23getEstimatedBlockWeightEPKNS_10BasicBlockE.exit.i96 ]
-  %.not.i34 = icmp ult i64 %.sroa.04.0.i82, 4294967296
+  %.not.i34 = icmp samesign ult i64 %.sroa.04.0.i82, 4294967296
   br i1 %.not.i34, label %.loopexit.i39, label %570
 
 570:                                              ; preds = %_ZNK4llvm21BranchProbabilityInfo22getEstimatedEdgeWeightERKSt4pairIRKNS0_9LoopBlockES4_E.exit101
@@ -8175,7 +8175,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_10BasicBlockEjENS_17BranchProb
   %112 = zext i32 %spec.select.i6567 to i64
   %113 = zext i32 %.sroa.01.0.copyload to i64
   %114 = add nuw nsw i64 %112, %113
-  %115 = icmp ugt i64 %114, 2147483648
+  %115 = icmp samesign ugt i64 %114, 2147483648
   %116 = add i32 %spec.select.i6567, %.sroa.01.0.copyload
   %spec.select.i = select i1 %115, i32 -2147483648, i32 %116
   br label %117

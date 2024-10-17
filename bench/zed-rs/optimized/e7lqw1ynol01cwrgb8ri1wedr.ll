@@ -4435,7 +4435,7 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit80: ; preds = %
 911:                                              ; preds = %902
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13), !noalias !1046
   %912 = zext i32 %895 to i64
-  %913 = icmp ult i64 %709, %912
+  %913 = icmp samesign ult i64 %709, %912
   br i1 %913, label %923, label %914
 
 914:                                              ; preds = %911

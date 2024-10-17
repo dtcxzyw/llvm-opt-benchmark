@@ -196,7 +196,7 @@ define hidden void @_ZN10FieldGroup19add_primitive_fieldEi9BasicType(ptr nocaptu
   %30 = add nsw i32 %25, 1
   %31 = icmp sgt i32 %25, -1
   %32 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %30)
-  %33 = icmp ult i32 %32, 2
+  %33 = icmp samesign ult i32 %32, 2
   %or.cond.i.i.i.i = select i1 %31, i1 %33, i1 false
   %34 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %30, i1 true)
   %35 = sub nuw nsw i32 32, %34
@@ -266,7 +266,7 @@ define hidden void @_ZN10FieldGroup13add_oop_fieldEi(ptr nocapture noundef nonnu
   %27 = add nsw i32 %22, 1
   %28 = icmp sgt i32 %22, -1
   %29 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %27)
-  %30 = icmp ult i32 %29, 2
+  %30 = icmp samesign ult i32 %29, 2
   %or.cond.i.i.i.i = select i1 %28, i1 %30, i1 false
   %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
   %32 = sub nuw nsw i32 32, %31
@@ -692,7 +692,7 @@ define hidden noundef zeroext i1 @_ZN11FieldLayout18reconstruct_layoutEPK13Insta
   %58 = add nsw i32 %54, 1
   %59 = icmp sgt i32 %54, -1
   %60 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %58)
-  %61 = icmp ult i32 %60, 2
+  %61 = icmp samesign ult i32 %60, 2
   %or.cond.i.i.i.i = select i1 %59, i1 %61, i1 false
   %62 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %58, i1 true)
   %63 = sub nuw nsw i32 32, %62
@@ -1997,7 +1997,7 @@ define hidden noundef ptr @_ZN18FieldLayoutBuilder29get_or_create_contended_grou
   %23 = add nsw i32 %18, 1
   %24 = icmp sgt i32 %18, -1
   %25 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %23)
-  %26 = icmp ult i32 %25, 2
+  %26 = icmp samesign ult i32 %25, 2
   %or.cond.i.i.i.i = select i1 %24, i1 %26, i1 false
   %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %23, i1 true)
   %28 = sub nuw nsw i32 32, %27
@@ -2151,7 +2151,7 @@ define hidden void @_ZN18FieldLayoutBuilder21regular_field_sortingEv(ptr noundef
   %32 = add nsw i32 %28, 1
   %33 = icmp sgt i32 %28, -1
   %34 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %32)
-  %35 = icmp ult i32 %34, 2
+  %35 = icmp samesign ult i32 %34, 2
   %or.cond.i.i.i.i = select i1 %33, i1 %35, i1 false
   %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %32, i1 true)
   %37 = sub nuw nsw i32 32, %36
@@ -2212,7 +2212,7 @@ _ZN26GrowableArrayWithAllocatorIP10FieldGroup13GrowableArrayIS1_EE6appendERKS1_.
   %63 = add nsw i32 %59, 1
   %64 = icmp sgt i32 %59, -1
   %65 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %63)
-  %66 = icmp ult i32 %65, 2
+  %66 = icmp samesign ult i32 %65, 2
   %or.cond.i.i.i.i.i = select i1 %64, i1 %66, i1 false
   %67 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %63, i1 true)
   %68 = sub nuw nsw i32 32, %67
@@ -3911,7 +3911,7 @@ define linkonce_odr hidden void @_ZN15FieldStreamBaseC2EP5ArrayIhEP12ConstantPoo
   %21 = add nsw i32 %16, 1
   %22 = icmp sgt i32 %16, -1
   %23 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %21)
-  %24 = icmp ult i32 %23, 2
+  %24 = icmp samesign ult i32 %23, 2
   %or.cond.i.i.i.i.i.i = select i1 %22, i1 %24, i1 false
   %25 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %21, i1 true)
   %26 = sub nuw nsw i32 32, %25

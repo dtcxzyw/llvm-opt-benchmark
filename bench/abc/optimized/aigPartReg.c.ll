@@ -1760,7 +1760,7 @@ Aig_ObjChild0Copy.exit227:                        ; preds = %193, %204
   %239 = getelementptr inbounds i32, ptr %222, i64 %238
   store i32 %235, ptr %239, align 4
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
-  %240 = icmp ult i64 %indvars.iv.next289, %225
+  %240 = icmp samesign ult i64 %indvars.iv.next289, %225
   br i1 %240, label %226, label %.critedge16, !llvm.loop !26
 
 .critedge16:                                      ; preds = %226, %217

@@ -1272,7 +1272,7 @@ _ZN9parameterC2EOS_.exit.i:                       ; preds = %if.else.i.i.i, %for
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %6 = load i32, ptr %m_pos, align 8
   %7 = zext i32 %6 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %7
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %_ZN9parameterC2EOS_.exit.i, %if.then
@@ -1369,7 +1369,7 @@ _ZN9parameterC2EOS_.exit.i:                       ; preds = %if.else.i.i.i, %for
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %6 = load i32, ptr %m_pos, align 8
   %7 = zext i32 %6 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %7
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %_ZN9parameterC2EOS_.exit.i, %if.then

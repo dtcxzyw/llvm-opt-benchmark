@@ -8969,7 +8969,7 @@ if.then8:                                         ; preds = %if.then3
   br label %error
 
 if.end11:                                         ; preds = %if.then3
-  %tobool13.not = icmp ult i32 %flag, 1024
+  %tobool13.not = icmp samesign ult i32 %flag, 1024
   %and15 = and i64 %call4, 1024
   %tobool16.not = icmp eq i64 %and15, 0
   %or.cond61 = select i1 %tobool13.not, i1 true, i1 %tobool16.not

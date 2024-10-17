@@ -292,7 +292,7 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   %99 = add nuw nsw i64 %63, 1
   %100 = load i32, ptr %38, align 8
   %101 = zext i32 %100 to i64
-  %102 = icmp ult i64 %99, %101
+  %102 = icmp samesign ult i64 %99, %101
   br i1 %102, label %.preheader19, label %.loopexit, !llvm.loop !10
 
 103:                                              ; preds = %94, %91
@@ -483,7 +483,7 @@ define dso_local noundef i32 @acpi_ev_initialize_gpe_block(ptr nocapture noundef
   %48 = add nuw nsw i64 %17, 1
   %49 = load i32, ptr %10, align 8
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %48, %50
+  %51 = icmp samesign ult i64 %48, %50
   br i1 %51, label %.split.us.us, label %.split10.us, !llvm.loop !13
 
 .split:                                           ; preds = %13, %.split7
@@ -550,7 +550,7 @@ define dso_local noundef i32 @acpi_ev_initialize_gpe_block(ptr nocapture noundef
   %91 = add nuw nsw i64 %52, 1
   %92 = load i32, ptr %10, align 8
   %93 = zext i32 %92 to i64
-  %94 = icmp ult i64 %91, %93
+  %94 = icmp samesign ult i64 %91, %93
   br i1 %94, label %.split, label %.split10.us, !llvm.loop !13
 
 .split10.us:                                      ; preds = %.split7, %.split7.us.us

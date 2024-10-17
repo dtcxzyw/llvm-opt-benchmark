@@ -357,16 +357,16 @@ define hidden void @_ZN2cv3hal12cpu_baseline9cvt32f16fEPKfPNS_6hfloatEi(ptr noca
   %7 = load float, ptr %6, align 4
   %8 = call float @llvm.fabs.f32(float %7)
   %9 = bitcast float %8 to i32
-  %10 = icmp ugt i32 %9, 1199570943
+  %10 = icmp samesign ugt i32 %9, 1199570943
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %.lr.ph
-  %12 = icmp ugt i32 %9, 2139095040
+  %12 = icmp samesign ugt i32 %9, 2139095040
   %13 = select i1 %12, i16 32256, i16 31744
   br label %_ZN2cv6hfloatC2Ef.exit
 
 14:                                               ; preds = %.lr.ph
-  %15 = icmp ult i32 %9, 947912704
+  %15 = icmp samesign ult i32 %9, 947912704
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
@@ -4039,11 +4039,11 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8u16fEPKhmS2_mPhmNS_5Size_IiEEPv(
   %15 = load i8, ptr %14, align 1
   %16 = uitofp i8 %15 to float
   %17 = bitcast float %16 to i32
-  %18 = icmp ugt i32 %17, 1199570943
+  %18 = icmp samesign ugt i32 %17, 1199570943
   br i1 %18, label %32, label %19
 
 19:                                               ; preds = %13
-  %20 = icmp ult i32 %17, 947912704
+  %20 = icmp samesign ult i32 %17, 947912704
   br i1 %20, label %28, label %21
 
 21:                                               ; preds = %19
@@ -4062,7 +4062,7 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8u16fEPKhmS2_mPhmNS_5Size_IiEEPv(
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_h.exit.us.i
 
 32:                                               ; preds = %13
-  %33 = icmp ugt i32 %17, 2139095040
+  %33 = icmp samesign ugt i32 %17, 2139095040
   %34 = select i1 %33, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_h.exit.us.i
 
@@ -4132,11 +4132,11 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8s16fEPKhmS2_mPhmNS_5Size_IiEEPv(
   %16 = sitofp i8 %15 to float
   %17 = call float @llvm.fabs.f32(float %16)
   %18 = bitcast float %17 to i32
-  %19 = icmp ugt i32 %18, 1199570943
+  %19 = icmp samesign ugt i32 %18, 1199570943
   br i1 %19, label %33, label %20
 
 20:                                               ; preds = %13
-  %21 = icmp ult i32 %18, 947912704
+  %21 = icmp samesign ult i32 %18, 947912704
   br i1 %21, label %29, label %22
 
 22:                                               ; preds = %20
@@ -4155,7 +4155,7 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8s16fEPKhmS2_mPhmNS_5Size_IiEEPv(
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_a.exit.us.i
 
 33:                                               ; preds = %13
-  %34 = icmp ugt i32 %18, 2139095040
+  %34 = icmp samesign ugt i32 %18, 2139095040
   %35 = select i1 %34, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_a.exit.us.i
 
@@ -4230,11 +4230,11 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16u16fEPKhmS2_mPhmNS_5Size_IiEEPv
   %16 = load i16, ptr %15, align 2
   %17 = uitofp i16 %16 to float
   %18 = bitcast float %17 to i32
-  %19 = icmp ugt i32 %18, 1199570943
+  %19 = icmp samesign ugt i32 %18, 1199570943
   br i1 %19, label %33, label %20
 
 20:                                               ; preds = %14
-  %21 = icmp ult i32 %18, 947912704
+  %21 = icmp samesign ult i32 %18, 947912704
   br i1 %21, label %29, label %22
 
 22:                                               ; preds = %20
@@ -4253,7 +4253,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16u16fEPKhmS2_mPhmNS_5Size_IiEEPv
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_t.exit.us.i
 
 33:                                               ; preds = %14
-  %34 = icmp ugt i32 %18, 2139095040
+  %34 = icmp samesign ugt i32 %18, 2139095040
   %35 = select i1 %34, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_t.exit.us.i
 
@@ -4324,11 +4324,11 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16s16fEPKhmS2_mPhmNS_5Size_IiEEPv
   %17 = sitofp i16 %16 to float
   %18 = call float @llvm.fabs.f32(float %17)
   %19 = bitcast float %18 to i32
-  %20 = icmp ugt i32 %19, 1199570943
+  %20 = icmp samesign ugt i32 %19, 1199570943
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %14
-  %22 = icmp ult i32 %19, 947912704
+  %22 = icmp samesign ult i32 %19, 947912704
   br i1 %22, label %30, label %23
 
 23:                                               ; preds = %21
@@ -4347,7 +4347,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16s16fEPKhmS2_mPhmNS_5Size_IiEEPv
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_s.exit.us.i
 
 34:                                               ; preds = %14
-  %35 = icmp ugt i32 %19, 2139095040
+  %35 = icmp samesign ugt i32 %19, 2139095040
   %36 = select i1 %35, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_s.exit.us.i
 
@@ -4423,11 +4423,11 @@ define internal void @_ZN2cv12cpu_baselineL9cvt32s16fEPKhmS2_mPhmNS_5Size_IiEEPv
   %17 = sitofp i32 %16 to float
   %18 = call float @llvm.fabs.f32(float %17)
   %19 = bitcast float %18 to i32
-  %20 = icmp ugt i32 %19, 1199570943
+  %20 = icmp samesign ugt i32 %19, 1199570943
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %14
-  %22 = icmp ult i32 %19, 947912704
+  %22 = icmp samesign ult i32 %19, 947912704
   br i1 %22, label %30, label %23
 
 23:                                               ; preds = %21
@@ -4446,7 +4446,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt32s16fEPKhmS2_mPhmNS_5Size_IiEEPv
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_i.exit.us.i
 
 34:                                               ; preds = %14
-  %35 = icmp ugt i32 %19, 2139095040
+  %35 = icmp samesign ugt i32 %19, 2139095040
   %36 = select i1 %35, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_i.exit.us.i
 
@@ -4521,11 +4521,11 @@ define internal void @_ZN2cv12cpu_baselineL9cvt32f16fEPKhmS2_mPhmNS_5Size_IiEEPv
   %16 = load float, ptr %15, align 4
   %17 = call float @llvm.fabs.f32(float %16)
   %18 = bitcast float %17 to i32
-  %19 = icmp ugt i32 %18, 1199570943
+  %19 = icmp samesign ugt i32 %18, 1199570943
   br i1 %19, label %33, label %20
 
 20:                                               ; preds = %14
-  %21 = icmp ult i32 %18, 947912704
+  %21 = icmp samesign ult i32 %18, 947912704
   br i1 %21, label %29, label %22
 
 22:                                               ; preds = %20
@@ -4544,7 +4544,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt32f16fEPKhmS2_mPhmNS_5Size_IiEEPv
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 
 33:                                               ; preds = %14
-  %34 = icmp ugt i32 %18, 2139095040
+  %34 = icmp samesign ugt i32 %18, 2139095040
   %35 = select i1 %34, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 
@@ -4620,11 +4620,11 @@ define internal void @_ZN2cv12cpu_baselineL9cvt64f16fEPKhmS2_mPhmNS_5Size_IiEEPv
   %17 = fptrunc double %16 to float
   %18 = call float @llvm.fabs.f32(float %17)
   %19 = bitcast float %18 to i32
-  %20 = icmp ugt i32 %19, 1199570943
+  %20 = icmp samesign ugt i32 %19, 1199570943
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %14
-  %22 = icmp ult i32 %19, 947912704
+  %22 = icmp samesign ult i32 %19, 947912704
   br i1 %22, label %30, label %23
 
 23:                                               ; preds = %21
@@ -4643,7 +4643,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt64f16fEPKhmS2_mPhmNS_5Size_IiEEPv
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.us.i
 
 34:                                               ; preds = %14
-  %35 = icmp ugt i32 %19, 2139095040
+  %35 = icmp samesign ugt i32 %19, 2139095040
   %36 = select i1 %35, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.us.i
 
@@ -4809,16 +4809,16 @@ define void @_ZN2cv3hal9cvt32f16fEPKfPNS_6hfloatEi(ptr nocapture noundef readonl
   %8 = load float, ptr %7, align 4
   %9 = call float @llvm.fabs.f32(float %8)
   %10 = bitcast float %9 to i32
-  %11 = icmp ugt i32 %10, 1199570943
+  %11 = icmp samesign ugt i32 %10, 1199570943
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = icmp ugt i32 %10, 2139095040
+  %13 = icmp samesign ugt i32 %10, 2139095040
   %14 = select i1 %13, i16 32256, i16 31744
   br label %_ZN2cv6hfloatC2Ef.exit.i
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = icmp ult i32 %10, 947912704
+  %16 = icmp samesign ult i32 %10, 947912704
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %15

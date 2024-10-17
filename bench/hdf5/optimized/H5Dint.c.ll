@@ -4376,7 +4376,7 @@ H5VM_power2up.exit:                               ; preds = %25
   %38 = getelementptr inbounds i8, ptr %37, i64 2508
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %41, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %34, %14, %30, %10
@@ -5933,7 +5933,7 @@ H5VM_log2_gen.exit:                               ; preds = %146, %152, %158, %1
   %203 = getelementptr inbounds i8, ptr %202, i64 2508
   %204 = load i32, ptr %203, align 4
   %205 = zext i32 %204 to i64
-  %206 = icmp ult i64 %indvars.iv.next, %205
+  %206 = icmp samesign ult i64 %indvars.iv.next, %205
   br i1 %206, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %197, %.preheader140

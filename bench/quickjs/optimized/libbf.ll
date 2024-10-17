@@ -1108,7 +1108,7 @@ bf_resize.exit:                                   ; preds = %.bf_resize.exit_cri
   br i1 %.not109, label %132, label %130
 
 130:                                              ; preds = %128
-  %.not110 = icmp ult i32 %spec.select, 16
+  %.not110 = icmp samesign ult i32 %spec.select, 16
   %131 = or i32 %spec.select, 8
   %spec.select129 = select i1 %.not110, i32 %spec.select, i32 %131
   br label %144
@@ -2243,7 +2243,7 @@ bf_resize.exit:                                   ; preds = %153, %150, %159, %1
 168:                                              ; preds = %bf_resize.exit
   %169 = sub i32 5, %.133.i
   tail call fastcc void @limb_to_ntt(ptr noundef nonnull %106, ptr noundef %167, i64 noundef %146, ptr noundef %.081, i64 noundef %.084, i32 noundef %.2.i, i32 noundef %169, i32 noundef %.133.i)
-  %.not97 = icmp ult i32 %6, 4
+  %.not97 = icmp samesign ult i32 %6, 4
   %or.cond = icmp eq i32 %6, 1
   br i1 %or.cond, label %170, label %bf_resize.exit126
 
@@ -2266,7 +2266,7 @@ bf_resize.exit:                                   ; preds = %153, %150, %159, %1
   br label %bf_resize.exit126
 
 bf_resize.exit126:                                ; preds = %173, %170, %168
-  %179 = icmp ugt i32 %.136.i, 13
+  %179 = icmp samesign ugt i32 %.136.i, 13
   %.val110 = load ptr, ptr %106, align 8
   %.val110.val = load ptr, ptr %.val110, align 8
   %180 = getelementptr i8, ptr %.val110, i64 8
@@ -4876,7 +4876,7 @@ bf_free.exit.i.i.i:                               ; preds = %286, %283
 bf_sub.exit:                                      ; preds = %275, %bf_free.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   %290 = or i32 %281, %276
-  %.not80 = icmp ult i32 %290, 32
+  %.not80 = icmp samesign ult i32 %290, 32
   br i1 %.not80, label %get_bit.exit.thread, label %300
 
 get_bit.exit.thread:                              ; preds = %260, %.thread, %get_bit.exit, %bf_sub.exit, %274, %230
@@ -7005,7 +7005,7 @@ define internal fastcc range(i32 0, 33) i32 @bf_logic_op(ptr noundef %0, ptr nou
   br label %bf_logic_op1.exit.thread
 
 .split:                                           ; preds = %26
-  %switch = icmp ult i32 %3, 2
+  %switch = icmp samesign ult i32 %3, 2
   br i1 %switch, label %bf_logic_op1.exit.thread, label %bf_logic_op1.exit.thread187
 
 bf_logic_op1.exit.thread:                         ; preds = %.split, %33, %31
@@ -8835,7 +8835,7 @@ thread-pre-split:                                 ; preds = %strcasestart.exit.t
 
 to_digit.exit:                                    ; preds = %57, %63, %65
   %.0.i = phi i32 [ %64, %63 ], [ %spec.select.i, %65 ], [ %60, %57 ]
-  %.not245 = icmp ult i32 %.0.i, %.0
+  %.not245 = icmp samesign ult i32 %.0.i, %.0
   br i1 %.not245, label %.thread501.thread, label %68
 
 68:                                               ; preds = %to_digit.exit
@@ -8921,7 +8921,7 @@ bf_set_inf.exit:                                  ; preds = %strcasestart.exit28
 
 94:                                               ; preds = %.thread501.thread
   %95 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %93)
-  %.not247 = icmp ult i32 %95, 2
+  %.not247 = icmp samesign ult i32 %95, 2
   br i1 %.not247, label %98, label %96
 
 96:                                               ; preds = %94
@@ -9772,7 +9772,7 @@ define dso_local i64 @bf_mul_log2_radix(i64 noundef %0, i32 noundef %1, i32 noun
   %.0 = trunc nuw nsw i64 %.lobit to i32
   %5 = xor i32 %3, %.0
   %6 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
-  %7 = icmp ult i32 %6, 2
+  %7 = icmp samesign ult i32 %6, 2
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %4
@@ -9918,7 +9918,7 @@ define internal fastcc ptr @bf_ftoa_internal(ptr noundef writeonly %0, ptr nound
 
 34:                                               ; preds = %25
   %35 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
-  %.not306 = icmp ugt i32 %35, 1
+  %.not306 = icmp samesign ugt i32 %35, 1
   %36 = icmp ult i32 %2, 2
   %or.cond425 = or i1 %36, %.not306
   br i1 %or.cond425, label %ceil_log2.exit, label %37
@@ -10042,7 +10042,7 @@ bf_round.exit:                                    ; preds = %85
   %90 = or disjoint i32 %89, 16
   %91 = mul i64 %3, %86
   %92 = call fastcc i32 @__bf_round(ptr noundef nonnull %10, i64 noundef %91, i32 noundef %90, i64 noundef %87, i32 noundef 0)
-  %.not324 = icmp ult i32 %92, 32
+  %.not324 = icmp samesign ult i32 %92, 32
   br i1 %.not324, label %bf_round.exit.thread, label %bf_delete.exit
 
 bf_round.exit.thread:                             ; preds = %85, %bf_round.exit
@@ -10482,7 +10482,7 @@ bf_round.exit372:                                 ; preds = %296
   %305 = add nsw i64 %302, %304
   %306 = sub i64 %300, %305
   %307 = call fastcc i32 @__bf_round(ptr noundef nonnull %10, i64 noundef %306, i32 noundef %298, i64 noundef %295, i32 noundef 0)
-  %.not313 = icmp ult i32 %307, 32
+  %.not313 = icmp samesign ult i32 %307, 32
   br i1 %.not313, label %bf_round.exit372.bf_round.exit372.thread_crit_edge, label %bf_delete.exit
 
 bf_round.exit372.bf_round.exit372.thread_crit_edge: ; preds = %bf_round.exit372
@@ -19680,7 +19680,7 @@ floor_div.exit.i30.i:                             ; preds = %115, %113
   br label %bfdec_get_rnd_add.exit
 
 146:                                              ; preds = %107
-  %147 = icmp ugt i64 %.0.i29.i, 5
+  %147 = icmp samesign ugt i64 %.0.i29.i, 5
   %spec.select.i = zext i1 %147 to i32
   br label %159
 
@@ -19694,7 +19694,7 @@ floor_div.exit.i30.i:                             ; preds = %115, %113
   br label %159
 
 154:                                              ; preds = %get_digit.exit.i, %get_digit.exit.i
-  %155 = icmp ugt i64 %.0.i29.i, 4
+  %155 = icmp samesign ugt i64 %.0.i29.i, 4
   %156 = zext i1 %155 to i32
   br label %159
 
@@ -22698,7 +22698,7 @@ mp_shr_dec.exit:                                  ; preds = %mp_shr_dec.exit.loo
   %.184145 = phi i32 [ %136, %.lr.ph ], [ 0, %132 ]
   %136 = add i32 %.184145, 1
   %137 = shl nuw nsw i64 %.082146, 2
-  %138 = icmp ult i64 %.082146, 625000000000000000
+  %138 = icmp samesign ult i64 %.082146, 625000000000000000
   br i1 %138, label %.lr.ph, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -22995,7 +22995,7 @@ define dso_local range(i32 0, 5) i32 @bfdec_get_int32(ptr nocapture noundef writ
   %67 = load i32, ptr %66, align 8
   %68 = add i32 %67, 2147483647
   %69 = zext i32 %68 to i64
-  %70 = icmp ugt i64 %65, %69
+  %70 = icmp samesign ugt i64 %65, %69
   br i1 %70, label %78, label %71
 
 71:                                               ; preds = %50
@@ -24658,7 +24658,7 @@ define internal fastcc void @output_digits(ptr noundef nonnull %0, ptr noundef n
 
 11:                                               ; preds = %6
   %12 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
-  %13 = icmp ult i32 %12, 2
+  %13 = icmp samesign ult i32 %12, 2
   br i1 %13, label %14, label %35
 
 14:                                               ; preds = %11
@@ -24970,7 +24970,7 @@ get_bits.exit:                                    ; preds = %134, %142
   %149 = trunc i64 %.017.i110 to i32
   %150 = and i32 %149, %96
   %151 = lshr i64 %.017.i110, %97
-  %152 = icmp ult i32 %150, 10
+  %152 = icmp samesign ult i32 %150, 10
   %153 = or disjoint i32 %150, 48
   %154 = add nuw i32 %150, 87
   %.014.i = select i1 %152, i32 %153, i32 %154
@@ -25142,7 +25142,7 @@ bf_set_nan.exit.i:                                ; preds = %30, %bf_resize.exit
   %55 = add i64 %54, -1
   %.036.i = tail call i64 @llvm.abs.i64(i64 %55, i1 false)
   %56 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
-  %57 = icmp ult i32 %56, 2
+  %57 = icmp samesign ult i32 %56, 2
   br i1 %57, label %58, label %71
 
 58:                                               ; preds = %52
@@ -25208,7 +25208,7 @@ bf_mul_log2_radix.exit:                           ; preds = %ceil_log2.exit.i, %
   %.pre-phi = phi i32 [ %56, %bf_mul_log2_radix.exit ], [ %.pre125, %50 ]
   %.064 = phi i64 [ %97, %bf_mul_log2_radix.exit ], [ %51, %50 ]
   %.036.i77 = tail call i64 @llvm.abs.i64(i64 %4, i1 false)
-  %99 = icmp ult i32 %.pre-phi, 2
+  %99 = icmp samesign ult i32 %.pre-phi, 2
   %100 = icmp slt i64 %4, 0
   %101 = sext i32 %3 to i64
   %102 = getelementptr inbounds i8, ptr %8, i64 8
@@ -25408,7 +25408,7 @@ bf_can_round.exit.thread105:                      ; preds = %get_bit.exit38.i, %
 
 bf_rint.exit:                                     ; preds = %bf_can_round.exit.thread105
   %197 = call fastcc i32 @__bf_round(ptr noundef nonnull %0, i64 noundef 0, i32 noundef %122, i64 noundef %195, i32 noundef 0)
-  %.not74 = icmp ult i32 %197, 32
+  %.not74 = icmp samesign ult i32 %197, 32
   br i1 %.not74, label %bf_rint.exit.thread, label %bf_set.exit
 
 bf_rint.exit.thread:                              ; preds = %bf_can_round.exit.thread105, %bf_rint.exit

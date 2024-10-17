@@ -1111,7 +1111,7 @@ define internal fastcc void @run(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %53 = phi i32 [ %44, %.lr.ph.i ], [ %.pre.i, %49 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next.i, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next.i, %54
   br i1 %55, label %.lr.ph.i, label %print_process.exit, !llvm.loop !8
 
 print_process.exit:                               ; preds = %52, %35, %31, %34, %18
@@ -1261,7 +1261,7 @@ define internal void @foreach_process_cb(ptr noundef %0, ptr noundef %1, ptr nou
   %49 = phi i32 [ %40, %39 ], [ %.pre.i, %45 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %indvars.iv.next.i, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next.i, %50
   br i1 %51, label %39, label %print_process.exit, !llvm.loop !8
 
 print_process.exit:                               ; preds = %48, %27, %26, %14, %23
@@ -1472,7 +1472,7 @@ hwloc_get_obj_covering_cpuset.exit61:             ; preds = %hwloc_get_obj_cover
   %86 = load i32, ptr %41, align 4
   %87 = add i32 %86, -1
   %88 = zext i32 %87 to i64
-  %89 = icmp ult i64 %indvars.iv, %88
+  %89 = icmp samesign ult i64 %indvars.iv, %88
   %90 = select i1 %89, ptr @.str.81, ptr @.str.82
   %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.84, i64 noundef %82, ptr noundef nonnull %83, ptr noundef nonnull %3, i32 noundef %85, ptr noundef nonnull %90) #15
   %.pre = load i32, ptr %41, align 4
@@ -1482,7 +1482,7 @@ hwloc_get_obj_covering_cpuset.exit61:             ; preds = %hwloc_get_obj_cover
   %93 = phi i32 [ %52, %51 ], [ %.pre, %.critedge2 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = zext i32 %93 to i64
-  %95 = icmp ult i64 %indvars.iv.next, %94
+  %95 = icmp samesign ult i64 %indvars.iv.next, %94
   br i1 %95, label %51, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %92, %46
@@ -1573,7 +1573,7 @@ define internal fastcc void @print_process_lstopo_misc(ptr noundef %0) unnamed_a
   %47 = phi i32 [ %24, %23 ], [ %.pre, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %23, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %46, %12

@@ -3613,7 +3613,7 @@ define internal fastcc void @zend_foreach_op_array_helper(ptr noundef %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %4, align 4
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %13, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %3

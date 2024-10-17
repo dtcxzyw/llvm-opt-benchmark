@@ -2674,7 +2674,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
 
 conv_method_index.exit.i:                         ; preds = %44
   %48 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %49 = icmp ult i64 %indvars.iv.i.i, 12
+  %49 = icmp samesign ult i64 %indvars.iv.i.i, 12
   br i1 %49, label %50, label %conv_method_index.exit.thread.i
 
 50:                                               ; preds = %conv_method_index.exit.i
@@ -2893,7 +2893,7 @@ define internal fastcc range(i64 37, 36) i64 @convert_type_with_id(i64 noundef %
 
 14:                                               ; preds = %9, %11
   %15 = phi i32 [ %13, %11 ], [ %4, %9 ]
-  %16 = icmp ult i32 %15, 7
+  %16 = icmp samesign ult i32 %15, 7
   %17 = select i1 %16, ptr @.str.146, ptr @.str.147
   %18 = icmp eq i64 %0, 4
   %19 = icmp eq i64 %0, 20
@@ -3020,7 +3020,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br i1 %exitcond.not.i.i, label %conv_method_index.exit.thread.i, label %41, !llvm.loop !13
 
 conv_method_index.exit.i:                         ; preds = %45
-  %49 = icmp ult i64 %indvars.iv.i.i, 12
+  %49 = icmp samesign ult i64 %indvars.iv.i.i, 12
   br i1 %49, label %50, label %conv_method_index.exit.thread.i
 
 50:                                               ; preds = %conv_method_index.exit.i
@@ -3291,7 +3291,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br i1 %exitcond.not.i.i, label %conv_method_index.exit.thread.i, label %29, !llvm.loop !13
 
 conv_method_index.exit.i:                         ; preds = %33
-  %37 = icmp ult i64 %indvars.iv.i.i, 12
+  %37 = icmp samesign ult i64 %indvars.iv.i.i, 12
   br i1 %37, label %38, label %conv_method_index.exit.thread.i
 
 38:                                               ; preds = %conv_method_index.exit.i

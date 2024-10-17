@@ -917,7 +917,7 @@ define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ6module1_100_$L
   %3 = load i32, ptr %0, align 4, !range !83, !noundef !16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !16
-  %switch = icmp ult i32 %3, 2
+  %switch = icmp samesign ult i32 %3, 2
   %spec.select = select i1 %switch, i64 8, i64 4
   %6 = add i64 %5, %spec.select
   store i64 %6, ptr %4, align 8
@@ -929,7 +929,7 @@ define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ6module1_100_$L
   %3 = load i32, ptr %0, align 4, !range !83, !noundef !16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !16
-  %switch = icmp ult i32 %3, 2
+  %switch = icmp samesign ult i32 %3, 2
   %spec.select = select i1 %switch, i64 8, i64 4
   %6 = add i64 %5, %spec.select
   store i64 %6, ptr %4, align 8
@@ -31096,7 +31096,7 @@ define noundef ptr @"_ZN101_$LT$wasmtime..runtime..limits..StoreLimits$u20$as$u2
   %16 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %17 = icmp ult i64 %16, 6
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ugt i64 %16, 3
+  %18 = icmp samesign ugt i64 %16, 3
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %15
@@ -31238,7 +31238,7 @@ define noundef ptr @"_ZN101_$LT$wasmtime..runtime..limits..StoreLimits$u20$as$u2
   %16 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %17 = icmp ult i64 %16, 6
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ugt i64 %16, 3
+  %18 = icmp samesign ugt i64 %16, 3
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %15
@@ -33511,7 +33511,7 @@ define void @_ZN8wasmtime7runtime5store11StoreOpaque2gc17hff6bd5251edf9ab3E(ptr 
   %10 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !13625
   %11 = icmp ult i64 %10, 6
   tail call void @llvm.assume(i1 %11)
-  %12 = icmp ugt i64 %10, 4
+  %12 = icmp samesign ugt i64 %10, 4
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %.noexc11, %8
@@ -33562,7 +33562,7 @@ define void @_ZN8wasmtime7runtime5store11StoreOpaque2gc17hff6bd5251edf9ab3E(ptr 
   %22 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !13625
   %23 = icmp ult i64 %22, 6
   call void @llvm.assume(i1 %23)
-  %24 = icmp ugt i64 %22, 4
+  %24 = icmp samesign ugt i64 %22, 4
   br i1 %24, label %25, label %_ZN8wasmtime7runtime5store11StoreOpaque11trace_roots17h7326c06c012ff3c4E.exit
 
 25:                                               ; preds = %.noexc15
@@ -33685,7 +33685,7 @@ define void @_ZN8wasmtime7runtime5store11StoreOpaque22trace_wasm_stack_roots17h2
   %6 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %7 = icmp ult i64 %6, 6
   tail call void @llvm.assume(i1 %7)
-  %8 = icmp ugt i64 %6, 4
+  %8 = icmp samesign ugt i64 %6, 4
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %2, %17
@@ -33705,7 +33705,7 @@ _ZN16wasmtime_runtime12traphandlers3tls4with17hd7b98c4c8d2309c3E.exit: ; preds =
   %14 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %15 = icmp ult i64 %14, 6
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ugt i64 %14, 4
+  %16 = icmp samesign ugt i64 %14, 4
   br i1 %16, label %23, label %22
 
 17:                                               ; preds = %2
@@ -33788,7 +33788,7 @@ define hidden noundef zeroext i1 @"_ZN8wasmtime7runtime5store11StoreOpaque22trac
   %38 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %39 = icmp ult i64 %38, 6
   call void @llvm.assume(i1 %39)
-  %40 = icmp ugt i64 %38, 4
+  %40 = icmp samesign ugt i64 %38, 4
   br i1 %37, label %41, label %47
 
 41:                                               ; preds = %33
@@ -33912,14 +33912,14 @@ define hidden noundef zeroext i1 @"_ZN8wasmtime7runtime5store11StoreOpaque22trac
   %97 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %98 = icmp ult i64 %97, 6
   call void @llvm.assume(i1 %98)
-  %99 = icmp ugt i64 %97, 4
+  %99 = icmp samesign ugt i64 %97, 4
   br i1 %99, label %117, label %105
 
 100:                                              ; preds = %88
   %101 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %102 = icmp ult i64 %101, 6
   call void @llvm.assume(i1 %102)
-  %103 = icmp ugt i64 %101, 4
+  %103 = icmp samesign ugt i64 %101, 4
   br i1 %103, label %104, label %.backedge
 
 .backedge:                                        ; preds = %104, %100, %152
@@ -34031,7 +34031,7 @@ common.resume:                                    ; preds = %137, %111
   %123 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !13661
   %124 = icmp ult i64 %123, 6
   call void @llvm.assume(i1 %124)
-  %125 = icmp ugt i64 %123, 4
+  %125 = icmp samesign ugt i64 %123, 4
   br i1 %125, label %131, label %126
 
 126:                                              ; preds = %145, %122
@@ -34167,7 +34167,7 @@ define void @_ZN8wasmtime7runtime5store11StoreOpaque17trace_vmctx_roots17h2a9267
   %32 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %33 = icmp ult i64 %32, 6
   tail call void @llvm.assume(i1 %33)
-  %34 = icmp ugt i64 %32, 4
+  %34 = icmp samesign ugt i64 %32, 4
   %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
   %.sink.i.sroa.gep32 = getelementptr inbounds i8, ptr %9, i64 8
   %.sink.i.sroa.gep34 = getelementptr inbounds i8, ptr %4, i64 32
@@ -35021,7 +35021,7 @@ _ZN16wasmtime_runtime8instance8Instance10from_vmctx17h6253c0123f126ec4E.llvm.153
   %293 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !13940
   %294 = icmp ult i64 %293, 6
   call void @llvm.assume(i1 %294)
-  %295 = icmp ugt i64 %293, 4
+  %295 = icmp samesign ugt i64 %293, 4
   br i1 %295, label %301, label %296
 
 296:                                              ; preds = %.noexc29.i27, %292
@@ -35102,7 +35102,7 @@ _ZN8wasmtime7runtime5store11StoreOpaque14for_each_table17h6cbb3f55e4be243dE.exit
   %313 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %314 = icmp ult i64 %313, 6
   call void @llvm.assume(i1 %314)
-  %315 = icmp ugt i64 %313, 4
+  %315 = icmp samesign ugt i64 %313, 4
   br i1 %315, label %322, label %321
 
 316:                                              ; preds = %2
@@ -35157,7 +35157,7 @@ define internal fastcc void @"_ZN8wasmtime7runtime5store11StoreOpaque17trace_vmc
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9), !noalias !13948
   call void @_ZN8wasmtime7runtime9externals6global6Global3_ty17h23a06f86ed7baab6E(ptr noalias nocapture noundef nonnull sret({ { i64, [5 x i64] }, i8, [7 x i8] }) align 8 dereferenceable(56) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 %0), !noalias !13945
   %13 = load i64, ptr %9, align 8, !range !12845, !noalias !13948, !noundef !16
-  %14 = icmp ugt i64 %13, 6
+  %14 = icmp samesign ugt i64 %13, 6
   br i1 %14, label %_ZN8wasmtime7runtime9externals6global6Global10trace_root17hb1f7144fad3372d9E.exit, label %20
 
 15:                                               ; preds = %.noexc14.i, %53, %52, %36, %34, %25
@@ -35250,7 +35250,7 @@ _ZN8wasmtime7runtime5types7RefType15is_gc_heap_type17h05d22cb1c7f3b881E.exit.i: 
   %44 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !13970
   %45 = icmp ult i64 %44, 6
   tail call void @llvm.assume(i1 %45)
-  %46 = icmp ugt i64 %44, 4
+  %46 = icmp samesign ugt i64 %44, 4
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %.noexc15.i, %43
@@ -35359,7 +35359,7 @@ define void @_ZN8wasmtime7runtime5store11StoreOpaque16trace_user_roots17hc38dc88
   %17 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %18 = icmp ult i64 %17, 6
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ugt i64 %17, 4
+  %19 = icmp samesign ugt i64 %17, 4
   br i1 %19, label %129, label %20
 
 20:                                               ; preds = %2, %129
@@ -35368,7 +35368,7 @@ define void @_ZN8wasmtime7runtime5store11StoreOpaque16trace_user_roots17hc38dc88
   %21 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !13979
   %22 = icmp ult i64 %21, 6
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ugt i64 %21, 4
+  %23 = icmp samesign ugt i64 %21, 4
   br i1 %23, label %37, label %24
 
 24:                                               ; preds = %37, %20
@@ -35415,7 +35415,7 @@ define void @_ZN8wasmtime7runtime5store11StoreOpaque16trace_user_roots17hc38dc88
   %42 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !13979
   %43 = icmp ult i64 %42, 6
   call void @llvm.assume(i1 %43)
-  %44 = icmp ugt i64 %42, 4
+  %44 = icmp samesign ugt i64 %42, 4
   br i1 %44, label %64, label %69
 
 45:                                               ; preds = %_ZN16wasmtime_runtime2gc10gc_runtime11GcRootsList8add_root17hdcae7c09706e0b96E.exit.i, %.lr.ph.i
@@ -35425,7 +35425,7 @@ define void @_ZN8wasmtime7runtime5store11StoreOpaque16trace_user_roots17hc38dc88
   %47 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !13983
   %48 = icmp ult i64 %47, 6
   call void @llvm.assume(i1 %48)
-  %49 = icmp ugt i64 %47, 4
+  %49 = icmp samesign ugt i64 %47, 4
   br i1 %49, label %55, label %50
 
 50:                                               ; preds = %55, %45
@@ -35499,7 +35499,7 @@ _ZN16wasmtime_runtime2gc10gc_runtime11GcRootsList8add_root17hdcae7c09706e0b96E.e
   %70 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !13979
   %71 = icmp ult i64 %70, 6
   call void @llvm.assume(i1 %71)
-  %72 = icmp ugt i64 %70, 4
+  %72 = icmp samesign ugt i64 %70, 4
   br i1 %72, label %88, label %73
 
 73:                                               ; preds = %88, %69
@@ -35574,7 +35574,7 @@ _ZN16wasmtime_runtime2gc10gc_runtime11GcRootsList8add_root17hdcae7c09706e0b96E.e
   %98 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !13979
   %99 = icmp ult i64 %98, 6
   call void @llvm.assume(i1 %99)
-  %100 = icmp ugt i64 %98, 4
+  %100 = icmp samesign ugt i64 %98, 4
   br i1 %100, label %121, label %_ZN8wasmtime7runtime2gc7enabled7rooting7RootSet11trace_roots17hc875c3b59f967f01E.exit
 
 101:                                              ; preds = %.lr.ph.i.i
@@ -35584,7 +35584,7 @@ _ZN16wasmtime_runtime2gc10gc_runtime11GcRootsList8add_root17hdcae7c09706e0b96E.e
   %104 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !14012
   %105 = icmp ult i64 %104, 6
   call void @llvm.assume(i1 %105)
-  %106 = icmp ugt i64 %104, 4
+  %106 = icmp samesign ugt i64 %104, 4
   br i1 %106, label %112, label %107
 
 107:                                              ; preds = %112, %101
@@ -35658,7 +35658,7 @@ _ZN8wasmtime7runtime2gc7enabled7rooting7RootSet11trace_roots17hc875c3b59f967f01E
   %126 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %127 = icmp ult i64 %126, 6
   call void @llvm.assume(i1 %127)
-  %128 = icmp ugt i64 %126, 4
+  %128 = icmp samesign ugt i64 %126, 4
   br i1 %128, label %135, label %134
 
 129:                                              ; preds = %2

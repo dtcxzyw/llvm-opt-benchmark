@@ -1123,7 +1123,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113gridshiftData14che
   %144 = trunc i8 %143 to i1
   %.mask41 = and i8 %143, 1
   %narrow42 = add nuw nsw i8 %narrow, %.mask41
-  %145 = icmp ugt i8 %narrow42, 1
+  %145 = icmp samesign ugt i8 %narrow42, 1
   br i1 %145, label %.invoke111, label %147
 
 .invoke111:                                       ; preds = %135, %107, %93

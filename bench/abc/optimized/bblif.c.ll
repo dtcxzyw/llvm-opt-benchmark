@@ -2252,7 +2252,7 @@ define noalias noundef ptr @Bbl_ManSopToTruth(ptr noundef readonly %0, i32 nound
 
 .lr.ph31.split.us.split.us.i:                     ; preds = %..loopexit25_crit_edge.us.us.i, %.lr.ph31.split.us.split.us.preheader.i
   %indvars.iv72.i = phi i64 [ 0, %.lr.ph31.split.us.split.us.preheader.i ], [ %indvars.iv.next73.i, %..loopexit25_crit_edge.us.us.i ]
-  %33 = icmp ult i64 %indvars.iv72.i, 5
+  %33 = icmp samesign ult i64 %indvars.iv72.i, 5
   br i1 %33, label %.preheader.us.us.i, label %.preheader24.us.us.i
 
 34:                                               ; preds = %.preheader24.us.us.i, %34

@@ -1924,7 +1924,7 @@ land.lhs.true:                                    ; preds = %pci_is_express_down
   %add.i.i = add nsw i64 %conv, -1
   %sub.i.i = add nsw i64 %add.i.i, %conv2
   %sub.i4.i = add nuw nsw i64 %conv3, 19
-  %cmp.i = icmp ult i64 %sub.i4.i, %conv
+  %cmp.i = icmp samesign ult i64 %sub.i4.i, %conv
   %cmp2.i = icmp ult i64 %sub.i.i, %add4
   %.not.i.not = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %.not.i.not, label %if.end9, label %if.then8
@@ -3378,7 +3378,7 @@ if.then11:                                        ; preds = %pci_find_capability
 
 for.inc:                                          ; preds = %for.cond.preheader.i, %for.body, %pci_find_capability_at_offset.exit
   %inc = add nuw nsw i32 %i.048, 1
-  %cmp = icmp ult i32 %inc, %add
+  %cmp = icmp samesign ult i32 %inc, %add
   br i1 %cmp, label %for.body, label %if.end19, !llvm.loop !24
 
 if.end19:                                         ; preds = %for.inc, %pci_find_space.exit.if.end19_crit_edge, %if.else3
@@ -5052,7 +5052,7 @@ land.lhs.true18.i:                                ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %land.lhs.true18.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
-  %cmp14.i = icmp ult i64 %indvars.iv.i, 248
+  %cmp14.i = icmp samesign ult i64 %indvars.iv.i, 248
   br i1 %cmp14.i, label %for.body.i, label %for.end.i, !llvm.loop !39
 
 for.end.i:                                        ; preds = %for.inc.i

@@ -1103,7 +1103,7 @@ if.end.i:                                         ; preds = %if.then
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %3 = load ptr, ptr %arrayidx, align 8, !tbaa !24
-  %min.iters.check = icmp ult i64 %conv.i, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i, 8
   %4 = ptrtoint ptr %3 to i64
   %5 = sub i64 %4, %newText3
   %diff.check = icmp ult i64 %5, 32

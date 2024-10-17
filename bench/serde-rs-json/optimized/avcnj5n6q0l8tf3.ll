@@ -1296,7 +1296,7 @@ _ZN10serde_json3ser9Formatter10write_bool17h3cf53aafdd323af7E.exit.i: ; preds = 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %27
   %.028.lcssa.i.i.i.i = phi i64 [ 20, %27 ], [ %39, %.lr.ph.i.i.i.i ]
   %.1.lcssa.i.i.i.i = phi i64 [ %28, %27 ], [ %32, %.lr.ph.i.i.i.i ]
-  %30 = icmp ugt i64 %.1.lcssa.i.i.i.i, 99
+  %30 = icmp samesign ugt i64 %.1.lcssa.i.i.i.i, 99
   br i1 %30, label %46, label %55
 
 .lr.ph.i.i.i.i:                                   ; preds = %27, %.lr.ph.i.i.i.i
@@ -1340,7 +1340,7 @@ _ZN10serde_json3ser9Formatter10write_bool17h3cf53aafdd323af7E.exit.i: ; preds = 
 55:                                               ; preds = %46, %._crit_edge.i.i.i.i
   %.129.i.i.i.i = phi i64 [ %51, %46 ], [ %.028.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.027.i.i.i.i = phi i64 [ %.zext35.i.i.i.i, %46 ], [ %.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %56 = icmp ult i64 %.027.i.i.i.i, 10
+  %56 = icmp samesign ult i64 %.027.i.i.i.i, 10
   br i1 %56, label %63, label %57
 
 57:                                               ; preds = %55
@@ -1388,7 +1388,7 @@ _ZN10serde_json3ser9Formatter9write_u6417hc93ca8d034f51936E.exit.i.i: ; preds = 
 ._crit_edge.i.i.i4.i:                             ; preds = %.lr.ph.i.i.i10.i, %75
   %.026.lcssa.i.i.i.i = phi i64 [ 20, %75 ], [ %88, %.lr.ph.i.i.i10.i ]
   %.1.lcssa.i.i.i5.i = phi i64 [ %.0.i.i.i.i, %75 ], [ %81, %.lr.ph.i.i.i10.i ]
-  %79 = icmp ugt i64 %.1.lcssa.i.i.i5.i, 99
+  %79 = icmp samesign ugt i64 %.1.lcssa.i.i.i5.i, 99
   br i1 %79, label %95, label %104
 
 .lr.ph.i.i.i10.i:                                 ; preds = %75, %.lr.ph.i.i.i10.i
@@ -1432,7 +1432,7 @@ _ZN10serde_json3ser9Formatter9write_u6417hc93ca8d034f51936E.exit.i.i: ; preds = 
 104:                                              ; preds = %95, %._crit_edge.i.i.i4.i
   %.127.i.i.i.i = phi i64 [ %100, %95 ], [ %.026.lcssa.i.i.i.i, %._crit_edge.i.i.i4.i ]
   %.025.i.i.i.i = phi i64 [ %.zext35.i.i.i9.i, %95 ], [ %.1.lcssa.i.i.i5.i, %._crit_edge.i.i.i4.i ]
-  %105 = icmp ult i64 %.025.i.i.i.i, 10
+  %105 = icmp samesign ult i64 %.025.i.i.i.i, 10
   br i1 %105, label %112, label %106
 
 106:                                              ; preds = %104
@@ -1802,7 +1802,7 @@ _ZN10serde_json3ser9Formatter10write_bool17h7ec1e3dc0b6bf878E.exit.i: ; preds = 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %26
   %.028.lcssa.i.i.i.i = phi i64 [ 20, %26 ], [ %38, %.lr.ph.i.i.i.i ]
   %.1.lcssa.i.i.i.i = phi i64 [ %27, %26 ], [ %31, %.lr.ph.i.i.i.i ]
-  %29 = icmp ugt i64 %.1.lcssa.i.i.i.i, 99
+  %29 = icmp samesign ugt i64 %.1.lcssa.i.i.i.i, 99
   br i1 %29, label %45, label %54
 
 .lr.ph.i.i.i.i:                                   ; preds = %26, %.lr.ph.i.i.i.i
@@ -1846,7 +1846,7 @@ _ZN10serde_json3ser9Formatter10write_bool17h7ec1e3dc0b6bf878E.exit.i: ; preds = 
 54:                                               ; preds = %45, %._crit_edge.i.i.i.i
   %.129.i.i.i.i = phi i64 [ %50, %45 ], [ %.028.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.027.i.i.i.i = phi i64 [ %.zext35.i.i.i.i, %45 ], [ %.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %55 = icmp ult i64 %.027.i.i.i.i, 10
+  %55 = icmp samesign ult i64 %.027.i.i.i.i, 10
   br i1 %55, label %62, label %56
 
 56:                                               ; preds = %54
@@ -1894,7 +1894,7 @@ _ZN10serde_json3ser9Formatter9write_u6417h834517c92d4fb842E.exit.i.i: ; preds = 
 ._crit_edge.i.i.i4.i:                             ; preds = %.lr.ph.i.i.i10.i, %74
   %.026.lcssa.i.i.i.i = phi i64 [ 20, %74 ], [ %87, %.lr.ph.i.i.i10.i ]
   %.1.lcssa.i.i.i5.i = phi i64 [ %.0.i.i.i.i, %74 ], [ %80, %.lr.ph.i.i.i10.i ]
-  %78 = icmp ugt i64 %.1.lcssa.i.i.i5.i, 99
+  %78 = icmp samesign ugt i64 %.1.lcssa.i.i.i5.i, 99
   br i1 %78, label %94, label %103
 
 .lr.ph.i.i.i10.i:                                 ; preds = %74, %.lr.ph.i.i.i10.i
@@ -1938,7 +1938,7 @@ _ZN10serde_json3ser9Formatter9write_u6417h834517c92d4fb842E.exit.i.i: ; preds = 
 103:                                              ; preds = %94, %._crit_edge.i.i.i4.i
   %.127.i.i.i.i = phi i64 [ %99, %94 ], [ %.026.lcssa.i.i.i.i, %._crit_edge.i.i.i4.i ]
   %.025.i.i.i.i = phi i64 [ %.zext35.i.i.i9.i, %94 ], [ %.1.lcssa.i.i.i5.i, %._crit_edge.i.i.i4.i ]
-  %104 = icmp ult i64 %.025.i.i.i.i, 10
+  %104 = icmp samesign ult i64 %.025.i.i.i.i, 10
   br i1 %104, label %111, label %105
 
 105:                                              ; preds = %103

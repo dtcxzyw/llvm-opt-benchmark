@@ -630,7 +630,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not2826, label %205, label %164
 
 164:                                              ; preds = %.lr.ph4106
-  %165 = icmp ult i64 %indvars.iv, 32
+  %165 = icmp samesign ult i64 %indvars.iv, 32
   %166 = load i32, ptr %121, align 8
   br i1 %165, label %167, label %171
 

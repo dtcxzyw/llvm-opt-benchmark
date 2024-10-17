@@ -1261,7 +1261,7 @@ is_live_loop_var_free.exit.thread.i23:            ; preds = %is_live_loop_var_fr
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i22, 1
   %144 = add i32 %143, %142
   %145 = zext i32 %144 to i64
-  %146 = icmp ult i64 %indvars.iv.next.i24, %145
+  %146 = icmp samesign ult i64 %indvars.iv.next.i24, %145
   br i1 %146, label %95, label %cleanup_loop_var_free_block.exit
 
 cleanup_loop_var_free_block.exit:                 ; preds = %141, %._crit_edge.i

@@ -7200,7 +7200,7 @@ for.inc.i:                                        ; preds = %nbd_negotiate_meta_
   %inc.i = add nuw nsw i64 %i.0139.i, 1
   %300 = load i32, ptr %nb_queries.i, align 4
   %conv.i266 = zext i32 %300 to i64
-  %cmp51.i = icmp ult i64 %inc.i, %conv.i266
+  %cmp51.i = icmp samesign ult i64 %inc.i, %conv.i266
   br i1 %cmp51.i, label %for.body.i263, label %if.end58.i, !llvm.loop !30
 
 if.end58.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i260.if.end58.i_crit_edge, %if.then45.i, %if.then38.i

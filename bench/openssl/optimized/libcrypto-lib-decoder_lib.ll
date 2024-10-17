@@ -1329,7 +1329,7 @@ for.end46:                                        ; preds = %for.inc43
   store i64 %.pre, ptr %w_prev_end, align 8
   %inc53 = add nuw nsw i64 %depth.0, 1
   %cmp54 = icmp ne i64 %.pre, %.pre29
-  %cmp56 = icmp ult i64 %depth.0, 10
+  %cmp56 = icmp samesign ult i64 %depth.0, 10
   %46 = select i1 %cmp54, i1 %cmp56, i1 false
   br i1 %46, label %do.body19, label %do.end58, !llvm.loop !11
 

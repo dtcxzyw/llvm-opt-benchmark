@@ -1873,7 +1873,7 @@ define hidden noundef ptr @_ZN8AddINode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 24
   %49 = load i32, ptr %48, align 8
-  %50 = icmp ult i32 %42, 5
+  %50 = icmp samesign ult i32 %42, 5
   %51 = icmp ugt i32 %49, -5
   %or.cond5 = and i1 %50, %51
   br i1 %or.cond5, label %52, label %120
@@ -5016,7 +5016,7 @@ _ZN4NodenwEm.exit:                                ; preds = %21, %23
   %39 = add nsw i32 %34, 1
   %40 = icmp sgt i32 %34, -1
   %41 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %39)
-  %42 = icmp ult i32 %41, 2
+  %42 = icmp samesign ult i32 %41, 2
   %or.cond.i.i.i.i.i.i = select i1 %40, i1 %42, i1 false
   %43 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %39, i1 true)
   %44 = sub nuw nsw i32 32, %43
@@ -5071,7 +5071,7 @@ _ZN4NodenwEm.exit11:                              ; preds = %49, %51
   %67 = add nsw i32 %62, 1
   %68 = icmp sgt i32 %62, -1
   %69 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %67)
-  %70 = icmp ult i32 %69, 2
+  %70 = icmp samesign ult i32 %69, 2
   %or.cond.i.i.i.i.i.i12 = select i1 %68, i1 %70, i1 false
   %71 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %67, i1 true)
   %72 = sub nuw nsw i32 32, %71

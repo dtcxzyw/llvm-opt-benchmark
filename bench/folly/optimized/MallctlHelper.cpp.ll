@@ -2653,7 +2653,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.thread: ; preds = %for.inc.
   br i1 %21, label %_ZN5folly6detail19to_ascii_with_routeILm10ENS_17to_ascii_alphabetILb0EEEEEmPcPKcm.exit, label %while.body.i.preheader, !prof !51
 
 while.cond.i.preheader:                           ; preds = %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit
-  %cmp.i511 = icmp ugt i64 %add.i, 2
+  %cmp.i511 = icmp samesign ugt i64 %add.i, 2
   br i1 %cmp.i511, label %while.body.i.preheader, label %while.end.i, !prof !62
 
 while.body.i.preheader:                           ; preds = %while.cond.i.preheader, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.thread
@@ -2957,7 +2957,7 @@ for.end.i:                                        ; preds = %for.body.i, %_ZNK5f
   %dec.i = add i64 %bufLen.addr.0.lcssa.i, -1
   %arrayidx16.i = getelementptr inbounds i8, ptr %valBuf, i64 %dec.i
   store i8 %14, ptr %arrayidx16.i, align 1, !tbaa !22
-  %cmp.i187 = icmp ugt i32 %v.addr.0.lcssa.i, 7
+  %cmp.i187 = icmp samesign ugt i32 %v.addr.0.lcssa.i, 7
   br i1 %cmp.i187, label %if.end.i, label %_ZN5folly6detail11uintToOctalIjEEmPcmT_.exit
 
 if.end.i:                                         ; preds = %for.end.i
@@ -2966,7 +2966,7 @@ if.end.i:                                         ; preds = %for.end.i
   %dec20.i = add i64 %bufLen.addr.0.lcssa.i, -2
   %arrayidx21.i = getelementptr inbounds i8, ptr %valBuf, i64 %dec20.i
   store i8 %15, ptr %arrayidx21.i, align 1, !tbaa !22
-  %cmp22.i = icmp ugt i32 %v.addr.0.lcssa.i, 63
+  %cmp22.i = icmp samesign ugt i32 %v.addr.0.lcssa.i, 63
   br i1 %cmp22.i, label %if.then23.i, label %_ZN5folly6detail11uintToOctalIjEEmPcmT_.exit
 
 if.then23.i:                                      ; preds = %if.end.i
@@ -3034,7 +3034,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %_ZNK
   %dec.i.i = add i64 %bufLen.addr.0.lcssa.i.i, -1
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %valBuf, i64 %dec.i.i
   store i8 %21, ptr %arrayidx11.i.i, align 1, !tbaa !22
-  %cmp.i.i = icmp ugt i32 %v.addr.0.lcssa.i.i, 15
+  %cmp.i.i = icmp samesign ugt i32 %v.addr.0.lcssa.i.i, 15
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN5folly6detail14uintToHexLowerIjEEmPcmT_.exit
 
 if.then.i.i:                                      ; preds = %for.end.i.i
@@ -3104,7 +3104,7 @@ for.end.i.i210:                                   ; preds = %for.body.i.i198, %_
   %dec.i.i216 = add i64 %bufLen.addr.0.lcssa.i.i212, -1
   %arrayidx11.i.i217 = getelementptr inbounds i8, ptr %valBuf, i64 %dec.i.i216
   store i8 %27, ptr %arrayidx11.i.i217, align 1, !tbaa !22
-  %cmp.i.i218 = icmp ugt i32 %v.addr.0.lcssa.i.i211, 15
+  %cmp.i.i218 = icmp samesign ugt i32 %v.addr.0.lcssa.i.i211, 15
   br i1 %cmp.i.i218, label %if.then.i.i220, label %_ZN5folly6detail14uintToHexUpperIjEEmPcmT_.exit
 
 if.then.i.i220:                                   ; preds = %for.end.i.i210
@@ -3786,7 +3786,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i: ; preds = %for.inc.i.i.1
   %i.0.i.i2.lcssa = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ], [ 2, %for.inc.i.i.1 ], [ 3, %for.inc.i.i.2 ], [ 4, %for.inc.i.i.3 ], [ 5, %for.inc.i.i.4 ], [ 6, %for.inc.i.i.5 ], [ 7, %for.inc.i.i.6 ], [ 8, %for.inc.i.i.7 ], [ 9, %for.inc.i.i.8 ], [ 10, %for.inc.i.i.9 ], [ 11, %for.inc.i.i.10 ], [ 12, %for.inc.i.i.11 ], [ 13, %for.inc.i.i.12 ], [ 14, %for.inc.i.i.13 ], [ 15, %for.inc.i.i.14 ], [ 16, %for.inc.i.i.15 ], [ 17, %for.inc.i.i.16 ], [ 18, %for.inc.i.i.17 ], [ 19, %for.inc.i.i.18 ]
   %conv3.i.i = zext i1 %cmp1.i.i to i64
   %add.i.i = add nuw nsw i64 %i.0.i.i2.lcssa, %conv3.i.i
-  %cmp.i3.i3 = icmp ugt i64 %add.i.i, 2
+  %cmp.i3.i3 = icmp samesign ugt i64 %add.i.i, 2
   br i1 %cmp.i3.i3, label %while.body.i.i.preheader, label %while.end.i.i, !prof !62
 
 while.body.i.i.preheader:                         ; preds = %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i, %for.inc.i.i.18

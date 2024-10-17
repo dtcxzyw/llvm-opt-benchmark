@@ -2568,7 +2568,7 @@ entry:
   br i1 %tobool.not, label %if.then100, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp ugt i32 %flags, 1
+  %cmp2 = icmp samesign ugt i32 %flags, 1
   %.b = load i1, ptr @is_fips, align 4
   %or.cond = select i1 %cmp2, i1 %.b, i1 false
   %0 = load i32, ptr @is_fips_3_0_0, align 4

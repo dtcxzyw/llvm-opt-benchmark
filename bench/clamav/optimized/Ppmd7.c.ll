@@ -21,7 +21,7 @@ define void @Ppmd7_Construct(ptr nocapture noundef writeonly %0) local_unnamed_a
 5:                                                ; preds = %1, %17
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %17 ]
   %.03138 = phi i32 [ 0, %1 ], [ %13, %17 ]
-  %6 = icmp ugt i64 %indvars.iv, 11
+  %6 = icmp samesign ugt i64 %indvars.iv, 11
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = lshr i32 %7, 2
   %9 = add nuw nsw i32 %8, 1
@@ -280,7 +280,7 @@ define internal fastcc void @RestartModel(ptr nocapture noundef %0) unnamed_addr
   %67 = getelementptr inbounds i16, ptr %59, i64 %indvars.iv77
   store i16 %65, ptr %67, align 2
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 8
-  %68 = icmp ult i64 %indvars.iv77, 56
+  %68 = icmp samesign ult i64 %indvars.iv77, 56
   br i1 %68, label %66, label %69
 
 69:                                               ; preds = %66
@@ -355,7 +355,7 @@ define nonnull ptr @Ppmd7_MakeEscFreq(ptr noundef %0, i32 noundef %1, ptr nocapt
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i32
   %32 = mul nuw nsw i32 %7, 11
-  %33 = icmp ugt i32 %32, %31
+  %33 = icmp samesign ugt i32 %32, %31
   %34 = select i1 %33, i64 2, i64 0
   %35 = getelementptr inbounds %struct.CPpmd_See, ptr %28, i64 %34
   %36 = icmp ugt i32 %1, %8
@@ -526,7 +526,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #5 {
   %44 = getelementptr inbounds i8, ptr %.187, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
-  %47 = icmp ugt i32 %41, %46
+  %47 = icmp samesign ugt i32 %41, %46
   br i1 %47, label %48, label %56
 
 48:                                               ; preds = %34
@@ -545,7 +545,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #5 {
 52:                                               ; preds = %50
   %53 = getelementptr inbounds i8, ptr %.089, i64 -11
   %54 = load i8, ptr %53, align 1
-  %55 = icmp ult i8 %54, %42
+  %55 = icmp samesign ult i8 %54, %42
   br i1 %55, label %50, label %.critedge
 
 .critedge:                                        ; preds = %50, %52
@@ -821,7 +821,7 @@ define void @Ppmd7_Update1_0(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %9 = getelementptr inbounds i8, ptr %8, i64 2
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i32
-  %12 = icmp ugt i32 %7, %11
+  %12 = icmp samesign ugt i32 %7, %11
   %13 = zext i1 %12 to i32
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %13, ptr %14, align 8
@@ -1333,13 +1333,13 @@ AllocUnits.exit._crit_edge:                       ; preds = %AllocUnits.exit
   %228 = load i16, ptr %227, align 2
   %229 = zext i16 %228 to i32
   %230 = shl nuw nsw i32 %158, 1
-  %231 = icmp ult i32 %230, %133
+  %231 = icmp samesign ult i32 %230, %133
   %232 = zext i1 %231 to i16
   %233 = add i16 %228, %232
   %234 = shl nuw nsw i32 %158, 2
-  %235 = icmp ule i32 %234, %133
+  %235 = icmp samesign ule i32 %234, %133
   %236 = shl nuw nsw i32 %158, 3
-  %237 = icmp uge i32 %236, %229
+  %237 = icmp samesign uge i32 %236, %229
   %238 = and i1 %235, %237
   %239 = select i1 %238, i16 2, i16 0
   %240 = add i16 %233, %239
@@ -1842,7 +1842,7 @@ define internal fastcc ptr @AllocUnitsRare(ptr nocapture noundef %0, i32 noundef
   %59 = add nuw nsw i32 %58, %53
   %60 = load i16, ptr %55, align 4
   %61 = icmp ne i16 %60, 0
-  %62 = icmp ugt i32 %59, 65535
+  %62 = icmp samesign ugt i32 %59, 65535
   %or.cond102.i = select i1 %61, i1 true, i1 %62
   br i1 %or.cond102.i, label %._crit_edge105.i, label %.lr.ph104.i
 
@@ -1876,7 +1876,7 @@ define internal fastcc ptr @AllocUnitsRare(ptr nocapture noundef %0, i32 noundef
   %86 = add nuw nsw i32 %63, %85
   %87 = load i16, ptr %82, align 4
   %88 = icmp ne i16 %87, 0
-  %89 = icmp ugt i32 %86, 65535
+  %89 = icmp samesign ugt i32 %86, 65535
   %or.cond.i = select i1 %88, i1 true, i1 %89
   br i1 %or.cond.i, label %._crit_edge105.i, label %.lr.ph104.i
 

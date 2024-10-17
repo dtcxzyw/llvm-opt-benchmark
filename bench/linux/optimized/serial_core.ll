@@ -1800,7 +1800,7 @@ define dso_local void @uart_unregister_driver(ptr nocapture noundef %0) #0 align
   %13 = add nuw nsw i64 %10, 1
   %14 = load i32, ptr %4, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %13, %15
+  %16 = icmp samesign ult i64 %13, %15
   br i1 %16, label %9, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %9, %1
@@ -3473,7 +3473,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @uart_write(ptr nocapture
   %79 = load i32, ptr %38, align 4
   %80 = add i32 %78, %79
   %81 = and i32 %80, 4095
-  %82 = icmp ugt i32 %81, %78
+  %82 = icmp samesign ugt i32 %81, %78
   %83 = sub nuw nsw i32 4096, %74
   %84 = select i1 %82, i32 %83, i32 %81
   %85 = zext nneg i32 %84 to i64

@@ -989,7 +989,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6add64fEPKdmS3_mPdmii(ptr nocapture 
   %62 = getelementptr inbounds double, ptr %.05260.i, i64 %55
   store double %60, ptr %62, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %.not53.i = icmp ugt i64 %indvars.iv.next.i, %15
+  %.not53.i = icmp samesign ugt i64 %indvars.iv.next.i, %15
   br i1 %.not53.i, label %..preheader_crit_edge.i, label %35, !llvm.loop !19
 
 .lr.ph58.i:                                       ; preds = %..preheader_crit_edge.i, %.lr.ph58.i
@@ -1002,7 +1002,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6add64fEPKdmS3_mPdmii(ptr nocapture 
   %68 = getelementptr inbounds double, ptr %.05260.i, i64 %indvars.iv69.i
   store double %67, ptr %68, align 8
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
-  %69 = icmp ult i64 %indvars.iv.next70.i, %16
+  %69 = icmp samesign ult i64 %indvars.iv.next70.i, %16
   br i1 %69, label %.lr.ph58.i, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph58.i, %..preheader_crit_edge.i
@@ -1532,7 +1532,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6sub64fEPKdmS3_mPdmii(ptr nocapture 
   %62 = getelementptr inbounds double, ptr %.05260.i, i64 %55
   store double %60, ptr %62, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %.not53.i = icmp ugt i64 %indvars.iv.next.i, %15
+  %.not53.i = icmp samesign ugt i64 %indvars.iv.next.i, %15
   br i1 %.not53.i, label %..preheader_crit_edge.i, label %35, !llvm.loop !34
 
 .lr.ph58.i:                                       ; preds = %..preheader_crit_edge.i, %.lr.ph58.i
@@ -1545,7 +1545,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6sub64fEPKdmS3_mPdmii(ptr nocapture 
   %68 = getelementptr inbounds double, ptr %.05260.i, i64 %indvars.iv69.i
   store double %67, ptr %68, align 8
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
-  %69 = icmp ult i64 %indvars.iv.next70.i, %16
+  %69 = icmp samesign ult i64 %indvars.iv.next70.i, %16
   br i1 %69, label %.lr.ph58.i, label %._crit_edge.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %.lr.ph58.i, %..preheader_crit_edge.i
@@ -2078,7 +2078,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6min64fEPKdmS3_mPdmii(ptr nocapture 
   %62 = getelementptr inbounds double, ptr %.05264.i, i64 %55
   store double %.sroa.speculated.i.i56.i, ptr %62, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %.not53.i = icmp ugt i64 %indvars.iv.next.i, %15
+  %.not53.i = icmp samesign ugt i64 %indvars.iv.next.i, %15
   br i1 %.not53.i, label %..preheader_crit_edge.i, label %35, !llvm.loop !49
 
 .lr.ph62.i:                                       ; preds = %..preheader_crit_edge.i, %.lr.ph62.i
@@ -2092,7 +2092,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6min64fEPKdmS3_mPdmii(ptr nocapture 
   %68 = getelementptr inbounds double, ptr %.05264.i, i64 %indvars.iv73.i
   store double %.sroa.speculated.i.i57.i, ptr %68, align 8
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
-  %69 = icmp ult i64 %indvars.iv.next74.i, %16
+  %69 = icmp samesign ult i64 %indvars.iv.next74.i, %16
   br i1 %69, label %.lr.ph62.i, label %._crit_edge.i, !llvm.loop !47
 
 ._crit_edge.i:                                    ; preds = %.lr.ph62.i, %..preheader_crit_edge.i
@@ -2625,7 +2625,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6max64fEPKdmS3_mPdmii(ptr nocapture 
   %62 = getelementptr inbounds double, ptr %.05264.i, i64 %55
   store double %.sroa.speculated.i.i56.i, ptr %62, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %.not53.i = icmp ugt i64 %indvars.iv.next.i, %15
+  %.not53.i = icmp samesign ugt i64 %indvars.iv.next.i, %15
   br i1 %.not53.i, label %..preheader_crit_edge.i, label %35, !llvm.loop !64
 
 .lr.ph62.i:                                       ; preds = %..preheader_crit_edge.i, %.lr.ph62.i
@@ -2639,7 +2639,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6max64fEPKdmS3_mPdmii(ptr nocapture 
   %68 = getelementptr inbounds double, ptr %.05264.i, i64 %indvars.iv73.i
   store double %.sroa.speculated.i.i57.i, ptr %68, align 8
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
-  %69 = icmp ult i64 %indvars.iv.next74.i, %16
+  %69 = icmp samesign ult i64 %indvars.iv.next74.i, %16
   br i1 %69, label %.lr.ph62.i, label %._crit_edge.i, !llvm.loop !62
 
 ._crit_edge.i:                                    ; preds = %.lr.ph62.i, %..preheader_crit_edge.i
@@ -3183,7 +3183,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline10absdiff64fEPKdmS3_mPdmii(ptr nocap
   %67 = getelementptr inbounds double, ptr %.05260.i, i64 %59
   store double %65, ptr %67, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %.not53.i = icmp ugt i64 %indvars.iv.next.i, %15
+  %.not53.i = icmp samesign ugt i64 %indvars.iv.next.i, %15
   br i1 %.not53.i, label %..preheader_crit_edge.i, label %36, !llvm.loop !79
 
 .lr.ph58.i:                                       ; preds = %..preheader_crit_edge.i, %.lr.ph58.i
@@ -3197,7 +3197,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline10absdiff64fEPKdmS3_mPdmii(ptr nocap
   %74 = getelementptr inbounds double, ptr %.05260.i, i64 %indvars.iv69.i
   store double %73, ptr %74, align 8
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
-  %75 = icmp ult i64 %indvars.iv.next70.i, %16
+  %75 = icmp samesign ult i64 %indvars.iv.next70.i, %16
   br i1 %75, label %.lr.ph58.i, label %._crit_edge.i, !llvm.loop !77
 
 ._crit_edge.i:                                    ; preds = %.lr.ph58.i, %..preheader_crit_edge.i
@@ -5462,7 +5462,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %70 = getelementptr inbounds i8, ptr %.05159.i.i, i64 %62
   store i8 %68, ptr %70, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
-  %.not52.i.i = icmp ugt i64 %indvars.iv.next.i.i, %18
+  %.not52.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %18
   br i1 %.not52.i.i, label %..preheader_crit_edge.i.i, label %39, !llvm.loop !138
 
 .lr.ph57.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph57.i.i
@@ -5476,7 +5476,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %77 = getelementptr inbounds i8, ptr %.05159.i.i, i64 %indvars.iv68.i.i
   store i8 %76, ptr %77, align 1
   %indvars.iv.next69.i.i = add nuw nsw i64 %indvars.iv68.i.i, 1
-  %78 = icmp ult i64 %indvars.iv.next69.i.i, %19
+  %78 = icmp samesign ult i64 %indvars.iv.next69.i.i, %19
   br i1 %78, label %.lr.ph57.i.i, label %._crit_edge.i.i, !llvm.loop !136
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph57.i.i, %..preheader_crit_edge.i.i
@@ -5593,7 +5593,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %140 = getelementptr inbounds i8, ptr %.05159.i60.i, i64 %132
   store i8 %138, ptr %140, align 1
   %indvars.iv.next.i63.i = add nuw nsw i64 %indvars.iv.i62.i, 4
-  %.not52.i64.i = icmp ugt i64 %indvars.iv.next.i63.i, %88
+  %.not52.i64.i = icmp samesign ugt i64 %indvars.iv.next.i63.i, %88
   br i1 %.not52.i64.i, label %..preheader_crit_edge.i66.i, label %109, !llvm.loop !138
 
 .lr.ph57.i69.i:                                   ; preds = %..preheader_crit_edge.i66.i, %.lr.ph57.i69.i
@@ -5607,7 +5607,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %147 = getelementptr inbounds i8, ptr %.05159.i60.i, i64 %indvars.iv68.i70.i
   store i8 %146, ptr %147, align 1
   %indvars.iv.next69.i71.i = add nuw nsw i64 %indvars.iv68.i70.i, 1
-  %148 = icmp ult i64 %indvars.iv.next69.i71.i, %89
+  %148 = icmp samesign ult i64 %indvars.iv.next69.i71.i, %89
   br i1 %148, label %.lr.ph57.i69.i, label %._crit_edge.i67.i, !llvm.loop !136
 
 ._crit_edge.i67.i:                                ; preds = %.lr.ph57.i69.i, %..preheader_crit_edge.i66.i
@@ -5724,7 +5724,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %210 = getelementptr inbounds i8, ptr %.05159.i92.i, i64 %202
   store i8 %208, ptr %210, align 1
   %indvars.iv.next.i95.i = add nuw nsw i64 %indvars.iv.i94.i, 4
-  %.not52.i96.i = icmp ugt i64 %indvars.iv.next.i95.i, %158
+  %.not52.i96.i = icmp samesign ugt i64 %indvars.iv.next.i95.i, %158
   br i1 %.not52.i96.i, label %..preheader_crit_edge.i98.i, label %179, !llvm.loop !141
 
 .lr.ph57.i101.i:                                  ; preds = %..preheader_crit_edge.i98.i, %.lr.ph57.i101.i
@@ -5738,7 +5738,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %217 = getelementptr inbounds i8, ptr %.05159.i92.i, i64 %indvars.iv68.i102.i
   store i8 %216, ptr %217, align 1
   %indvars.iv.next69.i103.i = add nuw nsw i64 %indvars.iv68.i102.i, 1
-  %218 = icmp ult i64 %indvars.iv.next69.i103.i, %159
+  %218 = icmp samesign ult i64 %indvars.iv.next69.i103.i, %159
   br i1 %218, label %.lr.ph57.i101.i, label %._crit_edge.i99.i, !llvm.loop !139
 
 ._crit_edge.i99.i:                                ; preds = %.lr.ph57.i101.i, %..preheader_crit_edge.i98.i
@@ -5855,7 +5855,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %280 = getelementptr inbounds i8, ptr %.05159.i123.i, i64 %272
   store i8 %278, ptr %280, align 1
   %indvars.iv.next.i126.i = add nuw nsw i64 %indvars.iv.i125.i, 4
-  %.not52.i127.i = icmp ugt i64 %indvars.iv.next.i126.i, %228
+  %.not52.i127.i = icmp samesign ugt i64 %indvars.iv.next.i126.i, %228
   br i1 %.not52.i127.i, label %..preheader_crit_edge.i129.i, label %249, !llvm.loop !141
 
 .lr.ph57.i132.i:                                  ; preds = %..preheader_crit_edge.i129.i, %.lr.ph57.i132.i
@@ -5869,7 +5869,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %287 = getelementptr inbounds i8, ptr %.05159.i123.i, i64 %indvars.iv68.i133.i
   store i8 %286, ptr %287, align 1
   %indvars.iv.next69.i134.i = add nuw nsw i64 %indvars.iv68.i133.i, 1
-  %288 = icmp ult i64 %indvars.iv.next69.i134.i, %229
+  %288 = icmp samesign ult i64 %indvars.iv.next69.i134.i, %229
   br i1 %288, label %.lr.ph57.i132.i, label %._crit_edge.i130.i, !llvm.loop !139
 
 ._crit_edge.i130.i:                               ; preds = %.lr.ph57.i132.i, %..preheader_crit_edge.i129.i
@@ -5986,7 +5986,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %350 = getelementptr inbounds i8, ptr %.05159.i155.i, i64 %342
   store i8 %348, ptr %350, align 1
   %indvars.iv.next.i158.i = add nuw nsw i64 %indvars.iv.i157.i, 4
-  %.not52.i159.i = icmp ugt i64 %indvars.iv.next.i158.i, %298
+  %.not52.i159.i = icmp samesign ugt i64 %indvars.iv.next.i158.i, %298
   br i1 %.not52.i159.i, label %..preheader_crit_edge.i161.i, label %319, !llvm.loop !144
 
 .lr.ph57.i164.i:                                  ; preds = %..preheader_crit_edge.i161.i, %.lr.ph57.i164.i
@@ -6000,7 +6000,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %357 = getelementptr inbounds i8, ptr %.05159.i155.i, i64 %indvars.iv68.i165.i
   store i8 %356, ptr %357, align 1
   %indvars.iv.next69.i166.i = add nuw nsw i64 %indvars.iv68.i165.i, 1
-  %358 = icmp ult i64 %indvars.iv.next69.i166.i, %299
+  %358 = icmp samesign ult i64 %indvars.iv.next69.i166.i, %299
   br i1 %358, label %.lr.ph57.i164.i, label %._crit_edge.i162.i, !llvm.loop !142
 
 ._crit_edge.i162.i:                               ; preds = %.lr.ph57.i164.i, %..preheader_crit_edge.i161.i
@@ -6146,7 +6146,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %427 = getelementptr inbounds i8, ptr %.05159.i186.i, i64 %419
   store i8 %425, ptr %427, align 1
   %indvars.iv.next.i189.i = add nuw nsw i64 %indvars.iv.i188.i, 4
-  %.not52.i190.i = icmp ugt i64 %indvars.iv.next.i189.i, %375
+  %.not52.i190.i = icmp samesign ugt i64 %indvars.iv.next.i189.i, %375
   br i1 %.not52.i190.i, label %..preheader_crit_edge.i192.i, label %396, !llvm.loop !147
 
 .lr.ph57.i195.i:                                  ; preds = %..preheader_crit_edge.i192.i, %.lr.ph57.i195.i
@@ -6160,7 +6160,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %434 = getelementptr inbounds i8, ptr %.05159.i186.i, i64 %indvars.iv68.i196.i
   store i8 %433, ptr %434, align 1
   %indvars.iv.next69.i197.i = add nuw nsw i64 %indvars.iv68.i196.i, 1
-  %435 = icmp ult i64 %indvars.iv.next69.i197.i, %376
+  %435 = icmp samesign ult i64 %indvars.iv.next69.i197.i, %376
   br i1 %435, label %.lr.ph57.i195.i, label %._crit_edge.i193.i, !llvm.loop !145
 
 ._crit_edge.i193.i:                               ; preds = %.lr.ph57.i195.i, %..preheader_crit_edge.i192.i
@@ -6849,7 +6849,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32fEPKfmS3_mPfmiiPKd(ptr nocaptu
   %104 = getelementptr inbounds float, ptr %.05765.i.i, i64 %93
   store float %102, ptr %104, align 4
   %indvars.iv.next.i18.i = add nuw nsw i64 %indvars.iv.i17.i, 4
-  %.not58.i.i = icmp ugt i64 %indvars.iv.next.i18.i, %34
+  %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i18.i, %34
   br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %59, !llvm.loop !168
 
 .lr.ph63.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph63.i.i
@@ -6867,7 +6867,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32fEPKfmS3_mPfmiiPKd(ptr nocaptu
   %115 = getelementptr inbounds float, ptr %.05765.i.i, i64 %indvars.iv74.i.i
   store float %114, ptr %115, align 4
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
-  %116 = icmp ult i64 %indvars.iv.next75.i.i, %35
+  %116 = icmp samesign ult i64 %indvars.iv.next75.i.i, %35
   br i1 %116, label %.lr.ph63.i.i, label %._crit_edge.i.i, !llvm.loop !166
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph63.i.i, %..preheader_crit_edge.i.i
@@ -7077,7 +7077,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32sEPKimS3_mPimiiPKd(ptr nocaptu
   %109 = getelementptr inbounds i32, ptr %.05765.i.i, i64 %97
   store i32 %107, ptr %109, align 4
   %indvars.iv.next.i18.i = add nuw nsw i64 %indvars.iv.i17.i, 4
-  %.not58.i.i = icmp ugt i64 %indvars.iv.next.i18.i, %34
+  %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i18.i, %34
   br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %60, !llvm.loop !173
 
 .lr.ph63.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph63.i.i
@@ -7096,7 +7096,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32sEPKimS3_mPimiiPKd(ptr nocaptu
   %121 = getelementptr inbounds i32, ptr %.05765.i.i, i64 %indvars.iv74.i.i
   store i32 %120, ptr %121, align 4
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
-  %122 = icmp ult i64 %indvars.iv.next75.i.i, %35
+  %122 = icmp samesign ult i64 %indvars.iv.next75.i.i, %35
   br i1 %122, label %.lr.ph63.i.i, label %._crit_edge.i.i, !llvm.loop !171
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph63.i.i, %..preheader_crit_edge.i.i
@@ -7238,7 +7238,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr nocaptu
   %66 = getelementptr inbounds double, ptr %.05260.i.i, i64 %59
   store double %64, ptr %66, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
-  %.not53.i.i = icmp ugt i64 %indvars.iv.next.i.i, %19
+  %.not53.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %19
   br i1 %.not53.i.i, label %..preheader_crit_edge.i.i, label %39, !llvm.loop !176
 
 .lr.ph58.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph58.i.i
@@ -7251,7 +7251,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr nocaptu
   %72 = getelementptr inbounds double, ptr %.05260.i.i, i64 %indvars.iv69.i.i
   store double %71, ptr %72, align 8
   %indvars.iv.next70.i.i = add nuw nsw i64 %indvars.iv69.i.i, 1
-  %73 = icmp ult i64 %indvars.iv.next70.i.i, %20
+  %73 = icmp samesign ult i64 %indvars.iv.next70.i.i, %20
   br i1 %73, label %.lr.ph58.i.i, label %._crit_edge.i.i, !llvm.loop !174
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph58.i.i, %..preheader_crit_edge.i.i
@@ -7367,7 +7367,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr nocaptu
   %135 = getelementptr inbounds double, ptr %.05765.i.i, i64 %127
   store double %133, ptr %135, align 8
   %indvars.iv.next.i19.i = add nuw nsw i64 %indvars.iv.i18.i, 4
-  %.not58.i.i = icmp ugt i64 %indvars.iv.next.i19.i, %80
+  %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i19.i, %80
   br i1 %.not58.i.i, label %..preheader_crit_edge.i21.i, label %102, !llvm.loop !179
 
 .lr.ph63.i.i:                                     ; preds = %..preheader_crit_edge.i21.i, %.lr.ph63.i.i
@@ -7382,7 +7382,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr nocaptu
   %143 = getelementptr inbounds double, ptr %.05765.i.i, i64 %indvars.iv74.i.i
   store double %142, ptr %143, align 8
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
-  %144 = icmp ult i64 %indvars.iv.next75.i.i, %81
+  %144 = icmp samesign ult i64 %indvars.iv.next75.i.i, %81
   br i1 %144, label %.lr.ph63.i.i, label %._crit_edge.i22.i, !llvm.loop !177
 
 ._crit_edge.i22.i:                                ; preds = %.lr.ph63.i.i, %..preheader_crit_edge.i21.i
@@ -7982,7 +7982,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr nocaptu
   %86 = getelementptr inbounds float, ptr %.0577.i.i, i64 %78
   store float %84, ptr %86, align 4
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 4
-  %.not58.i.i = icmp ugt i64 %indvars.iv.next.i17.i, %34
+  %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i17.i, %34
   br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %55, !llvm.loop !194
 
 .lr.ph5.i.i:                                      ; preds = %..preheader_crit_edge.i.i, %.lr.ph5.i.i
@@ -7996,7 +7996,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr nocaptu
   %93 = getelementptr inbounds float, ptr %.0577.i.i, i64 %indvars.iv16.i.i
   store float %92, ptr %93, align 4
   %indvars.iv.next17.i.i = add nuw nsw i64 %indvars.iv16.i.i, 1
-  %94 = icmp ult i64 %indvars.iv.next17.i.i, %35
+  %94 = icmp samesign ult i64 %indvars.iv.next17.i.i, %35
   br i1 %94, label %.lr.ph5.i.i, label %._crit_edge.i.i, !llvm.loop !192
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph5.i.i, %..preheader_crit_edge.i.i
@@ -8138,7 +8138,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr nocaptu
   %66 = getelementptr inbounds double, ptr %.05260.i.i, i64 %59
   store double %64, ptr %66, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
-  %.not53.i.i = icmp ugt i64 %indvars.iv.next.i.i, %19
+  %.not53.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %19
   br i1 %.not53.i.i, label %..preheader_crit_edge.i.i, label %39, !llvm.loop !197
 
 .lr.ph58.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph58.i.i
@@ -8151,7 +8151,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr nocaptu
   %72 = getelementptr inbounds double, ptr %.05260.i.i, i64 %indvars.iv69.i.i
   store double %71, ptr %72, align 8
   %indvars.iv.next70.i.i = add nuw nsw i64 %indvars.iv69.i.i, 1
-  %73 = icmp ult i64 %indvars.iv.next70.i.i, %20
+  %73 = icmp samesign ult i64 %indvars.iv.next70.i.i, %20
   br i1 %73, label %.lr.ph58.i.i, label %._crit_edge.i.i, !llvm.loop !195
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph58.i.i, %..preheader_crit_edge.i.i
@@ -8267,7 +8267,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr nocaptu
   %135 = getelementptr inbounds double, ptr %.05765.i.i, i64 %127
   store double %133, ptr %135, align 8
   %indvars.iv.next.i19.i = add nuw nsw i64 %indvars.iv.i18.i, 4
-  %.not58.i.i = icmp ugt i64 %indvars.iv.next.i19.i, %80
+  %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i19.i, %80
   br i1 %.not58.i.i, label %..preheader_crit_edge.i21.i, label %102, !llvm.loop !200
 
 .lr.ph63.i.i:                                     ; preds = %..preheader_crit_edge.i21.i, %.lr.ph63.i.i
@@ -8282,7 +8282,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr nocaptu
   %143 = getelementptr inbounds double, ptr %.05765.i.i, i64 %indvars.iv74.i.i
   store double %142, ptr %143, align 8
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
-  %144 = icmp ult i64 %indvars.iv.next75.i.i, %81
+  %144 = icmp samesign ult i64 %indvars.iv.next75.i.i, %81
   br i1 %144, label %.lr.ph63.i.i, label %._crit_edge.i22.i, !llvm.loop !198
 
 ._crit_edge.i22.i:                                ; preds = %.lr.ph63.i.i, %..preheader_crit_edge.i21.i
@@ -8977,7 +8977,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
   %94 = getelementptr inbounds i32, ptr %.05765.i.i, i64 %83
   store i32 %92, ptr %94, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
-  %.not58.i.i = icmp ugt i64 %indvars.iv.next.i.i, %24
+  %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %24
   br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %49, !llvm.loop !219
 
 .lr.ph63.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph63.i.i
@@ -8995,7 +8995,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
   %105 = getelementptr inbounds i32, ptr %.05765.i.i, i64 %indvars.iv74.i.i
   store i32 %104, ptr %105, align 4
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
-  %106 = icmp ult i64 %indvars.iv.next75.i.i, %25
+  %106 = icmp samesign ult i64 %indvars.iv.next75.i.i, %25
   br i1 %106, label %.lr.ph63.i.i, label %._crit_edge.i.i, !llvm.loop !217
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph63.i.i, %..preheader_crit_edge.i.i
@@ -9148,7 +9148,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
   %204 = getelementptr inbounds i32, ptr %.05765.i26.i, i64 %191
   store i32 %202, ptr %204, align 4
   %indvars.iv.next.i29.i = add nuw nsw i64 %indvars.iv.i28.i, 4
-  %.not58.i30.i = icmp ugt i64 %indvars.iv.next.i29.i, %118
+  %.not58.i30.i = icmp samesign ugt i64 %indvars.iv.next.i29.i, %118
   br i1 %.not58.i30.i, label %..preheader_crit_edge.i32.i, label %147, !llvm.loop !222
 
 .lr.ph63.i35.i:                                   ; preds = %..preheader_crit_edge.i32.i, %.lr.ph63.i35.i
@@ -9170,7 +9170,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
   %219 = getelementptr inbounds i32, ptr %.05765.i26.i, i64 %indvars.iv74.i36.i
   store i32 %218, ptr %219, align 4
   %indvars.iv.next75.i37.i = add nuw nsw i64 %indvars.iv74.i36.i, 1
-  %220 = icmp ult i64 %indvars.iv.next75.i37.i, %119
+  %220 = icmp samesign ult i64 %indvars.iv.next75.i37.i, %119
   br i1 %220, label %.lr.ph63.i35.i, label %._crit_edge.i33.i, !llvm.loop !220
 
 ._crit_edge.i33.i:                                ; preds = %.lr.ph63.i35.i, %..preheader_crit_edge.i32.i
@@ -9337,7 +9337,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
   %89 = getelementptr inbounds float, ptr %.05765.i.i, i64 %79
   store float %87, ptr %89, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
-  %.not58.i.i = icmp ugt i64 %indvars.iv.next.i.i, %24
+  %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %24
   br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %48, !llvm.loop !225
 
 .lr.ph63.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph63.i.i
@@ -9354,7 +9354,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
   %99 = getelementptr inbounds float, ptr %.05765.i.i, i64 %indvars.iv74.i.i
   store float %98, ptr %99, align 4
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
-  %100 = icmp ult i64 %indvars.iv.next75.i.i, %25
+  %100 = icmp samesign ult i64 %indvars.iv.next75.i.i, %25
   br i1 %100, label %.lr.ph63.i.i, label %._crit_edge.i.i, !llvm.loop !223
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph63.i.i, %..preheader_crit_edge.i.i
@@ -9502,7 +9502,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
   %193 = getelementptr inbounds float, ptr %.05765.i26.i, i64 %181
   store float %191, ptr %193, align 4
   %indvars.iv.next.i29.i = add nuw nsw i64 %indvars.iv.i28.i, 4
-  %.not58.i30.i = icmp ugt i64 %indvars.iv.next.i29.i, %112
+  %.not58.i30.i = icmp samesign ugt i64 %indvars.iv.next.i29.i, %112
   br i1 %.not58.i30.i, label %..preheader_crit_edge.i32.i, label %140, !llvm.loop !228
 
 .lr.ph63.i35.i:                                   ; preds = %..preheader_crit_edge.i32.i, %.lr.ph63.i35.i
@@ -9523,7 +9523,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
   %207 = getelementptr inbounds float, ptr %.05765.i26.i, i64 %indvars.iv74.i36.i
   store float %206, ptr %207, align 4
   %indvars.iv.next75.i37.i = add nuw nsw i64 %indvars.iv74.i36.i, 1
-  %208 = icmp ult i64 %indvars.iv.next75.i37.i, %113
+  %208 = icmp samesign ult i64 %indvars.iv.next75.i37.i, %113
   br i1 %208, label %.lr.ph63.i35.i, label %._crit_edge.i33.i, !llvm.loop !226
 
 ._crit_edge.i33.i:                                ; preds = %.lr.ph63.i35.i, %..preheader_crit_edge.i32.i
@@ -9675,7 +9675,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
   %74 = getelementptr inbounds double, ptr %.05765.i.i, i64 %67
   store double %72, ptr %74, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
-  %.not58.i.i = icmp ugt i64 %indvars.iv.next.i.i, %24
+  %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %24
   br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %45, !llvm.loop !231
 
 .lr.ph63.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph63.i.i
@@ -9689,7 +9689,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
   %81 = getelementptr inbounds double, ptr %.05765.i.i, i64 %indvars.iv74.i.i
   store double %80, ptr %81, align 8
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
-  %82 = icmp ult i64 %indvars.iv.next75.i.i, %25
+  %82 = icmp samesign ult i64 %indvars.iv.next75.i.i, %25
   br i1 %82, label %.lr.ph63.i.i, label %._crit_edge.i.i, !llvm.loop !229
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph63.i.i, %..preheader_crit_edge.i.i
@@ -9822,7 +9822,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
   %160 = getelementptr inbounds double, ptr %.05765.i26.i, i64 %151
   store double %158, ptr %160, align 8
   %indvars.iv.next.i29.i = add nuw nsw i64 %indvars.iv.i28.i, 4
-  %.not58.i30.i = icmp ugt i64 %indvars.iv.next.i29.i, %94
+  %.not58.i30.i = icmp samesign ugt i64 %indvars.iv.next.i29.i, %94
   br i1 %.not58.i30.i, label %..preheader_crit_edge.i32.i, label %119, !llvm.loop !234
 
 .lr.ph63.i35.i:                                   ; preds = %..preheader_crit_edge.i32.i, %.lr.ph63.i35.i
@@ -9840,7 +9840,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
   %171 = getelementptr inbounds double, ptr %.05765.i26.i, i64 %indvars.iv74.i36.i
   store double %170, ptr %171, align 8
   %indvars.iv.next75.i37.i = add nuw nsw i64 %indvars.iv74.i36.i, 1
-  %172 = icmp ult i64 %indvars.iv.next75.i37.i, %95
+  %172 = icmp samesign ult i64 %indvars.iv.next75.i37.i, %95
   br i1 %172, label %.lr.ph63.i35.i, label %._crit_edge.i33.i, !llvm.loop !232
 
 ._crit_edge.i33.i:                                ; preds = %.lr.ph63.i35.i, %..preheader_crit_edge.i32.i
@@ -10404,7 +10404,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline8recip64fEPKdmPdmiiS3_(ptr nocapture
   %52 = getelementptr inbounds double, ptr %.04251.i.i, i64 %47
   store double %50, ptr %52, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
-  %.not44.i.i = icmp ugt i64 %indvars.iv.next.i.i, %13
+  %.not44.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %13
   br i1 %.not44.i.i, label %..preheader_crit_edge.i.i, label %31, !llvm.loop !249
 
 .lr.ph49.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph49.i.i
@@ -10416,7 +10416,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline8recip64fEPKdmPdmiiS3_(ptr nocapture
   %57 = getelementptr inbounds double, ptr %.04251.i.i, i64 %indvars.iv59.i.i
   store double %56, ptr %57, align 8
   %indvars.iv.next60.i.i = add nuw nsw i64 %indvars.iv59.i.i, 1
-  %58 = icmp ult i64 %indvars.iv.next60.i.i, %14
+  %58 = icmp samesign ult i64 %indvars.iv.next60.i.i, %14
   br i1 %58, label %.lr.ph49.i.i, label %._crit_edge.i.i, !llvm.loop !247
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph49.i.i, %..preheader_crit_edge.i.i

@@ -672,7 +672,7 @@ if.end:                                           ; preds = %entry
   %6 = load i8, ptr %arrayidx, align 1
   %conv6 = zext i8 %6 to i64
   %conv7 = and i64 %2, 4294967295
-  %cmp.not = icmp ugt i64 %conv7, %conv6
+  %cmp.not = icmp samesign ugt i64 %conv7, %conv6
   br i1 %cmp.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end
@@ -682,7 +682,7 @@ if.then9:                                         ; preds = %if.end
 if.end10:                                         ; preds = %if.end
   %mul = shl nuw nsw i64 %conv6, 1
   %conv11 = zext nneg i32 %n to i64
-  %cmp12 = icmp ult i64 %mul, %conv11
+  %cmp12 = icmp samesign ult i64 %mul, %conv11
   br i1 %cmp12, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end10
@@ -1892,7 +1892,7 @@ entry:
 lor.lhs.false.i:                                  ; preds = %entry
   %conv2.i = zext i8 %fanout to i32
   %mul.i = shl nuw nsw i32 %conv2.i, 1
-  %cmp.i = icmp ult i32 %mul.i, %conv.i
+  %cmp.i = icmp samesign ult i32 %mul.i, %conv.i
   br i1 %cmp.i, label %determine_fanout.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %lor.lhs.false.i, %for.inc.i
@@ -1919,7 +1919,7 @@ determine_fanout.exit:                            ; preds = %for.body.i, %entry,
   %retval.0.i = phi i8 [ %add.i, %for.end.i ], [ %fanout, %lor.lhs.false.i ], [ %fanout, %entry ], [ %fanout, %for.body.i ]
   %conv7 = zext i8 %retval.0.i to i32
   %mul = shl nuw nsw i32 %conv7, 1
-  %cmp8 = icmp ule i32 %mul, %conv.i
+  %cmp8 = icmp samesign ule i32 %mul, %conv.i
   %and10 = and i32 %flags, 2
   %tobool.not = icmp eq i32 %and10, 0
   %or.cond = or i1 %tobool.not, %cmp8

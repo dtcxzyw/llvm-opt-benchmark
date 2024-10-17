@@ -1338,7 +1338,7 @@ if.end.i.i.i138:                                  ; preds = %for.cond.i
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i: ; preds = %if.end.i.i.i138, %for.cond.i
   %retval.0.i.i.i140 = phi i64 [ %84, %if.end.i.i.i138 ], [ 0, %for.cond.i ]
-  %cmp.i141 = icmp ult i64 %indvars.iv.i, %retval.0.i.i.i140
+  %cmp.i141 = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i.i140
   br i1 %cmp.i141, label %for.body.i, label %invoke.cont77
 
 for.body.i:                                       ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
@@ -2721,7 +2721,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i32, ptr %m_num_args.i, align 8
   %64 = zext i32 %63 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %64
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %64
   br i1 %cmp, label %invoke.cont29, label %for.end.loopexit, !llvm.loop !19
 
 for.end.loopexit:                                 ; preds = %_ZN8rationalD2Ev.exit
@@ -3476,7 +3476,7 @@ for.inc:                                          ; preds = %.noexc, %lor.lhs.fa
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %m_num_args.i, align 8
   %33 = zext i32 %32 to i64
-  %cmp39 = icmp ult i64 %indvars.iv.next, %33
+  %cmp39 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %cmp39, label %for.body, label %for.end, !llvm.loop !22
 
 lpad:                                             ; preds = %if.else72.invoke, %invoke.cont79, %if.then.i.i117, %invoke.cont66, %if.then60, %invoke.cont64
@@ -4311,7 +4311,7 @@ for.inc:                                          ; preds = %.noexc, %lor.lhs.fa
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %m_arity.i, align 8
   %36 = zext i32 %35 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %36
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %cmp, label %for.body25, label %for.end, !llvm.loop !27
 
 lpad22.loopexit:                                  ; preds = %for.body25, %if.then.i, %if.end.i

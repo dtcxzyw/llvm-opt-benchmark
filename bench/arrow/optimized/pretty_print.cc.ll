@@ -1502,7 +1502,7 @@ while.end.thread.i.i.i.i.i.i.i.i8057:             ; preds = %_ZN5arrow12_GLOBAL_
   br label %if.else.i.i.i.i.i.i.i.i8000
 
 while.end.i.i.i.i.i.i.i.i7998:                    ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i7990
-  %cmp5.i.i.i.i.i.i.i.i7999 = icmp ugt i8 %cond.i.i.i.i.i.i.i.i7996, 9
+  %cmp5.i.i.i.i.i.i.i.i7999 = icmp samesign ugt i8 %cond.i.i.i.i.i.i.i.i7996, 9
   br i1 %cmp5.i.i.i.i.i.i.i.i7999, label %if.then.i.i.i.i.i.i.i.i8053, label %if.else.i.i.i.i.i.i.i.i8000
 
 if.then.i.i.i.i.i.i.i.i8053:                      ; preds = %while.end.i.i.i.i.i.i.i.i7998
@@ -2075,7 +2075,7 @@ while.end.thread.i.i.i.i.i.i.i.i:                 ; preds = %_ZN5arrow12_GLOBAL_
   br label %if.else.i.i.i.i.i.i.i.i7734
 
 while.end.i.i.i.i.i.i.i.i7732:                    ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i7725
-  %cmp5.i.i.i.i.i.i.i.i7733 = icmp ugt i8 %237, 9
+  %cmp5.i.i.i.i.i.i.i.i7733 = icmp samesign ugt i8 %237, 9
   br i1 %cmp5.i.i.i.i.i.i.i.i7733, label %if.then.i.i.i.i.i.i.i.i7782, label %if.else.i.i.i.i.i.i.i.i7734
 
 if.then.i.i.i.i.i.i.i.i7782:                      ; preds = %while.end.i.i.i.i.i.i.i.i7732
@@ -2644,7 +2644,7 @@ while.body.i.i.i.i.i.i.i.i7514:                   ; preds = %_ZN5arrow12_GLOBAL_
 while.end.i.i.i.i.i.i.i.i7453:                    ; preds = %while.body.i.i.i.i.i.i.i.i7514, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i7445
   %cursor.1.i.i.i.i.i.i.i7454 = phi ptr [ %add.ptr.i.i.i.i.i.i.i7410, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i7445 ], [ %incdec.ptr.i3.i.i.i.i.i.i.i.i.i7521, %while.body.i.i.i.i.i.i.i.i7514 ]
   %value.addr.0.lcssa.i.i.i.i.i.i.i.i7455 = phi i16 [ %cond.i.i.i.i.i.i.i.i7451, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i7445 ], [ %div.i.i.i.i.i.i.i.i7522, %while.body.i.i.i.i.i.i.i.i7514 ]
-  %cmp5.i.i.i.i.i.i.i.i7456 = icmp ugt i16 %value.addr.0.lcssa.i.i.i.i.i.i.i.i7455, 9
+  %cmp5.i.i.i.i.i.i.i.i7456 = icmp samesign ugt i16 %value.addr.0.lcssa.i.i.i.i.i.i.i.i7455, 9
   br i1 %cmp5.i.i.i.i.i.i.i.i7456, label %if.then.i.i.i.i.i.i.i.i7509, label %if.else.i.i.i.i.i.i.i.i7457
 
 if.then.i.i.i.i.i.i.i.i7509:                      ; preds = %while.end.i.i.i.i.i.i.i.i7453
@@ -3222,7 +3222,7 @@ while.body.i.i.i.i.i.i.i.i7235:                   ; preds = %_ZN5arrow12_GLOBAL_
 while.end.i.i.i.i.i.i.i.i7181:                    ; preds = %while.body.i.i.i.i.i.i.i.i7235, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i7174
   %cursor.1.i.i.i.i.i.i.i7182 = phi ptr [ %add.ptr.i.i.i.i.i.i.i7139, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i7174 ], [ %incdec.ptr.i3.i.i.i.i.i.i.i.i.i7242, %while.body.i.i.i.i.i.i.i.i7235 ]
   %value.addr.0.lcssa.i.i.i.i.i.i.i.i7183 = phi i16 [ %416, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i7174 ], [ %div.i.i.i.i.i.i.i.i7243, %while.body.i.i.i.i.i.i.i.i7235 ]
-  %cmp5.i.i.i.i.i.i.i.i = icmp ugt i16 %value.addr.0.lcssa.i.i.i.i.i.i.i.i7183, 9
+  %cmp5.i.i.i.i.i.i.i.i = icmp samesign ugt i16 %value.addr.0.lcssa.i.i.i.i.i.i.i.i7183, 9
   br i1 %cmp5.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i7230, label %if.else.i.i.i.i.i.i.i.i7184
 
 if.then.i.i.i.i.i.i.i.i7230:                      ; preds = %while.end.i.i.i.i.i.i.i.i7181
@@ -3791,7 +3791,7 @@ while.body.i.i.i.i.i.i.i.i6962:                   ; preds = %_ZN5arrow12_GLOBAL_
 while.end.i.i.i.i.i.i.i.i6900:                    ; preds = %while.body.i.i.i.i.i.i.i.i6962, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i6892
   %cursor.1.i.i.i.i.i.i.i6901 = phi ptr [ %add.ptr.i.i.i.i.i.i.i6857, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i6892 ], [ %incdec.ptr.i3.i.i.i.i.i.i.i.i.i6971, %while.body.i.i.i.i.i.i.i.i6962 ]
   %value.addr.0.lcssa.i.i.i.i.i.i.i.i6902 = phi i32 [ %cond.i.i.i.i.i.i.i.i6898, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i6892 ], [ %div.i.i.i.i.i.i.i.i6972, %while.body.i.i.i.i.i.i.i.i6962 ]
-  %cmp1.i.i.i.i.i.i.i.i6903 = icmp ugt i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6902, 9
+  %cmp1.i.i.i.i.i.i.i.i6903 = icmp samesign ugt i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6902, 9
   br i1 %cmp1.i.i.i.i.i.i.i.i6903, label %if.then.i.i.i.i.i.i.i.i6956, label %if.else.i.i.i.i.i.i.i.i6904
 
 if.then.i.i.i.i.i.i.i.i6956:                      ; preds = %while.end.i.i.i.i.i.i.i.i6900
@@ -4369,7 +4369,7 @@ while.body.i.i.i.i.i.i.i.i6680:                   ; preds = %_ZN5arrow12_GLOBAL_
 while.end.i.i.i.i.i.i.i.i6623:                    ; preds = %while.body.i.i.i.i.i.i.i.i6680, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i6616
   %cursor.1.i.i.i.i.i.i.i6624 = phi ptr [ %add.ptr.i.i.i.i.i.i.i6581, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i6616 ], [ %incdec.ptr.i3.i.i.i.i.i.i.i.i.i6689, %while.body.i.i.i.i.i.i.i.i6680 ]
   %value.addr.0.lcssa.i.i.i.i.i.i.i.i6625 = phi i32 [ %592, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i6616 ], [ %div.i.i.i.i.i.i.i.i6690, %while.body.i.i.i.i.i.i.i.i6680 ]
-  %cmp1.i.i.i.i.i.i.i.i6626 = icmp ugt i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6625, 9
+  %cmp1.i.i.i.i.i.i.i.i6626 = icmp samesign ugt i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6625, 9
   br i1 %cmp1.i.i.i.i.i.i.i.i6626, label %if.then.i.i.i.i.i.i.i.i6674, label %if.else.i.i.i.i.i.i.i.i6627
 
 if.then.i.i.i.i.i.i.i.i6674:                      ; preds = %while.end.i.i.i.i.i.i.i.i6623
@@ -4937,7 +4937,7 @@ while.body.i.i.i.i.i.i.i.i6405:                   ; preds = %_ZN5arrow12_GLOBAL_
 while.end.i.i.i.i.i.i.i.i6344:                    ; preds = %while.body.i.i.i.i.i.i.i.i6405, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i6336
   %cursor.1.i.i.i.i.i.i.i6345 = phi ptr [ %add.ptr.i.i.i.i.i.i.i6301, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i6336 ], [ %incdec.ptr.i3.i.i.i.i.i.i.i.i.i6413, %while.body.i.i.i.i.i.i.i.i6405 ]
   %value.addr.0.lcssa.i.i.i.i.i.i.i.i6346 = phi i64 [ %cond.i.i.i.i.i.i.i.i6342, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i6336 ], [ %div.i.i.i.i.i.i.i.i6414, %while.body.i.i.i.i.i.i.i.i6405 ]
-  %cmp1.i.i.i.i.i.i.i.i6347 = icmp ugt i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6346, 9
+  %cmp1.i.i.i.i.i.i.i.i6347 = icmp samesign ugt i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6346, 9
   br i1 %cmp1.i.i.i.i.i.i.i.i6347, label %if.then.i.i.i.i.i.i.i.i6400, label %if.else.i.i.i.i.i.i.i.i6348
 
 if.then.i.i.i.i.i.i.i.i6400:                      ; preds = %while.end.i.i.i.i.i.i.i.i6344
@@ -5513,7 +5513,7 @@ while.body.i.i.i.i.i.i.i.i6125:                   ; preds = %_ZN5arrow12_GLOBAL_
 while.end.i.i.i.i.i.i.i.i6069:                    ; preds = %while.body.i.i.i.i.i.i.i.i6125, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i6062
   %cursor.1.i.i.i.i.i.i.i6070 = phi ptr [ %add.ptr.i.i.i.i.i.i.i6027, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i6062 ], [ %incdec.ptr.i3.i.i.i.i.i.i.i.i.i6133, %while.body.i.i.i.i.i.i.i.i6125 ]
   %value.addr.0.lcssa.i.i.i.i.i.i.i.i6071 = phi i64 [ %766, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i6062 ], [ %div.i.i.i.i.i.i.i.i6134, %while.body.i.i.i.i.i.i.i.i6125 ]
-  %cmp1.i.i.i.i.i.i.i.i6072 = icmp ugt i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6071, 9
+  %cmp1.i.i.i.i.i.i.i.i6072 = icmp samesign ugt i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6071, 9
   br i1 %cmp1.i.i.i.i.i.i.i.i6072, label %if.then.i.i.i.i.i.i.i.i6120, label %if.else.i.i.i.i.i.i.i.i6073
 
 if.then.i.i.i.i.i.i.i.i6120:                      ; preds = %while.end.i.i.i.i.i.i.i.i6069
@@ -6081,7 +6081,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %_ZN5arrow12_GLOBAL_
 while.end.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i.i.i.i.i, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i
   %cursor.1.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i5890, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i ], [ %incdec.ptr.i3.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %value.addr.0.lcssa.i.i.i.i.i.i.i = phi i16 [ %cond.i.i.i.i.i.i.i, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i ], [ %div.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %cmp5.i.i.i.i.i.i.i = icmp ugt i16 %value.addr.0.lcssa.i.i.i.i.i.i.i, 9
+  %cmp5.i.i.i.i.i.i.i = icmp samesign ugt i16 %value.addr.0.lcssa.i.i.i.i.i.i.i, 9
   br i1 %cmp5.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i5909, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i5909:                        ; preds = %while.end.i.i.i.i.i.i.i
@@ -11444,7 +11444,7 @@ while.body.i.i.i.i.i.i.i.i3786:                   ; preds = %_ZN5arrow12_GLOBAL_
 while.end.i.i.i.i.i.i.i.i3725:                    ; preds = %while.body.i.i.i.i.i.i.i.i3786, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i3717
   %cursor.1.i.i.i.i.i.i.i3726 = phi ptr [ %add.ptr.i.i.i.i.i.i.i3682, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i3717 ], [ %incdec.ptr.i3.i.i.i.i.i.i.i.i.i3794, %while.body.i.i.i.i.i.i.i.i3786 ]
   %value.addr.0.lcssa.i.i.i.i.i.i.i.i3727 = phi i64 [ %cond.i.i.i.i.i.i.i.i3723, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i3717 ], [ %div.i.i.i.i.i.i.i.i3795, %while.body.i.i.i.i.i.i.i.i3786 ]
-  %cmp1.i.i.i.i.i.i.i.i3728 = icmp ugt i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i3727, 9
+  %cmp1.i.i.i.i.i.i.i.i3728 = icmp samesign ugt i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i3727, 9
   br i1 %cmp1.i.i.i.i.i.i.i.i3728, label %if.then.i.i.i.i.i.i.i.i3781, label %if.else.i.i.i.i.i.i.i.i3729
 
 if.then.i.i.i.i.i.i.i.i3781:                      ; preds = %while.end.i.i.i.i.i.i.i.i3725
@@ -12149,7 +12149,7 @@ if.end.i.i56.i.i.i.i.i3446:                       ; preds = %_ZN5arrow12_GLOBAL_
   store i8 %1815, ptr %incdec.ptr.i.i35.i.i.i.i.i.i.i.i.i3349, align 1, !noalias !330
   %1816 = load i8, ptr %arrayidx.i33.i.i.i.i.i.i.i.i.i3501, align 1, !noalias !330
   store i8 %1816, ptr %incdec.ptr.i3.i36.i.i.i.i.i.i.i.i.i3350, align 1, !noalias !330
-  %cmp11.i.i.i.i.i.i.i.i.i3503 = icmp ugt i32 %1810, 9999
+  %cmp11.i.i.i.i.i.i.i.i.i3503 = icmp samesign ugt i32 %1810, 9999
   br i1 %cmp11.i.i.i.i.i.i.i.i.i3503, label %if.then.i.i.i.i.i.i.i.i.i3514, label %if.end.i.i.i.i.i.i.i.i.i3504
 
 if.then.i.i.i.i.i.i.i.i.i3514:                    ; preds = %if.end.i.i56.i.i.i.i.i3446
@@ -12847,7 +12847,7 @@ if.end.i.i56.i.i.i.i.i:                           ; preds = %_ZN5arrow12_GLOBAL_
   store i8 %1918, ptr %incdec.ptr.i.i35.i.i.i.i.i.i.i.i.i, align 1, !noalias !346
   %1919 = load i8, ptr %arrayidx.i33.i.i.i.i.i.i.i.i.i, align 1, !noalias !346
   store i8 %1919, ptr %incdec.ptr.i3.i36.i.i.i.i.i.i.i.i.i, align 1, !noalias !346
-  %cmp11.i.i.i.i.i.i.i.i.i = icmp ugt i32 %1913, 9999
+  %cmp11.i.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %1913, 9999
   br i1 %cmp11.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i3172, label %if.end.i.i.i.i.i.i.i.i.i3171
 
 if.then.i.i.i.i.i.i.i.i.i3172:                    ; preds = %if.end.i.i56.i.i.i.i.i
@@ -13500,7 +13500,7 @@ while.body.i.i.i.i.i.i.i.i.i.i.i.i2903:           ; preds = %if.end25.i.i.i.i.i.
   %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i2911 = getelementptr inbounds i8, ptr %buffer.i.i.i.i.i.i.i.i.i2713, i64 %cursor.0.add.i.i.i.i.i.i.i.i.i2910
   store i8 %2011, ptr %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i2911, align 1, !noalias !364
   %div.i.i.i16.i.i.i.i.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i2905, 100
-  %cmp.i.i.i17.i.i.i.i.i.i.i.i.i = icmp ugt i64 %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i2905, 9999
+  %cmp.i.i.i17.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i2905, 9999
   br i1 %cmp.i.i.i17.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i.i.i2903, label %while.end.i.i.i.i.i.i.i.i.i.i.i.i2855, !llvm.loop !367
 
 while.end.i.i.i.i.i.i.i.i.i.i.i.i2855:            ; preds = %while.body.i.i.i.i.i.i.i.i.i.i.i.i2903, %if.end25.i.i.i.i.i.i.i.i.i
@@ -13673,7 +13673,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %2040 = load i8, ptr %arrayidx.i33.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !364
   %incdec.ptr.i3.i36.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %2020, i64 -21
   store i8 %2040, ptr %incdec.ptr.i3.i36.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !364
-  %cmp11.i.i.i.i.i.i.i.i.i.i = icmp ugt i32 %2034, 9999
+  %cmp11.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %2034, 9999
   br i1 %cmp11.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i2892, label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i2892:                  ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2865
@@ -13768,7 +13768,7 @@ while.body.i.i.i.i164.i.i.i.i.i.i.i.i:            ; preds = %if.end25.i22.i.i.i.
   %incdec.ptr.i3.i.i.i.i.ptr.i173.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i10.i.i.i.i.i.i.i.i2712, i64 %cursor.0.add.i172.i.i.i.i.i.i.i.i
   store i8 %2045, ptr %incdec.ptr.i3.i.i.i.i.ptr.i173.i.i.i.i.i.i.i.i, align 1, !noalias !364
   %div.i.i.i16.i174.i.i.i.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i166.i.i.i.i.i.i.i.i, 100
-  %cmp.i.i.i17.i175.i.i.i.i.i.i.i.i = icmp ugt i64 %value.addr.015.i.i.i.i166.i.i.i.i.i.i.i.i, 9999
+  %cmp.i.i.i17.i175.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i166.i.i.i.i.i.i.i.i, 9999
   br i1 %cmp.i.i.i17.i175.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i164.i.i.i.i.i.i.i.i, label %while.end.i.i.i.i39.i.i.i.i.i.i.i.i, !llvm.loop !367
 
 while.end.i.i.i.i39.i.i.i.i.i.i.i.i:              ; preds = %while.body.i.i.i.i164.i.i.i.i.i.i.i.i, %if.end25.i22.i.i.i.i.i.i.i.i
@@ -13941,7 +13941,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %2074 = load i8, ptr %arrayidx.i33.i.i131.i.i.i.i.i.i.i.i, align 1, !noalias !364
   %incdec.ptr.i3.i36.i.i134.i.i.i.i.i.i.i.i = getelementptr i8, ptr %2054, i64 -21
   store i8 %2074, ptr %incdec.ptr.i3.i36.i.i134.i.i.i.i.i.i.i.i, align 1, !noalias !364
-  %cmp11.i.i135.i.i.i.i.i.i.i.i = icmp ugt i32 %2068, 9999
+  %cmp11.i.i135.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %2068, 9999
   br i1 %cmp11.i.i135.i.i.i.i.i.i.i.i, label %if.then.i.i148.i.i.i.i.i.i.i.i, label %if.end.i.i136.i.i.i.i.i.i.i.i
 
 if.then.i.i148.i.i.i.i.i.i.i.i:                   ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2837
@@ -14027,7 +14027,7 @@ while.body.i.i.i.i328.i.i.i.i.i.i.i.i:            ; preds = %if.end25.i190.i.i.i
   %incdec.ptr.i3.i.i.i.i.ptr.i337.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i181.i.i.i.i.i.i.i.i, i64 %cursor.0.add.i336.i.i.i.i.i.i.i.i
   store i8 %2078, ptr %incdec.ptr.i3.i.i.i.i.ptr.i337.i.i.i.i.i.i.i.i, align 1, !noalias !364
   %div.i.i.i16.i338.i.i.i.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i330.i.i.i.i.i.i.i.i, 100
-  %cmp.i.i.i17.i339.i.i.i.i.i.i.i.i = icmp ugt i64 %value.addr.015.i.i.i.i330.i.i.i.i.i.i.i.i, 9999
+  %cmp.i.i.i17.i339.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i330.i.i.i.i.i.i.i.i, 9999
   br i1 %cmp.i.i.i17.i339.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i328.i.i.i.i.i.i.i.i, label %while.end.i.i.i.i206.i.i.i.i.i.i.i.i, !llvm.loop !367
 
 while.end.i.i.i.i206.i.i.i.i.i.i.i.i:             ; preds = %while.body.i.i.i.i328.i.i.i.i.i.i.i.i, %if.end25.i190.i.i.i.i.i.i.i.i
@@ -14197,7 +14197,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %2107 = load i8, ptr %arrayidx.i33.i.i295.i.i.i.i.i.i.i.i, align 1, !noalias !364
   %incdec.ptr.i3.i36.i.i298.i.i.i.i.i.i.i.i = getelementptr i8, ptr %2087, i64 -21
   store i8 %2107, ptr %incdec.ptr.i3.i36.i.i298.i.i.i.i.i.i.i.i, align 1, !noalias !364
-  %cmp11.i.i299.i.i.i.i.i.i.i.i = icmp ugt i32 %2101, 9999
+  %cmp11.i.i299.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %2101, 9999
   br i1 %cmp11.i.i299.i.i.i.i.i.i.i.i, label %if.then.i.i312.i.i.i.i.i.i.i.i, label %if.end.i.i300.i.i.i.i.i.i.i.i
 
 if.then.i.i312.i.i.i.i.i.i.i.i:                   ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2914
@@ -14375,7 +14375,7 @@ if.end25.i355.i.i.i.i.i.i.i.i:                    ; preds = %if.else.i446.i.i.i.
   store i8 %2129, ptr %incdec.ptr.i.i35.i.i429.i.i.i.i.i.i.i.i, align 1, !noalias !364
   %2130 = load i8, ptr %arrayidx.i33.i.i427.i.i.i.i.i.i.i.i, align 1, !noalias !364
   store i8 %2130, ptr %incdec.ptr.i3.i36.i.i430.i.i.i.i.i.i.i.i, align 1, !noalias !364
-  %cmp11.i.i431.i.i.i.i.i.i.i.i = icmp ugt i32 %2124, 9999
+  %cmp11.i.i431.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %2124, 9999
   br i1 %cmp11.i.i431.i.i.i.i.i.i.i.i, label %if.then.i.i442.i.i.i.i.i.i.i.i, label %if.end.i.i432.i.i.i.i.i.i.i.i
 
 if.then.i.i442.i.i.i.i.i.i.i.i:                   ; preds = %if.end25.i355.i.i.i.i.i.i.i.i
@@ -15000,7 +15000,7 @@ while.body.i.i.i.i.i.i.i.i.i.i.i.i2615:           ; preds = %if.end.i.i.i.i.i.i.
   %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i2624 = getelementptr inbounds i8, ptr %buffer.i.i.i.i.i.i.i.i.i2333, i64 %cursor.0.add.i.i.i.i.i.i.i.i.i2623
   store i8 %2222, ptr %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i2624, align 1, !noalias !383
   %div.i.i.i.i.i.i.i.i.i.i.i.i2625 = udiv i64 %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i2617, 100
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i2626 = icmp ugt i64 %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i2617, 9999
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i2626 = icmp samesign ugt i64 %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i2617, 9999
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i2626, label %while.body.i.i.i.i.i.i.i.i.i.i.i.i2615, label %while.end.i.i.i.i.i.i.i.i.i.i.i.i2569, !llvm.loop !367
 
 while.end.i.i.i.i.i.i.i.i.i.i.i.i2569:            ; preds = %while.body.i.i.i.i.i.i.i.i.i.i.i.i2615, %if.end.i.i.i.i.i.i.i.i.i2552
@@ -15131,7 +15131,7 @@ while.body.i.i.i.i67.i.i.i.i.i.i.i.i:             ; preds = %if.end.i13.i.i.i.i.
   %incdec.ptr.i3.i.i.i.i.ptr.i76.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i10.i.i.i.i.i.i.i.i2332, i64 %cursor.0.add.i75.i.i.i.i.i.i.i.i
   store i8 %2240, ptr %incdec.ptr.i3.i.i.i.i.ptr.i76.i.i.i.i.i.i.i.i, align 1, !noalias !383
   %div.i.i.i.i77.i.i.i.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i69.i.i.i.i.i.i.i.i, 100
-  %cmp.i.i.i.i78.i.i.i.i.i.i.i.i = icmp ugt i64 %value.addr.015.i.i.i.i69.i.i.i.i.i.i.i.i, 9999
+  %cmp.i.i.i.i78.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i69.i.i.i.i.i.i.i.i, 9999
   br i1 %cmp.i.i.i.i78.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i67.i.i.i.i.i.i.i.i, label %while.end.i.i.i.i24.i.i.i.i.i.i.i.i2523, !llvm.loop !367
 
 while.end.i.i.i.i24.i.i.i.i.i.i.i.i2523:          ; preds = %while.body.i.i.i.i67.i.i.i.i.i.i.i.i, %if.end.i13.i.i.i.i.i.i.i.i2519
@@ -15254,7 +15254,7 @@ while.body.i.i.i.i130.i.i.i.i.i.i.i.i:            ; preds = %if.end.i83.i.i.i.i.
   %incdec.ptr.i3.i.i.i.i.ptr.i139.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i79.i.i.i.i.i.i.i.i, i64 %cursor.0.add.i138.i.i.i.i.i.i.i.i
   store i8 %2258, ptr %incdec.ptr.i3.i.i.i.i.ptr.i139.i.i.i.i.i.i.i.i, align 1, !noalias !383
   %div.i.i.i.i140.i.i.i.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i132.i.i.i.i.i.i.i.i, 100
-  %cmp.i.i.i.i141.i.i.i.i.i.i.i.i = icmp ugt i64 %value.addr.015.i.i.i.i132.i.i.i.i.i.i.i.i, 9999
+  %cmp.i.i.i.i141.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i132.i.i.i.i.i.i.i.i, 9999
   br i1 %cmp.i.i.i.i141.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i130.i.i.i.i.i.i.i.i, label %while.end.i.i.i.i89.i.i.i.i.i.i.i.i, !llvm.loop !367
 
 while.end.i.i.i.i89.i.i.i.i.i.i.i.i:              ; preds = %while.body.i.i.i.i130.i.i.i.i.i.i.i.i, %if.end.i83.i.i.i.i.i.i.i.i
@@ -15985,7 +15985,7 @@ while.body.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.end.i.i.i.i.i.i.
   %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i.i.i.i.i.i, i64 %cursor.0.add.i.i.i.i.i.i.i.i.i
   store i8 %2369, ptr %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i, align 1, !noalias !401
   %div.i.i.i.i.i.i.i.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i, 100
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i, 9999
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i, 9999
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !367
 
 while.end.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %while.body.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i
@@ -16117,7 +16117,7 @@ while.body.i.i.i.i70.i.i.i.i.i.i.i.i:             ; preds = %if.end.i13.i.i.i.i.
   %incdec.ptr.i3.i.i.i.i.ptr.i79.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i10.i.i.i.i.i.i.i.i, i64 %cursor.0.add.i78.i.i.i.i.i.i.i.i
   store i8 %2387, ptr %incdec.ptr.i3.i.i.i.i.ptr.i79.i.i.i.i.i.i.i.i, align 1, !noalias !401
   %div.i.i.i.i80.i.i.i.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i72.i.i.i.i.i.i.i.i, 100
-  %cmp.i.i.i.i81.i.i.i.i.i.i.i.i = icmp ugt i64 %value.addr.015.i.i.i.i72.i.i.i.i.i.i.i.i, 9999
+  %cmp.i.i.i.i81.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i72.i.i.i.i.i.i.i.i, 9999
   br i1 %cmp.i.i.i.i81.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i70.i.i.i.i.i.i.i.i, label %while.end.i.i.i.i24.i.i.i.i.i.i.i.i, !llvm.loop !367
 
 while.end.i.i.i.i24.i.i.i.i.i.i.i.i:              ; preds = %while.body.i.i.i.i70.i.i.i.i.i.i.i.i, %if.end.i13.i.i.i.i.i.i.i.i
@@ -16249,7 +16249,7 @@ while.body.i.i.i.i147.i.i.i.i.i.i.i.i:            ; preds = %if.end.i86.i.i.i.i.
   %incdec.ptr.i3.i.i.i.i.ptr.i156.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i82.i.i.i.i.i.i.i.i, i64 %cursor.0.add.i155.i.i.i.i.i.i.i.i
   store i8 %2405, ptr %incdec.ptr.i3.i.i.i.i.ptr.i156.i.i.i.i.i.i.i.i, align 1, !noalias !401
   %div.i.i.i.i157.i.i.i.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i149.i.i.i.i.i.i.i.i, 100
-  %cmp.i.i.i.i158.i.i.i.i.i.i.i.i = icmp ugt i64 %value.addr.015.i.i.i.i149.i.i.i.i.i.i.i.i, 9999
+  %cmp.i.i.i.i158.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i149.i.i.i.i.i.i.i.i, 9999
   br i1 %cmp.i.i.i.i158.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i147.i.i.i.i.i.i.i.i, label %while.end.i.i.i.i100.i.i.i.i.i.i.i.i, !llvm.loop !367
 
 while.end.i.i.i.i100.i.i.i.i.i.i.i.i:             ; preds = %while.body.i.i.i.i147.i.i.i.i.i.i.i.i, %if.end.i86.i.i.i.i.i.i.i.i
@@ -16939,7 +16939,7 @@ while.body.i.i.i.i.i.i.i.i2078:                   ; preds = %call.i.i52.i.i.i.i.
 while.end.i.i.i.i.i.i.i.i2004:                    ; preds = %while.body.i.i.i.i.i.i.i.i2078, %call.i.i52.i.i.i.i.noexc.i1999
   %cursor.1.i.i.i.i.i.i.i2005 = phi ptr [ %incdec.ptr.i4.i.i.i.i.i.i.i1961, %call.i.i52.i.i.i.i.noexc.i1999 ], [ %incdec.ptr.i3.i.i.i.i.i.i.i.i.i2085, %while.body.i.i.i.i.i.i.i.i2078 ]
   %value.addr.0.lcssa.i.i.i.i.i.i.i.i2006 = phi i64 [ %cond.i.i.i.i.i.i.i.i2003, %call.i.i52.i.i.i.i.noexc.i1999 ], [ %div.i.i.i.i.i.i.i.i2086, %while.body.i.i.i.i.i.i.i.i2078 ]
-  %cmp1.i.i.i.i.i.i.i.i2007 = icmp ugt i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i2006, 9
+  %cmp1.i.i.i.i.i.i.i.i2007 = icmp samesign ugt i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i2006, 9
   br i1 %cmp1.i.i.i.i.i.i.i.i2007, label %if.then.i.i.i.i.i.i.i.i2076, label %if.else.i.i.i.i.i.i.i.i2008
 
 if.then.i.i.i.i.i.i.i.i2076:                      ; preds = %while.end.i.i.i.i.i.i.i.i2004
@@ -17004,7 +17004,7 @@ while.end.i8.i.i.i.i.i.i.i2015.loopexit:          ; preds = %while.body.i16.i.i.
 while.end.i8.i.i.i.i.i.i.i2015:                   ; preds = %while.end.i8.i.i.i.i.i.i.i2015.loopexit, %if.end.i.i54.i.i.i.i.i2013
   %cursor.5.i.i.i.i.i.i.i2016 = phi ptr [ %incdec.ptr.i6.i.i.i.i.i.i.i, %if.end.i.i54.i.i.i.i.i2013 ], [ %incdec.ptr.i3.i.i22.i.i.i.i.i.i.i.le, %while.end.i8.i.i.i.i.i.i.i2015.loopexit ]
   %value.addr.0.lcssa.i9.i.i.i.i.i.i.i2017 = phi i32 [ %cond.i7.i.i.i.i.i.i.i, %if.end.i.i54.i.i.i.i.i2013 ], [ %div.i23.i.i.i.i.i.i.i, %while.end.i8.i.i.i.i.i.i.i2015.loopexit ]
-  %cmp1.i10.i.i.i.i.i.i.i2018 = icmp ugt i32 %value.addr.0.lcssa.i9.i.i.i.i.i.i.i2017, 9
+  %cmp1.i10.i.i.i.i.i.i.i2018 = icmp samesign ugt i32 %value.addr.0.lcssa.i9.i.i.i.i.i.i.i2017, 9
   br i1 %cmp1.i10.i.i.i.i.i.i.i2018, label %if.then.i14.i.i.i.i.i.i.i, label %if.else.i11.i.i.i.i.i.i.i2019
 
 if.then.i14.i.i.i.i.i.i.i:                        ; preds = %while.end.i8.i.i.i.i.i.i.i2015
@@ -17070,7 +17070,7 @@ while.end.i29.i.i.i.i.i.i.i.loopexit:             ; preds = %while.body.i42.i.i.
 while.end.i29.i.i.i.i.i.i.i:                      ; preds = %while.end.i29.i.i.i.i.i.i.i.loopexit, %if.end8.i.i.i.i.i.i.i
   %cursor.9.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i26.i.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i.i ], [ %incdec.ptr.i3.i.i50.i.i.i.i.i.i.i.le, %while.end.i29.i.i.i.i.i.i.i.loopexit ]
   %value.addr.0.lcssa.i30.i.i.i.i.i.i.i = phi i32 [ %cond.i27.i.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i.i ], [ %div.i51.i.i.i.i.i.i.i, %while.end.i29.i.i.i.i.i.i.i.loopexit ]
-  %cmp1.i31.i.i.i.i.i.i.i = icmp ugt i32 %value.addr.0.lcssa.i30.i.i.i.i.i.i.i, 9
+  %cmp1.i31.i.i.i.i.i.i.i = icmp samesign ugt i32 %value.addr.0.lcssa.i30.i.i.i.i.i.i.i, 9
   br i1 %cmp1.i31.i.i.i.i.i.i.i, label %if.then.i36.i.i.i.i.i.i.i, label %if.else.i32.i.i.i.i.i.i.i
 
 if.then.i36.i.i.i.i.i.i.i:                        ; preds = %while.end.i29.i.i.i.i.i.i.i
@@ -17651,7 +17651,7 @@ while.body.i.i.i.i.i.i.i.i1797:                   ; preds = %_ZN5arrow12_GLOBAL_
 while.end.i.i.i.i.i.i.i.i1743:                    ; preds = %while.body.i.i.i.i.i.i.i.i1797, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i
   %cursor.1.i.i.i.i.i.i.i1744 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i1714, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i ], [ %incdec.ptr.i3.i.i.i.i.i.i.i.i.i1806, %while.body.i.i.i.i.i.i.i.i1797 ]
   %value.addr.0.lcssa.i.i.i.i.i.i.i.i1745 = phi i32 [ %cond.i.i.i.i.i.i.i.i1741, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit53.i.i.i.i.i ], [ %div.i.i.i.i.i.i.i.i1807, %while.body.i.i.i.i.i.i.i.i1797 ]
-  %cmp1.i.i.i.i.i.i.i.i1746 = icmp ugt i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i1745, 9
+  %cmp1.i.i.i.i.i.i.i.i1746 = icmp samesign ugt i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i1745, 9
   br i1 %cmp1.i.i.i.i.i.i.i.i1746, label %if.then.i.i.i.i.i.i.i.i1791, label %if.else.i.i.i.i.i.i.i.i1747
 
 if.then.i.i.i.i.i.i.i.i1791:                      ; preds = %while.end.i.i.i.i.i.i.i.i1743
@@ -18233,7 +18233,7 @@ while.body.i.i.i.i.i.i.i.i:                       ; preds = %call.i.i52.i.i.i.i.
 while.end.i.i.i.i.i.i.i.i:                        ; preds = %while.body.i.i.i.i.i.i.i.i, %call.i.i52.i.i.i.i.noexc.i
   %cursor.1.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i3.i.i.i.i.i.i.i, %call.i.i52.i.i.i.i.noexc.i ], [ %incdec.ptr.i3.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i ]
   %value.addr.0.lcssa.i.i.i.i.i.i.i.i = phi i32 [ %cond.i.i.i.i.i.i.i.i, %call.i.i52.i.i.i.i.noexc.i ], [ %div.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i ]
-  %cmp1.i.i.i.i.i.i.i.i = icmp ugt i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i, 9
+  %cmp1.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i, 9
   br i1 %cmp1.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i1601, label %if.else.i.i.i.i.i.i.i.i1590
 
 if.then.i.i.i.i.i.i.i.i1601:                      ; preds = %while.end.i.i.i.i.i.i.i.i
@@ -18299,7 +18299,7 @@ while.end.i8.i.i.i.i.i.i.i.loopexit:              ; preds = %while.body.i21.i.i.
 while.end.i8.i.i.i.i.i.i.i:                       ; preds = %while.end.i8.i.i.i.i.i.i.i.loopexit, %if.end.i.i54.i.i.i.i.i
   %cursor.5.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i5.i.i.i.i.i.i.i, %if.end.i.i54.i.i.i.i.i ], [ %incdec.ptr.i3.i.i29.i.i.i.i.i.i.i.le, %while.end.i8.i.i.i.i.i.i.i.loopexit ]
   %value.addr.0.lcssa.i9.i.i.i.i.i.i.i = phi i32 [ %cond.i6.i.i.i.i.i.i.i, %if.end.i.i54.i.i.i.i.i ], [ %div.i30.i.i.i.i.i.i.i, %while.end.i8.i.i.i.i.i.i.i.loopexit ]
-  %cmp1.i10.i.i.i.i.i.i.i = icmp ugt i32 %value.addr.0.lcssa.i9.i.i.i.i.i.i.i, 9
+  %cmp1.i10.i.i.i.i.i.i.i = icmp samesign ugt i32 %value.addr.0.lcssa.i9.i.i.i.i.i.i.i, 9
   br i1 %cmp1.i10.i.i.i.i.i.i.i, label %if.then.i15.i.i.i.i.i.i.i, label %if.else.i11.i.i.i.i.i.i.i
 
 if.then.i15.i.i.i.i.i.i.i:                        ; preds = %while.end.i8.i.i.i.i.i.i.i
@@ -25064,7 +25064,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.end.i28.i
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %__unsigned_val.0.i, %if.end.i28.i ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
@@ -25218,7 +25218,7 @@ while.body.i.i.i57:                               ; preds = %while.body.i.i.i57,
 
 while.end.i.i.i35:                                ; preds = %while.body.i.i.i57, %if.end.i28.i33
   %__val.addr.0.lcssa.i.i.i36 = phi i32 [ %__unsigned_val.0.i13, %if.end.i28.i33 ], [ %div.i.i.i62, %while.body.i.i.i57 ]
-  %cmp9.i.i.i37 = icmp ugt i32 %__val.addr.0.lcssa.i.i.i36, 9
+  %cmp9.i.i.i37 = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i36, 9
   br i1 %cmp9.i.i.i37, label %if.then.i.i.i47, label %if.else.i.i.i38
 
 if.then.i.i.i47:                                  ; preds = %while.end.i.i.i35
@@ -25448,7 +25448,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.end.i28.i
   %__val.addr.0.lcssa.i.i.i = phi i64 [ %__unsigned_val.0.i, %if.end.i28.i ], [ %div.i8.i.i, %while.body.i.i.i ]
-  %cmp7.i.i.i = icmp ugt i64 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp7.i.i.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp7.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
@@ -25598,7 +25598,7 @@ while.body.i.i.i56:                               ; preds = %while.body.i.i.i56,
 
 while.end.i.i.i36:                                ; preds = %while.body.i.i.i56, %if.end.i28.i34
   %__val.addr.0.lcssa.i.i.i37 = phi i64 [ %__unsigned_val.0.i13, %if.end.i28.i34 ], [ %div.i8.i.i61, %while.body.i.i.i56 ]
-  %cmp7.i.i.i38 = icmp ugt i64 %__val.addr.0.lcssa.i.i.i37, 9
+  %cmp7.i.i.i38 = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i.i37, 9
   br i1 %cmp7.i.i.i38, label %if.then.i.i.i48, label %if.else.i.i.i39
 
 if.then.i.i.i48:                                  ; preds = %while.end.i.i.i36
@@ -30720,7 +30720,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.end.i25.i
   %__val.addr.0.lcssa.i.i.i = phi i64 [ %value, %if.end.i25.i ], [ %div.i8.i.i, %while.body.i.i.i ]
-  %cmp7.i.i.i = icmp ugt i64 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp7.i.i.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp7.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
@@ -30859,7 +30859,7 @@ while.body.i.i.i53:                               ; preds = %while.body.i.i.i53,
 
 while.end.i.i.i32:                                ; preds = %while.body.i.i.i53, %if.end.i25.i30
   %__val.addr.0.lcssa.i.i.i33 = phi i64 [ %value, %if.end.i25.i30 ], [ %div.i8.i.i58, %while.body.i.i.i53 ]
-  %cmp7.i.i.i34 = icmp ugt i64 %__val.addr.0.lcssa.i.i.i33, 9
+  %cmp7.i.i.i34 = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i.i33, 9
   br i1 %cmp7.i.i.i34, label %if.then.i.i.i45, label %if.else.i.i.i35
 
 if.then.i.i.i45:                                  ; preds = %while.end.i.i.i32

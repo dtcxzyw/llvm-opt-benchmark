@@ -5874,8 +5874,8 @@ define internal void @dissect_sfn_sf_value(ptr noundef %0, ptr noundef %1) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = and i32 %6, 15
   %8 = icmp ugt i32 %6, 16383
-  %9 = icmp ugt i32 %7, 9
-  %or.cond = or i1 %8, %9
+  %9 = icmp samesign ugt i32 %7, 9
+  %or.cond = select i1 %8, i1 true, i1 %9
   br i1 %or.cond, label %10, label %13
 
 10:                                               ; preds = %2
@@ -10769,7 +10769,7 @@ define internal void @dissect_rx_cqi_indication_body_value(ptr noundef %0, ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %4, align 4
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %.lr.ph47, label %._crit_edge48, !llvm.loop !10
 
 ._crit_edge48:                                    ; preds = %._crit_edge
@@ -10816,7 +10816,7 @@ dissect_array_value.exit:                         ; preds = %39
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %57 = load i32, ptr %4, align 4
   %58 = zext i32 %57 to i64
-  %59 = icmp ult i64 %indvars.iv.next59, %58
+  %59 = icmp samesign ult i64 %indvars.iv.next59, %58
   br i1 %59, label %.lr.ph51, label %._crit_edge52, !llvm.loop !11
 
 ._crit_edge52:                                    ; preds = %.lr.ph51, %2, %10, %._crit_edge48, %dissect_array_value.exit

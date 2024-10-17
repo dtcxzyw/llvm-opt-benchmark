@@ -2336,11 +2336,11 @@ define internal range(i32 -1, 2) i32 @_process_name_compare(i64 %0, i64 %1) #8 {
   br i1 %5, label %ompi_rte_compare_name_fields.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = icmp ult i64 %.sroa.22.0.extract.shift, %.sroa.2.0.extract.shift
+  %7 = icmp samesign ult i64 %.sroa.22.0.extract.shift, %.sroa.2.0.extract.shift
   br i1 %7, label %ompi_rte_compare_name_fields.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = icmp ugt i64 %.sroa.22.0.extract.shift, %.sroa.2.0.extract.shift
+  %9 = icmp samesign ugt i64 %.sroa.22.0.extract.shift, %.sroa.2.0.extract.shift
   %spec.select = zext i1 %9 to i32
   br label %ompi_rte_compare_name_fields.exit
 

@@ -861,7 +861,7 @@ define dso_local noalias noundef ptr @_build_part_info(ptr noundef %0) #4 {
   %indvars.iv = phi i64 [ %30, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
   %33 = load i32, ptr %23, align 8
   %34 = zext i32 %33 to i64
-  %.not44 = icmp ult i64 %indvars.iv, %34
+  %.not44 = icmp samesign ult i64 %indvars.iv, %34
   br i1 %.not44, label %35, label %._crit_edge
 
 35:                                               ; preds = %.lr.ph
@@ -2241,7 +2241,7 @@ _filter_out.exit:                                 ; preds = %74, %._crit_edge.th
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %126 = load i32, ptr %40, align 8
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next, %127
   br i1 %128, label %43, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %125, %.preheader105, %.loopexit106

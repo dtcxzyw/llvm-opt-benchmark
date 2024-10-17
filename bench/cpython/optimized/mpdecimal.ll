@@ -5833,8 +5833,8 @@ for.body27:                                       ; preds = %for.body, %cond.end
   %div = udiv i64 %x.0131, 10
   %rem28 = urem i64 %y.0132, 10
   %div29 = udiv i64 %y.0132, 10
-  %cmp30 = icmp ugt i64 %rem, 1
-  %cmp32 = icmp ugt i64 %rem28, 1
+  %cmp30 = icmp samesign ugt i64 %rem, 1
+  %cmp32 = icmp samesign ugt i64 %rem28, 1
   %or.cond = select i1 %cmp30, i1 true, i1 %cmp32
   br i1 %or.cond, label %invalid_operation, label %if.end34
 
@@ -5992,8 +5992,8 @@ for.body49:                                       ; preds = %mpd_word_digits.exi
   %div51 = udiv i64 %x.1138, 10
   %rem52 = urem i64 %y.1139, 10
   %div53 = udiv i64 %y.1139, 10
-  %cmp54 = icmp ugt i64 %rem50, 1
-  %cmp56 = icmp ugt i64 %rem52, 1
+  %cmp54 = icmp samesign ugt i64 %rem50, 1
+  %cmp56 = icmp samesign ugt i64 %rem52, 1
   %or.cond1 = select i1 %cmp54, i1 true, i1 %cmp56
   br i1 %or.cond1, label %invalid_operation, label %if.end58
 
@@ -6019,7 +6019,7 @@ for.end70:                                        ; preds = %cond.end65
   %56 = load ptr, ptr %data71, align 8
   %arrayidx73 = getelementptr i64, ptr %56, i64 %i.0.lcssa
   store i64 %add67, ptr %arrayidx73, align 8
-  %cmp75142 = icmp ult i32 %retval.i.0, 19
+  %cmp75142 = icmp samesign ult i32 %retval.i.0, 19
   br i1 %cmp75142, label %for.body76, label %for.cond85.preheader
 
 for.cond85.preheader:                             ; preds = %for.inc82, %for.end70
@@ -6037,7 +6037,7 @@ for.body76:                                       ; preds = %for.end70, %for.inc
   %y.2143 = phi i64 [ %div78, %for.inc82 ], [ %div53, %for.end70 ]
   %rem77 = urem i64 %y.2143, 10
   %div78 = udiv i64 %y.2143, 10
-  %cmp79 = icmp ugt i64 %rem77, 1
+  %cmp79 = icmp samesign ugt i64 %rem77, 1
   br i1 %cmp79, label %invalid_operation, label %for.inc82
 
 for.inc82:                                        ; preds = %for.body76
@@ -6061,7 +6061,7 @@ for.body93:                                       ; preds = %for.body88, %for.in
   %y.3145 = phi i64 [ %59, %for.body88 ], [ %div95, %for.inc99 ]
   %rem94 = urem i64 %y.3145, 10
   %div95 = udiv i64 %y.3145, 10
-  %cmp96 = icmp ugt i64 %rem94, 1
+  %cmp96 = icmp samesign ugt i64 %rem94, 1
   br i1 %cmp96, label %invalid_operation, label %for.inc99
 
 for.inc99:                                        ; preds = %for.body93
@@ -6526,7 +6526,7 @@ for.body26:                                       ; preds = %for.body26.preheade
   %x.073 = phi i64 [ %div, %cond.end34 ], [ %x.073.ph, %for.body26.preheader ]
   %rem = urem i64 %x.073, 10
   %div = udiv i64 %x.073, 10
-  %cmp27 = icmp ugt i64 %rem, 1
+  %cmp27 = icmp samesign ugt i64 %rem, 1
   br i1 %cmp27, label %invalid_operation, label %if.end29
 
 if.end29:                                         ; preds = %for.body26
@@ -6921,8 +6921,8 @@ for.body27:                                       ; preds = %for.body, %cond.end
   %div = udiv i64 %x.0138, 10
   %rem28 = urem i64 %y.0139, 10
   %div29 = udiv i64 %y.0139, 10
-  %cmp30 = icmp ugt i64 %rem, 1
-  %cmp32 = icmp ugt i64 %rem28, 1
+  %cmp30 = icmp samesign ugt i64 %rem, 1
+  %cmp32 = icmp samesign ugt i64 %rem28, 1
   %or.cond = select i1 %cmp30, i1 true, i1 %cmp32
   br i1 %or.cond, label %invalid_operation, label %if.end34
 
@@ -7072,7 +7072,7 @@ mpd_word_digits.exit:                             ; preds = %if.end26.i, %if.end
   br label %for.body49
 
 for.cond71.preheader:                             ; preds = %cond.end65
-  %cmp72149 = icmp ult i32 %retval.i.0, 19
+  %cmp72149 = icmp samesign ult i32 %retval.i.0, 19
   br i1 %cmp72149, label %for.body73, label %for.end84
 
 for.body49:                                       ; preds = %mpd_word_digits.exit, %cond.end65
@@ -7084,8 +7084,8 @@ for.body49:                                       ; preds = %mpd_word_digits.exi
   %div51 = udiv i64 %x.1145, 10
   %rem52 = urem i64 %y.1146, 10
   %div53 = udiv i64 %y.1146, 10
-  %cmp54 = icmp ugt i64 %rem50, 1
-  %cmp56 = icmp ugt i64 %rem52, 1
+  %cmp54 = icmp samesign ugt i64 %rem50, 1
+  %cmp56 = icmp samesign ugt i64 %rem52, 1
   %or.cond1 = select i1 %cmp54, i1 true, i1 %cmp56
   br i1 %or.cond1, label %invalid_operation, label %if.end58
 
@@ -7112,7 +7112,7 @@ for.body73:                                       ; preds = %for.cond71.preheade
   %y.2150 = phi i64 [ %div75, %if.end78 ], [ %div53, %for.cond71.preheader ]
   %rem74 = urem i64 %y.2150, 10
   %div75 = udiv i64 %y.2150, 10
-  %cmp76 = icmp ugt i64 %rem74, 1
+  %cmp76 = icmp samesign ugt i64 %rem74, 1
   br i1 %cmp76, label %invalid_operation, label %if.end78
 
 if.end78:                                         ; preds = %for.body73
@@ -7147,7 +7147,7 @@ for.body96:                                       ; preds = %for.body91, %for.in
   %y.3154 = phi i64 [ %60, %for.body91 ], [ %div98, %for.inc102 ]
   %rem97 = urem i64 %y.3154, 10
   %div98 = udiv i64 %y.3154, 10
-  %cmp99 = icmp ugt i64 %rem97, 1
+  %cmp99 = icmp samesign ugt i64 %rem97, 1
   br i1 %cmp99, label %invalid_operation, label %for.inc102
 
 for.inc102:                                       ; preds = %for.body96
@@ -8351,8 +8351,8 @@ for.body27:                                       ; preds = %for.body, %cond.end
   %div = udiv i64 %x.0138, 10
   %rem28 = urem i64 %y.0139, 10
   %div29 = udiv i64 %y.0139, 10
-  %cmp30 = icmp ugt i64 %rem, 1
-  %cmp32 = icmp ugt i64 %rem28, 1
+  %cmp30 = icmp samesign ugt i64 %rem, 1
+  %cmp32 = icmp samesign ugt i64 %rem28, 1
   %or.cond = select i1 %cmp30, i1 true, i1 %cmp32
   br i1 %or.cond, label %invalid_operation, label %if.end34
 
@@ -8501,7 +8501,7 @@ mpd_word_digits.exit:                             ; preds = %if.end26.i, %if.end
   br label %for.body49
 
 for.cond71.preheader:                             ; preds = %cond.end65
-  %cmp72149 = icmp ult i32 %retval.i.0, 19
+  %cmp72149 = icmp samesign ult i32 %retval.i.0, 19
   br i1 %cmp72149, label %for.body73, label %for.end84
 
 for.body49:                                       ; preds = %mpd_word_digits.exit, %cond.end65
@@ -8513,8 +8513,8 @@ for.body49:                                       ; preds = %mpd_word_digits.exi
   %div51 = udiv i64 %x.1145, 10
   %rem52 = urem i64 %y.1146, 10
   %div53 = udiv i64 %y.1146, 10
-  %cmp54 = icmp ugt i64 %rem50, 1
-  %cmp56 = icmp ugt i64 %rem52, 1
+  %cmp54 = icmp samesign ugt i64 %rem50, 1
+  %cmp56 = icmp samesign ugt i64 %rem52, 1
   %or.cond1 = select i1 %cmp54, i1 true, i1 %cmp56
   br i1 %or.cond1, label %invalid_operation, label %if.end58
 
@@ -8540,7 +8540,7 @@ for.body73:                                       ; preds = %for.cond71.preheade
   %y.2150 = phi i64 [ %div75, %if.end78 ], [ %div53, %for.cond71.preheader ]
   %rem74 = urem i64 %y.2150, 10
   %div75 = udiv i64 %y.2150, 10
-  %cmp76 = icmp ugt i64 %rem74, 1
+  %cmp76 = icmp samesign ugt i64 %rem74, 1
   br i1 %cmp76, label %invalid_operation, label %if.end78
 
 if.end78:                                         ; preds = %for.body73
@@ -8575,7 +8575,7 @@ for.body96:                                       ; preds = %for.body91, %for.in
   %y.3154 = phi i64 [ %60, %for.body91 ], [ %div98, %for.inc102 ]
   %rem97 = urem i64 %y.3154, 10
   %div98 = udiv i64 %y.3154, 10
-  %cmp99 = icmp ugt i64 %rem97, 1
+  %cmp99 = icmp samesign ugt i64 %rem97, 1
   br i1 %cmp99, label %invalid_operation, label %for.inc102
 
 for.inc102:                                       ; preds = %for.body96
@@ -16414,7 +16414,7 @@ if.end:                                           ; preds = %if.end.i67, %mpd_qr
   %27 = getelementptr i64, ptr %.pre147, i64 %.pre148
   %arrayidx.i = getelementptr i8, ptr %27, i64 -8
   %28 = load i64, ptr %arrayidx.i, align 8
-  %cmp1.not.i = icmp ult i64 %23, 3
+  %cmp1.not.i = icmp samesign ult i64 %23, 3
   br i1 %cmp1.not.i, label %if.else.i, label %if.then.i75
 
 if.then.i75:                                      ; preds = %.thread, %26
@@ -23035,7 +23035,7 @@ if.end:                                           ; preds = %if.then, %while.bod
   call fastcc void @_mpd_qmul_exact(ptr noundef nonnull %base, ptr noundef nonnull %base, ptr noundef nonnull %base, ptr noundef %maxcontext, ptr noundef %status)
   call void @mpd_qrem(ptr noundef nonnull %base, ptr noundef nonnull %base, ptr noundef nonnull %mod, ptr noundef nonnull %maxcontext, ptr noundef %status)
   %shr = lshr i64 %exp.addr.017, 1
-  %cmp.not = icmp ult i64 %exp.addr.017, 2
+  %cmp.not = icmp samesign ult i64 %exp.addr.017, 2
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !40
 
 while.end:                                        ; preds = %if.end
@@ -24946,7 +24946,7 @@ if.end13:                                         ; preds = %if.end8
 if.end18:                                         ; preds = %if.end13
   %exp19 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp19, align 8
-  %or.cond = icmp ult i32 %action, 2
+  %or.cond = icmp samesign ult i32 %action, 2
   br i1 %or.cond, label %if.then22, label %if.end30
 
 if.then22:                                        ; preds = %if.end18
@@ -25621,7 +25621,7 @@ if.then48.i:                                      ; preds = %if.end44.i
   %arrayidx.i.i66 = getelementptr i8, ptr %85, i64 -8
   %86 = load i64, ptr %arrayidx.i.i66, align 8
   %conv.i.i = and i64 %spec.select4.i, 4294967295
-  %cmp1.not.i.i = icmp ult i64 %cond.i83.i, %conv.i.i
+  %cmp1.not.i.i = icmp samesign ult i64 %cond.i83.i, %conv.i.i
   br i1 %cmp1.not.i.i, label %if.else.i.i, label %if.then.i79.i
 
 if.then.i79.i:                                    ; preds = %if.then48.i
@@ -25665,7 +25665,7 @@ if.else.i:                                        ; preds = %if.end44.i
   %arrayidx.i86.i = getelementptr i8, ptr %92, i64 -8
   %93 = load i64, ptr %arrayidx.i86.i, align 8
   %conv.i87.i = and i64 %spec.select715.i, 4294967295
-  %cmp1.not.i88.i = icmp ult i64 %cond.i83.i, %conv.i87.i
+  %cmp1.not.i88.i = icmp samesign ult i64 %cond.i83.i, %conv.i87.i
   br i1 %cmp1.not.i88.i, label %if.else.i93.i, label %if.then.i89.i
 
 if.then.i89.i:                                    ; preds = %if.else.i
@@ -30438,27 +30438,27 @@ if.end2:                                          ; preds = %if.end2.i, %if.end
   %shr.i = lshr i64 %exp, 32
   %spec.select.i = select i1 %cmp.not.i, i64 %exp, i64 %shr.i
   %spec.select24.i = select i1 %cmp.not.i, i32 0, i32 32
-  %cmp2.not.i = icmp ult i64 %spec.select.i, 65536
+  %cmp2.not.i = icmp samesign ult i64 %spec.select.i, 65536
   %shr1.i = lshr i64 %spec.select.i, 16
   %add4.i = or disjoint i32 %spec.select24.i, 16
   %n.addr.1.i = select i1 %cmp2.not.i, i64 %spec.select.i, i64 %shr1.i
   %pos.1.i = select i1 %cmp2.not.i, i32 %spec.select24.i, i32 %add4.i
-  %cmp7.not.i = icmp ult i64 %n.addr.1.i, 256
+  %cmp7.not.i = icmp samesign ult i64 %n.addr.1.i, 256
   %shr6.i = lshr i64 %n.addr.1.i, 8
   %add9.i = or disjoint i32 %pos.1.i, 8
   %n.addr.2.i = select i1 %cmp7.not.i, i64 %n.addr.1.i, i64 %shr6.i
   %pos.2.i = select i1 %cmp7.not.i, i32 %pos.1.i, i32 %add9.i
-  %cmp12.not.i = icmp ult i64 %n.addr.2.i, 16
+  %cmp12.not.i = icmp samesign ult i64 %n.addr.2.i, 16
   %shr11.i = lshr i64 %n.addr.2.i, 4
   %add14.i = or disjoint i32 %pos.2.i, 4
   %n.addr.3.i = select i1 %cmp12.not.i, i64 %n.addr.2.i, i64 %shr11.i
   %pos.3.i = select i1 %cmp12.not.i, i32 %pos.2.i, i32 %add14.i
-  %cmp17.not.i = icmp ult i64 %n.addr.3.i, 4
+  %cmp17.not.i = icmp samesign ult i64 %n.addr.3.i, 4
   %shr16.i = lshr i64 %n.addr.3.i, 2
   %add19.i = add nuw nsw i32 %pos.3.i, 2
   %n.addr.4.i = select i1 %cmp17.not.i, i64 %n.addr.3.i, i64 %shr16.i
   %pos.4.i = select i1 %cmp17.not.i, i32 %pos.3.i, i32 %add19.i
-  %cmp22.not.i = icmp ugt i64 %n.addr.4.i, 1
+  %cmp22.not.i = icmp samesign ugt i64 %n.addr.4.i, 1
   %shr21.i = zext i1 %cmp22.not.i to i64
   %n.addr.5.i = lshr i64 %n.addr.4.i, %shr21.i
   %add24.i = zext i1 %cmp22.not.i to i32
@@ -30807,27 +30807,27 @@ add_size_t.exit:                                  ; preds = %entry
   %shr.i.i = lshr i64 %add.i, 32
   %spec.select.i.i = select i1 %cmp.not.i.i, i64 %add.i, i64 %shr.i.i
   %spec.select24.i.i = select i1 %cmp.not.i.i, i32 0, i32 32
-  %cmp2.not.i.i = icmp ult i64 %spec.select.i.i, 65536
+  %cmp2.not.i.i = icmp samesign ult i64 %spec.select.i.i, 65536
   %shr1.i.i = lshr i64 %spec.select.i.i, 16
   %add4.i.i = or disjoint i32 %spec.select24.i.i, 16
   %n.addr.1.i.i = select i1 %cmp2.not.i.i, i64 %spec.select.i.i, i64 %shr1.i.i
   %pos.1.i.i = select i1 %cmp2.not.i.i, i32 %spec.select24.i.i, i32 %add4.i.i
-  %cmp7.not.i.i = icmp ult i64 %n.addr.1.i.i, 256
+  %cmp7.not.i.i = icmp samesign ult i64 %n.addr.1.i.i, 256
   %shr6.i.i = lshr i64 %n.addr.1.i.i, 8
   %add9.i.i = or disjoint i32 %pos.1.i.i, 8
   %n.addr.2.i.i = select i1 %cmp7.not.i.i, i64 %n.addr.1.i.i, i64 %shr6.i.i
   %pos.2.i.i = select i1 %cmp7.not.i.i, i32 %pos.1.i.i, i32 %add9.i.i
-  %cmp12.not.i.i = icmp ult i64 %n.addr.2.i.i, 16
+  %cmp12.not.i.i = icmp samesign ult i64 %n.addr.2.i.i, 16
   %shr11.i.i = lshr i64 %n.addr.2.i.i, 4
   %add14.i.i = or disjoint i32 %pos.2.i.i, 4
   %n.addr.3.i.i = select i1 %cmp12.not.i.i, i64 %n.addr.2.i.i, i64 %shr11.i.i
   %pos.3.i.i = select i1 %cmp12.not.i.i, i32 %pos.2.i.i, i32 %add14.i.i
-  %cmp17.not.i.i = icmp ult i64 %n.addr.3.i.i, 4
+  %cmp17.not.i.i = icmp samesign ult i64 %n.addr.3.i.i, 4
   %shr16.i.i = lshr i64 %n.addr.3.i.i, 2
   %add19.i.i = add nuw nsw i32 %pos.3.i.i, 2
   %n.addr.4.i.i = select i1 %cmp17.not.i.i, i64 %n.addr.3.i.i, i64 %shr16.i.i
   %pos.4.i.i = select i1 %cmp17.not.i.i, i32 %pos.3.i.i, i32 %add19.i.i
-  %cmp22.not.i.i = icmp ugt i64 %n.addr.4.i.i, 1
+  %cmp22.not.i.i = icmp samesign ugt i64 %n.addr.4.i.i, 1
   %shr21.i.i = zext i1 %cmp22.not.i.i to i64
   %n.addr.5.i.i = lshr i64 %n.addr.4.i.i, %shr21.i.i
   %add24.i.i = zext i1 %cmp22.not.i.i to i32

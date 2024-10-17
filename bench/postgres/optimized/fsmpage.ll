@@ -72,7 +72,7 @@ define dso_local noundef zeroext i1 @fsm_set_avail(ptr nocapture noundef %0, i32
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %50 ], [ 4094, %34 ]
   %37 = shl nuw i64 %indvars.iv.i, 1
   %38 = add nuw nsw i64 %37, 2
-  %39 = icmp ult i64 %indvars.iv.i, 4082
+  %39 = icmp samesign ult i64 %indvars.iv.i, 4082
   br i1 %39, label %40, label %.thread.i
 
 40:                                               ; preds = %.preheader
@@ -119,7 +119,7 @@ define dso_local zeroext i1 @fsm_rebuild_page(ptr nocapture noundef %0) local_un
   %.02129 = phi i1 [ false, %1 ], [ %.122, %17 ]
   %4 = shl nuw i64 %indvars.iv, 1
   %5 = add nuw nsw i64 %4, 2
-  %6 = icmp ult i64 %indvars.iv, 4082
+  %6 = icmp samesign ult i64 %indvars.iv, 4082
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %3
@@ -308,7 +308,7 @@ select.unfold:                                    ; preds = %.lr.ph
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %83 ], [ 4094, %.preheader ]
   %70 = shl nuw i64 %indvars.iv.i, 1
   %71 = add nuw nsw i64 %70, 2
-  %72 = icmp ult i64 %indvars.iv.i, 4082
+  %72 = icmp samesign ult i64 %indvars.iv.i, 4082
   br i1 %72, label %73, label %.thread.i
 
 73:                                               ; preds = %69
@@ -400,7 +400,7 @@ define dso_local noundef zeroext i1 @fsm_truncate_avail(ptr noundef %0, i32 noun
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %24 ], [ 4094, %._crit_edge ]
   %11 = shl nuw i64 %indvars.iv.i, 1
   %12 = add nuw nsw i64 %11, 2
-  %13 = icmp ult i64 %indvars.iv.i, 4082
+  %13 = icmp samesign ult i64 %indvars.iv.i, 4082
   br i1 %13, label %14, label %.thread.i
 
 14:                                               ; preds = %.preheader

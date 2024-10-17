@@ -642,7 +642,7 @@ CMDS_orthog.exit:                                 ; preds = %152, %power_iterati
 
 ._crit_edge283.split.us:                          ; preds = %243
   %268 = add nuw nsw i32 %.0285, 1
-  %269 = icmp ugt i32 %.0285, 198
+  %269 = icmp samesign ugt i32 %.0285, 198
   %.not222 = select i1 %269, i1 true, i1 %.2206.us
   br i1 %.not222, label %.preheader, label %230
 

@@ -1575,7 +1575,7 @@ define internal fastcc void @dmi_save_ident(ptr noundef %0, i32 noundef range(i3
   %9 = getelementptr inbounds i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
-  %12 = icmp ult i32 %2, %11
+  %12 = icmp samesign ult i32 %2, %11
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %8
@@ -1606,7 +1606,7 @@ define internal fastcc void @dmi_save_release(ptr nocapture noundef readonly %0,
   %9 = getelementptr inbounds i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
-  %12 = icmp ugt i32 %2, %11
+  %12 = icmp samesign ugt i32 %2, %11
   br i1 %12, label %31, label %13
 
 13:                                               ; preds = %8

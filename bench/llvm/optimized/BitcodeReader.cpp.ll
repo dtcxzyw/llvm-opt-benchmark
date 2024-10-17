@@ -12820,7 +12820,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit: ; preds = %_ZNK4l
   %500 = sub i64 %498, %499
   %501 = lshr exact i64 %500, 5
   %502 = and i64 %501, 4294967295
-  %503 = icmp ult i64 %indvars.iv.next, %502
+  %503 = icmp samesign ult i64 %indvars.iv.next, %502
   br i1 %503, label %.lr.ph255, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, !llvm.loop !803
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %.lr.ph255, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit, %_ZNK4llvm11Instruction11getMetadataEj.exit153.thread, %_ZNK4llvm6MDNode10getOperandEj.exit160, %446, %_ZN4llvmneENS_9StringRefES0_.exit
@@ -18586,7 +18586,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i1424:
 
 .lr.ph2506:                                       ; preds = %.lr.ph2506.preheader, %1113
   %indvars.iv2567 = phi i64 [ 0, %.lr.ph2506.preheader ], [ %indvars.iv.next2568, %1113 ]
-  %1099 = icmp ult i64 %indvars.iv2567, %1097
+  %1099 = icmp samesign ult i64 %indvars.iv2567, %1097
   br i1 %1099, label %1100, label %1109
 
 1100:                                             ; preds = %.lr.ph2506
@@ -24534,7 +24534,7 @@ _ZN4llvm5ErrorD2Ev.exit1797.thread:               ; preds = %3648, %_ZN4llvm5Err
   %3735 = load i64, ptr %3734, align 8
   %3736 = trunc i64 %3735 to i32
   %3737 = call fastcc noundef i32 @_ZL22getDecodedRMWOperationj(i32 noundef %3736)
-  %3738 = icmp ugt i32 %3737, 16
+  %3738 = icmp samesign ugt i32 %3737, 16
   br i1 %3738, label %3739, label %3740
 
 3739:                                             ; preds = %3731

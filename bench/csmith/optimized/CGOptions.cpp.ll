@@ -2722,7 +2722,7 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions22has_extension_conflictEv() l
   %5 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1
   %6 = and i8 %5, 1
   %narrow5 = add nuw nsw i8 %narrow, %6
-  %7 = icmp ugt i8 %narrow5, 1
+  %7 = icmp samesign ugt i8 %narrow5, 1
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %0
@@ -2821,7 +2821,7 @@ _ZN9CGOptions25has_random_based_conflictEv.exit.thread: ; preds = %14, %20
   %29 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1
   %30 = and i8 %29, 1
   %narrow5.i = add nuw nsw i8 %narrow.i, %30
-  %31 = icmp ugt i8 %narrow5.i, 1
+  %31 = icmp samesign ugt i8 %narrow5.i, 1
   br i1 %31, label %_ZN9CGOptions22has_extension_conflictEv.exit.thread, label %_ZN9CGOptions22has_extension_conflictEv.exit
 
 _ZN9CGOptions22has_extension_conflictEv.exit.thread: ; preds = %24

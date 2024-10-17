@@ -95134,7 +95134,7 @@ common.resume:                                    ; preds = %93, %"_ZN4core3ptr9
 
 107:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h3286767551a63d89E.exit"
   %108 = load i8, ptr %77, align 8, !range !20364, !noundef !22
-  %switch.i = icmp ugt i8 %108, 2
+  %switch.i = icmp samesign ugt i8 %108, 2
   br i1 %switch.i, label %109, label %99
 
 109:                                              ; preds = %107
@@ -100269,15 +100269,15 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
 
 208:                                              ; preds = %206
   %209 = load i64, ptr %52, align 8, !alias.scope !21211, !noundef !22
-  %210 = icmp ult i32 %205, 128
+  %210 = icmp samesign ult i32 %205, 128
   br i1 %210, label %215, label %211
 
 211:                                              ; preds = %208
-  %212 = icmp ult i32 %205, 2048
+  %212 = icmp samesign ult i32 %205, 2048
   br i1 %212, label %215, label %213
 
 213:                                              ; preds = %211
-  %214 = icmp ult i32 %205, 65536
+  %214 = icmp samesign ult i32 %205, 65536
   %..i.i = select i1 %214, i64 3, i64 4
   br label %215
 
@@ -100489,15 +100489,15 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
 
 302:                                              ; preds = %.noexc75
   %303 = load i64, ptr %52, align 8, !alias.scope !21257, !noalias !21251, !noundef !22
-  %304 = icmp ult i32 %300, 128
+  %304 = icmp samesign ult i32 %300, 128
   br i1 %304, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i", label %305
 
 305:                                              ; preds = %302
-  %306 = icmp ult i32 %300, 2048
+  %306 = icmp samesign ult i32 %300, 2048
   br i1 %306, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i", label %307
 
 307:                                              ; preds = %305
-  %308 = icmp ult i32 %300, 65536
+  %308 = icmp samesign ult i32 %300, 65536
   %..i.i.i.i.i = select i1 %308, i64 3, i64 4
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i"
 
@@ -100629,15 +100629,15 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
   br i1 %347, label %.thread155, label %348
 
 348:                                              ; preds = %346
-  %349 = icmp ult i32 %336, 128
+  %349 = icmp samesign ult i32 %336, 128
   br i1 %349, label %354, label %350
 
 350:                                              ; preds = %348
-  %351 = icmp ult i32 %336, 2048
+  %351 = icmp samesign ult i32 %336, 2048
   br i1 %351, label %354, label %352
 
 352:                                              ; preds = %350
-  %353 = icmp ult i32 %336, 65536
+  %353 = icmp samesign ult i32 %336, 65536
   %..i.i78 = select i1 %353, i64 -3, i64 -4
   br label %354
 
@@ -100849,15 +100849,15 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
   br i1 %442, label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17hfc2130a7d777f8b1E.exit.i", label %443
 
 443:                                              ; preds = %.noexc102
-  %444 = icmp ult i32 %441, 128
+  %444 = icmp samesign ult i32 %441, 128
   br i1 %444, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3a889f96d4afc3afE.exit.i.i.i", label %445
 
 445:                                              ; preds = %443
-  %446 = icmp ult i32 %441, 2048
+  %446 = icmp samesign ult i32 %441, 2048
   br i1 %446, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3a889f96d4afc3afE.exit.i.i.i", label %447
 
 447:                                              ; preds = %445
-  %448 = icmp ult i32 %441, 65536
+  %448 = icmp samesign ult i32 %441, 65536
   %..i.i.i.i.i100 = select i1 %448, i64 -3, i64 -4
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3a889f96d4afc3afE.exit.i.i.i"
 
@@ -102021,15 +102021,15 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
 
 397:                                              ; preds = %395
   %398 = load i64, ptr %187, align 8, !alias.scope !21625, !noundef !22
-  %399 = icmp ult i32 %394, 128
+  %399 = icmp samesign ult i32 %394, 128
   br i1 %399, label %404, label %400
 
 400:                                              ; preds = %397
-  %401 = icmp ult i32 %394, 2048
+  %401 = icmp samesign ult i32 %394, 2048
   br i1 %401, label %404, label %402
 
 402:                                              ; preds = %400
-  %403 = icmp ult i32 %394, 65536
+  %403 = icmp samesign ult i32 %394, 65536
   %..i.i = select i1 %403, i64 3, i64 4
   br label %404
 
@@ -102230,15 +102230,15 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
 
 484:                                              ; preds = %.noexc121
   %485 = load i64, ptr %187, align 8, !alias.scope !21665, !noalias !21660, !noundef !22
-  %486 = icmp ult i32 %482, 128
+  %486 = icmp samesign ult i32 %482, 128
   br i1 %486, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i", label %487
 
 487:                                              ; preds = %484
-  %488 = icmp ult i32 %482, 2048
+  %488 = icmp samesign ult i32 %482, 2048
   br i1 %488, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i", label %489
 
 489:                                              ; preds = %487
-  %490 = icmp ult i32 %482, 65536
+  %490 = icmp samesign ult i32 %482, 65536
   %..i.i.i.i.i = select i1 %490, i64 3, i64 4
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i"
 
@@ -102320,7 +102320,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
   ]
 
 506:                                              ; preds = %505
-  %507 = icmp ugt i32 %493, 127
+  %507 = icmp samesign ugt i32 %493, 127
   br i1 %507, label %508, label %.thread243
 
 508:                                              ; preds = %506
@@ -102384,15 +102384,15 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %530, %.thread2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0326)
   store i32 0, ptr %.sroa.0326, align 4
-  %536 = icmp ult i32 %493, 128
+  %536 = icmp samesign ult i32 %493, 128
   br i1 %536, label %541, label %537
 
 537:                                              ; preds = %.critedge
-  %538 = icmp ult i32 %493, 2048
+  %538 = icmp samesign ult i32 %493, 2048
   br i1 %538, label %543, label %539
 
 539:                                              ; preds = %537
-  %540 = icmp ult i32 %493, 65536
+  %540 = icmp samesign ult i32 %493, 65536
   br i1 %540, label %550, label %561
 
 541:                                              ; preds = %.critedge
@@ -102629,15 +102629,15 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %530, %.thread2
   br i1 %634, label %.thread247, label %635
 
 635:                                              ; preds = %633
-  %636 = icmp ult i32 %623, 128
+  %636 = icmp samesign ult i32 %623, 128
   br i1 %636, label %641, label %637
 
 637:                                              ; preds = %635
-  %638 = icmp ult i32 %623, 2048
+  %638 = icmp samesign ult i32 %623, 2048
   br i1 %638, label %641, label %639
 
 639:                                              ; preds = %637
-  %640 = icmp ult i32 %623, 65536
+  %640 = icmp samesign ult i32 %623, 65536
   %..i.i143 = select i1 %640, i64 -3, i64 -4
   br label %641
 
@@ -102838,15 +102838,15 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %530, %.thread2
   br i1 %722, label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17hfc2130a7d777f8b1E.exit.i", label %723
 
 723:                                              ; preds = %.noexc165
-  %724 = icmp ult i32 %721, 128
+  %724 = icmp samesign ult i32 %721, 128
   br i1 %724, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3a889f96d4afc3afE.exit.i.i.i", label %725
 
 725:                                              ; preds = %723
-  %726 = icmp ult i32 %721, 2048
+  %726 = icmp samesign ult i32 %721, 2048
   br i1 %726, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3a889f96d4afc3afE.exit.i.i.i", label %727
 
 727:                                              ; preds = %725
-  %728 = icmp ult i32 %721, 65536
+  %728 = icmp samesign ult i32 %721, 65536
   %..i.i.i.i.i163 = select i1 %728, i64 -3, i64 -4
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3a889f96d4afc3afE.exit.i.i.i"
 
@@ -102924,7 +102924,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %530, %.thread2
   ]
 
 744:                                              ; preds = %743
-  %745 = icmp ugt i32 %731, 127
+  %745 = icmp samesign ugt i32 %731, 127
   br i1 %745, label %746, label %.thread258
 
 746:                                              ; preds = %744
@@ -102980,15 +102980,15 @@ _ZN5alloc6string6String6insert17h281bb881751646d7E.exit: ; preds = %.thread258
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0346)
   store i32 0, ptr %.sroa.0346, align 4
-  %767 = icmp ult i32 %731, 128
+  %767 = icmp samesign ult i32 %731, 128
   br i1 %767, label %772, label %768
 
 768:                                              ; preds = %.critedge2
-  %769 = icmp ult i32 %731, 2048
+  %769 = icmp samesign ult i32 %731, 2048
   br i1 %769, label %774, label %770
 
 770:                                              ; preds = %768
-  %771 = icmp ult i32 %731, 65536
+  %771 = icmp samesign ult i32 %731, 65536
   br i1 %771, label %781, label %792
 
 772:                                              ; preds = %.critedge2
@@ -103623,15 +103623,15 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit37.thread: ; preds =
 
 161:                                              ; preds = %159
   %162 = load i64, ptr %39, align 8, !alias.scope !21944, !noundef !22
-  %163 = icmp ult i32 %158, 128
+  %163 = icmp samesign ult i32 %158, 128
   br i1 %163, label %175, label %164
 
 164:                                              ; preds = %161
-  %165 = icmp ult i32 %158, 2048
+  %165 = icmp samesign ult i32 %158, 2048
   br i1 %165, label %175, label %166
 
 166:                                              ; preds = %164
-  %167 = icmp ult i32 %158, 65536
+  %167 = icmp samesign ult i32 %158, 65536
   %..i.i = select i1 %167, i64 3, i64 4
   br label %175
 

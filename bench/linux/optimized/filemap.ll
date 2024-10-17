@@ -1367,7 +1367,7 @@ define dso_local void @delete_from_page_cache_batch(ptr noundef %0, ptr nocaptur
   %39 = add nuw nsw i64 %15, 1
   %40 = load i8, ptr %1, align 8
   %41 = zext i8 %40 to i64
-  %42 = icmp ult i64 %39, %41
+  %42 = icmp samesign ult i64 %39, %41
   br i1 %42, label %14, label %.loopexit17, !llvm.loop !34
 
 .loopexit17:                                      ; preds = %38, %6
@@ -1606,7 +1606,7 @@ define dso_local void @delete_from_page_cache_batch(ptr noundef %0, ptr nocaptur
   %186 = add nuw nsw i64 %159, 1
   %187 = load i8, ptr %1, align 8
   %188 = zext i8 %187 to i64
-  %189 = icmp ult i64 %186, %188
+  %189 = icmp samesign ult i64 %186, %188
   br i1 %189, label %.preheader, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %185, %154, %2
@@ -6769,7 +6769,7 @@ define dso_local i64 @filemap_read(ptr nocapture noundef %0, ptr noundef %1, i64
   %116 = icmp uge i64 %112, %103
   %117 = select i1 %116, i32 %84, i32 -14
   %118 = add nuw nsw i64 %82, 1
-  %119 = icmp ult i64 %118, %80
+  %119 = icmp samesign ult i64 %118, %80
   %120 = select i1 %116, i1 %119, i1 false
   br i1 %120, label %81, label %.thread, !llvm.loop !107
 
@@ -8039,7 +8039,7 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr nocapture noundef 
   %197 = add nuw nsw i64 %110, 1
   %198 = load i8, ptr %6, align 8
   %199 = zext i8 %198 to i64
-  %200 = icmp ult i64 %197, %199
+  %200 = icmp samesign ult i64 %197, %199
   br i1 %200, label %.preheader, label %201, !llvm.loop !112
 
 201:                                              ; preds = %195

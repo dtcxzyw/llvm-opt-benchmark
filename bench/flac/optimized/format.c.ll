@@ -281,7 +281,7 @@ for.inc:                                          ; preds = %if.then9, %if.end23
   %j.1 = phi i32 [ %inc, %if.end23 ], [ %j.028, %if.then9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = zext i32 %8 to i64
-  %cmp3 = icmp ult i64 %indvars.iv.next, %9
+  %cmp3 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp3, label %for.body, label %for.cond31.preheader, !llvm.loop !6
 
 for.body35:                                       ; preds = %for.body35.preheader, %for.body35
@@ -298,7 +298,7 @@ for.body35:                                       ; preds = %for.body35.preheade
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %13 = load i32, ptr %seek_table, align 8
   %14 = zext i32 %13 to i64
-  %cmp33 = icmp ult i64 %indvars.iv.next33, %14
+  %cmp33 = icmp samesign ult i64 %indvars.iv.next33, %14
   br i1 %cmp33, label %for.body35, label %return, !llvm.loop !7
 
 return:                                           ; preds = %for.body35, %if.end, %for.cond31.preheader, %entry

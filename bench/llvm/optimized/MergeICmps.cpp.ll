@@ -601,7 +601,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %63
   %184 = getelementptr inbounds nuw i8, ptr %180, i64 4
   %185 = load i32, ptr %184, align 4
   %186 = and i32 %185, 134217727
-  %187 = icmp ult i32 %186, 2
+  %187 = icmp samesign ult i32 %186, 2
   br i1 %187, label %_ZN12_GLOBAL__N_110processPhiERN4llvm7PHINodeERKNS0_17TargetLibraryInfoERNS0_9AAResultsERNS0_14DomTreeUpdaterE.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %183
@@ -1568,7 +1568,7 @@ _ZNK4llvm4User8operandsEv.exit.i.i.i.i:           ; preds = %577, %574
   %.pre-phi2.i.i.i.i.i.i = phi i64 [ %.pre1.i.i.i.i.i.i, %574 ], [ %579, %577 ]
   %.idx17.i.i.i.i = shl nuw nsw i64 %.pre-phi2.i.i.i.i.i.i, 5
   %583 = getelementptr inbounds i8, ptr %582, i64 %.idx17.i.i.i.i
-  %.not16.i.i.i.i = icmp ult i64 %.pre-phi2.i.i.i.i.i.i, 4
+  %.not16.i.i.i.i = icmp samesign ult i64 %.pre-phi2.i.i.i.i.i.i, 4
   br i1 %.not16.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i34.i.i
 
 .lr.ph.i.i.i.i.i.i.i34.i.i:                       ; preds = %_ZNK4llvm4User8operandsEv.exit.i.i.i.i

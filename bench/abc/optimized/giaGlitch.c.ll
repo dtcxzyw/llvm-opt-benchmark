@@ -214,7 +214,7 @@ define void @Gli_ManPrintObjects(ptr nocapture noundef readonly %0) local_unname
   %24 = lshr i32 %23, 4
   %25 = and i32 %24, 7
   %26 = zext nneg i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %16, label %.critedge2, !llvm.loop !4
 
 .critedge2:                                       ; preds = %16, %8
@@ -244,7 +244,7 @@ define void @Gli_ManPrintObjects(ptr nocapture noundef readonly %0) local_unname
   %42 = add nuw nsw i32 %.132, 1
   %43 = load i32, ptr %7, align 8
   %44 = lshr i32 %43, 7
-  %45 = icmp ult i32 %42, %44
+  %45 = icmp samesign ult i32 %42, %44
   br i1 %45, label %31, label %.critedge4, !llvm.loop !6
 
 .critedge4:                                       ; preds = %31, %.critedge2
@@ -1358,7 +1358,7 @@ Vec_IntPush.exit67:                               ; preds = %.Vec_IntGrow.exit10
   %117 = phi i32 [ %69, %68 ], [ %.pre100, %Vec_IntPush.exit67 ]
   %118 = add nuw nsw i32 %.078, 1
   %119 = lshr i32 %117, 7
-  %120 = icmp ult i32 %118, %119
+  %120 = icmp samesign ult i32 %118, %119
   br i1 %120, label %68, label %.critedge4.loopexit, !llvm.loop !15
 
 .critedge4.loopexit:                              ; preds = %116

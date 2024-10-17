@@ -1595,7 +1595,7 @@ define internal fastcc void @hwloc__groups_by_distances(ptr noundef %0, i32 noun
   %indvars.iv144.i = phi i64 [ %indvars.iv.next145.i, %.loopexit.us.i ], [ 0, %28 ]
   %indvars.iv137.i = phi i64 [ %indvars.iv.next138.i, %.loopexit.us.i ], [ 1, %28 ]
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
-  %30 = icmp ult i64 %indvars.iv.next145.i, %14
+  %30 = icmp samesign ult i64 %indvars.iv.next145.i, %14
   br i1 %30, label %.lr.ph.us.i, label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %55, %.split95.us.i
@@ -1658,7 +1658,7 @@ define internal fastcc void @hwloc__groups_by_distances(ptr noundef %0, i32 noun
   %indvars.iv133.i = phi i64 [ %indvars.iv.next134.i, %.loopexit.i ], [ 0, %28 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i ], [ 1, %28 ]
   %indvars.iv.next134.i = add nuw nsw i64 %indvars.iv133.i, 1
-  %56 = icmp ult i64 %indvars.iv.next134.i, %14
+  %56 = icmp samesign ult i64 %indvars.iv.next134.i, %14
   br i1 %56, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.split95.i
@@ -3170,7 +3170,7 @@ hwloc_distances_get_one.exit:                     ; preds = %35, %.loopexit66
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %69 = load i32, ptr %3, align 4
   %70 = zext i32 %69 to i64
-  %71 = icmp ult i64 %indvars.iv.next97, %70
+  %71 = icmp samesign ult i64 %indvars.iv.next97, %70
   br i1 %71, label %.lr.ph84, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph84, %.preheader

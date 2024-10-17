@@ -995,7 +995,7 @@ define hidden range(i32 0, 27) i32 @avifImageAllocatePlanes(ptr nocapture nounde
   %13 = zext i32 %3 to i64
   %14 = zext i1 %12 to i64
   %15 = shl nuw nsw i64 %13, %14
-  %16 = icmp ugt i64 %15, 4294967295
+  %16 = icmp samesign ugt i64 %15, 4294967295
   br i1 %16, label %.loopexit63, label %17
 
 17:                                               ; preds = %9
@@ -2245,7 +2245,7 @@ avifCropRectIsValid.exit:                         ; preds = %6, %12, %16, %22, %
   %52 = zext i32 %17 to i64
   %53 = mul nuw nsw i64 %.sroa.48.0.extract.shift, %52
   %54 = add nuw nsw i64 %53, %.sroa.0.0.insert.ext.i63
-  %55 = icmp ult i64 %54, 2147483648
+  %55 = icmp samesign ult i64 %54, 2147483648
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %49
@@ -2263,7 +2263,7 @@ avifCropRectIsValid.exit:                         ; preds = %6, %12, %16, %22, %
   %60 = zext i32 %24 to i64
   %61 = mul nuw nsw i64 %.sroa.4.0.extract.shift, %60
   %62 = add nuw nsw i64 %61, %.sroa.0.0.insert.ext.i68
-  %63 = icmp ult i64 %62, 2147483648
+  %63 = icmp samesign ult i64 %62, 2147483648
   br i1 %63, label %65, label %64
 
 64:                                               ; preds = %57
@@ -2403,7 +2403,7 @@ define hidden void @avifCodecSpecificOptionsClear(ptr nocapture noundef %0) loca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -2430,7 +2430,7 @@ define hidden void @avifCodecSpecificOptionsDestroy(ptr noundef %0) local_unname
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next.i, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next.i, %10
   br i1 %11, label %.lr.ph.i, label %avifCodecSpecificOptionsClear.exit, !llvm.loop !12
 
 avifCodecSpecificOptionsClear.exit:               ; preds = %.lr.ph.i, %1

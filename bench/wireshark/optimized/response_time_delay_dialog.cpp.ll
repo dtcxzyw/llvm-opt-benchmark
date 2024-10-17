@@ -2287,7 +2287,7 @@ _ZN7QStringD2Ev.exit18:                           ; preds = %_ZN7QStringD2Ev.exi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %5, align 8
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next, %38
   br i1 %39, label %13, label %._crit_edge, !llvm.loop !7
 
 40:                                               ; preds = %13
@@ -6047,7 +6047,7 @@ _ZN12QHashPrivate4NodeIK7QStringP12register_rtdED2Ev.exit.i: ; preds = %135, %_Z
   %137 = add nuw nsw i64 %.01418.i, 1
   %138 = load i8, ptr %107, align 8
   %139 = zext i8 %138 to i64
-  %140 = icmp ult i64 %137, %139
+  %140 = icmp samesign ult i64 %137, %139
   br i1 %140, label %116, label %.preheader.loopexit.i, !llvm.loop !16
 
 141:                                              ; preds = %141, %.preheader.i
@@ -6217,7 +6217,7 @@ _ZN12QHashPrivate4NodeIK7QStringP12register_rtdED2Ev.exit: ; preds = %_ZN12QHash
   %31 = add nuw nsw i64 %.01418, 1
   %32 = load i8, ptr %2, align 8
   %33 = zext i8 %32 to i64
-  %34 = icmp ult i64 %31, %33
+  %34 = icmp samesign ult i64 %31, %33
   br i1 %34, label %9, label %.preheader.loopexit, !llvm.loop !16
 
 35:                                               ; preds = %.preheader, %35
@@ -6475,7 +6475,7 @@ _ZN12QHashPrivate4NodeIK7QStringP12register_rtdED2Ev.exit.i37: ; preds = %118, %
   %120 = add nuw nsw i64 %.01418.i, 1
   %121 = load i8, ptr %90, align 8
   %122 = zext i8 %121 to i64
-  %123 = icmp ult i64 %120, %122
+  %123 = icmp samesign ult i64 %120, %122
   br i1 %123, label %99, label %.preheader.loopexit.i, !llvm.loop !16
 
 124:                                              ; preds = %124, %.preheader.i38

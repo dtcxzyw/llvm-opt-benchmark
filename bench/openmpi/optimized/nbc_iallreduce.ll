@@ -639,7 +639,7 @@ ceil_of_log2.exit.i:                              ; preds = %.preheader
   %.0234.in.i = phi i32 [ %.0234.i, %286 ], [ %165, %.preheader.i182.preheader ]
   %.0234.i = lshr i32 %.0234.in.i, 1
   %indvars.iv.next.i184 = add nsw i64 %indvars.iv.i183, -1
-  %.not55.i = icmp ult i32 %.0234.in.i, 2
+  %.not55.i = icmp samesign ult i32 %.0234.in.i, 2
   br i1 %.not55.i, label %.loopexit.i, label %271
 
 271:                                              ; preds = %.preheader.i182

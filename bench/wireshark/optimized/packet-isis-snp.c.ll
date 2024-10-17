@@ -285,7 +285,7 @@ define internal fastcc void @dissect_isis_csnp(ptr noundef %0, ptr noundef %1, p
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 11
-  %41 = icmp ugt i32 %40, %36
+  %41 = icmp samesign ugt i32 %40, %36
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %34
@@ -318,7 +318,7 @@ define internal fastcc void @dissect_isis_csnp(ptr noundef %0, ptr noundef %1, p
   %66 = zext i8 %65 to i32
   %reass.add = shl nuw nsw i32 %66, 1
   %67 = add nuw nsw i32 %reass.add, 13
-  %68 = icmp ugt i32 %67, %64
+  %68 = icmp samesign ugt i32 %67, %64
   br i1 %68, label %69, label %75
 
 69:                                               ; preds = %48
@@ -592,7 +592,7 @@ define internal fastcc void @dissect_isis_psnp(ptr noundef %0, ptr noundef %1, p
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 11
-  %41 = icmp ugt i32 %40, %36
+  %41 = icmp samesign ugt i32 %40, %36
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %34

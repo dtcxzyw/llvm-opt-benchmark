@@ -217,7 +217,7 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
 
 .preheader:                                       ; preds = %91, %.preheader
   %.093 = phi i32 [ %111, %.preheader ], [ 17, %91 ]
-  %107 = icmp ult i32 %.093, 25
+  %107 = icmp samesign ult i32 %.093, 25
   %108 = shl nuw nsw i32 1, %.093
   %109 = icmp ult i32 %108, %85
   %110 = select i1 %107, i1 %109, i1 false
@@ -439,7 +439,7 @@ define internal i32 @oabd_decompress_incremental(ptr noundef readonly %0, ptr no
 
 89:                                               ; preds = %89, %85
   %.098 = phi i32 [ 17, %85 ], [ %94, %89 ]
-  %90 = icmp ult i32 %.098, 25
+  %90 = icmp samesign ult i32 %.098, 25
   %91 = shl nuw nsw i32 1, %.098
   %92 = icmp ult i32 %91, %88
   %93 = select i1 %90, i1 %92, i1 false

@@ -38,7 +38,7 @@ define dso_local range(i32 0, 17) i32 @llvm_regexec(ptr nocapture noundef readon
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %.not158.i = icmp ult i32 %18, 4
+  %.not158.i = icmp samesign ult i32 %18, 4
   br i1 %21, label %25, label %263
 
 25:                                               ; preds = %17

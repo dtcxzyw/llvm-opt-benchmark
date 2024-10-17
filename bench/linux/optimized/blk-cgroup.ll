@@ -788,7 +788,7 @@ define internal fastcc noundef ptr @blkg_alloc(ptr noundef %0, ptr noundef %1, i
   store ptr %19, ptr %55, align 8
   %56 = add nuw nsw i64 %44, 1
   %57 = and i64 %56, 127
-  %58 = icmp ugt i64 %57, 63
+  %58 = icmp samesign ugt i64 %57, 63
   br i1 %58, label %.thread, label %37, !prof !22, !llvm.loop !23
 
 59:                                               ; preds = %85, %.thread
@@ -1758,7 +1758,7 @@ define internal noundef ptr @blkcg_css_alloc(ptr noundef readnone %0) #1 align 1
   store ptr null, ptr %28, align 8
   %29 = add nuw nsw i64 %18, 1
   %30 = and i64 %29, 127
-  %31 = icmp ugt i64 %30, 63
+  %31 = icmp samesign ugt i64 %30, 63
   br i1 %31, label %.thread, label %.preheader11, !prof !22, !llvm.loop !53
 
 .thread:                                          ; preds = %.preheader11, %21, %17
@@ -3720,7 +3720,7 @@ define internal void @__blkg_release(ptr noundef %0) #1 align 16 {
   tail call fastcc void @__blkcg_rstat_flush(ptr %.val, i32 noundef %13)
   %16 = add nuw nsw i64 %12, 1
   %17 = and i64 %16, 127
-  %18 = icmp ugt i64 %17, 63
+  %18 = icmp samesign ugt i64 %17, 63
   br i1 %18, label %.thread, label %5, !prof !22, !llvm.loop !91
 
 .thread:                                          ; preds = %5, %15, %11
@@ -4305,7 +4305,7 @@ define internal noundef i32 @blkcg_print_stat(ptr noundef %0, ptr nocapture read
   %75 = add i64 %74, %39
   %76 = add nuw nsw i64 %44, 1
   %77 = and i64 %76, 127
-  %78 = icmp ugt i64 %77, 63
+  %78 = icmp samesign ugt i64 %77, 63
   br i1 %78, label %.thread, label %32, !prof !22, !llvm.loop !98
 
 .thread:                                          ; preds = %32, %47, %43
@@ -4542,7 +4542,7 @@ define internal noundef i32 @blkcg_reset_stats(ptr noundef %0, ptr nocapture rea
   store ptr %11, ptr %30, align 8
   %32 = add nuw nsw i64 %20, 1
   %33 = and i64 %32, 127
-  %34 = icmp ugt i64 %33, 63
+  %34 = icmp samesign ugt i64 %33, 63
   br i1 %34, label %.thread, label %13, !prof !22, !llvm.loop !102
 
 .thread:                                          ; preds = %13, %23, %19

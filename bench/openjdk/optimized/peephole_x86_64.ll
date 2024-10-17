@@ -103,7 +103,7 @@ _ZNK5Block8get_nodeEj.exit51:                     ; preds = %22, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = load i16, ptr %52, align 2
   %57 = zext i16 %56 to i64
-  %58 = icmp ult i64 %indvars.iv.next, %57
+  %58 = icmp samesign ult i64 %indvars.iv.next, %57
   br i1 %58, label %59, label %.loopexit, !llvm.loop !6
 
 59:                                               ; preds = %.lr.ph, %55
@@ -358,7 +358,7 @@ _ZN7OptoReg8as_VMRegEi.exit106:                   ; preds = %_ZN7OptoReg8as_VMRe
 
 96:                                               ; preds = %.lr.ph, %112
   %indvars.iv = phi i64 [ %94, %.lr.ph ], [ %indvars.iv.next, %112 ]
-  %97 = icmp ult i64 %indvars.iv, %95
+  %97 = icmp samesign ult i64 %indvars.iv, %95
   br i1 %97, label %98, label %_ZNK5Block8get_nodeEj.exit109
 
 98:                                               ; preds = %96

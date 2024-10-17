@@ -3729,7 +3729,7 @@ if.else:                                          ; preds = %entry
   %sub = sub i32 %8, %9
   %conv5 = zext i32 %sub to i64
   %mul6 = mul nuw nsw i64 %conv5, 24
-  %cmp7.not = icmp ugt i64 %mul, %mul6
+  %cmp7.not = icmp samesign ugt i64 %mul, %mul6
   br i1 %cmp7.not, label %if.else15, label %if.then8
 
 if.then8:                                         ; preds = %if.else

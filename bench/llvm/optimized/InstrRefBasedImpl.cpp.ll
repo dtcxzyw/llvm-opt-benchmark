@@ -3559,7 +3559,7 @@ define dso_local { ptr, ptr } @_ZN15LiveDebugValues11MLocTracker7emitLocERKN4llv
 
 _ZNK15LiveDebugValues18DbgValueProperties18getLocationOpCountEv.exit: ; preds = %59, %62
   %66 = phi i64 [ %65, %62 ], [ 1, %59 ]
-  %67 = icmp ult i64 %.053, %66
+  %67 = icmp samesign ult i64 %.053, %66
   br i1 %67, label %68, label %230
 
 68:                                               ; preds = %_ZNK15LiveDebugValues18DbgValueProperties18getLocationOpCountEv.exit
@@ -4304,7 +4304,7 @@ _ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12M
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %.sroa.011.0.extract.trunc = trunc i64 %40 to i32
-  %.not = icmp ult i64 %40, 4294967296
+  %.not = icmp samesign ult i64 %40, 4294967296
   br i1 %.not, label %151, label %41
 
 41:                                               ; preds = %_ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12MachineInstrE.exit
@@ -6130,7 +6130,7 @@ _ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit: ; preds = %130
 
 136:                                              ; preds = %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread191, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit
   %137 = call i64 @_ZN15LiveDebugValues16InstrRefBasedLDV25findLocationForMemOperandERKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(2312) %0, ptr noundef nonnull align 8 dereferenceable(70) %114)
-  %.not211 = icmp ult i64 %137, 4294967296
+  %.not211 = icmp samesign ult i64 %137, 4294967296
   br i1 %.not211, label %_ZNSt8optionalIN15LiveDebugValues10ValueIDNumEEaSESt9nullopt_t.exit, label %_ZNSt8optionalIN15LiveDebugValues10ValueIDNumEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit
 
 _ZNSt8optionalIN15LiveDebugValues10ValueIDNumEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit: ; preds = %136
@@ -6286,7 +6286,7 @@ _ZNSt8optionalIN15LiveDebugValues10ValueIDNumEEaSIS1_EENSt9enable_ifIX7__and_vIS
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 22
   %234 = load i16, ptr %233, align 2
   %235 = zext i16 %234 to i32
-  %.not.i.i104.us = icmp ult i32 %227, %235
+  %.not.i.i104.us = icmp samesign ult i32 %227, %235
   br i1 %.not.i.i104.us, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.us, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.us
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.us: ; preds = %.lr.ph243.split.us
@@ -7397,7 +7397,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN15LiveDebugValues10ValueIDNumEN15Tran
 430:                                              ; preds = %428
   %431 = lshr i64 %.sroa.0166.0.copyload, 20
   %432 = and i64 %431, 1048575
-  %.not107 = icmp ugt i64 %432, %426
+  %.not107 = icmp samesign ugt i64 %432, %426
   br i1 %.not107, label %433, label %.loopexit
 
 433:                                              ; preds = %430
@@ -9421,7 +9421,7 @@ _ZN15LiveDebugValues11MLocTracker21lookupOrTrackRegisterEj.exit32: ; preds = %.l
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %111, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx, align 8
   %115 = call i64 @_ZN15LiveDebugValues11MLocTracker18getOrTrackSpillLocENS_8SpillLocE(ptr noundef nonnull align 8 dereferenceable(872) %114, ptr noundef nonnull byval(%"struct.LiveDebugValues::SpillLoc") align 8 %8)
-  %.not54 = icmp ult i64 %115, 4294967296
+  %.not54 = icmp samesign ult i64 %115, 4294967296
   br i1 %.not54, label %116, label %124
 
 116:                                              ; preds = %102
@@ -10167,7 +10167,7 @@ _ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12M
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %.sroa.0195.0.extract.trunc = trunc i64 %285 to i32
-  %.not232 = icmp ult i64 %285, 4294967296
+  %.not232 = icmp samesign ult i64 %285, 4294967296
   br i1 %.not232, label %_ZN15LiveDebugValues16InstrRefBasedLDV19hasFoldedStackStoreERKN4llvm12MachineInstrE.exit.thread, label %.preheader239
 
 .preheader239:                                    ; preds = %_ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12MachineInstrE.exit
@@ -10598,7 +10598,7 @@ _ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12M
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %.sroa.0175.0.extract.trunc = trunc i64 %515 to i32
-  %.not237 = icmp ult i64 %515, 4294967296
+  %.not237 = icmp samesign ult i64 %515, 4294967296
   br i1 %.not237, label %_ZN15LiveDebugValues16InstrRefBasedLDV19hasFoldedStackStoreERKN4llvm12MachineInstrE.exit155.thread, label %.preheader
 
 .preheader:                                       ; preds = %_ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12MachineInstrE.exit163
@@ -11530,7 +11530,7 @@ declare { i64, i8 } @_ZNK4llvm12MachineInstr18getFoldedSpillSizeEPKNS_15TargetIn
 define dso_local noundef zeroext i1 @_ZN15LiveDebugValues16InstrRefBasedLDV15isLocationSpillERKN4llvm12MachineInstrEPNS1_15MachineFunctionERj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2312) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr nocapture noundef readnone %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = tail call i64 @_ZN15LiveDebugValues16InstrRefBasedLDV18isSpillInstructionERKN4llvm12MachineInstrEPNS1_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(2312) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr poison)
-  %.not = icmp ult i64 %6, 4294967296
+  %.not = icmp samesign ult i64 %6, 4294967296
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %4
@@ -11723,7 +11723,7 @@ define dso_local noundef zeroext i1 @_ZN15LiveDebugValues16InstrRefBasedLDV26tra
 .critedge2:                                       ; preds = %.critedge, %32
   %38 = call i64 @_ZN15LiveDebugValues16InstrRefBasedLDV18isSpillInstructionERKN4llvm12MachineInstrEPNS1_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(2312) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr poison)
   %.sroa.0157.0.extract.trunc = trunc i64 %38 to i32
-  %.not170 = icmp ult i64 %38, 4294967296
+  %.not170 = icmp samesign ult i64 %38, 4294967296
   br i1 %.not170, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.critedge2
@@ -11839,7 +11839,7 @@ _ZN15TransferTracker11clobberMlocEN15LiveDebugValues6LocIdxEN4llvm26MachineInstr
 .loopexit:                                        ; preds = %_ZN15TransferTracker11clobberMlocEN15LiveDebugValues6LocIdxEN4llvm26MachineInstrBundleIteratorINS2_12MachineInstrELb0EEEb.exit, %.preheader, %.critedge2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %109 = call i64 @_ZN15LiveDebugValues16InstrRefBasedLDV18isSpillInstructionERKN4llvm12MachineInstrEPNS1_15MachineFunctionE(ptr noundef nonnull readonly align 8 dereferenceable(2312) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr readnone poison)
-  %.not.i = icmp ult i64 %109, 4294967296
+  %.not.i = icmp samesign ult i64 %109, 4294967296
   br i1 %.not.i, label %_ZN15LiveDebugValues16InstrRefBasedLDV15isLocationSpillERKN4llvm12MachineInstrEPNS1_15MachineFunctionERj.exit.thread, label %_ZN15LiveDebugValues16InstrRefBasedLDV15isLocationSpillERKN4llvm12MachineInstrEPNS1_15MachineFunctionERj.exit
 
 _ZN15LiveDebugValues16InstrRefBasedLDV15isLocationSpillERKN4llvm12MachineInstrEPNS1_15MachineFunctionERj.exit.thread: ; preds = %.loopexit
@@ -12095,7 +12095,7 @@ _ZN15LiveDebugValues11MLocTracker7readRegEN4llvm8RegisterE.exit.i67: ; preds = %
 251:                                              ; preds = %_ZN15LiveDebugValues16InstrRefBasedLDV15isLocationSpillERKN4llvm12MachineInstrEPNS1_15MachineFunctionERj.exit.thread, %_ZN15LiveDebugValues16InstrRefBasedLDV15isLocationSpillERKN4llvm12MachineInstrEPNS1_15MachineFunctionERj.exit
   %252 = call i64 @_ZN15LiveDebugValues16InstrRefBasedLDV20isRestoreInstructionERKN4llvm12MachineInstrEPNS1_15MachineFunctionERj(ptr noundef nonnull align 8 dereferenceable(2312) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr poison, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %.sroa.0118.0.extract.trunc = trunc i64 %252 to i32
-  %.not173 = icmp ult i64 %252, 4294967296
+  %.not173 = icmp samesign ult i64 %252, 4294967296
   br i1 %.not173, label %"_ZZN15LiveDebugValues16InstrRefBasedLDV26transferSpillOrRestoreInstERN4llvm12MachineInstrEENK3$_0clENS1_8RegisterEj.exit76", label %253
 
 253:                                              ; preds = %251
@@ -15999,7 +15999,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN15LiveDebugValues6LocIdxENS2_10ValueI
   %477 = add i32 %476, 31
   %478 = lshr i32 %477, 5
   %.sroa.speculated.i.i = call i32 @llvm.umin.i32(i32 %478, i32 %18)
-  %479 = icmp ugt i32 %.sroa.speculated.i.i, 1
+  %479 = icmp samesign ugt i32 %.sroa.speculated.i.i, 1
   br i1 %479, label %.lr.ph.preheader.i.i, label %.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph579
@@ -17133,7 +17133,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN15LiveDebugValues6LocIdxENS2_10ValueI
   %1032 = lshr i32 %1028, 6
   %1033 = add i32 %1029, -1
   %1034 = lshr i32 %1033, 6
-  %.not32.i.i.i.i = icmp ugt i32 %1032, %1034
+  %.not32.i.i.i.i = icmp samesign ugt i32 %1032, %1034
   br i1 %.not32.i.i.i.i, label %._crit_edge594, label %.lr.ph.i.i.i.i189
 
 .lr.ph.i.i.i.i189:                                ; preds = %1031
@@ -18707,8 +18707,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIttEjNS_12DenseMapInfoIS3_vEENS_6deta
   %483 = load i16, ptr %482, align 2
   %484 = zext i16 %483 to i32
   %485 = add nuw nsw i32 %484, %481
-  %.not63 = icmp ugt i32 %485, %456
-  %.not64 = icmp ugt i32 %478, %484
+  %.not63 = icmp samesign ugt i32 %485, %456
+  %.not64 = icmp samesign ugt i32 %478, %484
   %or.cond = select i1 %.not63, i1 %.not64, i1 false
   br i1 %or.cond, label %486, label %"_ZZN15LiveDebugValues16InstrRefBasedLDV13placeMLocPHIsERN4llvm15MachineFunctionERNS1_15SmallPtrSetImplIPNS1_17MachineBasicBlockEEERNS_14FuncValueTableERNS1_15SmallVectorImplINS1_13SmallDenseMapINS_6LocIdxENS_10ValueIDNumELj4ENS1_12DenseMapInfoISD_vEENS1_6detail12DenseMapPairISD_SE_EEEEEEENK3$_1clESD_.exit116"
 
@@ -23665,7 +23665,7 @@ _ZN4llvm6detail12DenseSetImplIjNS_13SmallDenseMapIjNS0_13DenseSetEmptyELj4ENS_12
 
 _ZNK15LiveDebugValues8DbgValue18getLocationOpCountEv.exit76: ; preds = %212, %215
   %219 = phi i64 [ %218, %215 ], [ 1, %212 ]
-  %.not129.not.not.not.not = icmp uge i64 %indvars.iv, %219
+  %.not129.not.not.not.not = icmp samesign uge i64 %indvars.iv, %219
   br i1 %.not129.not.not.not.not, label %271, label %220
 
 220:                                              ; preds = %_ZNK15LiveDebugValues8DbgValue18getLocationOpCountEv.exit76
@@ -25830,7 +25830,7 @@ _ZNK15LiveDebugValues8DbgValue18getLocationOpCountEv.exit.us: ; preds = %_ZNK15L
 
 _ZNK15LiveDebugValues8DbgValue18getLocationOpCountEv.exit: ; preds = %.preheader.split, %35
   %39 = phi i64 [ %38, %35 ], [ 1, %.preheader.split ]
-  %.not.not = icmp uge i64 %indvars.iv, %39
+  %.not.not = icmp samesign uge i64 %indvars.iv, %39
   br i1 %.not.not, label %.loopexit, label %40
 
 40:                                               ; preds = %_ZNK15LiveDebugValues8DbgValue18getLocationOpCountEv.exit
@@ -38225,7 +38225,7 @@ _ZSt7advanceIPN15LiveDebugValues16InstrRefBasedLDV14DebugPHIRecordElEvRT_T0_.exi
   br i1 %32, label %59, label %33
 
 33:                                               ; preds = %31
-  %.not449 = icmp ult i64 %.044.i.i, 2
+  %.not449 = icmp samesign ult i64 %.044.i.i, 2
   br i1 %.not449, label %_ZSt13__lower_boundIPN15LiveDebugValues16InstrRefBasedLDV14DebugPHIRecordEmN9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPN15LiveDebugValues16InstrRefBasedLDV14DebugPHIRecordElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIPN15LiveDebugValues16InstrRefBasedLDV14DebugPHIRecordElEvRT_T0_.exit.i.i.i: ; preds = %33, %_ZSt7advanceIPN15LiveDebugValues16InstrRefBasedLDV14DebugPHIRecordElEvRT_T0_.exit.i.i.i
@@ -55521,7 +55521,7 @@ define linkonce_odr void @_ZSt11__make_heapIPSt4pairIN15LiveDebugValues10ValueID
   %.sroa.0.0.copyload20 = load ptr, ptr %2, align 8
   %14 = add nsw i64 %9, -1
   %15 = lshr i64 %14, 1
-  %16 = icmp ult i64 %12, %15
+  %16 = icmp samesign ult i64 %12, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -65192,7 +65192,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm17MachineBasicBlock
   %21 = load ptr, ptr %20, align 8
   %22 = add nsw i64 %17, -1
   %23 = lshr i64 %22, 1
-  %24 = icmp ult i64 %19, %23
+  %24 = icmp samesign ult i64 %19, %23
   br i1 %24, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
@@ -73555,7 +73555,7 @@ define linkonce_odr void @_ZSt11__make_heapIPSt4pairIjPN4llvm12MachineInstrEEN9_
   %.sroa.3.0.copyload19 = load ptr, ptr %.sroa.3.0..sroa_idx18, align 8
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %14 = icmp ult i64 %10, %13
+  %14 = icmp samesign ult i64 %10, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -78325,7 +78325,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN12_GLOBAL__N_19LDVSSAPhi
   %23 = load ptr, ptr %22, align 8
   %24 = add nsw i64 %19, -1
   %25 = lshr i64 %24, 1
-  %26 = icmp ult i64 %21, %25
+  %26 = icmp samesign ult i64 %21, %25
   br i1 %26, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i

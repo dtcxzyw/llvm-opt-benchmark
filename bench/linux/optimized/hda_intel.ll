@@ -2441,7 +2441,7 @@ define internal fastcc range(i32 -1, 2) i32 @azx_position_ok(ptr noundef %0, ptr
   %23 = load i64, ptr %22, align 8
   %24 = shl i64 %23, 1
   %25 = udiv i64 %24, 3
-  %26 = icmp ugt i64 %25, %21
+  %26 = icmp samesign ugt i64 %25, %21
   br i1 %26, label %129, label %27
 
 27:                                               ; preds = %12
@@ -2537,7 +2537,7 @@ define internal fastcc range(i32 -1, 2) i32 @azx_position_ok(ptr noundef %0, ptr
   %79 = load i64, ptr %22, align 8
   %80 = mul i64 %79, 5
   %81 = lshr i64 %80, 2
-  %82 = icmp ugt i64 %81, %21
+  %82 = icmp samesign ugt i64 %81, %21
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %78

@@ -3972,7 +3972,7 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot21summaries_for_anchor
   %56 = ptrtoint ptr %.val.i.i.i.i to i64
   %57 = sub nuw i64 %55, %56
   %58 = lshr exact i64 %57, 3
-  %59 = icmp ugt i64 %58, %47
+  %59 = icmp samesign ugt i64 %58, %47
   br i1 %59, label %60, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h1c44e77f6d30071bE.exit.i.i.i"
 
 60:                                               ; preds = %49

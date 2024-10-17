@@ -336,7 +336,7 @@ while.end78:                                      ; preds = %while.cond68
   br i1 %cmp85.not, label %if.else88, label %for.inc
 
 if.else88:                                        ; preds = %while.end78
-  %cmp89 = icmp ult i64 %16, %3
+  %cmp89 = icmp samesign ult i64 %16, %3
   br i1 %cmp89, label %for.end.thread, label %for.inc
 
 for.end.thread:                                   ; preds = %if.else88

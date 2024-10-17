@@ -7532,7 +7532,7 @@ define hidden noundef float @_ZN5zxing6qrcode8Detector24sizeOfBlackWhiteBlackRun
   %7 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
   %8 = sub nsw i32 %3, %1
   %9 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
-  %10 = icmp ugt i32 %7, %9
+  %10 = icmp samesign ugt i32 %7, %9
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %5

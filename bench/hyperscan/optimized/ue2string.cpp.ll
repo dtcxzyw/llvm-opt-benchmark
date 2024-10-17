@@ -3586,7 +3586,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check221 = icmp ult i64 %5, 3
+  %min.iters.check221 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check221, label %for.body.i.i.i.preheader, label %vector.ph222
 
 vector.ph222:                                     ; preds = %invoke.cont20
@@ -3766,7 +3766,7 @@ if.end.i.i.i.i.i162:                              ; preds = %_ZNSt16allocator_tr
   %32 = add nuw nsw i64 %__n, 2305843009213693951
   %33 = and i64 %32, 2305843009213693951
   %34 = add nuw nsw i64 %33, 1
-  %min.iters.check237 = icmp ult i64 %33, 3
+  %min.iters.check237 = icmp samesign ult i64 %33, 3
   br i1 %min.iters.check237, label %for.body.i.i.i.i.i.i.i164.preheader, label %vector.ph238
 
 vector.ph238:                                     ; preds = %if.end.i.i.i.i.i162

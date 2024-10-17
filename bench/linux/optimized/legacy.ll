@@ -86,7 +86,7 @@ define dso_local void @pcibios_scan_specific_bus(i32 noundef %0) #3 align 16 {
 
 13:                                               ; preds = %9, %9, %.preheader
   %14 = add nuw nsw i32 %5, 8
-  %15 = icmp ult i32 %5, 248
+  %15 = icmp samesign ult i32 %5, 248
   br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %13, %11, %1

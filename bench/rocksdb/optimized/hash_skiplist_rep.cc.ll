@@ -1216,7 +1216,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %25 = load i16, ptr %call3.i, align 8
   %26 = zext i16 %25 to i64
-  %cmp11.i.i = icmp ult i64 %indvars.iv.next.i.i, %26
+  %cmp11.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %26
   br i1 %cmp11.i.i, label %for.body.i.i, label %_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEEC2ES6_PNS_9AllocatorEii.exit.i, !llvm.loop !8
 
 _ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEEC2ES6_PNS_9AllocatorEii.exit.i: ; preds = %for.body.i.i, %if.then.i
@@ -1625,7 +1625,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = load i16, ptr %call4, align 8
   %12 = zext i16 %11 to i64
-  %cmp11.i = icmp ult i64 %indvars.iv.next.i, %12
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next.i, %12
   br i1 %cmp11.i, label %for.body.i, label %_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEEC2ES6_PNS_9AllocatorEii.exit, !llvm.loop !8
 
 _ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEEC2ES6_PNS_9AllocatorEii.exit: ; preds = %for.body.i, %call8.i.noexc
@@ -1975,7 +1975,7 @@ while.body.i37:                                   ; preds = %land.rhs.i35
   %inc.i = add nuw nsw i32 %height.05.i, 1
   %39 = load i16, ptr %this, align 8
   %conv.i = zext i16 %39 to i32
-  %cmp.i = icmp ult i32 %inc.i, %conv.i
+  %cmp.i = icmp samesign ult i32 %inc.i, %conv.i
   br i1 %cmp.i, label %land.rhs.i35, label %_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE12RandomHeightEv.exit, !llvm.loop !15
 
 _ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE12RandomHeightEv.exit: ; preds = %land.rhs.i35, %while.body.i37, %if.end

@@ -195,7 +195,7 @@ for.cond.loopexit.i:                              ; preds = %for.body7.i, %for.b
 for.body.i:                                       ; preds = %for.body8, %for.cond.loopexit.i
   %r.025.i = phi i64 [ %add.i, %for.cond.loopexit.i ], [ 0, %for.body8 ]
   %add.i = add nuw nsw i64 %r.025.i, 1
-  %cmp620.i = icmp ult i64 %add.i, %b.0
+  %cmp620.i = icmp samesign ult i64 %add.i, %b.0
   br i1 %cmp620.i, label %for.body7.preheader.i, label %for.cond.loopexit.i
 
 for.body7.preheader.i:                            ; preds = %for.body.i
@@ -259,7 +259,7 @@ for.cond.loopexit.i84:                            ; preds = %for.body7.i91, %for
 for.body.i80:                                     ; preds = %for.body33, %for.cond.loopexit.i84
   %r.025.i81 = phi i64 [ %add.i82, %for.cond.loopexit.i84 ], [ 0, %for.body33 ]
   %add.i82 = add nuw nsw i64 %r.025.i81, 1
-  %cmp620.i83 = icmp ult i64 %add.i82, %b.0
+  %cmp620.i83 = icmp samesign ult i64 %add.i82, %b.0
   br i1 %cmp620.i83, label %for.body7.preheader.i86, label %for.cond.loopexit.i84
 
 for.body7.preheader.i86:                          ; preds = %for.body.i80

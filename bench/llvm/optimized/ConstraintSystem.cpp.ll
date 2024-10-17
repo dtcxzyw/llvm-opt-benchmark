@@ -194,7 +194,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryEL
   %indvars.iv157 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next158, %.loopexit131 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph149 ], [ %indvars.iv.next, %.loopexit131 ]
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %70 = icmp ult i64 %indvars.iv.next158, %68
+  %70 = icmp samesign ult i64 %indvars.iv.next158, %68
   br i1 %70, label %.lr.ph146, label %.loopexit131
 
 .lr.ph146:                                        ; preds = %69, %197

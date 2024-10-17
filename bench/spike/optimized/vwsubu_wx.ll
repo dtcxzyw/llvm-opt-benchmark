@@ -2876,7 +2876,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit206
   %214 = lshr i64 %1, 15
   %215 = and i64 %214, 31
-  %216 = icmp ugt i64 %215, 15
+  %216 = icmp samesign ugt i64 %215, 15
   %217 = getelementptr inbounds i8, ptr %0, i64 120
   %218 = getelementptr inbounds [32 x i64], ptr %217, i64 0, i64 %215
   br label %219
@@ -3509,7 +3509,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit206
   %214 = lshr i64 %1, 15
   %215 = and i64 %214, 31
-  %216 = icmp ugt i64 %215, 15
+  %216 = icmp samesign ugt i64 %215, 15
   %217 = getelementptr inbounds i8, ptr %0, i64 120
   %218 = getelementptr inbounds [32 x i64], ptr %217, i64 0, i64 %215
   br label %219
@@ -4140,7 +4140,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit206
   %214 = lshr i64 %1, 15
   %215 = and i64 %214, 31
-  %216 = icmp ugt i64 %215, 15
+  %216 = icmp samesign ugt i64 %215, 15
   %217 = getelementptr inbounds i8, ptr %0, i64 120
   %218 = getelementptr inbounds [32 x i64], ptr %217, i64 0, i64 %215
   br label %219
@@ -4773,7 +4773,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit206
   %214 = lshr i64 %1, 15
   %215 = and i64 %214, 31
-  %216 = icmp ugt i64 %215, 15
+  %216 = icmp samesign ugt i64 %215, 15
   %217 = getelementptr inbounds i8, ptr %0, i64 120
   %218 = getelementptr inbounds [32 x i64], ptr %217, i64 0, i64 %215
   br label %219

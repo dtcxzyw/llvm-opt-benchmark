@@ -911,7 +911,7 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit:       ; preds = %229, %255, %251, %2
 
 360:                                              ; preds = %.loopexit92, %325
   %361 = phi i32 [ 0, %325 ], [ %644, %.loopexit92 ]
-  %362 = icmp ult i32 %361, 2
+  %362 = icmp samesign ult i32 %361, 2
   br i1 %362, label %363, label %456
 
 363:                                              ; preds = %360

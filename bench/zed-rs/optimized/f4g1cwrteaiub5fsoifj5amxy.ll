@@ -754,7 +754,7 @@ define hidden void @"_ZN101_$LT$pulldown_cmark..parse..OffsetIter$LT$F$GT$$u20$a
   call void @_ZN14pulldown_cmark5parse13item_to_event17he6d691990d41a01cE(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %265, i64 noundef %267, ptr noalias noundef nonnull align 8 dereferenceable(192) %268)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %269 = load i8, ptr %7, align 8, !range !13, !noundef !4
-  %270 = icmp ult i8 %269, 21
+  %270 = icmp samesign ult i8 %269, 21
   br i1 %270, label %272, label %294
 
 271:                                              ; preds = %258
@@ -1192,7 +1192,7 @@ define internal fastcc void @"_ZN14pulldown_cmark5parse15Parser$LT$F$GT$14make_c
   %.sroa.4.0.i.ph.i = phi i32 [ %145, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea316f4d6e7e60f2E.exit12.i.i" ], [ %155, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea316f4d6e7e60f2E.exit14.i.i" ], [ %166, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea316f4d6e7e60f2E.exit16.i.i" ]
   %173 = icmp ult i32 %.sroa.4.0.i.ph.i, 1114112
   call void @llvm.assume(i1 %173)
-  %174 = icmp ult i32 %.sroa.4.0.i.ph.i, 128
+  %174 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 128
   br i1 %174, label %.thread.i.thread, label %177
 
 .thread.i.thread:                                 ; preds = %172
@@ -1202,11 +1202,11 @@ define internal fastcc void @"_ZN14pulldown_cmark5parse15Parser$LT$F$GT$14make_c
   br label %186
 
 177:                                              ; preds = %172
-  %178 = icmp ult i32 %.sroa.4.0.i.ph.i, 2048
+  %178 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 2048
   br i1 %178, label %.thread.i, label %179
 
 179:                                              ; preds = %177
-  %180 = icmp ult i32 %.sroa.4.0.i.ph.i, 65536
+  %180 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 65536
   %..i = select i1 %180, i64 3, i64 4
   br label %.thread.i
 
@@ -1276,15 +1276,15 @@ define internal fastcc void @"_ZN14pulldown_cmark5parse15Parser$LT$F$GT$14make_c
   %.sroa.04.0.i.i = phi i32 [ %217, %213 ], [ %196, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E.exit17.i.i" ]
   %219 = icmp ult i32 %.sroa.04.0.i.i, 17408
   call void @llvm.assume(i1 %219)
-  %220 = icmp ult i32 %.sroa.04.0.i.i, 2
+  %220 = icmp samesign ult i32 %.sroa.04.0.i.i, 2
   br i1 %220, label %.thread.i87, label %221
 
 221:                                              ; preds = %218
-  %222 = icmp ult i32 %.sroa.04.0.i.i, 32
+  %222 = icmp samesign ult i32 %.sroa.04.0.i.i, 32
   br i1 %222, label %.thread.i87, label %223
 
 223:                                              ; preds = %221
-  %224 = icmp ult i32 %.sroa.04.0.i.i, 1024
+  %224 = icmp samesign ult i32 %.sroa.04.0.i.i, 1024
   %..i85 = select i1 %224, i64 -3, i64 -4
   br label %.thread.i87
 
@@ -5044,7 +5044,7 @@ split.i.i:                                        ; preds = %889, %885
   %.sroa.0185.2 = phi i8 [ %.sroa.0185.33670, %1495 ], [ %.sroa.0185.33670, %1496 ], [ %.sroa.0185.33670, %"_ZN4core3ptr52drop_in_place$LT$pulldown_cmark..strings..CowStr$GT$17h4fc7529744712d12E.exit494" ], [ %.sroa.0185.33670, %1497 ], [ %.sroa.0185.33670, %1499 ], [ %.sroa.0185.33670, %1501 ], [ %.sroa.0185.33670, %1502 ], [ %.sroa.0185.33670, %1504 ], [ %.sroa.0185.33670, %1506 ], [ 1, %.loopexit.split-lp997 ], [ 1, %.loopexit996 ]
   %.pn329 = phi { ptr, i32 } [ %.pn326, %1495 ], [ %.pn326, %1496 ], [ %.pn326, %"_ZN4core3ptr52drop_in_place$LT$pulldown_cmark..strings..CowStr$GT$17h4fc7529744712d12E.exit494" ], [ %.pn326, %1497 ], [ %.pn326, %1499 ], [ %.pn326, %1501 ], [ %.pn326, %1502 ], [ %.pn326, %1504 ], [ %.pn326, %1506 ], [ %lpad.loopexit.split-lp999, %.loopexit.split-lp997 ], [ %lpad.loopexit998, %.loopexit996 ]
   %1157 = load i8, ptr %38, align 8, !range !431, !noundef !4
-  %1158 = icmp ult i8 %1157, 3
+  %1158 = icmp samesign ult i8 %1157, 3
   br i1 %1158, label %1507, label %.critedge353
 
 .loopexit996:                                     ; preds = %1151, %1215
@@ -5090,7 +5090,7 @@ split.i.i:                                        ; preds = %889, %885
   %.sroa.0106.4 = phi i64 [ %.sroa.0203.0, %"_ZN4core3ptr52drop_in_place$LT$pulldown_cmark..strings..CowStr$GT$17h4fc7529744712d12E.exit447" ], [ %.sroa.0106.02393, %1155 ], [ %.sroa.0106.02393, %1156 ], [ %.sroa.0106.02393, %1159 ]
   %.sroa.0110.7 = phi i64 [ %784, %"_ZN4core3ptr52drop_in_place$LT$pulldown_cmark..strings..CowStr$GT$17h4fc7529744712d12E.exit447" ], [ %.sroa.0110.02394, %1155 ], [ %.sroa.0110.02394, %1156 ], [ %.sroa.0110.02394, %1159 ]
   %.sroa.0185.1 = phi i1 [ %1340, %"_ZN4core3ptr52drop_in_place$LT$pulldown_cmark..strings..CowStr$GT$17h4fc7529744712d12E.exit447" ], [ false, %1155 ], [ false, %1156 ], [ false, %1159 ]
-  %1172 = icmp ugt i8 %1145, 2
+  %1172 = icmp samesign ugt i8 %1145, 2
   %brmerge348 = select i1 %1172, i1 true, i1 %.sroa.0185.1
   br i1 %brmerge348, label %1345, label %1341
 

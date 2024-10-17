@@ -274,7 +274,7 @@ if.else.i:                                        ; preds = %for.body
 
 g_string_append_c_inline.exit:                    ; preds = %if.then.i, %if.else.i
   %6 = and i8 %0, 15
-  %cmp.i8 = icmp ult i8 %6, 10
+  %cmp.i8 = icmp samesign ult i8 %6, 10
   %add.i9 = or disjoint i8 %6, 48
   %add1.i10 = add nuw nsw i8 %6, 87
   %retval.0.i11 = select i1 %cmp.i8, i8 %add.i9, i8 %add1.i10
@@ -465,7 +465,7 @@ if.then10.i:                                      ; preds = %if.end.i
   %arrayidx17.i = getelementptr [69 x i8], ptr %line_buffer.i, i64 0, i64 %add.i
   store i8 %retval.0.i.i, ptr %arrayidx17.i, align 1
   %3 = and i8 %2, 15
-  %cmp.i17.i = icmp ult i8 %3, 10
+  %cmp.i17.i = icmp samesign ult i8 %3, 10
   %add.i18.i = or disjoint i8 %3, 48
   %add1.i19.i = add nuw nsw i8 %3, 87
   %retval.0.i20.i = select i1 %cmp.i17.i, i8 %add.i18.i, i8 %add1.i19.i
@@ -566,14 +566,14 @@ for.cond9.for.end_crit_edge.us:                   ; preds = %for.body.us
   store i8 35, ptr %footer, align 1
   %shr.us = lshr i32 %add.us, 4
   %and.us = and i32 %shr.us, 15
-  %cmp.i9.us = icmp ult i32 %and.us, 10
+  %cmp.i9.us = icmp samesign ult i32 %and.us, 10
   %add.i10.us = or disjoint i32 %and.us, 48
   %add1.i.us = add nuw nsw i32 %and.us, 87
   %retval.0.i.us = select i1 %cmp.i9.us, i32 %add.i10.us, i32 %add1.i.us
   %conv14.us = trunc nuw nsw i32 %retval.0.i.us to i8
   store i8 %conv14.us, ptr %arrayidx15, align 1
   %and16.us = and i32 %add.us, 15
-  %cmp.i11.us = icmp ult i32 %and16.us, 10
+  %cmp.i11.us = icmp samesign ult i32 %and16.us, 10
   %add.i12.us = or disjoint i32 %and16.us, 48
   %add1.i13.us = add nuw nsw i32 %and16.us, 87
   %retval.0.i14.us = select i1 %cmp.i11.us, i32 %add.i12.us, i32 %add1.i13.us
@@ -1041,7 +1041,7 @@ for.body:                                         ; preds = %entry, %for.body
   %11 = load i32, ptr %len, align 8
   %sub = add i32 %11, -2
   %12 = zext i32 %sub to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %12
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body, %entry
@@ -5674,7 +5674,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %len16.i = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i32, ptr %len16.i, align 8
   %22 = zext i32 %21 to i64
-  %cmp17.i = icmp ult i64 %indvars.iv.next.i, %22
+  %cmp17.i = icmp samesign ult i64 %indvars.iv.next.i, %22
   br i1 %cmp17.i, label %for.body.i, label %glib_autoptr_cleanup_GPtrArray.exit.i, !llvm.loop !42
 
 glib_autoptr_cleanup_GPtrArray.exit.i:            ; preds = %for.body.i, %for.cond.preheader.i, %if.end.i

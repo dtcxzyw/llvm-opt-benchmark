@@ -7323,7 +7323,7 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Optio
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2116)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2119)
-  %switch.i.i = icmp ult i64 %2, 4
+  %switch.i.i = icmp samesign ult i64 %2, 4
   br i1 %switch.i.i, label %"_ZN4core3ptr69drop_in_place$LT$clap_builder..builder..value_parser..ValueParser$GT$17h64fc3265e8ce61cfE.exit", label %5
 
 5:                                                ; preds = %4
@@ -8350,7 +8350,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 63:                                               ; preds = %49
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2231)
-  %switch.i.i = icmp ult i64 %53, 4
+  %switch.i.i = icmp samesign ult i64 %53, 4
   br i1 %switch.i.i, label %"_ZN87_$LT$clap_builder..builder..value_parser..ValueParser$u20$as$u20$core..clone..Clone$GT$5clone17h0bf5a484f67fd1c3E.exit.i", label %64
 
 64:                                               ; preds = %63
@@ -10385,7 +10385,7 @@ default.unreachable:                              ; preds = %274
 
 342:                                              ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4f83ad18c53d7015E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2551)
-  %switch.i16 = icmp ult i64 %339, 4
+  %switch.i16 = icmp samesign ult i64 %339, 4
   br i1 %switch.i16, label %"_ZN87_$LT$clap_builder..builder..value_parser..ValueParser$u20$as$u20$core..clone..Clone$GT$5clone17h0bf5a484f67fd1c3E.exit", label %343
 
 343:                                              ; preds = %342

@@ -1709,7 +1709,7 @@ define dso_local i32 @intel_uncore_setup_mmio(ptr nocapture noundef %0, i64 noun
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %15, %18
-  %20 = icmp ugt i32 %19, 3141
+  %20 = icmp samesign ugt i32 %19, 3141
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %11
@@ -1971,7 +1971,7 @@ define dso_local range(i32 -19, 1) i32 @intel_uncore_init_mmio(ptr noundef %0) l
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
   %117 = or disjoint i32 %113, %116
-  %118 = icmp ugt i32 %117, 3141
+  %118 = icmp samesign ugt i32 %117, 3141
   %119 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %120 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %119, i32 noundef 3520, i64 noundef 104) #15
   %121 = icmp eq ptr %120, null
@@ -2844,19 +2844,19 @@ fw_domains_put.exit:                              ; preds = %536
   %644 = load i8, ptr %643, align 1
   %645 = zext i8 %644 to i32
   %646 = or disjoint i32 %642, %645
-  %647 = icmp ugt i32 %646, 3141
+  %647 = icmp samesign ugt i32 %646, 3141
   br i1 %647, label %673, label %648
 
 648:                                              ; preds = %639
-  %649 = icmp ugt i32 %646, 3131
+  %649 = icmp samesign ugt i32 %646, 3131
   br i1 %649, label %673, label %650
 
 650:                                              ; preds = %648
-  %651 = icmp ugt i32 %646, 3126
+  %651 = icmp samesign ugt i32 %646, 3126
   br i1 %651, label %673, label %652
 
 652:                                              ; preds = %650
-  %653 = icmp ugt i32 %646, 3121
+  %653 = icmp samesign ugt i32 %646, 3121
   br i1 %653, label %673, label %654
 
 654:                                              ; preds = %652
@@ -3049,7 +3049,7 @@ define dso_local void @intel_uncore_prune_engine_fw_domains(ptr nocapture nounde
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = or disjoint i32 %30, %33
-  %35 = icmp ugt i32 %34, 3121
+  %35 = icmp samesign ugt i32 %34, 3121
   %36 = and i64 %19, 1
   %37 = icmp eq i64 %36, 0
   %38 = and i1 %37, %35
@@ -8575,7 +8575,7 @@ define internal fastcc void @__gen6_gt_wait_for_fifo(ptr nocapture noundef %0) u
   %23 = getelementptr i8, ptr %22, i64 1179656
   %24 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23) #12, !srcloc !36
   %25 = and i32 %24, 127
-  %26 = icmp ugt i32 %25, 20
+  %26 = icmp samesign ugt i32 %25, 20
   br i1 %26, label %.thread2, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %19
@@ -8596,7 +8596,7 @@ define internal fastcc void @__gen6_gt_wait_for_fifo(ptr nocapture noundef %0) u
   %33 = getelementptr i8, ptr %32, i64 1179656
   %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #12, !srcloc !36
   %35 = and i32 %34, 127
-  %36 = icmp ugt i32 %35, 20
+  %36 = icmp samesign ugt i32 %35, 20
   br i1 %36, label %.thread2, label %.lr.ph
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader

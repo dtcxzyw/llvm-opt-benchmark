@@ -3076,7 +3076,7 @@ _ZNK19VerilatedContextImp17randSeedDefault64Ev.exit: ; preds = %25, %29
   %53 = lshr i32 %50, 24
   %54 = add nuw nsw i32 %52, %53
   %55 = and i32 %54, 62
-  %56 = icmp ult i32 %55, 10
+  %56 = icmp samesign ult i32 %55, 10
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %_ZNK19VerilatedContextImp17randSeedDefault64Ev.exit
@@ -3151,7 +3151,7 @@ define dso_local void @_ZN5VlRNG7srandomEm(ptr nocapture noundef nonnull writeon
   %18 = lshr i32 %15, 24
   %19 = add nuw nsw i32 %17, %18
   %20 = and i32 %19, 62
-  %21 = icmp ult i32 %20, 10
+  %21 = icmp samesign ult i32 %20, 10
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %2
@@ -4211,7 +4211,7 @@ _ZL17VL_MOSTSETBITP1_WiPKj.exit217:               ; preds = %.preheader.i212
 125:                                              ; preds = %._crit_edge254, %._crit_edge247
   %storemerge = phi i32 [ %124, %._crit_edge254 ], [ %103, %._crit_edge247 ]
   store i32 %storemerge, ptr %6, align 16
-  %.not = icmp ult i32 %42, %45
+  %.not = icmp samesign ult i32 %42, %45
   br i1 %.not, label %._crit_edge270, label %.lr.ph269
 
 .lr.ph269:                                        ; preds = %125
@@ -4297,7 +4297,7 @@ _ZL17VL_MOSTSETBITP1_WiPKj.exit217:               ; preds = %.preheader.i212
   %183 = ashr i64 %180, 32
   %184 = sub nsw i64 %182, %183
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
-  %185 = icmp ult i64 %indvars.iv.next324, %134
+  %185 = icmp samesign ult i64 %indvars.iv.next324, %134
   br i1 %185, label %.lr.ph258, label %._crit_edge259, !llvm.loop !22
 
 ._crit_edge259:                                   ; preds = %.lr.ph258
@@ -4333,7 +4333,7 @@ _ZL17VL_MOSTSETBITP1_WiPKj.exit217:               ; preds = %.preheader.i212
   store i32 %201, ptr %193, align 4
   %202 = lshr i64 %200, 32
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
-  %203 = icmp ult i64 %indvars.iv.next327, %134
+  %203 = icmp samesign ult i64 %indvars.iv.next327, %134
   br i1 %203, label %.lr.ph263, label %._crit_edge264, !llvm.loop !23
 
 ._crit_edge264:                                   ; preds = %.lr.ph263
@@ -4376,7 +4376,7 @@ _ZL17VL_MOSTSETBITP1_WiPKj.exit217:               ; preds = %.preheader.i212
   %217 = tail call i32 @llvm.fshr.i32(i32 %216, i32 %214, i32 %72)
   %218 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv334
   store i32 %217, ptr %218, align 4
-  %219 = icmp ult i64 %indvars.iv.next335, %209
+  %219 = icmp samesign ult i64 %indvars.iv.next335, %209
   br i1 %219, label %.lr.ph272, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph272, %.lr.ph274.preheader
@@ -4501,7 +4501,7 @@ define dso_local noundef ptr @_Z10VL_POW_WWWiiiPjPKjS1_(i32 noundef %0, i32 %1, 
   %indvars.iv48.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next49.i, %._crit_edge.us.i ]
   %indvars.iv43.i = phi i64 [ %indvars.iv.i, %.preheader.us.i ], [ %indvars.iv.next44.i, %._crit_edge.us.i ]
   %26 = add nuw nsw i64 %indvars.iv48.i, %indvars.iv.i
-  %27 = icmp ult i64 %26, %20
+  %27 = icmp samesign ult i64 %26, %20
   br i1 %27, label %.lr.ph36.us.preheader.i, label %._crit_edge.us.i
 
 .lr.ph36.us.preheader.i:                          ; preds = %25
@@ -4566,7 +4566,7 @@ _ZL8VL_MUL_WiPjPKjS1_.exit:                       ; preds = %._crit_edge39.us.i,
   %indvars.iv48.i29 = phi i64 [ 0, %.preheader.us.i27 ], [ %indvars.iv.next49.i32, %._crit_edge.us.i31 ]
   %indvars.iv43.i30 = phi i64 [ %indvars.iv.i28, %.preheader.us.i27 ], [ %indvars.iv.next44.i33, %._crit_edge.us.i31 ]
   %50 = add nuw nsw i64 %indvars.iv48.i29, %indvars.iv.i28
-  %51 = icmp ult i64 %50, %20
+  %51 = icmp samesign ult i64 %50, %20
   br i1 %51, label %.lr.ph36.us.preheader.i38, label %._crit_edge.us.i31
 
 .lr.ph36.us.preheader.i38:                        ; preds = %49
@@ -4649,7 +4649,7 @@ define internal noundef ptr @_ZL8VL_MUL_WiPjPKjS1_(i32 noundef %0, ptr noundef r
   %indvars.iv48 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next49, %._crit_edge.us ]
   %indvars.iv43 = phi i64 [ %indvars.iv, %.preheader.us ], [ %indvars.iv.next44, %._crit_edge.us ]
   %11 = add nuw nsw i64 %indvars.iv48, %indvars.iv
-  %12 = icmp ult i64 %11, %8
+  %12 = icmp samesign ult i64 %11, %8
   br i1 %12, label %.lr.ph36.us.preheader, label %._crit_edge.us
 
 .lr.ph36.us.preheader:                            ; preds = %10
@@ -5358,7 +5358,7 @@ define dso_local void @_Z13VL_DECIMAL_NWB5cxx11iPKj(ptr dead_on_unwind noalias w
   %47 = and i32 %.03750.us, 28
   %48 = lshr i32 %46, %47
   %49 = and i32 %48, 15
-  %50 = icmp ugt i32 %49, 4
+  %50 = icmp samesign ugt i32 %49, 4
   br i1 %50, label %.lr.ph.preheader.i.us, label %_ZL8VL_ADD_WiPjPKjS1_.exit.us
 
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph.split.us
@@ -10361,7 +10361,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i693: ;
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit.i.i695
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit.i.i695: ; preds = %1729, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i693
-  %.not30.i.i696 = icmp ugt i32 %storemerge931, 3
+  %.not30.i.i696 = icmp samesign ugt i32 %storemerge931, 3
   br i1 %.not30.i.i696, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit698, label %1730
 
 1730:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit.i.i695
@@ -11459,7 +11459,7 @@ _ZN9Verilated14threadContextpEv.exit:             ; preds = %6, %_ZN9Verilated12
   %indvars.iv48.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next49.i, %._crit_edge.us.i ]
   %indvars.iv43.i = phi i64 [ %indvars.iv.i, %.preheader.us.i ], [ %indvars.iv.next44.i, %._crit_edge.us.i ]
   %73 = add nuw nsw i64 %indvars.iv48.i, %indvars.iv.i
-  %74 = icmp ult i64 %73, 4
+  %74 = icmp samesign ult i64 %73, 4
   br i1 %74, label %.lr.ph36.us.preheader.i, label %._crit_edge.us.i
 
 .lr.ph36.us.preheader.i:                          ; preds = %72
@@ -14236,7 +14236,7 @@ _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %39, %37
 _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i: ; preds = %52, %48, %46
   %58 = add nuw nsw i64 %.026.i, 1
   %.not16.i = icmp ugt i32 %.013.in25.i, 3
-  %59 = icmp ult i64 %.026.i, 30
+  %59 = icmp samesign ult i64 %.026.i, 30
   %or.cond.i = select i1 %.not16.i, i1 %59, i1 false
   br i1 %or.cond.i, label %46, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, !llvm.loop !107
 
@@ -15458,7 +15458,7 @@ _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %43, %41
 _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i: ; preds = %55, %51, %49
   %61 = add nuw nsw i64 %.026.i, 1
   %.not16.i = icmp ugt i32 %.013.in25.i, 3
-  %62 = icmp ult i64 %.026.i, 30
+  %62 = icmp samesign ult i64 %.026.i, 30
   %or.cond.i = select i1 %.not16.i, i1 %62, i1 false
   br i1 %or.cond.i, label %49, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, !llvm.loop !107
 
@@ -15584,7 +15584,7 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %4,
 
 14:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
   %15 = and i32 %1, 2147483647
-  %16 = icmp ult i32 %15, 3
+  %16 = icmp samesign ult i32 %15, 3
   br i1 %16, label %switch.lookup, label %17
 
 17:                                               ; preds = %14
@@ -15656,7 +15656,7 @@ _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %35, %33
 _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i: ; preds = %47, %43, %41
   %53 = add nuw nsw i64 %.026.i, 1
   %.not16.i = icmp ugt i32 %.013.in25.i, 3
-  %54 = icmp ult i64 %.026.i, 30
+  %54 = icmp samesign ult i64 %.026.i, 30
   %or.cond.i = select i1 %.not16.i, i1 %54, i1 false
   br i1 %or.cond.i, label %41, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, !llvm.loop !107
 
@@ -15782,7 +15782,7 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2,
 
 12:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
   %13 = and i32 %1, 2147483647
-  %14 = icmp ult i32 %13, 3
+  %14 = icmp samesign ult i32 %13, 3
   br i1 %14, label %switch.lookup, label %15
 
 15:                                               ; preds = %12
@@ -15854,7 +15854,7 @@ _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %33, %31
 _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i: ; preds = %45, %41, %39
   %51 = add nuw nsw i64 %.026.i, 1
   %.not16.i = icmp ugt i32 %.013.in25.i, 3
-  %52 = icmp ult i64 %.026.i, 30
+  %52 = icmp samesign ult i64 %.026.i, 30
   %or.cond.i = select i1 %.not16.i, i1 %52, i1 false
   br i1 %or.cond.i, label %39, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, !llvm.loop !107
 
@@ -15976,7 +15976,7 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2,
   br i1 %.not, label %.preheader, label %14
 
 .preheader:                                       ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
-  %11 = icmp ugt i32 %1, 1
+  %11 = icmp samesign ugt i32 %1, 1
   br i1 %11, label %.lr.ph, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 .lr.ph:                                           ; preds = %.preheader
@@ -15997,8 +15997,8 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2,
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
   %.not15 = icmp ule i64 %25, %16
-  %26 = icmp ult i32 %15, 3
-  %or.cond = or i1 %26, %.not15
+  %26 = icmp samesign ult i32 %15, 3
+  %or.cond = select i1 %.not15, i1 true, i1 %26
   br i1 %or.cond, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, label %27
 
 27:                                               ; preds = %14
@@ -16197,7 +16197,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %90, %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %117 = icmp ugt i32 %.013.in32, 3
-  %118 = icmp ult i64 %indvars.iv, 30
+  %118 = icmp samesign ult i64 %indvars.iv, 30
   %119 = select i1 %117, i1 %118, i1 false
   br i1 %119, label %74, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, !llvm.loop !122
 
@@ -16809,7 +16809,7 @@ _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %44, %42
 _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i: ; preds = %56, %52, %50
   %62 = add nuw nsw i64 %.026.i, 1
   %.not16.i = icmp ugt i32 %.013.in25.i, 3
-  %63 = icmp ult i64 %.026.i, 30
+  %63 = icmp samesign ult i64 %.026.i, 30
   %or.cond.i = select i1 %.not16.i, i1 %63, i1 false
   br i1 %or.cond.i, label %50, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, !llvm.loop !107
 
@@ -33816,7 +33816,7 @@ _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21: ; preds = %35, %33
 _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22: ; preds = %46, %42, %40
   %52 = add nuw nsw i64 %.026, 1
   %.not16 = icmp ugt i32 %.013.in25, 3
-  %53 = icmp ult i64 %.026, 30
+  %53 = icmp samesign ult i64 %.026, 30
   %or.cond = select i1 %.not16, i1 %53, i1 false
   br i1 %or.cond, label %40, label %.critedge, !llvm.loop !107
 

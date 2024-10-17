@@ -442,7 +442,7 @@ define noundef i32 @_ZN6plic_t20context_best_pendingEPK14plic_context_t(ptr noca
   %.236 = phi i8 [ %.039, %.preheader ], [ %.3, %._crit_edge44 ]
   %.22734 = phi i32 [ %.02537, %.preheader ], [ %.328, %._crit_edge44 ]
   %18 = add nuw nsw i64 %indvars.iv, %16
-  %.not30 = icmp ult i64 %18, %10
+  %.not30 = icmp samesign ult i64 %18, %10
   br i1 %.not30, label %19, label %._crit_edge44
 
 19:                                               ; preds = %17
@@ -532,7 +532,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit.thread: ; preds = %2
   %.236.i = phi i8 [ %.039.i, %.preheader.i ], [ %.3.i, %._crit_edge44.i ]
   %.22734.i = phi i32 [ %.02537.i, %.preheader.i ], [ %33, %._crit_edge44.i ]
   %22 = add nuw nsw i64 %indvars.iv.i, %20
-  %.not30.i = icmp ult i64 %22, %14
+  %.not30.i = icmp samesign ult i64 %22, %14
   br i1 %.not30.i, label %23, label %._crit_edge44.i
 
 23:                                               ; preds = %21
@@ -633,7 +633,7 @@ define noundef i32 @_ZN6plic_t13context_claimEP14plic_context_t(ptr nocapture no
   %.236.i = phi i8 [ %.039.i, %.preheader.i ], [ %.3.i, %._crit_edge44.i ]
   %.22734.i = phi i32 [ %.02537.i, %.preheader.i ], [ %.328.i, %._crit_edge44.i ]
   %18 = add nuw nsw i64 %indvars.iv.i, %16
-  %.not30.i = icmp ult i64 %18, %10
+  %.not30.i = icmp samesign ult i64 %18, %10
   br i1 %.not30.i, label %19, label %._crit_edge44.i
 
 19:                                               ; preds = %17
@@ -729,7 +729,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit.thread.i: ; preds = %2,
   %.236.i.i = phi i8 [ %.039.i.i, %.preheader.i.i ], [ %.3.i.i, %._crit_edge44.i.i ]
   %.22734.i.i = phi i32 [ %.02537.i.i, %.preheader.i.i ], [ %62, %._crit_edge44.i.i ]
   %51 = add nuw nsw i64 %indvars.iv.i.i, %49
-  %.not30.i.i = icmp ult i64 %51, %43
+  %.not30.i.i = icmp samesign ult i64 %51, %43
   br i1 %.not30.i.i, label %52, label %._crit_edge44.i.i
 
 52:                                               ; preds = %50
@@ -1022,7 +1022,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit.thread.i: ; preds = %51
   %.236.i.i = phi i8 [ %.039.i.i, %.preheader.i.i ], [ %.3.i.i, %._crit_edge44.i.i ]
   %.22734.i.i = phi i32 [ %.02537.i.i, %.preheader.i.i ], [ %78, %._crit_edge44.i.i ]
   %67 = add nuw nsw i64 %indvars.iv.i.i, %65
-  %.not30.i.i = icmp ult i64 %67, %59
+  %.not30.i.i = icmp samesign ult i64 %67, %59
   br i1 %.not30.i.i, label %68, label %._crit_edge44.i.i
 
 68:                                               ; preds = %66
@@ -1202,7 +1202,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit.thread.i: ; preds = %31
   %.236.i.i = phi i8 [ %.039.i.i, %.preheader.i.i ], [ %.3.i.i, %._crit_edge44.i.i ]
   %.22734.i.i = phi i32 [ %.02537.i.i, %.preheader.i.i ], [ %62, %._crit_edge44.i.i ]
   %51 = add nuw nsw i64 %indvars.iv.i.i, %49
-  %.not30.i.i = icmp ult i64 %51, %43
+  %.not30.i.i = icmp samesign ult i64 %51, %43
   br i1 %.not30.i.i, label %52, label %._crit_edge44.i.i
 
 52:                                               ; preds = %50
@@ -1411,7 +1411,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit.thread.i: ; preds = %66
   %.236.i.i = phi i8 [ %.039.i.i, %.preheader.i.i ], [ %.3.i.i, %._crit_edge44.i.i ]
   %.22734.i.i = phi i32 [ %.02537.i.i, %.preheader.i.i ], [ %96, %._crit_edge44.i.i ]
   %85 = add nuw nsw i64 %indvars.iv.i.i, %83
-  %.not30.i.i = icmp ult i64 %85, %77
+  %.not30.i.i = icmp samesign ult i64 %85, %77
   br i1 %.not30.i.i, label %86, label %._crit_edge44.i.i
 
 86:                                               ; preds = %84

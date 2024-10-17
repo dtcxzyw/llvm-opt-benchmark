@@ -2297,7 +2297,7 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls54_$LT$impl$u20$core..cmp..
 define hidden noundef zeroext i1 @"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$char$GT$2le17had517d232c051dcdE.llvm.11684209855903828990"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #1 {
   %3 = load i32, ptr %0, align 4, !range !215, !noundef !7
   %4 = load i32, ptr %1, align 4, !range !215, !noundef !7
-  %5 = icmp ule i32 %3, %4
+  %5 = icmp samesign ule i32 %3, %4
   ret i1 %5
 }
 

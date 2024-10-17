@@ -918,7 +918,7 @@ for.inc46:                                        ; preds = %_ZN8obj_markI4decl1
   %indvars.iv.next840 = add nuw nsw i64 %indvars.iv839, 1
   %63 = load i32, ptr %m_arity.i157.phi.trans.insert, align 8
   %64 = zext i32 %63 to i64
-  %cmp41 = icmp ult i64 %indvars.iv.next840, %64
+  %cmp41 = icmp samesign ult i64 %indvars.iv.next840, %64
   br i1 %cmp41, label %for.body42, label %for.inc49, !llvm.loop !13
 
 lpad25:                                           ; preds = %invoke.cont26
@@ -1074,7 +1074,7 @@ for.inc70:                                        ; preds = %.noexc179, %lor.lhs
   %indvars.iv.next848 = add nuw nsw i64 %indvars.iv847, 1
   %80 = load i32, ptr %m_arity.i157, align 8
   %81 = zext i32 %80 to i64
-  %cmp62 = icmp ult i64 %indvars.iv.next848, %81
+  %cmp62 = icmp samesign ult i64 %indvars.iv.next848, %81
   br i1 %cmp62, label %for.body63, label %if.end.i.i183, !llvm.loop !15
 
 lpad59.loopexit:                                  ; preds = %invoke.cont112, %invoke.cont119, %invoke.cont123, %if.then2.i.i.i235
@@ -3807,7 +3807,7 @@ for.body.i238:                                    ; preds = %if.end154, %.noexc2
   %indvars.iv.next.i241 = add nuw nsw i64 %indvars.iv.i239, 1
   %75 = load i32, ptr %m_num_decls.i.i, align 4
   %76 = zext i32 %75 to i64
-  %cmp.i242 = icmp ult i64 %indvars.iv.next.i241, %76
+  %cmp.i242 = icmp samesign ult i64 %indvars.iv.next.i241, %76
   br i1 %cmp.i242, label %for.body.i238, label %invoke.cont157.invoke, !llvm.loop !23
 
 invoke.cont157.invoke:                            ; preds = %.noexc243, %if.end154, %invoke.cont104, %if.end95, %if.end, %sw.bb, %invoke.cont17, %invoke.cont75

@@ -901,7 +901,7 @@ while.end:                                        ; preds = %while.body, %if.end
   %nbits.addr.0.lcssa = phi i64 [ %nbits, %if.end ], [ %sub5, %while.body ]
   %src.addr.0.lcssa = phi ptr [ %add.ptr, %if.end ], [ %arrayidx, %while.body ]
   %dst.addr.0.lcssa = phi ptr [ %dst, %if.end ], [ %incdec.ptr, %while.body ]
-  %cmp7 = icmp ugt i64 %nbits.addr.0.lcssa, %sub2
+  %cmp7 = icmp samesign ugt i64 %nbits.addr.0.lcssa, %sub2
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %while.end
@@ -997,7 +997,7 @@ while.end:                                        ; preds = %while.body, %if.end
   %nbits.addr.0.lcssa = phi i64 [ %nbits, %if.end ], [ %sub9, %while.body ]
   %src.addr.0.lcssa = phi ptr [ %src, %if.end ], [ %incdec.ptr8, %while.body ]
   %dst.addr.0.lcssa = phi ptr [ %add.ptr, %if.end ], [ %arrayidx, %while.body ]
-  %cmp11 = icmp ugt i64 %nbits.addr.0.lcssa, %sub
+  %cmp11 = icmp samesign ugt i64 %nbits.addr.0.lcssa, %sub
   br i1 %cmp11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %while.end

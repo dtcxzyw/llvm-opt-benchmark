@@ -1910,7 +1910,7 @@ define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$
   ]
 
 57:                                               ; preds = %49
-  %58 = icmp ugt i32 %.sroa.4.1.i.ph.i, 127
+  %58 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i, 127
   br i1 %58, label %59, label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E.exit.thread.sink.split"
 
 59:                                               ; preds = %57
@@ -2068,7 +2068,7 @@ define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$
   ]
 
 57:                                               ; preds = %49
-  %58 = icmp ugt i32 %.sroa.4.1.i.ph.i, 127
+  %58 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i, 127
   br i1 %58, label %59, label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E.exit.thread.sink.split"
 
 59:                                               ; preds = %57
@@ -2224,7 +2224,7 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   ]
 
 52:                                               ; preds = %49
-  %53 = icmp ugt i32 %.sroa.4.1.i.ph.i.i.i, 127
+  %53 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i.i, 127
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %52
@@ -2390,7 +2390,7 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   ]
 
 52:                                               ; preds = %49
-  %53 = icmp ugt i32 %.sroa.4.1.i.ph.i.i.i, 127
+  %53 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i.i, 127
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %52
@@ -15566,7 +15566,7 @@ default.unreachable:                              ; preds = %26
 32:                                               ; preds = %26
   %33 = getelementptr inbounds i8, ptr %4, i64 1
   %34 = load i8, ptr %33, align 1, !range !2128, !noalias !3537, !noundef !4
-  %switch11.i = icmp ult i8 %34, 2
+  %switch11.i = icmp samesign ult i8 %34, 2
   br i1 %switch11.i, label %.loopexit.i, label %41
 
 35:                                               ; preds = %30
@@ -21368,7 +21368,7 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$mult
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$editor..git..blame..GitBlameEntry$GT$$GT$17h1d600389a2d69460E.llvm.5846128800800072799"(ptr noalias noundef align 8 dereferenceable(288) %0) unnamed_addr #6 {
   %2 = load i64, ptr %0, align 8, !range !3131, !noundef !4
-  %switch.not = icmp ult i64 %2, 2
+  %switch.not = icmp samesign ult i64 %2, 2
   br i1 %switch.not, label %3, label %"_ZN4core3ptr54drop_in_place$LT$editor..git..blame..GitBlameEntry$GT$17hd317b055844b0454E.exit"
 
 "_ZN4core3ptr54drop_in_place$LT$editor..git..blame..GitBlameEntry$GT$17hd317b055844b0454E.exit": ; preds = %1, %3
@@ -22875,7 +22875,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   ]
 
 48:                                               ; preds = %42
-  %49 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i, 127
+  %49 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i, 127
   br i1 %49, label %50, label %_ZN4core3str7pattern8Searcher11next_reject17hc86137f86330fd34E.llvm.5846128800800072799.exit
 
 50:                                               ; preds = %48
@@ -23007,7 +23007,7 @@ _ZN4core3str7pattern8Searcher11next_reject17hc86137f86330fd34E.llvm.584612880080
   ]
 
 114:                                              ; preds = %111
-  %115 = icmp ugt i32 %.sroa.4.1.i.ph.i.i.i.i, 127
+  %115 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i.i.i, 127
   br i1 %115, label %116, label %136
 
 116:                                              ; preds = %114
@@ -23162,7 +23162,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   ]
 
 47:                                               ; preds = %44
-  %48 = icmp ugt i32 %.sroa.4.1.i.ph.i.i.i.i, 127
+  %48 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i.i.i, 127
   br i1 %48, label %49, label %69
 
 49:                                               ; preds = %47
@@ -23389,7 +23389,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   ]
 
 49:                                               ; preds = %43
-  %50 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i, 127
+  %50 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i, 127
   br i1 %50, label %51, label %_ZN4core3str7pattern8Searcher11next_reject17h482f1ec60f7eb03dE.llvm.5846128800800072799.exit
 
 51:                                               ; preds = %49
@@ -23902,7 +23902,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h21
   ]
 
 52:                                               ; preds = %49
-  %53 = icmp ugt i32 %.sroa.4.1.i.ph.i.i, 127
+  %53 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i, 127
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %52
@@ -24066,7 +24066,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hc3
   ]
 
 52:                                               ; preds = %49
-  %53 = icmp ugt i32 %.sroa.4.1.i.ph.i.i, 127
+  %53 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i, 127
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %52
@@ -24226,7 +24226,7 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17h482f1ec60f7eb03
   ]
 
 53:                                               ; preds = %47
-  %54 = icmp ugt i32 %.sroa.4.0.i.ph.i.i, 127
+  %54 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i, 127
   br i1 %54, label %55, label %75
 
 55:                                               ; preds = %53
@@ -24479,7 +24479,7 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17hc86137f86330fd3
   ]
 
 53:                                               ; preds = %47
-  %54 = icmp ugt i32 %.sroa.4.0.i.ph.i.i, 127
+  %54 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i, 127
   br i1 %54, label %55, label %75
 
 55:                                               ; preds = %53
@@ -24920,7 +24920,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   %14 = zext nneg i8 %8 to i64
   %15 = add nsw i64 %14, -5
   %16 = select i1 %13, i64 %15, i64 0
-  %17 = icmp ult i8 %9, 6
+  %17 = icmp samesign ult i8 %9, 6
   %18 = zext nneg i8 %9 to i64
   %19 = add nsw i64 %18, -5
   %20 = select i1 %17, i64 0, i64 %19
@@ -43926,7 +43926,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit: ; pr
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit
   %.sroa.012.0.lcssa.i.i.i.i = phi i64 [ 20, %_ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit ], [ %29, %.lr.ph.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i = phi i64 [ %.val8, %_ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit ], [ %22, %.lr.ph.i.i.i.i ]
-  %20 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i.i, 99
+  %20 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i.i, 99
   br i1 %20, label %36, label %45
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit, %.lr.ph.i.i.i.i
@@ -43970,7 +43970,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit: ; pr
 45:                                               ; preds = %36, %._crit_edge.i.i.i.i
   %.sroa.012.1.i.i.i.i = phi i64 [ %41, %36 ], [ %.sroa.012.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.06.0.i.i.i.i = phi i64 [ %.zext30.i.i.i.i, %36 ], [ %.sroa.0.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %46 = icmp ult i64 %.sroa.06.0.i.i.i.i, 10
+  %46 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i, 10
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %45
@@ -44468,7 +44468,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit.i.i.i
   %.sroa.010.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 11, %_ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit.i.i.i.i.i.i.i.i.i ], [ %99, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit.i.i.i.i.i.i.i.i.i ], [ %92, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %89 = zext nneg i32 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %90 = icmp ugt i32 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, 99
+  %90 = icmp samesign ugt i32 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, 99
   br i1 %90, label %106, label %115
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -44512,7 +44512,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit.i.i.i
 115:                                              ; preds = %106, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.sroa.010.1.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %111, %106 ], [ %.sroa.010.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.sroa.04.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.zext30.i.i.i.i.i.i.i.i.i.i.i.i.i, %106 ], [ %89, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %116 = icmp ult i64 %.sroa.04.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 10
+  %116 = icmp samesign ult i64 %.sroa.04.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 10
   br i1 %116, label %123, label %117
 
 117:                                              ; preds = %115
@@ -45283,7 +45283,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h84fb03cb10b543a8E.exit.i.i.i.
   %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 10, %_ZN10serde_json3ser9Formatter17begin_array_value17h84fb03cb10b543a8E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %468, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN10serde_json3ser9Formatter17begin_array_value17h84fb03cb10b543a8E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %461, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %458 = zext nneg i32 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %459 = icmp ugt i32 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 99
+  %459 = icmp samesign ugt i32 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 99
   br i1 %459, label %475, label %484
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN10serde_json3ser9Formatter17begin_array_value17h84fb03cb10b543a8E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -45327,7 +45327,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h84fb03cb10b543a8E.exit.i.i.i.
 484:                                              ; preds = %475, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.sroa.012.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %480, %475 ], [ %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.sroa.06.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.zext30.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %475 ], [ %458, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %485 = icmp ult i64 %.sroa.06.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 10
+  %485 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 10
   br i1 %485, label %492, label %486
 
 486:                                              ; preds = %484
@@ -45817,7 +45817,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit: ; pr
   %.sroa.012.0.lcssa.i.i.i.i = phi i64 [ 10, %_ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit ], [ %30, %.lr.ph.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i = phi i32 [ %.val8, %_ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit ], [ %23, %.lr.ph.i.i.i.i ]
   %20 = zext nneg i32 %.sroa.0.1.lcssa.i.i.i.i to i64
-  %21 = icmp ugt i32 %.sroa.0.1.lcssa.i.i.i.i, 99
+  %21 = icmp samesign ugt i32 %.sroa.0.1.lcssa.i.i.i.i, 99
   br i1 %21, label %37, label %46
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit, %.lr.ph.i.i.i.i
@@ -45861,7 +45861,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit: ; pr
 46:                                               ; preds = %37, %._crit_edge.i.i.i.i
   %.sroa.012.1.i.i.i.i = phi i64 [ %42, %37 ], [ %.sroa.012.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.06.0.i.i.i.i = phi i64 [ %.zext30.i.i.i.i, %37 ], [ %20, %._crit_edge.i.i.i.i ]
-  %47 = icmp ult i64 %.sroa.06.0.i.i.i.i, 10
+  %47 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i, 10
   br i1 %47, label %54, label %48
 
 48:                                               ; preds = %46
@@ -47466,7 +47466,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit.i.i: 
   %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i = phi i64 [ 10, %35 ], [ %47, %.lr.ph.i.i.i.i.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i = phi i32 [ %.4.val, %35 ], [ %40, %.lr.ph.i.i.i.i.i.i.i.i ]
   %37 = zext nneg i32 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i to i64
-  %38 = icmp ugt i32 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i, 99
+  %38 = icmp samesign ugt i32 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i, 99
   br i1 %38, label %54, label %63
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %35, %.lr.ph.i.i.i.i.i.i.i.i
@@ -47510,7 +47510,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17ha519b79060431338E.exit.i.i: 
 63:                                               ; preds = %54, %._crit_edge.i.i.i.i.i.i.i.i
   %.sroa.012.1.i.i.i.i.i.i.i.i = phi i64 [ %59, %54 ], [ %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.sroa.06.0.i.i.i.i.i.i.i.i = phi i64 [ %.zext30.i.i.i.i.i.i.i.i, %54 ], [ %37, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %64 = icmp ult i64 %.sroa.06.0.i.i.i.i.i.i.i.i, 10
+  %64 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i.i.i.i.i, 10
   br i1 %64, label %71, label %65
 
 65:                                               ; preds = %63
@@ -63732,7 +63732,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
 
 "_ZN4core3ptr54drop_in_place$LT$editor..git..blame..GitBlameEntry$GT$17hd317b055844b0454E.exit": ; preds = %16, %19
   %11 = load i64, ptr %5, align 8, !range !3131, !alias.scope !18522, !noundef !4
-  %switch.not.i.i.i = icmp ult i64 %11, 2
+  %switch.not.i.i.i = icmp samesign ult i64 %11, 2
   br i1 %switch.not.i.i.i, label %12, label %26
 
 12:                                               ; preds = %"_ZN4core3ptr54drop_in_place$LT$editor..git..blame..GitBlameEntry$GT$17hd317b055844b0454E.exit"
@@ -79785,7 +79785,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   ]
 
 53:                                               ; preds = %45
-  %54 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %54 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %54, label %55, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40affda9772d41cbE.exit.thread.sink.split"
 
 55:                                               ; preds = %53
@@ -79933,7 +79933,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   ]
 
 53:                                               ; preds = %45
-  %54 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %54 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %54, label %55, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40affda9772d41cbE.exit.thread.sink.split"
 
 55:                                               ; preds = %53
@@ -84126,7 +84126,7 @@ define internal fastcc void @"_ZN9lsp_types1_77_$LT$impl$u20$serde..ser..Seriali
   %.sroa.010.0.lcssa.i.i.i = phi i64 [ 11, %7 ], [ %21, %.lr.ph.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i = phi i32 [ %.sroa.0.0.i.i.i, %7 ], [ %14, %.lr.ph.i.i.i ]
   %11 = zext nneg i32 %.sroa.0.1.lcssa.i.i.i to i64
-  %12 = icmp ugt i32 %.sroa.0.1.lcssa.i.i.i, 99
+  %12 = icmp samesign ugt i32 %.sroa.0.1.lcssa.i.i.i, 99
   br i1 %12, label %28, label %37
 
 .lr.ph.i.i.i:                                     ; preds = %7, %.lr.ph.i.i.i
@@ -84170,7 +84170,7 @@ define internal fastcc void @"_ZN9lsp_types1_77_$LT$impl$u20$serde..ser..Seriali
 37:                                               ; preds = %28, %._crit_edge.i.i.i
   %.sroa.010.1.i.i.i = phi i64 [ %33, %28 ], [ %.sroa.010.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.sroa.04.0.i.i.i = phi i64 [ %.zext30.i.i.i, %28 ], [ %11, %._crit_edge.i.i.i ]
-  %38 = icmp ult i64 %.sroa.04.0.i.i.i, 10
+  %38 = icmp samesign ult i64 %.sroa.04.0.i.i.i, 10
   br i1 %38, label %45, label %39
 
 39:                                               ; preds = %37
@@ -107312,19 +107312,19 @@ define void @"_ZN98_$LT$editor..display_map..tab_map..TabChunks$u20$as$u20$core.
   br i1 %223, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40affda9772d41cbE.exit.thread", label %60
 
 224:                                              ; preds = %101
-  %225 = icmp ult i32 %.sroa.4.0.i.ph.i, 128
+  %225 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 128
   br i1 %225, label %232, label %228
 
 226:                                              ; preds = %232, %101
-  %227 = icmp ult i32 %.sroa.4.0.i.ph.i, 128
+  %227 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 128
   br i1 %227, label %239, label %235
 
 228:                                              ; preds = %224
-  %229 = icmp ult i32 %.sroa.4.0.i.ph.i, 2048
+  %229 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 2048
   br i1 %229, label %232, label %230
 
 230:                                              ; preds = %228
-  %231 = icmp ult i32 %.sroa.4.0.i.ph.i, 65536
+  %231 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 65536
   %. = select i1 %231, i32 3, i32 4
   br label %232
 
@@ -107336,11 +107336,11 @@ define void @"_ZN98_$LT$editor..display_map..tab_map..TabChunks$u20$as$u20$core.
   br label %226
 
 235:                                              ; preds = %226
-  %236 = icmp ult i32 %.sroa.4.0.i.ph.i, 2048
+  %236 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 2048
   br i1 %236, label %239, label %237
 
 237:                                              ; preds = %235
-  %238 = icmp ult i32 %.sroa.4.0.i.ph.i, 65536
+  %238 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 65536
   %.54 = select i1 %238, i32 3, i32 4
   br label %239
 
@@ -112366,7 +112366,7 @@ _ZN5alloc6string6String8push_str17hf8d74d98e42ef13fE.exit: ; preds = %261, %.noe
 
 410:                                              ; preds = %503, %501
   %411 = load ptr, ptr %328, align 8, !alias.scope !30611, !noalias !30584, !nonnull !4, !align !162, !noundef !4
-  %412 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %412 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %412, label %486, label %413
 
 413:                                              ; preds = %410
@@ -116690,12 +116690,12 @@ define void @"_ZN100_$LT$editor..display_map..wrap_map..WrapChunks$u20$as$u20$co
 .thread97:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.llvm.5846128800800072799.exit14.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.llvm.5846128800800072799.exit12.i", %195
   %.sroa.4.0.i.ph101 = phi i32 [ %205, %195 ], [ %193, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.llvm.5846128800800072799.exit14.i" ], [ %182, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.llvm.5846128800800072799.exit12.i" ]
   %.sroa.068.1.ph100 = phi ptr [ %197, %195 ], [ %186, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.llvm.5846128800800072799.exit14.i" ], [ %177, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.llvm.5846128800800072799.exit12.i" ]
-  %218 = icmp ult i32 %.sroa.4.0.i.ph101, 128
+  %218 = icmp samesign ult i32 %.sroa.4.0.i.ph101, 128
   br i1 %218, label %223, label %.thread106
 
 .thread106:                                       ; preds = %.thread97
-  %219 = icmp ult i32 %.sroa.4.0.i.ph101, 2048
-  %220 = icmp ult i32 %.sroa.4.0.i.ph101, 65536
+  %219 = icmp samesign ult i32 %.sroa.4.0.i.ph101, 2048
+  %220 = icmp samesign ult i32 %.sroa.4.0.i.ph101, 65536
   %. = select i1 %220, i64 3, i64 4
   %.sroa.011.0.ph = select i1 %219, i64 2, i64 %.
   %221 = add i64 %.sroa.011.0.ph, %.sroa.013.0
@@ -125311,7 +125311,7 @@ default.unreachable14:                            ; preds = %25
 31:                                               ; preds = %25
   %32 = getelementptr inbounds i8, ptr %4, i64 1
   %33 = load i8, ptr %32, align 1, !range !2128, !noundef !4
-  %switch11 = icmp ult i8 %33, 2
+  %switch11 = icmp samesign ult i8 %33, 2
   br i1 %switch11, label %.loopexit, label %40
 
 34:                                               ; preds = %29

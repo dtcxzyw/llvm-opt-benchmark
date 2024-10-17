@@ -1494,7 +1494,7 @@ acct_arg_size.exit:                               ; preds = %223, %231
   store i64 0, ptr %277, align 8
   %279 = add nuw nsw i64 %267, 1
   %280 = and i64 %279, 127
-  %281 = icmp ugt i64 %280, 63
+  %281 = icmp samesign ugt i64 %280, 63
   br i1 %281, label %.thread.i, label %260, !prof !45, !llvm.loop !46
 
 .thread.i:                                        ; preds = %270, %266, %260

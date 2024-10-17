@@ -498,7 +498,7 @@ _ZL13set_ellipsoidP8PJconsts.exit:                ; preds = %129, %130
   %.1237.lcssa = phi i32 [ %.0236.lcssa, %.preheader301 ], [ %158, %._crit_edge.loopexit ]
   %159 = load ptr, ptr %55, align 8
   tail call void (ptr, ptr, ...) @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %159, i32 noundef %.1237.lcssa)
-  %160 = icmp ugt i32 %.1237.lcssa, 1
+  %160 = icmp samesign ugt i32 %.1237.lcssa, 1
   br i1 %160, label %.lr.ph349.preheader, label %._crit_edge350
 
 .lr.ph349.preheader:                              ; preds = %._crit_edge

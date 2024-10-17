@@ -5023,7 +5023,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h2
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h5a8881cac0c87a92E.exit.sink.split", label %.lr.ph.i49
 
 86:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hcc2634e19fbf16b4E.exit"
-  %87 = icmp ult i64 %12, 29
+  %87 = icmp samesign ult i64 %12, 29
   br i1 %87, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h5a8881cac0c87a92E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %86, %97
@@ -5238,7 +5238,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0876fa5faf51dd89E.exit.sink.split", label %.lr.ph.i49
 
 86:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hdf37791a64f23937E.exit"
-  %87 = icmp ult i64 %12, 29
+  %87 = icmp samesign ult i64 %12, 29
   br i1 %87, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0876fa5faf51dd89E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %86, %97
@@ -5453,7 +5453,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h5
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h92a1b55080797f13E.exit.sink.split", label %.lr.ph.i49
 
 86:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h4b3590ef6e04b399E.exit"
-  %87 = icmp ult i64 %12, 29
+  %87 = icmp samesign ult i64 %12, 29
   br i1 %87, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h92a1b55080797f13E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %86, %97
@@ -5670,7 +5670,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h8
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hba0c28279e8e2aa8E.exit.sink.split", label %77
 
 88:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h4b7d49093f25fe21E.exit"
-  %89 = icmp ult i64 %12, 29
+  %89 = icmp samesign ult i64 %12, 29
   br i1 %89, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hba0c28279e8e2aa8E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %88
@@ -5872,7 +5872,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   br i1 %exitcond.not.i, label %._crit_edge.i, label %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17heace37ea92eb04edE.exit48"
 
 76:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17heace37ea92eb04edE.exit"
-  %77 = icmp ult i64 %9, 29
+  %77 = icmp samesign ult i64 %9, 29
   br i1 %77, label %.lr.ph.i51, label %._crit_edge.i50
 
 ._crit_edge.i50:                                  ; preds = %87, %76
@@ -6085,7 +6085,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17hb
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hdfc6b425e23bd770E.exit.sink.split", label %77
 
 88:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h0bde18de001c64adE.exit"
-  %89 = icmp ult i64 %12, 29
+  %89 = icmp samesign ult i64 %12, 29
   br i1 %89, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hdfc6b425e23bd770E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %88
@@ -6307,7 +6307,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17hc
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hdf84078e8234c0acE.exit.sink.split", label %77
 
 88:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h95aceba6d4c85d47E.exit"
-  %89 = icmp ult i64 %12, 29
+  %89 = icmp samesign ult i64 %12, 29
   br i1 %89, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hdf84078e8234c0acE.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %88
@@ -6529,7 +6529,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17he
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h84c435f7f1aec90bE.exit.sink.split", label %77
 
 88:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h791aca06e964178dE.exit"
-  %89 = icmp ult i64 %12, 29
+  %89 = icmp samesign ult i64 %12, 29
   br i1 %89, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h84c435f7f1aec90bE.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %88
@@ -6747,7 +6747,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17he
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split", label %81
 
 92:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit"
-  %93 = icmp ult i64 %10, 29
+  %93 = icmp samesign ult i64 %10, 29
   br i1 %93, label %.lr.ph.i59, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split"
 
 .lr.ph.i59:                                       ; preds = %92
@@ -6975,7 +6975,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17hf
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hf7511207098ba6cdE.exit.sink.split", label %77
 
 88:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h14ddc1971a4a4d94E.exit"
-  %89 = icmp ult i64 %12, 29
+  %89 = icmp samesign ult i64 %12, 29
   br i1 %89, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hf7511207098ba6cdE.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %88
@@ -7195,7 +7195,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17hf
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17ha13696d35a52a75cE.exit.sink.split", label %.lr.ph.i49
 
 86:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h1d7a7fa2de9bd155E.exit"
-  %87 = icmp ult i64 %12, 29
+  %87 = icmp samesign ult i64 %12, 29
   br i1 %87, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17ha13696d35a52a75cE.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %86, %97
@@ -24959,7 +24959,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$co
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
-  %switch.i.i = icmp ult i8 %31, 3
+  %switch.i.i = icmp samesign ult i8 %31, 3
   %34 = getelementptr inbounds i8, ptr %1, i64 16
   %35 = load i8, ptr %34, align 8, !range !3522, !noundef !4
   %36 = icmp eq i8 %35, 6
@@ -24968,14 +24968,14 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$co
 .thread:                                          ; preds = %29
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i8, ptr %37, align 8, !range !3522, !noundef !4
-  %switch.i.i3453 = icmp ult i8 %38, 3
+  %switch.i.i3453 = icmp samesign ult i8 %38, 3
   br i1 %switch.i.i3453, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4630c902dd27abfdE.exit"
 
 ._crit_edge:                                      ; preds = %33
   br i1 %switch.i.i, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4630c902dd27abfdE.exit"
 
 39:                                               ; preds = %33
-  %switch.i.i34 = icmp ult i8 %35, 3
+  %switch.i.i34 = icmp samesign ult i8 %35, 3
   %40 = xor i1 %switch.i.i, %switch.i.i34
   br i1 %40, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4630c902dd27abfdE.exit"
 

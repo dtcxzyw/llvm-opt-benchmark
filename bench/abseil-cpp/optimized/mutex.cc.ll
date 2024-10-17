@@ -3245,7 +3245,7 @@ entry:
   %xor = xor i64 %0, 12
   %and4 = and i64 %xor, 24
   %and6 = and i64 %xor, 6
-  %cmp7 = icmp ult i64 %and4, %and6
+  %cmp7 = icmp samesign ult i64 %and4, %and6
   br i1 %cmp7, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
@@ -4942,7 +4942,7 @@ do.end5:                                          ; preds = %entry
   %xor.i = xor i64 %1, 12
   %and4.i = and i64 %xor.i, 24
   %and6.i = and i64 %xor.i, 6
-  %cmp7.i = icmp ult i64 %and4.i, %and6.i
+  %cmp7.i = icmp samesign ult i64 %and4.i, %and6.i
   br i1 %cmp7.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %do.end5

@@ -346,7 +346,7 @@ define void @PHP_MD5Final(ptr nocapture noundef writeonly %0, ptr noundef %1) lo
   %8 = getelementptr inbounds [64 x i8], ptr %5, i64 0, i64 %7
   store i8 -128, ptr %8, align 1
   %9 = xor i32 %4, 63
-  %10 = icmp ult i32 %9, 8
+  %10 = icmp samesign ult i32 %9, 8
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %2

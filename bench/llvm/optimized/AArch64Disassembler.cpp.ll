@@ -167,7 +167,7 @@ _ZN4llvmL21checkDecoderPredicateEjRKNS_13FeatureBitsetE.exit.thread.i: ; preds =
 
 80:                                               ; preds = %75
   %.not37.i.i.i.i = icmp eq i32 %.026.i.i.i.i, 63
-  %.not.i.i.i.i = icmp ugt i8 %77, 1
+  %.not.i.i.i.i = icmp samesign ugt i8 %77, 1
   %81 = icmp ne i8 %77, 0
   %or.cond36.i.i.i.i = select i1 %.not37.i.i.i.i, i1 %.not.i.i.i.i, i1 %81
   br i1 %or.cond36.i.i.i.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit.i, label %82
@@ -219,7 +219,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit.i:  ; preds = %82, %80
 
 111:                                              ; preds = %106
   %.not37.i.i.i61.i = icmp eq i32 %.026.i.i.i57.i, 63
-  %.not.i.i.i62.i = icmp ugt i8 %108, 1
+  %.not.i.i.i62.i = icmp samesign ugt i8 %108, 1
   %112 = icmp ne i8 %108, 0
   %or.cond36.i.i.i63.i = select i1 %.not37.i.i.i61.i, i1 %.not.i.i.i62.i, i1 %112
   br i1 %or.cond36.i.i.i63.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit64.i, label %113
@@ -272,7 +272,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit64.i: ; preds = %113, %111
 
 142:                                              ; preds = %137
   %.not37.i.i.i71.i = icmp eq i32 %.026.i.i.i67.i, 63
-  %.not.i.i.i72.i = icmp ugt i8 %139, 1
+  %.not.i.i.i72.i = icmp samesign ugt i8 %139, 1
   %143 = icmp ne i8 %139, 0
   %or.cond36.i.i.i73.i = select i1 %.not37.i.i.i71.i, i1 %.not.i.i.i72.i, i1 %143
   br i1 %or.cond36.i.i.i73.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit74.i, label %144
@@ -320,7 +320,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit74.i: ; preds = %144, %142
 
 171:                                              ; preds = %166
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i.i = icmp ugt i8 %168, 1
+  %.not.i.i = icmp samesign ugt i8 %168, 1
   %172 = icmp ne i8 %168, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i.i, i1 %172
   br i1 %or.cond36.i.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i, label %173
@@ -373,7 +373,7 @@ _ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i:      ; preds = %173, %171
 
 202:                                              ; preds = %197
   %.not37.i.i.i84.i = icmp eq i32 %.026.i.i.i80.i, 63
-  %.not.i.i.i85.i = icmp ugt i8 %199, 1
+  %.not.i.i.i85.i = icmp samesign ugt i8 %199, 1
   %203 = icmp ne i8 %199, 0
   %or.cond36.i.i.i86.i = select i1 %.not37.i.i.i84.i, i1 %.not.i.i.i85.i, i1 %203
   br i1 %or.cond36.i.i.i86.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit87.thread.i, label %216
@@ -1489,7 +1489,7 @@ _ZN4llvmL21checkDecoderPredicateEjRKNS_13FeatureBitsetE.exit.thread185.i: ; pred
 
 680:                                              ; preds = %675
   %.not37.i.i.i95.i = icmp eq i32 %.026.i.i.i91.i, 63
-  %.not.i.i.i96.i = icmp ugt i8 %677, 1
+  %.not.i.i.i96.i = icmp samesign ugt i8 %677, 1
   %681 = icmp ne i8 %677, 0
   %or.cond36.i.i.i97.i = select i1 %.not37.i.i.i95.i, i1 %.not.i.i.i96.i, i1 %681
   br i1 %or.cond36.i.i.i97.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit98.i, label %682
@@ -1525,7 +1525,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit98.i: ; preds = %682, %680
 
 699:                                              ; preds = %694
   %.not37.i.i.i105.i = icmp eq i32 %.026.i.i.i101.i, 63
-  %.not.i.i.i106.i = icmp ugt i8 %696, 1
+  %.not.i.i.i106.i = icmp samesign ugt i8 %696, 1
   %700 = icmp ne i8 %696, 0
   %or.cond36.i.i.i107.i = select i1 %.not37.i.i.i105.i, i1 %.not.i.i.i106.i, i1 %700
   br i1 %or.cond36.i.i.i107.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit108.i, label %701
@@ -1565,7 +1565,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit108.i: ; preds = %701, %699
 
 719:                                              ; preds = %714
   %.not37.i.i.i115.i = icmp eq i32 %.026.i.i.i111.i, 63
-  %.not.i.i.i116.i = icmp ugt i8 %716, 1
+  %.not.i.i.i116.i = icmp samesign ugt i8 %716, 1
   %720 = icmp ne i8 %716, 0
   %or.cond36.i.i.i117.i = select i1 %.not37.i.i.i115.i, i1 %.not.i.i.i116.i, i1 %720
   br i1 %or.cond36.i.i.i117.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit118.i, label %721
@@ -1602,7 +1602,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit118.i: ; preds = %721, %719
 
 739:                                              ; preds = %734
   %.not37.i.i.i125.i = icmp eq i32 %.026.i.i.i121.i, 63
-  %.not.i.i.i126.i = icmp ugt i8 %736, 1
+  %.not.i.i.i126.i = icmp samesign ugt i8 %736, 1
   %740 = icmp ne i8 %736, 0
   %or.cond36.i.i.i127.i = select i1 %.not37.i.i.i125.i, i1 %.not.i.i.i126.i, i1 %740
   br i1 %or.cond36.i.i.i127.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit128.i, label %741
@@ -1682,7 +1682,7 @@ _ZN4llvm6MCInstD2Ev.exit.i:                       ; preds = %772, %768
 
 781:                                              ; preds = %776
   %.not37.i.i.i135.i = icmp eq i32 %.026.i.i.i131.i, 63
-  %.not.i.i.i136.i = icmp ugt i8 %778, 1
+  %.not.i.i.i136.i = icmp samesign ugt i8 %778, 1
   %782 = icmp ne i8 %778, 0
   %or.cond36.i.i.i137.i = select i1 %.not37.i.i.i135.i, i1 %.not.i.i.i136.i, i1 %782
   br i1 %or.cond36.i.i.i137.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138.i, label %783
@@ -1718,7 +1718,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138.i: ; preds = %783, %781
 
 800:                                              ; preds = %795
   %.not37.i.i.i145.i = icmp eq i32 %.026.i.i.i141.i, 63
-  %.not.i.i.i146.i = icmp ugt i8 %797, 1
+  %.not.i.i.i146.i = icmp samesign ugt i8 %797, 1
   %801 = icmp ne i8 %797, 0
   %or.cond36.i.i.i147.i = select i1 %.not37.i.i.i145.i, i1 %.not.i.i.i146.i, i1 %801
   br i1 %or.cond36.i.i.i147.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit148.i, label %802
@@ -1843,7 +1843,7 @@ _ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInst
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %854 = load i16, ptr %823, align 2
   %855 = zext i16 %854 to i64
-  %856 = icmp ult i64 %indvars.iv.next, %855
+  %856 = icmp samesign ult i64 %indvars.iv.next, %855
   br i1 %856, label %826, label %._crit_edge.loopexit, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %853
@@ -21589,11 +21589,11 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %5, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
-  %.not = icmp ult i64 %1, 16
+  %.not = icmp samesign ult i64 %1, 16
   br i1 %.not, label %3, label %16
 
 3:                                                ; preds = %2
-  %.not6 = icmp ult i64 %1, 8
+  %.not6 = icmp samesign ult i64 %1, 8
   %4 = or disjoint i64 %1, -16
   %spec.select = select i1 %.not6, i64 %1, i64 %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -22703,11 +22703,11 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
-  %.not = icmp ult i64 %1, 32
+  %.not = icmp samesign ult i64 %1, 32
   br i1 %.not, label %3, label %16
 
 3:                                                ; preds = %2
-  %.not6 = icmp ult i64 %1, 16
+  %.not6 = icmp samesign ult i64 %1, 16
   %4 = or disjoint i64 %1, -32
   %spec.select = select i1 %.not6, i64 %1, i64 %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -22741,11 +22741,11 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %3, %9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
-  %.not = icmp ult i64 %1, 64
+  %.not = icmp samesign ult i64 %1, 64
   br i1 %.not, label %3, label %16
 
 3:                                                ; preds = %2
-  %.not6 = icmp ult i64 %1, 32
+  %.not6 = icmp samesign ult i64 %1, 32
   %4 = or disjoint i64 %1, -64
   %spec.select = select i1 %.not6, i64 %1, i64 %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -23129,11 +23129,11 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
-  %.not = icmp ult i64 %1, 256
+  %.not = icmp samesign ult i64 %1, 256
   br i1 %.not, label %3, label %16
 
 3:                                                ; preds = %2
-  %.not6 = icmp ult i64 %1, 128
+  %.not6 = icmp samesign ult i64 %1, 128
   %4 = or disjoint i64 %1, -256
   %spec.select = select i1 %.not6, i64 %1, i64 %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -23207,11 +23207,11 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
-  %.not = icmp ult i64 %1, 512
+  %.not = icmp samesign ult i64 %1, 512
   br i1 %.not, label %3, label %16
 
 3:                                                ; preds = %2
-  %.not6 = icmp ult i64 %1, 256
+  %.not6 = icmp samesign ult i64 %1, 256
   %4 = or disjoint i64 %1, -512
   %spec.select = select i1 %.not6, i64 %1, i64 %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -23923,7 +23923,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL27DecodeAddSubERegInstruc
   %8 = lshr i32 %1, 10
   %9 = and i32 %8, 63
   %10 = and i32 %1, 7168
-  %11 = icmp ugt i32 %10, 4096
+  %11 = icmp samesign ugt i32 %10, 4096
   br i1 %11, label %276, label %12
 
 12:                                               ; preds = %2
@@ -24412,7 +24412,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL25DecodePairLdStInstructi
   %10 = zext nneg i32 %9 to i64
   %11 = and i32 %1, 4194304
   %.not = icmp ne i32 %11, 0
-  %.not68 = icmp ult i32 %9, 64
+  %.not68 = icmp samesign ult i32 %9, 64
   %12 = or disjoint i64 %10, -128
   %spec.select = select i1 %.not68, i64 %10, i64 %12
   %13 = load i32, ptr %0, align 8
@@ -25496,7 +25496,7 @@ define internal fastcc void @_ZL20DecodeAdrInstructionRN4llvm6MCInstEjmPKNS_14MC
   %9 = and i32 %8, 3
   %10 = or disjoint i32 %7, %9
   %11 = zext nneg i32 %10 to i64
-  %.not = icmp ult i32 %7, 1048576
+  %.not = icmp samesign ult i32 %7, 1048576
   %12 = or disjoint i64 %11, -2097152
   %spec.select = select i1 %.not, i64 %11, i64 %12
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1280), align 8
@@ -25566,7 +25566,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL20DecodeAddSubImmShiftRN4
   %9 = and i32 %8, 16383
   %10 = lshr i32 %9, 12
   %11 = and i32 %8, 4095
-  %or.cond = icmp ugt i32 %9, 8191
+  %or.cond = icmp samesign ugt i32 %9, 8191
   br i1 %or.cond, label %119, label %12
 
 12:                                               ; preds = %4
@@ -26200,7 +26200,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %11, %16
 define internal fastcc void @_ZL25DecodeUnconditionalBranchRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = and i32 %1, 67108863
   %6 = zext nneg i32 %5 to i64
-  %.not = icmp ult i32 %5, 33554432
+  %.not = icmp samesign ult i32 %5, 33554432
   %7 = or disjoint i64 %6, -67108864
   %spec.select = select i1 %.not, i64 %6, i64 %7
   %8 = shl nsw i64 %spec.select, 2
@@ -26290,7 +26290,7 @@ define internal fastcc void @_ZL19DecodeTestAndBranchRN4llvm6MCInstEjmPKNS_14MCD
   %12 = lshr i32 %1, 5
   %13 = and i32 %12, 16383
   %14 = zext nneg i32 %13 to i64
-  %.not = icmp ult i32 %13, 8192
+  %.not = icmp samesign ult i32 %13, 8192
   %15 = or disjoint i64 %14, -16384
   %spec.select = select i1 %.not, i64 %14, i64 %15
   %16 = icmp sgt i32 %1, -1
@@ -26439,8 +26439,8 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL36DecodeSystemPStateImm0_
   %8 = lshr i32 %1, 5
   %9 = and i32 %8, 7
   %10 = icmp eq i32 %7, 0
-  %spec.select.i = icmp ult i32 %9, 3
-  %spec.select5.i = and i1 %10, %spec.select.i
+  %spec.select.i = icmp samesign ult i32 %9, 3
+  %spec.select5.i = select i1 %10, i1 %spec.select.i, i1 false
   br i1 %spec.select5.i, label %56, label %11
 
 11:                                               ; preds = %3
@@ -26748,7 +26748,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL27DecodeSignedLdStInstruc
   %6 = lshr i32 %1, 12
   %7 = and i32 %6, 511
   %8 = zext nneg i32 %7 to i64
-  %.not55 = icmp ult i32 %7, 256
+  %.not55 = icmp samesign ult i32 %7, 256
   %9 = or disjoint i64 %8, -512
   %spec.select = select i1 %.not55, i64 %8, i64 %9
   %10 = load i32, ptr %0, align 8
@@ -28360,8 +28360,8 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL35DecodeSystemPStateImm0_
   %8 = lshr i32 %1, 5
   %9 = and i32 %8, 7
   %10 = icmp eq i32 %7, 0
-  %spec.select.i = icmp ult i32 %9, 3
-  %spec.select5.i = and i1 %10, %spec.select.i
+  %spec.select.i = icmp samesign ult i32 %9, 3
+  %spec.select5.i = select i1 %10, i1 %spec.select.i, i1 false
   br i1 %spec.select5.i, label %59, label %11
 
 11:                                               ; preds = %3

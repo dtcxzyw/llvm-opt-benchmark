@@ -136,7 +136,7 @@ if.end45:                                         ; preds = %if.end38.preheader,
   %otherbits50 = getelementptr inbounds i8, ptr %20, i64 20
   %22 = load i8, ptr %otherbits50, align 4
   %conv51 = zext i8 %22 to i64
-  %cmp52 = icmp ult i64 %xor23, %conv51
+  %cmp52 = icmp samesign ult i64 %xor23, %conv51
   %or.cond = select i1 %cmp48, i1 %cmp52, i1 false
   br i1 %or.cond, label %for.end75, label %if.end55
 

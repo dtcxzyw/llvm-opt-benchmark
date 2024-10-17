@@ -127,7 +127,7 @@ define internal range(i32 0, 16) i32 @dissect_vssmonitoring(ptr noundef %0, ptr 
   %27 = getelementptr inbounds i8, ptr %1, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = icmp slt i64 %28, %18
-  %30 = icmp ugt i32 %22, 999999999
+  %30 = icmp samesign ugt i32 %22, 999999999
   br i1 %29, label %31, label %34
 
 31:                                               ; preds = %26
@@ -143,7 +143,7 @@ define internal range(i32 0, 16) i32 @dissect_vssmonitoring(ptr noundef %0, ptr 
   br i1 %or.cond86, label %69, label %40
 
 37:                                               ; preds = %24
-  %.old.old = icmp ugt i32 %22, 999999999
+  %.old.old = icmp samesign ugt i32 %22, 999999999
   br i1 %.old.old, label %69, label %40
 
 38:                                               ; preds = %14

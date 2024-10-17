@@ -12728,7 +12728,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %68 = sext i8 %35 to i32
   %69 = sub nsw i32 %67, %68
   %70 = call i32 @llvm.abs.i32(i32 %69, i1 true)
-  %71 = icmp ult i32 %70, 2
+  %71 = icmp samesign ult i32 %70, 2
   br i1 %71, label %72, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i
 
 72:                                               ; preds = %66
@@ -12736,7 +12736,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %74 = sext i8 %37 to i32
   %75 = sub nsw i32 %73, %74
   %76 = call i32 @llvm.abs.i32(i32 %75, i1 true)
-  %77 = icmp ult i32 %76, 2
+  %77 = icmp samesign ult i32 %76, 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
@@ -12819,7 +12819,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %93 = sext i8 %35 to i32
   %94 = sub nsw i32 %92, %93
   %95 = call i32 @llvm.abs.i32(i32 %94, i1 true)
-  %96 = icmp ult i32 %95, 2
+  %96 = icmp samesign ult i32 %95, 2
   br i1 %96, label %97, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i
 
 97:                                               ; preds = %91
@@ -12827,7 +12827,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %99 = sext i8 %37 to i32
   %100 = sub nsw i32 %98, %99
   %101 = call i32 @llvm.abs.i32(i32 %100, i1 true)
-  %102 = icmp ult i32 %101, 2
+  %102 = icmp samesign ult i32 %101, 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
@@ -12854,7 +12854,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %106 = sext i8 %35 to i32
   %107 = sub nsw i32 %105, %106
   %108 = call i32 @llvm.abs.i32(i32 %107, i1 true)
-  %109 = icmp ult i32 %108, 2
+  %109 = icmp samesign ult i32 %108, 2
   br i1 %109, label %110, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i
 
 110:                                              ; preds = %104
@@ -12862,7 +12862,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %112 = sext i8 %37 to i32
   %113 = sub nsw i32 %111, %112
   %114 = call i32 @llvm.abs.i32(i32 %113, i1 true)
-  %115 = icmp ult i32 %114, 2
+  %115 = icmp samesign ult i32 %114, 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)

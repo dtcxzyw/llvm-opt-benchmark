@@ -10644,7 +10644,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   %i.0.i.i2.lcssa.i = phi i64 [ 0, %call2.i.i.i.i.i.noexc ], [ 1, %for.inc.i.i.i ], [ 2, %for.inc.i.i.1.i ], [ 3, %for.inc.i.i.2.i ], [ 4, %for.inc.i.i.3.i ], [ 5, %for.inc.i.i.4.i ], [ 6, %for.inc.i.i.5.i ], [ 7, %for.inc.i.i.6.i ], [ 8, %for.inc.i.i.7.i ], [ 9, %for.inc.i.i.8.i ], [ 10, %for.inc.i.i.9.i ], [ 11, %for.inc.i.i.10.i ], [ 12, %for.inc.i.i.11.i ], [ 13, %for.inc.i.i.12.i ], [ 14, %for.inc.i.i.13.i ], [ 15, %for.inc.i.i.14.i ], [ 16, %for.inc.i.i.15.i ], [ 17, %for.inc.i.i.16.i ], [ 18, %for.inc.i.i.17.i ], [ 19, %for.inc.i.i.18.i ]
   %conv3.i.i.i = zext i1 %cmp1.i.i.i to i64
   %add.i.i.i = add nuw nsw i64 %i.0.i.i2.lcssa.i, %conv3.i.i.i
-  %cmp.i3.i = icmp ugt i64 %add.i.i.i, 2
+  %cmp.i3.i = icmp samesign ugt i64 %add.i.i.i, 2
   br i1 %cmp.i3.i, label %while.body.i.preheader.i, label %while.end.i.i, !prof !293
 
 while.body.i.preheader.i:                         ; preds = %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i, %for.inc.i.i.18.i

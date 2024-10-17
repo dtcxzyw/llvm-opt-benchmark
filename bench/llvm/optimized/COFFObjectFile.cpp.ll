@@ -5107,7 +5107,7 @@ define dso_local void @_ZNK4llvm6object15DynamicRelocRef8validateEv(ptr dead_on_
   %.0.copyload.i.i.i20 = load i32, ptr %22, align 1
   %41 = zext i32 %.0.copyload.i.i.i20 to i64
   store i64 %41, ptr %7, align 8
-  %42 = icmp ugt i64 %30, %41
+  %42 = icmp samesign ugt i64 %30, %41
   %43 = icmp ult i64 %25, %41
   %or.cond = select i1 %42, i1 true, i1 %43
   br i1 %or.cond, label %_ZN4llvmplERKNS_5TwineES2_.exit36, label %.thread140
@@ -5346,7 +5346,7 @@ _ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i: ; preds = %105, %98, 
   call void @llvm.assume(i1 true) [ "align"(ptr %110, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %110, align 1
   %111 = zext i32 %.0.copyload.i.i.i.i.i to i64
-  %112 = icmp ult i64 %109, %111
+  %112 = icmp samesign ult i64 %109, %111
   br i1 %112, label %113, label %_ZN4llvm6object16content_iteratorINS0_14Arm64XRelocRefEEppEv.exit
 
 113:                                              ; preds = %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i
@@ -7583,7 +7583,7 @@ _ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i: ; preds = %122, %115,
   call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 1) ]
   %.0.copyload.i.i.i.i.i57 = load i32, ptr %127, align 1
   %128 = zext i32 %.0.copyload.i.i.i.i.i57 to i64
-  %129 = icmp ult i64 %126, %128
+  %129 = icmp samesign ult i64 %126, %128
   br i1 %129, label %130, label %_ZN4llvm6object16content_iteratorINS0_14Arm64XRelocRefEEppEv.exit
 
 130:                                              ; preds = %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i
@@ -10441,7 +10441,7 @@ _ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit: ; preds = %1, %11, %18
   call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %23, align 1
   %24 = zext i32 %.0.copyload.i.i.i to i64
-  %25 = icmp ult i64 %22, %24
+  %25 = icmp samesign ult i64 %22, %24
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit
@@ -11726,7 +11726,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt
   br i1 %58, label %83, label %59
 
 59:                                               ; preds = %57
-  %.not200 = icmp ult i64 %.016.i.i, 2
+  %.not200 = icmp samesign ult i64 %.016.i.i, 2
   br i1 %.not200, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEEPS4_NS0_5__ops14_Iter_comp_valIZNS3_18ResourceSectionRef11getContentsERKNS3_24coff_resource_data_entryEE3$_0EEET_SL_SL_RKT0_T1_.exit.i.i", label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i: ; preds = %59, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i
@@ -12050,7 +12050,7 @@ _ZN4llvm5ErrorD2Ev.exit54:                        ; preds = %145, %_ZN4llvm12Err
   %.0.copyload.i.i.i55 = load i32, ptr %182, align 1
   %183 = zext i32 %.0.copyload.i.i.i55 to i64
   %184 = add nuw nsw i64 %183, %148
-  %185 = icmp ugt i64 %184, %.sroa.3.0
+  %185 = icmp samesign ugt i64 %184, %.sroa.3.0
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %185, label %_ZN4llvm5ErrorD2Ev.exit57, label %191
 

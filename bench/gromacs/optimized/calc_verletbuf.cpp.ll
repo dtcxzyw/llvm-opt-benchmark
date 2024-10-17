@@ -5768,7 +5768,7 @@ _ZL22getAtomConstraintPropsRK13gmx_moltype_tRK14gmx_ffparams_t.exit.i.i: ; preds
   br label %.loopexit.i.i
 
 514:                                              ; preds = %._crit_edge.i.i
-  %515 = icmp ugt i32 %spec.select.i.i, 2
+  %515 = icmp samesign ugt i32 %spec.select.i.i, 2
   br i1 %515, label %.preheader114.i.i, label %.thread.i.i
 
 .preheader114.i.i:                                ; preds = %514

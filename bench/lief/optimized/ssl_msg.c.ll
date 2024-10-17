@@ -2584,7 +2584,7 @@ mbedtls_ssl_get_record_expansion.exit:            ; preds = %13, %35
 39:                                               ; preds = %38
   %narrow = sub nuw nsw i32 %.0.i, %.0.i38
   %40 = zext nneg i32 %narrow to i64
-  %.not36 = icmp ugt i64 %6, %40
+  %.not36 = icmp samesign ugt i64 %6, %40
   %41 = trunc nuw nsw i64 %6 to i32
   %spec.select37 = select i1 %.not36, i32 %narrow, i32 %41
   br label %42
@@ -2824,7 +2824,7 @@ mbedtls_ssl_update_out_pointers.exit:             ; preds = %mbedtls_ssl_update_
   %.val101.val = load i8, ptr %131, align 1
   %146 = icmp eq i8 %.val101.val, 1
   %..i = select i1 %146, i64 2, i64 0
-  %147 = icmp ult i64 %..i, %145
+  %147 = icmp samesign ult i64 %..i, %145
   br i1 %147, label %148, label %split
 
 148:                                              ; preds = %mbedtls_ssl_update_out_pointers.exit
@@ -3540,9 +3540,9 @@ define hidden i32 @mbedtls_ssl_prepare_handshake_record(ptr noundef %0) local_un
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   %79 = or disjoint i32 %75, %78
-  %80 = icmp ugt i32 %66, %53
+  %80 = icmp samesign ugt i32 %66, %53
   %81 = sub nuw nsw i32 %53, %66
-  %82 = icmp ugt i32 %79, %81
+  %82 = icmp samesign ugt i32 %79, %81
   %or.cond.i = select i1 %80, i1 true, i1 %82
   br i1 %or.cond.i, label %ssl_check_hs_header.exit.thread, label %ssl_check_hs_header.exit
 
@@ -3842,7 +3842,7 @@ define hidden void @mbedtls_ssl_dtls_replay_update(ptr nocapture noundef %0) loc
 
 40:                                               ; preds = %36
   %41 = sub nuw nsw i64 %31, %38
-  %42 = icmp ugt i64 %41, 63
+  %42 = icmp samesign ugt i64 %41, 63
   %43 = getelementptr inbounds i8, ptr %0, i64 280
   br i1 %42, label %48, label %44
 
@@ -4060,7 +4060,7 @@ ssl_consume_current_message.exit:                 ; preds = %35
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i64
   %97 = or disjoint i64 %93, %96
-  %98 = icmp ugt i64 %97, 16372
+  %98 = icmp samesign ugt i64 %97, 16372
   br i1 %98, label %99, label %100
 
 99:                                               ; preds = %82
@@ -4461,7 +4461,7 @@ ssl_check_client_reconnect.exit.i:                ; preds = %220
   %.val52.val.i.i = load i8, ptr %276, align 1
   %277 = icmp eq i8 %.val52.val.i.i, 1
   %..i.i.i = select i1 %277, i64 2, i64 0
-  %278 = icmp ult i64 %..i.i.i, %275
+  %278 = icmp samesign ult i64 %..i.i.i, %275
   br i1 %278, label %279, label %split.i.i
 
 279:                                              ; preds = %.preheader.i.i
@@ -4542,7 +4542,7 @@ split.i.i:                                        ; preds = %.preheader.i.i, %._
 
 329:                                              ; preds = %326
   %330 = sub nuw nsw i64 %322, %327
-  %331 = icmp ugt i64 %330, 63
+  %331 = icmp samesign ugt i64 %330, 63
   br i1 %331, label %336, label %332
 
 332:                                              ; preds = %329
@@ -4752,7 +4752,7 @@ ssl_get_next_record.exit:                         ; preds = %149, %158, %ssl_che
 
 420:                                              ; preds = %403
   %421 = sub nuw nsw i32 %412, %417
-  %422 = icmp ugt i32 %421, 3
+  %422 = icmp samesign ugt i32 %421, 3
   br i1 %422, label %423, label %425
 
 423:                                              ; preds = %420
@@ -6519,7 +6519,7 @@ define internal fastcc void @ssl_bitmask_set(ptr nocapture noundef %0, i64 nound
 7:                                                ; preds = %3
   %8 = lshr i64 %1, 3
   %9 = zext nneg i32 %6 to i64
-  %.not41 = icmp ugt i64 %2, %9
+  %.not41 = icmp samesign ugt i64 %2, %9
   br i1 %.not41, label %19, label %.preheader
 
 .preheader:                                       ; preds = %7

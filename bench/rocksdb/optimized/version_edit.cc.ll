@@ -1424,7 +1424,7 @@ if.end61:                                         ; preds = %lor.lhs.false58
   %and.i = and i64 %43, 4611686018427387903
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %buf.i305)
   %call.i306 = call noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i305, i32 noundef %42)
-  %cmp6.i.i307 = icmp ugt i64 %and.i, 127
+  %cmp6.i.i307 = icmp samesign ugt i64 %and.i, 127
   br i1 %cmp6.i.i307, label %while.body.i.i316, label %_ZN7rocksdb19PutVarint32Varint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjm.exit323
 
 while.body.i.i316:                                ; preds = %if.end61, %while.body.i.i316
@@ -1435,7 +1435,7 @@ while.body.i.i316:                                ; preds = %if.end61, %while.bo
   %incdec.ptr.i.i320 = getelementptr inbounds i8, ptr %ptr.08.i.i317, i64 1
   store i8 %conv.i.i319, ptr %ptr.08.i.i317, align 1
   %shr.i.i321 = lshr i64 %v.addr.07.i.i318, 7
-  %cmp.i.i322 = icmp ugt i64 %v.addr.07.i.i318, 16383
+  %cmp.i.i322 = icmp samesign ugt i64 %v.addr.07.i.i318, 16383
   br i1 %cmp.i.i322, label %while.body.i.i316, label %_ZN7rocksdb19PutVarint32Varint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjm.exit323, !llvm.loop !14
 
 _ZN7rocksdb19PutVarint32Varint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjm.exit323: ; preds = %while.body.i.i316, %if.end61
@@ -6630,7 +6630,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -8600,7 +8600,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont2
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont2 ], [ %div.i5, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

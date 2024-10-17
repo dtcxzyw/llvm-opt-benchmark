@@ -3100,12 +3100,12 @@ define void @_ZN10OpenSubdiv6v3_6_03Far11SourcePatch8FinalizeEi(ptr nocapture no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %145 ]
   %19 = phi i32 [ 0, %.lr.ph ], [ %157, %145 ]
   %20 = add nuw nsw i64 %10, %indvars.iv
-  %21 = icmp ult i64 %20, %17
+  %21 = icmp samesign ult i64 %20, %17
   %22 = select i1 %21, i32 0, i32 %1
   %23 = trunc nuw nsw i64 %20 to i32
   %24 = sub nsw i32 %23, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = icmp ult i64 %indvars.iv.next, %17
+  %25 = icmp samesign ult i64 %indvars.iv.next, %17
   %26 = select i1 %25, i32 0, i32 %1
   %27 = trunc nuw nsw i64 %indvars.iv.next to i32
   %28 = sub nsw i32 %27, %26
@@ -3166,7 +3166,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far11SourcePatch8FinalizeEi(ptr nocapture no
   %67 = and i8 %60, 1
   %68 = zext nneg i8 %67 to i32
   %69 = add nuw nsw i32 %68, %66
-  %70 = icmp ugt i32 %69, 2
+  %70 = icmp samesign ugt i32 %69, 2
   br i1 %70, label %71, label %138
 
 71:                                               ; preds = %57

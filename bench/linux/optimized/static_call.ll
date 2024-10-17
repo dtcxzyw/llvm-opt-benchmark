@@ -160,7 +160,7 @@ define internal fastcc void @__static_call_transform(ptr noundef %0, i32 noundef
   %5 = alloca [6 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %5, i8 0, i64 6, i1 false), !annotation !9
-  %.not = icmp ult i32 %1, 2
+  %.not = icmp samesign ult i32 %1, 2
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %4

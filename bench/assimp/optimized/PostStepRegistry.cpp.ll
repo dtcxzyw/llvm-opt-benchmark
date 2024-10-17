@@ -2784,7 +2784,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.012, i64 64
   %7 = load i32, ptr %mNumMeshes, align 8
   %8 = zext i32 %7 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %8
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 lpad:                                             ; preds = %entry

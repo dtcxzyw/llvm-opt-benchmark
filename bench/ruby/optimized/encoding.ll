@@ -169,7 +169,7 @@ define dso_local i64 @rb_enc_from_encoding(ptr noundef readonly %0) local_unname
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 16777215
-  %6 = icmp ult i32 %5, 256
+  %6 = icmp samesign ult i32 %5, 256
   br i1 %6, label %7, label %.thread.i.i
 
 7:                                                ; preds = %2
@@ -1016,7 +1016,7 @@ define internal fastcc void @set_encoding_const(ptr noundef %0, ptr noundef read
   %4 = getelementptr inbounds i8, ptr %1, i64 128
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 16777215
-  %7 = icmp ult i32 %6, 256
+  %7 = icmp samesign ult i32 %6, 256
   br i1 %7, label %8, label %.thread.i.i.i
 
 8:                                                ; preds = %3
@@ -3288,7 +3288,7 @@ define dso_local range(i64 5, 4) i64 @rb_obj_encoding(i64 noundef %0) local_unna
 
 6:                                                ; preds = %1
   %7 = and i32 %2, 16777215
-  %8 = icmp ult i32 %7, 256
+  %8 = icmp samesign ult i32 %7, 256
   br i1 %8, label %9, label %.thread.i.i
 
 9:                                                ; preds = %6
@@ -3802,7 +3802,7 @@ rb_default_external_encoding.exit.thread5:        ; preds = %0, %rb_default_exte
   %23 = getelementptr inbounds i8, ptr %.0.i8, i64 128
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 16777215
-  %26 = icmp ult i32 %25, 256
+  %26 = icmp samesign ult i32 %25, 256
   br i1 %26, label %27, label %.thread.i.i.i
 
 27:                                               ; preds = %rb_default_external_encoding.exit.thread5
@@ -3987,7 +3987,7 @@ rb_default_internal_encoding.exit:                ; preds = %0, %rb_enc_from_ind
   %14 = getelementptr inbounds i8, ptr %12, i64 128
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 16777215
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %.thread.i.i.i
 
 18:                                               ; preds = %13
@@ -4630,7 +4630,7 @@ rb_enc_compatible.exit:                           ; preds = %51, %55
   %58 = getelementptr inbounds i8, ptr %.0.i12, i64 128
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 16777215
-  %61 = icmp ult i32 %60, 256
+  %61 = icmp samesign ult i32 %60, 256
   br i1 %61, label %62, label %.thread.i.i.i
 
 62:                                               ; preds = %57
@@ -4726,7 +4726,7 @@ rb_default_external_encoding.exit.thread5.i:      ; preds = %rb_default_external
   %24 = getelementptr inbounds i8, ptr %.0.i8.i, i64 128
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 16777215
-  %27 = icmp ult i32 %26, 256
+  %27 = icmp samesign ult i32 %26, 256
   br i1 %27, label %28, label %.thread.i.i.i.i
 
 28:                                               ; preds = %rb_default_external_encoding.exit.thread5.i
@@ -4796,7 +4796,7 @@ rb_default_internal_encoding.exit.i:              ; preds = %rb_enc_from_index.e
   %15 = getelementptr inbounds i8, ptr %13, i64 128
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 16777215
-  %18 = icmp ult i32 %17, 256
+  %18 = icmp samesign ult i32 %17, 256
   br i1 %18, label %19, label %.thread.i.i.i.i
 
 19:                                               ; preds = %14

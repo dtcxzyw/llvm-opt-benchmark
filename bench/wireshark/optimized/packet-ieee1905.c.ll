@@ -6528,7 +6528,7 @@ dissect_ap_wf6_capabilities.exit:                 ; preds = %1800, %1747
   %1886 = add i32 %.11.i120, 9
   %1887 = add nuw nsw i32 %1871, 1
   %1888 = and i32 %1887, 255
-  %1889 = icmp ult i32 %1888, %1862
+  %1889 = icmp samesign ult i32 %1888, %1862
   br i1 %1889, label %1870, label %dissect_ieee1905_tlv_data.exit, !llvm.loop !61
 
 1890:                                             ; preds = %98
@@ -6562,7 +6562,7 @@ dissect_ap_wf6_capabilities.exit:                 ; preds = %1800, %1747
   %1912 = add i32 %.11.i116, 8
   %1913 = add nuw nsw i32 %1901, 1
   %1914 = and i32 %1913, 255
-  %1915 = icmp ult i32 %1914, %1895
+  %1915 = icmp samesign ult i32 %1914, %1895
   br i1 %1915, label %1900, label %dissect_ieee1905_tlv_data.exit, !llvm.loop !62
 
 1916:                                             ; preds = %98
@@ -6624,14 +6624,14 @@ dissect_ap_wf6_capabilities.exit:                 ; preds = %1800, %1747
   %1960 = add i32 %.32.i, 2
   %1961 = add nuw nsw i32 %1952, 1
   %1962 = and i32 %1961, 255
-  %1963 = icmp ult i32 %1962, %1946
+  %1963 = icmp samesign ult i32 %1962, %1946
   br i1 %1963, label %1951, label %.loopexit.i111, !llvm.loop !63
 
 .loopexit.i111:                                   ; preds = %1951, %1926
   %.2.i112 = phi i32 [ %1945, %1926 ], [ %1960, %1951 ]
   %1964 = add nuw nsw i32 %1927, 1
   %1965 = and i32 %1964, 255
-  %1966 = icmp ult i32 %1965, %1921
+  %1966 = icmp samesign ult i32 %1965, %1921
   br i1 %1966, label %1926, label %dissect_ieee1905_tlv_data.exit, !llvm.loop !64
 
 1967:                                             ; preds = %98
@@ -6708,7 +6708,7 @@ dissect_associated_wf6_sta_status_report.exit:    ; preds = %.lr.ph.i108, %1967
   %2017 = add i32 %.13.i100, 4
   %2018 = add nuw nsw i32 %2006, 1
   %2019 = and i32 %2018, 255
-  %2020 = icmp ult i32 %2019, %2000
+  %2020 = icmp samesign ult i32 %2019, %2000
   br i1 %2020, label %2005, label %.loopexit2.i, !llvm.loop !66
 
 .loopexit2.i:                                     ; preds = %2005, %1995
@@ -6743,7 +6743,7 @@ dissect_associated_wf6_sta_status_report.exit:    ; preds = %.lr.ph.i108, %1967
   %2042 = add i32 %.34.i, 4
   %2043 = add nuw nsw i32 %2031, 1
   %2044 = and i32 %2043, 255
-  %2045 = icmp ult i32 %2044, %2025
+  %2045 = icmp samesign ult i32 %2044, %2025
   br i1 %2045, label %2030, label %.loopexit1.i102, !llvm.loop !67
 
 .loopexit1.i102:                                  ; preds = %2030, %.loopexit2.i
@@ -6778,7 +6778,7 @@ dissect_associated_wf6_sta_status_report.exit:    ; preds = %.lr.ph.i108, %1967
   %2067 = add i32 %.55.i, 5
   %2068 = add nuw nsw i32 %2056, 1
   %2069 = and i32 %2068, 255
-  %2070 = icmp ult i32 %2069, %2050
+  %2070 = icmp samesign ult i32 %2069, %2050
   br i1 %2070, label %2055, label %dissect_ieee1905_tlv_data.exit, !llvm.loop !68
 
 2071:                                             ; preds = %98
@@ -6889,14 +6889,14 @@ dissect_associated_wf6_sta_status_report.exit:    ; preds = %.lr.ph.i108, %1967
   call void @proto_item_set_len(ptr noundef %2136, i32 noundef %2137) #11
   %2138 = add nuw nsw i32 %2117, 1
   %2139 = and i32 %2138, 255
-  %2140 = icmp ult i32 %2139, %2112
+  %2140 = icmp samesign ult i32 %2139, %2112
   br i1 %2140, label %2116, label %.loopexit1.i96, !llvm.loop !70
 
 .loopexit1.i96:                                   ; preds = %.loopexit.i, %2098
   %.4.i = phi i32 [ %2111, %2098 ], [ %.6.i, %.loopexit.i ]
   %2141 = add nuw nsw i32 %2099, 1
   %2142 = and i32 %2141, 255
-  %2143 = icmp ult i32 %2142, %2094
+  %2143 = icmp samesign ult i32 %2142, %2094
   br i1 %2143, label %2098, label %2144, !llvm.loop !71
 
 2144:                                             ; preds = %.loopexit1.i96
@@ -6909,7 +6909,7 @@ dissect_associated_wf6_sta_status_report.exit:    ; preds = %.lr.ph.i108, %1967
   %.2.i97 = phi i32 [ %.4.i, %2144 ], [ %2093, %2083 ]
   %2148 = add nuw nsw i32 %2084, 1
   %2149 = and i32 %2148, 255
-  %2150 = icmp ult i32 %2149, %2079
+  %2150 = icmp samesign ult i32 %2149, %2079
   br i1 %2150, label %2083, label %2151, !llvm.loop !72
 
 2151:                                             ; preds = %2147

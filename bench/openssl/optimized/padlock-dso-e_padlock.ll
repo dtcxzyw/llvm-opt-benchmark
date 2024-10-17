@@ -2079,7 +2079,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i8 %xor38, ptr %out_arg.addr.145, align 1
   %inc = add nuw nsw i64 %chunk.046, 1
   %dec = add i64 %nbytes.addr.144, -1
-  %cmp7 = icmp ult i64 %chunk.046, 15
+  %cmp7 = icmp samesign ult i64 %chunk.046, 15
   %cmp9 = icmp ne i64 %dec, 0
   %3 = select i1 %cmp7, i1 %cmp9, i1 false
   br i1 %3, label %while.body, label %while.end.loopexit, !llvm.loop !12

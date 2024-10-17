@@ -1849,7 +1849,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb84baf65ba616
 5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !391)
   %6 = load i64, ptr %1, align 8, !range !394, !alias.scope !391, !noalias !395, !noundef !7
-  %switch.i = icmp ult i64 %6, 4
+  %switch.i = icmp samesign ult i64 %6, 4
   br i1 %switch.i, label %"_ZN87_$LT$clap_builder..builder..value_parser..ValueParser$u20$as$u20$core..clone..Clone$GT$5clone17h0bf5a484f67fd1c3E.exit", label %7
 
 7:                                                ; preds = %5

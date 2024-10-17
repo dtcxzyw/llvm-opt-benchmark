@@ -1840,7 +1840,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %13, %if.end.i ], [ 0, %for.cond ]
-  %cmp12 = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp12 = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp12, label %for.body, label %cleanup101
 
 for.body:                                         ; preds = %_ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit
@@ -3468,7 +3468,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6vectorIPN2dd6so
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then2.i.i, label %while.body.i.i.i.i, !llvm.loop !41
 
 if.then2.i.i:                                     ; preds = %if.end4.i.i.i.i
@@ -7598,7 +7598,7 @@ _ZNK6vectorIN2dd3pddELb1EjE4sizeEv.exit.i.thread: ; preds = %end_of_new_eqs, %_Z
   %arrayidx.i.i455 = getelementptr inbounds i8, ptr %175, i64 -4
   %176 = load i32, ptr %arrayidx.i.i455, align 4
   %177 = zext i32 %176 to i64
-  %cmp.i457528 = icmp ult i64 %indvars.iv.i452607, %177
+  %cmp.i457528 = icmp samesign ult i64 %indvars.iv.i452607, %177
   br i1 %cmp.i457528, label %for.body.i458, label %_ZNK6vectorIN2dd3pddELb1EjE4sizeEv.exit.i.i.i
 
 for.body.i458:                                    ; preds = %_ZNK6vectorIN2dd3pddELb1EjE4sizeEv.exit.i.thread

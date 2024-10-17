@@ -848,7 +848,7 @@ define internal void @_ZN2cv12cpu_baselineL12transform_8uEPKhPhPKfiii(ptr nocapt
   %48 = getelementptr inbounds i8, ptr %1, i64 %21
   store i8 %46, ptr %48, align 1
   %indvars.iv.next246.i = add nuw nsw i64 %indvars.iv245.i, 2
-  %49 = icmp ult i64 %indvars.iv.next246.i, %16
+  %49 = icmp samesign ult i64 %indvars.iv.next246.i, %16
   br i1 %49, label %17, label %_ZN2cv12cpu_baselineL10transform_IhfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !4
 
 50:                                               ; preds = %6
@@ -936,7 +936,7 @@ define internal void @_ZN2cv12cpu_baselineL12transform_8uEPKhPhPKfiii(ptr nocapt
   %120 = getelementptr inbounds i8, ptr %1, i64 %75
   store i8 %117, ptr %120, align 1
   %indvars.iv.next243.i = add nuw nsw i64 %indvars.iv242.i, 3
-  %121 = icmp ult i64 %indvars.iv.next243.i, %66
+  %121 = icmp samesign ult i64 %indvars.iv.next243.i, %66
   br i1 %121, label %67, label %_ZN2cv12cpu_baselineL10transform_IhfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !6
 
 122:                                              ; preds = %50
@@ -1200,7 +1200,7 @@ define internal void @_ZN2cv12cpu_baselineL12transform_8uEPKhPhPKfiii(ptr nocapt
   %293 = getelementptr inbounds i8, ptr %1, i64 %226
   store i8 %291, ptr %293, align 1
   %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 4
-  %294 = icmp ult i64 %indvars.iv.next235.i, %213
+  %294 = icmp samesign ult i64 %indvars.iv.next235.i, %213
   br i1 %294, label %214, label %_ZN2cv12cpu_baselineL10transform_IhfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !11
 
 _ZN2cv12cpu_baselineL10transform_IhfEEvPKT_PS2_PKT0_iii.exit: ; preds = %._crit_edge197.split.us205.i, %._crit_edge197.split.us.us.us.i, %214, %128, %67, %17, %.preheader.i, %.preheader183.i, %.preheader185.i, %.preheader190.i, %.preheader189.lr.ph.i, %.preheader187.i
@@ -1264,7 +1264,7 @@ define internal void @_ZN2cv12cpu_baselineL12transform_8sEPKaPaPKfiii(ptr nocapt
   %48 = getelementptr inbounds i8, ptr %1, i64 %21
   store i8 %46, ptr %48, align 1
   %indvars.iv.next246.i = add nuw nsw i64 %indvars.iv245.i, 2
-  %49 = icmp ult i64 %indvars.iv.next246.i, %16
+  %49 = icmp samesign ult i64 %indvars.iv.next246.i, %16
   br i1 %49, label %17, label %_ZN2cv12cpu_baselineL10transform_IafEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !12
 
 50:                                               ; preds = %6
@@ -1352,7 +1352,7 @@ define internal void @_ZN2cv12cpu_baselineL12transform_8sEPKaPaPKfiii(ptr nocapt
   %120 = getelementptr inbounds i8, ptr %1, i64 %75
   store i8 %117, ptr %120, align 1
   %indvars.iv.next243.i = add nuw nsw i64 %indvars.iv242.i, 3
-  %121 = icmp ult i64 %indvars.iv.next243.i, %66
+  %121 = icmp samesign ult i64 %indvars.iv.next243.i, %66
   br i1 %121, label %67, label %_ZN2cv12cpu_baselineL10transform_IafEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !13
 
 122:                                              ; preds = %50
@@ -1616,7 +1616,7 @@ define internal void @_ZN2cv12cpu_baselineL12transform_8sEPKaPaPKfiii(ptr nocapt
   %293 = getelementptr inbounds i8, ptr %1, i64 %226
   store i8 %291, ptr %293, align 1
   %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 4
-  %294 = icmp ult i64 %indvars.iv.next235.i, %213
+  %294 = icmp samesign ult i64 %indvars.iv.next235.i, %213
   br i1 %294, label %214, label %_ZN2cv12cpu_baselineL10transform_IafEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !18
 
 _ZN2cv12cpu_baselineL10transform_IafEEvPKT_PS2_PKT0_iii.exit: ; preds = %._crit_edge197.split.us205.i, %._crit_edge197.split.us.us.us.i, %214, %128, %67, %17, %.preheader.i, %.preheader183.i, %.preheader185.i, %.preheader190.i, %.preheader189.lr.ph.i, %.preheader187.i
@@ -1680,7 +1680,7 @@ define internal void @_ZN2cv12cpu_baselineL13transform_16uEPKtPtPKfiii(ptr nocap
   %48 = getelementptr inbounds i16, ptr %1, i64 %21
   store i16 %46, ptr %48, align 2
   %indvars.iv.next246.i = add nuw nsw i64 %indvars.iv245.i, 2
-  %49 = icmp ult i64 %indvars.iv.next246.i, %16
+  %49 = icmp samesign ult i64 %indvars.iv.next246.i, %16
   br i1 %49, label %17, label %_ZN2cv12cpu_baselineL10transform_ItfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !19
 
 50:                                               ; preds = %6
@@ -1768,7 +1768,7 @@ define internal void @_ZN2cv12cpu_baselineL13transform_16uEPKtPtPKfiii(ptr nocap
   %120 = getelementptr inbounds i16, ptr %1, i64 %75
   store i16 %117, ptr %120, align 2
   %indvars.iv.next243.i = add nuw nsw i64 %indvars.iv242.i, 3
-  %121 = icmp ult i64 %indvars.iv.next243.i, %66
+  %121 = icmp samesign ult i64 %indvars.iv.next243.i, %66
   br i1 %121, label %67, label %_ZN2cv12cpu_baselineL10transform_ItfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !20
 
 122:                                              ; preds = %50
@@ -2032,7 +2032,7 @@ define internal void @_ZN2cv12cpu_baselineL13transform_16uEPKtPtPKfiii(ptr nocap
   %293 = getelementptr inbounds i16, ptr %1, i64 %226
   store i16 %291, ptr %293, align 2
   %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 4
-  %294 = icmp ult i64 %indvars.iv.next235.i, %213
+  %294 = icmp samesign ult i64 %indvars.iv.next235.i, %213
   br i1 %294, label %214, label %_ZN2cv12cpu_baselineL10transform_ItfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !25
 
 _ZN2cv12cpu_baselineL10transform_ItfEEvPKT_PS2_PKT0_iii.exit: ; preds = %._crit_edge197.split.us205.i, %._crit_edge197.split.us.us.us.i, %214, %128, %67, %17, %.preheader.i, %.preheader183.i, %.preheader185.i, %.preheader190.i, %.preheader189.lr.ph.i, %.preheader187.i
@@ -2096,7 +2096,7 @@ define internal void @_ZN2cv12cpu_baselineL13transform_16sEPKsPsPKfiii(ptr nocap
   %48 = getelementptr inbounds i16, ptr %1, i64 %21
   store i16 %46, ptr %48, align 2
   %indvars.iv.next246.i = add nuw nsw i64 %indvars.iv245.i, 2
-  %49 = icmp ult i64 %indvars.iv.next246.i, %16
+  %49 = icmp samesign ult i64 %indvars.iv.next246.i, %16
   br i1 %49, label %17, label %_ZN2cv12cpu_baselineL10transform_IsfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !26
 
 50:                                               ; preds = %6
@@ -2184,7 +2184,7 @@ define internal void @_ZN2cv12cpu_baselineL13transform_16sEPKsPsPKfiii(ptr nocap
   %120 = getelementptr inbounds i16, ptr %1, i64 %75
   store i16 %117, ptr %120, align 2
   %indvars.iv.next243.i = add nuw nsw i64 %indvars.iv242.i, 3
-  %121 = icmp ult i64 %indvars.iv.next243.i, %66
+  %121 = icmp samesign ult i64 %indvars.iv.next243.i, %66
   br i1 %121, label %67, label %_ZN2cv12cpu_baselineL10transform_IsfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !27
 
 122:                                              ; preds = %50
@@ -2448,7 +2448,7 @@ define internal void @_ZN2cv12cpu_baselineL13transform_16sEPKsPsPKfiii(ptr nocap
   %293 = getelementptr inbounds i16, ptr %1, i64 %226
   store i16 %291, ptr %293, align 2
   %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 4
-  %294 = icmp ult i64 %indvars.iv.next235.i, %213
+  %294 = icmp samesign ult i64 %indvars.iv.next235.i, %213
   br i1 %294, label %214, label %_ZN2cv12cpu_baselineL10transform_IsfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !32
 
 _ZN2cv12cpu_baselineL10transform_IsfEEvPKT_PS2_PKT0_iii.exit: ; preds = %._crit_edge197.split.us205.i, %._crit_edge197.split.us.us.us.i, %214, %128, %67, %17, %.preheader.i, %.preheader183.i, %.preheader185.i, %.preheader190.i, %.preheader189.lr.ph.i, %.preheader187.i
@@ -2506,7 +2506,7 @@ define internal void @_ZN2cv12cpu_baselineL13transform_32sEPKiPiPKdiii(ptr nocap
   %42 = getelementptr inbounds i32, ptr %1, i64 %21
   store i32 %40, ptr %42, align 4
   %indvars.iv.next246.i = add nuw nsw i64 %indvars.iv245.i, 2
-  %43 = icmp ult i64 %indvars.iv.next246.i, %16
+  %43 = icmp samesign ult i64 %indvars.iv.next246.i, %16
   br i1 %43, label %17, label %_ZN2cv12cpu_baselineL10transform_IidEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !33
 
 44:                                               ; preds = %6
@@ -2585,7 +2585,7 @@ define internal void @_ZN2cv12cpu_baselineL13transform_32sEPKiPiPKdiii(ptr nocap
   %105 = getelementptr inbounds i32, ptr %1, i64 %69
   store i32 %102, ptr %105, align 4
   %indvars.iv.next243.i = add nuw nsw i64 %indvars.iv242.i, 3
-  %106 = icmp ult i64 %indvars.iv.next243.i, %60
+  %106 = icmp samesign ult i64 %indvars.iv.next243.i, %60
   br i1 %106, label %61, label %_ZN2cv12cpu_baselineL10transform_IidEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !34
 
 107:                                              ; preds = %44
@@ -2828,7 +2828,7 @@ define internal void @_ZN2cv12cpu_baselineL13transform_32sEPKiPiPKdiii(ptr nocap
   %257 = getelementptr inbounds i32, ptr %1, i64 %202
   store i32 %255, ptr %257, align 4
   %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 4
-  %258 = icmp ult i64 %indvars.iv.next235.i, %189
+  %258 = icmp samesign ult i64 %indvars.iv.next235.i, %189
   br i1 %258, label %190, label %_ZN2cv12cpu_baselineL10transform_IidEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !39
 
 _ZN2cv12cpu_baselineL10transform_IidEEvPKT_PS2_PKT0_iii.exit: ; preds = %._crit_edge197.split.us205.i, %._crit_edge197.split.us.us.us.i, %190, %113, %61, %17, %.preheader.i, %.preheader183.i, %.preheader185.i, %.preheader190.i, %.preheader189.lr.ph.i, %.preheader187.i
@@ -2880,7 +2880,7 @@ define internal void @_ZN2cv12cpu_baselineL13transform_32fEPKfPfS2_iii(ptr nocap
   %36 = getelementptr inbounds float, ptr %1, i64 %20
   store float %34, ptr %36, align 4
   %indvars.iv.next246.i = add nuw nsw i64 %indvars.iv245.i, 2
-  %37 = icmp ult i64 %indvars.iv.next246.i, %16
+  %37 = icmp samesign ult i64 %indvars.iv.next246.i, %16
   br i1 %37, label %17, label %_ZN2cv12cpu_baselineL10transform_IffEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !40
 
 38:                                               ; preds = %6
@@ -2950,7 +2950,7 @@ define internal void @_ZN2cv12cpu_baselineL13transform_32fEPKfPfS2_iii(ptr nocap
   %90 = getelementptr inbounds float, ptr %1, i64 %61
   store float %87, ptr %90, align 4
   %indvars.iv.next243.i = add nuw nsw i64 %indvars.iv242.i, 3
-  %91 = icmp ult i64 %indvars.iv.next243.i, %54
+  %91 = icmp samesign ult i64 %indvars.iv.next243.i, %54
   br i1 %91, label %55, label %_ZN2cv12cpu_baselineL10transform_IffEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !41
 
 92:                                               ; preds = %38
@@ -3171,7 +3171,7 @@ define internal void @_ZN2cv12cpu_baselineL13transform_32fEPKfPfS2_iii(ptr nocap
   %220 = getelementptr inbounds float, ptr %1, i64 %174
   store float %218, ptr %220, align 4
   %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 4
-  %221 = icmp ult i64 %indvars.iv.next235.i, %164
+  %221 = icmp samesign ult i64 %indvars.iv.next235.i, %164
   br i1 %221, label %165, label %_ZN2cv12cpu_baselineL10transform_IffEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !46
 
 _ZN2cv12cpu_baselineL10transform_IffEEvPKT_PS2_PKT0_iii.exit: ; preds = %._crit_edge197.split.us205.i, %._crit_edge197.split.us.us.us.i, %165, %98, %55, %17, %.preheader.i, %.preheader183.i, %.preheader185.i, %.preheader190.i, %.preheader189.lr.ph.i, %.preheader187.i
@@ -3223,7 +3223,7 @@ define internal void @_ZN2cv12cpu_baselineL13transform_64fEPKdPdS2_iii(ptr nocap
   %36 = getelementptr inbounds double, ptr %1, i64 %20
   store double %34, ptr %36, align 8
   %indvars.iv.next246.i = add nuw nsw i64 %indvars.iv245.i, 2
-  %37 = icmp ult i64 %indvars.iv.next246.i, %16
+  %37 = icmp samesign ult i64 %indvars.iv.next246.i, %16
   br i1 %37, label %17, label %_ZN2cv12cpu_baselineL10transform_IddEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !47
 
 38:                                               ; preds = %6
@@ -3293,7 +3293,7 @@ define internal void @_ZN2cv12cpu_baselineL13transform_64fEPKdPdS2_iii(ptr nocap
   %90 = getelementptr inbounds double, ptr %1, i64 %61
   store double %87, ptr %90, align 8
   %indvars.iv.next243.i = add nuw nsw i64 %indvars.iv242.i, 3
-  %91 = icmp ult i64 %indvars.iv.next243.i, %54
+  %91 = icmp samesign ult i64 %indvars.iv.next243.i, %54
   br i1 %91, label %55, label %_ZN2cv12cpu_baselineL10transform_IddEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !48
 
 92:                                               ; preds = %38
@@ -3514,7 +3514,7 @@ define internal void @_ZN2cv12cpu_baselineL13transform_64fEPKdPdS2_iii(ptr nocap
   %220 = getelementptr inbounds double, ptr %1, i64 %174
   store double %218, ptr %220, align 8
   %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 4
-  %221 = icmp ult i64 %indvars.iv.next235.i, %164
+  %221 = icmp samesign ult i64 %indvars.iv.next235.i, %164
   br i1 %221, label %165, label %_ZN2cv12cpu_baselineL10transform_IddEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !53
 
 _ZN2cv12cpu_baselineL10transform_IddEEvPKT_PS2_PKT0_iii.exit: ; preds = %._crit_edge197.split.us205.i, %._crit_edge197.split.us.us.us.i, %165, %98, %55, %17, %.preheader.i, %.preheader183.i, %.preheader185.i, %.preheader190.i, %.preheader189.lr.ph.i, %.preheader187.i
@@ -3657,7 +3657,7 @@ define internal void @_ZN2cv12cpu_baselineL16diagtransform_8uEPKhPhPKfiii(ptr no
   %77 = getelementptr inbounds i8, ptr %1, i64 %65
   store i8 %75, ptr %77, align 1
   %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 2
-  %78 = icmp ult i64 %indvars.iv.next127.i, %28
+  %78 = icmp samesign ult i64 %indvars.iv.next127.i, %28
   br i1 %78, label %52, label %_ZN2cv12cpu_baselineL14diagtransform_IhfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !56
 
 79:                                               ; preds = %79, %.lr.ph109.i
@@ -3704,7 +3704,7 @@ define internal void @_ZN2cv12cpu_baselineL16diagtransform_8uEPKhPhPKfiii(ptr no
   %117 = getelementptr inbounds i8, ptr %1, i64 %104
   store i8 %114, ptr %117, align 1
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 3
-  %118 = icmp ult i64 %indvars.iv.next124.i, %23
+  %118 = icmp samesign ult i64 %indvars.iv.next124.i, %23
   br i1 %118, label %79, label %_ZN2cv12cpu_baselineL14diagtransform_IhfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !57
 
 119:                                              ; preds = %119, %.lr.ph.i
@@ -3765,7 +3765,7 @@ define internal void @_ZN2cv12cpu_baselineL16diagtransform_8uEPKhPhPKfiii(ptr no
   %170 = getelementptr inbounds i8, ptr %1, i64 %158
   store i8 %168, ptr %170, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %171 = icmp ult i64 %indvars.iv.next.i, %16
+  %171 = icmp samesign ult i64 %indvars.iv.next.i, %16
   br i1 %171, label %119, label %_ZN2cv12cpu_baselineL14diagtransform_IhfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !58
 
 _ZN2cv12cpu_baselineL14diagtransform_IhfEEvPKT_PS2_PKT0_iii.exit: ; preds = %119, %79, %52, %._crit_edge.us.i, %.preheader105.i, %.preheader103.i, %.preheader101.i, %.preheader100.i, %.preheader.lr.ph.i
@@ -3900,7 +3900,7 @@ define internal void @_ZN2cv12cpu_baselineL16diagtransform_8sEPKaPaPKfiii(ptr no
   %77 = getelementptr inbounds i8, ptr %1, i64 %65
   store i8 %75, ptr %77, align 1
   %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 2
-  %78 = icmp ult i64 %indvars.iv.next127.i, %28
+  %78 = icmp samesign ult i64 %indvars.iv.next127.i, %28
   br i1 %78, label %52, label %_ZN2cv12cpu_baselineL14diagtransform_IafEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !61
 
 79:                                               ; preds = %79, %.lr.ph109.i
@@ -3947,7 +3947,7 @@ define internal void @_ZN2cv12cpu_baselineL16diagtransform_8sEPKaPaPKfiii(ptr no
   %117 = getelementptr inbounds i8, ptr %1, i64 %104
   store i8 %114, ptr %117, align 1
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 3
-  %118 = icmp ult i64 %indvars.iv.next124.i, %23
+  %118 = icmp samesign ult i64 %indvars.iv.next124.i, %23
   br i1 %118, label %79, label %_ZN2cv12cpu_baselineL14diagtransform_IafEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !62
 
 119:                                              ; preds = %119, %.lr.ph.i
@@ -4008,7 +4008,7 @@ define internal void @_ZN2cv12cpu_baselineL16diagtransform_8sEPKaPaPKfiii(ptr no
   %170 = getelementptr inbounds i8, ptr %1, i64 %158
   store i8 %168, ptr %170, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %171 = icmp ult i64 %indvars.iv.next.i, %16
+  %171 = icmp samesign ult i64 %indvars.iv.next.i, %16
   br i1 %171, label %119, label %_ZN2cv12cpu_baselineL14diagtransform_IafEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !63
 
 _ZN2cv12cpu_baselineL14diagtransform_IafEEvPKT_PS2_PKT0_iii.exit: ; preds = %119, %79, %52, %._crit_edge.us.i, %.preheader105.i, %.preheader103.i, %.preheader101.i, %.preheader100.i, %.preheader.lr.ph.i
@@ -4143,7 +4143,7 @@ define internal void @_ZN2cv12cpu_baselineL17diagtransform_16uEPKtPtPKfiii(ptr n
   %77 = getelementptr inbounds i16, ptr %1, i64 %65
   store i16 %75, ptr %77, align 2
   %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 2
-  %78 = icmp ult i64 %indvars.iv.next127.i, %28
+  %78 = icmp samesign ult i64 %indvars.iv.next127.i, %28
   br i1 %78, label %52, label %_ZN2cv12cpu_baselineL14diagtransform_ItfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !66
 
 79:                                               ; preds = %79, %.lr.ph109.i
@@ -4190,7 +4190,7 @@ define internal void @_ZN2cv12cpu_baselineL17diagtransform_16uEPKtPtPKfiii(ptr n
   %117 = getelementptr inbounds i16, ptr %1, i64 %104
   store i16 %114, ptr %117, align 2
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 3
-  %118 = icmp ult i64 %indvars.iv.next124.i, %23
+  %118 = icmp samesign ult i64 %indvars.iv.next124.i, %23
   br i1 %118, label %79, label %_ZN2cv12cpu_baselineL14diagtransform_ItfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !67
 
 119:                                              ; preds = %119, %.lr.ph.i
@@ -4251,7 +4251,7 @@ define internal void @_ZN2cv12cpu_baselineL17diagtransform_16uEPKtPtPKfiii(ptr n
   %170 = getelementptr inbounds i16, ptr %1, i64 %158
   store i16 %168, ptr %170, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %171 = icmp ult i64 %indvars.iv.next.i, %16
+  %171 = icmp samesign ult i64 %indvars.iv.next.i, %16
   br i1 %171, label %119, label %_ZN2cv12cpu_baselineL14diagtransform_ItfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !68
 
 _ZN2cv12cpu_baselineL14diagtransform_ItfEEvPKT_PS2_PKT0_iii.exit: ; preds = %119, %79, %52, %._crit_edge.us.i, %.preheader105.i, %.preheader103.i, %.preheader101.i, %.preheader100.i, %.preheader.lr.ph.i
@@ -4386,7 +4386,7 @@ define internal void @_ZN2cv12cpu_baselineL17diagtransform_16sEPKsPsPKfiii(ptr n
   %77 = getelementptr inbounds i16, ptr %1, i64 %65
   store i16 %75, ptr %77, align 2
   %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 2
-  %78 = icmp ult i64 %indvars.iv.next127.i, %28
+  %78 = icmp samesign ult i64 %indvars.iv.next127.i, %28
   br i1 %78, label %52, label %_ZN2cv12cpu_baselineL14diagtransform_IsfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !71
 
 79:                                               ; preds = %79, %.lr.ph109.i
@@ -4433,7 +4433,7 @@ define internal void @_ZN2cv12cpu_baselineL17diagtransform_16sEPKsPsPKfiii(ptr n
   %117 = getelementptr inbounds i16, ptr %1, i64 %104
   store i16 %114, ptr %117, align 2
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 3
-  %118 = icmp ult i64 %indvars.iv.next124.i, %23
+  %118 = icmp samesign ult i64 %indvars.iv.next124.i, %23
   br i1 %118, label %79, label %_ZN2cv12cpu_baselineL14diagtransform_IsfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !72
 
 119:                                              ; preds = %119, %.lr.ph.i
@@ -4494,7 +4494,7 @@ define internal void @_ZN2cv12cpu_baselineL17diagtransform_16sEPKsPsPKfiii(ptr n
   %170 = getelementptr inbounds i16, ptr %1, i64 %158
   store i16 %168, ptr %170, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %171 = icmp ult i64 %indvars.iv.next.i, %16
+  %171 = icmp samesign ult i64 %indvars.iv.next.i, %16
   br i1 %171, label %119, label %_ZN2cv12cpu_baselineL14diagtransform_IsfEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !73
 
 _ZN2cv12cpu_baselineL14diagtransform_IsfEEvPKT_PS2_PKT0_iii.exit: ; preds = %119, %79, %52, %._crit_edge.us.i, %.preheader105.i, %.preheader103.i, %.preheader101.i, %.preheader100.i, %.preheader.lr.ph.i
@@ -4620,7 +4620,7 @@ define internal void @_ZN2cv12cpu_baselineL17diagtransform_32sEPKiPiPKdiii(ptr n
   %68 = getelementptr inbounds i32, ptr %1, i64 %59
   store i32 %66, ptr %68, align 4
   %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 2
-  %69 = icmp ult i64 %indvars.iv.next127.i, %28
+  %69 = icmp samesign ult i64 %indvars.iv.next127.i, %28
   br i1 %69, label %49, label %_ZN2cv12cpu_baselineL14diagtransform_IidEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !76
 
 70:                                               ; preds = %70, %.lr.ph109.i
@@ -4658,7 +4658,7 @@ define internal void @_ZN2cv12cpu_baselineL17diagtransform_32sEPKiPiPKdiii(ptr n
   %99 = getelementptr inbounds i32, ptr %1, i64 %89
   store i32 %96, ptr %99, align 4
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 3
-  %100 = icmp ult i64 %indvars.iv.next124.i, %23
+  %100 = icmp samesign ult i64 %indvars.iv.next124.i, %23
   br i1 %100, label %70, label %_ZN2cv12cpu_baselineL14diagtransform_IidEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !77
 
 101:                                              ; preds = %101, %.lr.ph.i
@@ -4707,7 +4707,7 @@ define internal void @_ZN2cv12cpu_baselineL17diagtransform_32sEPKiPiPKdiii(ptr n
   %140 = getelementptr inbounds i32, ptr %1, i64 %131
   store i32 %138, ptr %140, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %141 = icmp ult i64 %indvars.iv.next.i, %16
+  %141 = icmp samesign ult i64 %indvars.iv.next.i, %16
   br i1 %141, label %101, label %_ZN2cv12cpu_baselineL14diagtransform_IidEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !78
 
 _ZN2cv12cpu_baselineL14diagtransform_IidEEvPKT_PS2_PKT0_iii.exit: ; preds = %101, %70, %49, %._crit_edge.us.i, %.preheader105.i, %.preheader103.i, %.preheader101.i, %.preheader100.i, %.preheader.lr.ph.i
@@ -4824,7 +4824,7 @@ define internal void @_ZN2cv12cpu_baselineL17diagtransform_32fEPKfPfS2_iii(ptr n
   %59 = getelementptr inbounds float, ptr %1, i64 %53
   store float %57, ptr %59, align 4
   %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 2
-  %60 = icmp ult i64 %indvars.iv.next127.i, %28
+  %60 = icmp samesign ult i64 %indvars.iv.next127.i, %28
   br i1 %60, label %46, label %_ZN2cv12cpu_baselineL14diagtransform_IffEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !81
 
 61:                                               ; preds = %61, %.lr.ph109.i
@@ -4853,7 +4853,7 @@ define internal void @_ZN2cv12cpu_baselineL17diagtransform_32fEPKfPfS2_iii(ptr n
   %81 = getelementptr inbounds float, ptr %1, i64 %74
   store float %78, ptr %81, align 4
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 3
-  %82 = icmp ult i64 %indvars.iv.next124.i, %23
+  %82 = icmp samesign ult i64 %indvars.iv.next124.i, %23
   br i1 %82, label %61, label %_ZN2cv12cpu_baselineL14diagtransform_IffEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !82
 
 83:                                               ; preds = %83, %.lr.ph.i
@@ -4890,7 +4890,7 @@ define internal void @_ZN2cv12cpu_baselineL17diagtransform_32fEPKfPfS2_iii(ptr n
   %110 = getelementptr inbounds float, ptr %1, i64 %104
   store float %108, ptr %110, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %111 = icmp ult i64 %indvars.iv.next.i, %16
+  %111 = icmp samesign ult i64 %indvars.iv.next.i, %16
   br i1 %111, label %83, label %_ZN2cv12cpu_baselineL14diagtransform_IffEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !83
 
 _ZN2cv12cpu_baselineL14diagtransform_IffEEvPKT_PS2_PKT0_iii.exit: ; preds = %83, %61, %46, %._crit_edge.us.i, %.preheader105.i, %.preheader103.i, %.preheader101.i, %.preheader100.i, %.preheader.lr.ph.i
@@ -5007,7 +5007,7 @@ define internal void @_ZN2cv12cpu_baselineL17diagtransform_64fEPKdPdS2_iii(ptr n
   %59 = getelementptr inbounds double, ptr %1, i64 %53
   store double %57, ptr %59, align 8
   %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 2
-  %60 = icmp ult i64 %indvars.iv.next127.i, %28
+  %60 = icmp samesign ult i64 %indvars.iv.next127.i, %28
   br i1 %60, label %46, label %_ZN2cv12cpu_baselineL14diagtransform_IddEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !86
 
 61:                                               ; preds = %61, %.lr.ph109.i
@@ -5036,7 +5036,7 @@ define internal void @_ZN2cv12cpu_baselineL17diagtransform_64fEPKdPdS2_iii(ptr n
   %81 = getelementptr inbounds double, ptr %1, i64 %74
   store double %78, ptr %81, align 8
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 3
-  %82 = icmp ult i64 %indvars.iv.next124.i, %23
+  %82 = icmp samesign ult i64 %indvars.iv.next124.i, %23
   br i1 %82, label %61, label %_ZN2cv12cpu_baselineL14diagtransform_IddEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !87
 
 83:                                               ; preds = %83, %.lr.ph.i
@@ -5073,7 +5073,7 @@ define internal void @_ZN2cv12cpu_baselineL17diagtransform_64fEPKdPdS2_iii(ptr n
   %110 = getelementptr inbounds double, ptr %1, i64 %104
   store double %108, ptr %110, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %111 = icmp ult i64 %indvars.iv.next.i, %16
+  %111 = icmp samesign ult i64 %indvars.iv.next.i, %16
   br i1 %111, label %83, label %_ZN2cv12cpu_baselineL14diagtransform_IddEEvPKT_PS2_PKT0_iii.exit, !llvm.loop !88
 
 _ZN2cv12cpu_baselineL14diagtransform_IddEEvPKT_PS2_PKT0_iii.exit: ; preds = %83, %61, %46, %._crit_edge.us.i, %.preheader105.i, %.preheader103.i, %.preheader101.i, %.preheader100.i, %.preheader.lr.ph.i
@@ -5200,7 +5200,7 @@ define internal void @_ZN2cv12cpu_baselineL24perspectiveTransform_32fEPKfPfPKdii
   %58 = getelementptr inbounds float, ptr %1, i64 %23
   store float %.sink.i, ptr %58, align 4
   %indvars.iv.next263.i = add nuw nsw i64 %indvars.iv262.i, 2
-  %59 = icmp ult i64 %indvars.iv.next263.i, %19
+  %59 = icmp samesign ult i64 %indvars.iv.next263.i, %19
   br i1 %59, label %20, label %_ZN2cv12cpu_baselineL21perspectiveTransform_IfEEvPKT_PS2_PKdiii.exit, !llvm.loop !89
 
 60:                                               ; preds = %6
@@ -5308,7 +5308,7 @@ define internal void @_ZN2cv12cpu_baselineL24perspectiveTransform_32fEPKfPfPKdii
   %141 = getelementptr inbounds float, ptr %1, i64 %87
   store float %.sink265.i, ptr %141, align 4
   %indvars.iv.next260.i = add nuw nsw i64 %indvars.iv259.i, 3
-  %142 = icmp ult i64 %indvars.iv.next260.i, %80
+  %142 = icmp samesign ult i64 %indvars.iv.next260.i, %80
   br i1 %142, label %81, label %_ZN2cv12cpu_baselineL21perspectiveTransform_IfEEvPKT_PS2_PKdiii.exit, !llvm.loop !90
 
 143:                                              ; preds = %60
@@ -5575,7 +5575,7 @@ define internal void @_ZN2cv12cpu_baselineL24perspectiveTransform_64fEPKdPdS2_ii
   %54 = getelementptr inbounds double, ptr %1, i64 %23
   store double %.sink.i, ptr %54, align 8
   %indvars.iv.next263.i = add nuw nsw i64 %indvars.iv262.i, 2
-  %55 = icmp ult i64 %indvars.iv.next263.i, %19
+  %55 = icmp samesign ult i64 %indvars.iv.next263.i, %19
   br i1 %55, label %20, label %_ZN2cv12cpu_baselineL21perspectiveTransform_IdEEvPKT_PS2_PKdiii.exit, !llvm.loop !96
 
 56:                                               ; preds = %6
@@ -5677,7 +5677,7 @@ define internal void @_ZN2cv12cpu_baselineL24perspectiveTransform_64fEPKdPdS2_ii
   %131 = getelementptr inbounds double, ptr %1, i64 %83
   store double %.sink265.i, ptr %131, align 8
   %indvars.iv.next260.i = add nuw nsw i64 %indvars.iv259.i, 3
-  %132 = icmp ult i64 %indvars.iv.next260.i, %76
+  %132 = icmp samesign ult i64 %indvars.iv.next260.i, %76
   br i1 %132, label %77, label %_ZN2cv12cpu_baselineL21perspectiveTransform_IdEEvPKT_PS2_PKdiii.exit, !llvm.loop !97
 
 133:                                              ; preds = %56
@@ -7149,7 +7149,7 @@ define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIhfEEvRKNS_3MatES4_S4
   %97 = tail call double @llvm.fmuladd.f64(double %93, double %96, double %89)
   %98 = fadd double %.0152189, %97
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 4
-  %.not155 = icmp ugt i64 %indvars.iv.next241, %36
+  %.not155 = icmp samesign ugt i64 %indvars.iv.next241, %36
   br i1 %.not155, label %..preheader_crit_edge, label %66, !llvm.loop !130
 
 .lr.ph197:                                        ; preds = %..preheader_crit_edge, %.lr.ph197
@@ -8116,7 +8116,7 @@ define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIhdEEvRKNS_3MatES4_S4
   %95 = tail call double @llvm.fmuladd.f64(double %91, double %94, double %87)
   %96 = fadd double %.0152189, %95
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 4
-  %.not155 = icmp ugt i64 %indvars.iv.next241, %35
+  %.not155 = icmp samesign ugt i64 %indvars.iv.next241, %35
   br i1 %.not155, label %..preheader_crit_edge, label %64, !llvm.loop !154
 
 .lr.ph197:                                        ; preds = %..preheader_crit_edge, %.lr.ph197
@@ -9096,7 +9096,7 @@ define internal void @_ZN2cv12cpu_baselineL14MulTransposedLItfEEvRKNS_3MatES4_S4
   %98 = tail call double @llvm.fmuladd.f64(double %94, double %97, double %90)
   %99 = fadd double %.0152189, %98
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 4
-  %.not155 = icmp ugt i64 %indvars.iv.next241, %37
+  %.not155 = icmp samesign ugt i64 %indvars.iv.next241, %37
   br i1 %.not155, label %..preheader_crit_edge, label %67, !llvm.loop !178
 
 .lr.ph197:                                        ; preds = %..preheader_crit_edge, %.lr.ph197
@@ -10065,7 +10065,7 @@ define internal void @_ZN2cv12cpu_baselineL14MulTransposedLItdEEvRKNS_3MatES4_S4
   %96 = tail call double @llvm.fmuladd.f64(double %92, double %95, double %88)
   %97 = fadd double %.0152189, %96
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 4
-  %.not155 = icmp ugt i64 %indvars.iv.next241, %36
+  %.not155 = icmp samesign ugt i64 %indvars.iv.next241, %36
   br i1 %.not155, label %..preheader_crit_edge, label %65, !llvm.loop !202
 
 .lr.ph197:                                        ; preds = %..preheader_crit_edge, %.lr.ph197
@@ -11045,7 +11045,7 @@ define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIsfEEvRKNS_3MatES4_S4
   %98 = tail call double @llvm.fmuladd.f64(double %94, double %97, double %90)
   %99 = fadd double %.0152189, %98
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 4
-  %.not155 = icmp ugt i64 %indvars.iv.next241, %37
+  %.not155 = icmp samesign ugt i64 %indvars.iv.next241, %37
   br i1 %.not155, label %..preheader_crit_edge, label %67, !llvm.loop !226
 
 .lr.ph197:                                        ; preds = %..preheader_crit_edge, %.lr.ph197
@@ -12014,7 +12014,7 @@ define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIsdEEvRKNS_3MatES4_S4
   %96 = tail call double @llvm.fmuladd.f64(double %92, double %95, double %88)
   %97 = fadd double %.0152189, %96
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 4
-  %.not155 = icmp ugt i64 %indvars.iv.next241, %36
+  %.not155 = icmp samesign ugt i64 %indvars.iv.next241, %36
   br i1 %.not155, label %..preheader_crit_edge, label %65, !llvm.loop !250
 
 .lr.ph197:                                        ; preds = %..preheader_crit_edge, %.lr.ph197
@@ -12986,7 +12986,7 @@ define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIffEEvRKNS_3MatES4_S4
   %98 = tail call double @llvm.fmuladd.f64(double %94, double %97, double %90)
   %99 = fadd double %.0152189, %98
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 4
-  %.not155 = icmp ugt i64 %indvars.iv.next241, %37
+  %.not155 = icmp samesign ugt i64 %indvars.iv.next241, %37
   br i1 %.not155, label %..preheader_crit_edge, label %67, !llvm.loop !274
 
 .lr.ph197:                                        ; preds = %..preheader_crit_edge, %.lr.ph197
@@ -13948,7 +13948,7 @@ define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIfdEEvRKNS_3MatES4_S4
   %96 = tail call double @llvm.fmuladd.f64(double %92, double %95, double %88)
   %97 = fadd double %.0152189, %96
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 4
-  %.not155 = icmp ugt i64 %indvars.iv.next241, %36
+  %.not155 = icmp samesign ugt i64 %indvars.iv.next241, %36
   br i1 %.not155, label %..preheader_crit_edge, label %65, !llvm.loop !298
 
 .lr.ph197:                                        ; preds = %..preheader_crit_edge, %.lr.ph197
@@ -14882,7 +14882,7 @@ define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIddEEvRKNS_3MatES4_S4
   %86 = tail call double @llvm.fmuladd.f64(double %83, double %85, double %80)
   %87 = fadd double %.0152189, %86
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 4
-  %.not155 = icmp ugt i64 %indvars.iv.next241, %36
+  %.not155 = icmp samesign ugt i64 %indvars.iv.next241, %36
   br i1 %.not155, label %..preheader_crit_edge, label %63, !llvm.loop !322
 
 .lr.ph197:                                        ; preds = %..preheader_crit_edge, %.lr.ph197
@@ -16719,7 +16719,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %129, %133
 
 ._crit_edge.split.us.us:                          ; preds = %181
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
-  %176 = icmp ult i64 %indvars.iv161, %174
+  %176 = icmp samesign ult i64 %indvars.iv161, %174
   %177 = select i1 %186, i1 %176, i1 false
   br i1 %177, label %.preheader.us, label %.split.us, !llvm.loop !360
 
@@ -16741,8 +16741,8 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %129, %133
   %.373.us.us = select i1 %or.cond105.us.us, i8 0, i8 %.272149.us.us
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %186 = trunc nuw i8 %.373.us.us to i1
-  %187 = icmp ult i64 %indvars.iv159, %174
-  %188 = and i1 %187, %186
+  %187 = icmp samesign ult i64 %indvars.iv159, %174
+  %188 = select i1 %186, i1 %187, i1 false
   br i1 %188, label %181, label %._crit_edge.split.us.us, !llvm.loop !361
 
 189:                                              ; preds = %167
@@ -16921,13 +16921,13 @@ _ZN2cv3Mat2atIdEERT_i.exit126:                    ; preds = %.thread170, %254, %
   %.373 = select i1 %or.cond105, i8 0, i8 %.272149
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %293 = trunc nuw i8 %.373 to i1
-  %294 = icmp ult i64 %indvars.iv, %174
-  %295 = and i1 %294, %293
+  %294 = icmp samesign ult i64 %indvars.iv, %174
+  %295 = select i1 %293, i1 %294, i1 false
   br i1 %295, label %287, label %._crit_edge.split, !llvm.loop !361
 
 ._crit_edge.split:                                ; preds = %287
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %296 = icmp ult i64 %indvars.iv157, %174
+  %296 = icmp samesign ult i64 %indvars.iv157, %174
   %297 = select i1 %293, i1 %296, i1 false
   br i1 %297, label %.preheader, label %.split.us, !llvm.loop !360
 
@@ -17630,7 +17630,7 @@ define void @_ZN2cv8scaleAddERKNS_11_InputArrayEdS2_RKNS_12_OutputArrayE(ptr nou
   br label %150
 
 40:                                               ; preds = %28
-  %41 = icmp ult i32 %23, 5
+  %41 = icmp samesign ult i32 %23, 5
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %40
@@ -25536,7 +25536,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %.noexc, %_ZN2cv10Au
   store i32 %1042, ptr %1046, align 4
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 4
   %1047 = getelementptr inbounds i8, ptr %.25763.us.i.us, i64 %1011
-  %1048 = icmp ult i64 %indvars.iv.next.i.us, %1031
+  %1048 = icmp samesign ult i64 %indvars.iv.next.i.us, %1031
   br i1 %1048, label %1032, label %..loopexit62_crit_edge.us.i.us, !llvm.loop !469
 
 ..loopexit62_crit_edge.us.i.us:                   ; preds = %1032
@@ -25569,7 +25569,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %.noexc, %_ZN2cv10Au
   store i32 %1056, ptr %1059, align 4
   %indvars.iv.next91.i.us = add nuw nsw i64 %indvars.iv90.i.us, 2
   %1060 = getelementptr inbounds i8, ptr %.15665.us.us.i.us, i64 %1011
-  %1061 = icmp ult i64 %indvars.iv.next91.i.us, %1029
+  %1061 = icmp samesign ult i64 %indvars.iv.next91.i.us, %1029
   br i1 %1061, label %1053, label %..loopexit60_crit_edge.us.us.i.us, !llvm.loop !471
 
 ..loopexit60_crit_edge.us.us.i.us:                ; preds = %1053
@@ -26925,7 +26925,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc.i, %18, %9
   %95 = fpext float %94 to double
   %96 = call double @llvm.fmuladd.f64(double %92, double %95, double %.0161205.us.i)
   %indvars.iv.next315.i = add nuw nsw i64 %indvars.iv314.i, 2
-  %.not187.us.i = icmp ugt i64 %indvars.iv.next315.i, %30
+  %.not187.us.i = icmp samesign ugt i64 %indvars.iv.next315.i, %30
   br i1 %.not187.us.i, label %..preheader196_crit_edge.us.i, label %.lr.ph206.us.i, !llvm.loop !504
 
 ._crit_edge.us.i:                                 ; preds = %.lr.ph211.us.i, %..preheader196_crit_edge.us.i
@@ -28237,7 +28237,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc.i, %18, %9
   %52 = load double, ptr %51, align 8
   %53 = call double @llvm.fmuladd.f64(double %50, double %52, double %.0161205.us.i.us.us)
   %indvars.iv.next315.i.us.us = add nuw nsw i64 %indvars.iv314.i.us.us, 2
-  %.not187.us.i.us.us = icmp ugt i64 %indvars.iv.next315.i.us.us, %30
+  %.not187.us.i.us.us = icmp samesign ugt i64 %indvars.iv.next315.i.us.us, %30
   br i1 %.not187.us.i.us.us, label %.lr.ph211.us.i.us.us, label %.lr.ph206.us.i.us.us, !llvm.loop !536
 
 .lr.ph211.us.i.us.us:                             ; preds = %.lr.ph206.us.i.us.us, %.lr.ph211.us.i.us.us
@@ -28442,7 +28442,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc.i, %18, %9
   %119 = load double, ptr %118, align 8
   %120 = call double @llvm.fmuladd.f64(double %117, double %119, double %.0161205.us.i)
   %indvars.iv.next315.i = add nuw nsw i64 %indvars.iv314.i, 2
-  %.not187.us.i = icmp ugt i64 %indvars.iv.next315.i, %30
+  %.not187.us.i = icmp samesign ugt i64 %indvars.iv.next315.i, %30
   br i1 %.not187.us.i, label %..preheader196_crit_edge.us.i, label %.lr.ph206.us.i, !llvm.loop !536
 
 ..preheader196_crit_edge.us.i:                    ; preds = %.lr.ph206.us.i

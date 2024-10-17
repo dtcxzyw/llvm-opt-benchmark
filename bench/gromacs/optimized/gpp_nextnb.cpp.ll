@@ -975,7 +975,7 @@ _Z8init_nnbP8t_nextnbii.exit:                     ; preds = %26
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %68, %78
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
-  %80 = icmp uge i64 %indvars.iv.next.i8, %75
+  %80 = icmp samesign uge i64 %indvars.iv.next.i8, %75
   %.not76.i = select i1 %80, i1 true, i1 %79
   br i1 %.not76.i, label %._crit_edge.loopexit.i, label %76, !llvm.loop !21
 
@@ -986,7 +986,7 @@ _Z8init_nnbP8t_nextnbii.exit:                     ; preds = %26
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %.1.lcssa.i = phi i8 [ %.082.i, %.preheader.i ], [ %81, %._crit_edge.loopexit.i ]
   %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 1
-  %82 = icmp uge i64 %indvars.iv.next109.i, %indvars.iv116.i
+  %82 = icmp samesign uge i64 %indvars.iv.next109.i, %indvars.iv116.i
   %83 = trunc nuw i8 %.1.lcssa.i to i1
   %.not73.i = select i1 %82, i1 true, i1 %83
   br i1 %.not73.i, label %._crit_edge83.i, label %.preheader.i, !llvm.loop !22

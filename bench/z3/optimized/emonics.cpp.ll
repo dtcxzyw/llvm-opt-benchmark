@@ -5340,7 +5340,7 @@ _ZNK6vectorIjLb0EjE3getEjRKj.exit.i.lr.ph:        ; preds = %_ZNK6vectorIjLb0EjE
 _ZNK6vectorIjLb0EjE3getEjRKj.exit.i:              ; preds = %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.lr.ph, %_ZNK3nla7emonics12is_monic_varEj.exit.thread
   %indvars.iv = phi i64 [ 0, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.lr.ph ], [ %indvars.iv.next, %_ZNK3nla7emonics12is_monic_varEj.exit.thread ]
   %mons.0103107 = phi i32 [ 0, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.lr.ph ], [ %3, %_ZNK3nla7emonics12is_monic_varEj.exit.thread ]
-  %cmp.not.i.i = icmp ult i64 %indvars.iv, %2
+  %cmp.not.i.i = icmp samesign ult i64 %indvars.iv, %2
   br i1 %cmp.not.i.i, label %_ZNK3nla7emonics12is_monic_varEj.exit, label %_ZNK3nla7emonics12is_monic_varEj.exit.thread
 
 _ZNK3nla7emonics12is_monic_varEj.exit:            ; preds = %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i
@@ -6915,7 +6915,7 @@ if.end.split:                                     ; preds = %entry
   %0 = load i32, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5557 = lshr i64 %sub.i, 1
-  %cmp24.i = icmp ult i64 %div11, %div.i5557
+  %cmp24.i = icmp samesign ult i64 %div11, %div.i5557
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i

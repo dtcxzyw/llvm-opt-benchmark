@@ -1687,7 +1687,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %3, %Vec_IntFill.exi
   store i32 %24, ptr %22, align 8
   %25 = add nuw nsw i32 %4, 2
   %26 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
-  %or.cond.i.i = icmp ult i32 %4, 6
+  %or.cond.i.i = icmp samesign ult i32 %4, 6
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 8, i32 %25
   store i32 %spec.store.select.i.i, ptr %26, align 8
   %27 = shl nuw nsw i32 %spec.store.select.i.i, 3
@@ -8328,7 +8328,7 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %25, %34
   %42 = tail call i32 @Abc_NtkLevel_rec(ptr noundef %41)
   %43 = load i32, ptr %2, align 4
   %44 = lshr i32 %43, 12
-  %45 = icmp ult i32 %44, %42
+  %45 = icmp samesign ult i32 %44, %42
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %Abc_ObjFanin0Ntk.exit
@@ -8473,7 +8473,7 @@ Abc_ObjFanout0Ntk.exit:                           ; preds = %26, %35
   %43 = tail call i32 @Abc_NtkLevelReverse_rec(ptr noundef %42)
   %44 = load i32, ptr %2, align 4
   %45 = lshr i32 %44, 12
-  %46 = icmp ult i32 %45, %43
+  %46 = icmp samesign ult i32 %45, %43
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %Abc_ObjFanout0Ntk.exit
@@ -8537,7 +8537,7 @@ define noalias noundef ptr @Abc_NtkLevelize(ptr nocapture noundef %0) local_unna
   %2 = tail call i32 @Abc_NtkLevel(ptr noundef %0)
   %3 = add nuw nsw i32 %2, 1
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
-  %or.cond.i.i = icmp ult i32 %2, 7
+  %or.cond.i.i = icmp samesign ult i32 %2, 7
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 8, i32 %3
   store i32 %spec.store.select.i.i, ptr %4, align 8
   %5 = shl nuw nsw i32 %spec.store.select.i.i, 3
@@ -10058,7 +10058,7 @@ define noalias noundef ptr @Abc_AigGetLevelizedOrder(ptr noundef %0, i32 noundef
   %3 = tail call i32 @Abc_AigSetChoiceLevels(ptr noundef %0)
   %4 = add nuw nsw i32 %3, 1
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
-  %or.cond.i.i = icmp ult i32 %3, 7
+  %or.cond.i.i = icmp samesign ult i32 %3, 7
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 8, i32 %4
   store i32 %spec.store.select.i.i, ptr %5, align 8
   %6 = zext nneg i32 %spec.store.select.i.i to i64

@@ -4365,7 +4365,7 @@ define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$L
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr55drop_in_place$LT$minicbor..decode..error..ErrorImpl$GT$17h52d478b9b433db6aE.llvm.3062767651664570529"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !1203, !noundef !5
-  %switch = icmp ult i8 %2, 9
+  %switch = icmp samesign ult i8 %2, 9
   br i1 %switch, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h3b3682676acac60dE.llvm.3062767651664570529.exit", label %3
 
 3:                                                ; preds = %1
@@ -8891,7 +8891,7 @@ _ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E.llvm.3062767651664570529.exit: 
   %59 = lshr i32 %36, 3
   %60 = and i32 %59, 1023
   %61 = zext nneg i32 %60 to i64
-  %62 = icmp ult i32 %60, 733
+  %62 = icmp samesign ult i32 %60, 733
   br i1 %62, label %_ZN6chrono5naive4date9NaiveDate5month17h6dfa64ec228a616bE.exit, label %63, !prof !1795
 
 63:                                               ; preds = %_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E.llvm.3062767651664570529.exit
@@ -8905,11 +8905,11 @@ _ZN6chrono5naive4date9NaiveDate5month17h6dfa64ec228a616bE.exit: ; preds = %_ZN5a
   %67 = add nuw nsw i32 %60, %66
   %68 = lshr i32 %67, 6
   %69 = trunc nuw nsw i32 %68 to i8
-  %.cmp = icmp ugt i32 %67, 639
+  %.cmp = icmp samesign ugt i32 %67, 639
   %70 = zext i1 %.cmp to i8
   %71 = or disjoint i8 %70, 48
   %.urem = add nsw i8 %69, -10
-  %.cmp241 = icmp ult i32 %67, 640
+  %.cmp241 = icmp samesign ult i32 %67, 640
   %72 = select i1 %.cmp241, i8 %69, i8 %.urem
   %73 = or disjoint i8 %72, 48
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9f74ff6fbfcb3083E.llvm.15673428424896960800"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %71)
@@ -9548,7 +9548,7 @@ define hidden void @_ZN7tracing4span4Span3log17hec43ba3be1da64bbE.llvm.306276765
   %17 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %18 = icmp ult i64 %17, 6
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ugt i64 %.0, %17
+  %19 = icmp samesign ugt i64 %.0, %17
   br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %13, %31, %5

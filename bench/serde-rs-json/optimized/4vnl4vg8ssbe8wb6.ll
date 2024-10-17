@@ -420,7 +420,7 @@ _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %1 = load ptr, ptr %0, align 8, !alias.scope !39, !nonnull !4, !align !34, !noundef !4
   %2 = load i64, ptr %1, align 8, !range !35, !noalias !39, !noundef !4
-  %switch = icmp ugt i64 %2, 5
+  %switch = icmp samesign ugt i64 %2, 5
   ret i1 %switch
 }
 
@@ -1322,15 +1322,15 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
   br i1 %75, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h37edd6da2056eb06E.exit.i.thread", label %76
 
 76:                                               ; preds = %74
-  %77 = icmp ult i32 %.sroa.4.1.i.ph.i.i.i.i, 128
+  %77 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i.i.i, 128
   br i1 %77, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h512faaef23508819E.exit.i.i.i", label %78
 
 78:                                               ; preds = %76
-  %79 = icmp ult i32 %.sroa.4.1.i.ph.i.i.i.i, 2048
+  %79 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i.i.i, 2048
   br i1 %79, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h512faaef23508819E.exit.i.i.i", label %80
 
 80:                                               ; preds = %78
-  %81 = icmp ult i32 %.sroa.4.1.i.ph.i.i.i.i, 65536
+  %81 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i.i.i, 65536
   %..i.i.i.i = select i1 %81, i64 -3, i64 -4
   br label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h512faaef23508819E.exit.i.i.i"
 

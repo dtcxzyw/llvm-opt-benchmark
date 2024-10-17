@@ -749,7 +749,7 @@ define linkonce_odr hidden noundef ptr @_ZN16G1FreeRegionList29remove_region_wit
   %17 = add nuw nsw i64 %.03650, 1
   %.035 = load ptr, ptr %16, align 8
   %18 = icmp ne ptr %.035, null
-  %19 = icmp ult i64 %17, %6
+  %19 = icmp samesign ult i64 %17, %6
   %20 = select i1 %18, i1 %19, i1 false
   br i1 %20, label %.lr.ph52, label %.loopexit, !llvm.loop !8
 
@@ -773,7 +773,7 @@ define linkonce_odr hidden noundef ptr @_ZN16G1FreeRegionList29remove_region_wit
   %30 = add nuw nsw i64 %.23843, 1
   %.2 = load ptr, ptr %29, align 8
   %31 = icmp ne ptr %.2, null
-  %32 = icmp ult i64 %30, %6
+  %32 = icmp samesign ult i64 %30, %6
   %33 = select i1 %31, i1 %32, i1 false
   br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
@@ -781,7 +781,7 @@ define linkonce_odr hidden noundef ptr @_ZN16G1FreeRegionList29remove_region_wit
   %.137 = phi i64 [ 0, %21 ], [ 0, %8 ], [ %.03650, %.lr.ph52 ], [ %17, %15 ], [ %.23843, %.lr.ph ], [ %30, %28 ]
   %.1 = phi ptr [ %.242, %21 ], [ %.03549, %8 ], [ %.03551, %.lr.ph52 ], [ %.035, %15 ], [ %.244, %.lr.ph ], [ %.2, %28 ]
   %34 = icmp ne ptr %.1, null
-  %.not = icmp ult i64 %.137, %6
+  %.not = icmp samesign ult i64 %.137, %6
   %or.cond = select i1 %34, i1 %.not, i1 false
   br i1 %or.cond, label %35, label %_ZN16G1FreeRegionList15decrease_lengthEj.exit
 
@@ -2094,7 +2094,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN19G1HeapRegionManager24expand_on_p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i64, ptr %3, align 8
   %26 = and i64 %25, 4294967295
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %11, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %24
@@ -3099,7 +3099,7 @@ define hidden void @_ZN19G1HeapRegionManager6verifyEv(ptr noundef nonnull align 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %106 = load i32, ptr %4, align 8
   %107 = zext i32 %106 to i64
-  %108 = icmp ult i64 %indvars.iv.next, %107
+  %108 = icmp samesign ult i64 %indvars.iv.next, %107
   br i1 %108, label %44, label %.preheader.loopexit, !llvm.loop !34
 
 109:                                              ; preds = %.lr.ph73, %116
@@ -3297,7 +3297,7 @@ _ZN21G1RebuildFreeListTaskC2EP19G1HeapRegionManagerj.exit: ; preds = %.lr.ph.i
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %53 = load i32, ptr %26, align 4
   %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next.i11, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next.i11, %54
   br i1 %55, label %.lr.ph.i9, label %_ZN21G1RebuildFreeListTaskD2Ev.exit, !llvm.loop !38
 
 _ZN21G1RebuildFreeListTaskD2Ev.exit:              ; preds = %.lr.ph.i9, %36
@@ -4723,7 +4723,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25
@@ -11318,7 +11318,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -11564,7 +11564,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i

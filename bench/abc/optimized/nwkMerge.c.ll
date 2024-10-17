@@ -797,7 +797,7 @@ define void @Nwk_ManGraphSortPairs(ptr nocapture noundef readonly %0) local_unna
   %24 = getelementptr inbounds i32, ptr %9, i64 %23
   store i32 %20, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %25 = icmp ult i64 %indvars.iv.next, %16
+  %25 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %25, label %17, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %17, %.preheader

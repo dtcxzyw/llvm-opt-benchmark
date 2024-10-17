@@ -1589,7 +1589,7 @@ _ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exi
   %shr51 = lshr i32 %or50, 16
   %conv53 = trunc nuw i32 %shr51 to i8
   store i8 %conv53, ptr %dst.addr.0.lcssa, align 1
-  %cmp55 = icmp ugt i64 %.lcssa, 2
+  %cmp55 = icmp samesign ugt i64 %.lcssa, 2
   br i1 %cmp55, label %if.then56, label %return
 
 if.then56:                                        ; preds = %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit64

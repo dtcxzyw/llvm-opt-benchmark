@@ -90,7 +90,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
 if.end21.i.i:                                     ; preds = %do.body.i.i, %if.end.i.i
   %byteCount.addr.2.i.i = phi i64 [ %byteCount.addr.1.i.i, %if.end.i.i ], [ %sub19.i.i, %do.body.i.i ]
   %pDestination.addr.2.i.i = phi ptr [ %pDestination.addr.1.i.i, %if.end.i.i ], [ %add.ptr18.i.i, %do.body.i.i ]
-  %cmp22.i.i = icmp ugt i64 %byteCount.addr.2.i.i, 15
+  %cmp22.i.i = icmp samesign ugt i64 %byteCount.addr.2.i.i, 15
   br i1 %cmp22.i.i, label %do.body24.i.i, label %if.end34.i.i
 
 do.body24.i.i:                                    ; preds = %if.end21.i.i, %do.body24.i.i
@@ -111,7 +111,7 @@ do.body24.i.i:                                    ; preds = %if.end21.i.i, %do.b
 if.end34.i.i:                                     ; preds = %do.body24.i.i, %if.end21.i.i
   %byteCount.addr.4.i.i = phi i64 [ %byteCount.addr.2.i.i, %if.end21.i.i ], [ %sub30.i.i, %do.body24.i.i ]
   %pDestination.addr.4.i.i = phi ptr [ %pDestination.addr.2.i.i, %if.end21.i.i ], [ %add.ptr29.i.i, %do.body24.i.i ]
-  %cmp35.i.i = icmp ugt i64 %byteCount.addr.4.i.i, 3
+  %cmp35.i.i = icmp samesign ugt i64 %byteCount.addr.4.i.i, 3
   br i1 %cmp35.i.i, label %do.body37.i.i, label %if.end43.i.i
 
 do.body37.i.i:                                    ; preds = %if.end34.i.i, %do.body37.i.i
@@ -227,7 +227,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
 if.end21.i:                                       ; preds = %do.body.i, %if.end.i
   %byteCount.addr.2.i = phi i64 [ %byteCount.addr.1.i, %if.end.i ], [ %sub19.i, %do.body.i ]
   %pDestination.addr.2.i = phi ptr [ %pDestination.addr.1.i, %if.end.i ], [ %add.ptr18.i, %do.body.i ]
-  %cmp22.i = icmp ugt i64 %byteCount.addr.2.i, 15
+  %cmp22.i = icmp samesign ugt i64 %byteCount.addr.2.i, 15
   br i1 %cmp22.i, label %do.body24.i, label %if.end34.i
 
 do.body24.i:                                      ; preds = %if.end21.i, %do.body24.i
@@ -248,7 +248,7 @@ do.body24.i:                                      ; preds = %if.end21.i, %do.bod
 if.end34.i:                                       ; preds = %do.body24.i, %if.end21.i
   %byteCount.addr.4.i = phi i64 [ %byteCount.addr.2.i, %if.end21.i ], [ %sub30.i, %do.body24.i ]
   %pDestination.addr.4.i = phi ptr [ %pDestination.addr.2.i, %if.end21.i ], [ %add.ptr29.i, %do.body24.i ]
-  %cmp35.i = icmp ugt i64 %byteCount.addr.4.i, 3
+  %cmp35.i = icmp samesign ugt i64 %byteCount.addr.4.i, 3
   br i1 %cmp35.i, label %do.body37.i, label %if.end43.i
 
 do.body37.i:                                      ; preds = %if.end34.i, %do.body37.i
@@ -363,7 +363,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
 if.end21.i:                                       ; preds = %do.body.i, %if.end.i
   %byteCount.addr.2.i = phi i64 [ %byteCount.addr.1.i, %if.end.i ], [ %sub19.i, %do.body.i ]
   %pDestination.addr.2.i = phi ptr [ %pDestination.addr.1.i, %if.end.i ], [ %add.ptr18.i, %do.body.i ]
-  %cmp22.i = icmp ugt i64 %byteCount.addr.2.i, 15
+  %cmp22.i = icmp samesign ugt i64 %byteCount.addr.2.i, 15
   br i1 %cmp22.i, label %do.body24.i, label %if.end34.i
 
 do.body24.i:                                      ; preds = %if.end21.i, %do.body24.i
@@ -384,7 +384,7 @@ do.body24.i:                                      ; preds = %if.end21.i, %do.bod
 if.end34.i:                                       ; preds = %do.body24.i, %if.end21.i
   %byteCount.addr.4.i = phi i64 [ %byteCount.addr.2.i, %if.end21.i ], [ %sub30.i, %do.body24.i ]
   %pDestination.addr.4.i = phi ptr [ %pDestination.addr.2.i, %if.end21.i ], [ %add.ptr29.i, %do.body24.i ]
-  %cmp35.i = icmp ugt i64 %byteCount.addr.4.i, 3
+  %cmp35.i = icmp samesign ugt i64 %byteCount.addr.4.i, 3
   br i1 %cmp35.i, label %do.body37.i, label %if.end43.i
 
 do.body37.i:                                      ; preds = %if.end34.i, %do.body37.i
@@ -498,7 +498,7 @@ do.body:                                          ; preds = %do.body, %if.then7
 if.end21:                                         ; preds = %do.body, %if.end
   %byteCount.addr.2 = phi i64 [ %byteCount.addr.1, %if.end ], [ %sub19, %do.body ]
   %pDestination.addr.2 = phi ptr [ %pDestination.addr.1, %if.end ], [ %add.ptr18, %do.body ]
-  %cmp22 = icmp ugt i64 %byteCount.addr.2, 15
+  %cmp22 = icmp samesign ugt i64 %byteCount.addr.2, 15
   br i1 %cmp22, label %do.body24, label %if.end34
 
 do.body24:                                        ; preds = %if.end21, %do.body24
@@ -519,7 +519,7 @@ do.body24:                                        ; preds = %if.end21, %do.body2
 if.end34:                                         ; preds = %do.body24, %if.end21
   %byteCount.addr.4 = phi i64 [ %byteCount.addr.2, %if.end21 ], [ %sub30, %do.body24 ]
   %pDestination.addr.4 = phi ptr [ %pDestination.addr.2, %if.end21 ], [ %add.ptr29, %do.body24 ]
-  %cmp35 = icmp ugt i64 %byteCount.addr.4, 3
+  %cmp35 = icmp samesign ugt i64 %byteCount.addr.4, 3
   br i1 %cmp35, label %do.body37, label %if.end43
 
 do.body37:                                        ; preds = %if.end34, %do.body37
@@ -659,7 +659,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
 if.end21.i.i:                                     ; preds = %do.body.i.i, %if.end.i.i
   %byteCount.addr.2.i.i = phi i64 [ %byteCount.addr.1.i.i, %if.end.i.i ], [ %sub19.i.i, %do.body.i.i ]
   %pDestination.addr.2.i.i = phi ptr [ %pDestination.addr.1.i.i, %if.end.i.i ], [ %add.ptr18.i.i, %do.body.i.i ]
-  %cmp22.i.i = icmp ugt i64 %byteCount.addr.2.i.i, 15
+  %cmp22.i.i = icmp samesign ugt i64 %byteCount.addr.2.i.i, 15
   br i1 %cmp22.i.i, label %do.body24.i.i, label %if.end34.i.i
 
 do.body24.i.i:                                    ; preds = %if.end21.i.i, %do.body24.i.i
@@ -680,7 +680,7 @@ do.body24.i.i:                                    ; preds = %if.end21.i.i, %do.b
 if.end34.i.i:                                     ; preds = %do.body24.i.i, %if.end21.i.i
   %byteCount.addr.4.i.i = phi i64 [ %byteCount.addr.2.i.i, %if.end21.i.i ], [ %sub30.i.i, %do.body24.i.i ]
   %pDestination.addr.4.i.i = phi ptr [ %pDestination.addr.2.i.i, %if.end21.i.i ], [ %add.ptr29.i.i, %do.body24.i.i ]
-  %cmp35.i.i = icmp ugt i64 %byteCount.addr.4.i.i, 3
+  %cmp35.i.i = icmp samesign ugt i64 %byteCount.addr.4.i.i, 3
   br i1 %cmp35.i.i, label %do.body37.i.i, label %if.end43.i.i
 
 do.body37.i.i:                                    ; preds = %if.end34.i.i, %do.body37.i.i
@@ -776,7 +776,7 @@ while.body.i:                                     ; preds = %sw.bb3, %while.body
 while.cond45.preheader.i:                         ; preds = %while.body40.i, %while.cond38.preheader.i
   %pDestination.1.lcssa.i = phi ptr [ %pDestination.0.lcssa.i, %while.cond38.preheader.i ], [ %add.ptr43.i, %while.body40.i ]
   %byteCount.addr.1.lcssa.i = phi i64 [ %byteCount.addr.0.lcssa.i, %while.cond38.preheader.i ], [ %sub.i, %while.body40.i ]
-  %cmp4657.i = icmp ugt i64 %byteCount.addr.1.lcssa.i, 3
+  %cmp4657.i = icmp samesign ugt i64 %byteCount.addr.1.lcssa.i, 3
   br i1 %cmp4657.i, label %while.body47.i, label %while.cond51.preheader.i
 
 while.body40.i:                                   ; preds = %while.cond38.preheader.i, %while.body40.i
@@ -901,7 +901,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
 if.end21.i:                                       ; preds = %do.body.i, %if.end.i
   %byteCount.addr.2.i = phi i64 [ %byteCount.addr.1.i, %if.end.i ], [ %sub19.i, %do.body.i ]
   %pDestination.addr.2.i = phi ptr [ %pDestination.addr.1.i, %if.end.i ], [ %add.ptr18.i, %do.body.i ]
-  %cmp22.i = icmp ugt i64 %byteCount.addr.2.i, 15
+  %cmp22.i = icmp samesign ugt i64 %byteCount.addr.2.i, 15
   br i1 %cmp22.i, label %do.body24.i, label %if.end34.i
 
 do.body24.i:                                      ; preds = %if.end21.i, %do.body24.i
@@ -922,7 +922,7 @@ do.body24.i:                                      ; preds = %if.end21.i, %do.bod
 if.end34.i:                                       ; preds = %do.body24.i, %if.end21.i
   %byteCount.addr.4.i = phi i64 [ %byteCount.addr.2.i, %if.end21.i ], [ %sub30.i, %do.body24.i ]
   %pDestination.addr.4.i = phi ptr [ %pDestination.addr.2.i, %if.end21.i ], [ %add.ptr29.i, %do.body24.i ]
-  %cmp35.i = icmp ugt i64 %byteCount.addr.4.i, 3
+  %cmp35.i = icmp samesign ugt i64 %byteCount.addr.4.i, 3
   br i1 %cmp35.i, label %do.body37.i, label %if.end43.i
 
 do.body37.i:                                      ; preds = %if.end34.i, %do.body37.i
@@ -1183,7 +1183,7 @@ while.end107.i:                                   ; preds = %while.body101.i, %i
   br i1 %cmp108.not.i, label %sw.epilog, label %while.cond110.preheader.i
 
 while.cond110.preheader.i:                        ; preds = %while.end107.i
-  %cmp111111.i = icmp ugt i64 %byteCount.addr.2.lcssa.i38, 3
+  %cmp111111.i = icmp samesign ugt i64 %byteCount.addr.2.lcssa.i38, 3
   br i1 %cmp111111.i, label %while.body112.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.cond.preheader.i, %while.cond110.preheader.i
@@ -1219,7 +1219,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %shr122.i = lshr i32 %v1.4121.i, 8
   %dec123.i = add nsw i64 %byteCount.addr.4123.i, -1
   %inc.i = add nuw nsw i32 %i.0124.i, 1
-  %cmp116.i = icmp ult i32 %i.0124.i, 3
+  %cmp116.i = icmp samesign ult i32 %i.0124.i, 3
   %cmp118.i = icmp ne i64 %dec123.i, 0
   %41 = select i1 %cmp116.i, i1 %cmp118.i, i1 false
   br i1 %41, label %for.body.i, label %sw.epilog, !llvm.loop !22
@@ -1827,7 +1827,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
 while.cond45.preheader.i:                         ; preds = %while.body40.i, %while.cond38.preheader.i
   %pDestination.1.lcssa.i = phi ptr [ %pDestination.0.lcssa.i, %while.cond38.preheader.i ], [ %add.ptr43.i, %while.body40.i ]
   %byteCount.addr.1.lcssa.i = phi i64 [ %byteCount.addr.0.lcssa.i, %while.cond38.preheader.i ], [ %sub.i, %while.body40.i ]
-  %cmp4657.i = icmp ugt i64 %byteCount.addr.1.lcssa.i, 3
+  %cmp4657.i = icmp samesign ugt i64 %byteCount.addr.1.lcssa.i, 3
   br i1 %cmp4657.i, label %while.body47.i, label %while.cond51.preheader.i
 
 while.body40.i:                                   ; preds = %while.cond38.preheader.i, %while.body40.i

@@ -1144,13 +1144,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit300: ;
   %.fr = freeze float %397
   %398 = fcmp une float %.fr, 0.000000e+00
   %indvars.iv.next531 = add nuw nsw i64 %indvars.iv530, 1
-  %399 = icmp ugt i64 %indvars.iv530, 1
+  %399 = icmp samesign ugt i64 %indvars.iv530, 1
   %.not263 = or i1 %399, %398
   br i1 %.not263, label %._crit_edge, label %.lr.ph462, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph462
   %indvars.iv.next534 = add nuw nsw i64 %indvars.iv533, 1
-  %400 = icmp uge i64 %indvars.iv.next534, %395
+  %400 = icmp samesign uge i64 %indvars.iv.next534, %395
   %.not254 = or i1 %400, %398
   br i1 %.not254, label %._crit_edge465, label %.preheader435, !llvm.loop !8
 
@@ -3868,7 +3868,7 @@ _ZL10pdb_legendP8_IO_FILEiiP7t_atomsPA3_f.exit:   ; preds = %1693, %_ZL14gmx_sfr
   %1843 = add nsw i32 %1842, %1720
   %1844 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1508, ptr noundef nonnull @.str.223, i32 noundef %1839, i32 noundef %1843) #23
   %indvars.iv.next.i372 = add nuw nsw i64 %indvars.iv.i371, 2
-  %1845 = icmp ult i64 %indvars.iv.i371, 22
+  %1845 = icmp samesign ult i64 %indvars.iv.i371, 22
   br i1 %1845, label %.preheader9.i, label %_ZL13visualize_boxP8_IO_FILEiiPA3_fPKf.exit, !llvm.loop !53
 
 _ZL13visualize_boxP8_IO_FILEiiPA3_fPKf.exit:      ; preds = %.preheader9.i, %._crit_edge38.i
@@ -4309,7 +4309,7 @@ define internal fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 nounde
 
 41:                                               ; preds = %92
   %42 = add nuw nsw i64 %indvars.iv148, 1
-  %43 = icmp ult i64 %42, %22
+  %43 = icmp samesign ult i64 %42, %22
   br i1 %.not, label %.preheader.us, label %.preheader88.us
 
 44:                                               ; preds = %.lr.ph.us, %44

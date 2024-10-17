@@ -468,7 +468,7 @@ _ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_g
   %gep321.us.us = getelementptr inbounds i32, ptr %gep416, i64 %indvars.iv91.i.us.us
   %182 = load i32, ptr %gep321.us.us, align 4
   %indvars.iv.next92.i.us.us = add nuw nsw i64 %indvars.iv91.i.us.us, 1
-  %183 = icmp ult i64 %indvars.iv.next92.i.us.us, %179
+  %183 = icmp samesign ult i64 %indvars.iv.next92.i.us.us, %179
   br i1 %183, label %.lr.ph.us.i.us.us, label %.loopexit72.us.i.us.us
 
 .lr.ph.us.i.us.us:                                ; preds = %181
@@ -557,7 +557,7 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us: ; pr
   %gep321 = getelementptr inbounds i32, ptr %gep414, i64 %indvars.iv91.i
   %214 = load i32, ptr %gep321, align 4
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
-  %215 = icmp ult i64 %indvars.iv.next92.i, %179
+  %215 = icmp samesign ult i64 %indvars.iv.next92.i, %179
   br i1 %215, label %.lr.ph.us.i, label %.loopexit72.us.i
 
 216:                                              ; preds = %.lr.ph.us.i, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i
@@ -977,7 +977,7 @@ _ZN7t_graphD2Ev.exit82:                           ; preds = %317, %_ZNSt6vectorI
   %359 = getelementptr inbounds i32, ptr %358, i64 %355
   %360 = load i32, ptr %359, align 4
   %indvars.iv.next52.i.us.us = add nuw nsw i64 %indvars.iv51.i.us.us, 1
-  %361 = icmp ult i64 %indvars.iv.next52.i.us.us, %353
+  %361 = icmp samesign ult i64 %indvars.iv.next52.i.us.us, %353
   br i1 %361, label %.lr.ph.us.i88.us.us, label %.loopexit.us.i.us.us
 
 .lr.ph.us.i88.us.us:                              ; preds = %356
@@ -1062,7 +1062,7 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89.us.us.us: ; 
   %392 = getelementptr inbounds i32, ptr %391, i64 %388
   %393 = load i32, ptr %392, align 4
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
-  %394 = icmp ult i64 %indvars.iv.next52.i, %353
+  %394 = icmp samesign ult i64 %indvars.iv.next52.i, %353
   br i1 %394, label %.lr.ph.us.i88, label %.loopexit.us.i
 
 395:                                              ; preds = %.lr.ph.us.i88, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89

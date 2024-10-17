@@ -10421,7 +10421,7 @@ _ZN4Luau6Parser12parseUnaryOpERKNS_6LexemeE.exit: ; preds = %_ZN4Luau6Parser25in
 _ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit: ; preds = %27
   %44 = call i64 @_ZN4Luau6Parser22checkBinaryConfusablesEPKNS0_16BinaryOpPriorityEj(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull @_ZZN4Luau6Parser9parseExprEjE14binaryPriority, i32 noundef %1)
   %.sroa.0.0.extract.trunc17 = trunc i64 %44 to i32
-  %.sroa.7.0.extract.trunc22 = icmp ugt i64 %44, 4294967295
+  %.sroa.7.0.extract.trunc22 = icmp samesign ugt i64 %44, 4294967295
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit.thread
 
 _ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit.thread: ; preds = %27, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit
@@ -10526,7 +10526,7 @@ _ZN4Luau6Parser25incrementRecursionCounterEPKc.exit13: ; preds = %_ZN4Luau6Parse
 _ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12: ; preds = %53
   %78 = call i64 @_ZN4Luau6Parser22checkBinaryConfusablesEPKNS0_16BinaryOpPriorityEj(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull @_ZZN4Luau6Parser9parseExprEjE14binaryPriority, i32 noundef %1)
   %.sroa.0.0.extract.trunc = trunc i64 %78 to i32
-  %.sroa.7.0.extract.trunc = icmp ugt i64 %78, 4294967295
+  %.sroa.7.0.extract.trunc = icmp samesign ugt i64 %78, 4294967295
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread
 
 _ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12.thread: ; preds = %53, %63, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit12

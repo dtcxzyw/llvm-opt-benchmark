@@ -169,7 +169,7 @@ define dso_local noundef zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr n
 
 89:                                               ; preds = %83, %75
   %90 = add nuw nsw i64 %76, 1
-  %91 = icmp ugt i64 %76, 2
+  %91 = icmp samesign ugt i64 %76, 2
   %92 = icmp eq i64 %90, 4
   br i1 %92, label %93, label %75, !llvm.loop !8
 
@@ -322,7 +322,7 @@ define dso_local noundef zeroext i1 @intel_set_pch_fifo_underrun_reporting(ptr n
 
 42:                                               ; preds = %36, %28
   %43 = add nuw nsw i64 %29, 1
-  %44 = icmp ugt i64 %29, 2
+  %44 = icmp samesign ugt i64 %29, 2
   %45 = icmp eq i64 %43, 4
   br i1 %45, label %46, label %28, !llvm.loop !11
 

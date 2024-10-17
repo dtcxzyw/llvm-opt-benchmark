@@ -1037,7 +1037,7 @@ ehcleanup22:                                      ; preds = %lpad17, %lpad.i22, 
 
 if.end23:                                         ; preds = %do.body
   %call24 = tail call noundef zeroext i8 @_ZN8proxygen17HPACKDecodeBuffer4nextEv(ptr noundef nonnull align 8 dereferenceable(21) %this)
-  %cmp25 = icmp ugt i32 %fexp.0, 64
+  %cmp25 = icmp samesign ugt i32 %fexp.0, 64
   br i1 %cmp25, label %if.then26, label %if.end36
 
 if.then26:                                        ; preds = %if.end23
@@ -2861,7 +2861,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   %add.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i, 2
+  %cmp.i16.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i, label %while.body.i.preheader.i.i.i.i, label %while.end.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
@@ -2923,7 +2923,7 @@ if.end.i.i.i.i.i.i18:                             ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i42: ; preds = %for.body.i.i.i.i.i.i14
   %add.i.i.i.i.i.i43 = call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i15, i64 1)
-  %cmp.i16.i.i.i.i44 = icmp ugt i64 %i.i.i.015.i.i.i.i15, 2
+  %cmp.i16.i.i.i.i44 = icmp samesign ugt i64 %i.i.i.015.i.i.i.i15, 2
   br i1 %cmp.i16.i.i.i.i44, label %while.body.i.preheader.i.i.i.i21, label %while.end.i.i.i.i.i32
 
 while.body.i.preheader.i.i.i.i21:                 ; preds = %if.end.i.i.i.i.i.i18, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i42

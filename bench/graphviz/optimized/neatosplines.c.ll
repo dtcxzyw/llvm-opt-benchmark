@@ -1091,7 +1091,7 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
   %indvars.iv64.i = phi i64 [ 0, %.lr.ph54.preheader.i ], [ %indvars.iv.next65.i, %.lr.ph54.i ]
   %indvars.iv62.i = phi i64 [ %55, %.lr.ph54.preheader.i ], [ %indvars.iv.next63.i, %.lr.ph54.i ]
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
-  %.not.i = icmp ult i64 %indvars.iv.next65.i, %56
+  %.not.i = icmp samesign ult i64 %indvars.iv.next65.i, %56
   %57 = getelementptr inbounds %struct.Pedge_t, ptr %47, i64 %indvars.iv62.i
   %58 = getelementptr inbounds %struct.pointf_s, ptr %.pre.i, i64 %indvars.iv64.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false)

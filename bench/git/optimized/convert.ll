@@ -271,7 +271,7 @@ gather_convert_stats.exit:                        ; preds = %for.end.i.i, %conve
   %tobool5.not.i = icmp eq i32 %stats.sroa.7.1.i, 0
   %or7.i = or disjoint i32 %18, 2
   %ret.1.i = select i1 %tobool5.not.i, i32 %18, i32 %or7.i
-  %tobool.not = icmp ult i32 %ret.1.i, 4
+  %tobool.not = icmp samesign ult i32 %ret.1.i, 4
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %gather_convert_stats.exit
@@ -940,7 +940,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true
   br i1 %tobool7.not, label %if.else, label %land.lhs.true22
 
 if.else:                                          ; preds = %land.lhs.true6, %land.lhs.true, %if.end3
-  %tobool11.not = icmp ult i32 %wanted_capability, 2
+  %tobool11.not = icmp samesign ult i32 %wanted_capability, 2
   %process26.phi.trans.insert = getelementptr inbounds i8, ptr %drv, i64 32
   %.pre = load ptr, ptr %process26.phi.trans.insert, align 8
   %tobool27.not = icmp eq ptr %.pre, null

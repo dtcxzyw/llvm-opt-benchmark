@@ -223,7 +223,7 @@ define internal zeroext i1 @policy_mt(ptr nocapture noundef readonly %0, ptr noc
 104:                                              ; preds = %.split13
   %105 = load i16, ptr %85, align 2
   %106 = zext i16 %105 to i64
-  %107 = icmp ult i64 %indvars.iv, %106
+  %107 = icmp samesign ult i64 %indvars.iv, %106
   br i1 %107, label %108, label %.loopexit9
 
 108:                                              ; preds = %104

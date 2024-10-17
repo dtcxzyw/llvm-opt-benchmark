@@ -4202,15 +4202,15 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %44 = ptrtoint ptr %.sink13.i.i to i64
   %45 = sub i64 %44, %7
   %46 = add i64 %45, %5
-  %47 = icmp ult i32 %43, 128
+  %47 = icmp samesign ult i32 %43, 128
   br i1 %47, label %52, label %48
 
 48:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30874d33aa6c7943E.exit.thread11.i.i"
-  %49 = icmp ult i32 %43, 2048
+  %49 = icmp samesign ult i32 %43, 2048
   br i1 %49, label %52, label %50
 
 50:                                               ; preds = %48
-  %51 = icmp ult i32 %43, 65536
+  %51 = icmp samesign ult i32 %43, 65536
   %..i.i.i.i.i = select i1 %51, i64 3, i64 4
   br label %52
 
@@ -6152,15 +6152,15 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
   %46 = ptrtoint ptr %.sink13.i to i64
   %47 = sub i64 %46, %9
   %48 = add i64 %47, %7
-  %49 = icmp ult i32 %45, 128
+  %49 = icmp samesign ult i32 %45, 128
   br i1 %49, label %54, label %50
 
 50:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30874d33aa6c7943E.exit.thread11.i"
-  %51 = icmp ult i32 %45, 2048
+  %51 = icmp samesign ult i32 %45, 2048
   br i1 %51, label %54, label %52
 
 52:                                               ; preds = %50
-  %53 = icmp ult i32 %45, 65536
+  %53 = icmp samesign ult i32 %45, 65536
   %..i.i.i.i = select i1 %53, i64 3, i64 4
   br label %54
 
@@ -9553,15 +9553,15 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h07bff7d4caa155
   %50 = sub i64 %49, %11
   %51 = add i64 %50, %9
   store i64 %51, ptr %7, align 8, !alias.scope !3233
-  %52 = icmp ult i32 %48, 128
+  %52 = icmp samesign ult i32 %48, 128
   br i1 %52, label %.preheader, label %53
 
 53:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30874d33aa6c7943E.exit.thread11"
-  %54 = icmp ult i32 %48, 2048
+  %54 = icmp samesign ult i32 %48, 2048
   br i1 %54, label %.preheader, label %55
 
 55:                                               ; preds = %53
-  %56 = icmp ult i32 %48, 65536
+  %56 = icmp samesign ult i32 %48, 65536
   %..i.i.i = select i1 %56, i64 3, i64 4
   br label %.preheader
 
@@ -11122,22 +11122,22 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h5df262a0c31b46
   %123 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8, !noalias !3699
   %124 = icmp ult i64 %123, 6
   call void @llvm.assume(i1 %124)
-  %switch75.i.i.i.i.i = icmp ult i64 %123, 5
+  %switch75.i.i.i.i.i = icmp samesign ult i64 %123, 5
   br i1 %switch75.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %125
 
 125:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12993343960315125427.exit.thread"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %26), !noalias !3699
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25), !noalias !3699
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24), !noalias !3699
-  %126 = icmp ult i32 %122, 128
+  %126 = icmp samesign ult i32 %122, 128
   br i1 %126, label %131, label %127
 
 127:                                              ; preds = %125
-  %128 = icmp ult i32 %122, 2048
+  %128 = icmp samesign ult i32 %122, 2048
   br i1 %128, label %131, label %129
 
 129:                                              ; preds = %127
-  %130 = icmp ult i32 %122, 65536
+  %130 = icmp samesign ult i32 %122, 65536
   %.169.i.i.i.i.i = select i1 %130, i64 3, i64 4
   br label %131
 
@@ -11345,15 +11345,15 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h5df262a0c31b46
   store ptr %197, ptr %83, align 8, !alias.scope !3733, !noalias !3699
   %198 = load i32, ptr %194, align 4, !range !96, !noalias !3736, !noundef !14
   store i32 %198, ptr %21, align 4, !noalias !3699
-  %199 = icmp ult i32 %198, 128
+  %199 = icmp samesign ult i32 %198, 128
   br i1 %199, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hb97dede7fe02e585E.exit.i.i.i.i.i", label %200
 
 200:                                              ; preds = %196
-  %201 = icmp ult i32 %198, 2048
+  %201 = icmp samesign ult i32 %198, 2048
   br i1 %201, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hb97dede7fe02e585E.exit.i.i.i.i.i", label %202
 
 202:                                              ; preds = %200
-  %203 = icmp ult i32 %198, 65536
+  %203 = icmp samesign ult i32 %198, 65536
   %..i.i.i.i.i.i.i = select i1 %203, i64 3, i64 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hb97dede7fe02e585E.exit.i.i.i.i.i"
 
@@ -11362,15 +11362,15 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h5df262a0c31b46
   %.0.i130.i.i.i.i.i = phi i64 [ 1, %196 ], [ %..i.i.i.i.i.i.i, %202 ], [ 2, %200 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he14575b1c7dc8773E.exit.thread.i.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20), !noalias !3699
   %205 = load i32, ptr %27, align 4, !range !96, !noalias !3699, !noundef !14
-  %206 = icmp ult i32 %205, 128
+  %206 = icmp samesign ult i32 %205, 128
   br i1 %206, label %211, label %207
 
 207:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hb97dede7fe02e585E.exit.i.i.i.i.i"
-  %208 = icmp ult i32 %205, 2048
+  %208 = icmp samesign ult i32 %205, 2048
   br i1 %208, label %211, label %209
 
 209:                                              ; preds = %207
-  %210 = icmp ult i32 %205, 65536
+  %210 = icmp samesign ult i32 %205, 65536
   %..i.i.i.i.i = select i1 %210, i64 3, i64 4
   br label %211
 
@@ -11386,7 +11386,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h5df262a0c31b46
   %214 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8, !noalias !3699
   %215 = icmp ult i64 %214, 6
   call void @llvm.assume(i1 %215)
-  %switch84.i.i.i.i.i = icmp ult i64 %214, 5
+  %switch84.i.i.i.i.i = icmp samesign ult i64 %214, 5
   br i1 %switch84.i.i.i.i.i, label %217, label %216
 
 216:                                              ; preds = %213
@@ -11416,7 +11416,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h5df262a0c31b46
   %219 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8, !noalias !3699
   %220 = icmp ult i64 %219, 6
   call void @llvm.assume(i1 %220)
-  %switch87.i.i.i.i.i = icmp ult i64 %219, 5
+  %switch87.i.i.i.i.i = icmp samesign ult i64 %219, 5
   br i1 %switch87.i.i.i.i.i, label %222, label %221
 
 221:                                              ; preds = %218
@@ -11444,7 +11444,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h5df262a0c31b46
   %227 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8, !noalias !3699
   %228 = icmp ult i64 %227, 6
   call void @llvm.assume(i1 %228)
-  %switch93.i.i.i.i.i = icmp ult i64 %227, 5
+  %switch93.i.i.i.i.i = icmp samesign ult i64 %227, 5
   br i1 %switch93.i.i.i.i.i, label %230, label %229
 
 229:                                              ; preds = %222
@@ -11466,7 +11466,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h5df262a0c31b46
   %231 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8, !noalias !3699
   %232 = icmp ult i64 %231, 6
   call void @llvm.assume(i1 %232)
-  %switch99.i.i.i.i.i = icmp ult i64 %231, 5
+  %switch99.i.i.i.i.i = icmp samesign ult i64 %231, 5
   %.pre164.i.i.i.i.i = load i32, ptr %27, align 4, !range !96, !noalias !3699
   br i1 %switch99.i.i.i.i.i, label %240, label %233
 
@@ -11474,15 +11474,15 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h5df262a0c31b46
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !3699
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !3699
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3699
-  %234 = icmp ult i32 %.pre164.i.i.i.i.i, 128
+  %234 = icmp samesign ult i32 %.pre164.i.i.i.i.i, 128
   br i1 %234, label %239, label %235
 
 235:                                              ; preds = %233
-  %236 = icmp ult i32 %.pre164.i.i.i.i.i, 2048
+  %236 = icmp samesign ult i32 %.pre164.i.i.i.i.i, 2048
   br i1 %236, label %239, label %237
 
 237:                                              ; preds = %235
-  %238 = icmp ult i32 %.pre164.i.i.i.i.i, 65536
+  %238 = icmp samesign ult i32 %.pre164.i.i.i.i.i, 65536
   %.170.i.i.i.i.i = select i1 %238, i64 3, i64 4
   br label %239
 
@@ -11507,15 +11507,15 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h5df262a0c31b46
 
 240:                                              ; preds = %239, %230
   %241 = phi i32 [ %.pre164.i.i.i.i.i, %230 ], [ %.pre163.i.i.i.i.i, %239 ]
-  %242 = icmp ult i32 %241, 128
+  %242 = icmp samesign ult i32 %241, 128
   br i1 %242, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h5ed10a2ad0013777E.exit", label %243
 
 243:                                              ; preds = %240
-  %244 = icmp ult i32 %241, 2048
+  %244 = icmp samesign ult i32 %241, 2048
   br i1 %244, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h5ed10a2ad0013777E.exit", label %245
 
 245:                                              ; preds = %243
-  %246 = icmp ult i32 %241, 65536
+  %246 = icmp samesign ult i32 %241, 65536
   %.73.i.i.i.i.i = select i1 %246, i64 3, i64 4
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h5ed10a2ad0013777E.exit"
 
@@ -14832,15 +14832,15 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h22
   br i1 %215, label %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h06f1317c82bbf717E.exit.thread.i.i.i.i", label %216
 
 216:                                              ; preds = %214
-  %217 = icmp ult i32 %213, 128
+  %217 = icmp samesign ult i32 %213, 128
   br i1 %217, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc6191b91774fa026E.exit.i.i.i.i.i.i", label %218
 
 218:                                              ; preds = %216
-  %219 = icmp ult i32 %213, 2048
+  %219 = icmp samesign ult i32 %213, 2048
   br i1 %219, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc6191b91774fa026E.exit.i.i.i.i.i.i", label %220
 
 220:                                              ; preds = %218
-  %221 = icmp ult i32 %213, 65536
+  %221 = icmp samesign ult i32 %213, 65536
   %..i.i.i.i.i.i.i = select i1 %221, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc6191b91774fa026E.exit.i.i.i.i.i.i"
 
@@ -29206,7 +29206,7 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN10tokenizers9tokenizer10nor
   %32 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %33 = icmp ult i64 %32, 6
   tail call void @llvm.assume(i1 %33)
-  %switch75 = icmp ult i64 %32, 5
+  %switch75 = icmp samesign ult i64 %32, 5
   br i1 %switch75, label %._crit_edge, label %34
 
 ._crit_edge:                                      ; preds = %3
@@ -29217,15 +29217,15 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN10tokenizers9tokenizer10nor
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
-  %35 = icmp ult i32 %1, 128
+  %35 = icmp samesign ult i32 %1, 128
   br i1 %35, label %40, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ult i32 %1, 2048
+  %37 = icmp samesign ult i32 %1, 2048
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %36
-  %39 = icmp ult i32 %1, 65536
+  %39 = icmp samesign ult i32 %1, 65536
   %.168 = select i1 %39, i64 3, i64 4
   br label %40
 
@@ -29501,15 +29501,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   store ptr %144, ptr %140, align 8, !alias.scope !8076
   %145 = load i32, ptr %141, align 4, !range !96, !noalias !8076, !noundef !14
   store i32 %145, ptr %22, align 4
-  %146 = icmp ult i32 %145, 128
+  %146 = icmp samesign ult i32 %145, 128
   br i1 %146, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h6c0283f416a81926E.exit", label %147
 
 147:                                              ; preds = %143
-  %148 = icmp ult i32 %145, 2048
+  %148 = icmp samesign ult i32 %145, 2048
   br i1 %148, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h6c0283f416a81926E.exit", label %149
 
 149:                                              ; preds = %147
-  %150 = icmp ult i32 %145, 65536
+  %150 = icmp samesign ult i32 %145, 65536
   %..i.i = select i1 %150, i64 3, i64 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h6c0283f416a81926E.exit"
 
@@ -29518,15 +29518,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %.0.i130 = phi i64 [ 1, %143 ], [ %..i.i, %149 ], [ 2, %147 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he14575b1c7dc8773E.exit.thread" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   %152 = load i32, ptr %31, align 4, !range !96, !noundef !14
-  %153 = icmp ult i32 %152, 128
+  %153 = icmp samesign ult i32 %152, 128
   br i1 %153, label %158, label %154
 
 154:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h6c0283f416a81926E.exit"
-  %155 = icmp ult i32 %152, 2048
+  %155 = icmp samesign ult i32 %152, 2048
   br i1 %155, label %158, label %156
 
 156:                                              ; preds = %154
-  %157 = icmp ult i32 %152, 65536
+  %157 = icmp samesign ult i32 %152, 65536
   %. = select i1 %157, i64 3, i64 4
   br label %158
 
@@ -29547,7 +29547,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %163 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %164 = icmp ult i64 %163, 6
   call void @llvm.assume(i1 %164)
-  %switch81 = icmp ult i64 %163, 5
+  %switch81 = icmp samesign ult i64 %163, 5
   br i1 %switch81, label %173, label %165
 
 165:                                              ; preds = %162
@@ -29597,7 +29597,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %182 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %183 = icmp ult i64 %182, 6
   call void @llvm.assume(i1 %183)
-  %switch87 = icmp ult i64 %182, 5
+  %switch87 = icmp samesign ult i64 %182, 5
   br i1 %switch87, label %190, label %184
 
 184:                                              ; preds = %181
@@ -29630,7 +29630,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %195 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %196 = icmp ult i64 %195, 6
   call void @llvm.assume(i1 %196)
-  %switch93 = icmp ult i64 %195, 5
+  %switch93 = icmp samesign ult i64 %195, 5
   br i1 %switch93, label %203, label %197
 
 197:                                              ; preds = %190
@@ -29657,7 +29657,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %204 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %205 = icmp ult i64 %204, 6
   call void @llvm.assume(i1 %205)
-  %switch99 = icmp ult i64 %204, 5
+  %switch99 = icmp samesign ult i64 %204, 5
   %.pre166 = load i32, ptr %31, align 4, !range !96
   br i1 %switch99, label %220, label %206
 
@@ -29665,15 +29665,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %207 = icmp ult i32 %.pre166, 128
+  %207 = icmp samesign ult i32 %.pre166, 128
   br i1 %207, label %212, label %208
 
 208:                                              ; preds = %206
-  %209 = icmp ult i32 %.pre166, 2048
+  %209 = icmp samesign ult i32 %.pre166, 2048
   br i1 %209, label %212, label %210
 
 210:                                              ; preds = %208
-  %211 = icmp ult i32 %.pre166, 65536
+  %211 = icmp samesign ult i32 %.pre166, 65536
   %.169 = select i1 %211, i64 3, i64 4
   br label %212
 
@@ -29707,15 +29707,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %221 = phi i32 [ %.pre166, %203 ], [ %.pre165, %212 ]
   %222 = getelementptr inbounds i8, ptr %0, i64 24
   %223 = load ptr, ptr %222, align 8, !nonnull !14, !align !31, !noundef !14
-  %224 = icmp ult i32 %221, 128
+  %224 = icmp samesign ult i32 %221, 128
   br i1 %224, label %229, label %225
 
 225:                                              ; preds = %220
-  %226 = icmp ult i32 %221, 2048
+  %226 = icmp samesign ult i32 %221, 2048
   br i1 %226, label %229, label %227
 
 227:                                              ; preds = %225
-  %228 = icmp ult i32 %221, 65536
+  %228 = icmp samesign ult i32 %221, 65536
   %.73 = select i1 %228, i64 3, i64 4
   br label %229
 
@@ -29771,7 +29771,7 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN10tokenizers9tokenizer10nor
   %32 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %33 = icmp ult i64 %32, 6
   tail call void @llvm.assume(i1 %33)
-  %switch75 = icmp ult i64 %32, 5
+  %switch75 = icmp samesign ult i64 %32, 5
   br i1 %switch75, label %._crit_edge, label %34
 
 ._crit_edge:                                      ; preds = %3
@@ -29782,15 +29782,15 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN10tokenizers9tokenizer10nor
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
-  %35 = icmp ult i32 %1, 128
+  %35 = icmp samesign ult i32 %1, 128
   br i1 %35, label %40, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ult i32 %1, 2048
+  %37 = icmp samesign ult i32 %1, 2048
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %36
-  %39 = icmp ult i32 %1, 65536
+  %39 = icmp samesign ult i32 %1, 65536
   %.168 = select i1 %39, i64 3, i64 4
   br label %40
 
@@ -30066,15 +30066,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   store ptr %144, ptr %140, align 8, !alias.scope !8133
   %145 = load i32, ptr %141, align 4, !range !96, !noalias !8133, !noundef !14
   store i32 %145, ptr %22, align 4
-  %146 = icmp ult i32 %145, 128
+  %146 = icmp samesign ult i32 %145, 128
   br i1 %146, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h8d79194f8e486167E.exit", label %147
 
 147:                                              ; preds = %143
-  %148 = icmp ult i32 %145, 2048
+  %148 = icmp samesign ult i32 %145, 2048
   br i1 %148, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h8d79194f8e486167E.exit", label %149
 
 149:                                              ; preds = %147
-  %150 = icmp ult i32 %145, 65536
+  %150 = icmp samesign ult i32 %145, 65536
   %..i.i = select i1 %150, i64 3, i64 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h8d79194f8e486167E.exit"
 
@@ -30083,15 +30083,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %.0.i130 = phi i64 [ 1, %143 ], [ %..i.i, %149 ], [ 2, %147 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he14575b1c7dc8773E.exit.thread" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   %152 = load i32, ptr %31, align 4, !range !96, !noundef !14
-  %153 = icmp ult i32 %152, 128
+  %153 = icmp samesign ult i32 %152, 128
   br i1 %153, label %158, label %154
 
 154:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h8d79194f8e486167E.exit"
-  %155 = icmp ult i32 %152, 2048
+  %155 = icmp samesign ult i32 %152, 2048
   br i1 %155, label %158, label %156
 
 156:                                              ; preds = %154
-  %157 = icmp ult i32 %152, 65536
+  %157 = icmp samesign ult i32 %152, 65536
   %. = select i1 %157, i64 3, i64 4
   br label %158
 
@@ -30112,7 +30112,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %163 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %164 = icmp ult i64 %163, 6
   call void @llvm.assume(i1 %164)
-  %switch81 = icmp ult i64 %163, 5
+  %switch81 = icmp samesign ult i64 %163, 5
   br i1 %switch81, label %173, label %165
 
 165:                                              ; preds = %162
@@ -30162,7 +30162,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %182 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %183 = icmp ult i64 %182, 6
   call void @llvm.assume(i1 %183)
-  %switch87 = icmp ult i64 %182, 5
+  %switch87 = icmp samesign ult i64 %182, 5
   br i1 %switch87, label %190, label %184
 
 184:                                              ; preds = %181
@@ -30195,7 +30195,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %195 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %196 = icmp ult i64 %195, 6
   call void @llvm.assume(i1 %196)
-  %switch93 = icmp ult i64 %195, 5
+  %switch93 = icmp samesign ult i64 %195, 5
   br i1 %switch93, label %203, label %197
 
 197:                                              ; preds = %190
@@ -30222,7 +30222,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %204 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %205 = icmp ult i64 %204, 6
   call void @llvm.assume(i1 %205)
-  %switch99 = icmp ult i64 %204, 5
+  %switch99 = icmp samesign ult i64 %204, 5
   %.pre166 = load i32, ptr %31, align 4, !range !96
   br i1 %switch99, label %220, label %206
 
@@ -30230,15 +30230,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %207 = icmp ult i32 %.pre166, 128
+  %207 = icmp samesign ult i32 %.pre166, 128
   br i1 %207, label %212, label %208
 
 208:                                              ; preds = %206
-  %209 = icmp ult i32 %.pre166, 2048
+  %209 = icmp samesign ult i32 %.pre166, 2048
   br i1 %209, label %212, label %210
 
 210:                                              ; preds = %208
-  %211 = icmp ult i32 %.pre166, 65536
+  %211 = icmp samesign ult i32 %.pre166, 65536
   %.169 = select i1 %211, i64 3, i64 4
   br label %212
 
@@ -30272,15 +30272,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %221 = phi i32 [ %.pre166, %203 ], [ %.pre165, %212 ]
   %222 = getelementptr inbounds i8, ptr %0, i64 24
   %223 = load ptr, ptr %222, align 8, !nonnull !14, !align !31, !noundef !14
-  %224 = icmp ult i32 %221, 128
+  %224 = icmp samesign ult i32 %221, 128
   br i1 %224, label %229, label %225
 
 225:                                              ; preds = %220
-  %226 = icmp ult i32 %221, 2048
+  %226 = icmp samesign ult i32 %221, 2048
   br i1 %226, label %229, label %227
 
 227:                                              ; preds = %225
-  %228 = icmp ult i32 %221, 65536
+  %228 = icmp samesign ult i32 %221, 65536
   %.73 = select i1 %228, i64 3, i64 4
   br label %229
 
@@ -30336,7 +30336,7 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN10tokenizers9tokenizer10nor
   %32 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %33 = icmp ult i64 %32, 6
   tail call void @llvm.assume(i1 %33)
-  %switch75 = icmp ult i64 %32, 5
+  %switch75 = icmp samesign ult i64 %32, 5
   br i1 %switch75, label %._crit_edge, label %34
 
 ._crit_edge:                                      ; preds = %3
@@ -30347,15 +30347,15 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN10tokenizers9tokenizer10nor
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
-  %35 = icmp ult i32 %1, 128
+  %35 = icmp samesign ult i32 %1, 128
   br i1 %35, label %40, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ult i32 %1, 2048
+  %37 = icmp samesign ult i32 %1, 2048
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %36
-  %39 = icmp ult i32 %1, 65536
+  %39 = icmp samesign ult i32 %1, 65536
   %.168 = select i1 %39, i64 3, i64 4
   br label %40
 
@@ -30631,15 +30631,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   store ptr %144, ptr %140, align 8, !alias.scope !8190
   %145 = load i32, ptr %141, align 4, !range !96, !noalias !8190, !noundef !14
   store i32 %145, ptr %22, align 4
-  %146 = icmp ult i32 %145, 128
+  %146 = icmp samesign ult i32 %145, 128
   br i1 %146, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h536bde43b947df44E.exit", label %147
 
 147:                                              ; preds = %143
-  %148 = icmp ult i32 %145, 2048
+  %148 = icmp samesign ult i32 %145, 2048
   br i1 %148, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h536bde43b947df44E.exit", label %149
 
 149:                                              ; preds = %147
-  %150 = icmp ult i32 %145, 65536
+  %150 = icmp samesign ult i32 %145, 65536
   %..i.i = select i1 %150, i64 3, i64 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h536bde43b947df44E.exit"
 
@@ -30648,15 +30648,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %.0.i130 = phi i64 [ 1, %143 ], [ %..i.i, %149 ], [ 2, %147 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he14575b1c7dc8773E.exit.thread" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   %152 = load i32, ptr %31, align 4, !range !96, !noundef !14
-  %153 = icmp ult i32 %152, 128
+  %153 = icmp samesign ult i32 %152, 128
   br i1 %153, label %158, label %154
 
 154:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h536bde43b947df44E.exit"
-  %155 = icmp ult i32 %152, 2048
+  %155 = icmp samesign ult i32 %152, 2048
   br i1 %155, label %158, label %156
 
 156:                                              ; preds = %154
-  %157 = icmp ult i32 %152, 65536
+  %157 = icmp samesign ult i32 %152, 65536
   %. = select i1 %157, i64 3, i64 4
   br label %158
 
@@ -30677,7 +30677,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %163 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %164 = icmp ult i64 %163, 6
   call void @llvm.assume(i1 %164)
-  %switch81 = icmp ult i64 %163, 5
+  %switch81 = icmp samesign ult i64 %163, 5
   br i1 %switch81, label %173, label %165
 
 165:                                              ; preds = %162
@@ -30727,7 +30727,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %182 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %183 = icmp ult i64 %182, 6
   call void @llvm.assume(i1 %183)
-  %switch87 = icmp ult i64 %182, 5
+  %switch87 = icmp samesign ult i64 %182, 5
   br i1 %switch87, label %190, label %184
 
 184:                                              ; preds = %181
@@ -30760,7 +30760,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %195 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %196 = icmp ult i64 %195, 6
   call void @llvm.assume(i1 %196)
-  %switch93 = icmp ult i64 %195, 5
+  %switch93 = icmp samesign ult i64 %195, 5
   br i1 %switch93, label %203, label %197
 
 197:                                              ; preds = %190
@@ -30787,7 +30787,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %204 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %205 = icmp ult i64 %204, 6
   call void @llvm.assume(i1 %205)
-  %switch99 = icmp ult i64 %204, 5
+  %switch99 = icmp samesign ult i64 %204, 5
   %.pre166 = load i32, ptr %31, align 4, !range !96
   br i1 %switch99, label %220, label %206
 
@@ -30795,15 +30795,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %207 = icmp ult i32 %.pre166, 128
+  %207 = icmp samesign ult i32 %.pre166, 128
   br i1 %207, label %212, label %208
 
 208:                                              ; preds = %206
-  %209 = icmp ult i32 %.pre166, 2048
+  %209 = icmp samesign ult i32 %.pre166, 2048
   br i1 %209, label %212, label %210
 
 210:                                              ; preds = %208
-  %211 = icmp ult i32 %.pre166, 65536
+  %211 = icmp samesign ult i32 %.pre166, 65536
   %.169 = select i1 %211, i64 3, i64 4
   br label %212
 
@@ -30837,15 +30837,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %221 = phi i32 [ %.pre166, %203 ], [ %.pre165, %212 ]
   %222 = getelementptr inbounds i8, ptr %0, i64 24
   %223 = load ptr, ptr %222, align 8, !nonnull !14, !align !31, !noundef !14
-  %224 = icmp ult i32 %221, 128
+  %224 = icmp samesign ult i32 %221, 128
   br i1 %224, label %229, label %225
 
 225:                                              ; preds = %220
-  %226 = icmp ult i32 %221, 2048
+  %226 = icmp samesign ult i32 %221, 2048
   br i1 %226, label %229, label %227
 
 227:                                              ; preds = %225
-  %228 = icmp ult i32 %221, 65536
+  %228 = icmp samesign ult i32 %221, 65536
   %.73 = select i1 %228, i64 3, i64 4
   br label %229
 
@@ -30901,7 +30901,7 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN10tokenizers9tokenizer10nor
   %32 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %33 = icmp ult i64 %32, 6
   tail call void @llvm.assume(i1 %33)
-  %switch75 = icmp ult i64 %32, 5
+  %switch75 = icmp samesign ult i64 %32, 5
   br i1 %switch75, label %._crit_edge, label %34
 
 ._crit_edge:                                      ; preds = %3
@@ -30912,15 +30912,15 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN10tokenizers9tokenizer10nor
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
-  %35 = icmp ult i32 %1, 128
+  %35 = icmp samesign ult i32 %1, 128
   br i1 %35, label %40, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ult i32 %1, 2048
+  %37 = icmp samesign ult i32 %1, 2048
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %36
-  %39 = icmp ult i32 %1, 65536
+  %39 = icmp samesign ult i32 %1, 65536
   %.168 = select i1 %39, i64 3, i64 4
   br label %40
 
@@ -31196,15 +31196,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   store ptr %144, ptr %140, align 8, !alias.scope !8247
   %145 = load i32, ptr %141, align 4, !range !96, !noalias !8247, !noundef !14
   store i32 %145, ptr %22, align 4
-  %146 = icmp ult i32 %145, 128
+  %146 = icmp samesign ult i32 %145, 128
   br i1 %146, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hb26a7571545bda97E.exit", label %147
 
 147:                                              ; preds = %143
-  %148 = icmp ult i32 %145, 2048
+  %148 = icmp samesign ult i32 %145, 2048
   br i1 %148, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hb26a7571545bda97E.exit", label %149
 
 149:                                              ; preds = %147
-  %150 = icmp ult i32 %145, 65536
+  %150 = icmp samesign ult i32 %145, 65536
   %..i.i = select i1 %150, i64 3, i64 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hb26a7571545bda97E.exit"
 
@@ -31213,15 +31213,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %.0.i130 = phi i64 [ 1, %143 ], [ %..i.i, %149 ], [ 2, %147 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he14575b1c7dc8773E.exit.thread" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   %152 = load i32, ptr %31, align 4, !range !96, !noundef !14
-  %153 = icmp ult i32 %152, 128
+  %153 = icmp samesign ult i32 %152, 128
   br i1 %153, label %158, label %154
 
 154:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hb26a7571545bda97E.exit"
-  %155 = icmp ult i32 %152, 2048
+  %155 = icmp samesign ult i32 %152, 2048
   br i1 %155, label %158, label %156
 
 156:                                              ; preds = %154
-  %157 = icmp ult i32 %152, 65536
+  %157 = icmp samesign ult i32 %152, 65536
   %. = select i1 %157, i64 3, i64 4
   br label %158
 
@@ -31242,7 +31242,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %163 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %164 = icmp ult i64 %163, 6
   call void @llvm.assume(i1 %164)
-  %switch81 = icmp ult i64 %163, 5
+  %switch81 = icmp samesign ult i64 %163, 5
   br i1 %switch81, label %173, label %165
 
 165:                                              ; preds = %162
@@ -31292,7 +31292,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %182 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %183 = icmp ult i64 %182, 6
   call void @llvm.assume(i1 %183)
-  %switch87 = icmp ult i64 %182, 5
+  %switch87 = icmp samesign ult i64 %182, 5
   br i1 %switch87, label %190, label %184
 
 184:                                              ; preds = %181
@@ -31325,7 +31325,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %195 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %196 = icmp ult i64 %195, 6
   call void @llvm.assume(i1 %196)
-  %switch93 = icmp ult i64 %195, 5
+  %switch93 = icmp samesign ult i64 %195, 5
   br i1 %switch93, label %203, label %197
 
 197:                                              ; preds = %190
@@ -31352,7 +31352,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %204 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %205 = icmp ult i64 %204, 6
   call void @llvm.assume(i1 %205)
-  %switch99 = icmp ult i64 %204, 5
+  %switch99 = icmp samesign ult i64 %204, 5
   %.pre166 = load i32, ptr %31, align 4, !range !96
   br i1 %switch99, label %220, label %206
 
@@ -31360,15 +31360,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %207 = icmp ult i32 %.pre166, 128
+  %207 = icmp samesign ult i32 %.pre166, 128
   br i1 %207, label %212, label %208
 
 208:                                              ; preds = %206
-  %209 = icmp ult i32 %.pre166, 2048
+  %209 = icmp samesign ult i32 %.pre166, 2048
   br i1 %209, label %212, label %210
 
 210:                                              ; preds = %208
-  %211 = icmp ult i32 %.pre166, 65536
+  %211 = icmp samesign ult i32 %.pre166, 65536
   %.169 = select i1 %211, i64 3, i64 4
   br label %212
 
@@ -31402,15 +31402,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %221 = phi i32 [ %.pre166, %203 ], [ %.pre165, %212 ]
   %222 = getelementptr inbounds i8, ptr %0, i64 24
   %223 = load ptr, ptr %222, align 8, !nonnull !14, !align !31, !noundef !14
-  %224 = icmp ult i32 %221, 128
+  %224 = icmp samesign ult i32 %221, 128
   br i1 %224, label %229, label %225
 
 225:                                              ; preds = %220
-  %226 = icmp ult i32 %221, 2048
+  %226 = icmp samesign ult i32 %221, 2048
   br i1 %226, label %229, label %227
 
 227:                                              ; preds = %225
-  %228 = icmp ult i32 %221, 65536
+  %228 = icmp samesign ult i32 %221, 65536
   %.73 = select i1 %228, i64 3, i64 4
   br label %229
 
@@ -31466,7 +31466,7 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN10tokenizers9tokenizer10nor
   %32 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %33 = icmp ult i64 %32, 6
   tail call void @llvm.assume(i1 %33)
-  %switch75 = icmp ult i64 %32, 5
+  %switch75 = icmp samesign ult i64 %32, 5
   br i1 %switch75, label %._crit_edge, label %34
 
 ._crit_edge:                                      ; preds = %3
@@ -31477,15 +31477,15 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN10tokenizers9tokenizer10nor
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
-  %35 = icmp ult i32 %1, 128
+  %35 = icmp samesign ult i32 %1, 128
   br i1 %35, label %40, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ult i32 %1, 2048
+  %37 = icmp samesign ult i32 %1, 2048
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %36
-  %39 = icmp ult i32 %1, 65536
+  %39 = icmp samesign ult i32 %1, 65536
   %.167 = select i1 %39, i64 3, i64 4
   br label %40
 
@@ -31761,15 +31761,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   store ptr %144, ptr %140, align 8, !alias.scope !8304
   %145 = load i32, ptr %141, align 4, !range !96, !noalias !8304, !noundef !14
   store i32 %145, ptr %22, align 4
-  %146 = icmp ult i32 %145, 128
+  %146 = icmp samesign ult i32 %145, 128
   br i1 %146, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3d550f0b9e401cb4E.exit", label %147
 
 147:                                              ; preds = %143
-  %148 = icmp ult i32 %145, 2048
+  %148 = icmp samesign ult i32 %145, 2048
   br i1 %148, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3d550f0b9e401cb4E.exit", label %149
 
 149:                                              ; preds = %147
-  %150 = icmp ult i32 %145, 65536
+  %150 = icmp samesign ult i32 %145, 65536
   %..i.i = select i1 %150, i64 3, i64 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3d550f0b9e401cb4E.exit"
 
@@ -31778,15 +31778,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %.0.i129 = phi i64 [ 1, %143 ], [ %..i.i, %149 ], [ 2, %147 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he14575b1c7dc8773E.exit.thread" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   %152 = load i32, ptr %31, align 4, !range !96, !noundef !14
-  %153 = icmp ult i32 %152, 128
+  %153 = icmp samesign ult i32 %152, 128
   br i1 %153, label %158, label %154
 
 154:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3d550f0b9e401cb4E.exit"
-  %155 = icmp ult i32 %152, 2048
+  %155 = icmp samesign ult i32 %152, 2048
   br i1 %155, label %158, label %156
 
 156:                                              ; preds = %154
-  %157 = icmp ult i32 %152, 65536
+  %157 = icmp samesign ult i32 %152, 65536
   %. = select i1 %157, i64 3, i64 4
   br label %158
 
@@ -31807,7 +31807,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %163 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %164 = icmp ult i64 %163, 6
   call void @llvm.assume(i1 %164)
-  %switch80 = icmp ult i64 %163, 5
+  %switch80 = icmp samesign ult i64 %163, 5
   br i1 %switch80, label %173, label %165
 
 165:                                              ; preds = %162
@@ -31857,7 +31857,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %182 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %183 = icmp ult i64 %182, 6
   call void @llvm.assume(i1 %183)
-  %switch86 = icmp ult i64 %182, 5
+  %switch86 = icmp samesign ult i64 %182, 5
   br i1 %switch86, label %190, label %184
 
 184:                                              ; preds = %181
@@ -31890,7 +31890,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %195 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %196 = icmp ult i64 %195, 6
   call void @llvm.assume(i1 %196)
-  %switch92 = icmp ult i64 %195, 5
+  %switch92 = icmp samesign ult i64 %195, 5
   br i1 %switch92, label %203, label %197
 
 197:                                              ; preds = %190
@@ -31917,7 +31917,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %204 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %205 = icmp ult i64 %204, 6
   call void @llvm.assume(i1 %205)
-  %switch98 = icmp ult i64 %204, 5
+  %switch98 = icmp samesign ult i64 %204, 5
   %.pre165 = load i32, ptr %31, align 4, !range !96
   br i1 %switch98, label %220, label %206
 
@@ -31925,15 +31925,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %207 = icmp ult i32 %.pre165, 128
+  %207 = icmp samesign ult i32 %.pre165, 128
   br i1 %207, label %212, label %208
 
 208:                                              ; preds = %206
-  %209 = icmp ult i32 %.pre165, 2048
+  %209 = icmp samesign ult i32 %.pre165, 2048
   br i1 %209, label %212, label %210
 
 210:                                              ; preds = %208
-  %211 = icmp ult i32 %.pre165, 65536
+  %211 = icmp samesign ult i32 %.pre165, 65536
   %.168 = select i1 %211, i64 3, i64 4
   br label %212
 
@@ -31967,15 +31967,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %56
   %221 = phi i32 [ %.pre165, %203 ], [ %.pre164, %212 ]
   %222 = getelementptr inbounds i8, ptr %0, i64 24
   %223 = load ptr, ptr %222, align 8, !nonnull !14, !align !31, !noundef !14
-  %224 = icmp ult i32 %221, 128
+  %224 = icmp samesign ult i32 %221, 128
   br i1 %224, label %229, label %225
 
 225:                                              ; preds = %220
-  %226 = icmp ult i32 %221, 2048
+  %226 = icmp samesign ult i32 %221, 2048
   br i1 %226, label %229, label %227
 
 227:                                              ; preds = %225
-  %228 = icmp ult i32 %221, 65536
+  %228 = icmp samesign ult i32 %221, 65536
   %.73 = select i1 %228, i64 3, i64 4
   br label %229
 

@@ -314,7 +314,7 @@ default.unreachable:                              ; preds = %"_ZN50_$LT$T$u20$as
 
 101:                                              ; preds = %.noexc96.i, %.lr.ph.i.i.i.i
   %.sroa.0.04869.i.i.i.i = phi i32 [ 1, %.lr.ph.i.i.i.i ], [ %spec.select66.i.i.i.i, %.noexc96.i ]
-  %102 = icmp ult i32 %.sroa.0.04869.i.i.i.i, %97
+  %102 = icmp samesign ult i32 %.sroa.0.04869.i.i.i.i, %97
   %103 = zext i1 %102 to i32
   %spec.select66.i.i.i.i = add nuw nsw i32 %.sroa.0.04869.i.i.i.i, %103
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20), !noalias !17
@@ -467,7 +467,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i.i.i.i: ; preds = %101
 .noexc96.i:                                       ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17heb7411d55b397bcdE.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20), !noalias !17
-  %.not.i.i.i.i.i = icmp ule i32 %spec.select66.i.i.i.i, %97
+  %.not.i.i.i.i.i = icmp samesign ule i32 %spec.select66.i.i.i.i, %97
   %or.cond.not.i.i.i.i = select i1 %102, i1 %.not.i.i.i.i.i, i1 false
   br i1 %or.cond.not.i.i.i.i, label %101, label %._crit_edge.i.i.i.i
 

@@ -66,7 +66,7 @@ for.body:                                         ; preds = %while.end8, %for.bo
   %4 = load i32, ptr %arrayidx12, align 4
   %spec.select = tail call i32 @llvm.umax.i32(i32 %4, i32 %largestCount.020)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp9.not.not = icmp ult i64 %indvars.iv, %idxprom5
+  %cmp9.not.not = icmp samesign ult i64 %indvars.iv, %idxprom5
   br i1 %cmp9.not.not, label %for.body, label %return, !llvm.loop !7
 
 return:                                           ; preds = %for.body, %if.then

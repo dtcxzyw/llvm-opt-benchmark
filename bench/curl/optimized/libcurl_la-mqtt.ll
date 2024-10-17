@@ -95,8 +95,8 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
   store i8 %encoded.0.i.i, ptr %arrayidx.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.i.i = icmp ugt i64 %len.addr.010.i.i, 127
-  %cmp1.i.i = icmp ult i64 %indvars.iv.i.i, 3
-  %3 = and i1 %cmp1.i.i, %cmp.i.i
+  %cmp1.i.i = icmp samesign ult i64 %indvars.iv.i.i, 3
+  %3 = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
   br i1 %3, label %for.body.i.i, label %for.end.loopexit.i.i, !llvm.loop !4
 
 for.end.loopexit.i.i:                             ; preds = %for.body.i.i
@@ -1029,8 +1029,8 @@ for.body.i:                                       ; preds = %if.end8, %for.body.
   store i8 %encoded.0.i, ptr %arrayidx.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.i32 = icmp ugt i64 %len.addr.010.i, 127
-  %cmp1.i = icmp ult i64 %indvars.iv.i, 3
-  %5 = and i1 %cmp1.i, %cmp.i32
+  %cmp1.i = icmp samesign ult i64 %indvars.iv.i, 3
+  %5 = select i1 %cmp.i32, i1 %cmp1.i, i1 false
   br i1 %5, label %for.body.i, label %mqtt_encode_len.exit, !llvm.loop !4
 
 mqtt_encode_len.exit:                             ; preds = %for.body.i, %if.end8
@@ -1217,8 +1217,8 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   store i8 %encoded.0.i, ptr %arrayidx.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.i27 = icmp ugt i64 %len.addr.010.i, 127
-  %cmp1.i = icmp ult i64 %indvars.iv.i, 3
-  %5 = and i1 %cmp1.i, %cmp.i27
+  %cmp1.i = icmp samesign ult i64 %indvars.iv.i, 3
+  %5 = select i1 %cmp.i27, i1 %cmp1.i, i1 false
   br i1 %5, label %for.body.i, label %mqtt_encode_len.exit, !llvm.loop !4
 
 mqtt_encode_len.exit:                             ; preds = %for.body.i

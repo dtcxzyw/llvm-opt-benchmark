@@ -5188,7 +5188,7 @@ sub_1:                                            ; preds = %sub_0
   %indvars.iv.next495 = add nuw nsw i64 %indvars.iv494, 3
   %.sroa.22316.3 = extractvalue { i64, ptr } %267, 1
   %.sroa.0312.3 = extractvalue { i64, ptr } %267, 0
-  %268 = icmp ult i64 %indvars.iv.next495, %241
+  %268 = icmp samesign ult i64 %indvars.iv.next495, %241
   br i1 %268, label %242, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.thread390, %228

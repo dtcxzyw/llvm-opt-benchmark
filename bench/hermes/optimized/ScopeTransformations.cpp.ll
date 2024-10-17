@@ -35,7 +35,7 @@ entry:
   %Capacity.i.i = getelementptr inbounds i8, ptr %parent, i64 164
   %2 = load i32, ptr %Capacity.i.i, align 4
   %conv.i.i = zext i32 %2 to i64
-  %cmp.i = icmp ugt i64 %add, %conv.i.i
+  %cmp.i = icmp samesign ugt i64 %add, %conv.i.i
   br i1 %cmp.i, label %if.then.i, label %_ZN4llvh15SmallVectorImplIPN6hermes8VariableEE7reserveEm.exit
 
 if.then.i:                                        ; preds = %entry
@@ -100,7 +100,7 @@ for.end:                                          ; preds = %_ZN4llvh23SmallVect
   %Capacity.i.i38 = getelementptr inbounds i8, ptr %parent, i64 60
   %14 = load i32, ptr %Capacity.i.i38, align 4
   %conv.i.i39 = zext i32 %14 to i64
-  %cmp.i40 = icmp ugt i64 %add11, %conv.i.i39
+  %cmp.i40 = icmp samesign ugt i64 %add11, %conv.i.i39
   br i1 %cmp.i40, label %if.then.i41, label %_ZN4llvh15SmallVectorImplIPN6hermes9ScopeDescEE7reserveEm.exit
 
 if.then.i41:                                      ; preds = %for.end
@@ -410,7 +410,7 @@ for.body24.lr.ph:                                 ; preds = %for.end
 for.body24:                                       ; preds = %for.body24.lr.ph, %for.inc35
   %i19.058 = phi i64 [ 0, %for.body24.lr.ph ], [ %inc36, %for.inc35 ]
   %curr.057 = phi i64 [ 0, %for.body24.lr.ph ], [ %curr.1, %for.inc35 ]
-  %cmp26.not = icmp ult i64 %i19.058, %add.i.i
+  %cmp26.not = icmp samesign ult i64 %i19.058, %add.i.i
   br i1 %cmp26.not, label %lor.rhs, label %if.then30
 
 lor.rhs:                                          ; preds = %for.body24

@@ -11429,7 +11429,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h583e8fd77
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.0.0.be, %.backedge ]
-  %12 = icmp ugt i64 %.sroa.11.0.lcssa, 1
+  %12 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 1
   br i1 %12, label %.lr.ph.preheader.i, label %"_ZN91_$LT$T$u20$as$u20$core..slice..sort..shared..smallsort..UnstableSmallSortFreezeTypeImpl$GT$10small_sort17h19acb54d97904dc9E.exit"
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge

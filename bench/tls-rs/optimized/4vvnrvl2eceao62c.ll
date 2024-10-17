@@ -7048,7 +7048,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   %10 = phi ptr [ %11, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us" ], [ %.promoted, %.lr.ph ]
   %11 = getelementptr inbounds i8, ptr %10, i64 4
   %12 = load i16, ptr %10, align 2, !range !41, !alias.scope !867, !noalias !872, !noundef !7
-  %13 = icmp ult i16 %12, 13
+  %13 = icmp samesign ult i16 %12, 13
   br i1 %13, label %switch.hole_check, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split"
 
 switch.hole_check:                                ; preds = %.lr.ph.split.us
@@ -7071,7 +7071,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %16 = phi ptr [ %17, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge" ], [ %.promoted, %.lr.ph ]
   %17 = getelementptr inbounds i8, ptr %16, i64 4
   %18 = load i16, ptr %16, align 2, !range !41, !alias.scope !867, !noalias !872, !noundef !7
-  %19 = icmp ult i16 %18, 13
+  %19 = icmp samesign ult i16 %18, 13
   br i1 %19, label %switch.hole_check49, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge"
 
 switch.hole_check49:                              ; preds = %.lr.ph.split
@@ -7188,7 +7188,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   %35 = phi ptr [ %36, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i.i" ], [ %31, %27 ]
   %36 = getelementptr inbounds i8, ptr %35, i64 4
   %37 = load i16, ptr %35, align 2, !range !41, !alias.scope !886, !noalias !891, !noundef !7
-  %38 = icmp ult i16 %37, 13
+  %38 = icmp samesign ult i16 %37, 13
   br i1 %38, label %switch.hole_check, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i.i"
 
 switch.hole_check:                                ; preds = %.lr.ph.split.i.i.i
@@ -13215,7 +13215,7 @@ define noundef zeroext i1 @_ZN6rustls6suites20SupportedCipherSuite30usable_for_s
   %18 = phi ptr [ %19, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i" ], [ %9, %.lr.ph.i ]
   %19 = getelementptr inbounds i8, ptr %18, i64 4
   %20 = load i16, ptr %18, align 2, !range !41, !alias.scope !1829, !noalias !1834, !noundef !7
-  %21 = icmp ult i16 %20, 13
+  %21 = icmp samesign ult i16 %20, 13
   br i1 %21, label %switch.hole_check, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i"
 
 switch.hole_check:                                ; preds = %.lr.ph.split.i
@@ -13242,7 +13242,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #14 {
   %3 = load i16, ptr %1, align 2, !range !41, !alias.scope !1839, !noundef !7
-  %4 = icmp ult i16 %3, 13
+  %4 = icmp samesign ult i16 %3, 13
   br i1 %4, label %switch.hole_check, label %_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit.thread
 
 switch.hole_check:                                ; preds = %2
@@ -13537,7 +13537,7 @@ _ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit.thread: ; preds 
   %34 = phi ptr [ %35, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i.i.i" ], [ %30, %26 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 4
   %36 = load i16, ptr %34, align 2, !range !41, !alias.scope !1876, !noalias !1881, !noundef !7
-  %37 = icmp ult i16 %36, 13
+  %37 = icmp samesign ult i16 %36, 13
   br i1 %37, label %switch.hole_check25, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i.i.i"
 
 switch.hole_check25:                              ; preds = %.lr.ph.split.i.i.i.i
@@ -13620,7 +13620,7 @@ define hidden noundef zeroext i1 @"_ZN6rustls6suites31compatible_sigscheme_for_s
   %21 = phi ptr [ %22, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i" ], [ %12, %.lr.ph.i.i ]
   %22 = getelementptr inbounds i8, ptr %21, i64 4
   %23 = load i16, ptr %21, align 2, !range !41, !alias.scope !1889, !noalias !1894, !noundef !7
-  %24 = icmp ult i16 %23, 13
+  %24 = icmp samesign ult i16 %23, 13
   br i1 %24, label %switch.hole_check, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i"
 
 switch.hole_check:                                ; preds = %.lr.ph.split.i.i

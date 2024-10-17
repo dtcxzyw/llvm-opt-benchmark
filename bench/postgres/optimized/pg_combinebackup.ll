@@ -824,7 +824,7 @@ sub_0.i:                                          ; preds = %sub_0.lr.ph.i, %.ba
 
 282:                                              ; preds = %278
   %283 = and i64 %279, 2147483647
-  %284 = icmp ugt i64 %283, 1023
+  %284 = icmp samesign ugt i64 %283, 1023
   br i1 %284, label %285, label %286
 
 285:                                              ; preds = %282

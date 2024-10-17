@@ -99,7 +99,7 @@ define internal range(i32 -30, 1) i32 @compress_bidder_init(ptr nocapture nounde
   %17 = tail call fastcc i32 @getbits(ptr noundef nonnull %0, i32 noundef 8)
   %18 = tail call fastcc i32 @getbits(ptr noundef nonnull %0, i32 noundef 8)
   %19 = and i32 %18, 31
-  %20 = icmp ugt i32 %19, 16
+  %20 = icmp samesign ugt i32 %19, 16
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %11

@@ -2930,15 +2930,15 @@ define void @_RNvXNtCseG2FYMysgNb_3wax6encodecNtB2_7Escaped7escaped(ptr dead_on_
   %5 = load i32, ptr %1, align 4, !range !100, !noundef !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   store i32 0, ptr %.sroa.0, align 4
-  %6 = icmp ult i32 %5, 128
+  %6 = icmp samesign ult i32 %5, 128
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %5, 2048
+  %8 = icmp samesign ult i32 %5, 2048
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %5, 65536
+  %10 = icmp samesign ult i32 %5, 65536
   br i1 %10, label %20, label %31
 
 11:                                               ; preds = %2

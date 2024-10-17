@@ -161,7 +161,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i
 
 65:                                               ; preds = %.lr.ph57, %60
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %66 = icmp ult i64 %indvars.iv.next64, %57
+  %66 = icmp samesign ult i64 %indvars.iv.next64, %57
   br i1 %66, label %.lr.ph57, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %65, %._crit_edge

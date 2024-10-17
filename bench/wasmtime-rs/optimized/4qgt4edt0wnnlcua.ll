@@ -3736,7 +3736,7 @@ _ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit.i: ; preds = %106, %98
   %148 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %149 = icmp ult i64 %148, 6
   call void @llvm.assume(i1 %149)
-  %150 = icmp ugt i64 %148, 3
+  %150 = icmp samesign ugt i64 %148, 3
   br i1 %150, label %165, label %153
 
 151:                                              ; preds = %140, %134

@@ -143,7 +143,7 @@ _ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit: ; preds = %44
   %59 = or disjoint i32 %57, 4096
   %60 = add nuw nsw i32 %59, %.masked.i
   store i32 %60, ptr %58, align 4
-  %61 = icmp ult i32 %.masked.i, 1044480
+  %61 = icmp samesign ult i32 %.masked.i, 1044480
   br i1 %61, label %62, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 62:                                               ; preds = %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread14, %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit
@@ -196,7 +196,7 @@ _ZN5dracoL14rabs_desc_readEPNS_10AnsDecoderEh.exit: ; preds = %1, %7, %11
   %28 = and i32 %20, 255
   %29 = and i32 %26, 255
   %30 = mul nuw i32 %27, %29
-  %31 = icmp ult i32 %28, %29
+  %31 = icmp samesign ult i32 %28, %29
   %32 = add nuw i32 %29, %30
   %33 = sub i32 %20, %32
   %34 = add nuw i32 %30, %28
@@ -261,7 +261,7 @@ _ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit: ; preds = %8, %14
   %31 = and i32 %23, 255
   %32 = and i32 %29, 255
   %33 = mul nuw i32 %30, %32
-  %34 = icmp ult i32 %31, %32
+  %34 = icmp samesign ult i32 %31, %32
   %35 = add nuw i32 %32, %33
   %36 = sub i32 %23, %35
   %37 = add nuw i32 %33, %31

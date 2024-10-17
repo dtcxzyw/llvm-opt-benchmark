@@ -951,7 +951,7 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
 
 284:                                              ; preds = %283, %273, %273
   %285 = phi i64 [ 524288, %283 ], [ 33554432, %273 ], [ 33554432, %273 ]
-  %286 = icmp ult i64 %282, %285
+  %286 = icmp samesign ult i64 %282, %285
   br i1 %286, label %287, label %.thread48
 
 287:                                              ; preds = %284
@@ -964,7 +964,7 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
 
 290:                                              ; preds = %289, %287, %287
   %291 = phi i64 [ 2048, %289 ], [ 131072, %287 ], [ 131072, %287 ]
-  %292 = icmp ult i64 %288, %291
+  %292 = icmp samesign ult i64 %288, %291
   br i1 %292, label %293, label %303, !prof !23
 
 293:                                              ; preds = %290
@@ -1270,7 +1270,7 @@ define internal noundef range(i32 -12, 2) i32 @kclist_add_private(i64 noundef %0
 
 8:                                                ; preds = %7, %5, %5
   %9 = phi i64 [ 524288, %7 ], [ 33554432, %5 ], [ 33554432, %5 ]
-  %10 = icmp ult i64 %6, %9
+  %10 = icmp samesign ult i64 %6, %9
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %8
@@ -1283,7 +1283,7 @@ define internal noundef range(i32 -12, 2) i32 @kclist_add_private(i64 noundef %0
 
 14:                                               ; preds = %13, %11, %11
   %15 = phi i64 [ 2048, %13 ], [ 131072, %11 ], [ 131072, %11 ]
-  %16 = icmp ult i64 %12, %15
+  %16 = icmp samesign ult i64 %12, %15
   br i1 %16, label %17, label %27, !prof !23
 
 17:                                               ; preds = %14

@@ -85,7 +85,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %le
 
 for.body.i:                                       ; preds = %if.end.i, %for.body
   %indvars.iv.i = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i, %if.end.i ]
-  %cmp5.i = icmp ult i64 %indvars.iv.i, 16
+  %cmp5.i = icmp samesign ult i64 %indvars.iv.i, 16
   br i1 %cmp5.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -131,7 +131,7 @@ for.body27.i:                                     ; preds = %if.end.i, %if.end64
   %12 = phi i32 [ %11, %if.end64.i ], [ %add104.i10, %if.end.i ]
   %arrayidx34.i = getelementptr [80 x i32], ptr %_w.i, i64 0, i64 %indvars.iv85.i
   %13 = load i32, ptr %arrayidx34.i, align 4
-  %cmp35.i = icmp ult i64 %indvars.iv85.i, 20
+  %cmp35.i = icmp samesign ult i64 %indvars.iv85.i, 20
   br i1 %cmp35.i, label %if.end52.i, label %if.else39.i
 
 if.else39.i:                                      ; preds = %for.body27.i
@@ -157,12 +157,12 @@ if.end52.i:                                       ; preds = %for.body27.i
 if.else55.i:                                      ; preds = %if.else39.i
   %xor49.i = xor i32 %10, %9
   %xor50.i = xor i32 %xor49.i, %11
-  %cmp56.i = icmp ult i64 %indvars.iv85.i, 40
+  %cmp56.i = icmp samesign ult i64 %indvars.iv85.i, 40
   br i1 %cmp56.i, label %if.end64.i, label %if.else58.i
 
 if.else58.i:                                      ; preds = %if.else55.i, %if.else55.thread.i
   %ite0.0.ph69.i = phi i32 [ %xor47.i, %if.else55.thread.i ], [ %xor50.i, %if.else55.i ]
-  %cmp59.i = icmp ult i64 %indvars.iv85.i, 60
+  %cmp59.i = icmp samesign ult i64 %indvars.iv85.i, 60
   %..i = select i1 %cmp59.i, i32 -1894007588, i32 -899497514
   br label %if.end64.i
 

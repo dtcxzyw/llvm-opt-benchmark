@@ -560,7 +560,7 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit.us:                ; preds = %58, %54, %52
 
 ._crit_edge396.us:                                ; preds = %.loopexit360.us
   %124 = add nuw nsw i32 %.0305398.us, 1
-  %125 = icmp ult i32 %124, %.sroa.speculated
+  %125 = icmp samesign ult i32 %124, %.sroa.speculated
   %or.cond = select i1 %.2316.us, i1 %125, i1 false
   br i1 %or.cond, label %.preheader361.us, label %.preheader358.lr.ph, !llvm.loop !10
 
@@ -895,7 +895,7 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit.us:                ; preds = %58, %54, %52
   %.4313.lcssa = phi double [ 0.000000e+00, %200 ], [ %241, %.lr.ph470 ]
   %242 = call double @sqrt(double noundef %.4313.lcssa) #16
   %243 = add nuw nsw i32 %.0298474, 1
-  %244 = icmp ult i32 %.0298474, 99
+  %244 = icmp samesign ult i32 %.0298474, 99
   %245 = fcmp ole double %242, %8
   %246 = select i1 %244, i1 %245, i1 false
   br i1 %246, label %200, label %._crit_edge477, !llvm.loop !27
@@ -1194,7 +1194,7 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit.us:                ; preds = %57, %53, %51
 
 ._crit_edge396.us:                                ; preds = %.loopexit360.us
   %113 = add nuw nsw i32 %.0305398.us, 1
-  %114 = icmp ult i32 %113, %.sroa.speculated
+  %114 = icmp samesign ult i32 %113, %.sroa.speculated
   %or.cond = select i1 %.2316.us, i1 %114, i1 false
   br i1 %or.cond, label %.preheader361.us, label %.preheader358.lr.ph, !llvm.loop !35
 
@@ -1519,7 +1519,7 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit.us:                ; preds = %57, %53, %51
   %.4313.lcssa = phi double [ 0.000000e+00, %185 ], [ %220, %.lr.ph481 ]
   %221 = call double @sqrt(double noundef %.4313.lcssa) #16
   %222 = add nuw nsw i32 %.0298485, 1
-  %223 = icmp ult i32 %.0298485, 99
+  %223 = icmp samesign ult i32 %.0298485, 99
   %224 = fcmp ole double %221, %8
   %225 = select i1 %223, i1 %224, i1 false
   br i1 %225, label %185, label %._crit_edge488, !llvm.loop !52
@@ -1772,7 +1772,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %16, %19
   %121 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %121, ptr %8, align 8
   %122 = getelementptr inbounds i8, ptr %8, i64 8
-  %.not.i.i = icmp ugt i32 %118, 258
+  %.not.i.i = icmp samesign ugt i32 %118, 258
   store i64 %120, ptr %122, align 8
   br i1 %.not.i.i, label %123, label %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit
 
@@ -1957,7 +1957,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc155, %117
   %216 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %216, ptr %11, align 8
   %217 = getelementptr inbounds i8, ptr %11, i64 8
-  %.not.i.i159 = icmp ugt i32 %213, 129
+  %.not.i.i159 = icmp samesign ugt i32 %213, 129
   store i64 %215, ptr %217, align 8
   br i1 %.not.i.i159, label %218, label %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit161
 
@@ -3197,7 +3197,7 @@ _ZNK2cv11_InputArray6getMatEi.exit519:            ; preds = %326, %329
   %587 = getelementptr inbounds i8, ptr %44, i64 16
   store ptr %587, ptr %44, align 8
   %588 = getelementptr inbounds i8, ptr %44, i64 8
-  %.not.i.i520 = icmp ugt i32 %585, 1032
+  %.not.i.i520 = icmp samesign ugt i32 %585, 1032
   store i64 %586, ptr %588, align 8
   br i1 %.not.i.i520, label %589, label %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit522
 
@@ -8794,7 +8794,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv11JacobiImpl_IfEEbPT_mS2_S2
   %34 = load float, ptr %33, align 4
   %35 = getelementptr inbounds float, ptr %2, i64 %indvars.iv484
   store float %34, ptr %35, align 4
-  %36 = icmp ult i64 %indvars.iv484, %30
+  %36 = icmp samesign ult i64 %indvars.iv484, %30
   br i1 %36, label %37, label %54
 
 37:                                               ; preds = %31
@@ -9381,7 +9381,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv11JacobiImpl_IdEEbPT_mS2_S2
   %34 = load double, ptr %33, align 8
   %35 = getelementptr inbounds double, ptr %2, i64 %indvars.iv484
   store double %34, ptr %35, align 8
-  %36 = icmp ult i64 %indvars.iv484, %30
+  %36 = icmp samesign ult i64 %indvars.iv484, %30
   br i1 %36, label %37, label %54
 
 37:                                               ; preds = %31

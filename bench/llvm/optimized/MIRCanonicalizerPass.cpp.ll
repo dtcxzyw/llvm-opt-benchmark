@@ -1071,7 +1071,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.i:       ; preds = %_ZNSt6vectorIjSaIjE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %263 = load i24, ptr %222, align 8
   %264 = zext i24 %263 to i64
-  %265 = icmp ult i64 %indvars.iv.next.i.i, %264
+  %265 = icmp samesign ult i64 %indvars.iv.next.i.i, %264
   br i1 %265, label %226, label %._crit_edge299.i.i, !llvm.loop !32
 
 ._crit_edge299.i.i:                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.i, %.lr.ph309.i.i

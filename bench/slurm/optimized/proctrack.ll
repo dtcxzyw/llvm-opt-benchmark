@@ -447,7 +447,7 @@ define internal fastcc zeroext i1 @_test_core_dumping(ptr noundef %0) unnamed_ad
   %50 = getelementptr inbounds i8, ptr %46, i64 %49
   store i8 0, ptr %50, align 1
   %51 = and i64 %43, 2147483647
-  %52 = icmp ugt i64 %indvars.iv, %51
+  %52 = icmp samesign ugt i64 %indvars.iv, %51
   br i1 %52, label %.loopexit, label %53
 
 53:                                               ; preds = %48

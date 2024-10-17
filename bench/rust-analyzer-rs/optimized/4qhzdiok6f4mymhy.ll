@@ -1001,7 +1001,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !16
   %16 = lshr i64 %15, 1
-  %.not4 = icmp ult i64 %13, %16
+  %.not4 = icmp samesign ult i64 %13, %16
   br i1 %.not4, label %17, label %44
 
 17:                                               ; preds = %8

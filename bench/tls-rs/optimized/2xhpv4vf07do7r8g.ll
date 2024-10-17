@@ -545,7 +545,7 @@ define hidden void @"_ZN4core3ptr41drop_in_place$LT$rustls..error..Error$GT$17hb
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
   %32 = load i64, ptr %31, align 8, !range !134, !alias.scope !131, !noundef !14
-  %switch.i = icmp ult i64 %32, 11
+  %switch.i = icmp samesign ult i64 %32, 11
   br i1 %switch.i, label %"_ZN4core3ptr59drop_in_place$LT$rustls..error..other_error..OtherError$GT$17h455c2d55f0681404E.exit", label %33
 
 33:                                               ; preds = %30
@@ -651,7 +651,7 @@ define internal void @"_ZN4core3ptr51drop_in_place$LT$rustls..enums..ProtocolVer
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr52drop_in_place$LT$rustls..error..CertificateError$GT$17h73aa1bc046876a34E.llvm.12428379203013389814"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !134, !noundef !14
-  %switch = icmp ult i64 %2, 11
+  %switch = icmp samesign ult i64 %2, 11
   br i1 %switch, label %"_ZN4core3ptr59drop_in_place$LT$rustls..error..other_error..OtherError$GT$17h455c2d55f0681404E.exit", label %3
 
 3:                                                ; preds = %1
@@ -2876,7 +2876,7 @@ define hidden void @_ZN6rustls12common_state11CommonState20send_single_fragment1
   %14 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8, !noalias !645
   %15 = icmp ult i64 %14, 6
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ult i64 %14, 4
+  %16 = icmp samesign ult i64 %14, 4
   br i1 %16, label %_ZN6rustls12common_state11CommonState17send_close_notify17hb25da9d6996f5863E.exit, label %.critedge12.i
 
 .critedge12.i:                                    ; preds = %13
@@ -3778,7 +3778,7 @@ define void @_ZN6rustls12common_state11CommonState18send_warning_alert17hc18ad4b
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 2
+  %10 = icmp samesign ult i64 %8, 2
   br i1 %10, label %11, label %.critedge10
 
 11:                                               ; preds = %.critedge, %.critedge10
@@ -3966,7 +3966,7 @@ _ZN6rustls12common_state11CommonState16send_fatal_alert17heb7ffc154d6725d6E.exit
   %56 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %57 = icmp ult i64 %56, 6
   tail call void @llvm.assume(i1 %57)
-  %switch.selectcmp25 = icmp ugt i64 %56, 1
+  %switch.selectcmp25 = icmp samesign ugt i64 %56, 1
   br i1 %switch.selectcmp25, label %58, label %54
 
 58:                                               ; preds = %55
@@ -4037,7 +4037,7 @@ define hidden void @_ZN6rustls12common_state11CommonState28send_cert_verify_erro
   tail call void @llvm.experimental.noalias.scope.decl(metadata !944)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !947)
   %11 = load i64, ptr %10, align 8, !range !134, !alias.scope !947, !noalias !944, !noundef !14
-  %switch = icmp ult i64 %11, 11
+  %switch = icmp samesign ult i64 %11, 11
   br i1 %switch, label %switch.lookup, label %12
 
 12:                                               ; preds = %9
@@ -4142,7 +4142,7 @@ define void @_ZN6rustls12common_state11CommonState17send_close_notify17hb25da9d6
   %4 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %5 = icmp ult i64 %4, 6
   tail call void @llvm.assume(i1 %5)
-  %6 = icmp ult i64 %4, 4
+  %6 = icmp samesign ult i64 %4, 4
   br i1 %6, label %_ZN6rustls12common_state11CommonState25send_warning_alert_no_log17h7ce362960cffe8e6E.exit, label %.critedge12
 
 _ZN6rustls12common_state11CommonState25send_warning_alert_no_log17h7ce362960cffe8e6E.exit: ; preds = %.critedge, %.critedge12
@@ -4338,7 +4338,7 @@ define void @_ZN6rustls12common_state11CommonState23eager_send_close_notify17h50
   %62 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %63 = icmp ult i64 %62, 6
   call void @llvm.assume(i1 %63)
-  %switch.selectcmp25 = icmp ugt i64 %62, 3
+  %switch.selectcmp25 = icmp samesign ugt i64 %62, 3
   br i1 %switch.selectcmp25, label %64, label %71
 
 64:                                               ; preds = %61
@@ -5298,7 +5298,7 @@ define internal fastcc void @_ZN6rustls6crypto9aws_lc_rs4quic19HeaderProtectionK
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !1252
   store <16 x i8> %17, ptr %13, align 16, !alias.scope !1254, !noalias !1258
   %18 = load i8, ptr %16, align 8, !range !580, !alias.scope !1259, !noalias !1260, !noundef !14
-  %switch25.i.i = icmp ult i8 %18, 2
+  %switch25.i.i = icmp samesign ult i8 %18, 2
   br i1 %switch25.i.i, label %19, label %20
 
 19:                                               ; preds = %15
@@ -6733,7 +6733,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %181 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %182 = icmp ult i64 %181, 6
   call void @llvm.assume(i1 %182)
-  %switch.selectcmp211 = icmp ugt i64 %181, 4
+  %switch.selectcmp211 = icmp samesign ugt i64 %181, 4
   br i1 %switch.selectcmp211, label %183, label %168
 
 183:                                              ; preds = %179
@@ -6845,7 +6845,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %213 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8, !noalias !1757
   %214 = icmp ult i64 %213, 6
   call void @llvm.assume(i1 %214)
-  %215 = icmp ult i64 %213, 4
+  %215 = icmp samesign ult i64 %213, 4
   br i1 %215, label %216, label %.critedge25.i
 
 216:                                              ; preds = %.noexc252, %211
@@ -6903,7 +6903,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %238 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8, !noalias !1757
   %239 = icmp ult i64 %238, 6
   call void @llvm.assume(i1 %239)
-  %switch.selectcmp27.i = icmp ugt i64 %238, 3
+  %switch.selectcmp27.i = icmp samesign ugt i64 %238, 3
   br i1 %switch.selectcmp27.i, label %240, label %248
 
 240:                                              ; preds = %237
@@ -7180,7 +7180,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %333 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8, !noalias !1834
   %334 = icmp ult i64 %333, 6
   call void @llvm.assume(i1 %334)
-  %switch.selectcmp114.i = icmp ugt i64 %333, 3
+  %switch.selectcmp114.i = icmp samesign ugt i64 %333, 3
   br i1 %switch.selectcmp114.i, label %343, label %336
 
 .body124.i:                                       ; preds = %554, %487, %393, %.loopexit.split-lp.i, %.loopexit.i
@@ -9793,7 +9793,7 @@ define internal fastcc void @_ZN6rustls6server5tls1212client_hello17emit_server_
   %65 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %66 = icmp ult i64 %65, 6
   call void @llvm.assume(i1 %66)
-  %switch.selectcmp47 = icmp ugt i64 %65, 4
+  %switch.selectcmp47 = icmp samesign ugt i64 %65, 4
   br i1 %switch.selectcmp47, label %67, label %36
 
 67:                                               ; preds = %62
@@ -10262,7 +10262,7 @@ define internal fastcc void @_ZN6rustls6server5tls1212client_hello20emit_certifi
   %107 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %108 = icmp ult i64 %107, 6
   call void @llvm.assume(i1 %108)
-  %switch.selectcmp30 = icmp ugt i64 %107, 4
+  %switch.selectcmp30 = icmp samesign ugt i64 %107, 4
   br i1 %switch.selectcmp30, label %109, label %78
 
 109:                                              ; preds = %104
@@ -10652,7 +10652,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %84 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %85 = icmp ult i64 %84, 6
   call void @llvm.assume(i1 %85)
-  %switch.selectcmp134 = icmp ugt i64 %84, 4
+  %switch.selectcmp134 = icmp samesign ugt i64 %84, 4
   br i1 %switch.selectcmp134, label %86, label %93
 
 86:                                               ; preds = %83
@@ -10796,7 +10796,7 @@ _ZN6rustls7hash_hs13HandshakeHash19abandon_client_auth17h859e0a4f4ff1d067E.exit:
   %138 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %139 = icmp ult i64 %138, 6
   call void @llvm.assume(i1 %139)
-  %switch.selectcmp138 = icmp ugt i64 %138, 3
+  %switch.selectcmp138 = icmp samesign ugt i64 %138, 3
   br i1 %switch.selectcmp138, label %140, label %124
 
 140:                                              ; preds = %137
@@ -12530,7 +12530,7 @@ define void @"_ZN151_$LT$rustls..server..tls12..ExpectCertificateVerify$u20$as$u
   %100 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %101 = icmp ult i64 %100, 6
   call void @llvm.assume(i1 %101)
-  %switch.selectcmp81 = icmp ugt i64 %100, 4
+  %switch.selectcmp81 = icmp samesign ugt i64 %100, 4
   br i1 %switch.selectcmp81, label %102, label %97
 
 102:                                              ; preds = %99
@@ -14189,7 +14189,7 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
   %188 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %189 = icmp ult i64 %188, 6
   call void @llvm.assume(i1 %189)
-  %switch.selectcmp150 = icmp ugt i64 %188, 3
+  %switch.selectcmp150 = icmp samesign ugt i64 %188, 3
   br i1 %186, label %198, label %190
 
 190:                                              ; preds = %187
@@ -15071,7 +15071,7 @@ define internal noundef zeroext i1 @"_ZN67_$LT$rustls..msgs..message..Message$u2
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @"_ZN70_$LT$rustls..error..CertificateError$u20$as$u20$core..clone..Clone$GT$5clone17h86b79d6751d579baE.llvm.12428379203013389814"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #9 {
   %3 = load i64, ptr %1, align 8, !range !134, !noundef !14
-  %switch = icmp ult i64 %3, 11
+  %switch = icmp samesign ult i64 %3, 11
   br i1 %switch, label %14, label %4
 
 4:                                                ; preds = %2

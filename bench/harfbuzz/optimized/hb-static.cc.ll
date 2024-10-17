@@ -2263,7 +2263,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %99 = load i32, ptr %length.i245, align 4
   %100 = zext i32 %99 to i64
-  %cmp.i4.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %100
+  %cmp.i4.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %100
   br i1 %cmp.i4.i.i, label %for.body.i.i.i, label %if.end117thread-pre-split, !llvm.loop !16
 
 if.end117thread-pre-split:                        ; preds = %for.body.i.i.i, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.i.i, %if.end.i.i285
@@ -2459,7 +2459,7 @@ _ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit346: ; preds = %if.th
   %retval.0.i.i342 = phi ptr [ @_hb_CrapPool, %if.then.i.i341 ], [ %arrayidx.i.i345, %if.end.i.i343 ]
   %122 = load i32, ptr %31, align 8
   %123 = zext i32 %122 to i64
-  %cmp.not.i.i348 = icmp ult i64 %indvars.iv, %123
+  %cmp.not.i.i348 = icmp samesign ult i64 %indvars.iv, %123
   br i1 %cmp.not.i.i348, label %if.end.i.i351, label %if.then.i.i349
 
 if.then.i.i349:                                   ; preds = %_ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit346
@@ -4427,7 +4427,7 @@ for.body155:                                      ; preds = %if.then145, %for.bo
 
 for.body175:                                      ; preds = %for.body175.preheader, %for.inc204
   %indvars.iv998 = phi i64 [ 0, %for.body175.preheader ], [ %indvars.iv.next999, %for.inc204 ]
-  %cmp.not.i.i = icmp ult i64 %indvars.iv998, %92
+  %cmp.not.i.i = icmp samesign ult i64 %indvars.iv998, %92
   br i1 %cmp.not.i.i, label %if.end.i.i371, label %if.then.i.i370
 
 if.then.i.i370:                                   ; preds = %for.body175
@@ -4497,7 +4497,7 @@ for.body220:                                      ; preds = %if.then210, %for.bo
 
 for.body244:                                      ; preds = %for.body244.preheader, %for.inc274
   %indvars.iv993 = phi i64 [ 0, %for.body244.preheader ], [ %indvars.iv.next994, %for.inc274 ]
-  %cmp.not.i.i373 = icmp ult i64 %indvars.iv993, %91
+  %cmp.not.i.i373 = icmp samesign ult i64 %indvars.iv993, %91
   br i1 %cmp.not.i.i373, label %if.end.i.i376, label %if.then.i.i374
 
 if.then.i.i374:                                   ; preds = %for.body244
@@ -4902,7 +4902,7 @@ do.cond:                                          ; preds = %no_more_gaps, %if.t
   %conv4.i.i.i.i.i483 = zext i8 %145 to i32
   %shl.i.i.masked.i.i.i484 = and i32 %shl.i.i.i.i.i481, 3840
   %and.i.i.i485 = or disjoint i32 %shl.i.i.masked.i.i.i484, %conv4.i.i.i.i.i483
-  %cmp.i.i486 = icmp uge i32 %inc.i479, %and.i.i.i485
+  %cmp.i.i486 = icmp samesign uge i32 %inc.i479, %and.i.i.i485
   %cmp.not.i.i.i489 = icmp ugt ptr %4, %add.ptr.i.i.i478
   %or.cond798 = select i1 %cmp.i.i486, i1 true, i1 %cmp.not.i.i.i489
   br i1 %or.cond798, label %do.end, label %land.lhs.true.i.i.i490
@@ -6574,7 +6574,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %if.end12, %if.end.i
   %notmask = shl nsw i32 -1, %retval.0.i
   %sub = xor i32 %notmask, -1
   store i32 %sub, ptr %mask.i, align 4
-  %cmp.i = icmp ugt i32 %retval.0.i, 31
+  %cmp.i = icmp samesign ugt i32 %retval.0.i, 31
   br i1 %cmp.i, label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit, label %if.end.i19
 
 if.end.i19:                                       ; preds = %_ZL9hb_memsetPvij.exit
@@ -7310,7 +7310,7 @@ entry:
   %5 = load i8, ptr %arrayidx3.i.i.i, align 1
   %conv4.i.i.i = zext i8 %5 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %conv4.i.i.i
-  %cmp.i = icmp ult i32 %add.i.i.i, 2
+  %cmp.i = icmp samesign ult i32 %add.i.i.i, 2
   br i1 %cmp.i, label %_ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit, label %return
 
 _ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit: ; preds = %entry
@@ -7322,7 +7322,7 @@ _ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit: ; preds = %entry
   %7 = load i8, ptr %arrayidx3.i.i4.i, align 1
   %conv4.i.i5.i = zext i8 %7 to i32
   %add.i.i6.i = or disjoint i32 %shl.i.i3.i, %conv4.i.i5.i
-  %cmp4.i = icmp ult i32 %add.i.i6.i, 2
+  %cmp4.i = icmp samesign ult i32 %add.i.i6.i, 2
   br i1 %cmp4.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %_ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit
@@ -9082,7 +9082,7 @@ land.lhs.true3:                                   ; preds = %_ZNK2OT7ArrayOfINS_
   %13 = load i8, ptr %arrayidx3.i.i.i, align 1
   %conv4.i.i = zext i8 %13 to i32
   %add.i.i11 = or disjoint i32 %shl.i.i, %conv4.i.i
-  %cmp.not = icmp ugt i32 %and.i, %add.i.i11
+  %cmp.not = icmp samesign ugt i32 %and.i, %add.i.i11
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true3

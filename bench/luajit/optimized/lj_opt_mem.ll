@@ -307,7 +307,7 @@ entry:
   %arrayidx2 = getelementptr inbounds [101 x i16], ptr %chain, i64 0, i64 %add
   %ref.0.in89 = load i16, ptr %arrayidx2, align 2
   %ref.090 = zext i16 %ref.0.in89 to i32
-  %cmp91 = icmp ult i32 %xref, %ref.090
+  %cmp91 = icmp samesign ult i32 %xref, %ref.090
   br i1 %cmp91, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %sw.epilog
@@ -334,7 +334,7 @@ sw.epilog:                                        ; preds = %while.body
   %prev = getelementptr inbounds i8, ptr %arrayidx8, i64 6
   %ref.0.in = load i16, ptr %prev, align 2
   %ref.0 = zext i16 %ref.0.in to i32
-  %cmp = icmp ult i32 %xref, %ref.0
+  %cmp = icmp samesign ult i32 %xref, %ref.0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %sw.epilog, %entry
@@ -510,7 +510,7 @@ land.lhs.true102:                                 ; preds = %if.end95
   br i1 %cmp106, label %cselim, label %if.end110
 
 if.end110:                                        ; preds = %while.cond60, %if.then56, %if.end95, %land.lhs.true102
-  %cmp11297 = icmp ugt i32 %ref.0.lcssa, %conv32
+  %cmp11297 = icmp samesign ugt i32 %ref.0.lcssa, %conv32
   br i1 %cmp11297, label %while.body114, label %while.end134
 
 while.body114:                                    ; preds = %if.end110, %sw.epilog131
@@ -552,7 +552,7 @@ land.lhs.true139:                                 ; preds = %while.end134
 
 if.end149:                                        ; preds = %while.end134
   %t152 = getelementptr inbounds i8, ptr %J, i64 188
-  %cmp156 = icmp ult i8 %33, 3
+  %cmp156 = icmp samesign ult i8 %33, 3
   br i1 %cmp156, label %if.then158, label %if.else172
 
 if.then158:                                       ; preds = %land.lhs.true139, %if.end149
@@ -629,7 +629,7 @@ cselim:                                           ; preds = %while.body, %land.l
   %arrayidx249 = getelementptr inbounds [101 x i16], ptr %chain, i64 0, i64 %conv
   %ref.2.in99 = load i16, ptr %arrayidx249, align 2
   %ref.2100 = zext i16 %ref.2.in99 to i32
-  %cmp252101 = icmp ult i32 %lim.0, %ref.2100
+  %cmp252101 = icmp samesign ult i32 %lim.0, %ref.2100
   br i1 %cmp252101, label %while.body254.preheader, label %return
 
 while.body254.preheader:                          ; preds = %cselim
@@ -649,7 +649,7 @@ while.cond251:                                    ; preds = %while.cond251.prehe
   %gep169 = getelementptr inbounds %union.IRIns, ptr %invariant.gep168, i64 %49
   %ref.2.in = load i16, ptr %gep169, align 2
   %ref.2 = zext i16 %ref.2.in to i32
-  %cmp252 = icmp ult i32 %lim.0, %ref.2
+  %cmp252 = icmp samesign ult i32 %lim.0, %ref.2
   br i1 %cmp252, label %while.body254, label %return, !llvm.loop !12
 
 while.body254:                                    ; preds = %while.cond251
@@ -1352,7 +1352,7 @@ if.then36:                                        ; preds = %if.end30
   %8 = load i32, ptr %nins, align 4
   %sub = add i32 %8, -1
   %idxprom41 = zext i32 %sub to i64
-  %cmp4336 = icmp ugt i64 %idxprom41, %idxprom12
+  %cmp4336 = icmp samesign ugt i64 %idxprom41, %idxprom12
   br i1 %cmp4336, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.then36
@@ -1800,7 +1800,7 @@ cselim:                                           ; preds = %sw.epilog, %entry, 
   %arrayidx18 = getelementptr inbounds i8, ptr %J, i64 538
   %ref.1.in35 = load i16, ptr %arrayidx18, align 2
   %ref.136 = zext i16 %ref.1.in35 to i32
-  %cmp2137 = icmp ult i32 %lim.0, %ref.136
+  %cmp2137 = icmp samesign ult i32 %lim.0, %ref.136
   br i1 %cmp2137, label %while.body23.lr.ph, label %while.end61
 
 while.body23.lr.ph:                               ; preds = %cselim
@@ -1846,7 +1846,7 @@ if.end:                                           ; preds = %land.lhs.true, %lor
   %gep = getelementptr inbounds %union.IRIns, ptr %invariant.gep, i64 %21
   %ref.1.in = load i16, ptr %gep, align 2
   %ref.1 = zext i16 %ref.1.in to i32
-  %cmp21 = icmp ult i32 %lim.0, %ref.1
+  %cmp21 = icmp samesign ult i32 %lim.0, %ref.1
   br i1 %cmp21, label %while.body23, label %while.end61, !llvm.loop !22
 
 while.end61:                                      ; preds = %if.end, %cselim
@@ -1961,7 +1961,7 @@ if.then33:                                        ; preds = %if.end27
   %19 = load i32, ptr %nins, align 4
   %sub = add i32 %19, -1
   %idxprom38 = zext i32 %sub to i64
-  %cmp4055 = icmp ugt i64 %idxprom38, %idxprom9
+  %cmp4055 = icmp samesign ugt i64 %idxprom38, %idxprom9
   br i1 %cmp4055, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.then33
@@ -2017,7 +2017,7 @@ for.cond66:                                       ; preds = %for.cond66, %if.the
   %idxprom64.pn = zext i16 %idxprom64.pn.in to i64
   %obar.0 = getelementptr inbounds %union.IRIns, ptr %25, i64 %idxprom64.pn
   %conv67 = zext i16 %idxprom64.pn.in to i32
-  %cmp69 = icmp ult i32 %add, %conv67
+  %cmp69 = icmp samesign ult i32 %add, %conv67
   %prev72 = getelementptr inbounds i8, ptr %obar.0, i64 6
   br i1 %cmp69, label %for.cond66, label %for.end78, !llvm.loop !24
 
@@ -2796,7 +2796,7 @@ cond.true95.split.i:                              ; preds = %land.lhs.true88.i
   %spec.select12.i.i = tail call i32 @llvm.umax.i32(i32 %conv97.i, i32 %conv85.i)
   %ref.0.in13.i.i = load i16, ptr %arrayidx.i.i, align 2
   %ref.014.i.i = zext i16 %ref.0.in13.i.i to i32
-  %cmp215.i.i = icmp ult i32 %spec.select12.i.i, %ref.014.i.i
+  %cmp215.i.i = icmp samesign ult i32 %spec.select12.i.i, %ref.014.i.i
   br i1 %cmp215.i.i, label %while.body.i.i, label %doemit
 
 while.body.i.i:                                   ; preds = %cond.true95.split.i, %if.end16.i.i
@@ -2820,7 +2820,7 @@ if.end16.i.i:                                     ; preds = %land.lhs.true.i.i, 
   %prev.i.i = getelementptr inbounds i8, ptr %arrayidx6.i.i, i64 6
   %ref.0.in.i.i = load i16, ptr %prev.i.i, align 2
   %ref.0.i.i = zext i16 %ref.0.in.i.i to i32
-  %cmp2.i.i = icmp ult i32 %spec.select12.i.i, %ref.0.i.i
+  %cmp2.i.i = icmp samesign ult i32 %spec.select12.i.i, %ref.0.i.i
   br i1 %cmp2.i.i, label %while.body.i.i, label %doemit, !llvm.loop !33
 
 cond.false98.split.i:                             ; preds = %land.lhs.true88.i
@@ -2903,7 +2903,7 @@ if.then111.i:                                     ; preds = %if.end108.i
   %spec.select12.i99.i = tail call i32 @llvm.umax.i32(i32 %conv114.i, i32 %ref.017.i80.i)
   %ref.0.in13.i100.i = load i16, ptr %arrayidx.i70.i, align 2
   %ref.014.i101.i = zext i16 %ref.0.in13.i100.i to i32
-  %cmp215.i102.i = icmp ult i32 %spec.select12.i99.i, %ref.014.i101.i
+  %cmp215.i102.i = icmp samesign ult i32 %spec.select12.i99.i, %ref.014.i101.i
   br i1 %cmp215.i102.i, label %while.body.lr.ph.i104.i, label %doemit
 
 while.body.lr.ph.i104.i:                          ; preds = %if.then111.i
@@ -2931,7 +2931,7 @@ if.end16.i113.i:                                  ; preds = %land.lhs.true.i118.
   %prev.i114.i = getelementptr inbounds i8, ptr %arrayidx6.i110.i, i64 6
   %ref.0.in.i115.i = load i16, ptr %prev.i114.i, align 2
   %ref.0.i116.i = zext i16 %ref.0.in.i115.i to i32
-  %cmp2.i117.i = icmp ult i32 %spec.select12.i99.i, %ref.0.i116.i
+  %cmp2.i117.i = icmp samesign ult i32 %spec.select12.i99.i, %ref.0.i116.i
   br i1 %cmp2.i117.i, label %while.body.i106.i, label %doemit, !llvm.loop !33
 
 if.then165:                                       ; preds = %land.lhs.true.i118.i, %if.end108.i
@@ -3262,7 +3262,7 @@ if.then60:                                        ; preds = %if.end54
   %9 = load i32, ptr %nins, align 4
   %sub = add i32 %9, -1
   %idxprom65 = zext i32 %sub to i64
-  %cmp6744 = icmp ugt i64 %idxprom65, %idxprom37
+  %cmp6744 = icmp samesign ugt i64 %idxprom65, %idxprom37
   br i1 %cmp6744, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.then60

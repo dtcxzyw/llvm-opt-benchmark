@@ -3107,14 +3107,14 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %81, %76
   %.016.i13 = phi i64 [ %83, %81 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %81 ], [ 0, %76 ]
   %79 = or disjoint i64 %.0.i14, 1
-  %80 = icmp ult i64 %79, %44
+  %80 = icmp samesign ult i64 %79, %44
   br i1 %80, label %84, label %92
 
 81:                                               ; preds = %76
@@ -7722,7 +7722,7 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit: ; 
   %71 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %72 = icmp ult i64 %71, 6
   call void @llvm.assume(i1 %72)
-  %73 = icmp ult i64 %71, 5
+  %73 = icmp samesign ult i64 %71, 5
   br i1 %73, label %74, label %.critedge19
 
 74:                                               ; preds = %.critedge, %.critedge19
@@ -7883,7 +7883,7 @@ define hidden void @_ZN6rustls6client6common17ClientAuthDetails7resolve17hd152b3
   %63 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %64 = icmp ult i64 %63, 6
   tail call void @llvm.assume(i1 %64)
-  %switch.selectcmp44 = icmp ugt i64 %63, 3
+  %switch.selectcmp44 = icmp samesign ugt i64 %63, 3
   br i1 %switch.selectcmp44, label %65, label %.noexc59
 
 65:                                               ; preds = %61
@@ -7955,7 +7955,7 @@ define hidden void @_ZN6rustls6client6common17ClientAuthDetails7resolve17hd152b3
   %86 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %87 = icmp ult i64 %86, 6
   call void @llvm.assume(i1 %87)
-  %switch.selectcmp48 = icmp ugt i64 %86, 3
+  %switch.selectcmp48 = icmp samesign ugt i64 %86, 3
   br i1 %switch.selectcmp48, label %88, label %.noexc68
 
 88:                                               ; preds = %85
@@ -8764,7 +8764,7 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i: 
   %191 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %192 = icmp ult i64 %191, 6
   call void @llvm.assume(i1 %192)
-  %switch.selectcmp218 = icmp ugt i64 %191, 3
+  %switch.selectcmp218 = icmp samesign ugt i64 %191, 3
   br i1 %switch.selectcmp218, label %193, label %.thread370
 
 193:                                              ; preds = %190
@@ -8892,7 +8892,7 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i: 
 .noexc268:                                        ; preds = %223
   %227 = icmp ult i64 %226, 6
   call void @llvm.assume(i1 %227)
-  %228 = icmp ult i64 %226, 5
+  %228 = icmp samesign ult i64 %226, 5
   br i1 %228, label %242, label %.critedge11.i
 
 .critedge11.i:                                    ; preds = %.noexc268
@@ -8917,7 +8917,7 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i: 
   %234 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %235 = icmp ult i64 %234, 6
   call void @llvm.assume(i1 %235)
-  %switch.selectcmp222 = icmp ugt i64 %234, 3
+  %switch.selectcmp222 = icmp samesign ugt i64 %234, 3
   br i1 %switch.selectcmp222, label %236, label %223
 
 236:                                              ; preds = %233
@@ -10187,7 +10187,7 @@ _ZN6rustls6client5tls1313emit_fake_ccs17h6700d8066eeb8abfE.exit: ; preds = %8, %
   %47 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %48 = icmp ult i64 %47, 6
   call void @llvm.assume(i1 %48)
-  %49 = icmp ult i64 %47, 5
+  %49 = icmp samesign ult i64 %47, 5
   br i1 %49, label %50, label %.critedge10
 
 50:                                               ; preds = %.critedge, %.critedge10
@@ -10429,7 +10429,7 @@ define void @"_ZN153_$LT$rustls..client..tls13..ExpectEncryptedExtensions$u20$as
   %70 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %71 = icmp ult i64 %70, 6
   tail call void @llvm.assume(i1 %71)
-  %switch.selectcmp122 = icmp ugt i64 %70, 3
+  %switch.selectcmp122 = icmp samesign ugt i64 %70, 3
   br i1 %switch.selectcmp122, label %72, label %41
 
 72:                                               ; preds = %68
@@ -12039,7 +12039,7 @@ define void @"_ZN152_$LT$rustls..client..tls13..ExpectCertificateRequest$u20$as$
   %74 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %75 = icmp ult i64 %74, 6
   call void @llvm.assume(i1 %75)
-  %switch.selectcmp106 = icmp ugt i64 %74, 3
+  %switch.selectcmp106 = icmp samesign ugt i64 %74, 3
   br i1 %switch.selectcmp106, label %76, label %67
 
 76:                                               ; preds = %73
@@ -12439,7 +12439,7 @@ define void @"_ZN152_$LT$rustls..client..tls13..ExpectCertificateRequest$u20$as$
   %233 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %234 = icmp ult i64 %233, 6
   call void @llvm.assume(i1 %234)
-  %switch.selectcmp111 = icmp ugt i64 %233, 1
+  %switch.selectcmp111 = icmp samesign ugt i64 %233, 1
   br i1 %switch.selectcmp111, label %235, label %227
 
 235:                                              ; preds = %232
@@ -13233,7 +13233,7 @@ define void @"_ZN151_$LT$rustls..client..tls13..ExpectCertificateVerify$u20$as$u
   %41 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %42 = icmp ult i64 %41, 6
   tail call void @llvm.assume(i1 %42)
-  %switch.selectcmp195 = icmp ugt i64 %41, 4
+  %switch.selectcmp195 = icmp samesign ugt i64 %41, 4
   br i1 %switch.selectcmp195, label %43, label %50
 
 43:                                               ; preds = %39

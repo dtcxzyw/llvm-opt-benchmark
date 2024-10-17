@@ -612,7 +612,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %434 = fneg double %432
   %435 = select i1 %433, double %432, double %434
   %436 = fmul double %435, 5.000000e-01
-  %437 = icmp ugt i64 %419, %415
+  %437 = icmp samesign ugt i64 %419, %415
   %438 = select i1 %437, i32 %412, i32 %265
   %439 = select i1 %437, i32 1, i32 %420
   %440 = getelementptr inbounds i32, ptr %35, i64 %426

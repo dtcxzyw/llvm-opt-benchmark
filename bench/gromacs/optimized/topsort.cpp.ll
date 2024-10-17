@@ -169,7 +169,7 @@ define noundef zeroext i1 @_Z28gmx_mtop_bondeds_free_energyPK10gmx_mtop_t(ptr no
 75:                                               ; preds = %65, %74
   %.4 = phi i1 [ true, %74 ], [ %.337, %65 ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 3
-  %76 = icmp ult i64 %indvars.iv.next52, %56
+  %76 = icmp samesign ult i64 %indvars.iv.next52, %56
   br i1 %76, label %.lr.ph41, label %._crit_edge42, !llvm.loop !7
 
 ._crit_edge42:                                    ; preds = %75, %40
@@ -503,7 +503,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %203 = load float, ptr %202, align 4
   %204 = fcmp une float %201, %203
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %205 = icmp ugt i64 %indvars.iv, 4
+  %205 = icmp samesign ugt i64 %indvars.iv, 4
   %.not97 = select i1 %205, i1 true, i1 %204
   br i1 %.not97, label %.loopexit.loopexit113, label %199, !llvm.loop !10
 

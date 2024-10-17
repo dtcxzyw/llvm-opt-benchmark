@@ -291,7 +291,7 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 157:                                              ; preds = %.loopexit, %144
   %158 = phi i64 [ 2, %144 ], [ %175, %.loopexit ]
-  %159 = icmp ugt i64 %158, 2
+  %159 = icmp samesign ugt i64 %158, 2
   %160 = mul nsw i64 %158, %154
   br i1 %159, label %161, label %.loopexit
 

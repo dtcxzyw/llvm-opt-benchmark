@@ -389,7 +389,7 @@ define hidden { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_loa
 
 .lr.ph.i:                                         ; preds = %10, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %10 ]
-  %13 = icmp ult i32 %.02.i, 7
+  %13 = icmp samesign ult i32 %.02.i, 7
   br i1 %13, label %.preheader.i.i, label %14
 
 14:                                               ; preds = %.lr.ph.i
@@ -397,7 +397,7 @@ define hidden { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_loa
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %14
-  %15 = icmp ult i32 %.02.i, 11
+  %15 = icmp samesign ult i32 %.02.i, 11
   %16 = zext i1 %15 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %16
   %17 = atomicrmw xchg ptr %4, i64 1 acquire, align 8
@@ -446,7 +446,7 @@ define hidden void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exc
 
 .lr.ph.i:                                         ; preds = %6, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %6 ]
-  %12 = icmp ult i32 %.02.i, 7
+  %12 = icmp samesign ult i32 %.02.i, 7
   br i1 %12, label %.preheader.i.i, label %13
 
 13:                                               ; preds = %.lr.ph.i
@@ -454,7 +454,7 @@ define hidden void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exc
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %13
-  %14 = icmp ult i32 %.02.i, 11
+  %14 = icmp samesign ult i32 %.02.i, 11
   %15 = zext i1 %14 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %15
   %16 = atomicrmw xchg ptr %9, i64 1 acquire, align 8

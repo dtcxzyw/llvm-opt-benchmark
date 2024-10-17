@@ -2827,7 +2827,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %14, %17
 
 32:                                               ; preds = %28, %.noexc70
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %33 = icmp ult i32 %20, 4
+  %33 = icmp samesign ult i32 %20, 4
   %34 = icmp ne i32 %22, 7
   %or.cond = and i1 %34, %33
   br i1 %or.cond, label %47, label %39
@@ -2888,11 +2888,11 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %14, %17
   store ptr %53, ptr %11, align 8
   %54 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 264, ptr %54, align 8
-  %55 = icmp ult i32 %22, 4
+  %55 = icmp samesign ult i32 %22, 4
   br i1 %55, label %_ZN2cv10AutoBufferIiLm264EE8allocateEm.exit, label %_ZNK2cv3Mat8elemSizeEv.exit.thread
 
 _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit:      ; preds = %49
-  %56 = icmp ult i32 %22, 2
+  %56 = icmp samesign ult i32 %22, 2
   %57 = select i1 %56, i32 8388608, i32 32768
   %58 = zext nneg i32 %21 to i64
   store i64 %58, ptr %54, align 8

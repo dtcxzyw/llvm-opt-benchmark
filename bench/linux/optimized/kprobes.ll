@@ -226,7 +226,7 @@ define dso_local ptr @__get_insn_slot(ptr noundef %0) local_unnamed_addr #0 alig
 
 19:                                               ; preds = %22
   %20 = add nuw nsw i64 %23, 1
-  %21 = icmp ult i64 %20, %12
+  %21 = icmp samesign ult i64 %20, %12
   br i1 %21, label %22, label %.thread, !llvm.loop !6
 
 22:                                               ; preds = %19, %17
@@ -426,7 +426,7 @@ define internal fastcc void @collect_garbage_slots(ptr noundef %0) unnamed_addr 
   %52 = phi i64 [ %.pre, %._crit_edge ], [ %23, %22 ]
   %53 = add nuw nsw i64 %24, 1
   %54 = udiv i64 4096, %52
-  %55 = icmp ult i64 %53, %54
+  %55 = icmp samesign ult i64 %53, %54
   br i1 %55, label %22, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %51, %35, %38, %13, %7
@@ -1275,7 +1275,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
 
 132:                                              ; preds = %123, %116
   %133 = add nuw nsw i64 %117, 1
-  %134 = icmp ult i64 %117, 6
+  %134 = icmp samesign ult i64 %117, 6
   %135 = icmp eq i64 %133, 7
   br i1 %135, label %136, label %116, !llvm.loop !51
 
@@ -4407,7 +4407,7 @@ kprobe_add_area_blacklist.exit22:                 ; preds = %110, %100, %.thread
 
 145:                                              ; preds = %136, %129
   %146 = add nuw nsw i64 %130, 1
-  %147 = icmp ult i64 %130, 6
+  %147 = icmp samesign ult i64 %130, 6
   %148 = icmp eq i64 %146, 7
   br i1 %148, label %149, label %129, !llvm.loop !51
 
@@ -4440,7 +4440,7 @@ kprobe_add_area_blacklist.exit22:                 ; preds = %110, %100, %.thread
 
 167:                                              ; preds = %158, %.preheader30
   %168 = add nuw nsw i64 %152, 1
-  %169 = icmp ult i64 %152, 6
+  %169 = icmp samesign ult i64 %152, 6
   %170 = icmp eq i64 %168, 7
   br i1 %170, label %171, label %.preheader30, !llvm.loop !99
 

@@ -2435,7 +2435,7 @@ vec.epilog.iter.check:                            ; preds = %vector.body
   %ind.end51 = getelementptr i8, ptr %dP, i64 %n.vec
   %157 = shl nsw i64 %n.vec, 2
   %ind.end49 = getelementptr i8, ptr %sP, i64 %157
-  %min.epilog.iters.check = icmp ult i64 %6, 9
+  %min.epilog.iters.check = icmp samesign ult i64 %6, 9
   br i1 %min.epilog.iters.check, label %for.body.preheader, label %vec.epilog.ph
 
 for.body.preheader.loopexit:                      ; preds = %vec.epilog.vector.body

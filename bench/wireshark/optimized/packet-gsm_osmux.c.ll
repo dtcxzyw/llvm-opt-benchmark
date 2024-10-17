@@ -733,7 +733,7 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   br label %176
 
 150:                                              ; preds = %145
-  %151 = icmp ult i32 %135, %137
+  %151 = icmp samesign ult i32 %135, %137
   br i1 %151, label %152, label %159
 
 152:                                              ; preds = %150
@@ -763,8 +763,8 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
 
 168:                                              ; preds = %159
   %169 = icmp ugt i32 %133, %137
-  %170 = icmp ugt i32 %reass.sub113, 143
-  %or.cond = or i1 %169, %170
+  %170 = icmp samesign ugt i32 %reass.sub113, 143
+  %or.cond = select i1 %169, i1 true, i1 %170
   br i1 %or.cond, label %171, label %176
 
 171:                                              ; preds = %168

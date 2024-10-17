@@ -80,7 +80,7 @@ define internal fastcc noundef zeroext i1 @nbcon_context_can_proceed(ptr nocaptu
   br i1 %17, label %18, label %53
 
 18:                                               ; preds = %11
-  %19 = icmp ugt i32 %13, %4
+  %19 = icmp samesign ugt i32 %13, %4
   br i1 %19, label %21, label %20, !prof !6
 
 20:                                               ; preds = %18

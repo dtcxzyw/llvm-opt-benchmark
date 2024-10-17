@@ -389,7 +389,7 @@ _ZN16IndexSetIterator4nextEv.exit.thread:         ; preds = %_ZN16IndexSetIterat
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = load i32, ptr %3, align 8
   %89 = zext i32 %88 to i64
-  %90 = icmp ult i64 %indvars.iv.next, %89
+  %90 = icmp samesign ult i64 %indvars.iv.next, %89
   br i1 %90, label %13, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZN16IndexSetIterator4nextEv.exit.thread, %1
@@ -419,7 +419,7 @@ define hidden void @_ZN8PhaseIFG24Compute_Effective_DegreeEv(ptr nocapture nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %2, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %12, label %5, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %5, %1
@@ -1708,7 +1708,7 @@ _ZN8IndexSet6insertEj.exit:                       ; preds = %213, %233, %244
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %247 = load i32, ptr %209, align 8
   %248 = zext i32 %247 to i64
-  %249 = icmp ult i64 %indvars.iv.next, %248
+  %249 = icmp samesign ult i64 %indvars.iv.next, %248
   br i1 %249, label %213, label %.loopexit81.loopexit, !llvm.loop !17
 
 .loopexit81.loopexit:                             ; preds = %_ZN8IndexSet6insertEj.exit
@@ -2004,7 +2004,7 @@ _ZN8PhaseIFG8add_edgeEjj.exit:                    ; preds = %422, %411, %394, %.
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %425 = load i32, ptr %382, align 8
   %426 = zext i32 %425 to i64
-  %427 = icmp ult i64 %indvars.iv.next98, %426
+  %427 = icmp samesign ult i64 %indvars.iv.next98, %426
   br i1 %427, label %.lr.ph86, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %_ZN8PhaseIFG8add_edgeEjj.exit, %_ZN4Node7set_reqEjPS_.exit75, %.loopexit81, %253
@@ -2017,7 +2017,7 @@ _ZN8PhaseIFG8add_edgeEjj.exit:                    ; preds = %422, %411, %394, %.
   %430 = getelementptr inbounds i8, ptr %429, i64 64
   %431 = load i32, ptr %430, align 8
   %432 = zext i32 %431 to i64
-  %433 = icmp ult i64 %indvars.iv.next101, %432
+  %433 = icmp samesign ult i64 %indvars.iv.next101, %432
   br i1 %433, label %18, label %._crit_edge92, !llvm.loop !21
 
 ._crit_edge92:                                    ; preds = %._crit_edge, %1
@@ -2473,7 +2473,7 @@ _ZN16IndexSetIterator4nextEv.exit28:              ; preds = %38, %52
   %indvars.iv40 = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next41, %.loopexit ]
   %64 = load i32, ptr %56, align 8
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %indvars.iv40, %65
+  %66 = icmp samesign ult i64 %indvars.iv40, %65
   br i1 %66, label %67, label %_ZNK5Block8get_nodeEj.exit
 
 67:                                               ; preds = %62
@@ -2535,7 +2535,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %62, %67
   %99 = phi i32 [ %63, %.preheader ], [ %63, %_ZNK5Block8get_nodeEj.exit ], [ %.pre, %94 ], [ %63, %84 ]
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %100 = zext i32 %99 to i64
-  %101 = icmp ult i64 %indvars.iv.next41, %100
+  %101 = icmp samesign ult i64 %indvars.iv.next41, %100
   br i1 %101, label %62, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit30
@@ -3338,7 +3338,7 @@ define hidden void @_ZN12PhaseChaitin20add_input_to_liveoutEP5BlockP4NodeP8Index
   %44 = load ptr, ptr %43, align 8
   %45 = zext i32 %40 to i64
   %46 = getelementptr inbounds %class.LRG, ptr %44, i64 %45
-  %47 = icmp ult i64 %indvars.iv, %16
+  %47 = icmp samesign ult i64 %indvars.iv, %16
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %41
@@ -3395,7 +3395,7 @@ _ZN8IndexSet6insertEj.exit:                       ; preds = %64, %75, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = load i32, ptr %22, align 8
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %indvars.iv.next, %82
+  %83 = icmp samesign ult i64 %indvars.iv.next, %82
   br i1 %83, label %31, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZN8IndexSet6insertEj.exit, %15
@@ -3626,7 +3626,7 @@ _ZNK5Block8get_nodeEj.exit.lr.ph.i:               ; preds = %38
 
 _ZNK5Block8get_nodeEj.exit.i:                     ; preds = %81, %_ZNK5Block8get_nodeEj.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %_ZNK5Block8get_nodeEj.exit.lr.ph.i ], [ %indvars.iv.next.i, %81 ]
-  %74 = icmp ult i64 %indvars.iv.i, %73
+  %74 = icmp samesign ult i64 %indvars.iv.i, %73
   call void @llvm.assume(i1 %74)
   %75 = getelementptr inbounds ptr, ptr %.pre255, i64 %indvars.iv.i
   %76 = load ptr, ptr %75, align 8
@@ -3674,7 +3674,7 @@ _ZL18first_nonphi_indexP5Block.exit:              ; preds = %81, %38, %_ZNK5Bloc
 
 _ZNK5Block8get_nodeEj.exit.i96:                   ; preds = %125, %.lr.ph.i
   %indvars.iv.i97 = phi i64 [ %99, %.lr.ph.i ], [ %indvars.iv.next.i98, %125 ]
-  %101 = icmp ult i64 %indvars.iv.i97, %100
+  %101 = icmp samesign ult i64 %indvars.iv.i97, %100
   call void @llvm.assume(i1 %101)
   %102 = getelementptr inbounds ptr, ptr %.pre.i, i64 %indvars.iv.i97
   %103 = load ptr, ptr %102, align 8
@@ -4715,7 +4715,7 @@ _ZN12PhaseChaitin19interfere_with_liveEjP8IndexSet.exit: ; preds = %640, %_ZN16I
   %696 = load ptr, ptr %695, align 8
   %697 = zext i32 %692 to i64
   %698 = getelementptr inbounds %class.LRG, ptr %696, i64 %697
-  %699 = icmp ult i64 %indvars.iv.i134, %668
+  %699 = icmp samesign ult i64 %indvars.iv.i134, %668
   br i1 %699, label %700, label %707
 
 700:                                              ; preds = %693
@@ -4872,7 +4872,7 @@ _ZN8IndexSet6insertEj.exit.i:                     ; preds = %786, %743, %_ZNK7Re
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i134, 1
   %795 = load i32, ptr %674, align 8
   %796 = zext i32 %795 to i64
-  %797 = icmp ult i64 %indvars.iv.next.i136, %796
+  %797 = icmp samesign ult i64 %indvars.iv.next.i136, %796
   br i1 %797, label %679, label %_ZN12PhaseChaitin20add_input_to_liveoutEP5BlockP4NodeP8IndexSetdRNS_8PressureES7_.exit.loopexit, !llvm.loop !32
 
 _ZN12PhaseChaitin20add_input_to_liveoutEP5BlockP4NodeP8IndexSetdRNS_8PressureES7_.exit.loopexit: ; preds = %_ZN8IndexSet6insertEj.exit.i
@@ -5058,7 +5058,7 @@ _ZN12PhaseChaitin26adjust_high_pressure_indexEP5BlockRjRNS_8PressureE.exit149: ;
   %906 = getelementptr inbounds i8, ptr %905, i64 64
   %907 = load i32, ptr %906, align 8
   %908 = zext i32 %907 to i64
-  %909 = icmp ult i64 %indvars.iv.next252, %908
+  %909 = icmp samesign ult i64 %indvars.iv.next252, %908
   br i1 %909, label %38, label %._crit_edge227.loopexit, !llvm.loop !38
 
 ._crit_edge227.loopexit:                          ; preds = %_ZN12PhaseChaitin26adjust_high_pressure_indexEP5BlockRjRNS_8PressureE.exit149

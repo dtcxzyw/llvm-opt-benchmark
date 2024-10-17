@@ -4989,7 +4989,7 @@ land.rhs.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %while.body.i.i.i.i.
   %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %9 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %conv5.i.i.i.i.i.i.i.i.i.i.i.i = zext i32 %9 to i64
-  %cmp8.i.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i.i.i.i.i.i.i, %conv5.i.i.i.i.i.i.i.i.i.i.i.i
+  %cmp8.i.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %add.i.i.i.i.i.i.i.i.i.i.i.i, %conv5.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp8.i.i.i.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf9CieRecordINS0_5PPC32EE8get_relsEv.exit.i.i.i.i.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i
@@ -5664,7 +5664,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %x.0.copyload.i.i = load i32, ptr %add.ptr.i5.i, align 1
   %12 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i)
   %conv7.i = zext i32 %12 to i64
-  %cmp10.i = icmp ugt i64 %add.i, %conv7.i
+  %cmp10.i = icmp samesign ugt i64 %add.i, %conv7.i
   br i1 %cmp10.i, label %while.body.i, label %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i

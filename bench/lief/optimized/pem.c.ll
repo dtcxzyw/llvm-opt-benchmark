@@ -623,7 +623,7 @@ define internal fastcc i32 @pem_pbkdf1(ptr nocapture noundef nonnull writeonly %
   br i1 %.not29, label %15, label %32
 
 15:                                               ; preds = %13
-  %16 = icmp ult i64 %1, 17
+  %16 = icmp samesign ult i64 %1, 17
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %15
@@ -657,7 +657,7 @@ define internal fastcc i32 @pem_pbkdf1(ptr nocapture noundef nonnull writeonly %
   br i1 %.not34, label %28, label %32
 
 28:                                               ; preds = %26
-  %29 = icmp ult i64 %1, 32
+  %29 = icmp samesign ult i64 %1, 32
   %30 = add nsw i64 %1, -16
   %spec.select = select i1 %29, i64 %30, i64 16
   %31 = getelementptr inbounds i8, ptr %0, i64 16

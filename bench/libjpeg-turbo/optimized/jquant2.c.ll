@@ -489,7 +489,7 @@ define internal void @finish_pass1(ptr noundef %0) #0 {
 23:                                               ; preds = %107, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %107 ]
   %24 = shl nuw nsw i64 %indvars.iv.i.i, 1
-  %.not.i.i = icmp ugt i64 %24, %22
+  %.not.i.i = icmp samesign ugt i64 %24, %22
   br i1 %.not.i.i, label %.lr.ph.i84.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %23, %32
@@ -1708,7 +1708,7 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   %60 = getelementptr inbounds i8, ptr %36, i64 %indvars.iv.i
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
-  %63 = icmp ugt i32 %15, %62
+  %63 = icmp samesign ugt i32 %15, %62
   br i1 %63, label %64, label %69
 
 64:                                               ; preds = %59
@@ -1719,7 +1719,7 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   br label %77
 
 69:                                               ; preds = %59
-  %70 = icmp ult i32 %24, %62
+  %70 = icmp samesign ult i32 %24, %62
   br i1 %70, label %71, label %76
 
 71:                                               ; preds = %69
@@ -1730,7 +1730,7 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   br label %77
 
 76:                                               ; preds = %69
-  %.not180.i = icmp ult i32 %26, %62
+  %.not180.i = icmp samesign ult i32 %26, %62
   %..i = select i1 %.not180.i, i32 %15, i32 %24
   br label %77
 
@@ -1744,7 +1744,7 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   %82 = getelementptr inbounds i8, ptr %39, i64 %indvars.iv.i
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
-  %85 = icmp ugt i32 %18, %84
+  %85 = icmp samesign ugt i32 %18, %84
   br i1 %85, label %86, label %92
 
 86:                                               ; preds = %77
@@ -1756,7 +1756,7 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   br label %101
 
 92:                                               ; preds = %77
-  %93 = icmp ult i32 %27, %84
+  %93 = icmp samesign ult i32 %27, %84
   br i1 %93, label %94, label %100
 
 94:                                               ; preds = %92
@@ -1768,7 +1768,7 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   br label %101
 
 100:                                              ; preds = %92
-  %.not181.i = icmp ult i32 %29, %84
+  %.not181.i = icmp samesign ult i32 %29, %84
   %.213.i = select i1 %.not181.i, i32 %18, i32 %27
   br label %101
 
@@ -1783,7 +1783,7 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   %106 = getelementptr inbounds i8, ptr %41, i64 %indvars.iv.i
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i32
-  %109 = icmp ugt i32 %21, %108
+  %109 = icmp samesign ugt i32 %21, %108
   br i1 %109, label %110, label %116
 
 110:                                              ; preds = %101
@@ -1795,7 +1795,7 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   br label %125
 
 116:                                              ; preds = %101
-  %117 = icmp ult i32 %30, %108
+  %117 = icmp samesign ult i32 %30, %108
   br i1 %117, label %118, label %124
 
 118:                                              ; preds = %116
@@ -1807,7 +1807,7 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   br label %125
 
 124:                                              ; preds = %116
-  %.not182.i = icmp ult i32 %32, %108
+  %.not182.i = icmp samesign ult i32 %32, %108
   %.214.i = select i1 %.not182.i, i32 %21, i32 %30
   br label %125
 

@@ -2239,7 +2239,7 @@ define internal i32 @dissect_rtp_midi(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %44, label %45, label %36
 
 45:                                               ; preds = %.preheader
-  %46 = icmp ult i32 %.0302.i, 4
+  %46 = icmp samesign ult i32 %.0302.i, 4
   br i1 %46, label %switch.lookup411, label %50
 
 switch.lookup411:                                 ; preds = %45
@@ -4276,12 +4276,12 @@ decode_sj_chapter_f.exit.i:                       ; preds = %1198, %1197, %decod
   %1246 = or disjoint i32 %1243, %1245
   %1247 = add nuw nsw i32 %.03.i.i, 1
   %1248 = icmp slt i8 %1242, 0
-  %1249 = icmp ult i32 %.03.i.i, 3
-  %or.cond.i.i = and i1 %1249, %1248
+  %1249 = icmp samesign ult i32 %.03.i.i, 3
+  %or.cond.i.i = select i1 %1248, i1 %1249, i1 false
   br i1 %or.cond.i.i, label %.preheader.split.i.i, label %1250, !llvm.loop !12
 
 1250:                                             ; preds = %1241
-  %1251 = icmp ult i32 %.03.i.i, 4
+  %1251 = icmp samesign ult i32 %.03.i.i, 4
   br i1 %1251, label %switch.lookup, label %1255
 
 switch.lookup:                                    ; preds = %1250
@@ -4572,7 +4572,7 @@ decode_cj_chapter_c.exit.i:                       ; preds = %1381
   %1426 = select i1 %1425, i32 2, i32 3
   %1427 = load i32, ptr @ett_rtp_midi_cj_chapter_m_loglist, align 4
   %1428 = tail call ptr @proto_tree_add_subtree(ptr noundef %1398, ptr noundef %0, i32 noundef %.0.i.i143, i32 noundef %1396, i32 noundef %1427, ptr noundef null, ptr noundef nonnull @.str.1635) #2
-  %1429 = icmp ugt i32 %1395, 2
+  %1429 = icmp samesign ugt i32 %1395, 2
   br i1 %1429, label %.lr.ph.i.i147, label %decode_cj_chapter_m.exit.i
 
 .lr.ph.i.i147:                                    ; preds = %1421, %1514
@@ -4770,7 +4770,7 @@ decode_cj_chapter_m.exit.i:                       ; preds = %1514, %1421
   %1543 = lshr i32 %1540, 4
   %1544 = and i32 %1543, 15
   %1545 = and i32 %1540, 15
-  %.not.i183.i = icmp ugt i32 %1544, %1545
+  %.not.i183.i = icmp samesign ugt i32 %1544, %1545
   br i1 %.not.i183.i, label %1549, label %1546
 
 1546:                                             ; preds = %1538
@@ -4780,7 +4780,7 @@ decode_cj_chapter_m.exit.i:                       ; preds = %1514, %1421
 
 1549:                                             ; preds = %1538
   %1550 = icmp eq i32 %1544, 15
-  %or.cond31.i.i = icmp ult i32 %1545, 2
+  %or.cond31.i.i = icmp samesign ult i32 %1545, 2
   %or.cond101.i.i = and i1 %or.cond31.i.i, %1550
   br i1 %or.cond101.i.i, label %1551, label %decodemidi.exit.thread222
 

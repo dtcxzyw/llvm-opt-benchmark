@@ -8991,7 +8991,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit44.thread:        ; preds = %_ZN4llvm12DenseMapI
   %31 = add nuw nsw i64 %.01952, 1
   %32 = load i32, ptr %9, align 8
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %31, %33
+  %34 = icmp samesign ult i64 %31, %33
   br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !141
 
 ._crit_edge:                                      ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit44.thread, %2

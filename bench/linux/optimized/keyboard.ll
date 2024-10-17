@@ -1284,7 +1284,7 @@ define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 nound
   %81 = getelementptr [15 x i8], ptr @max_vals, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
-  %84 = icmp ugt i32 %79, %83
+  %84 = icmp samesign ugt i32 %79, %83
   %85 = or i1 %56, %84
   %86 = select i1 %84, i32 -22, i32 0
   br i1 %85, label %141, label %92

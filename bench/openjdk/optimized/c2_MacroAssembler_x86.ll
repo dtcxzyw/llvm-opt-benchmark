@@ -237,7 +237,7 @@ define hidden void @_ZN17C2_MacroAssembler14verified_entryEiibb(ptr noundef nonn
   %90 = add nsw i32 %85, 1
   %91 = icmp sgt i32 %85, -1
   %92 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %90)
-  %93 = icmp ult i32 %92, 2
+  %93 = icmp samesign ult i32 %92, 2
   %or.cond.i.i.i.i.i.i = select i1 %91, i1 %93, i1 false
   %94 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %90, i1 true)
   %95 = sub nuw nsw i32 32, %94
@@ -1488,7 +1488,7 @@ define hidden void @_ZN17C2_MacroAssembler23fast_unlock_lightweightE8RegisterS0_
   %105 = add nsw i32 %100, 1
   %106 = icmp sgt i32 %100, -1
   %107 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %105)
-  %108 = icmp ult i32 %107, 2
+  %108 = icmp samesign ult i32 %107, 2
   %or.cond.i.i.i.i.i.i = select i1 %106, i1 %108, i1 false
   %109 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %105, i1 true)
   %110 = sub nuw nsw i32 32, %109

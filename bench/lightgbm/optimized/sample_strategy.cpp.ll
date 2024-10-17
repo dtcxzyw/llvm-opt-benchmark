@@ -2269,7 +2269,7 @@ define linkonce_odr noundef i32 @_ZN8LightGBM12GOSSStrategy6HelperEiiPiPfS2_(ptr
   %33 = tail call noundef float @llvm.fabs.f32(float %32)
   %34 = fadd float %25, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = icmp ult i64 %indvars.iv.next, %22
+  %35 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %35, label %24, label %._crit_edge, !llvm.loop !17
 
 36:                                               ; preds = %._crit_edge98

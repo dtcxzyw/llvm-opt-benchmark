@@ -1302,13 +1302,13 @@ define internal fastcc noundef ptr @make_new_segment(ptr noundef %0, i64 noundef
   %24 = add nuw nsw i64 %21, 5248
   %25 = sub nuw nsw i64 %24, %23
   %.097 = select i1 %.not112, i64 %22, i64 %25
-  %.not113 = icmp ugt i64 %., %.097
+  %.not113 = icmp samesign ugt i64 %., %.097
   br i1 %.not113, label %26, label %.loopexit
 
 26:                                               ; preds = %15
   %27 = sub nuw nsw i64 %., %.097
   %28 = lshr i64 %27, 12
-  %29 = icmp ugt i64 %1, %28
+  %29 = icmp samesign ugt i64 %1, %28
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %26

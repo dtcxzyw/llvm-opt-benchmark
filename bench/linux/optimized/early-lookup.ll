@@ -490,8 +490,8 @@ define internal fastcc noundef ptr @bdevt_str(i32 noundef %0, ptr noundef return
   %4 = lshr i32 %0, 20
   %5 = icmp ult i32 %0, 268435456
   %6 = and i32 %0, 1048575
-  %7 = icmp ult i32 %6, 256
-  %or.cond = and i1 %5, %7
+  %7 = icmp samesign ult i32 %6, 256
+  %or.cond = select i1 %5, i1 %7, i1 false
   br i1 %or.cond, label %8, label %._crit_edge
 
 8:                                                ; preds = %2

@@ -5394,7 +5394,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit284: ; preds = %_ZN4llvm15Bits
   %1119 = or i8 %.01418.i, %1118
   %1120 = add nuw nsw i32 %.019.i, 1
   %1121 = add nuw i32 %.117.i, 1
-  %1122 = icmp ult i32 %.019.i, 7
+  %1122 = icmp samesign ult i32 %.019.i, 7
   %1123 = icmp ult i32 %1121, %1106
   %1124 = select i1 %1122, i1 %1123, i1 false
   br i1 %1124, label %1108, label %1125, !llvm.loop !43
@@ -5677,7 +5677,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit321: ; preds = %_ZN4llvm15Bits
   %1268 = or i8 %.01418.i327, %1267
   %1269 = add nuw nsw i32 %.019.i326, 1
   %1270 = add nuw i32 %.117.i328, 1
-  %1271 = icmp ult i32 %.019.i326, 7
+  %1271 = icmp samesign ult i32 %.019.i326, 7
   %1272 = icmp ult i32 %1270, %1255
   %1273 = select i1 %1271, i1 %1272, i1 false
   br i1 %1273, label %1257, label %1274, !llvm.loop !43
@@ -17000,7 +17000,7 @@ define dso_local void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocatio
   %21 = getelementptr inbounds i8, ptr %11, i64 -4
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %21, align 4
   %22 = and i32 %.sroa.0.0.copyload.i.i.i, 2147483647
-  %23 = icmp ugt i32 %7, %22
+  %23 = icmp samesign ugt i32 %7, %22
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %20
@@ -17013,7 +17013,7 @@ define dso_local void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocatio
 29:                                               ; preds = %20
   %.sroa.0.0.copyload.i6.i.i = load i32, ptr %9, align 4
   %30 = and i32 %.sroa.0.0.copyload.i6.i.i, 2147483647
-  %31 = icmp ult i32 %7, %30
+  %31 = icmp samesign ult i32 %7, %30
   br i1 %31, label %_ZNK5clang9ASTWriter13getAdjustmentEj.exit.i, label %32
 
 32:                                               ; preds = %29
@@ -17032,7 +17032,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang11SourceRangeESt6vectorIS3_
   %40 = getelementptr i8, ptr %39, i64 4
   %.val.i.i.i.i.i.i = load i32, ptr %40, align 4
   %41 = and i32 %.val.i.i.i.i.i.i, 2147483647
-  %42 = icmp ult i32 %41, %7
+  %42 = icmp samesign ult i32 %41, %7
   %43 = getelementptr inbounds i8, ptr %39, i64 8
   %44 = xor i64 %38, -1
   %45 = add nsw i64 %.04.i.i.i.i.i, %44
@@ -19157,7 +19157,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %11,
   %.0.i.i.i.i.i = phi ptr [ %10, %8 ], [ %12, %11 ]
   %13 = load i32, ptr %.0.i.i.i.i.i, align 8
   %14 = and i32 %13, 2147483647
-  %15 = icmp ult i32 %5, %14
+  %15 = icmp samesign ult i32 %5, %14
   br i1 %15, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %16
 
 16:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -19181,7 +19181,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %18
   %27 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %1, i32 noundef %7, ptr noundef null)
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 2147483647
-  %30 = icmp ult i32 %5, %29
+  %30 = icmp samesign ult i32 %5, %29
   br i1 %30, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %23, %16
@@ -20472,7 +20472,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit.i:                ; preds = %554, %551, %._crit_
 609:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i.i, %._crit_edge.i.i
   %.019.i.i.i.i = phi i64 [ %608, %._crit_edge.i.i ], [ %610, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i.i ]
   %610 = lshr i64 %.019.i.i.i.i, 7
-  %.not.i.i.i46.i = icmp ugt i64 %.019.i.i.i.i, 127
+  %.not.i.i.i46.i = icmp samesign ugt i64 %.019.i.i.i.i, 127
   %611 = trunc i64 %.019.i.i.i.i to i8
   %612 = or i8 %611, -128
   %.0.i.i.i.i122 = select i1 %.not.i.i.i46.i, i8 %612, i8 %611
@@ -20504,7 +20504,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit.i.i.i: ; preds = %_ZN4llvm11ra
 621:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i7.i.i.i, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit.i.i.i
   %.019.i2.i.i.i = phi i64 [ %620, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit.i.i.i ], [ %622, %_ZN4llvm11raw_ostreamlsEc.exit.i7.i.i.i ]
   %622 = lshr i64 %.019.i2.i.i.i, 7
-  %.not.i4.i.i.i = icmp ugt i64 %.019.i2.i.i.i, 127
+  %.not.i4.i.i.i = icmp samesign ugt i64 %.019.i2.i.i.i, 127
   %623 = trunc i64 %.019.i2.i.i.i to i8
   %624 = or i8 %623, -128
   %.0.i5.i.i.i = select i1 %.not.i4.i.i.i, i8 %624, i8 %623
@@ -21097,7 +21097,7 @@ _ZN12_GLOBAL__N_119HeaderFileInfoTrait8EmitDataERN4llvm11raw_ostreamERKNS0_8key_
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %919 = load i32, ptr %27, align 8
   %920 = zext i32 %919 to i64
-  %921 = icmp ult i64 %indvars.iv.next.i, %920
+  %921 = icmp samesign ult i64 %indvars.iv.next.i, %920
   br i1 %921, label %569, label %._crit_edge.i, !llvm.loop !167
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i, %561
@@ -21156,7 +21156,7 @@ _ZN12_GLOBAL__N_119HeaderFileInfoTrait8EmitDataERN4llvm11raw_ostreamERKNS0_8key_
   %indvars.iv.next126.i = add nuw nsw i64 %indvars.iv125.i, 1
   %948 = load i32, ptr %27, align 8
   %949 = zext i32 %948 to i64
-  %950 = icmp ult i64 %indvars.iv.next126.i, %949
+  %950 = icmp samesign ult i64 %indvars.iv.next126.i, %949
   br i1 %950, label %.lr.ph107.i, label %_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_119HeaderFileInfoTraitEE4EmitERNS_11raw_ostreamERS2_.exit, !llvm.loop !169
 
 _ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_119HeaderFileInfoTraitEE4EmitERNS_11raw_ostreamERS2_.exit: ; preds = %.lr.ph107.i, %._crit_edge104.i
@@ -22893,7 +22893,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %559, %_ZNSt6vectorI
   %593 = getelementptr inbounds i8, ptr %584, i64 -4
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %593, align 4
   %594 = and i32 %.sroa.0.0.copyload.i.i.i, 2147483647
-  %595 = icmp ugt i32 %582, %594
+  %595 = icmp samesign ugt i32 %582, %594
   br i1 %595, label %596, label %600
 
 596:                                              ; preds = %592
@@ -22905,7 +22905,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %559, %_ZNSt6vectorI
 600:                                              ; preds = %592
   %.sroa.0.0.copyload.i6.i.i = load i32, ptr %583, align 4
   %601 = and i32 %.sroa.0.0.copyload.i6.i.i, 2147483647
-  %602 = icmp ult i32 %582, %601
+  %602 = icmp samesign ult i32 %582, %601
   br i1 %602, label %_ZNK5clang9ASTWriter17getAdjustedOffsetEj.exit, label %603
 
 603:                                              ; preds = %600
@@ -22924,7 +22924,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang11SourceRangeESt6vectorIS3_
   %611 = getelementptr i8, ptr %610, i64 4
   %.val.i.i.i.i.i.i = load i32, ptr %611, align 4
   %612 = and i32 %.val.i.i.i.i.i.i, 2147483647
-  %613 = icmp ult i32 %612, %582
+  %613 = icmp samesign ult i32 %612, %582
   %614 = getelementptr inbounds i8, ptr %610, i64 8
   %615 = xor i64 %609, -1
   %616 = add nsw i64 %.04.i.i.i.i.i, %615
@@ -23476,7 +23476,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit216:        ; preds = %838, %_ZNSt6vectorI
   %872 = getelementptr inbounds i8, ptr %863, i64 -4
   %.sroa.0.0.copyload.i.i.i219 = load i32, ptr %872, align 4
   %873 = and i32 %.sroa.0.0.copyload.i.i.i219, 2147483647
-  %874 = icmp ugt i32 %861, %873
+  %874 = icmp samesign ugt i32 %861, %873
   br i1 %874, label %875, label %879
 
 875:                                              ; preds = %871
@@ -23488,7 +23488,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit216:        ; preds = %838, %_ZNSt6vectorI
 879:                                              ; preds = %871
   %.sroa.0.0.copyload.i6.i.i220 = load i32, ptr %862, align 4
   %880 = and i32 %.sroa.0.0.copyload.i6.i.i220, 2147483647
-  %881 = icmp ult i32 %861, %880
+  %881 = icmp samesign ult i32 %861, %880
   br i1 %881, label %_ZNK5clang9ASTWriter17getAdjustedOffsetEj.exit233, label %882
 
 882:                                              ; preds = %879
@@ -23507,7 +23507,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang11SourceRangeESt6vectorIS3_
   %890 = getelementptr i8, ptr %889, i64 4
   %.val.i.i.i.i.i.i228 = load i32, ptr %890, align 4
   %891 = and i32 %.val.i.i.i.i.i.i228, 2147483647
-  %892 = icmp ult i32 %891, %861
+  %892 = icmp samesign ult i32 %891, %861
   %893 = getelementptr inbounds i8, ptr %889, i64 8
   %894 = xor i64 %888, -1
   %895 = add nsw i64 %.04.i.i.i.i.i224, %894
@@ -25209,7 +25209,7 @@ _ZN4llvm15BitstreamWriter10EmitRecordIA1_mEEvjRKT_j.exit: ; preds = %55, %68
   %78 = or i32 %.pre21.i366, %77
   store i32 %78, ptr %63, align 4
   %79 = add nuw nsw i32 %storemerge6.i.i.i, 6
-  %80 = icmp ult i32 %storemerge6.i.i.i, 26
+  %80 = icmp samesign ult i32 %storemerge6.i.i.i, 26
   br i1 %80, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit370, label %81
 
 81:                                               ; preds = %_ZN4llvm15BitstreamWriter10EmitRecordIA1_mEEvjRKT_j.exit
@@ -25970,7 +25970,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i.i: ; preds = %4
   %.0.i.i.i.i.i.i = phi ptr [ %441, %439 ], [ %443, %442 ]
   %444 = load i32, ptr %.0.i.i.i.i.i.i, align 8
   %445 = and i32 %444, 2147483647
-  %446 = icmp ult i32 %436, %445
+  %446 = icmp samesign ult i32 %436, %445
   br i1 %446, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i.i, label %447
 
 447:                                              ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i.i
@@ -25994,7 +25994,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i.i: ; preds = %
   %458 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %435, i32 noundef %438, ptr noundef null)
   %459 = load i32, ptr %458, align 8
   %460 = and i32 %459, 2147483647
-  %461 = icmp ult i32 %436, %460
+  %461 = icmp samesign ult i32 %436, %460
   br i1 %461, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i.i, %454, %447
@@ -26037,7 +26037,7 @@ _ZL17shouldIgnoreMacroPN5clang14MacroDirectiveEbRKNS_12PreprocessorE.exit: ; pre
   %478 = getelementptr inbounds i8, ptr %469, i64 -4
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %478, align 4
   %479 = and i32 %.sroa.0.0.copyload.i.i.i.i, 2147483647
-  %480 = icmp ugt i32 %467, %479
+  %480 = icmp samesign ugt i32 %467, %479
   br i1 %480, label %481, label %485
 
 481:                                              ; preds = %477
@@ -26049,7 +26049,7 @@ _ZL17shouldIgnoreMacroPN5clang14MacroDirectiveEbRKNS_12PreprocessorE.exit: ; pre
 485:                                              ; preds = %477
   %.sroa.0.0.copyload.i6.i.i.i = load i32, ptr %468, align 4
   %486 = and i32 %.sroa.0.0.copyload.i6.i.i.i, 2147483647
-  %487 = icmp ult i32 %467, %486
+  %487 = icmp samesign ult i32 %467, %486
   br i1 %487, label %_ZNK5clang9ASTWriter19getAdjustedLocationENS_14SourceLocationE.exit.i, label %488
 
 488:                                              ; preds = %485
@@ -26068,7 +26068,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang11SourceRangeESt6vectorIS3_
   %496 = getelementptr i8, ptr %495, i64 4
   %.val.i.i.i.i.i.i.i = load i32, ptr %496, align 4
   %497 = and i32 %.val.i.i.i.i.i.i.i, 2147483647
-  %498 = icmp ult i32 %497, %467
+  %498 = icmp samesign ult i32 %497, %467
   %499 = getelementptr inbounds i8, ptr %495, i64 8
   %500 = xor i64 %494, -1
   %501 = add nsw i64 %.04.i.i.i.i.i.i, %500
@@ -26516,7 +26516,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit.i:      ; preds = %_ZN4llvm15SmallVect
   %735 = or i32 %.pre21.i398, %734
   store i32 %735, ptr %708, align 4
   %736 = add nuw nsw i32 %storemerge6.i.i.i250, 6
-  %737 = icmp ult i32 %storemerge6.i.i.i250, 26
+  %737 = icmp samesign ult i32 %storemerge6.i.i.i250, 26
   br i1 %737, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit404, label %738
 
 738:                                              ; preds = %_ZN4llvm15BitstreamWriter8EmitCodeEj.exit.i
@@ -26831,7 +26831,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i:         ; preds = %_ZN4llvm15SmallVect
   %905 = or i32 %904, %901
   store i32 %905, ptr %708, align 4
   %906 = add nuw nsw i32 %storemerge6.i.i, 6
-  %907 = icmp ult i32 %storemerge6.i.i, 26
+  %907 = icmp samesign ult i32 %storemerge6.i.i, 26
   br i1 %907, label %_ZN4llvm15BitstreamWriter9EmitVBR64Emj.exit, label %908
 
 908:                                              ; preds = %._crit_edge.i
@@ -28239,7 +28239,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit.i312:   ; preds = %_ZN4llvm15SmallVect
   %1625 = or i32 %.pre21.i455, %1624
   store i32 %1625, ptr %1598, align 4
   %1626 = add nuw nsw i32 %storemerge6.i.i.i313, 6
-  %1627 = icmp ult i32 %storemerge6.i.i.i313, 26
+  %1627 = icmp samesign ult i32 %storemerge6.i.i.i313, 26
   br i1 %1627, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit461, label %1628
 
 1628:                                             ; preds = %_ZN4llvm15BitstreamWriter8EmitCodeEj.exit.i312
@@ -28554,7 +28554,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i421:      ; preds = %_ZN4llvm15SmallVect
   %1795 = or i32 %1794, %1791
   store i32 %1795, ptr %1598, align 4
   %1796 = add nuw nsw i32 %storemerge6.i.i422, 6
-  %1797 = icmp ult i32 %storemerge6.i.i422, 26
+  %1797 = icmp samesign ult i32 %storemerge6.i.i422, 26
   br i1 %1797, label %_ZN4llvm15BitstreamWriter9EmitVBR64Emj.exit429, label %1798
 
 1798:                                             ; preds = %._crit_edge.i424
@@ -30586,7 +30586,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %23,
   %.0.i.i.i.i.i = phi ptr [ %22, %20 ], [ %24, %23 ]
   %25 = load i32, ptr %.0.i.i.i.i.i, align 8
   %26 = and i32 %25, 2147483647
-  %27 = icmp ult i32 %17, %26
+  %27 = icmp samesign ult i32 %17, %26
   br i1 %27, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %28
 
 28:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -30610,7 +30610,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %30
   %39 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %16, i32 noundef %19, ptr noundef null)
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 2147483647
-  %42 = icmp ult i32 %17, %41
+  %42 = icmp samesign ult i32 %17, %41
   br i1 %42, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %35, %28
@@ -31090,7 +31090,7 @@ define dso_local i64 @_ZNK5clang9ASTWriter16getAdjustedRangeENS_11SourceRangeE(p
   %19 = getelementptr inbounds i8, ptr %9, i64 -4
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %19, align 4
   %20 = and i32 %.sroa.0.0.copyload.i.i.i, 2147483647
-  %21 = icmp ugt i32 %5, %20
+  %21 = icmp samesign ugt i32 %5, %20
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %18
@@ -31103,7 +31103,7 @@ define dso_local i64 @_ZNK5clang9ASTWriter16getAdjustedRangeENS_11SourceRangeE(p
 27:                                               ; preds = %18
   %.sroa.0.0.copyload.i6.i.i = load i32, ptr %7, align 4
   %28 = and i32 %.sroa.0.0.copyload.i6.i.i, 2147483647
-  %29 = icmp ult i32 %5, %28
+  %29 = icmp samesign ult i32 %5, %28
   br i1 %29, label %_ZNK5clang9ASTWriter13getAdjustmentEj.exit.i, label %30
 
 30:                                               ; preds = %27
@@ -31122,7 +31122,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang11SourceRangeESt6vectorIS3_
   %38 = getelementptr i8, ptr %37, i64 4
   %.val.i.i.i.i.i.i = load i32, ptr %38, align 4
   %39 = and i32 %.val.i.i.i.i.i.i, 2147483647
-  %40 = icmp ult i32 %39, %5
+  %40 = icmp samesign ult i32 %39, %5
   %41 = getelementptr inbounds i8, ptr %37, i64 8
   %42 = xor i64 %36, -1
   %43 = add nsw i64 %.04.i.i.i.i.i, %42
@@ -31180,7 +31180,7 @@ _ZNK5clang9ASTWriter19getAdjustedLocationENS_14SourceLocationE.exit: ; preds = %
   %70 = getelementptr inbounds i8, ptr %60, i64 -4
   %.sroa.0.0.copyload.i.i.i9 = load i32, ptr %70, align 4
   %71 = and i32 %.sroa.0.0.copyload.i.i.i9, 2147483647
-  %72 = icmp ugt i32 %56, %71
+  %72 = icmp samesign ugt i32 %56, %71
   br i1 %72, label %73, label %78
 
 73:                                               ; preds = %69
@@ -31193,7 +31193,7 @@ _ZNK5clang9ASTWriter19getAdjustedLocationENS_14SourceLocationE.exit: ; preds = %
 78:                                               ; preds = %69
   %.sroa.0.0.copyload.i6.i.i10 = load i32, ptr %58, align 4
   %79 = and i32 %.sroa.0.0.copyload.i6.i.i10, 2147483647
-  %80 = icmp ult i32 %56, %79
+  %80 = icmp samesign ult i32 %56, %79
   br i1 %80, label %_ZNK5clang9ASTWriter13getAdjustmentEj.exit.i6, label %81
 
 81:                                               ; preds = %78
@@ -31212,7 +31212,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang11SourceRangeESt6vectorIS3_
   %89 = getelementptr i8, ptr %88, i64 4
   %.val.i.i.i.i.i.i18 = load i32, ptr %89, align 4
   %90 = and i32 %.val.i.i.i.i.i.i18, 2147483647
-  %91 = icmp ult i32 %90, %56
+  %91 = icmp samesign ult i32 %90, %56
   %92 = getelementptr inbounds i8, ptr %88, i64 8
   %93 = xor i64 %87, -1
   %94 = add nsw i64 %.04.i.i.i.i.i14, %93
@@ -34500,7 +34500,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6ModuleEjNS_12DenseMapInfoIS5_vEENS
   %1444 = getelementptr inbounds i8, ptr %1435, i64 -4
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %1444, align 4
   %1445 = and i32 %.sroa.0.0.copyload.i.i.i, 2147483647
-  %1446 = icmp ugt i32 %1433, %1445
+  %1446 = icmp samesign ugt i32 %1433, %1445
   br i1 %1446, label %1447, label %1451
 
 1447:                                             ; preds = %1443
@@ -34512,7 +34512,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6ModuleEjNS_12DenseMapInfoIS5_vEENS
 1451:                                             ; preds = %1443
   %.sroa.0.0.copyload.i6.i.i = load i32, ptr %1434, align 4
   %1452 = and i32 %.sroa.0.0.copyload.i6.i.i, 2147483647
-  %1453 = icmp ult i32 %1433, %1452
+  %1453 = icmp samesign ult i32 %1433, %1452
   br i1 %1453, label %_ZNK5clang9ASTWriter19getAdjustedLocationENS_14SourceLocationE.exit, label %1454
 
 1454:                                             ; preds = %1451
@@ -34531,7 +34531,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang11SourceRangeESt6vectorIS3_
   %1462 = getelementptr i8, ptr %1461, i64 4
   %.val.i.i.i.i.i.i = load i32, ptr %1462, align 4
   %1463 = and i32 %.val.i.i.i.i.i.i, 2147483647
-  %1464 = icmp ult i32 %1463, %1433
+  %1464 = icmp samesign ult i32 %1463, %1433
   %1465 = getelementptr inbounds i8, ptr %1461, i64 8
   %1466 = xor i64 %1460, -1
   %1467 = add nsw i64 %.04.i.i.i.i.i, %1466
@@ -35665,7 +35665,7 @@ define dso_local i32 @_ZNK5clang9ASTWriter19getAdjustedLocationENS_14SourceLocat
   %19 = getelementptr inbounds i8, ptr %9, i64 -4
   %.sroa.0.0.copyload.i.i = load i32, ptr %19, align 4
   %20 = and i32 %.sroa.0.0.copyload.i.i, 2147483647
-  %21 = icmp ugt i32 %5, %20
+  %21 = icmp samesign ugt i32 %5, %20
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %18
@@ -35678,7 +35678,7 @@ define dso_local i32 @_ZNK5clang9ASTWriter19getAdjustedLocationENS_14SourceLocat
 27:                                               ; preds = %18
   %.sroa.0.0.copyload.i6.i = load i32, ptr %7, align 4
   %28 = and i32 %.sroa.0.0.copyload.i6.i, 2147483647
-  %29 = icmp ult i32 %5, %28
+  %29 = icmp samesign ult i32 %5, %28
   br i1 %29, label %_ZNK5clang9ASTWriter13getAdjustmentEj.exit, label %30
 
 30:                                               ; preds = %27
@@ -35697,7 +35697,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang11SourceRangeESt6vectorIS3_
   %38 = getelementptr i8, ptr %37, i64 4
   %.val.i.i.i.i.i = load i32, ptr %38, align 4
   %39 = and i32 %.val.i.i.i.i.i, 2147483647
-  %40 = icmp ult i32 %39, %5
+  %40 = icmp samesign ult i32 %39, %5
   %41 = getelementptr inbounds i8, ptr %37, i64 8
   %42 = xor i64 %36, -1
   %43 = add nsw i64 %.04.i.i.i.i, %42
@@ -38086,7 +38086,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt3mapIjPNS2_10RawCommentESt4
   %65 = getelementptr inbounds i8, ptr %56, i64 -4
   %.sroa.0.0.copyload.i.i.i.i25 = load i32, ptr %65, align 4
   %66 = and i32 %.sroa.0.0.copyload.i.i.i.i25, 2147483647
-  %67 = icmp ugt i32 %54, %66
+  %67 = icmp samesign ugt i32 %54, %66
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %64
@@ -38098,7 +38098,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt3mapIjPNS2_10RawCommentESt4
 72:                                               ; preds = %64
   %.sroa.0.0.copyload.i6.i.i.i26 = load i32, ptr %55, align 4
   %73 = and i32 %.sroa.0.0.copyload.i6.i.i.i26, 2147483647
-  %74 = icmp ult i32 %54, %73
+  %74 = icmp samesign ult i32 %54, %73
   br i1 %74, label %_ZNK5clang9ASTWriter19getAdjustedLocationENS_14SourceLocationE.exit.i22, label %75
 
 75:                                               ; preds = %72
@@ -38117,7 +38117,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang11SourceRangeESt6vectorIS3_
   %83 = getelementptr i8, ptr %82, i64 4
   %.val.i.i.i.i.i.i.i34 = load i32, ptr %83, align 4
   %84 = and i32 %.val.i.i.i.i.i.i.i34, 2147483647
-  %85 = icmp ult i32 %84, %54
+  %85 = icmp samesign ult i32 %84, %54
   %86 = getelementptr inbounds i8, ptr %82, i64 8
   %87 = xor i64 %81, -1
   %88 = add nsw i64 %.04.i.i.i.i.i.i30, %87
@@ -38265,7 +38265,7 @@ _ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorI
   %165 = getelementptr inbounds i8, ptr %156, i64 -4
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %165, align 4
   %166 = and i32 %.sroa.0.0.copyload.i.i.i.i, 2147483647
-  %167 = icmp ugt i32 %154, %166
+  %167 = icmp samesign ugt i32 %154, %166
   br i1 %167, label %168, label %172
 
 168:                                              ; preds = %164
@@ -38277,7 +38277,7 @@ _ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorI
 172:                                              ; preds = %164
   %.sroa.0.0.copyload.i6.i.i.i = load i32, ptr %155, align 4
   %173 = and i32 %.sroa.0.0.copyload.i6.i.i.i, 2147483647
-  %174 = icmp ult i32 %154, %173
+  %174 = icmp samesign ult i32 %154, %173
   br i1 %174, label %_ZNK5clang9ASTWriter19getAdjustedLocationENS_14SourceLocationE.exit.i, label %175
 
 175:                                              ; preds = %172
@@ -38296,7 +38296,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang11SourceRangeESt6vectorIS3_
   %183 = getelementptr i8, ptr %182, i64 4
   %.val.i.i.i.i.i.i.i = load i32, ptr %183, align 4
   %184 = and i32 %.val.i.i.i.i.i.i.i, 2147483647
-  %185 = icmp ult i32 %184, %154
+  %185 = icmp samesign ult i32 %184, %154
   %186 = getelementptr inbounds i8, ptr %182, i64 8
   %187 = xor i64 %181, -1
   %188 = add nsw i64 %.04.i.i.i.i.i.i, %187
@@ -38525,7 +38525,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit.i:      ; preds = %302, %_ZN4llvm23Sma
   %storemerge6.i.i.i = phi i32 [ %309, %302 ], [ %300, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit16 ]
   store i32 %storemerge6.i.i.i, ptr %294, align 8
   %310 = add nuw nsw i32 %storemerge6.i.i.i, 6
-  %311 = icmp ult i32 %storemerge6.i.i.i, 26
+  %311 = icmp samesign ult i32 %storemerge6.i.i.i, 26
   br i1 %311, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit60, label %312
 
 312:                                              ; preds = %_ZN4llvm15BitstreamWriter8EmitCodeEj.exit.i
@@ -38802,7 +38802,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i:         ; preds = %_ZN4llvm15SmallVect
   %451 = or i32 %450, %447
   store i32 %451, ptr %297, align 4
   %452 = add nuw nsw i32 %storemerge6.i.i, 6
-  %453 = icmp ult i32 %storemerge6.i.i, 26
+  %453 = icmp samesign ult i32 %storemerge6.i.i, 26
   br i1 %453, label %_ZN4llvm15BitstreamWriter9EmitVBR64Emj.exit, label %454
 
 454:                                              ; preds = %._crit_edge.i
@@ -39480,7 +39480,7 @@ _ZN12_GLOBAL__N_118ASTMethodPoolTrait25ShouldWriteMethodListNodeEPKN5clang14ObjC
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_118ASTMethodPoolTrait25ShouldWriteMethodListNodeEPKN5clang14ObjCMethodListE.exit19.thread.i.i, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i.i
   %.019.i.i.i.i = phi i64 [ %308, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i.i ], [ %280, %_ZN12_GLOBAL__N_118ASTMethodPoolTrait25ShouldWriteMethodListNodeEPKN5clang14ObjCMethodListE.exit19.thread.i.i ]
   %308 = lshr i64 %.019.i.i.i.i, 7
-  %.not.i.i.i48.i = icmp ugt i64 %.019.i.i.i.i, 127
+  %.not.i.i.i48.i = icmp samesign ugt i64 %.019.i.i.i.i, 127
   %309 = trunc i64 %.019.i.i.i.i to i8
   %310 = or i8 %309, -128
   %.0.i.i.i.i = select i1 %.not.i.i.i48.i, i8 %310, i8 %309
@@ -39509,7 +39509,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit.i.i.i: ; preds = %_ZN4llvm11ra
 318:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i7.i.i.i, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit.i.i.i
   %.019.i2.i.i.i = phi i64 [ %317, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit.i.i.i ], [ %319, %_ZN4llvm11raw_ostreamlsEc.exit.i7.i.i.i ]
   %319 = lshr i64 %.019.i2.i.i.i, 7
-  %.not.i4.i.i.i = icmp ugt i64 %.019.i2.i.i.i, 127
+  %.not.i4.i.i.i = icmp samesign ugt i64 %.019.i2.i.i.i, 127
   %320 = trunc i64 %.019.i2.i.i.i to i8
   %321 = or i8 %320, -128
   %.0.i5.i.i.i = select i1 %.not.i4.i.i.i, i8 %321, i8 %320
@@ -41196,7 +41196,7 @@ _ZN12_GLOBAL__N_118ASTMethodPoolTrait8EmitDataERN4llvm11raw_ostreamEN5clang8Sele
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %1145 = load i32, ptr %20, align 8
   %1146 = zext i32 %1145 to i64
-  %1147 = icmp ult i64 %indvars.iv.next.i, %1146
+  %1147 = icmp samesign ult i64 %indvars.iv.next.i, %1146
   br i1 %1147, label %248, label %._crit_edge.i, !llvm.loop !427
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i, %232
@@ -41255,7 +41255,7 @@ _ZN12_GLOBAL__N_118ASTMethodPoolTrait8EmitDataERN4llvm11raw_ostreamEN5clang8Sele
   %indvars.iv.next181.i = add nuw nsw i64 %indvars.iv180.i, 1
   %1174 = load i32, ptr %20, align 8
   %1175 = zext i32 %1174 to i64
-  %1176 = icmp ult i64 %indvars.iv.next181.i, %1175
+  %1176 = icmp samesign ult i64 %indvars.iv.next181.i, %1175
   br i1 %1176, label %.lr.ph109.i, label %_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_118ASTMethodPoolTraitEE4EmitERNS_11raw_ostreamERS2_.exit, !llvm.loop !429
 
 _ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_118ASTMethodPoolTraitEE4EmitERNS_11raw_ostreamERS2_.exit: ; preds = %.lr.ph109.i, %._crit_edge106.i
@@ -42966,7 +42966,7 @@ _ZN12_GLOBAL__N_123ASTIdentifierTableTrait23isInterestingIdentifierEPKN5clang14I
 
 534:                                              ; preds = %_ZN12_GLOBAL__N_123ASTIdentifierTableTrait23isInterestingIdentifierEPKN5clang14IdentifierInfoEm.exit.i.i
   %535 = icmp eq i32 %532, 65534
-  %536 = icmp ult i32 %532, 37
+  %536 = icmp samesign ult i32 %532, 37
   %.not12.i.i34.i.i = or i1 %536, %535
   br i1 %.not12.i.i34.i.i, label %537, label %540
 
@@ -43041,7 +43041,7 @@ _ZN12_GLOBAL__N_123ASTIdentifierTableTrait23isInterestingIdentifierEPKN5clang14I
 560:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i.i, %_ZN12_GLOBAL__N_123ASTIdentifierTableTrait23isInterestingIdentifierEPKN5clang14IdentifierInfoEm.exit35.i.i
   %.019.i.i.i.i = phi i64 [ %559, %_ZN12_GLOBAL__N_123ASTIdentifierTableTrait23isInterestingIdentifierEPKN5clang14IdentifierInfoEm.exit35.i.i ], [ %561, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i.i ]
   %561 = lshr i64 %.019.i.i.i.i, 7
-  %.not.i.i38.i.i = icmp ugt i64 %.019.i.i.i.i, 127
+  %.not.i.i38.i.i = icmp samesign ugt i64 %.019.i.i.i.i, 127
   %562 = trunc i64 %.019.i.i.i.i to i8
   %563 = or i8 %562, -128
   %.0.i.i39.i.i = select i1 %.not.i.i38.i.i, i8 %563, i8 %562
@@ -43070,7 +43070,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit.i.i.i: ; preds = %_ZN4llvm11ra
 571:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i7.i.i.i, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit.i.i.i
   %.019.i2.i.i.i = phi i64 [ %570, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit.i.i.i ], [ %572, %_ZN4llvm11raw_ostreamlsEc.exit.i7.i.i.i ]
   %572 = lshr i64 %.019.i2.i.i.i, 7
-  %.not.i4.i.i.i = icmp ugt i64 %.019.i2.i.i.i, 127
+  %.not.i4.i.i.i = icmp samesign ugt i64 %.019.i2.i.i.i, 127
   %573 = trunc i64 %.019.i2.i.i.i to i8
   %574 = or i8 %573, -128
   %.0.i5.i.i.i = select i1 %.not.i4.i.i.i, i8 %574, i8 %573
@@ -43162,7 +43162,7 @@ _ZN5clang9ASTWriter24getMacroDirectivesOffsetEPKNS_14IdentifierInfoE.exit.i54.i:
 
 621:                                              ; preds = %_ZN5clang9ASTWriter24getMacroDirectivesOffsetEPKNS_14IdentifierInfoE.exit.i54.i
   %622 = icmp eq i32 %619, 65534
-  %623 = icmp ult i32 %619, 37
+  %623 = icmp samesign ult i32 %619, 37
   %.not12.i.i.i66.i = or i1 %623, %622
   br i1 %.not12.i.i.i66.i, label %624, label %627
 
@@ -43967,7 +43967,7 @@ _ZN12_GLOBAL__N_123ASTIdentifierTableTrait8EmitDataERN4llvm11raw_ostreamEPKN5cla
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %1003 = load i32, ptr %23, align 8
   %1004 = zext i32 %1003 to i64
-  %1005 = icmp ult i64 %indvars.iv.next.i, %1004
+  %1005 = icmp samesign ult i64 %indvars.iv.next.i, %1004
   br i1 %1005, label %175, label %._crit_edge.i, !llvm.loop !473
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i, %157
@@ -44026,7 +44026,7 @@ _ZN12_GLOBAL__N_123ASTIdentifierTableTrait8EmitDataERN4llvm11raw_ostreamEPKN5cla
   %indvars.iv.next345.i = add nuw nsw i64 %indvars.iv344.i, 1
   %1032 = load i32, ptr %23, align 8
   %1033 = zext i32 %1032 to i64
-  %1034 = icmp ult i64 %indvars.iv.next345.i, %1033
+  %1034 = icmp samesign ult i64 %indvars.iv.next345.i, %1033
   br i1 %1034, label %.lr.ph292.i, label %_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_123ASTIdentifierTableTraitEE4EmitERNS_11raw_ostreamERS2_.exit, !llvm.loop !475
 
 _ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_123ASTIdentifierTableTraitEE4EmitERNS_11raw_ostreamERS2_.exit: ; preds = %.lr.ph292.i, %._crit_edge289.i
@@ -46131,7 +46131,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit.i.i.i.i: ; preds = %762, %760
 765:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i7.i.i.i.i, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit.i.i.i.i
   %.019.i2.i.i.i.i = phi i64 [ %764, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit.i.i.i.i ], [ %766, %_ZN4llvm11raw_ostreamlsEc.exit.i7.i.i.i.i ]
   %766 = lshr i64 %.019.i2.i.i.i.i, 7
-  %.not.i4.i.i.i.i = icmp ugt i64 %.019.i2.i.i.i.i, 127
+  %.not.i4.i.i.i.i = icmp samesign ugt i64 %.019.i2.i.i.i.i, 127
   %767 = trunc i64 %.019.i2.i.i.i.i to i8
   %768 = or i8 %767, -128
   %.0.i5.i.i.i.i = select i1 %.not.i4.i.i.i.i, i8 %768, i8 %767
@@ -46395,7 +46395,7 @@ _ZN12_GLOBAL__N_129ASTDeclContextNameLookupTrait8EmitDataERN4llvm11raw_ostreamEN
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %878 = load i32, ptr %24, align 8
   %879 = zext i32 %878 to i64
-  %880 = icmp ult i64 %indvars.iv.next.i.i, %879
+  %880 = icmp samesign ult i64 %indvars.iv.next.i.i, %879
   br i1 %880, label %727, label %._crit_edge.i.i176, !llvm.loop !508
 
 ._crit_edge.i.i176:                               ; preds = %.loopexit.i.i, %721
@@ -46454,7 +46454,7 @@ _ZN12_GLOBAL__N_129ASTDeclContextNameLookupTrait8EmitDataERN4llvm11raw_ostreamEN
   %indvars.iv.next99.i.i = add nuw nsw i64 %indvars.iv98.i.i, 1
   %907 = load i32, ptr %24, align 8
   %908 = zext i32 %907 to i64
-  %909 = icmp ult i64 %indvars.iv.next99.i.i, %908
+  %909 = icmp samesign ult i64 %indvars.iv.next99.i.i, %908
   br i1 %909, label %.lr.ph90.i.i, label %_ZN5clang13serialization29MultiOnDiskHashTableGeneratorINS0_6reader29ASTDeclContextNameLookupTraitEN12_GLOBAL__N_129ASTDeclContextNameLookupTraitEE4emitERN4llvm15SmallVectorImplIcEERS5_PKNS0_20MultiOnDiskHashTableIS3_EE.exit, !llvm.loop !510
 
 _ZN5clang13serialization29MultiOnDiskHashTableGeneratorINS0_6reader29ASTDeclContextNameLookupTraitEN12_GLOBAL__N_129ASTDeclContextNameLookupTraitEE4emitERN4llvm15SmallVectorImplIcEERS5_PKNS0_20MultiOnDiskHashTableIS3_EE.exit: ; preds = %.lr.ph90.i.i, %._crit_edge87.i.i
@@ -62164,7 +62164,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfo
 
 118:                                              ; preds = %105
   %119 = icmp eq i32 %116, 65534
-  %120 = icmp ult i32 %116, 37
+  %120 = icmp samesign ult i32 %116, 37
   %.not12.i.i = or i1 %120, %119
   br i1 %.not12.i.i, label %121, label %124
 
@@ -63390,7 +63390,7 @@ _ZN5clang9ASTWriter16AddIdentifierRefEPKNS_14IdentifierInfoERN4llvm15SmallVector
   %721 = getelementptr inbounds i8, ptr %712, i64 -4
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %721, align 4
   %722 = and i32 %.sroa.0.0.copyload.i.i.i.i, 2147483647
-  %723 = icmp ugt i32 %710, %722
+  %723 = icmp samesign ugt i32 %710, %722
   br i1 %723, label %724, label %728
 
 724:                                              ; preds = %720
@@ -63402,7 +63402,7 @@ _ZN5clang9ASTWriter16AddIdentifierRefEPKNS_14IdentifierInfoERN4llvm15SmallVector
 728:                                              ; preds = %720
   %.sroa.0.0.copyload.i6.i.i.i = load i32, ptr %711, align 4
   %729 = and i32 %.sroa.0.0.copyload.i6.i.i.i, 2147483647
-  %730 = icmp ult i32 %710, %729
+  %730 = icmp samesign ult i32 %710, %729
   br i1 %730, label %_ZNK5clang9ASTWriter19getAdjustedLocationENS_14SourceLocationE.exit.i, label %731
 
 731:                                              ; preds = %728
@@ -63421,7 +63421,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang11SourceRangeESt6vectorIS3_
   %739 = getelementptr i8, ptr %738, i64 4
   %.val.i.i.i.i.i.i.i = load i32, ptr %739, align 4
   %740 = and i32 %.val.i.i.i.i.i.i.i, 2147483647
-  %741 = icmp ult i32 %740, %710
+  %741 = icmp samesign ult i32 %740, %710
   %742 = getelementptr inbounds i8, ptr %738, i64 8
   %743 = xor i64 %737, -1
   %744 = add nsw i64 %.04.i.i.i.i.i.i, %743
@@ -68354,7 +68354,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit220: ; preds = %.loopex
   %633 = getelementptr inbounds i8, ptr %624, i64 -4
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %633, align 4
   %634 = and i32 %.sroa.0.0.copyload.i.i.i.i, 2147483647
-  %635 = icmp ugt i32 %622, %634
+  %635 = icmp samesign ugt i32 %622, %634
   br i1 %635, label %636, label %640
 
 636:                                              ; preds = %632
@@ -68366,7 +68366,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit220: ; preds = %.loopex
 640:                                              ; preds = %632
   %.sroa.0.0.copyload.i6.i.i.i = load i32, ptr %623, align 4
   %641 = and i32 %.sroa.0.0.copyload.i6.i.i.i, 2147483647
-  %642 = icmp ult i32 %622, %641
+  %642 = icmp samesign ult i32 %622, %641
   br i1 %642, label %_ZNK5clang9ASTWriter19getAdjustedLocationENS_14SourceLocationE.exit.i, label %643
 
 643:                                              ; preds = %640
@@ -68385,7 +68385,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang11SourceRangeESt6vectorIS3_
   %651 = getelementptr i8, ptr %650, i64 4
   %.val.i.i.i.i.i.i.i = load i32, ptr %651, align 4
   %652 = and i32 %.val.i.i.i.i.i.i.i, 2147483647
-  %653 = icmp ult i32 %652, %622
+  %653 = icmp samesign ult i32 %652, %622
   %654 = getelementptr inbounds i8, ptr %650, i64 8
   %655 = xor i64 %649, -1
   %656 = add nsw i64 %.04.i.i.i.i.i.i, %655
@@ -74270,7 +74270,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %10,
   %.0.i.i.i.i.i = phi ptr [ %9, %7 ], [ %11, %10 ]
   %12 = load i32, ptr %.0.i.i.i.i.i, align 8
   %13 = and i32 %12, 2147483647
-  %14 = icmp ult i32 %4, %13
+  %14 = icmp samesign ult i32 %4, %13
   br i1 %14, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %15
 
 15:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -74294,7 +74294,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %17
   %26 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %6, ptr noundef null)
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 2147483647
-  %29 = icmp ult i32 %4, %28
+  %29 = icmp samesign ult i32 %4, %28
   br i1 %29, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %22, %15
@@ -79554,7 +79554,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit:           ; preds = %33, %46
   %61 = or i32 %53, %60
   store i32 %61, ptr %11, align 4
   %62 = add nuw nsw i32 %storemerge6.i, 3
-  %63 = icmp ult i32 %storemerge6.i, 29
+  %63 = icmp samesign ult i32 %storemerge6.i, 29
   br i1 %63, label %_ZN4llvm15BitstreamWriter4EmitEjj.exit16, label %64
 
 64:                                               ; preds = %56
@@ -84756,7 +84756,7 @@ define linkonce_odr void @_ZSt11__make_heapIPSt4pairIjN5clang17DiagnosticMapping
   %.sroa.02.0.copyload14 = load i64, ptr %11, align 4
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %14 = icmp ult i64 %10, %13
+  %14 = icmp samesign ult i64 %10, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -85426,7 +85426,7 @@ define linkonce_odr hidden void @_ZN5clang13serialization18AbstractTypeWriterINS
   %21 = load i64, ptr %20, align 8, !noalias !792
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %19, ptr %22, align 8, !alias.scope !792
-  %23 = icmp ult i32 %19, 65
+  %23 = icmp samesign ult i32 %19, 65
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %17
@@ -85598,7 +85598,7 @@ define linkonce_odr hidden void @_ZN5clang13serialization18AbstractTypeWriterINS
   %21 = load i64, ptr %20, align 8, !noalias !795
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %19, ptr %22, align 8, !alias.scope !795
-  %23 = icmp ult i32 %19, 65
+  %23 = icmp samesign ult i32 %19, 65
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %17
@@ -89127,7 +89127,7 @@ _ZN5clang15ASTRecordWriter9writeBoolEb.exit55:    ; preds = %64, %74
   %84 = lshr i64 %83, 32
   %85 = trunc nuw i64 %84 to i32
   %86 = and i32 %85, 2147483647
-  %87 = icmp ult i32 %86, 65
+  %87 = icmp samesign ult i32 %86, 65
   br i1 %87, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %82
@@ -104783,7 +104783,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
   %32 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %16, %15 ]
   %33 = add nuw nsw i64 %.016, 1
   %34 = zext i32 %32 to i64
-  %35 = icmp ult i64 %33, %34
+  %35 = icmp samesign ult i64 %33, %34
   br i1 %35, label %15, label %._crit_edge18, !llvm.loop !857
 
 ._crit_edge18:                                    ; preds = %._crit_edge, %_ZN4llvm11safe_callocEmm.exit
@@ -105224,7 +105224,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %1
   br i1 %.inv.i.i.i.i.i.i.i.i.i.i, label %31, label %_ZSt25__unguarded_linear_insertIPPKN5clang14IdentifierInfoEN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm5derefISt4lessIvEEEEEEvT_T0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm5derefISt4lessIvEEEEclIPKN5clang14IdentifierInfoEPSC_EEbRT_T0_.exit.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i, %16
-  %30 = icmp ult i64 %20, %24
+  %30 = icmp samesign ult i64 %20, %24
   br i1 %30, label %31, label %_ZSt25__unguarded_linear_insertIPPKN5clang14IdentifierInfoEN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm5derefISt4lessIvEEEEEEvT_T0_.exit.i.i
 
 31:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm5derefISt4lessIvEEEEclIPKN5clang14IdentifierInfoEPSC_EEbRT_T0_.exit.i.i.i, %29
@@ -105358,7 +105358,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %18
   br label %.preheader.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i, %18
-  %28 = icmp ult i64 %23, %16
+  %28 = icmp samesign ult i64 %23, %16
   br i1 %28, label %29, label %.preheader.i.preheader
 
 29:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit.i, %27
@@ -105388,7 +105388,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i16.i: ; preds = %.pr
   br i1 %.inv.i.i.i.i.i.i.i18.i, label %.preheader.i.backedge, label %41
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit21.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i16.i, %.preheader.i
-  %40 = icmp ult i64 %16, %35
+  %40 = icmp samesign ult i64 %16, %35
   br i1 %40, label %.preheader.i.backedge, label %41
 
 .preheader.i.backedge:                            ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit21.i, %39
@@ -105448,7 +105448,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i, %.lr.ph
-  %28 = icmp ult i64 %18, %22
+  %28 = icmp samesign ult i64 %18, %22
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit: ; preds = %27, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i
@@ -105520,7 +105520,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %48
   br i1 %.inv.i.i.i.i.i.i.i.i, label %64, label %_ZSt11__push_heapIPPKN5clang14IdentifierInfoElS3_N9__gnu_cxx5__ops14_Iter_comp_valIN4llvm5derefISt4lessIvEEEEEEvT_T0_SF_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESC_EEbT_RT0_.exit.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i, %48
-  %63 = icmp ult i64 %54, %57
+  %63 = icmp samesign ult i64 %54, %57
   br i1 %63, label %64, label %_ZSt11__push_heapIPPKN5clang14IdentifierInfoElS3_N9__gnu_cxx5__ops14_Iter_comp_valIN4llvm5derefISt4lessIvEEEEEEvT_T0_SF_T1_RT2_.exit
 
 64:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESC_EEbT_RT0_.exit.i, %62
@@ -105564,7 +105564,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %4
   br i1 %.inv.i.i.i.i.i.i.i, label %21, label %41
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit: ; preds = %4, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i
-  %20 = icmp ult i64 %10, %14
+  %20 = icmp samesign ult i64 %10, %14
   br i1 %20, label %21, label %41
 
 21:                                               ; preds = %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit
@@ -105589,7 +105589,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i23: ; preds = %21
   br i1 %.inv.i.i.i.i.i.i.i25, label %61, label %33
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit28: ; preds = %21, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i23
-  %32 = icmp ult i64 %14, %26
+  %32 = icmp samesign ult i64 %14, %26
   br i1 %32, label %61, label %33
 
 33:                                               ; preds = %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit28
@@ -105609,7 +105609,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i30: ; preds = %33
   br i1 %.inv.i.i.i.i.i.i.i32, label %61, label %40
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit35: ; preds = %33, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i30
-  %39 = icmp ult i64 %10, %26
+  %39 = icmp samesign ult i64 %10, %26
   br i1 %39, label %61, label %40
 
 40:                                               ; preds = %38, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit35
@@ -105637,7 +105637,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i37: ; preds = %41
   br i1 %.inv.i.i.i.i.i.i.i39, label %61, label %53
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit42: ; preds = %41, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i37
-  %52 = icmp ult i64 %10, %46
+  %52 = icmp samesign ult i64 %10, %46
   br i1 %52, label %61, label %53
 
 53:                                               ; preds = %51, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit42
@@ -105657,7 +105657,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i44: ; preds = %53
   br i1 %.inv.i.i.i.i.i.i.i46, label %61, label %60
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit49: ; preds = %53, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i44
-  %59 = icmp ult i64 %14, %46
+  %59 = icmp samesign ult i64 %14, %46
   br i1 %59, label %61, label %60
 
 60:                                               ; preds = %58, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit49
@@ -105715,7 +105715,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %5
   br i1 %.inv.i.i.i.i.i.i.i, label %22, label %.preheader22
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit: ; preds = %5, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i
-  %21 = icmp ult i64 %11, %15
+  %21 = icmp samesign ult i64 %11, %15
   br i1 %21, label %22, label %.preheader22
 
 .preheader22:                                     ; preds = %20, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEclIPPKN5clang14IdentifierInfoESD_EEbT_T0_.exit
@@ -105758,7 +105758,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %28
   br i1 %.inv.i.i.i.i.i.i.i.i, label %43, label %_ZSt25__unguarded_linear_insertIPPKN5clang14IdentifierInfoEN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm5derefISt4lessIvEEEEEEvT_T0_.exit
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm5derefISt4lessIvEEEEclIPKN5clang14IdentifierInfoEPSC_EEbRT_T0_.exit.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i, %28
-  %42 = icmp ult i64 %32, %36
+  %42 = icmp samesign ult i64 %32, %36
   br i1 %42, label %43, label %_ZSt25__unguarded_linear_insertIPPKN5clang14IdentifierInfoEN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm5derefISt4lessIvEEEEEEvT_T0_.exit
 
 43:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm5derefISt4lessIvEEEEclIPKN5clang14IdentifierInfoEPSC_EEbRT_T0_.exit.i, %41
@@ -107680,7 +107680,7 @@ define linkonce_odr void @_ZSt11__make_heapIPSt4pairIN5clang6FileIDEPNS1_9ASTWri
   %.sroa.3.0.copyload19 = load ptr, ptr %.sroa.3.0..sroa_idx18, align 8
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %14 = icmp ult i64 %10, %13
+  %14 = icmp samesign ult i64 %10, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -107972,7 +107972,7 @@ define linkonce_odr void @_ZSt13__stable_sortIPSt4pairIjN5clang11LocalDeclIDEEN9
   br i1 %.not.i.i, label %select.unfold.i.i, label %12
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIPSt4pairIjN5clang11LocalDeclIDEES3_EC2ES4_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !899
 
 12:                                               ; preds = %.lr.ph.i.i
@@ -109718,7 +109718,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
   %32 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %16, %15 ]
   %33 = add nuw nsw i64 %.016, 1
   %34 = zext i32 %32 to i64
-  %35 = icmp ult i64 %33, %34
+  %35 = icmp samesign ult i64 %33, %34
   br i1 %35, label %15, label %._crit_edge18, !llvm.loop !918
 
 ._crit_edge18:                                    ; preds = %._crit_edge, %_ZN4llvm11safe_callocEmm.exit
@@ -109808,7 +109808,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
   %32 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %16, %15 ]
   %33 = add nuw nsw i64 %.016, 1
   %34 = zext i32 %32 to i64
-  %35 = icmp ult i64 %33, %34
+  %35 = icmp samesign ult i64 %33, %34
   br i1 %35, label %15, label %._crit_edge18, !llvm.loop !920
 
 ._crit_edge18:                                    ; preds = %._crit_edge, %_ZN4llvm11safe_callocEmm.exit
@@ -110014,7 +110014,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
   %32 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %16, %15 ]
   %33 = add nuw nsw i64 %.016, 1
   %34 = zext i32 %32 to i64
-  %35 = icmp ult i64 %33, %34
+  %35 = icmp samesign ult i64 %33, %34
   br i1 %35, label %15, label %._crit_edge18, !llvm.loop !922
 
 ._crit_edge18:                                    ; preds = %._crit_edge, %_ZN4llvm11safe_callocEmm.exit
@@ -112640,7 +112640,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN5clang9ASTWriter12WriteA
   %.sroa.23.0.copyload17.i.i.i = load ptr, ptr %.sroa.23.0..sroa_idx16.i.i.i, align 8
   %23 = add nsw i64 %19, -1
   %24 = lshr i64 %23, 1
-  %25 = icmp ult i64 %21, %24
+  %25 = icmp samesign ult i64 %21, %24
   br i1 %25, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i

@@ -28500,7 +28500,7 @@ define hidden void @"_ZN4core3ptr189drop_in_place$LT$core..task..poll..Poll$LT$c
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr190drop_in_place$LT$tokio..runtime..task..core..Stage$LT$deltalake_core..operations..write..write_execution_plan_with_predicate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h34703e84eb7ad497E.llvm.3020181528030467296"(ptr noundef nonnull align 16 %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 16, !range !3792, !noundef !5
-  %.not = icmp ult i64 %2, 2
+  %.not = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr221drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..Action$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9950c236272945edE.llvm.3020181528030467296.exit" [
@@ -108683,7 +108683,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.3020181528030467296.exit:
   %84 = landingpad { ptr, i32 }
           cleanup
   %85 = load i128, ptr %6, align 16, !range !11202, !alias.scope !16317, !noundef !5
-  %switch.i71 = icmp ult i128 %85, 2
+  %switch.i71 = icmp samesign ult i128 %85, 2
   br i1 %switch.i71, label %.sink.split.i72, label %.thread100
 
 .sink.split.i72:                                  ; preds = %83
@@ -108767,7 +108767,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.3020181528030467296.exit:
   %.sroa.727.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 176
   store i64 2, ptr %.sroa.727.0..sroa_idx, align 16
   %111 = load i128, ptr %6, align 16, !range !11202
-  %switch.i75 = icmp ult i128 %111, 2
+  %switch.i75 = icmp samesign ult i128 %111, 2
   %or.cond = select i1 %.051, i1 %switch.i75, i1 false
   br i1 %or.cond, label %.sink.split.i76, label %"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17hc212d89c0da48254E.exit78"
 
@@ -108781,7 +108781,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.3020181528030467296.exit:
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
   %114 = load i128, ptr %8, align 16, !range !11202
-  %switch.i79 = icmp ult i128 %114, 2
+  %switch.i79 = icmp samesign ult i128 %114, 2
   %or.cond106 = select i1 %.049, i1 %switch.i79, i1 false
   br i1 %or.cond106, label %.sink.split.i80, label %"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17hc212d89c0da48254E.exit82"
 
@@ -108823,7 +108823,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.3020181528030467296.exit:
 .thread100:                                       ; preds = %.sink.split.i72, %83, %.thread104
   %.pn103 = phi { ptr, i32 } [ %75, %.thread104 ], [ %84, %83 ], [ %84, %.sink.split.i72 ]
   %125 = load i128, ptr %7, align 16, !range !11202, !alias.scope !16329, !noundef !5
-  %switch.i83 = icmp ult i128 %125, 2
+  %switch.i83 = icmp samesign ult i128 %125, 2
   br i1 %switch.i83, label %.sink.split.i84, label %"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17hc212d89c0da48254E.exit86"
 
 .sink.split.i84:                                  ; preds = %.thread100
@@ -108834,7 +108834,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.3020181528030467296.exit:
 127:                                              ; preds = %.thread, %"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17hc212d89c0da48254E.exit86"
   %.pn.pn99 = phi { ptr, i32 } [ %44, %.thread ], [ %.pn.pn, %"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17hc212d89c0da48254E.exit86" ]
   %128 = load i128, ptr %8, align 16, !range !11202, !alias.scope !16332, !noundef !5
-  %switch.i87 = icmp ult i128 %128, 2
+  %switch.i87 = icmp samesign ult i128 %128, 2
   br i1 %switch.i87, label %.sink.split.i88, label %"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17hc212d89c0da48254E.exit90"
 
 .sink.split.i88:                                  ; preds = %127
@@ -109086,7 +109086,7 @@ default.unreachable:                              ; preds = %"_ZN83_$LT$datafusi
   %.sroa.10.0.copyload25.i = load i64, ptr %.sroa.10.0..sroa_idx24.i, align 8, !noalias !16369
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8), !noalias !16368
   %64 = load i128, ptr %9, align 16, !range !11202, !alias.scope !16372, !noalias !16368, !noundef !5
-  %switch.i.i1.i.i = icmp ult i128 %64, 2
+  %switch.i.i1.i.i = icmp samesign ult i128 %64, 2
   br i1 %switch.i.i1.i.i, label %.sink.split.i.i2.i.i, label %"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17hc212d89c0da48254E.llvm.4057250340930679409.exit.i.i.i"
 
 .sink.split.i.i2.i.i:                             ; preds = %63
@@ -109097,7 +109097,7 @@ default.unreachable:                              ; preds = %"_ZN83_$LT$datafusi
   %66 = landingpad { ptr, i32 }
           cleanup
   %67 = load i128, ptr %.sroa.556.sroa.4.0..sroa.556.0..sroa_idx57.sroa_idx.i, align 16, !range !11202, !alias.scope !16377, !noalias !16368, !noundef !5
-  %switch.i1.i.i.i = icmp ult i128 %67, 2
+  %switch.i1.i.i.i = icmp samesign ult i128 %67, 2
   br i1 %switch.i1.i.i.i, label %.sink.split.i2.i.i.i, label %.body
 
 .sink.split.i2.i.i.i:                             ; preds = %65
@@ -109106,7 +109106,7 @@ default.unreachable:                              ; preds = %"_ZN83_$LT$datafusi
 
 "_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17hc212d89c0da48254E.llvm.4057250340930679409.exit.i.i.i": ; preds = %.sink.split.i.i2.i.i, %63
   %68 = load i128, ptr %.sroa.556.sroa.4.0..sroa.556.0..sroa_idx57.sroa_idx.i, align 16, !range !11202, !alias.scope !16380, !noalias !16368, !noundef !5
-  %switch.i5.i.i.i = icmp ult i128 %68, 2
+  %switch.i5.i.i.i = icmp samesign ult i128 %68, 2
   br i1 %switch.i5.i.i.i, label %.sink.split.i6.i.i.i, label %"_ZN4core3ptr63drop_in_place$LT$datafusion_common..stats..ColumnStatistics$GT$17hb6f670b5bbb5cabaE.exit.i.i"
 
 .sink.split.i6.i.i.i:                             ; preds = %"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17hc212d89c0da48254E.llvm.4057250340930679409.exit.i.i.i"

@@ -768,7 +768,7 @@ entry:
   %m_kind.i5 = getelementptr inbounds i8, ptr %r2, i64 4
   %bf.load.i6 = load i32, ptr %m_kind.i5, align 4
   %bf.clear.i7 = and i32 %bf.load.i6, 3
-  %cmp = icmp ult i32 %bf.clear.i, %bf.clear.i7
+  %cmp = icmp samesign ult i32 %bf.clear.i, %bf.clear.i7
   br i1 %cmp, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
@@ -778,7 +778,7 @@ lor.rhs:                                          ; preds = %entry
 land.rhs:                                         ; preds = %lor.rhs
   %bf.lshr.i = lshr i32 %bf.load.i, 2
   %bf.lshr.i17 = lshr i32 %bf.load.i6, 2
-  %cmp7 = icmp ult i32 %bf.lshr.i, %bf.lshr.i17
+  %cmp7 = icmp samesign ult i32 %bf.lshr.i, %bf.lshr.i17
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.rhs, %entry
@@ -3016,7 +3016,7 @@ _ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit.i.thread: ; preds = %if.end58,
   %arrayidx.i.i = getelementptr inbounds i8, ptr %57, i64 -4
   %58 = load i32, ptr %arrayidx.i.i, align 4
   %59 = zext i32 %58 to i64
-  %cmp.i118146 = icmp ult i64 %indvars.iv.i155, %59
+  %cmp.i118146 = icmp samesign ult i64 %indvars.iv.i155, %59
   br i1 %cmp.i118146, label %for.body.i, label %if.then.i.i.i
 
 for.body.i:                                       ; preds = %_ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit.i.thread
@@ -6191,7 +6191,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %m_pos.i.i, align 8
   %4 = zext i32 %3 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %4
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body, %entry
@@ -9409,7 +9409,7 @@ _ZNK5arrayI9ptr_arrayIN11realclosure5valueEELb1EE4sizeEv.exit.thread: ; preds = 
   %arrayidx.i39 = getelementptr inbounds i8, ptr %6, i64 -8
   %7 = load i64, ptr %arrayidx.i39, align 8
   %8 = and i64 %7, 4294967295
-  %cmp.i10102 = icmp ult i64 %indvars.iv119, %8
+  %cmp.i10102 = icmp samesign ult i64 %indvars.iv119, %8
   br i1 %cmp.i10102, label %for.body.i, label %_ZNK5arrayI9ptr_arrayIN11realclosure5valueEELb1EE4sizeEv.exit.i
 
 for.body.i:                                       ; preds = %_ZNK5arrayI9ptr_arrayIN11realclosure5valueEELb1EE4sizeEv.exit.thread
@@ -9543,7 +9543,7 @@ _ZNK5arrayI9ptr_arrayIN11realclosure5valueEELb1EE4sizeEv.exit80.thread: ; preds 
   %arrayidx.i77 = getelementptr inbounds i8, ptr %30, i64 -8
   %31 = load i64, ptr %arrayidx.i77, align 8
   %32 = and i64 %31, 4294967295
-  %cmp.i21104 = icmp ult i64 %indvars.iv127, %32
+  %cmp.i21104 = icmp samesign ult i64 %indvars.iv127, %32
   br i1 %cmp.i21104, label %for.body.i23, label %_ZNK5arrayI9ptr_arrayIN11realclosure5valueEELb1EE4sizeEv.exit.i43
 
 for.body.i23:                                     ; preds = %_ZNK5arrayI9ptr_arrayIN11realclosure5valueEELb1EE4sizeEv.exit80.thread
@@ -9803,7 +9803,7 @@ for.inc12:                                        ; preds = %for.body8
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %13 = load i32, ptr %m_pos.i.i, align 8
   %14 = zext i32 %13 to i64
-  %cmp7 = icmp ult i64 %indvars.iv.next20, %14
+  %cmp7 = icmp samesign ult i64 %indvars.iv.next20, %14
   br i1 %cmp7, label %for.body8, label %for.end14, !llvm.loop !28
 
 for.end14:                                        ; preds = %for.inc12, %entry, %for.cond5.preheader
@@ -12672,7 +12672,7 @@ invoke.cont143:                                   ; preds = %invoke.cont141
   br i1 %call144, label %if.then145, label %invoke.cont152
 
 if.then145:                                       ; preds = %invoke.cont143
-  %cmp146 = icmp ult i64 %indvars.iv476, %indvars.iv480
+  %cmp146 = icmp samesign ult i64 %indvars.iv476, %indvars.iv480
   %spec.select43 = select i1 %cmp146, i1 true, i1 %found_lt_eq.0468
   br label %for.inc157
 
@@ -14588,7 +14588,7 @@ if.else4.i:                                       ; preds = %land.lhs.true.i34.t
 if.else11.i:                                      ; preds = %if.else4.i
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i107, 3
   %bf.clear.i7.i.i = and i32 %bf.load.i4.i.i, 3
-  %cmp.i.i108 = icmp ult i32 %bf.clear.i.i.i, %bf.clear.i7.i.i
+  %cmp.i.i108 = icmp samesign ult i32 %bf.clear.i.i.i, %bf.clear.i7.i.i
   br i1 %cmp.i.i108, label %sw.bb, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.else11.i
@@ -14598,7 +14598,7 @@ lor.rhs.i.i:                                      ; preds = %if.else11.i
 _ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i: ; preds = %lor.rhs.i.i
   %bf.lshr.i.i.i = lshr i32 %bf.load.i.i.i107, 2
   %bf.lshr.i17.i.i = lshr i32 %bf.load.i4.i.i, 2
-  %cmp7.i.i = icmp ult i32 %bf.lshr.i.i.i, %bf.lshr.i17.i.i
+  %cmp7.i.i = icmp samesign ult i32 %bf.lshr.i.i.i, %bf.lshr.i17.i.i
   %cond.fr.i = freeze i1 %cmp7.i.i
   br i1 %cond.fr.i, label %sw.bb, label %sw.bb39
 
@@ -15007,7 +15007,7 @@ if.else4.i:                                       ; preds = %if.else.i
 if.else11.i:                                      ; preds = %if.else4.i
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i54, 3
   %bf.clear.i7.i.i = and i32 %bf.load.i4.i.i, 3
-  %cmp.i.i = icmp ult i32 %bf.clear.i.i.i, %bf.clear.i7.i.i
+  %cmp.i.i = icmp samesign ult i32 %bf.clear.i.i.i, %bf.clear.i7.i.i
   br i1 %cmp.i.i, label %sw.bb, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.else11.i
@@ -15017,7 +15017,7 @@ lor.rhs.i.i:                                      ; preds = %if.else11.i
 _ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i: ; preds = %lor.rhs.i.i
   %bf.lshr.i.i.i = lshr i32 %bf.load.i.i.i54, 2
   %bf.lshr.i17.i.i = lshr i32 %bf.load.i4.i.i, 2
-  %cmp7.i.i = icmp ult i32 %bf.lshr.i.i.i, %bf.lshr.i17.i.i
+  %cmp7.i.i = icmp samesign ult i32 %bf.lshr.i.i.i, %bf.lshr.i17.i.i
   %cond.fr.i = freeze i1 %cmp7.i.i
   br i1 %cond.fr.i, label %sw.bb, label %sw.bb37
 
@@ -18504,7 +18504,7 @@ if.else4.i:                                       ; preds = %if.else.i
 if.else11.i:                                      ; preds = %if.else4.i
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i76, 3
   %bf.clear.i7.i.i = and i32 %bf.load.i4.i.i, 3
-  %cmp.i.i77 = icmp ult i32 %bf.clear.i.i.i, %bf.clear.i7.i.i
+  %cmp.i.i77 = icmp samesign ult i32 %bf.clear.i.i.i, %bf.clear.i7.i.i
   br i1 %cmp.i.i77, label %sw.bb55.invoke, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.else11.i
@@ -18514,7 +18514,7 @@ lor.rhs.i.i:                                      ; preds = %if.else11.i
 _ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i: ; preds = %lor.rhs.i.i
   %bf.lshr.i.i.i = lshr i32 %bf.load.i.i.i76, 2
   %bf.lshr.i17.i.i = lshr i32 %bf.load.i4.i.i, 2
-  %cmp7.i.i = icmp ult i32 %bf.lshr.i.i.i, %bf.lshr.i17.i.i
+  %cmp7.i.i = icmp samesign ult i32 %bf.lshr.i.i.i, %bf.lshr.i17.i.i
   %cond.fr.i = freeze i1 %cmp7.i.i
   br i1 %cond.fr.i, label %sw.bb55.invoke, label %sw.bb55
 
@@ -20774,7 +20774,7 @@ if.end.i170:                                      ; preds = %for.cond
 
 _ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit173: ; preds = %for.cond, %if.end.i170
   %retval.0.i172 = phi i64 [ %127, %if.end.i170 ], [ 0, %for.cond ]
-  %cmp145 = icmp ult i64 %indvars.iv, %retval.0.i172
+  %cmp145 = icmp samesign ult i64 %indvars.iv, %retval.0.i172
   br i1 %cmp145, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit173
@@ -24476,7 +24476,7 @@ if.else4.i:                                       ; preds = %if.else.i48
 if.else11.i:                                      ; preds = %if.else4.i
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i50, 3
   %bf.clear.i7.i.i = and i32 %bf.load.i4.i.i, 3
-  %cmp.i.i = icmp ult i32 %bf.clear.i.i.i, %bf.clear.i7.i.i
+  %cmp.i.i = icmp samesign ult i32 %bf.clear.i.i.i, %bf.clear.i7.i.i
   br i1 %cmp.i.i, label %sw.bb47.invoke, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.else11.i
@@ -24486,7 +24486,7 @@ lor.rhs.i.i:                                      ; preds = %if.else11.i
 _ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i: ; preds = %lor.rhs.i.i
   %bf.lshr.i.i.i = lshr i32 %bf.load.i.i.i50, 2
   %bf.lshr.i17.i.i = lshr i32 %bf.load.i4.i.i, 2
-  %cmp7.i.i = icmp ult i32 %bf.lshr.i.i.i, %bf.lshr.i17.i.i
+  %cmp7.i.i = icmp samesign ult i32 %bf.lshr.i.i.i, %bf.lshr.i17.i.i
   %cond.fr.i = freeze i1 %cmp7.i.i
   br i1 %cond.fr.i, label %sw.bb47.invoke, label %sw.bb47
 
@@ -27699,7 +27699,7 @@ for.body.i153:                                    ; preds = %for.cond.preheader.
   %cmp13.i = icmp sgt i32 %50, 0
   %inc15.i = zext i1 %cmp13.i to i32
   %c.2.i = add nuw nsw i32 %c.1.i, %inc15.i
-  %cmp17.i = icmp ugt i32 %c.2.i, 1
+  %cmp17.i = icmp samesign ugt i32 %c.2.i, 1
   br i1 %cmp17.i, label %invoke.cont91, label %for.cond.i
 
 for.body24.i:                                     ; preds = %for.cond22.preheader.i, %for.inc34.i
@@ -30398,7 +30398,7 @@ for.inc:                                          ; preds = %_ZN15ref_buffer_cor
   %26 = phi i32 [ %.pre, %_ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3impEELj32EE3setEjPS1_.exit35 ], [ %8, %invoke.cont19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = zext i32 %26 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %27
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %cmp, label %invoke.cont19, label %for.end, !llvm.loop !81
 
 for.end:                                          ; preds = %for.inc
@@ -31121,7 +31121,7 @@ if.end.i25:                                       ; preds = %for.cond
 
 _ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit: ; preds = %for.cond, %if.end.i25
   %retval.0.i = phi i64 [ %14, %if.end.i25 ], [ 0, %for.cond ]
-  %cmp25 = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp25 = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp25, label %for.body, label %invoke.cont42
 
 for.body:                                         ; preds = %_ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit
@@ -41436,7 +41436,7 @@ _ZN10ref_bufferIN11realclosure5valueENS0_7manager3impELj32EED2Ev.exit170: ; pred
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = load i32, ptr %m_pos.i25, align 8
   %95 = zext i32 %94 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %95
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %95
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !101
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad22.body
@@ -45255,7 +45255,7 @@ if.end.i178:                                      ; preds = %for.cond
 
 _ZNK5arrayIiLb1EE4sizeEv.exit:                    ; preds = %for.cond, %if.end.i178
   %retval.0.i181 = phi i64 [ %63, %if.end.i178 ], [ 0, %for.cond ]
-  %cmp92 = icmp ult i64 %indvars.iv, %retval.0.i181
+  %cmp92 = icmp samesign ult i64 %indvars.iv, %retval.0.i181
   br i1 %cmp92, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK5arrayIiLb1EE4sizeEv.exit
@@ -49738,7 +49738,7 @@ if.end.i.us:                                      ; preds = %for.cond.us
 
 _ZNK6vectorIPN11realclosure9algebraicELb0EjE4sizeEv.exit.us: ; preds = %if.end.i.us, %for.cond.us
   %retval.0.i.us = phi i64 [ %6, %if.end.i.us ], [ 0, %for.cond.us ]
-  %cmp.us = icmp ult i64 %indvars.iv28, %retval.0.i.us
+  %cmp.us = icmp samesign ult i64 %indvars.iv28, %retval.0.i.us
   br i1 %cmp.us, label %for.body.us, label %for.end
 
 for.body.us:                                      ; preds = %_ZNK6vectorIPN11realclosure9algebraicELb0EjE4sizeEv.exit.us
@@ -49785,7 +49785,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIPN11realclosure9algebraicELb0EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %10, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIPN11realclosure9algebraicELb0EjE4sizeEv.exit
@@ -49888,7 +49888,7 @@ if.end.i:                                         ; preds = %for.cond.i
 
 _ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit: ; preds = %for.cond.i, %if.end.i
   %retval.0.i = phi i64 [ %4, %if.end.i ], [ 0, %for.cond.i ]
-  %cmp.i = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp.i = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp.i, label %for.body.i, label %_ZN11realclosure7manager3imp22collect_algebraic_refs4markERK9ptr_arrayINS_5valueEE.exit
 
 for.body.i:                                       ; preds = %_ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit
@@ -49916,7 +49916,7 @@ if.end.i18:                                       ; preds = %for.cond.i5
 
 _ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit22: ; preds = %for.cond.i5, %if.end.i18
   %retval.0.i21 = phi i64 [ %8, %if.end.i18 ], [ 0, %for.cond.i5 ]
-  %cmp.i8 = icmp ult i64 %indvars.iv24, %retval.0.i21
+  %cmp.i8 = icmp samesign ult i64 %indvars.iv24, %retval.0.i21
   br i1 %cmp.i8, label %for.body.i9, label %return
 
 for.body.i9:                                      ; preds = %_ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit22
@@ -50154,7 +50154,7 @@ if.end.i:                                         ; preds = %for.cond.i
 
 _ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit: ; preds = %for.cond.i, %if.end.i
   %retval.0.i = phi i64 [ %16, %if.end.i ], [ 0, %for.cond.i ]
-  %cmp.i15 = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp.i15 = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp.i15, label %for.body.i, label %if.end13
 
 for.body.i:                                       ; preds = %_ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit
@@ -50400,7 +50400,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
   %m_kind.i5.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %bf.load.i6.i.i.i.i = load i32, ptr %m_kind.i5.i.i.i.i, align 4
   %bf.clear.i7.i.i.i.i = and i32 %bf.load.i6.i.i.i.i, 3
-  %cmp.i.i.i.i = icmp ult i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i.i
+  %cmp.i.i.i.i = icmp samesign ult i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then2.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %for.body.i
@@ -50413,7 +50413,7 @@ while.cond.i.i.preheader:                         ; preds = %_ZN9__gnu_cxx5__ops
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i: ; preds = %lor.rhs.i.i.i.i
   %bf.lshr.i.i.i.i.i = lshr i32 %bf.load.i.i.i.i.i, 2
   %bf.lshr.i17.i.i.i.i = lshr i32 %bf.load.i6.i.i.i.i, 2
-  %cmp7.i.i.i.i = icmp ult i32 %bf.lshr.i.i.i.i.i, %bf.lshr.i17.i.i.i.i
+  %cmp7.i.i.i.i = icmp samesign ult i32 %bf.lshr.i.i.i.i.i, %bf.lshr.i17.i.i.i.i
   br i1 %cmp7.i.i.i.i, label %if.then2.i, label %while.cond.i.i.preheader
 
 if.then2.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %for.body.i
@@ -50429,7 +50429,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.preh
   %m_kind.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %bf.load.i6.i.i.i.i.i = load i32, ptr %m_kind.i5.i.i.i.i.i, align 4
   %bf.clear.i7.i.i.i.i.i = and i32 %bf.load.i6.i.i.i.i.i, 3
-  %cmp.i.i.i.i.i = icmp ult i32 %bf.clear.i.i.i.i.i.i, %bf.clear.i7.i.i.i.i.i
+  %cmp.i.i.i.i.i = icmp samesign ult i32 %bf.clear.i.i.i.i.i.i, %bf.clear.i7.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %while.cond.i.i
@@ -50439,7 +50439,7 @@ lor.rhs.i.i.i.i.i:                                ; preds = %while.cond.i.i
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN11realclosure12rank_lt_procEEclIPNS2_9algebraicEPS7_EEbRT_T0_.exit.i.i: ; preds = %lor.rhs.i.i.i.i.i
   %bf.lshr.i.i.i.i.i.i = lshr i32 %bf.load.i.i.i.i.i.i, 2
   %bf.lshr.i17.i.i.i.i.i = lshr i32 %bf.load.i6.i.i.i.i.i, 2
-  %cmp7.i.i.i.i.i = icmp ult i32 %bf.lshr.i.i.i.i.i.i, %bf.lshr.i17.i.i.i.i.i
+  %cmp7.i.i.i.i.i = icmp samesign ult i32 %bf.lshr.i.i.i.i.i.i, %bf.lshr.i17.i.i.i.i.i
   br i1 %cmp7.i.i.i.i.i, label %while.body.i.i, label %for.inc.i
 
 while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN11realclosure12rank_lt_procEEclIPNS2_9algebraicEPS7_EEbRT_T0_.exit.i.i, %while.cond.i.i
@@ -50474,7 +50474,7 @@ while.cond.i.i10:                                 ; preds = %while.body.i.i25, %
   %m_kind.i5.i.i.i.i.i15 = getelementptr inbounds i8, ptr %4, i64 4
   %bf.load.i6.i.i.i.i.i16 = load i32, ptr %m_kind.i5.i.i.i.i.i15, align 4
   %bf.clear.i7.i.i.i.i.i17 = and i32 %bf.load.i6.i.i.i.i.i16, 3
-  %cmp.i.i.i.i.i18 = icmp ult i32 %bf.clear.i.i.i.i.i.i14, %bf.clear.i7.i.i.i.i.i17
+  %cmp.i.i.i.i.i18 = icmp samesign ult i32 %bf.clear.i.i.i.i.i.i14, %bf.clear.i7.i.i.i.i.i17
   br i1 %cmp.i.i.i.i.i18, label %while.body.i.i25, label %lor.rhs.i.i.i.i.i19
 
 lor.rhs.i.i.i.i.i19:                              ; preds = %while.cond.i.i10
@@ -50484,7 +50484,7 @@ lor.rhs.i.i.i.i.i19:                              ; preds = %while.cond.i.i10
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN11realclosure12rank_lt_procEEclIPNS2_9algebraicEPS7_EEbRT_T0_.exit.i.i21: ; preds = %lor.rhs.i.i.i.i.i19
   %bf.lshr.i.i.i.i.i.i22 = lshr i32 %bf.load.i.i.i.i.i.i13, 2
   %bf.lshr.i17.i.i.i.i.i23 = lshr i32 %bf.load.i6.i.i.i.i.i16, 2
-  %cmp7.i.i.i.i.i24 = icmp ult i32 %bf.lshr.i.i.i.i.i.i22, %bf.lshr.i17.i.i.i.i.i23
+  %cmp7.i.i.i.i.i24 = icmp samesign ult i32 %bf.lshr.i.i.i.i.i.i22, %bf.lshr.i17.i.i.i.i.i23
   br i1 %cmp7.i.i.i.i.i24, label %while.body.i.i25, label %_ZSt25__unguarded_linear_insertIPPN11realclosure9algebraicEN9__gnu_cxx5__ops14_Val_comp_iterINS0_12rank_lt_procEEEEvT_T0_.exit.i
 
 while.body.i.i25:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN11realclosure12rank_lt_procEEclIPNS2_9algebraicEPS7_EEbRT_T0_.exit.i.i21, %while.cond.i.i10
@@ -50515,7 +50515,7 @@ for.body.i28:                                     ; preds = %if.else, %for.inc.i
   %m_kind.i5.i.i.i.i34 = getelementptr inbounds i8, ptr %6, i64 4
   %bf.load.i6.i.i.i.i35 = load i32, ptr %m_kind.i5.i.i.i.i34, align 4
   %bf.clear.i7.i.i.i.i36 = and i32 %bf.load.i6.i.i.i.i35, 3
-  %cmp.i.i.i.i37 = icmp ult i32 %bf.clear.i.i.i.i.i33, %bf.clear.i7.i.i.i.i36
+  %cmp.i.i.i.i37 = icmp samesign ult i32 %bf.clear.i.i.i.i.i33, %bf.clear.i7.i.i.i.i36
   br i1 %cmp.i.i.i.i37, label %if.then2.i66, label %lor.rhs.i.i.i.i38
 
 lor.rhs.i.i.i.i38:                                ; preds = %for.body.i28
@@ -50528,7 +50528,7 @@ while.cond.i.i41.preheader:                       ; preds = %_ZN9__gnu_cxx5__ops
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i62: ; preds = %lor.rhs.i.i.i.i38
   %bf.lshr.i.i.i.i.i63 = lshr i32 %bf.load.i.i.i.i.i32, 2
   %bf.lshr.i17.i.i.i.i64 = lshr i32 %bf.load.i6.i.i.i.i35, 2
-  %cmp7.i.i.i.i65 = icmp ult i32 %bf.lshr.i.i.i.i.i63, %bf.lshr.i17.i.i.i.i64
+  %cmp7.i.i.i.i65 = icmp samesign ult i32 %bf.lshr.i.i.i.i.i63, %bf.lshr.i17.i.i.i.i64
   br i1 %cmp7.i.i.i.i65, label %if.then2.i66, label %while.cond.i.i41.preheader
 
 if.then2.i66:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i62, %for.body.i28
@@ -50550,7 +50550,7 @@ while.cond.i.i41:                                 ; preds = %while.cond.i.i41.pr
   %m_kind.i5.i.i.i.i.i46 = getelementptr inbounds i8, ptr %7, i64 4
   %bf.load.i6.i.i.i.i.i47 = load i32, ptr %m_kind.i5.i.i.i.i.i46, align 4
   %bf.clear.i7.i.i.i.i.i48 = and i32 %bf.load.i6.i.i.i.i.i47, 3
-  %cmp.i.i.i.i.i49 = icmp ult i32 %bf.clear.i.i.i.i.i.i45, %bf.clear.i7.i.i.i.i.i48
+  %cmp.i.i.i.i.i49 = icmp samesign ult i32 %bf.clear.i.i.i.i.i.i45, %bf.clear.i7.i.i.i.i.i48
   br i1 %cmp.i.i.i.i.i49, label %while.body.i.i60, label %lor.rhs.i.i.i.i.i50
 
 lor.rhs.i.i.i.i.i50:                              ; preds = %while.cond.i.i41
@@ -50560,7 +50560,7 @@ lor.rhs.i.i.i.i.i50:                              ; preds = %while.cond.i.i41
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN11realclosure12rank_lt_procEEclIPNS2_9algebraicEPS7_EEbRT_T0_.exit.i.i56: ; preds = %lor.rhs.i.i.i.i.i50
   %bf.lshr.i.i.i.i.i.i57 = lshr i32 %bf.load.i.i.i.i.i.i42, 2
   %bf.lshr.i17.i.i.i.i.i58 = lshr i32 %bf.load.i6.i.i.i.i.i47, 2
-  %cmp7.i.i.i.i.i59 = icmp ult i32 %bf.lshr.i.i.i.i.i.i57, %bf.lshr.i17.i.i.i.i.i58
+  %cmp7.i.i.i.i.i59 = icmp samesign ult i32 %bf.lshr.i.i.i.i.i.i57, %bf.lshr.i17.i.i.i.i.i58
   br i1 %cmp7.i.i.i.i.i59, label %while.body.i.i60, label %for.inc.i52
 
 while.body.i.i60:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN11realclosure12rank_lt_procEEclIPNS2_9algebraicEPS7_EEbRT_T0_.exit.i.i56, %while.cond.i.i41
@@ -50598,7 +50598,7 @@ entry:
   %m_kind.i5.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %bf.load.i6.i.i.i.i = load i32, ptr %m_kind.i5.i.i.i.i, align 4
   %bf.clear.i7.i.i.i.i = and i32 %bf.load.i6.i.i.i.i, 3
-  %cmp.i.i.i.i = icmp ult i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i.i
+  %cmp.i.i.i.i = icmp samesign ult i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %entry
@@ -50608,7 +50608,7 @@ lor.rhs.i.i.i.i:                                  ; preds = %entry
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i: ; preds = %lor.rhs.i.i.i.i
   %bf.lshr.i.i.i.i.i = lshr i32 %bf.load.i.i.i.i.i, 2
   %bf.lshr.i17.i.i.i.i = lshr i32 %bf.load.i6.i.i.i.i, 2
-  %cmp7.i.i.i.i = icmp ult i32 %bf.lshr.i.i.i.i.i, %bf.lshr.i17.i.i.i.i
+  %cmp7.i.i.i.i = icmp samesign ult i32 %bf.lshr.i.i.i.i.i, %bf.lshr.i17.i.i.i.i
   br i1 %cmp7.i.i.i.i, label %if.then.i, label %if.else7.i
 
 if.then.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %entry
@@ -50616,7 +50616,7 @@ if.then.i:                                        ; preds = %_ZN9__gnu_cxx5__ops
   %m_kind.i5.i.i.i22.i = getelementptr inbounds i8, ptr %2, i64 4
   %bf.load.i6.i.i.i23.i = load i32, ptr %m_kind.i5.i.i.i22.i, align 4
   %bf.clear.i7.i.i.i24.i = and i32 %bf.load.i6.i.i.i23.i, 3
-  %cmp.i.i.i25.i = icmp ult i32 %bf.clear.i7.i.i.i.i, %bf.clear.i7.i.i.i24.i
+  %cmp.i.i.i25.i = icmp samesign ult i32 %bf.clear.i7.i.i.i.i, %bf.clear.i7.i.i.i24.i
   br i1 %cmp.i.i.i25.i, label %_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit, label %lor.rhs.i.i.i26.i
 
 lor.rhs.i.i.i26.i:                                ; preds = %if.then.i
@@ -50626,11 +50626,11 @@ lor.rhs.i.i.i26.i:                                ; preds = %if.then.i
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit32.i: ; preds = %lor.rhs.i.i.i26.i
   %bf.lshr.i.i.i.i29.i = lshr i32 %bf.load.i6.i.i.i.i, 2
   %bf.lshr.i17.i.i.i30.i = lshr i32 %bf.load.i6.i.i.i23.i, 2
-  %cmp7.i.i.i31.i = icmp ult i32 %bf.lshr.i.i.i.i29.i, %bf.lshr.i17.i.i.i30.i
+  %cmp7.i.i.i31.i = icmp samesign ult i32 %bf.lshr.i.i.i.i29.i, %bf.lshr.i17.i.i.i30.i
   br i1 %cmp7.i.i.i31.i, label %_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit32.i, %lor.rhs.i.i.i26.i
-  %cmp.i.i.i39.i = icmp ult i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i24.i
+  %cmp.i.i.i39.i = icmp samesign ult i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i24.i
   br i1 %cmp.i.i.i39.i, label %_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit, label %lor.rhs.i.i.i40.i
 
 lor.rhs.i.i.i40.i:                                ; preds = %if.else.i
@@ -50640,7 +50640,7 @@ lor.rhs.i.i.i40.i:                                ; preds = %if.else.i
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit46.i: ; preds = %lor.rhs.i.i.i40.i
   %bf.lshr.i.i.i.i43.i = lshr i32 %bf.load.i.i.i.i.i, 2
   %bf.lshr.i17.i.i.i44.i = lshr i32 %bf.load.i6.i.i.i23.i, 2
-  %cmp7.i.i.i45.i = icmp ult i32 %bf.lshr.i.i.i.i43.i, %bf.lshr.i17.i.i.i44.i
+  %cmp7.i.i.i45.i = icmp samesign ult i32 %bf.lshr.i.i.i.i43.i, %bf.lshr.i17.i.i.i44.i
   br i1 %cmp7.i.i.i45.i, label %_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit, label %if.else5.i
 
 if.else5.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit46.i, %lor.rhs.i.i.i40.i
@@ -50651,7 +50651,7 @@ if.else7.i:                                       ; preds = %_ZN9__gnu_cxx5__ops
   %m_kind.i5.i.i.i50.i = getelementptr inbounds i8, ptr %3, i64 4
   %bf.load.i6.i.i.i51.i = load i32, ptr %m_kind.i5.i.i.i50.i, align 4
   %bf.clear.i7.i.i.i52.i = and i32 %bf.load.i6.i.i.i51.i, 3
-  %cmp.i.i.i53.i = icmp ult i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i52.i
+  %cmp.i.i.i53.i = icmp samesign ult i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i52.i
   br i1 %cmp.i.i.i53.i, label %_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit, label %lor.rhs.i.i.i54.i
 
 lor.rhs.i.i.i54.i:                                ; preds = %if.else7.i
@@ -50661,11 +50661,11 @@ lor.rhs.i.i.i54.i:                                ; preds = %if.else7.i
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit60.i: ; preds = %lor.rhs.i.i.i54.i
   %bf.lshr.i.i.i.i57.i = lshr i32 %bf.load.i.i.i.i.i, 2
   %bf.lshr.i17.i.i.i58.i = lshr i32 %bf.load.i6.i.i.i51.i, 2
-  %cmp7.i.i.i59.i = icmp ult i32 %bf.lshr.i.i.i.i57.i, %bf.lshr.i17.i.i.i58.i
+  %cmp7.i.i.i59.i = icmp samesign ult i32 %bf.lshr.i.i.i.i57.i, %bf.lshr.i17.i.i.i58.i
   br i1 %cmp7.i.i.i59.i, label %_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit, label %if.else10.i
 
 if.else10.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit60.i, %lor.rhs.i.i.i54.i
-  %cmp.i.i.i67.i = icmp ult i32 %bf.clear.i7.i.i.i.i, %bf.clear.i7.i.i.i52.i
+  %cmp.i.i.i67.i = icmp samesign ult i32 %bf.clear.i7.i.i.i.i, %bf.clear.i7.i.i.i52.i
   br i1 %cmp.i.i.i67.i, label %_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit, label %lor.rhs.i.i.i68.i
 
 lor.rhs.i.i.i68.i:                                ; preds = %if.else10.i
@@ -50675,7 +50675,7 @@ lor.rhs.i.i.i68.i:                                ; preds = %if.else10.i
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit74.i: ; preds = %lor.rhs.i.i.i68.i
   %bf.lshr.i.i.i.i71.i = lshr i32 %bf.load.i6.i.i.i.i, 2
   %bf.lshr.i17.i.i.i72.i = lshr i32 %bf.load.i6.i.i.i51.i, 2
-  %cmp7.i.i.i73.i = icmp ult i32 %bf.lshr.i.i.i.i71.i, %bf.lshr.i17.i.i.i72.i
+  %cmp7.i.i.i73.i = icmp samesign ult i32 %bf.lshr.i.i.i.i71.i, %bf.lshr.i17.i.i.i72.i
   br i1 %cmp7.i.i.i73.i, label %_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit, label %if.else13.i
 
 if.else13.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit74.i, %lor.rhs.i.i.i68.i
@@ -50705,14 +50705,14 @@ while.cond1.i:                                    ; preds = %while.body2.i, %whi
   %m_kind.i.i.i.i.i13 = getelementptr inbounds i8, ptr %6, i64 4
   %bf.load.i.i.i.i.i14 = load i32, ptr %m_kind.i.i.i.i.i13, align 4
   %bf.clear.i.i.i.i.i15 = and i32 %bf.load.i.i.i.i.i14, 3
-  %cmp.i.i.i.i16 = icmp ult i32 %bf.clear.i.i.i.i.i15, %bf.clear.i7.i.i.i.i11
+  %cmp.i.i.i.i16 = icmp samesign ult i32 %bf.clear.i.i.i.i.i15, %bf.clear.i7.i.i.i.i11
   br i1 %cmp.i.i.i.i16, label %while.body2.i, label %lor.rhs.i.i.i.i17
 
 lor.rhs.i.i.i.i17:                                ; preds = %while.cond1.i
   %cmp4.i.i.i.i18 = icmp eq i32 %bf.clear.i.i.i.i.i15, %bf.clear.i7.i.i.i.i11
   %bf.lshr.i.i.i.i.i19 = lshr i32 %bf.load.i.i.i.i.i14, 2
-  %cmp7.i.i.i.i20 = icmp ult i32 %bf.lshr.i.i.i.i.i19, %bf.lshr.i17.i.i.i.i12
-  %or.cond.i = and i1 %cmp4.i.i.i.i18, %cmp7.i.i.i.i20
+  %cmp7.i.i.i.i20 = icmp samesign ult i32 %bf.lshr.i.i.i.i.i19, %bf.lshr.i17.i.i.i.i12
+  %or.cond.i = select i1 %cmp4.i.i.i.i18, i1 %cmp7.i.i.i.i20, i1 false
   br i1 %or.cond.i, label %while.body2.i, label %while.cond4.i
 
 while.body2.i:                                    ; preds = %lor.rhs.i.i.i.i17, %while.cond1.i
@@ -50726,14 +50726,14 @@ while.cond4.i:                                    ; preds = %lor.rhs.i.i.i.i17, 
   %m_kind.i5.i.i.i14.i = getelementptr inbounds i8, ptr %7, i64 4
   %bf.load.i6.i.i.i15.i = load i32, ptr %m_kind.i5.i.i.i14.i, align 4
   %bf.clear.i7.i.i.i16.i = and i32 %bf.load.i6.i.i.i15.i, 3
-  %cmp.i.i.i17.i = icmp ult i32 %bf.clear.i7.i.i.i.i11, %bf.clear.i7.i.i.i16.i
+  %cmp.i.i.i17.i = icmp samesign ult i32 %bf.clear.i7.i.i.i.i11, %bf.clear.i7.i.i.i16.i
   br i1 %cmp.i.i.i17.i, label %while.cond4.i.backedge, label %lor.rhs.i.i.i18.i
 
 lor.rhs.i.i.i18.i:                                ; preds = %while.cond4.i
   %cmp4.i.i.i19.i = icmp eq i32 %bf.clear.i7.i.i.i.i11, %bf.clear.i7.i.i.i16.i
   %bf.lshr.i17.i.i.i22.i = lshr i32 %bf.load.i6.i.i.i15.i, 2
-  %cmp7.i.i.i23.i = icmp ult i32 %bf.lshr.i17.i.i.i.i12, %bf.lshr.i17.i.i.i22.i
-  %or.cond26.i = and i1 %cmp4.i.i.i19.i, %cmp7.i.i.i23.i
+  %cmp7.i.i.i23.i = icmp samesign ult i32 %bf.lshr.i17.i.i.i.i12, %bf.lshr.i17.i.i.i22.i
+  %or.cond26.i = select i1 %cmp4.i.i.i19.i, i1 %cmp7.i.i.i23.i, i1 false
   br i1 %or.cond26.i, label %while.cond4.i.backedge, label %while.end8.i
 
 while.cond4.i.backedge:                           ; preds = %lor.rhs.i.i.i18.i, %while.cond4.i
@@ -50770,7 +50770,7 @@ if.end.split:                                     ; preds = %entry
   %0 = load ptr, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i8183 = lshr i64 %sub.i, 1
-  %cmp26.i = icmp ult i64 %div11, %div.i8183
+  %cmp26.i = icmp samesign ult i64 %div11, %div.i8183
   br i1 %cmp26.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
@@ -50788,7 +50788,7 @@ while.body.i:                                     ; preds = %if.end.split, %_ZN9
   %m_kind.i5.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %bf.load.i6.i.i.i.i = load i32, ptr %m_kind.i5.i.i.i.i, align 4
   %bf.clear.i7.i.i.i.i = and i32 %bf.load.i6.i.i.i.i, 3
-  %cmp.i.i.i.i = icmp ult i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i.i
+  %cmp.i.i.i.i = icmp samesign ult i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %while.body.i
@@ -50798,7 +50798,7 @@ lor.rhs.i.i.i.i:                                  ; preds = %while.body.i
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i: ; preds = %lor.rhs.i.i.i.i
   %bf.lshr.i.i.i.i.i = lshr i32 %bf.load.i.i.i.i.i, 2
   %bf.lshr.i17.i.i.i.i = lshr i32 %bf.load.i6.i.i.i.i, 2
-  %cmp7.i.i.i.i = icmp ult i32 %bf.lshr.i.i.i.i.i, %bf.lshr.i17.i.i.i.i
+  %cmp7.i.i.i.i = icmp samesign ult i32 %bf.lshr.i.i.i.i.i, %bf.lshr.i17.i.i.i.i
   %cond.fr.i = freeze i1 %cmp7.i.i.i.i
   br i1 %cond.fr.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
 
@@ -50851,7 +50851,7 @@ land.rhs.i.i:                                     ; preds = %while.body.i.i, %la
   %bf.clear.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i, 3
   %bf.load.i6.i.i.i.i.i = load i32, ptr %m_kind.i5.i.i.i.i.i, align 4
   %bf.clear.i7.i.i.i.i.i = and i32 %bf.load.i6.i.i.i.i.i, 3
-  %cmp.i.i.i.i.i = icmp ult i32 %bf.clear.i.i.i.i.i.i, %bf.clear.i7.i.i.i.i.i
+  %cmp.i.i.i.i.i = icmp samesign ult i32 %bf.clear.i.i.i.i.i.i, %bf.clear.i7.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.rhs.i.i
@@ -50861,7 +50861,7 @@ lor.rhs.i.i.i.i.i:                                ; preds = %land.rhs.i.i
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i.i.i
   %bf.lshr.i.i.i.i.i.i = lshr i32 %bf.load.i.i.i.i.i.i, 2
   %bf.lshr.i17.i.i.i.i.i = lshr i32 %bf.load.i6.i.i.i.i.i, 2
-  %cmp7.i.i.i.i.i = icmp ult i32 %bf.lshr.i.i.i.i.i.i, %bf.lshr.i17.i.i.i.i.i
+  %cmp7.i.i.i.i.i = icmp samesign ult i32 %bf.lshr.i.i.i.i.i.i, %bf.lshr.i17.i.i.i.i.i
   br i1 %cmp7.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i, %land.rhs.i.i
@@ -50906,7 +50906,7 @@ while.body.i55:                                   ; preds = %if.end7.split, %_ZN
   %m_kind.i5.i.i.i.i65 = getelementptr inbounds i8, ptr %10, i64 4
   %bf.load.i6.i.i.i.i66 = load i32, ptr %m_kind.i5.i.i.i.i65, align 4
   %bf.clear.i7.i.i.i.i67 = and i32 %bf.load.i6.i.i.i.i66, 3
-  %cmp.i.i.i.i68 = icmp ult i32 %bf.clear.i.i.i.i.i64, %bf.clear.i7.i.i.i.i67
+  %cmp.i.i.i.i68 = icmp samesign ult i32 %bf.clear.i.i.i.i.i64, %bf.clear.i7.i.i.i.i67
   br i1 %cmp.i.i.i.i68, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i79, label %lor.rhs.i.i.i.i69
 
 lor.rhs.i.i.i.i69:                                ; preds = %while.body.i55
@@ -50916,7 +50916,7 @@ lor.rhs.i.i.i.i69:                                ; preds = %while.body.i55
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i74: ; preds = %lor.rhs.i.i.i.i69
   %bf.lshr.i.i.i.i.i75 = lshr i32 %bf.load.i.i.i.i.i63, 2
   %bf.lshr.i17.i.i.i.i76 = lshr i32 %bf.load.i6.i.i.i.i66, 2
-  %cmp7.i.i.i.i77 = icmp ult i32 %bf.lshr.i.i.i.i.i75, %bf.lshr.i17.i.i.i.i76
+  %cmp7.i.i.i.i77 = icmp samesign ult i32 %bf.lshr.i.i.i.i.i75, %bf.lshr.i17.i.i.i.i76
   %cond.fr.i78 = freeze i1 %cmp7.i.i.i.i77
   br i1 %cond.fr.i78, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i79, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71
 
@@ -50962,7 +50962,7 @@ land.rhs.i.i26:                                   ; preds = %while.body.i.i43, %
   %bf.clear.i.i.i.i.i.i33 = and i32 %bf.load.i.i.i.i.i.i32, 3
   %bf.load.i6.i.i.i.i.i34 = load i32, ptr %m_kind.i5.i.i.i.i.i25, align 4
   %bf.clear.i7.i.i.i.i.i35 = and i32 %bf.load.i6.i.i.i.i.i34, 3
-  %cmp.i.i.i.i.i36 = icmp ult i32 %bf.clear.i.i.i.i.i.i33, %bf.clear.i7.i.i.i.i.i35
+  %cmp.i.i.i.i.i36 = icmp samesign ult i32 %bf.clear.i.i.i.i.i.i33, %bf.clear.i7.i.i.i.i.i35
   br i1 %cmp.i.i.i.i.i36, label %while.body.i.i43, label %lor.rhs.i.i.i.i.i37
 
 lor.rhs.i.i.i.i.i37:                              ; preds = %land.rhs.i.i26
@@ -50972,7 +50972,7 @@ lor.rhs.i.i.i.i.i37:                              ; preds = %land.rhs.i.i26
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i39: ; preds = %lor.rhs.i.i.i.i.i37
   %bf.lshr.i.i.i.i.i.i40 = lshr i32 %bf.load.i.i.i.i.i.i32, 2
   %bf.lshr.i17.i.i.i.i.i41 = lshr i32 %bf.load.i6.i.i.i.i.i34, 2
-  %cmp7.i.i.i.i.i42 = icmp ult i32 %bf.lshr.i.i.i.i.i.i40, %bf.lshr.i17.i.i.i.i.i41
+  %cmp7.i.i.i.i.i42 = icmp samesign ult i32 %bf.lshr.i.i.i.i.i.i40, %bf.lshr.i17.i.i.i.i.i41
   br i1 %cmp7.i.i.i.i.i42, label %while.body.i.i43, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80
 
 while.body.i.i43:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i39, %land.rhs.i.i26
@@ -51022,7 +51022,7 @@ while.body.i:                                     ; preds = %entry, %_ZN9__gnu_c
   %m_kind.i5.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %bf.load.i6.i.i.i.i = load i32, ptr %m_kind.i5.i.i.i.i, align 4
   %bf.clear.i7.i.i.i.i = and i32 %bf.load.i6.i.i.i.i, 3
-  %cmp.i.i.i.i = icmp ult i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i.i
+  %cmp.i.i.i.i = icmp samesign ult i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %while.body.i
@@ -51032,7 +51032,7 @@ lor.rhs.i.i.i.i:                                  ; preds = %while.body.i
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i: ; preds = %lor.rhs.i.i.i.i
   %bf.lshr.i.i.i.i.i = lshr i32 %bf.load.i.i.i.i.i, 2
   %bf.lshr.i17.i.i.i.i = lshr i32 %bf.load.i6.i.i.i.i, 2
-  %cmp7.i.i.i.i = icmp ult i32 %bf.lshr.i.i.i.i.i, %bf.lshr.i17.i.i.i.i
+  %cmp7.i.i.i.i = icmp samesign ult i32 %bf.lshr.i.i.i.i.i, %bf.lshr.i17.i.i.i.i
   %cond.fr.i = freeze i1 %cmp7.i.i.i.i
   br i1 %cond.fr.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
 
@@ -51088,7 +51088,7 @@ land.rhs.i.i:                                     ; preds = %while.body.i.i, %la
   %bf.clear.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i, 3
   %bf.load.i6.i.i.i.i.i = load i32, ptr %m_kind.i5.i.i.i.i.i, align 4
   %bf.clear.i7.i.i.i.i.i = and i32 %bf.load.i6.i.i.i.i.i, 3
-  %cmp.i.i.i.i.i = icmp ult i32 %bf.clear.i.i.i.i.i.i, %bf.clear.i7.i.i.i.i.i
+  %cmp.i.i.i.i.i = icmp samesign ult i32 %bf.clear.i.i.i.i.i.i, %bf.clear.i7.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.rhs.i.i
@@ -51098,7 +51098,7 @@ lor.rhs.i.i.i.i.i:                                ; preds = %land.rhs.i.i
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i.i.i
   %bf.lshr.i.i.i.i.i.i = lshr i32 %bf.load.i.i.i.i.i.i, 2
   %bf.lshr.i17.i.i.i.i.i = lshr i32 %bf.load.i6.i.i.i.i.i, 2
-  %cmp7.i.i.i.i.i = icmp ult i32 %bf.lshr.i.i.i.i.i.i, %bf.lshr.i17.i.i.i.i.i
+  %cmp7.i.i.i.i.i = icmp samesign ult i32 %bf.lshr.i.i.i.i.i.i, %bf.lshr.i17.i.i.i.i.i
   br i1 %cmp7.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i, %land.rhs.i.i

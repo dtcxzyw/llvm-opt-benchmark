@@ -3916,7 +3916,7 @@ for.inc:                                          ; preds = %if.else.i, %_ZNSt16
   %sub.ptr.sub.i.i74 = sub i64 %sub.ptr.lhs.cast.i.i72, %sub.ptr.rhs.cast.i.i73
   %sub.ptr.div.i.i75 = sdiv exact i64 %sub.ptr.sub.i.i74, 56
   %54 = and i64 %sub.ptr.div.i.i75, 4294967295
-  %cmp = icmp ult i64 %indvars.iv.next, %54
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %54
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !190
 
 if.else37:                                        ; preds = %invoke.cont18
@@ -5580,12 +5580,12 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %114, i64 %idxprom6.i.i.i
   store i8 %116, ptr %arrayidx7.i.i.i, align 1, !tbaa !34
   %sub8.i.i.i = add i32 %__pos.035.i.i.i, -2
-  %cmp.i18.i.i = icmp ugt i32 %__val.addr.036.i.i.i, 9999
+  %cmp.i18.i.i = icmp samesign ugt i32 %__val.addr.036.i.i.i, 9999
   br i1 %cmp.i18.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !221
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %invoke.cont6.i.i
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %conv, %invoke.cont6.i.i ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i639, label %if.else.i.i.i
 
 if.then.i.i.i639:                                 ; preds = %while.end.i.i.i
@@ -7226,7 +7226,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.preheader:                             ; preds = %.noexc
   %xtraiter = and i64 %call.i.i, 3
-  %4 = icmp ult i64 %conv.i, 4
+  %4 = icmp samesign ult i64 %conv.i, 4
   br i1 %4, label %invoke.cont.loopexit.unr-lcssa, label %for.body.i.preheader.new
 
 for.body.i.preheader.new:                         ; preds = %for.body.i.preheader

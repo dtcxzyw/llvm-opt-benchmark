@@ -494,7 +494,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 .preheader163:                                    ; preds = %292, %318
   %297 = phi i64 [ %321, %318 ], [ 1, %292 ]
   %298 = phi i32 [ %320, %318 ], [ 1, %292 ]
-  %299 = icmp ugt i64 %297, 1
+  %299 = icmp samesign ugt i64 %297, 1
   br i1 %299, label %300, label %318
 
 300:                                              ; preds = %.preheader163
@@ -597,7 +597,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %364 = phi i64 [ 1, %356 ], [ %388, %386 ]
   %365 = phi i32 [ 1, %356 ], [ %387, %386 ]
   %366 = add i32 %365, 1
-  %367 = icmp ult i64 %364, %sext
+  %367 = icmp samesign ult i64 %364, %sext
   br i1 %367, label %368, label %386
 
 368:                                              ; preds = %363

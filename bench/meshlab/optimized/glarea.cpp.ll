@@ -18303,7 +18303,7 @@ _ZN4QMapIibEixERKi.exit:                          ; preds = %_ZN4QMapIibEixERKi.
   %180 = add nuw nsw i32 %.011106, 1
   %181 = load i32, ptr %5, align 4
   %182 = mul nsw i32 %181, %181
-  %183 = icmp ult i32 %180, %182
+  %183 = icmp samesign ult i32 %180, %182
   br i1 %183, label %.lr.ph108, label %._crit_edge109, !llvm.loop !185
 
 ._crit_edge109:                                   ; preds = %.lr.ph108, %._crit_edge

@@ -200,7 +200,7 @@ define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$milli..update..set
   %2 = alloca [24 x i8], align 8
   %3 = alloca [72 x i8], align 8
   %4 = load i64, ptr %0, align 8, !range !52, !noundef !14
-  %5 = icmp ult i64 %4, 3
+  %5 = icmp samesign ult i64 %4, 3
   br i1 %5, label %6, label %"_ZN4core3ptr66drop_in_place$LT$meilisearch_types..settings..FacetingSettings$GT$17h0828ec1f4f554302E.exit"
 
 "_ZN4core3ptr66drop_in_place$LT$meilisearch_types..settings..FacetingSettings$GT$17h0828ec1f4f554302E.exit": ; preds = %9, %6, %1
@@ -1606,7 +1606,7 @@ default.unreachable:                              ; preds = %209
 245:                                              ; preds = %244, %240, %239
   %246 = getelementptr inbounds i8, ptr %35, i64 504
   %247 = load i8, ptr %246, align 8, !range !234, !alias.scope !161, !noalias !162, !noundef !14
-  %.not.i.i = icmp ult i8 %247, 2
+  %.not.i.i = icmp samesign ult i8 %247, 2
   %248 = zext nneg i8 %247 to i64
   %249 = add nsw i64 %248, -1
   %250 = select i1 %.not.i.i, i64 0, i64 %249
@@ -1643,7 +1643,7 @@ default.unreachable:                              ; preds = %209
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !159
   %262 = getelementptr inbounds i8, ptr %35, i64 340
   %263 = load i8, ptr %262, align 4, !range !234, !alias.scope !238, !noalias !239, !noundef !14
-  %.not.i.i.i = icmp ult i8 %263, 2
+  %.not.i.i.i = icmp samesign ult i8 %263, 2
   %264 = zext nneg i8 %263 to i64
   %265 = add nsw i64 %264, -1
   %266 = select i1 %.not.i.i.i, i64 0, i64 %265
@@ -1907,7 +1907,7 @@ default.unreachable:                              ; preds = %209
 359:                                              ; preds = %395, %363
   %.pn.i.i = phi { ptr, i32 } [ %396, %395 ], [ %364, %363 ]
   %360 = load i64, ptr %19, align 8, !range !52, !alias.scope !275, !noalias !159, !noundef !14
-  %361 = icmp ult i64 %360, 3
+  %361 = icmp samesign ult i64 %360, 3
   br i1 %361, label %362, label %.body.i.i
 
 362:                                              ; preds = %359
@@ -4254,7 +4254,7 @@ define noundef zeroext i1 @"_ZN85_$LT$meilisearch_types..tasks..ParseTaskStatusE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN17meilisearch_types5tasks4Kind20related_to_one_index17h3f0abc3df9c1b8e8E(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #11 {
   %2 = load i8, ptr %0, align 1, !range !495, !noundef !14
-  %switch = icmp ult i8 %2, 6
+  %switch = icmp samesign ult i8 %2, 6
   ret i1 %switch
 }
 

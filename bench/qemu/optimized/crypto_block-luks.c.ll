@@ -424,7 +424,7 @@ if.then71.i:                                      ; preds = %if.end66.i
 
 if.end72.i:                                       ; preds = %if.end66.i
   %add73.i = add nuw nsw i64 %i.073.i, 1
-  %cmp7571.i = icmp ult i64 %i.073.i, 7
+  %cmp7571.i = icmp samesign ult i64 %i.073.i, 7
   br i1 %cmp7571.i, label %for.body77.i, label %for.cond.loopexit.i
 
 for.body77.i:                                     ; preds = %if.end72.i, %for.inc.i
@@ -563,7 +563,7 @@ for.inc.i.i:                                      ; preds = %for.body11.i.i
   %arrayidx7.i.i = getelementptr %struct.QCryptoBlockLUKSCipherSizeMap, ptr %37, i64 %inc.i.i52
   %41 = load i32, ptr %arrayidx7.i.i, align 4
   %conv.i.i53 = zext i32 %41 to i64
-  %cmp9.i.i = icmp ult i64 %inc.i.i52, %conv.i.i53
+  %cmp9.i.i = icmp samesign ult i64 %inc.i.i52, %conv.i.i53
   br i1 %cmp9.i.i, label %for.body11.i.i, label %for.inc23.i.i, !llvm.loop !10
 
 for.inc23.i.i:                                    ; preds = %for.inc.i.i, %for.cond5.preheader.i.i, %for.body.i.i50
@@ -868,7 +868,7 @@ for.cond1.i:                                      ; preds = %for.body5.i
   %arrayidx2.i = getelementptr %struct.QCryptoBlockLUKSCipherSizeMap, ptr %1, i64 %inc.i
   %3 = load i32, ptr %arrayidx2.i, align 4
   %conv.i = zext i32 %3 to i64
-  %cmp3.i = icmp ult i64 %inc.i, %conv.i
+  %cmp3.i = icmp samesign ult i64 %inc.i, %conv.i
   br i1 %cmp3.i, label %for.body5.i, label %for.inc12.i, !llvm.loop !13
 
 for.body5.i:                                      ; preds = %for.cond1.preheader.i, %for.cond1.i

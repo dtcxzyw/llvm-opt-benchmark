@@ -219,7 +219,7 @@ define dso_local void @ieee80211_apply_vhtcap_overrides(ptr nocapture noundef re
   %124 = load i32, ptr %123, align 4
   %125 = lshr i32 %124, 23
   %126 = and i32 %125, 7
-  %127 = icmp ult i32 %122, %126
+  %127 = icmp samesign ult i32 %122, %126
   br i1 %127, label %128, label %132
 
 128:                                              ; preds = %118
@@ -270,7 +270,7 @@ define dso_local void @ieee80211_apply_vhtcap_overrides(ptr nocapture noundef re
   br i1 %165, label %170, label %166
 
 166:                                              ; preds = %161
-  %167 = icmp ult i32 %157, %164
+  %167 = icmp samesign ult i32 %157, %164
   %168 = icmp eq i32 %157, 3
   %169 = or i1 %168, %167
   br i1 %169, label %172, label %178
@@ -303,7 +303,7 @@ define dso_local void @ieee80211_apply_vhtcap_overrides(ptr nocapture noundef re
   br i1 %188, label %193, label %189
 
 189:                                              ; preds = %184
-  %190 = icmp ult i32 %181, %187
+  %190 = icmp samesign ult i32 %181, %187
   %191 = icmp eq i32 %181, 3
   %192 = or i1 %191, %190
   br i1 %192, label %195, label %201
@@ -538,7 +538,7 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
   br i1 %147, label %151, label %148
 
 148:                                              ; preds = %145
-  %149 = icmp ult i32 %146, %143
+  %149 = icmp samesign ult i32 %146, %143
   %150 = select i1 %149, i16 %131, i16 %142
   br label %151
 
@@ -554,7 +554,7 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
   br i1 %157, label %161, label %158
 
 158:                                              ; preds = %155
-  %159 = icmp ult i32 %156, %153
+  %159 = icmp samesign ult i32 %156, %153
   %160 = select i1 %159, i16 %134, i16 %138
   br label %161
 

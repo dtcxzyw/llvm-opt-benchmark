@@ -569,7 +569,7 @@ Vec_IntPush.exit224.us:                           ; preds = %Vec_IntGrow.exit.i2
 
 192:                                              ; preds = %369, %.preheader280.us.us
   %indvars.iv400 = phi i64 [ %indvars.iv.next401, %369 ], [ 0, %.preheader280.us.us ]
-  %193 = icmp ult i64 %indvars.iv400, %indvars.iv405
+  %193 = icmp samesign ult i64 %indvars.iv400, %indvars.iv405
   br i1 %193, label %280, label %194
 
 194:                                              ; preds = %192
@@ -2101,7 +2101,7 @@ Vec_IntGrow.exit.i372.us.us.us:                   ; preds = %161, %147
   %indvars.iv721 = phi i64 [ 1, %.lr.ph568 ], [ %indvars.iv.next722, %.loopexit446 ]
   %.10567 = phi i32 [ %.9572, %.lr.ph568 ], [ %.12.lcssa, %.loopexit446 ]
   %indvars.iv.next751 = add nuw nsw i64 %indvars.iv750, 1
-  %177 = icmp ult i64 %indvars.iv.next751, %175
+  %177 = icmp samesign ult i64 %indvars.iv.next751, %175
   br i1 %177, label %.lr.ph552, label %._crit_edge553
 
 .lr.ph552:                                        ; preds = %176
@@ -2218,7 +2218,7 @@ Vec_IntGrow.exit.i384:                            ; preds = %215, %._crit_edge55
   %indvars.iv734 = phi i64 [ %indvars.iv.next735, %.loopexit445 ], [ 1, %Vec_IntGrow.exit.i384 ]
   %.12561 = phi i32 [ %.13.lcssa, %.loopexit445 ], [ %.11.lcssa, %Vec_IntGrow.exit.i384 ]
   %indvars.iv.next746 = add nuw nsw i64 %indvars.iv745, 1
-  %221 = icmp ult i64 %indvars.iv.next746, %indvars.iv750
+  %221 = icmp samesign ult i64 %indvars.iv.next746, %indvars.iv750
   br i1 %221, label %.lr.ph558, label %.loopexit445
 
 .lr.ph558:                                        ; preds = %.lr.ph562
@@ -3092,7 +3092,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
 
 22:                                               ; preds = %19
   %23 = add nuw nsw i32 %.02940, 1
-  %24 = icmp ult i32 %.02940, 5
+  %24 = icmp samesign ult i32 %.02940, 5
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %22
@@ -3887,7 +3887,7 @@ Abc_Clock.exit:                                   ; preds = %6, %15
   %33 = shl i32 %32, %30
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i64, ptr %28, i64 %34
-  %36 = icmp ult i64 %indvars.iv65.i, 6
+  %36 = icmp samesign ult i64 %indvars.iv65.i, 6
   br i1 %36, label %.preheader.us.us.i, label %.preheader21.us.us.i
 
 37:                                               ; preds = %.preheader21.us.us.i, %37

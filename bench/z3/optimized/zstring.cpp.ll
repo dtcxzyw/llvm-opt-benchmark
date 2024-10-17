@@ -1404,7 +1404,7 @@ lor.lhs.false7:                                   ; preds = %for.body
 land.lhs.true:                                    ; preds = %lor.lhs.false7
   %5 = add nuw nsw i64 %indvars.iv, 1
   %6 = zext i32 %1 to i64
-  %cmp12 = icmp ult i64 %5, %6
+  %cmp12 = icmp samesign ult i64 %5, %6
   br i1 %cmp12, label %land.lhs.true13, label %if.else
 
 land.lhs.true13:                                  ; preds = %land.lhs.true
@@ -1482,7 +1482,7 @@ for.inc:                                          ; preds = %if.end43, %invoke.c
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %m_pos.i, align 8
   %9 = zext i32 %8 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %9
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc
@@ -1648,7 +1648,7 @@ for.body12.us:                                    ; preds = %for.cond6.preheader
   %7 = load i32, ptr %arrayidx.i.us, align 4
   %cmp15.us = icmp eq i32 %5, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp10.us = icmp ult i64 %indvars.iv.next, %4
+  %cmp10.us = icmp samesign ult i64 %indvars.iv.next, %4
   %or.cond.us = select i1 %cmp15.us, i1 %cmp10.us, i1 false
   br i1 %or.cond.us, label %for.body12.us, label %for.cond6.for.inc16_crit_edge.us, !llvm.loop !15
 

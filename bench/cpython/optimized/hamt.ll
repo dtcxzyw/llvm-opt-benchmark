@@ -1701,7 +1701,7 @@ if.then7.i:                                       ; preds = %if.end.i
   store ptr null, ptr %sub_node.i, align 8
   %add8.i = add i32 %shift, 5
   %call9.i = call fastcc i32 @hamt_node_without(ptr noundef %4, i32 noundef %add8.i, i32 noundef %hash, ptr noundef %key, ptr noundef %sub_node.i)
-  %switch.i = icmp ult i32 %call9.i, 2
+  %switch.i = icmp samesign ult i32 %call9.i, 2
   br i1 %switch.i, label %hamt_node_bitmap_without.exit, label %sw.bb10.i
 
 sw.bb10.i:                                        ; preds = %if.then7.i
@@ -2049,7 +2049,7 @@ _Py_XNewRef.exit25.i:                             ; preds = %if.end.i.i.i24.i, %
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %o.val.i = load i64, ptr %40, align 8
   %60 = and i64 %o.val.i, 4294967295
-  %cmp11.i79 = icmp ult i64 %indvars.iv.next37.i, %60
+  %cmp11.i79 = icmp samesign ult i64 %indvars.iv.next37.i, %60
   br i1 %cmp11.i79, label %for.body13.i, label %for.end24.i, !llvm.loop !13
 
 for.end24.i:                                      ; preds = %_Py_XNewRef.exit25.i, %for.end.i75
@@ -4411,7 +4411,7 @@ do.end71:                                         ; preds = %if.end.i, %if.then1
 
 if.else:                                          ; preds = %entry
   %85 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
-  %cmp74 = icmp ugt i32 %85, 15
+  %cmp74 = icmp samesign ugt i32 %85, 15
   br i1 %cmp74, label %if.then75, label %if.else147
 
 if.then75:                                        ; preds = %if.else
@@ -4695,7 +4695,7 @@ _Py_XNewRef.exit283:                              ; preds = %for.body189, %if.th
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
   %self.val = load i64, ptr %121, align 8
   %126 = and i64 %self.val, 4294967295
-  %cmp187 = icmp ult i64 %indvars.iv.next364, %126
+  %cmp187 = icmp samesign ult i64 %indvars.iv.next364, %126
   br i1 %cmp187, label %for.body189, label %for.end200, !llvm.loop !27
 
 for.end200:                                       ; preds = %_Py_XNewRef.exit283, %_Py_NewRef.exit277

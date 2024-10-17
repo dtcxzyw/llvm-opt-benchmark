@@ -2067,7 +2067,7 @@ define internal fastcc void @XLogDumpDisplayStats(ptr nocapture noundef nonnull 
 49:                                               ; preds = %44
   %50 = getelementptr [256 x %struct.XLogRecStats], ptr %6, i64 0, i64 %indvars.iv148
   %51 = load i64, ptr %50, align 8
-  %52 = icmp ugt i64 %indvars.iv148, 127
+  %52 = icmp samesign ugt i64 %indvars.iv148, 127
   %53 = icmp eq i64 %51, 0
   %or.cond.us.us = select i1 %52, i1 %53, i1 false
   br i1 %or.cond.us.us, label %.loopexit.split.us.us.split.us.us, label %54
@@ -2201,7 +2201,7 @@ define internal fastcc void @XLogDumpDisplayStats(ptr nocapture noundef nonnull 
 127:                                              ; preds = %122
   %128 = getelementptr [256 x %struct.XLogRecStats], ptr %6, i64 0, i64 %indvars.iv136
   %129 = load i64, ptr %128, align 8
-  %130 = icmp ugt i64 %indvars.iv136, 127
+  %130 = icmp samesign ugt i64 %indvars.iv136, 127
   %131 = icmp eq i64 %129, 0
   %or.cond.us = select i1 %130, i1 %131, i1 false
   br i1 %or.cond.us, label %.loopexit.split.us.us.split, label %132
@@ -2305,7 +2305,7 @@ define internal fastcc void @XLogDumpDisplayStats(ptr nocapture noundef nonnull 
 189:                                              ; preds = %183
   %190 = getelementptr [256 x %struct.XLogRecStats], ptr %6, i64 0, i64 %indvars.iv128
   %191 = load i64, ptr %190, align 8
-  %192 = icmp ugt i64 %indvars.iv128, 127
+  %192 = icmp samesign ugt i64 %indvars.iv128, 127
   %193 = icmp eq i64 %191, 0
   %or.cond = select i1 %192, i1 %193, i1 false
   br i1 %or.cond, label %.loopexit.split, label %194
@@ -2536,7 +2536,7 @@ open_file_in_directory.exit34:                    ; preds = %25, %29
 
 45:                                               ; preds = %41
   %46 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %43)
-  %47 = icmp ult i32 %46, 2
+  %47 = icmp samesign ult i32 %46, 2
   %48 = add nsw i32 %43, -1048576
   %49 = icmp ult i32 %48, 1072693249
   %or.cond3 = and i1 %47, %49

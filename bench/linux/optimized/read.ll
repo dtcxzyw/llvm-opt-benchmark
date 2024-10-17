@@ -427,14 +427,14 @@ define internal void @nfs_read_completion(ptr noundef %0) #0 align 16 {
 
 77:                                               ; preds = %74, %68
   %78 = phi i64 [ %76, %74 ], [ 1, %68 ]
-  %79 = icmp ugt i64 %78, %70
+  %79 = icmp samesign ugt i64 %78, %70
   %80 = add i32 %69, 1
   br i1 %79, label %68, label %.loopexit, !llvm.loop !24
 
 81:                                               ; preds = %35
   %82 = sub nuw nsw i64 %37, %15
   %83 = zext i32 %29 to i64
-  %84 = icmp ult i64 %82, %83
+  %84 = icmp samesign ult i64 %82, %83
   br i1 %84, label %85, label %.loopexit
 
 85:                                               ; preds = %81
@@ -501,7 +501,7 @@ define internal void @nfs_read_completion(ptr noundef %0) #0 align 16 {
 
 126:                                              ; preds = %123, %117
   %127 = phi i64 [ %125, %123 ], [ 1, %117 ]
-  %128 = icmp ugt i64 %127, %119
+  %128 = icmp samesign ugt i64 %127, %119
   %129 = add i32 %118, 1
   br i1 %128, label %117, label %.loopexit, !llvm.loop !24
 
@@ -856,7 +856,7 @@ define dso_local i32 @nfs_read_add_folio(ptr noundef %0, ptr noundef %1, ptr nou
 
 150:                                              ; preds = %146
   %151 = load volatile i64, ptr %2, align 8
-  %152 = icmp ugt i64 %129, 19
+  %152 = icmp samesign ugt i64 %129, 19
   br i1 %152, label %155, label %154
 
 153:                                              ; preds = %146
@@ -887,7 +887,7 @@ define dso_local i32 @nfs_read_add_folio(ptr noundef %0, ptr noundef %1, ptr nou
 
 166:                                              ; preds = %163, %157
   %167 = phi i64 [ %165, %163 ], [ 1, %157 ]
-  %168 = icmp ugt i64 %167, %159
+  %168 = icmp samesign ugt i64 %167, %159
   %169 = add i32 %158, 1
   br i1 %168, label %157, label %170, !llvm.loop !24
 
@@ -980,7 +980,7 @@ define dso_local i32 @nfs_read_add_folio(ptr noundef %0, ptr noundef %1, ptr nou
 
 225:                                              ; preds = %222, %216
   %226 = phi i64 [ %224, %222 ], [ 1, %216 ]
-  %227 = icmp ugt i64 %226, %218
+  %227 = icmp samesign ugt i64 %226, %218
   %228 = add i32 %217, 1
   br i1 %227, label %216, label %.loopexit, !llvm.loop !24
 

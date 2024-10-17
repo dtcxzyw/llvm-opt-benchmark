@@ -507,7 +507,7 @@ longest_path_match.exit:                          ; preds = %land.rhs.i, %land.l
   %and = and i32 %track_flags, 6
   %and8 = and i32 %and, %10
   store i32 %and8, ptr %ret_flags, align 4
-  %tobool.not = icmp ult i32 %track_flags, 32
+  %tobool.not = icmp samesign ult i32 %track_flags, 32
   %cmp10 = icmp eq i32 %match_len.2.i, %len
   %or.cond75 = select i1 %tobool.not, i1 %cmp10, i1 false
   %last_slash.1 = select i1 %or.cond75, i32 %match_len_prev.2.i, i32 %match_len.2.i
@@ -544,7 +544,7 @@ if.then35:                                        ; preds = %if.end29
 
 if.end40:                                         ; preds = %if.then35, %if.end29
   %buf44 = getelementptr inbounds i8, ptr %cache, i64 16
-  %tobool58.not = icmp ult i32 %track_flags, 32
+  %tobool58.not = icmp samesign ult i32 %track_flags, 32
   %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   br i1 %tobool58.not, label %while.cond.preheader, label %while.cond.us.preheader
 

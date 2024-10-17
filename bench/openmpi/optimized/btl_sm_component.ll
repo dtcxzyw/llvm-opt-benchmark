@@ -798,7 +798,7 @@ define internal i32 @mca_btl_sm_component_progress() #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %82 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5976), align 8
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next.i, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next.i, %83
   br i1 %84, label %19, label %mca_btl_sm_check_fboxes.exit, !llvm.loop !8
 
 mca_btl_sm_check_fboxes.exit:                     ; preds = %81
@@ -939,8 +939,8 @@ mca_btl_sm_check_fboxes.exit:                     ; preds = %81
   fence acquire
   %164 = add i32 %163, -1
   %or.cond.i.i.i.i = icmp ult i32 %164, 31
-  %165 = icmp ule i32 %157, %146
-  %or.cond108.i.i.i.i = and i1 %165, %or.cond.i.i.i.i
+  %165 = icmp samesign ule i32 %157, %146
+  %or.cond108.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 %165, i1 false
   br i1 %or.cond108.i.i.i.i, label %166, label %.critedge.i.i.i.i
 
 166:                                              ; preds = %154

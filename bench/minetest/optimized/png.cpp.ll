@@ -158,7 +158,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %16, label %vec.epilog.iter.check, label %vector.body, !llvm.loop !22
 
 vec.epilog.iter.check:                            ; preds = %vector.body
-  %min.epilog.iters.check = icmp ult i64 %11, 9
+  %min.epilog.iters.check = icmp samesign ult i64 %11, 9
   br i1 %min.epilog.iters.check, label %for.body36.i.preheader, label %vec.epilog.ph
 
 vec.epilog.ph:                                    ; preds = %vec.epilog.iter.check, %vector.main.loop.iter.check

@@ -217,7 +217,7 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
   %127 = phi ptr [ %9, %121 ], [ %145, %144 ]
   %128 = load i8, ptr %117, align 1
   %129 = zext i8 %128 to i64
-  %130 = icmp ult i64 %126, %129
+  %130 = icmp samesign ult i64 %126, %129
   br i1 %130, label %131, label %138
 
 131:                                              ; preds = %125

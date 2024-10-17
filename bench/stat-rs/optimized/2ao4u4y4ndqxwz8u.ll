@@ -566,7 +566,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hae2af9abdc4c303aE.exit.i.i: ; 
   %119 = getelementptr inbounds ptr, ptr %117, i64 %97
   store ptr %.sroa.7.0137, ptr %119, align 8, !alias.scope !61, !noalias !52
   store i16 %95, ptr %93, align 2, !noalias !52
-  %120 = icmp ult i64 %97, %118
+  %120 = icmp samesign ult i64 %97, %118
   br i1 %120, label %.lr.ph.i.i.i.preheader, label %"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$6insert17h49f95f56033beca8E.exit.thread"
 
 .lr.ph.i.i.i.preheader:                           ; preds = %_ZN5alloc11collections5btree4node12slice_insert17hae2af9abdc4c303aE.exit.i.i
@@ -576,7 +576,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hae2af9abdc4c303aE.exit.i.i: ; 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.sroa.0.06.i.i.i = phi i64 [ %122, %.lr.ph.i.i.i ], [ %97, %.lr.ph.i.i.i.preheader ]
   %122 = add nuw nsw i64 %.sroa.0.06.i.i.i, 1
-  %123 = icmp ult i64 %.sroa.0.06.i.i.i, 12
+  %123 = icmp samesign ult i64 %.sroa.0.06.i.i.i, 12
   tail call void @llvm.assume(i1 %123)
   %124 = getelementptr inbounds ptr, ptr %121, i64 %.sroa.0.06.i.i.i
   %125 = load ptr, ptr %124, align 8, !noalias !64, !nonnull !4, !noundef !4
@@ -641,7 +641,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hae2af9abdc4c303aE.exit.i64.i: 
 .lr.ph.i.i65.i:                                   ; preds = %.lr.ph.i.i65.i, %_ZN5alloc11collections5btree4node12slice_insert17hae2af9abdc4c303aE.exit.i64.i
   %.sroa.0.06.i.i66.i = phi i64 [ %151, %.lr.ph.i.i65.i ], [ 1, %_ZN5alloc11collections5btree4node12slice_insert17hae2af9abdc4c303aE.exit.i64.i ]
   %151 = add nuw nsw i64 %.sroa.0.06.i.i66.i, 1
-  %152 = icmp ult i64 %.sroa.0.06.i.i66.i, 12
+  %152 = icmp samesign ult i64 %.sroa.0.06.i.i66.i, 12
   tail call void @llvm.assume(i1 %152)
   %153 = getelementptr inbounds ptr, ptr %149, i64 %.sroa.0.06.i.i66.i
   %154 = load ptr, ptr %153, align 8, !noalias !83, !nonnull !4, !noundef !4
@@ -975,10 +975,10 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
 
 56:                                               ; preds = %56, %52
   %.sroa.0.011.i.i = phi i64 [ 0, %52 ], [ %spec.select7.i.i, %56 ]
-  %57 = icmp ult i64 %.sroa.0.011.i.i, %44
+  %57 = icmp samesign ult i64 %.sroa.0.011.i.i, %44
   %58 = zext i1 %57 to i64
   %spec.select7.i.i = add nuw nsw i64 %.sroa.0.011.i.i, %58
-  %59 = icmp ult i64 %.sroa.0.011.i.i, 12
+  %59 = icmp samesign ult i64 %.sroa.0.011.i.i, 12
   tail call void @llvm.assume(i1 %59)
   %60 = getelementptr inbounds ptr, ptr %45, i64 %.sroa.0.011.i.i
   %61 = load ptr, ptr %60, align 8, !alias.scope !140, !noalias !143, !nonnull !4, !noundef !4
@@ -986,7 +986,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %62 = trunc nuw nsw i64 %.sroa.0.011.i.i to i16
   %63 = getelementptr inbounds i8, ptr %61, i64 184
   store i16 %62, ptr %63, align 8, !noalias !151
-  %.not.i.i.i.i = icmp ule i64 %spec.select7.i.i, %44
+  %.not.i.i.i.i = icmp samesign ule i64 %spec.select7.i.i, %44
   %or.cond.i.not.i = select i1 %57, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond.i.not.i, label %56, label %64
 
@@ -1040,7 +1040,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %11 = load i16, ptr %10, align 2, !noundef !4
   %12 = zext i16 %11 to i64
   %13 = add nuw nsw i64 %1, %12
-  %14 = icmp ult i64 %13, 12
+  %14 = icmp samesign ult i64 %13, 12
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %2
@@ -1048,7 +1048,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 16:                                               ; preds = %2
-  %.not = icmp ugt i64 %1, %7
+  %.not = icmp samesign ugt i64 %1, %7
   br i1 %.not, label %17, label %18
 
 17:                                               ; preds = %16
@@ -1142,7 +1142,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h0fcabb5f1570b7c5E.exit: ; pre
 65:                                               ; preds = %65, %_ZN5alloc11collections5btree4node13move_to_slice17h0fcabb5f1570b7c5E.exit
   %.sroa.0.06.i = phi i64 [ 0, %_ZN5alloc11collections5btree4node13move_to_slice17h0fcabb5f1570b7c5E.exit ], [ %66, %65 ]
   %66 = add nuw nsw i64 %.sroa.0.06.i, 1
-  %67 = icmp ult i64 %.sroa.0.06.i, 12
+  %67 = icmp samesign ult i64 %.sroa.0.06.i, 12
   tail call void @llvm.assume(i1 %67)
   %68 = getelementptr inbounds ptr, ptr %59, i64 %.sroa.0.06.i
   %69 = load ptr, ptr %68, align 8, !noalias !175, !nonnull !4, !noundef !4
@@ -1167,7 +1167,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %11 = load i16, ptr %10, align 2, !noundef !4
   %12 = zext i16 %11 to i64
   %13 = add nuw nsw i64 %1, %7
-  %14 = icmp ult i64 %13, 12
+  %14 = icmp samesign ult i64 %13, 12
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %2
@@ -1175,7 +1175,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 16:                                               ; preds = %2
-  %.not = icmp ugt i64 %1, %12
+  %.not = icmp samesign ugt i64 %1, %12
   br i1 %.not, label %17, label %_ZN5alloc11collections5btree4node13move_to_slice17h667d6feae92a23c6E.exit
 
 17:                                               ; preds = %16
@@ -1258,7 +1258,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h0fcabb5f1570b7c5E.exit: ; pre
 61:                                               ; preds = %61, %_ZN5alloc11collections5btree4node13move_to_slice17h0fcabb5f1570b7c5E.exit
   %.sroa.0.06.i = phi i64 [ %38, %_ZN5alloc11collections5btree4node13move_to_slice17h0fcabb5f1570b7c5E.exit ], [ %62, %61 ]
   %62 = add nuw nsw i64 %.sroa.0.06.i, 1
-  %63 = icmp ult i64 %.sroa.0.06.i, 12
+  %63 = icmp samesign ult i64 %.sroa.0.06.i, 12
   tail call void @llvm.assume(i1 %63)
   %64 = getelementptr inbounds ptr, ptr %56, i64 %.sroa.0.06.i
   %65 = load ptr, ptr %64, align 8, !noalias !202, !nonnull !4, !noundef !4
@@ -1272,7 +1272,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h0fcabb5f1570b7c5E.exit: ; pre
 "_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h52c2c32abc8293faE.exit": ; preds = %61, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h52c2c32abc8293faE.exit"
   %.sroa.0.06.i68 = phi i64 [ %68, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h52c2c32abc8293faE.exit" ], [ 0, %61 ]
   %68 = add nuw nsw i64 %.sroa.0.06.i68, 1
-  %69 = icmp ult i64 %.sroa.0.06.i68, 12
+  %69 = icmp samesign ult i64 %.sroa.0.06.i68, 12
   tail call void @llvm.assume(i1 %69)
   %70 = getelementptr inbounds ptr, ptr %55, i64 %.sroa.0.06.i68
   %71 = load ptr, ptr %70, align 8, !noalias !208, !nonnull !4, !noundef !4
@@ -1306,7 +1306,7 @@ define internal fastcc { ptr, i64 } @"_ZN5alloc11collections5btree4node29Balanci
   %19 = zext i16 %18 to i64
   %20 = add nuw nsw i64 %14, 1
   %21 = add nuw nsw i64 %20, %19
-  %22 = icmp ult i64 %21, 12
+  %22 = icmp samesign ult i64 %21, 12
   br i1 %22, label %_ZN5alloc11collections5btree4node13move_to_slice17h667d6feae92a23c6E.exit, label %23
 
 23:                                               ; preds = %1
@@ -1396,7 +1396,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h0fcabb5f1570b7c5E.exit: ; pre
 .lr.ph.i46:                                       ; preds = %_ZN5alloc11collections5btree4node13move_to_slice17h0fcabb5f1570b7c5E.exit, %.lr.ph.i46
   %.sroa.0.06.i47 = phi i64 [ %70, %.lr.ph.i46 ], [ %20, %_ZN5alloc11collections5btree4node13move_to_slice17h0fcabb5f1570b7c5E.exit ]
   %70 = add nuw nsw i64 %.sroa.0.06.i47, 1
-  %71 = icmp ult i64 %.sroa.0.06.i47, 12
+  %71 = icmp samesign ult i64 %.sroa.0.06.i47, 12
   tail call void @llvm.assume(i1 %71)
   %72 = getelementptr inbounds ptr, ptr %63, i64 %.sroa.0.06.i47
   %73 = load ptr, ptr %72, align 8, !noalias !243, !nonnull !4, !noundef !4
@@ -1553,7 +1553,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %59 = add nuw nsw i64 %58, 1
   %60 = zext nneg i16 %30 to i64
   %61 = add nuw nsw i64 %59, %60
-  %62 = icmp ult i64 %61, 12
+  %62 = icmp samesign ult i64 %61, 12
   br i1 %62, label %75, label %73
 
 63:                                               ; preds = %41
@@ -1566,7 +1566,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %69 = load i16, ptr %68, align 2, !noundef !4
   %70 = zext i16 %69 to i64
   %71 = add nuw nsw i64 %67, %70
-  %72 = icmp ult i64 %71, 12
+  %72 = icmp samesign ult i64 %71, 12
   br i1 %72, label %83, label %82
 
 73:                                               ; preds = %49
@@ -1759,7 +1759,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %116 = zext i16 %115 to i64
   %117 = add nuw nsw i64 %91, 1
   %118 = add nuw nsw i64 %117, %116
-  %119 = icmp ult i64 %118, 12
+  %119 = icmp samesign ult i64 %118, 12
   br i1 %119, label %._crit_edge200, label %129
 
 120:                                              ; preds = %98
@@ -1778,7 +1778,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %125 = load i16, ptr %124, align 2, !noalias !286, !noundef !4
   %126 = zext i16 %125 to i64
   %127 = add nuw nsw i64 %123, %126
-  %128 = icmp ult i64 %127, 12
+  %128 = icmp samesign ult i64 %127, 12
   br i1 %128, label %_ZN5alloc11collections5btree4node13move_to_slice17h667d6feae92a23c6E.exit.i, label %131
 
 129:                                              ; preds = %107
@@ -1796,7 +1796,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !301
   %.pre206 = add nuw nsw i64 %116, 1
   %.pre208 = add nuw nsw i64 %.pre206, %91
-  %133 = icmp ult i64 %.pre208, 12
+  %133 = icmp samesign ult i64 %.pre208, 12
   br i1 %133, label %_ZN5alloc11collections5btree4node13move_to_slice17h667d6feae92a23c6E.exit.i, label %134
 
 134:                                              ; preds = %._crit_edge200
@@ -1895,7 +1895,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h0fcabb5f1570b7c5E.exit.i: ; p
 .lr.ph.i46.i:                                     ; preds = %.lr.ph.i46.i, %_ZN5alloc11collections5btree4node13move_to_slice17h0fcabb5f1570b7c5E.exit.i
   %.sroa.0.06.i47.i = phi i64 [ %185, %.lr.ph.i46.i ], [ %.pre-phi207215, %_ZN5alloc11collections5btree4node13move_to_slice17h0fcabb5f1570b7c5E.exit.i ]
   %185 = add nuw nsw i64 %.sroa.0.06.i47.i, 1
-  %186 = icmp ult i64 %.sroa.0.06.i47.i, 12
+  %186 = icmp samesign ult i64 %.sroa.0.06.i47.i, 12
   tail call void @llvm.assume(i1 %186), !noalias !286
   %187 = getelementptr inbounds ptr, ptr %178, i64 %.sroa.0.06.i47.i
   %188 = load ptr, ptr %187, align 8, !noalias !334, !nonnull !4, !noundef !4
@@ -2160,7 +2160,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN83_$LT$statrs..
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 192
-  %26 = icmp ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
+  %26 = icmp samesign ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds ptr, ptr %25, i64 %.sroa.4.0.i.ph.sink.i.ph
   %28 = load ptr, ptr %27, align 8, !noalias !391, !nonnull !4, !noundef !4

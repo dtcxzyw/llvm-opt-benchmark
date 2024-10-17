@@ -2363,7 +2363,7 @@ while.body:                                       ; preds = %entry, %while.body
   store i8 %call.i.i.i.i.i.i, ptr %arrayidx, align 1, !tbaa !13
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__beg.sroa.0.043, i64 1
   %cmp.i.i.i.i = icmp ne ptr %incdec.ptr.i.i.i.i, %__end.coerce0
-  %cmp = icmp ult i64 %__len.044, 14
+  %cmp = icmp samesign ult i64 %__len.044, 14
   %3 = select i1 %cmp.i.i.i.i, i1 %cmp, i1 false
   br i1 %3, label %while.body, label %invoke.cont.preheader, !llvm.loop !59
 

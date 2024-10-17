@@ -611,7 +611,7 @@ _ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %200 = sub i64 %198, %199
   %201 = lshr exact i64 %200, 3
   %202 = and i64 %201, 4294967295
-  %203 = icmp ult i64 %indvars.iv.next.i, %202
+  %203 = icmp samesign ult i64 %indvars.iv.next.i, %202
   br i1 %203, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit.i, %145, %135
@@ -939,7 +939,7 @@ _ZN4llvm11SmallVectorIjLj8EEC2ERKS1_.exit.i:      ; preds = %351, %.loopexit.i10
   %382 = sub i64 %380, %381
   %383 = lshr exact i64 %382, 2
   %384 = and i64 %383, 4294967295
-  %385 = icmp ult i64 %indvars.iv.next.i12, %384
+  %385 = icmp samesign ult i64 %indvars.iv.next.i12, %384
   br i1 %385, label %.lr.ph45.i, label %._crit_edge.i13, !llvm.loop !10
 
 ._crit_edge.i13:                                  ; preds = %.lr.ph45.i, %_ZN4llvm11SmallVectorIjLj8EEC2ERKS1_.exit.i
@@ -2306,7 +2306,7 @@ _ZN12_GLOBAL__N_110MatcherGen17EmitLeafMatchCodeERKN4llvm15TreePatternNodeE.exit
   %421 = sub i64 %419, %420
   %422 = lshr exact i64 %421, 3
   %423 = and i64 %422, 4294967295
-  %424 = icmp ult i64 %indvars.iv.next355, %423
+  %424 = icmp samesign ult i64 %indvars.iv.next355, %423
   br i1 %424, label %.lr.ph327, label %._crit_edge328, !llvm.loop !38
 
 ._crit_edge328:                                   ; preds = %.lr.ph327, %392
@@ -3401,7 +3401,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit129: ; preds = %_ZN4llv
   %909 = sub i64 %907, %908
   %910 = lshr exact i64 %909, 5
   %911 = and i64 %910, 4294967295
-  %912 = icmp ult i64 %indvars.iv.next358, %911
+  %912 = icmp samesign ult i64 %indvars.iv.next358, %911
   br i1 %912, label %_ZN4llvmplERKNS_5TwineES2_.exit127, label %.loopexit309, !llvm.loop !74
 
 .loopexit309:                                     ; preds = %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit129, %848, %844

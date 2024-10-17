@@ -62,7 +62,7 @@ define noundef i32 @saxpy_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
   %50 = tail call <16 x float> @llvm.fmuladd.v16f32(<16 x float> %22, <16 x float> %49, <16 x float> %47)
   store <16 x float> %50, ptr %46, align 1, !tbaa !3
   %51 = add nuw nsw i64 %27, 64
-  %52 = icmp ult i64 %51, %23
+  %52 = icmp samesign ult i64 %51, %23
   br i1 %52, label %.preheader11, label %.loopexit12, !llvm.loop !6
 
 .preheader9:                                      ; preds = %.loopexit12, %.preheader9
@@ -176,7 +176,7 @@ define noundef i32 @saxpy_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
   %131 = add nsw i64 %105, %92
   %132 = add nsw i64 %106, %93
   %133 = add nuw nsw i64 %104, 4
-  %134 = icmp ult i64 %133, %89
+  %134 = icmp samesign ult i64 %133, %89
   br i1 %134, label %103, label %95, !llvm.loop !13
 
 .preheader13:                                     ; preds = %98, %.preheader13

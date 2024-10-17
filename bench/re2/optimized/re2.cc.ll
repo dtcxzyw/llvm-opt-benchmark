@@ -2173,8 +2173,8 @@ _ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE.exit: ; preds = %for.inc.i
   %num_captures_.i = getelementptr inbounds i8, ptr %re, i64 64
   %4 = load i32, ptr %num_captures_.i, align 8
   %cmp = icmp sgt i32 %max.0.lcssa.i, %4
-  %cmp3 = icmp ugt i32 %max.0.lcssa.i, 16
-  %or.cond = or i1 %cmp3, %cmp
+  %cmp3 = icmp samesign ugt i32 %max.0.lcssa.i, 16
+  %or.cond = select i1 %cmp, i1 true, i1 %cmp3
   br i1 %or.cond, label %return, label %if.end5
 
 if.end5:                                          ; preds = %_ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE.exit
@@ -3353,8 +3353,8 @@ _ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE.exit: ; preds = %for.inc.i
   %num_captures_.i = getelementptr inbounds i8, ptr %re, i64 64
   %4 = load i32, ptr %num_captures_.i, align 8
   %cmp = icmp sgt i32 %max.0.lcssa.i, %4
-  %cmp3 = icmp ugt i32 %max.0.lcssa.i, 16
-  %or.cond40 = or i1 %cmp3, %cmp
+  %cmp3 = icmp samesign ugt i32 %max.0.lcssa.i, 16
+  %or.cond40 = select i1 %cmp, i1 true, i1 %cmp3
   br i1 %or.cond40, label %return, label %if.end5
 
 if.end5:                                          ; preds = %_ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE.exit
@@ -3601,8 +3601,8 @@ _ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE.exit: ; preds = %for.inc.i
   %num_captures_.i = getelementptr inbounds i8, ptr %re, i64 64
   %4 = load i32, ptr %num_captures_.i, align 8
   %cmp = icmp sgt i32 %max.0.lcssa.i, %4
-  %cmp3 = icmp ugt i32 %max.0.lcssa.i, 16
-  %or.cond = or i1 %cmp3, %cmp
+  %cmp3 = icmp samesign ugt i32 %max.0.lcssa.i, 16
+  %or.cond = select i1 %cmp, i1 true, i1 %cmp3
   br i1 %or.cond, label %return, label %if.end5
 
 if.end5:                                          ; preds = %_ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE.exit

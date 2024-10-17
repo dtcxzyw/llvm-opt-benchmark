@@ -26408,7 +26408,7 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$bytes..by
 define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$datafusion_common..stats..ColumnStatistics$GT$17hcf4301e09a847e39E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !range !6432, !alias.scope !11411, !noundef !4
-  %switch.i = icmp ult i64 %3, 2
+  %switch.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i, label %.sink.split.i, label %"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17h1dda69e982186e31E.exit"
 
 .sink.split.i:                                    ; preds = %1
@@ -26421,7 +26421,7 @@ define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$datafusion_common..
           cleanup
   %7 = getelementptr inbounds i8, ptr %0, i64 72
   %8 = load i64, ptr %7, align 8, !range !6432, !alias.scope !11414, !noundef !4
-  %switch.i1 = icmp ult i64 %8, 2
+  %switch.i1 = icmp samesign ult i64 %8, 2
   br i1 %switch.i1, label %.sink.split.i2, label %"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17h1dda69e982186e31E.exit4"
 
 .sink.split.i2:                                   ; preds = %5
@@ -26432,7 +26432,7 @@ define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$datafusion_common..
 "_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17h1dda69e982186e31E.exit": ; preds = %1, %.sink.split.i
   %10 = getelementptr inbounds i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8, !range !6432, !alias.scope !11417, !noundef !4
-  %switch.i5 = icmp ult i64 %11, 2
+  %switch.i5 = icmp samesign ult i64 %11, 2
   br i1 %switch.i5, label %.sink.split.i6, label %"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17h1dda69e982186e31E.exit7"
 
 .sink.split.i6:                                   ; preds = %"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17h1dda69e982186e31E.exit"
@@ -34371,7 +34371,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$$u5b$datafusion_common..stat
   %5 = add nuw i64 %.010, 1
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load i64, ptr %6, align 8, !range !6432, !alias.scope !15274, !noundef !4
-  %switch.i.i = icmp ult i64 %7, 2
+  %switch.i.i = icmp samesign ult i64 %7, 2
   br i1 %switch.i.i, label %.sink.split.i.i, label %"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17h1dda69e982186e31E.exit.i"
 
 .sink.split.i.i:                                  ; preds = %.lr.ph
@@ -34384,7 +34384,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$$u5b$datafusion_common..stat
           cleanup
   %11 = getelementptr inbounds i8, ptr %4, i64 72
   %12 = load i64, ptr %11, align 8, !range !6432, !alias.scope !15279, !noundef !4
-  %switch.i1.i = icmp ult i64 %12, 2
+  %switch.i1.i = icmp samesign ult i64 %12, 2
   br i1 %switch.i1.i, label %.sink.split.i2.i, label %.body
 
 .sink.split.i2.i:                                 ; preds = %9
@@ -34395,7 +34395,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$$u5b$datafusion_common..stat
 "_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17h1dda69e982186e31E.exit.i": ; preds = %.sink.split.i.i, %.lr.ph
   %14 = getelementptr inbounds i8, ptr %4, i64 72
   %15 = load i64, ptr %14, align 8, !range !6432, !alias.scope !15282, !noundef !4
-  %switch.i5.i = icmp ult i64 %15, 2
+  %switch.i5.i = icmp samesign ult i64 %15, 2
   br i1 %switch.i5.i, label %.sink.split.i6.i, label %"_ZN4core3ptr63drop_in_place$LT$datafusion_common..stats..ColumnStatistics$GT$17hcf4301e09a847e39E.exit"
 
 .sink.split.i6.i:                                 ; preds = %"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17h1dda69e982186e31E.exit.i"
@@ -51801,7 +51801,7 @@ define hidden void @_ZN7tracing4span4Span3log17hb84d364d4a2ace98E.llvm.124945261
   %16 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8
   %17 = icmp ult i64 %16, 6
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ugt i64 %.0, %16
+  %18 = icmp samesign ugt i64 %.0, %16
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %13, %36, %5

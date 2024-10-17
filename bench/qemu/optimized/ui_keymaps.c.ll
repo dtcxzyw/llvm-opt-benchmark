@@ -145,7 +145,7 @@ land.lhs.true38.i:                                ; preds = %while.cond.preheade
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ 0, %while.cond.preheader.i ]
   %9 = phi i8 [ %10, %while.body.i ], [ %8, %while.cond.preheader.i ]
   %cmp42.i = icmp ne i8 %9, 32
-  %cmp45.i = icmp ult i64 %indvars.iv.i, 63
+  %cmp45.i = icmp samesign ult i64 %indvars.iv.i, 63
   %or.cond.i = and i1 %cmp45.i, %cmp42.i
   br i1 %or.cond.i, label %while.body.i, label %while.end.i
 
@@ -436,7 +436,7 @@ for.body44.us:                                    ; preds = %for.body44.lr.ph, %
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %11 = load i32, ptr %call, align 4
   %12 = zext i32 %11 to i64
-  %cmp42.us = icmp ult i64 %indvars.iv.next44, %12
+  %cmp42.us = icmp samesign ult i64 %indvars.iv.next44, %12
   br i1 %cmp42.us, label %for.body44.us, label %if.end63, !llvm.loop !9
 
 if.then6:                                         ; preds = %if.end4
@@ -499,7 +499,7 @@ for.inc60:                                        ; preds = %for.body44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %call, align 4
   %18 = zext i32 %17 to i64
-  %cmp42 = icmp ult i64 %indvars.iv.next, %18
+  %cmp42 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %cmp42, label %for.body44, label %if.end63, !llvm.loop !9
 
 if.end63:                                         ; preds = %for.inc60, %for.body44.us, %for.cond, %for.cond40.preheader, %if.end25

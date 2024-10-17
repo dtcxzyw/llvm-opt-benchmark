@@ -3710,7 +3710,7 @@ define linkonce_odr hidden void @_ZN2cv2ml13SVMKernelImpl8calc_rbfEiiPKfS3_Pf(pt
   %75 = tail call double @llvm.fmuladd.f64(double %66, double %66, double %74)
   %76 = fadd double %59, %75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %15
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %15
   br i1 %.not, label %..preheader_crit_edge, label %43, !llvm.loop !53
 
 .lr.ph70:                                         ; preds = %..preheader_crit_edge, %.lr.ph70
@@ -4026,7 +4026,7 @@ define linkonce_odr hidden void @_ZN2cv2ml13SVMKernelImpl13calc_intersecEiiPKfS3
   %67 = fpext float %66 to double
   %68 = fadd double %.050, %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %9
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %9
   br i1 %.not, label %..preheader_crit_edge, label %36, !llvm.loop !58
 
 .lr.ph54:                                         ; preds = %..preheader_crit_edge, %.lr.ph54
@@ -4170,7 +4170,7 @@ define linkonce_odr hidden void @_ZN2cv2ml13SVMKernelImpl17calc_non_rbf_baseEiiP
   %63 = fpext float %62 to double
   %64 = fadd double %.043, %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %11
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %11
   br i1 %.not, label %..preheader_crit_edge, label %39, !llvm.loop !61
 
 .lr.ph47:                                         ; preds = %..preheader_crit_edge, %.lr.ph47
@@ -11641,7 +11641,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %.loopexit457, %408
   %.sroa.8.0516 = phi ptr [ null, %.lr.ph519 ], [ %.sroa.8.1.lcssa, %.loopexit449 ]
   %.sroa.13414.0515 = phi ptr [ null, %.lr.ph519 ], [ %.sroa.13414.1.lcssa, %.loopexit449 ]
   %indvars.iv.next598 = add nuw nsw i64 %indvars.iv597, 1
-  %436 = icmp ult i64 %indvars.iv.next598, %434
+  %436 = icmp samesign ult i64 %indvars.iv.next598, %434
   br i1 %436, label %.lr.ph512, label %.loopexit449
 
 .lr.ph512:                                        ; preds = %435

@@ -2953,7 +2953,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i, %if
   br i1 %cmp2.not.i.i.i.i.i.i, label %if.end4.i.i.i.i.i.i, label %if.else.i.i.i.i
 
 if.end4.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i.i
-  %cmp1.not.i.i.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i.i.i, 3
+  %cmp1.not.i.i.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i.i.i, 3
   br i1 %cmp1.not.i.i.i.i.i.i, label %if.then5.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !7
 
 if.then5.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i.i.i, %if.end.i.i.i.i
@@ -10627,7 +10627,7 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i19, %if.e
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   %add.i.i.i.i = add nuw nsw i64 %storemerge27.i.i.i.i, 1
   %div5.i.i.i.i = lshr i64 %add.i.i.i.i, 1
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.i.i, 2
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.i.i, 2
   br i1 %cmp1.not.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_4M68KEEESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !98
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_4M68KEEESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.i.i: ; preds = %if.end4.i.i.i.i, %while.body.i.i.i.i, %if.end.i.i19
@@ -14145,7 +14145,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %x.0.copyload.i.i = load i32, ptr %add.ptr.i.i, align 1
   %13 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i)
   %conv5.i = zext i32 %13 to i64
-  %cmp8.i = icmp ugt i64 %add.i, %conv5.i
+  %cmp8.i = icmp samesign ugt i64 %add.i, %conv5.i
   br i1 %cmp8.i, label %while.body.i, label %_ZNK4mold3elf9CieRecordINS0_4M68KEE8get_relsEv.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -14362,7 +14362,7 @@ land.rhs.i52:                                     ; preds = %while.body.i55, %la
   %x.0.copyload.i.i54 = load i32, ptr %add.ptr.i5.i53, align 1
   %54 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i54)
   %conv7.i = zext i32 %54 to i64
-  %cmp10.i = icmp ugt i64 %add.i51, %conv7.i
+  %cmp10.i = icmp samesign ugt i64 %add.i51, %conv7.i
   br i1 %cmp10.i, label %while.body.i55, label %_ZNK4mold3elf9FdeRecordINS0_4M68KEE8get_relsERNS0_10ObjectFileIS2_EE.exit
 
 while.body.i55:                                   ; preds = %land.rhs.i52
@@ -15553,7 +15553,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i, %if.e
   br i1 %cmp2.not.i.i.i.i.i, label %if.end4.i.i.i.i.i, label %if.else.i.i.i
 
 if.end4.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
-  %cmp1.not.i.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i.i, 3
+  %cmp1.not.i.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i.i, 3
   br i1 %cmp1.not.i.i.i.i.i, label %if.then5.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !98
 
 if.then5.i.i.i:                                   ; preds = %if.end4.i.i.i.i.i, %if.end.i.i.i
@@ -26889,7 +26889,7 @@ if.end.i.i.i:                                     ; preds = %for.body
   %or.i6.i.i.i.i.i = or disjoint i32 %shl5.i5.i.i.i.i.i, %conv8.i8.i.i.i.i.i
   %or9.i9.i.i.i.i.i = or disjoint i32 %or.i6.i.i.i.i.i, %shl.i2.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i, %or9.i9.i.i.i.i.i
-  %7 = icmp ult i32 %or9.i.i.i.i.i.i, %or9.i9.i.i.i.i.i
+  %7 = icmp samesign ult i32 %or9.i.i.i.i.i.i, %or9.i9.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZZN4mold3elf13RelDynSectionINS0_4M68KEE4sortERNS0_7ContextIS2_EEENKUlRKNS0_6ElfRelIS2_EESA_E_clESA_SA_.exit
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -27156,7 +27156,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %while.cond.i.i
   %or.i6.i.i.i.i.i.i.i.i = or disjoint i32 %shl5.i5.i.i.i.i.i.i.i.i, %conv8.i8.i.i.i.i.i.i.i.i
   %or9.i9.i.i.i.i.i.i.i.i = or disjoint i32 %or.i6.i.i.i.i.i.i.i.i, %shl.i2.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i.i.i
-  %6 = icmp ult i32 %or9.i.i.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i.i.i
+  %6 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4mold3elf13RelDynSectionINS3_4M68KEE4sortERNS3_7ContextIS5_EEEUlRKNS3_6ElfRelIS5_EESD_E_EclISB_PSB_EEbRT_T0_.exit.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
@@ -27252,7 +27252,7 @@ if.end.i.i.i.i:                                   ; preds = %while.body
   %or.i6.i.i.i.i.i.i = or disjoint i32 %shl5.i5.i.i.i.i.i.i, %conv8.i8.i.i.i.i.i.i
   %or9.i9.i.i.i.i.i.i = or disjoint i32 %or.i6.i.i.i.i.i.i, %shl.i2.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i
-  %7 = icmp ult i32 %or9.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i
+  %7 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold3elf13RelDynSectionINS3_4M68KEE4sortERNS3_7ContextIS5_EEEUlRKNS3_6ElfRelIS5_EESD_E_EclIPSB_SH_EEbT_T0_.exit
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
@@ -27342,7 +27342,7 @@ if.end.i.i.i.i.i23:                               ; preds = %land.rhs.i
   %or.i.i.i.i.i.i.i.i = or disjoint i32 %shl5.i.i.i.i.i.i.i.i, %conv8.i.i.i.i.i.i.i.i
   %or9.i.i.i.i.i.i.i.i = or disjoint i32 %or.i.i.i.i.i.i.i.i, %shl.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i.i
-  %18 = icmp ult i32 %or9.i.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i.i
+  %18 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4mold3elf13RelDynSectionINS3_4M68KEE4sortERNS3_7ContextIS5_EEEUlRKNS3_6ElfRelIS5_EESD_E_EclIPSB_SB_EEbT_RT0_.exit.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i23
@@ -27419,7 +27419,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %or.i6.i.i.i.i.i.i = or disjoint i32 %shl5.i5.i.i.i.i.i.i, %conv8.i8.i.i.i.i.i.i
   %or9.i9.i.i.i.i.i.i = or disjoint i32 %or.i6.i.i.i.i.i.i, %shl.i2.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i
-  %7 = icmp ult i32 %or9.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i
+  %7 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold3elf13RelDynSectionINS3_4M68KEE4sortERNS3_7ContextIS5_EEEUlRKNS3_6ElfRelIS5_EESD_E_EclIPSB_SH_EEbT_T0_.exit
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
@@ -27470,7 +27470,7 @@ if.end.i.i.i.i23:                                 ; preds = %if.then
   %or.i6.i.i.i.i.i.i48 = or disjoint i32 %shl5.i5.i.i.i.i.i.i46, %conv8.i8.i.i.i.i.i.i47
   %or9.i9.i.i.i.i.i.i49 = or disjoint i32 %or.i6.i.i.i.i.i.i48, %shl.i2.i.i.i.i.i.i44
   %cmp.i.i.i.i.i.i50 = icmp eq i32 %or9.i.i.i.i.i.i.i42, %or9.i9.i.i.i.i.i.i49
-  %16 = icmp ult i32 %or9.i.i.i.i.i.i.i42, %or9.i9.i.i.i.i.i.i49
+  %16 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i42, %or9.i9.i.i.i.i.i.i49
   br i1 %cmp.i.i.i.i.i.i50, label %if.end.i.i.i.i.i52, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold3elf13RelDynSectionINS3_4M68KEE4sortERNS3_7ContextIS5_EEEUlRKNS3_6ElfRelIS5_EESD_E_EclIPSB_SH_EEbT_T0_.exit53
 
 if.end.i.i.i.i.i52:                               ; preds = %if.end.i.i.i.i23
@@ -27524,7 +27524,7 @@ if.end.i.i.i.i58:                                 ; preds = %if.else
   %or.i6.i.i.i.i.i.i83 = or disjoint i32 %shl5.i5.i.i.i.i.i.i81, %conv8.i8.i.i.i.i.i.i82
   %or9.i9.i.i.i.i.i.i84 = or disjoint i32 %or.i6.i.i.i.i.i.i83, %shl.i2.i.i.i.i.i.i79
   %cmp.i.i.i.i.i.i85 = icmp eq i32 %or9.i.i.i.i.i.i.i77, %or9.i9.i.i.i.i.i.i84
-  %22 = icmp ult i32 %or9.i.i.i.i.i.i.i77, %or9.i9.i.i.i.i.i.i84
+  %22 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i77, %or9.i9.i.i.i.i.i.i84
   br i1 %cmp.i.i.i.i.i.i85, label %if.end.i.i.i.i.i87, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold3elf13RelDynSectionINS3_4M68KEE4sortERNS3_7ContextIS5_EEEUlRKNS3_6ElfRelIS5_EESD_E_EclIPSB_SH_EEbT_T0_.exit88
 
 if.end.i.i.i.i.i87:                               ; preds = %if.end.i.i.i.i58
@@ -27590,7 +27590,7 @@ if.end.i.i.i.i95:                                 ; preds = %if.else8
   %or.i6.i.i.i.i.i.i120 = or disjoint i32 %shl5.i5.i.i.i.i.i.i118, %conv8.i8.i.i.i.i.i.i119
   %or9.i9.i.i.i.i.i.i121 = or disjoint i32 %or.i6.i.i.i.i.i.i120, %shl.i2.i.i.i.i.i.i116
   %cmp.i.i.i.i.i.i122 = icmp eq i32 %or9.i.i.i.i.i.i.i114, %or9.i9.i.i.i.i.i.i121
-  %30 = icmp ult i32 %or9.i.i.i.i.i.i.i114, %or9.i9.i.i.i.i.i.i121
+  %30 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i114, %or9.i9.i.i.i.i.i.i121
   br i1 %cmp.i.i.i.i.i.i122, label %if.end.i.i.i.i.i124, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold3elf13RelDynSectionINS3_4M68KEE4sortERNS3_7ContextIS5_EEEUlRKNS3_6ElfRelIS5_EESD_E_EclIPSB_SH_EEbT_T0_.exit125
 
 if.end.i.i.i.i.i124:                              ; preds = %if.end.i.i.i.i95
@@ -27645,7 +27645,7 @@ if.end.i.i.i.i131:                                ; preds = %if.else11
   %or.i6.i.i.i.i.i.i156 = or disjoint i32 %shl5.i5.i.i.i.i.i.i154, %conv8.i8.i.i.i.i.i.i155
   %or9.i9.i.i.i.i.i.i157 = or disjoint i32 %or.i6.i.i.i.i.i.i156, %shl.i2.i.i.i.i.i.i152
   %cmp.i.i.i.i.i.i158 = icmp eq i32 %or9.i.i.i.i.i.i.i150, %or9.i9.i.i.i.i.i.i157
-  %37 = icmp ult i32 %or9.i.i.i.i.i.i.i150, %or9.i9.i.i.i.i.i.i157
+  %37 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i150, %or9.i9.i.i.i.i.i.i157
   br i1 %cmp.i.i.i.i.i.i158, label %if.end.i.i.i.i.i160, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold3elf13RelDynSectionINS3_4M68KEE4sortERNS3_7ContextIS5_EEEUlRKNS3_6ElfRelIS5_EESD_E_EclIPSB_SH_EEbT_T0_.exit161
 
 if.end.i.i.i.i.i160:                              ; preds = %if.end.i.i.i.i131
@@ -27733,7 +27733,7 @@ if.end.i.i.i.i:                                   ; preds = %while.cond2
   %or.i6.i.i.i.i.i.i = or disjoint i32 %shl5.i5.i.i.i.i.i.i, %conv8.i8.i.i.i.i.i.i
   %or9.i9.i.i.i.i.i.i = or disjoint i32 %or.i6.i.i.i.i.i.i, %shl.i2.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i
-  %8 = icmp ult i32 %or9.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i
+  %8 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold3elf13RelDynSectionINS3_4M68KEE4sortERNS3_7ContextIS5_EEEUlRKNS3_6ElfRelIS5_EESD_E_EclIPSB_SH_EEbT_T0_.exit
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
@@ -27789,7 +27789,7 @@ if.end.i.i.i.i15:                                 ; preds = %while.cond5
   %or.i6.i.i.i.i.i.i40 = or disjoint i32 %shl5.i5.i.i.i.i.i.i38, %conv8.i8.i.i.i.i.i.i39
   %or9.i9.i.i.i.i.i.i41 = or disjoint i32 %or.i6.i.i.i.i.i.i40, %shl.i2.i.i.i.i.i.i36
   %cmp.i.i.i.i.i.i42 = icmp eq i32 %or9.i.i.i.i.i.i.i34, %or9.i9.i.i.i.i.i.i41
-  %16 = icmp ult i32 %or9.i.i.i.i.i.i.i34, %or9.i9.i.i.i.i.i.i41
+  %16 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i34, %or9.i9.i.i.i.i.i.i41
   br i1 %cmp.i.i.i.i.i.i42, label %if.end.i.i.i.i.i44, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold3elf13RelDynSectionINS3_4M68KEE4sortERNS3_7ContextIS5_EEEUlRKNS3_6ElfRelIS5_EESD_E_EclIPSB_SH_EEbT_T0_.exit45
 
 if.end.i.i.i.i.i44:                               ; preds = %if.end.i.i.i.i15
@@ -27881,7 +27881,7 @@ if.end.i.i.i.i:                                   ; preds = %for.body
   %or.i6.i.i.i.i.i.i = or disjoint i32 %shl5.i5.i.i.i.i.i.i, %conv8.i8.i.i.i.i.i.i
   %or9.i9.i.i.i.i.i.i = or disjoint i32 %or.i6.i.i.i.i.i.i, %shl.i2.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i
-  %7 = icmp ult i32 %or9.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i
+  %7 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold3elf13RelDynSectionINS3_4M68KEE4sortERNS3_7ContextIS5_EEEUlRKNS3_6ElfRelIS5_EESD_E_EclIPSB_SH_EEbT_T0_.exit
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
@@ -27960,7 +27960,7 @@ if.end.i.i.i.i.i12:                               ; preds = %while.cond.i
   %or.i6.i.i.i.i.i.i.i = or disjoint i32 %shl5.i5.i.i.i.i.i.i.i, %conv8.i8.i.i.i.i.i.i.i
   %or9.i9.i.i.i.i.i.i.i = or disjoint i32 %or.i6.i.i.i.i.i.i.i, %shl.i2.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i.i
-  %15 = icmp ult i32 %or9.i.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i.i
+  %15 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i.i, %or9.i9.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4mold3elf13RelDynSectionINS3_4M68KEE4sortERNS3_7ContextIS5_EEEUlRKNS3_6ElfRelIS5_EESD_E_EclISB_PSB_EEbRT_T0_.exit.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i12
@@ -28713,7 +28713,7 @@ if.end.i.i.i:                                     ; preds = %do.body
   %or.i6.i.i.i.i.i = or disjoint i32 %shl5.i5.i.i.i.i.i, %conv8.i8.i.i.i.i.i
   %or9.i9.i.i.i.i.i = or disjoint i32 %or.i6.i.i.i.i.i, %shl.i2.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i, %or9.i9.i.i.i.i.i
-  %12 = icmp ult i32 %or9.i.i.i.i.i.i, %or9.i9.i.i.i.i.i
+  %12 = icmp samesign ult i32 %or9.i.i.i.i.i.i, %or9.i9.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZZN4mold3elf13RelDynSectionINS0_4M68KEE4sortERNS0_7ContextIS2_EEENKUlRKNS0_6ElfRelIS2_EESA_E_clESA_SA_.exit
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -28770,7 +28770,7 @@ if.end.i.i.i25:                                   ; preds = %if.end7
   %or.i6.i.i.i.i.i50 = or disjoint i32 %shl5.i5.i.i.i.i.i48, %conv8.i8.i.i.i.i.i49
   %or9.i9.i.i.i.i.i51 = or disjoint i32 %or.i6.i.i.i.i.i50, %shl.i2.i.i.i.i.i46
   %cmp.i.i.i.i.i52 = icmp eq i32 %or9.i.i.i.i.i.i44, %or9.i9.i.i.i.i.i51
-  %20 = icmp ult i32 %or9.i.i.i.i.i.i44, %or9.i9.i.i.i.i.i51
+  %20 = icmp samesign ult i32 %or9.i.i.i.i.i.i44, %or9.i9.i.i.i.i.i51
   br i1 %cmp.i.i.i.i.i52, label %if.end.i.i.i.i54, label %_ZZN4mold3elf13RelDynSectionINS0_4M68KEE4sortERNS0_7ContextIS2_EEENKUlRKNS0_6ElfRelIS2_EESA_E_clESA_SA_.exit55
 
 if.end.i.i.i.i54:                                 ; preds = %if.end.i.i.i25
@@ -28858,7 +28858,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %or.i6.i.i.i.i.i = or disjoint i32 %shl5.i5.i.i.i.i.i, %conv8.i8.i.i.i.i.i
   %or9.i9.i.i.i.i.i = or disjoint i32 %or.i6.i.i.i.i.i, %shl.i2.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i, %or9.i9.i.i.i.i.i
-  %8 = icmp ult i32 %or9.i.i.i.i.i.i, %or9.i9.i.i.i.i.i
+  %8 = icmp samesign ult i32 %or9.i.i.i.i.i.i, %or9.i9.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZZN4mold3elf13RelDynSectionINS0_4M68KEE4sortERNS0_7ContextIS2_EEENKUlRKNS0_6ElfRelIS2_EESA_E_clESA_SA_.exit
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -28910,7 +28910,7 @@ if.end.i.i.i27:                                   ; preds = %cond.true
   %or.i6.i.i.i.i.i52 = or disjoint i32 %shl5.i5.i.i.i.i.i50, %conv8.i8.i.i.i.i.i51
   %or9.i9.i.i.i.i.i53 = or disjoint i32 %or.i6.i.i.i.i.i52, %shl.i2.i.i.i.i.i48
   %cmp.i.i.i.i.i54 = icmp eq i32 %or9.i.i.i.i.i.i46, %or9.i9.i.i.i.i.i53
-  %17 = icmp ult i32 %or9.i.i.i.i.i.i46, %or9.i9.i.i.i.i.i53
+  %17 = icmp samesign ult i32 %or9.i.i.i.i.i.i46, %or9.i9.i.i.i.i.i53
   br i1 %cmp.i.i.i.i.i54, label %if.end.i.i.i.i56, label %_ZZN4mold3elf13RelDynSectionINS0_4M68KEE4sortERNS0_7ContextIS2_EEENKUlRKNS0_6ElfRelIS2_EESA_E_clESA_SA_.exit57
 
 if.end.i.i.i.i56:                                 ; preds = %if.end.i.i.i27
@@ -28956,7 +28956,7 @@ if.end.i.i.i62:                                   ; preds = %cond.false
   %or.i6.i.i.i.i.i87 = or disjoint i32 %shl5.i5.i.i.i.i.i85, %conv8.i8.i.i.i.i.i86
   %or9.i9.i.i.i.i.i88 = or disjoint i32 %or.i6.i.i.i.i.i87, %shl.i2.i.i.i.i.i83
   %cmp.i.i.i.i.i89 = icmp eq i32 %or9.i.i.i.i.i.i81, %or9.i9.i.i.i.i.i88
-  %23 = icmp ult i32 %or9.i.i.i.i.i.i81, %or9.i9.i.i.i.i.i88
+  %23 = icmp samesign ult i32 %or9.i.i.i.i.i.i81, %or9.i9.i.i.i.i.i88
   br i1 %cmp.i.i.i.i.i89, label %if.end.i.i.i.i91, label %_ZZN4mold3elf13RelDynSectionINS0_4M68KEE4sortERNS0_7ContextIS2_EEENKUlRKNS0_6ElfRelIS2_EESA_E_clESA_SA_.exit92
 
 if.end.i.i.i.i91:                                 ; preds = %if.end.i.i.i62
@@ -29009,7 +29009,7 @@ if.end.i.i.i97:                                   ; preds = %cond.false16
   %or.i6.i.i.i.i.i122 = or disjoint i32 %shl5.i5.i.i.i.i.i120, %conv8.i8.i.i.i.i.i121
   %or9.i9.i.i.i.i.i123 = or disjoint i32 %or.i6.i.i.i.i.i122, %shl.i2.i.i.i.i.i118
   %cmp.i.i.i.i.i124 = icmp eq i32 %or9.i.i.i.i.i.i116, %or9.i9.i.i.i.i.i123
-  %32 = icmp ult i32 %or9.i.i.i.i.i.i116, %or9.i9.i.i.i.i.i123
+  %32 = icmp samesign ult i32 %or9.i.i.i.i.i.i116, %or9.i9.i.i.i.i.i123
   br i1 %cmp.i.i.i.i.i124, label %if.end.i.i.i.i126, label %_ZZN4mold3elf13RelDynSectionINS0_4M68KEE4sortERNS0_7ContextIS2_EEENKUlRKNS0_6ElfRelIS2_EESA_E_clESA_SA_.exit127
 
 if.end.i.i.i.i126:                                ; preds = %if.end.i.i.i97
@@ -29055,7 +29055,7 @@ if.end.i.i.i132:                                  ; preds = %cond.false22
   %or.i6.i.i.i.i.i157 = or disjoint i32 %shl5.i5.i.i.i.i.i155, %conv8.i8.i.i.i.i.i156
   %or9.i9.i.i.i.i.i158 = or disjoint i32 %or.i6.i.i.i.i.i157, %shl.i2.i.i.i.i.i153
   %cmp.i.i.i.i.i159 = icmp eq i32 %or9.i.i.i.i.i.i151, %or9.i9.i.i.i.i.i158
-  %38 = icmp ult i32 %or9.i.i.i.i.i.i151, %or9.i9.i.i.i.i.i158
+  %38 = icmp samesign ult i32 %or9.i.i.i.i.i.i151, %or9.i9.i.i.i.i.i158
   br i1 %cmp.i.i.i.i.i159, label %if.end.i.i.i.i161, label %_ZZN4mold3elf13RelDynSectionINS0_4M68KEE4sortERNS0_7ContextIS2_EEENKUlRKNS0_6ElfRelIS2_EESA_E_clESA_SA_.exit162
 
 if.end.i.i.i.i161:                                ; preds = %if.end.i.i.i132
@@ -29711,7 +29711,7 @@ if.end.i.i.i:                                     ; preds = %if.end
   %or.i6.i.i.i.i.i = or disjoint i32 %shl5.i5.i.i.i.i.i, %conv8.i8.i.i.i.i.i
   %or9.i9.i.i.i.i.i = or disjoint i32 %or.i6.i.i.i.i.i, %shl.i2.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i, %or9.i9.i.i.i.i.i
-  %13 = icmp ult i32 %or9.i.i.i.i.i.i, %or9.i9.i.i.i.i.i
+  %13 = icmp samesign ult i32 %or9.i.i.i.i.i.i, %or9.i9.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZZN4mold3elf13RelDynSectionINS0_4M68KEE4sortERNS0_7ContextIS2_EEENKUlRKNS0_6ElfRelIS2_EESA_E_clESA_SA_.exit
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -39050,7 +39050,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
   %__val.addr.0.lcssa.i = phi i64 [ %cond, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ], [ %div.i9, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -40418,7 +40418,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %cmp.i = icmp ugt i64 %spec.select, 1152921504606846975
+  %cmp.i = icmp samesign ugt i64 %spec.select, 1152921504606846975
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.end
@@ -44918,7 +44918,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %x.0.copyload.i.i = load i32, ptr %add.ptr.i.i49, align 1
   %24 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i)
   %conv5.i = zext i32 %24 to i64
-  %cmp8.i = icmp ugt i64 %add.i, %conv5.i
+  %cmp8.i = icmp samesign ugt i64 %add.i, %conv5.i
   br i1 %cmp8.i, label %while.body.i, label %_ZNK4mold3elf9CieRecordINS0_4M68KEE8get_relsEv.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -45071,7 +45071,7 @@ land.rhs.i90:                                     ; preds = %while.body.i93, %la
   %x.0.copyload.i.i92 = load i32, ptr %add.ptr.i5.i91, align 1
   %63 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i92)
   %conv7.i = zext i32 %63 to i64
-  %cmp10.i = icmp ugt i64 %add.i89, %conv7.i
+  %cmp10.i = icmp samesign ugt i64 %add.i89, %conv7.i
   br i1 %cmp10.i, label %while.body.i93, label %_ZNK4mold3elf9FdeRecordINS0_4M68KEE8get_relsERNS0_10ObjectFileIS2_EE.exit
 
 while.body.i93:                                   ; preds = %land.rhs.i90
@@ -45949,7 +45949,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load i64, ptr %add.ptr9, align 1
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6264 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ult i64 %div13, %div.i6264
+  %cmp23.i = icmp samesign ult i64 %div13, %div.i6264
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -48571,7 +48571,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %x.0.copyload.i.i = load i32, ptr %add.ptr.i.i, align 1
   %8 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i)
   %conv5.i = zext i32 %8 to i64
-  %cmp8.i = icmp ugt i64 %add.i, %conv5.i
+  %cmp8.i = icmp samesign ugt i64 %add.i, %conv5.i
   br i1 %cmp8.i, label %while.body.i, label %_ZNK4mold3elf9CieRecordINS0_4M68KEE8get_relsEv.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -48642,7 +48642,7 @@ land.rhs.i22:                                     ; preds = %while.body.i25, %la
   %x.0.copyload.i.i24 = load i32, ptr %add.ptr.i5.i23, align 1
   %19 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i24)
   %conv7.i = zext i32 %19 to i64
-  %cmp10.i = icmp ugt i64 %add.i21, %conv7.i
+  %cmp10.i = icmp samesign ugt i64 %add.i21, %conv7.i
   br i1 %cmp10.i, label %while.body.i25, label %_ZNK4mold3elf9FdeRecordINS0_4M68KEE8get_relsERNS0_10ObjectFileIS2_EE.exit
 
 while.body.i25:                                   ; preds = %land.rhs.i22

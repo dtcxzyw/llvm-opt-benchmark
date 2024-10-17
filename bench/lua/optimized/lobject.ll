@@ -692,7 +692,7 @@ do.body:                                          ; preds = %entry, %do.body
   %shr = lshr i64 %x.addr.0, 6
   %shr3 = lshr i32 %mfb.0, 1
   %conv4 = zext nneg i32 %shr3 to i64
-  %cmp5 = icmp ugt i64 %shr, %conv4
+  %cmp5 = icmp samesign ugt i64 %shr, %conv4
   br i1 %cmp5, label %do.body, label %do.end, !llvm.loop !12
 
 do.end:                                           ; preds = %do.body
@@ -1097,7 +1097,7 @@ do.body.i:                                        ; preds = %vaarg.end87, %do.bo
   %shr.i = lshr i64 %x.addr.0.i, 6
   %shr3.i = lshr i32 %mfb.0.i, 1
   %conv4.i = zext nneg i32 %shr3.i to i64
-  %cmp5.i = icmp ugt i64 %shr.i, %conv4.i
+  %cmp5.i = icmp samesign ugt i64 %shr.i, %conv4.i
   br i1 %cmp5.i, label %do.body.i, label %do.end.i, !llvm.loop !12
 
 do.end.i:                                         ; preds = %do.body.i

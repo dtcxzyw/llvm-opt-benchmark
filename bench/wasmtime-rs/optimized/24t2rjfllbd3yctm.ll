@@ -662,7 +662,7 @@ define void @_ZN14cranelift_wasm17module_translator16translate_module17hd35a17ad
 
 133:                                              ; preds = %124, %124
   %134 = load i32, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8, !range !77, !alias.scope !78, !noalias !81, !noundef !5
-  %switch.i.i = icmp ult i32 %134, 2
+  %switch.i.i = icmp samesign ult i32 %134, 2
   %135 = load i32, ptr %.sroa.3.0..sroa_idx.i, align 4, !alias.scope !78, !noalias !81
   %136 = load i32, ptr %97, align 8, !alias.scope !78, !noalias !81
   %.sroa.7.0.i.i = select i1 %switch.i.i, i32 undef, i32 %136
@@ -701,7 +701,7 @@ define void @_ZN14cranelift_wasm17module_translator16translate_module17hd35a17ad
   %147 = load i64, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !84, !noalias !87, !noundef !5
   %148 = add i64 %147, 1
   store i64 %148, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !84, !noalias !87
-  %switch.i13.i = icmp ult i32 %.sroa.7.sroa.0.0.copyload.i, 2
+  %switch.i13.i = icmp samesign ult i32 %.sroa.7.sroa.0.0.copyload.i, 2
   %.sroa.7.0.i14.i = select i1 %switch.i13.i, i32 undef, i32 %.sroa.7.sroa.5.0.copyload.i
   %.sroa.6.0.i15.i = select i1 %switch.i13.i, i32 undef, i32 %.sroa.7.sroa.4.0.copyload.i
   store i64 %128, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !63, !noalias !68
@@ -1826,7 +1826,7 @@ common.resume:                                    ; preds = %91, %479, %488, %17
   %408 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %409 = icmp ult i64 %408, 6
   call void @llvm.assume(i1 %409)
-  %410 = icmp ugt i64 %408, 1
+  %410 = icmp samesign ugt i64 %408, 1
   br i1 %410, label %411, label %404
 
 411:                                              ; preds = %407

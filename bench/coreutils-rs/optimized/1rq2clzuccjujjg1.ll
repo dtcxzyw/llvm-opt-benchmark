@@ -3561,15 +3561,15 @@ _ZN11uu_unexpand14next_char_info17hf51ded0aee89c199E.exit.thread21.i: ; preds = 
   ]
 
 241:                                              ; preds = %240
-  %242 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 127
+  %242 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 127
   br i1 %242, label %245, label %243
 
 243:                                              ; preds = %241
-  %244 = icmp ugt i32 %.sroa.4.0.i.ph.i.i, 159
+  %244 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i, 159
   br i1 %244, label %247, label %_ZN11uu_unexpand14next_char_info17hf51ded0aee89c199E.exit.thread38.i
 
 245:                                              ; preds = %241
-  %246 = icmp ugt i32 %.sroa.4.0.i.ph.i.i, 31
+  %246 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i, 31
   %spec.select56.i = zext i1 %246 to i64
   br label %_ZN11uu_unexpand14next_char_info17hf51ded0aee89c199E.exit.thread38.i
 

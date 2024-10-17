@@ -35662,7 +35662,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   resume { ptr, i32 } %common.resume.op
 
 _ZN7QString7prependE5QChar.exit.i:                ; preds = %.lr.ph.i
-  %.not.i = icmp ult i32 %.016.i, 10
+  %.not.i = icmp samesign ult i32 %.016.i, 10
   br i1 %.not.i, label %_ZNK15QCPAxisTickerPi18unicodeSuperscriptEi.exit, label %.lr.ph.i, !llvm.loop !344
 
 _ZNK15QCPAxisTickerPi18unicodeSuperscriptEi.exit: ; preds = %_ZN7QString7prependE5QChar.exit.i, %9
@@ -35725,7 +35725,7 @@ _ZplRK7QString5QChar.exit:                        ; preds = %_ZN7QStringC2ERKS_.
           to label %_ZN7QString7prependE5QChar.exit.i9 unwind label %46
 
 _ZN7QString7prependE5QChar.exit.i9:               ; preds = %.lr.ph.i8
-  %.not.i10 = icmp ult i32 %.08.i, 10
+  %.not.i10 = icmp samesign ult i32 %.08.i, 10
   br i1 %.not.i10, label %_ZNK15QCPAxisTickerPi16unicodeSubscriptEi.exit, label %.lr.ph.i8, !llvm.loop !351
 
 46:                                               ; preds = %.lr.ph.i8
@@ -35903,7 +35903,7 @@ define void @_ZNK15QCPAxisTickerPi18unicodeSuperscriptEi(ptr dead_on_unwind noal
   resume { ptr, i32 } %16
 
 _ZN7QString7prependE5QChar.exit:                  ; preds = %.lr.ph
-  %.not = icmp ult i32 %.016, 10
+  %.not = icmp samesign ult i32 %.016, 10
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !344
 
 .loopexit:                                        ; preds = %_ZN7QString7prependE5QChar.exit, %6, %5
@@ -35934,7 +35934,7 @@ define void @_ZNK15QCPAxisTickerPi16unicodeSubscriptEi(ptr dead_on_unwind noalia
           to label %_ZN7QString7prependE5QChar.exit unwind label %13
 
 _ZN7QString7prependE5QChar.exit:                  ; preds = %.lr.ph
-  %.not = icmp ult i32 %.08, 10
+  %.not = icmp samesign ult i32 %.08, 10
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !351
 
 13:                                               ; preds = %.lr.ph
@@ -121141,7 +121141,7 @@ _ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit: ; preds = %_ZNK20QCPAbstrac
 
 164:                                              ; preds = %92
   %165 = lshr exact i64 %.pre124, 1
-  %.not40.not = icmp ugt i64 %.pre, %165
+  %.not40.not = icmp samesign ugt i64 %.pre, %165
   %166 = select i1 %.not40.not, i32 1, i32 -1
   %167 = trunc i64 %72 to i32
   %168 = add nsw i32 %167, -1
@@ -192407,7 +192407,7 @@ _ZN6QCacheI7QStringN22QCPLabelPainterPrivate11CachedLabelEE4NodeD2Ev.exit: ; pre
   %46 = add nuw nsw i64 %.01417, 1
   %47 = load i8, ptr %2, align 8
   %48 = zext i8 %47 to i64
-  %49 = icmp ult i64 %46, %48
+  %49 = icmp samesign ult i64 %46, %48
   br i1 %49, label %9, label %.preheader.loopexit, !llvm.loop !1500
 
 50:                                               ; preds = %.preheader, %50
@@ -193067,7 +193067,7 @@ _ZN6QCacheI7QStringN22QCPLabelPainterPrivate11CachedLabelEE4NodeD2Ev.exit.i36: ;
   %136 = add nuw nsw i64 %.01417.i, 1
   %137 = load i8, ptr %90, align 8
   %138 = zext i8 %137 to i64
-  %139 = icmp ult i64 %136, %138
+  %139 = icmp samesign ult i64 %136, %138
   br i1 %139, label %99, label %.preheader.loopexit.i, !llvm.loop !1500
 
 140:                                              ; preds = %140, %.preheader.i38
@@ -199980,7 +199980,7 @@ _ZN6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEE4NodeD2Ev.exit: ; pred
   %46 = add nuw nsw i64 %.01417, 1
   %47 = load i8, ptr %2, align 8
   %48 = zext i8 %47 to i64
-  %49 = icmp ult i64 %46, %48
+  %49 = icmp samesign ult i64 %46, %48
   br i1 %49, label %9, label %.preheader.loopexit, !llvm.loop !1522
 
 50:                                               ; preds = %.preheader, %50
@@ -200459,7 +200459,7 @@ _ZN6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEE4NodeD2Ev.exit.i36: ; 
   %136 = add nuw nsw i64 %.01417.i, 1
   %137 = load i8, ptr %90, align 8
   %138 = zext i8 %137 to i64
-  %139 = icmp ult i64 %136, %138
+  %139 = icmp samesign ult i64 %136, %138
   br i1 %139, label %99, label %.preheader.loopexit.i, !llvm.loop !1522
 
 140:                                              ; preds = %140, %.preheader.i38

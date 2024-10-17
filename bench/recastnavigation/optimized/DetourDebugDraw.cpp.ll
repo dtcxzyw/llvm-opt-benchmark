@@ -196,7 +196,7 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
   %94 = add nuw nsw i32 %.0161180, 1
   %95 = load i8, ptr %57, align 1
   %96 = zext i8 %95 to i32
-  %97 = icmp ult i32 %94, %96
+  %97 = icmp samesign ult i32 %94, %96
   br i1 %97, label %62, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %93, %56, %32
@@ -1312,7 +1312,7 @@ define void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef 
   %107 = add nuw nsw i32 %.03844, 1
   %108 = load i8, ptr %64, align 1
   %109 = zext i8 %108 to i32
-  %110 = icmp ult i32 %107, %109
+  %110 = icmp samesign ult i32 %107, %109
   br i1 %110, label %67, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %106, %56, %27
@@ -2295,7 +2295,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   br i1 %.not219.us, label %118, label %.loopexit222.us
 
 118:                                              ; preds = %115
-  %.not220.us = icmp ult i64 %117, %105
+  %.not220.us = icmp samesign ult i64 %117, %105
   br i1 %.not220.us, label %119, label %123
 
 119:                                              ; preds = %118
@@ -2406,7 +2406,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   br i1 %183, label %.loopexit.us, label %184
 
 184:                                              ; preds = %181
-  %.not217.us = icmp ult i64 %.pre289, %169
+  %.not217.us = icmp samesign ult i64 %.pre289, %169
   br i1 %.not217.us, label %185, label %189
 
 185:                                              ; preds = %184
@@ -2856,7 +2856,7 @@ define internal fastcc void @_ZL18drawPolyBoundariesP11duDebugDrawPK10dtMeshTile
   %156 = add nuw nsw i32 %.078113, 1
   %157 = load i8, ptr %35, align 1
   %158 = zext i8 %157 to i32
-  %159 = icmp ult i32 %156, %158
+  %159 = icmp samesign ult i32 %156, %158
   br i1 %159, label %71, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %155, %.critedge, %54, %42

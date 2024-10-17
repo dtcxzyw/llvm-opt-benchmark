@@ -2600,7 +2600,7 @@ while.body:                                       ; preds = %entry, %while.body
   %div = fmul double %unit_amount.013, 0x3F50000000000000
   %inc = add nuw nsw i64 %dimension.012, 1
   %cmp = fcmp oge double %div, 1.024000e+03
-  %cmp1 = icmp ult i64 %dimension.012, 4
+  %cmp1 = icmp samesign ult i64 %dimension.012, 4
   %0 = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %0, label %while.body, label %while.end, !llvm.loop !47
 

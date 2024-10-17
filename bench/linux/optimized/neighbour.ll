@@ -7150,7 +7150,7 @@ define internal ptr @neigh_stat_seq_start(ptr nocapture noundef readonly %0, ptr
   %36 = add nuw nsw i64 %19, 1
   %37 = load i32, ptr @nr_cpu_ids, align 4
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %36, %38
+  %39 = icmp samesign ult i64 %36, %38
   br i1 %39, label %18, label %.loopexit, !llvm.loop !147
 
 .loopexit:                                        ; preds = %35, %23, %11, %2
@@ -7208,7 +7208,7 @@ define internal ptr @neigh_stat_seq_next(ptr nocapture noundef readonly %0, ptr 
   %34 = add nuw nsw i64 %17, 1
   %35 = load i32, ptr @nr_cpu_ids, align 4
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %34, %36
+  %37 = icmp samesign ult i64 %34, %36
   br i1 %37, label %16, label %.loopexit.loopexit, !llvm.loop !148
 
 .loopexit.loopexit:                               ; preds = %33
@@ -9583,7 +9583,7 @@ define internal i32 @neightbl_dump_info(ptr noundef %0, ptr nocapture noundef %1
   store i64 %234, ptr %72, align 8
   %235 = add nuw nsw i64 %192, 1
   %236 = and i64 %235, 127
-  %237 = icmp ugt i64 %236, 63
+  %237 = icmp samesign ugt i64 %236, 63
   br i1 %237, label %.thread15, label %175, !prof !174, !llvm.loop !175
 
 .thread15:                                        ; preds = %175, %195, %191
@@ -9841,7 +9841,7 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr nocapture nounde
 
 54:                                               ; preds = %48, %44, %35
   %55 = add nuw nsw i64 %36, 1
-  %56 = icmp ult i64 %36, 2
+  %56 = icmp samesign ult i64 %36, 2
   %57 = icmp eq i64 %55, 3
   br i1 %57, label %58, label %35, !llvm.loop !180
 

@@ -1502,7 +1502,7 @@ default.unreachable258:                           ; preds = %38
   %47 = zext i32 %45 to i64
   %48 = zext i32 %46 to i64
   %49 = add nuw nsw i64 %48, 1
-  %50 = icmp ult i64 %49, %47
+  %50 = icmp samesign ult i64 %49, %47
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %44
@@ -4482,14 +4482,14 @@ _ZN19brotli_decompressor6decode16ReadContextModes17hc23120565b2cba05E.exit: ; pr
 
 631:                                              ; preds = %626
   %632 = lshr i64 %.02279.i, 5
-  %633 = icmp ult i64 %.02279.i, 256
+  %633 = icmp samesign ult i64 %.02279.i, 256
   br i1 %633, label %639, label %646, !prof !303
 
 634:                                              ; preds = %639, %626
   %635 = phi i32 [ %.pre.i, %639 ], [ %619, %626 ]
   %636 = add nuw nsw i64 %.02279.i, 1
   %637 = zext i32 %635 to i64
-  %638 = icmp ult i64 %636, %637
+  %638 = icmp samesign ult i64 %636, %637
   br i1 %638, label %.lr.ph.i, label %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h0db8834a816abf0cE.exit
 
 639:                                              ; preds = %631
@@ -4553,7 +4553,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17hc23120565b2cba05E.exit: ; pr
   %675 = zext i8 %674 to i64
   %676 = or i64 %.078.i, %675
   %677 = add nuw nsw i64 %.02177.i, 4
-  %678 = icmp ult i64 %.02177.i, 60
+  %678 = icmp samesign ult i64 %.02177.i, 60
   br i1 %678, label %628, label %626
 
 679:                                              ; preds = %659
@@ -9625,7 +9625,7 @@ _ZN4core4hash6Hasher11write_isize17hf6c7417ff732a3f3E.exit8.i.i.i.i: ; preds = %
   %155 = sub i64 %.054, %154
   %156 = zext i16 %152 to i64
   %157 = and i64 %155, %156
-  %.not.not154.not.not.not = icmp uge i64 %157, %.058.ph
+  %.not.not154.not.not.not = icmp samesign uge i64 %157, %.058.ph
   br i1 %.not.not154.not.not.not, label %158, label %160
 
 158:                                              ; preds = %148
@@ -9633,7 +9633,7 @@ _ZN4core4hash6Hasher11write_isize17hf6c7417ff732a3f3E.exit8.i.i.i.i: ; preds = %
   br i1 %159, label %164, label %"_ZN113_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$$RF$http..header..name..HeaderName$GT$$GT$2eq17h3dc5c47ad4e3b110E.exit.thread"
 
 160:                                              ; preds = %148
-  %161 = icmp ugt i64 %.058.ph, 511
+  %161 = icmp samesign ugt i64 %.058.ph, 511
   %162 = load i64, ptr %0, align 8, !range !1207
   %163 = icmp ne i64 %162, 2
   %.057 = select i1 %161, i1 %163, i1 false
@@ -10074,7 +10074,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_insert217h3946
   %40 = sub i64 %.054, %39
   %41 = zext i16 %37 to i64
   %42 = and i64 %40, %41
-  %.not = icmp ult i64 %42, %.058.ph
+  %.not = icmp samesign ult i64 %42, %.058.ph
   br i1 %.not, label %.noexc72, label %43
 
 43:                                               ; preds = %33
@@ -10514,7 +10514,7 @@ _ZN4http6header3map18remove_extra_value17h3a3ea2da7e461603E.exit.i.i: ; preds = 
   br label %250
 
 .noexc72:                                         ; preds = %33
-  %224 = icmp ugt i64 %.058.ph, 511
+  %224 = icmp samesign ugt i64 %.058.ph, 511
   %225 = load i64, ptr %1, align 8, !range !1207
   %226 = icmp ne i64 %225, 2
   %.057 = select i1 %224, i1 %226, i1 false
@@ -10853,7 +10853,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
   %58 = zext i16 %57 to i64
   %59 = sub i64 %.0.i23, %58
   %60 = and i64 %59, %40
-  %61 = icmp ult i64 %60, %.028.i.ph
+  %61 = icmp samesign ult i64 %60, %.028.i.ph
   br i1 %61, label %65, label %62
 
 62:                                               ; preds = %54
@@ -11845,7 +11845,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i: ; preds = %27, %25
 
 76:                                               ; preds = %._crit_edge.i, %42
   %.09.lcssa.i = phi i64 [ %127, %._crit_edge.i ], [ %.0.i, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -11858,7 +11858,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i: ; preds = %27, %25
   %.017.i13.i = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.0.i14.i = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.0.i14.i, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81

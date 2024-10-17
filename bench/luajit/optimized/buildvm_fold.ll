@@ -196,7 +196,7 @@ for.body.i:                                       ; preds = %if.end21.i, %for.bo
   %arrayidx.i = getelementptr inbounds [4096 x i32], ptr @foldkeys, i64 0, i64 %idxprom.i
   %24 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %24, 16777215
-  %cmp10.i = icmp ult i32 %and.i, %and9.i
+  %cmp10.i = icmp samesign ult i32 %and.i, %and9.i
   br i1 %cmp10.i, label %for.end.loopexit.i, label %if.end12.i
 
 if.end12.i:                                       ; preds = %for.body.i
@@ -420,8 +420,8 @@ for.body8.i:                                      ; preds = %for.inc.i, %for.inc
   %r.1104.i = phi i32 [ %inc20.i, %for.inc19.i ], [ 0, %for.inc.i ]
   %and.i.i = and i32 %r.1104.i, 31
   %cmp.i.i = icmp eq i32 %and.i.i, 0
-  %cmp1.i.i = icmp ult i32 %r.1104.i, 32
-  %or.cond.i.i = or i1 %cmp1.i.i, %cmp.i.i
+  %cmp1.i.i = icmp samesign ult i32 %r.1104.i, 32
+  %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
   br i1 %or.cond.i.i, label %for.inc19.i, label %if.end.i.i32
 
 if.end.i.i32:                                     ; preds = %for.body8.i
@@ -520,7 +520,7 @@ for.inc19.i:                                      ; preds = %if.then56.i53.i, %l
 
 for.inc22.i:                                      ; preds = %for.inc19.i
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i30, 2
-  %cmp.i34 = icmp ult i64 %indvars.iv.i30, 8190
+  %cmp.i34 = icmp samesign ult i64 %indvars.iv.i30, 8190
   br i1 %cmp.i34, label %for.cond1.preheader.i, label %for.end23.i, !llvm.loop !12
 
 for.end23.i:                                      ; preds = %for.inc22.i, %while.end

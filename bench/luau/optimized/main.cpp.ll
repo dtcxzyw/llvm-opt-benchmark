@@ -20546,7 +20546,7 @@ _ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit212: ; preds = %237
   %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
   %242 = load i32, ptr %154, align 8
   %243 = zext i32 %242 to i64
-  %244 = icmp ult i64 %indvars.iv.next369, %243
+  %244 = icmp samesign ult i64 %indvars.iv.next369, %243
   br i1 %244, label %159, label %._crit_edge357, !llvm.loop !163
 
 245:                                              ; preds = %.noexc167, %159
@@ -20859,7 +20859,7 @@ _ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit246: ; preds = %326
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %331 = load i32, ptr %303, align 8
   %332 = zext i32 %331 to i64
-  %333 = icmp ult i64 %indvars.iv.next, %332
+  %333 = icmp samesign ult i64 %indvars.iv.next, %332
   br i1 %333, label %307, label %._crit_edge, !llvm.loop !170
 
 334:                                              ; preds = %.noexc230, %307
@@ -25325,8 +25325,8 @@ _ZN7doctest12_GLOBAL__N_112_GLOBAL__N_111headerValueEh.exit.i: ; preds = %_ZN7do
 115:                                              ; preds = %111
   %116 = add i32 %109, -2049
   %or.cond14.i = icmp ult i32 %116, 63487
-  %117 = icmp ugt i64 %.0.i.i, 3
-  %or.cond16.i = and i1 %117, %or.cond14.i
+  %117 = icmp samesign ugt i64 %.0.i.i, 3
+  %or.cond16.i = select i1 %or.cond14.i, i1 %117, i1 false
   %118 = icmp ugt i32 %107, 1114111
   %or.cond18.i = select i1 %or.cond16.i, i1 true, i1 %118
   br i1 %or.cond18.i, label %119, label %.preheader.i
@@ -32068,7 +32068,7 @@ _ZN7doctest5ColorlsERSoNS0_4EnumE.exit19:         ; preds = %634, %641, %647
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %657 = load i32, ptr %629, align 8
   %658 = zext i32 %657 to i64
-  %659 = icmp ult i64 %indvars.iv.next33, %658
+  %659 = icmp samesign ult i64 %indvars.iv.next33, %658
   br i1 %659, label %634, label %._crit_edge29, !llvm.loop !246
 
 ._crit_edge29:                                    ; preds = %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit19, %.._crit_edge29_crit_edge
@@ -32216,7 +32216,7 @@ _ZN7doctest5ColorlsERSoNS0_4EnumE.exit24:         ; preds = %727, %734, %740
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %750 = load i32, ptr %723, align 8
   %751 = zext i32 %750 to i64
-  %752 = icmp ult i64 %indvars.iv.next, %751
+  %752 = icmp samesign ult i64 %indvars.iv.next, %751
   br i1 %752, label %727, label %._crit_edge, !llvm.loop !247
 
 ._crit_edge:                                      ; preds = %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit24, %716
@@ -36221,7 +36221,7 @@ define linkonce_odr dso_local void @_ZN17BoostLikeReporter12report_queryERKN7doc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %3, align 8
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %6, label %._crit_edge, !llvm.loop !266
 
 ._crit_edge:                                      ; preds = %6, %2

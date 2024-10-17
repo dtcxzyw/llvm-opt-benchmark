@@ -4225,7 +4225,7 @@ define range(i32 0, 2) i32 @refineIOBySimulation(ptr noundef %0, ptr nocapture n
   %31 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
   store i32 %30, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = icmp ult i64 %indvars.iv.next, %21
+  %32 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %32, label %.lr.ph, label %.critedge.preheader, !llvm.loop !49
 
 33:                                               ; preds = %.lr.ph537, %.critedge
@@ -8489,7 +8489,7 @@ Vec_IntPush.exit300:                              ; preds = %.Vec_IntGrow.exit10
   %256 = getelementptr inbounds i8, ptr %241, i64 %255
   store i8 %252, ptr %256, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %257 = icmp ult i64 %indvars.iv.next, %247
+  %257 = icmp samesign ult i64 %indvars.iv.next, %247
   br i1 %257, label %248, label %._crit_edge310, !llvm.loop !82
 
 ._crit_edge310:                                   ; preds = %248, %.preheader
@@ -9398,7 +9398,7 @@ Vec_PtrPush.exit411:                              ; preds = %.Vec_PtrGrow.exit11
   %362 = getelementptr inbounds i32, ptr %320, i64 %361
   store i32 %353, ptr %362, align 4
   %indvars.iv.next602 = add nuw nsw i64 %indvars.iv601, 2
-  %363 = icmp ult i64 %indvars.iv.next602, %344
+  %363 = icmp samesign ult i64 %indvars.iv.next602, %344
   br i1 %363, label %348, label %.preheader496, !llvm.loop !92
 
 .preheader495.loopexit:                           ; preds = %Vec_IntPush.exit425

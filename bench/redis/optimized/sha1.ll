@@ -1128,7 +1128,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %cmp1 = icmp ult i64 %indvars.iv, 4
+  %cmp1 = icmp samesign ult i64 %indvars.iv, 4
   %idxprom = zext i1 %cmp1 to i64
   %arrayidx = getelementptr inbounds [2 x i32], ptr %count, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4

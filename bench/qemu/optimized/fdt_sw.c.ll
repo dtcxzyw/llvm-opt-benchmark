@@ -177,12 +177,12 @@ if.end3:                                          ; preds = %if.end
   %19 = load i8, ptr %arrayidx8.i66, align 1
   %conv9.i67 = zext i8 %19 to i64
   %or10.i68 = or disjoint i64 %or7.i65, %conv9.i67
-  %cmp12 = icmp ugt i64 %add9, %or10.i68
+  %cmp12 = icmp samesign ugt i64 %add9, %or10.i68
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end3
   %conv17 = zext nneg i32 %bufsize to i64
-  %cmp18 = icmp ugt i64 %add9, %conv17
+  %cmp18 = icmp samesign ugt i64 %add9, %conv17
   br i1 %cmp18, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end15
@@ -792,7 +792,7 @@ if.end:                                           ; preds = %if.end.i
   %.neg.i = sub nsw i64 %or10.i37.neg52.i, %32
   %sub4.i = add nsw i64 %.neg.i, %or10.i24.i
   %conv9.i = and i64 %sub4.i, 4294967295
-  %cmp10.i = icmp ugt i64 %add.i, %conv9.i
+  %cmp10.i = icmp samesign ugt i64 %add.i, %conv9.i
   br i1 %cmp10.i, label %return, label %fdt_grab_space_.exit
 
 fdt_grab_space_.exit:                             ; preds = %if.end
@@ -1356,7 +1356,7 @@ if.end:                                           ; preds = %if.end.i
   %.neg.i = sub nsw i64 %or10.i37.neg52.i, %32
   %sub4.i = add nsw i64 %.neg.i, %or10.i24.i
   %conv9.i = and i64 %sub4.i, 4294967295
-  %cmp10.i = icmp ugt i64 %add.i, %conv9.i
+  %cmp10.i = icmp samesign ugt i64 %add.i, %conv9.i
   br i1 %cmp10.i, label %return, label %fdt_grab_space_.exit
 
 fdt_grab_space_.exit:                             ; preds = %if.end

@@ -207,7 +207,7 @@ for.body68:                                       ; preds = %if.end57, %for.body
   %gep = getelementptr inbounds i8, ptr %add.ptr26, i64 %15
   store i8 %add78, ptr %gep, align 1
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 2
-  %cmp66 = icmp ult i64 %indvars.iv.next82, %conv29
+  %cmp66 = icmp samesign ult i64 %indvars.iv.next82, %conv29
   br i1 %cmp66, label %for.body68, label %return, !llvm.loop !7
 
 return:                                           ; preds = %for.body68, %if.end57, %HUF_compressWeights.exit.thread, %if.end49, %if.end45, %HUF_compressWeights.exit, %for.end21, %if.end, %entry, %if.then41
@@ -986,7 +986,7 @@ if.end163.i:                                      ; preds = %while.body140.i
 HUF_setMaxHeight.exit:                            ; preds = %while.end154.i, %if.end163.i, %HUF_buildTree.exit, %while.cond137.preheader.i
   %retval.0.i25 = phi i32 [ %conv.i, %HUF_buildTree.exit ], [ %spec.store.select, %while.cond137.preheader.i ], [ %spec.store.select, %if.end163.i ], [ %spec.store.select, %while.end154.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %rankLast.i)
-  %cmp12 = icmp ugt i32 %retval.0.i25, 12
+  %cmp12 = icmp samesign ugt i32 %retval.0.i25, 12
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %HUF_setMaxHeight.exit
@@ -1225,7 +1225,7 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
   %shr.i1594.i = lshr i64 %mul.i.i, 3
   %add.i1595.i = add nuw nsw i64 %shr.i1594.i, 8
   %cmp10.i.i = icmp ult i64 %dstSize, %add.i1595.i
-  %cmp12.i.i = icmp ugt i32 %conv.i.i, 11
+  %cmp12.i.i = icmp samesign ugt i32 %conv.i.i, 11
   %or.cond.i = select i1 %cmp10.i.i, i1 true, i1 %cmp12.i.i
   %conv.i2.i = trunc i64 %srcSize to i32
   br i1 %or.cond.i, label %if.then14.i.i, label %if.else.i.i
@@ -3025,7 +3025,7 @@ do.end53:                                         ; preds = %if.end27
   %call46 = call i32 @HIST_count_simple(ptr noundef %retval.0.i, ptr noundef nonnull %maxSymbolValueEnd, ptr noundef nonnull %add.ptr45, i64 noundef 4096) #14
   %conv47 = zext i32 %call46 to i64
   %add54 = add nuw nsw i64 %conv47, %conv
-  %cmp55 = icmp ult i64 %add54, 69
+  %cmp55 = icmp samesign ult i64 %add54, 69
   br i1 %cmp55, label %return, label %if.end59
 
 if.end59:                                         ; preds = %do.end53, %if.end27
@@ -3361,7 +3361,7 @@ if.end7.i:                                        ; preds = %if.end.i
   %shr.i1594 = lshr i64 %mul.i, 3
   %add.i1595 = add nuw nsw i64 %shr.i1594, 8
   %cmp10.i = icmp ult i64 %dstSize, %add.i1595
-  %cmp12.i = icmp ugt i32 %conv.i, 11
+  %cmp12.i = icmp samesign ugt i32 %conv.i, 11
   %or.cond = select i1 %cmp10.i, i1 true, i1 %cmp12.i
   %conv.i2 = trunc i64 %srcSize to i32
   br i1 %or.cond, label %if.then14.i, label %if.else.i

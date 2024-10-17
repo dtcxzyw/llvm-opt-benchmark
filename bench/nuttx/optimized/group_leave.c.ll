@@ -65,7 +65,7 @@ up_irq_restore.exit.i:                            ; preds = %30, %18, %12
   %.pr = phi i8 [ %.pre.i, %30 ], [ %28, %18 ], [ %13, %12 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = zext i8 %.pr to i64
-  %32 = icmp ult i64 %indvars.iv.next.i, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next.i, %31
   br i1 %32, label %12, label %group_removemember.exit, !llvm.loop !9
 
 group_removemember.exit:                          ; preds = %up_irq_restore.exit.i

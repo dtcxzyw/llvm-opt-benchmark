@@ -4306,7 +4306,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont, %if.th
   %inc = add nuw nsw i64 %i.040, 1
   %11 = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %11, 1
-  %cmp = icmp ult i64 %inc, %shr.i.i
+  %cmp = icmp samesign ult i64 %inc, %shr.i.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !57
 
 lpad:                                             ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
@@ -11309,7 +11309,7 @@ _ZN9grpc_core11RetryFilter14LegacyCallData21FreeCachedSendMessageEm.exit: ; pred
   %13 = phi i64 [ %.pre, %if.end.i._ZN9grpc_core11RetryFilter14LegacyCallData21FreeCachedSendMessageEm.exit_crit_edge ], [ %4, %for.body ]
   %inc = add nuw nsw i64 %i.010, 1
   %shr.i.i = lshr i64 %13, 1
-  %cmp = icmp ult i64 %inc, %shr.i.i
+  %cmp = icmp samesign ult i64 %inc, %shr.i.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !125
 
 for.end:                                          ; preds = %_ZN9grpc_core11RetryFilter14LegacyCallData21FreeCachedSendMessageEm.exit, %if.end
@@ -12064,7 +12064,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont, %if.th
   %inc = add nuw nsw i64 %i.020, 1
   %11 = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %11, 1
-  %cmp = icmp ult i64 %inc, %shr.i.i
+  %cmp = icmp samesign ult i64 %inc, %shr.i.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !135
 
 lpad:                                             ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit

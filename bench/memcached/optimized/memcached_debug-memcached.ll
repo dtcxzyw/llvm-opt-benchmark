@@ -8294,7 +8294,7 @@ if.end490:                                        ; preds = %if.end485
   %conv491 = zext nneg i32 %174 to i64
   %177 = load i64, ptr @settings, align 8
   %div133 = lshr i64 %177, 1
-  %cmp492 = icmp ult i64 %div133, %conv491
+  %cmp492 = icmp samesign ult i64 %div133, %conv491
   br i1 %cmp492, label %if.then494, label %if.end496
 
 if.then494:                                       ; preds = %if.end490
@@ -10958,7 +10958,7 @@ for.cond:                                         ; preds = %if.end113
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %8 = load i8, ptr %iovcnt.le, align 4
   %9 = zext i8 %8 to i64
-  %cmp34 = icmp ult i64 %indvars.iv.next238, %9
+  %cmp34 = icmp samesign ult i64 %indvars.iv.next238, %9
   br i1 %cmp34, label %for.body, label %if.end129, !llvm.loop !34
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
@@ -11297,7 +11297,7 @@ if.then14:                                        ; preds = %for.body
   %sub21 = sub nuw i64 %res.addr.192, %26
   store i64 0, ptr %iov_len, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp9 = icmp ult i64 %indvars.iv.next, %14
+  %cmp9 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !37
 
 if.else:                                          ; preds = %for.body

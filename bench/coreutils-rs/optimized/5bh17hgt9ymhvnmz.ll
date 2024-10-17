@@ -532,7 +532,7 @@ define void @_ZN6uu_env14native_int_str36from_native_int_representation_owned17h
 define { i1, i8 } @_ZN6uu_env14native_int_str27get_single_native_int_value17hd1e1e72e5057c6f0E(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #7 {
 _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.11676108902394252037.exit:
   %1 = load i32, ptr %0, align 4, !range !64, !noundef !5
-  %2 = icmp ult i32 %1, 128
+  %2 = icmp samesign ult i32 %1, 128
   %3 = trunc nuw i32 %1 to i8
   %.sroa.3.0 = select i1 %2, i8 %3, i8 undef
   %4 = insertvalue { i1, i8 } poison, i1 %2, 0
@@ -743,7 +743,7 @@ define void @_ZN6uu_env14native_int_str9NativeStr11into_native17h0469172fe97f573
 ; Function Attrs: nonlazybind uwtable
 define noundef range(i8 0, 3) i8 @_ZN6uu_env14native_int_str9NativeStr8contains17hf8d5c30969619803E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #2 {
   %3 = load i32, ptr %1, align 4, !range !64, !alias.scope !87, !noundef !5
-  %4 = icmp ult i32 %3, 128
+  %4 = icmp samesign ult i32 %3, 128
   %5 = trunc nuw i32 %3 to i8
   br i1 %4, label %6, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.11676108902394252037.exit
 
@@ -821,7 +821,7 @@ define void @_ZN6uu_env14native_int_str9NativeStr10split_once17haa6ff1d5b07adc40
   %11 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] } }, align 8
   %12 = alloca { i64, [2 x i64] }, align 8
   %13 = load i32, ptr %2, align 4, !range !64, !alias.scope !103, !noundef !5
-  %14 = icmp ult i32 %13, 128
+  %14 = icmp samesign ult i32 %13, 128
   %15 = trunc nuw i32 %13 to i8
   br i1 %14, label %16, label %25
 

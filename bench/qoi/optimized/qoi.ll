@@ -325,7 +325,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr no
   %.1211 = phi i32 [ %90, %87 ], [ %.0210227, %83 ], [ %117, %115 ], [ %139, %131 ], [ %157, %150 ], [ %161, %158 ], [ %165, %162 ]
   %.1 = phi i32 [ 0, %87 ], [ %84, %83 ], [ %.2, %115 ], [ %.2, %131 ], [ %.2, %150 ], [ %.2, %158 ], [ %.2, %162 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %65
-  %167 = icmp ult i64 %indvars.iv.next, %67
+  %167 = icmp samesign ult i64 %indvars.iv.next, %67
   br i1 %167, label %71, label %.preheader.loopexit, !llvm.loop !5
 
 168:                                              ; preds = %25, %3, %8, %11, %15, %19, %23, %.preheader

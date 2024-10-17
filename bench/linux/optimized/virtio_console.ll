@@ -339,7 +339,7 @@ define internal fastcc void @free_buf(ptr noundef %0) unnamed_addr #4 align 16 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %3, align 8
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %.preheader, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %42, %1
@@ -1578,7 +1578,7 @@ define internal fastcc i32 @fill_queue(ptr noundef %0, ptr noundef %1) unnamed_a
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %74 = load i32, ptr %34, align 8
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %indvars.iv.next.i, %75
+  %76 = icmp samesign ult i64 %indvars.iv.next.i, %75
   br i1 %76, label %.preheader.i4, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %73, %.preheader.i4, %.preheader.i
@@ -4519,7 +4519,7 @@ define internal fastcc void @remove_vqs(ptr nocapture noundef readonly %0) unnam
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %53 = load i32, ptr %13, align 8
   %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next.i, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next.i, %54
   br i1 %55, label %.preheader.i, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %52, %.preheader.i, %.preheader9
@@ -4618,7 +4618,7 @@ free_buf.exit:                                    ; preds = %.loopexit.i, %59
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %107 = load i32, ptr %67, align 8
   %108 = zext i32 %107 to i64
-  %109 = icmp ult i64 %indvars.iv.next.i6, %108
+  %109 = icmp samesign ult i64 %indvars.iv.next.i6, %108
   br i1 %109, label %.preheader.i4, label %.loopexit.i7, !llvm.loop !12
 
 .loopexit.i7:                                     ; preds = %106, %.preheader.i4, %.preheader

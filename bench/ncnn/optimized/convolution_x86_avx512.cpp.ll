@@ -8099,7 +8099,7 @@ _ZN4ncnnL44convolution_im2col_gemm_get_optimal_tile_mnkEiiiRiS0_S0_i.exit.i: ; p
   %.2925.lcssa.i.us.i = phi ptr [ %.1924.lcssa.i.us.i, %.preheader11.i.us.i ], [ %1182, %.lr.ph65.i.us.i ]
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 16
   %1200 = or disjoint i64 %indvars.iv.next.i.us.i, 15
-  %1201 = icmp ult i64 %1200, %947
+  %1201 = icmp samesign ult i64 %1200, %947
   br i1 %1201, label %969, label %.preheader10.loopexit.i.us.i, !llvm.loop !47
 
 .preheader10.loopexit.i.us.i:                     ; preds = %._crit_edge.i.us.i
@@ -11128,7 +11128,7 @@ _ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i.exit.i
   %.4.lcssa.i.us.i = phi ptr [ %.3.lcssa.i.us.i, %.preheader15.i.us.i ], [ %1213, %.lr.ph145.i.us.i ]
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 16
   %1231 = or disjoint i64 %indvars.iv.next.i.us.i, 15
-  %1232 = icmp ult i64 %1231, %768
+  %1232 = icmp samesign ult i64 %1231, %768
   br i1 %1232, label %790, label %.preheader14.loopexit.i.us.i, !llvm.loop !91
 
 .preheader14.loopexit.i.us.i:                     ; preds = %._crit_edge.i.us.i
@@ -13133,7 +13133,7 @@ _ZN4ncnnL45convolution_im2col_gemm_transform_kernel_int8ERKNS_3MatERS0_iiiiRKNS_
 ._crit_edge3216.i:                                ; preds = %._crit_edge.us3218.i, %.preheader3103.i, %.lr.ph3201.i
   %indvars.iv.next3748.i = add nuw nsw i64 %indvars.iv3747.i, 16
   %2494 = or disjoint i64 %indvars.iv.next3748.i, 15
-  %2495 = icmp ult i64 %2494, %2027
+  %2495 = icmp samesign ult i64 %2494, %2027
   %indvars.iv.next.i92 = add i32 %indvars.iv.i91, %2022
   %indvars.iv.next3701.i = add i32 %indvars.iv3700.i, %2022
   br i1 %2495, label %2083, label %.preheader3102.loopexit.i, !llvm.loop !121
@@ -17893,7 +17893,7 @@ define internal fastcc void @_ZN4ncnnL35convolution_transform_kernel_packedERKNS
 ._crit_edge2910:                                  ; preds = %._crit_edge.us2911, %.preheader2829
   %indvars.iv.next3459 = add nuw nsw i64 %indvars.iv3458, 16
   %749 = or disjoint i64 %indvars.iv.next3459, 15
-  %750 = icmp ult i64 %749, %402
+  %750 = icmp samesign ult i64 %749, %402
   %indvars.iv.next = add i32 %indvars.iv, %398
   br i1 %750, label %448, label %.preheader2823.loopexit, !llvm.loop !207
 
@@ -23208,7 +23208,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL20conv3x3s1_wino
 ._crit_edge.us.i.us:                              ; preds = %541
   %indvars.iv.next125.i.us = add nuw nsw i64 %indvars.iv124.i.us, 16
   %542 = or disjoint i64 %indvars.iv.next125.i.us, 15
-  %543 = icmp ult i64 %542, %348
+  %543 = icmp samesign ult i64 %542, %348
   br i1 %543, label %.lr.ph28.split.us.i.us, label %.preheader16.loopexit.i.us, !llvm.loop !273
 
 .preheader16.loopexit.i.us:                       ; preds = %._crit_edge.us.i.us
@@ -25530,7 +25530,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL20conv3x3s1_wino
 ._crit_edge.us.i.us:                              ; preds = %668
   %indvars.iv.next122.i.us = add nuw nsw i64 %indvars.iv121.i.us, 16
   %669 = or disjoint i64 %indvars.iv.next122.i.us, 15
-  %670 = icmp ult i64 %669, %362
+  %670 = icmp samesign ult i64 %669, %362
   br i1 %670, label %.lr.ph19.split.us.i.us, label %.preheader5.loopexit.i.us, !llvm.loop !301
 
 .preheader5.loopexit.i.us:                        ; preds = %._crit_edge.us.i.us
@@ -28458,7 +28458,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL20conv3x3s1_wino
 ._crit_edge.us.i.us:                              ; preds = %791
   %indvars.iv.next143.i.us = add nuw nsw i64 %indvars.iv142.i.us, 16
   %792 = or disjoint i64 %indvars.iv.next143.i.us, 15
-  %793 = icmp ult i64 %792, %373
+  %793 = icmp samesign ult i64 %792, %373
   br i1 %793, label %.lr.ph32.split.us.i.us, label %.preheader16.loopexit.i.us, !llvm.loop !329
 
 .preheader16.loopexit.i.us:                       ; preds = %._crit_edge.us.i.us
@@ -30933,7 +30933,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL23convolution_im
   %.8.i.i.us = phi ptr [ %.5.i.i.us, %.loopexit20.i.i.us ], [ %.3.i.i.us, %305 ], [ %.1.i.i.us, %222 ], [ %.0198642.i.i.us, %127 ], [ %391, %.lr.ph39.i.i.us ]
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 12
   %395 = add nuw nsw i64 %indvars.iv.i.i.us, 23
-  %396 = icmp ult i64 %395, %125
+  %396 = icmp samesign ult i64 %395, %125
   br i1 %396, label %126, label %.preheader18.loopexit.i.i.us, !llvm.loop !353
 
 .preheader18.loopexit.i.i.us:                     ; preds = %.loopexit19.i.i.us
@@ -33693,7 +33693,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   %1959 = getelementptr inbounds float, ptr %.05482257.i.us.us, i64 %1169
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 16
   %1960 = or disjoint i64 %indvars.iv.next.i.us.us, 15
-  %1961 = icmp ult i64 %1960, %1045
+  %1961 = icmp samesign ult i64 %1960, %1045
   br i1 %1961, label %1182, label %.preheader120.loopexit.i.us.us, !llvm.loop !386
 
 .preheader120.loopexit.i.us.us:                   ; preds = %._crit_edge252.i.us.us
@@ -54108,7 +54108,7 @@ define internal fastcc noundef i32 @_ZN4ncnnL25conv3x3s1_winograd43_int8ERKNS_3M
 ._crit_edge.us.i.us:                              ; preds = %648
   %indvars.iv.next279.i.us = add nuw nsw i64 %indvars.iv278.i.us, 16
   %649 = or disjoint i64 %indvars.iv.next279.i.us, 15
-  %650 = icmp ult i64 %649, %392
+  %650 = icmp samesign ult i64 %649, %392
   br i1 %650, label %.preheader13.us.i.us, label %.preheader11.loopexit.i.us, !llvm.loop !610
 
 .preheader11.loopexit.i.us:                       ; preds = %._crit_edge.us.i.us
@@ -56434,7 +56434,7 @@ define internal fastcc noundef i32 @_ZN4ncnnL25conv3x3s1_winograd23_int8ERKNS_3M
 ._crit_edge.us.i.us:                              ; preds = %493
   %indvars.iv.next115.i.us = add nuw nsw i64 %indvars.iv114.i.us, 16
   %494 = or disjoint i64 %indvars.iv.next115.i.us, 15
-  %495 = icmp ult i64 %494, %354
+  %495 = icmp samesign ult i64 %494, %354
   br i1 %495, label %.preheader19.us.i.us, label %.preheader18.loopexit.i.us, !llvm.loop !638
 
 .preheader18.loopexit.i.us:                       ; preds = %._crit_edge.us.i.us
@@ -57839,7 +57839,7 @@ define internal fastcc noundef i32 @_ZN4ncnnL28convolution_im2col_gemm_int8ERKNS
   %.5.i.i.us = phi ptr [ %.1791.i.i.us, %.loopexit16.i.i.us ], [ %.3.lcssa.i.i.us, %.preheader14.i.i.us ], [ %.079033.i.i.us, %125 ], [ %219, %.lr.ph30.i.i.us ]
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 16
   %223 = or disjoint i64 %indvars.iv.next.i.i.us, 15
-  %224 = icmp ult i64 %223, %122
+  %224 = icmp samesign ult i64 %223, %122
   br i1 %224, label %124, label %.preheader13.loopexit.i.i.us, !llvm.loop !661
 
 .preheader13.loopexit.i.i.us:                     ; preds = %.loopexit15.i.i.us
@@ -60648,7 +60648,7 @@ _ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit: ; p
   %2054 = getelementptr inbounds i8, ptr %.07070520.i.us.us, i64 %711
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv1448.i.us.us, 16
   %2055 = or disjoint i64 %indvars.iv.next.i.us.us, 15
-  %2056 = icmp ult i64 %2055, %637
+  %2056 = icmp samesign ult i64 %2055, %637
   %scevgep1440.i.us.us = getelementptr i8, ptr %indvars.iv.i.us.us, i64 %711
   br i1 %2056, label %730, label %.preheader191.loopexit.i.us.us, !llvm.loop !694
 
@@ -78951,7 +78951,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_RS0
 340:                                              ; preds = %._crit_edge147
   %indvars.iv.next864 = add nuw nsw i64 %indvars.iv863, 16
   %341 = or disjoint i64 %indvars.iv.next864, 15
-  %342 = icmp ult i64 %341, %32
+  %342 = icmp samesign ult i64 %341, %32
   br i1 %342, label %.preheader28, label %.preheader23.loopexit, !llvm.loop !975
 
 .preheader22:                                     ; preds = %.preheader22.lr.ph, %649
@@ -90071,7 +90071,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
 797:                                              ; preds = %._crit_edge287
   %indvars.iv.next1263 = add nuw nsw i64 %indvars.iv1262, 16
   %798 = or disjoint i64 %indvars.iv.next1263, 15
-  %799 = icmp ult i64 %798, %31
+  %799 = icmp samesign ult i64 %798, %31
   br i1 %799, label %.preheader52, label %.preheader42.loopexit, !llvm.loop !1137
 
 .preheader41:                                     ; preds = %.preheader41.lr.ph, %1339

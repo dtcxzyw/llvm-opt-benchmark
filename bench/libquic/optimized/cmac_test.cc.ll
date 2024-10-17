@@ -162,7 +162,7 @@ invoke.cont57.us:                                 ; preds = %if.end55.us
 for.inc.us:                                       ; preds = %invoke.cont57.us
   %inc.us = add nuw nsw i32 %chunk_size.019.us, 1
   %conv.us = zext nneg i32 %inc.us to i64
-  %cmp19.not.us.not = icmp ult i32 %chunk_size.019.us, %5
+  %cmp19.not.us.not = icmp samesign ult i32 %chunk_size.019.us, %5
   br i1 %cmp19.not.us.not, label %for.body.us, label %cleanup, !llvm.loop !9
 
 while.body.us:                                    ; preds = %invoke.cont21.us, %while.cond.us

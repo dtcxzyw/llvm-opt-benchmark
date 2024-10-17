@@ -717,7 +717,7 @@ define i32 @cli_pcre_build(ptr nocapture noundef readonly %0, i64 noundef %1, i6
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %26 = load i32, ptr %5, align 4
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next71, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next71, %27
   br i1 %28, label %.lr.ph.split.us.split.us, label %.loopexit
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph, %51
@@ -770,7 +770,7 @@ define i32 @cli_pcre_build(ptr nocapture noundef readonly %0, i64 noundef %1, i6
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %52 = load i32, ptr %5, align 4
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next68, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next68, %53
   br i1 %54, label %.lr.ph.split.us.split, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %58
@@ -795,7 +795,7 @@ define i32 @cli_pcre_build(ptr nocapture noundef readonly %0, i64 noundef %1, i6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load i32, ptr %5, align 4
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %64, label %.lr.ph.split, label %.loopexit
 
 .split44.us.loopexit:                             ; preds = %.critedge.us.us
@@ -973,7 +973,7 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = load i32, ptr %22, align 4
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %indvars.iv.next, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next, %79
   br i1 %80, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %75, %.preheader, %4, %64, %33, %27, %20
@@ -1393,7 +1393,7 @@ cli_pcre_qoff.exit:                               ; preds = %71, %.critedge, %cl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %178 = load i32, ptr %12, align 4
   %179 = zext i32 %178 to i64
-  %180 = icmp ult i64 %indvars.iv.next, %179
+  %180 = icmp samesign ult i64 %indvars.iv.next, %179
   br i1 %180, label %31, label %.critedge._crit_edge
 
 .critedge._crit_edge:                             ; preds = %cli_pcre_qoff.exit, %.critedge
@@ -1481,7 +1481,7 @@ cli_pcre_freemeta.exit:                           ; preds = %6, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %2, align 4
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %6, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %cli_pcre_freemeta.exit, %1

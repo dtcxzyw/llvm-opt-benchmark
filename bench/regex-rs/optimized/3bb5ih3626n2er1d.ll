@@ -9589,7 +9589,7 @@ define noundef zeroext i1 @"_ZN76_$LT$regex_automata..util..escape..DebugByte$u2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = trunc nuw i64 %indvars.iv.next to i8
   store i8 %31, ptr %21, align 4, !alias.scope !1704, !noalias !1705
-  %32 = icmp ult i64 %indvars.iv, 4
+  %32 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %32, label %47, label %33, !prof !1487
 
 33:                                               ; preds = %.lr.ph
@@ -9657,7 +9657,7 @@ define noundef zeroext i1 @"_ZN76_$LT$regex_automata..util..escape..DebugByte$u2
   %55 = getelementptr inbounds [10 x i8], ptr %9, i64 0, i64 %.01934
   store i8 %spec.select, ptr %55, align 1
   %56 = add nuw nsw i64 %.01934, 1
-  %57 = icmp ult i64 %indvars.iv.next, %28
+  %57 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %57, label %.lr.ph, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.15183607879373971598.exit"
 }
 

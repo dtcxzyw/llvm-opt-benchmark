@@ -717,7 +717,7 @@ FASTCOVER_selectSegment.exit:                     ; preds = %84, %.preheader.i
   %97 = sub i32 %96, %.sroa.049.sroa.0.0.lcssa.i
   %98 = zext i32 %97 to i64
   %..0 = tail call i64 @llvm.umin.i64(i64 %.04, i64 %98)
-  %99 = icmp ult i64 %..0, %24
+  %99 = icmp samesign ult i64 %..0, %24
   br i1 %99, label %._crit_edge, label %100
 
 100:                                              ; preds = %95

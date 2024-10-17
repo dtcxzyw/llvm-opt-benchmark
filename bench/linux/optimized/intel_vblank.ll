@@ -145,7 +145,7 @@ define dso_local range(i32 0, 16777216) i32 @i915_get_vblank_counter(ptr nocaptu
   %83 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %82) #10, !srcloc !6
   %84 = icmp ne i32 %83, %71
   %85 = add nuw nsw i32 %70, 1
-  %86 = icmp ult i32 %70, 2
+  %86 = icmp samesign ult i32 %70, 2
   %87 = select i1 %84, i1 %86, i1 false
   br i1 %87, label %.split.us.split.us, label %.split6.us, !llvm.loop !7
 
@@ -167,7 +167,7 @@ define dso_local range(i32 0, 16777216) i32 @i915_get_vblank_counter(ptr nocaptu
   %100 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %99) #10, !srcloc !6
   %101 = icmp ne i32 %100, %91
   %102 = add nuw nsw i32 %90, 1
-  %103 = icmp ult i32 %90, 2
+  %103 = icmp samesign ult i32 %90, 2
   %104 = select i1 %101, i1 %103, i1 false
   br i1 %104, label %89, label %.split6.us, !llvm.loop !7
 
@@ -189,7 +189,7 @@ define dso_local range(i32 0, 16777216) i32 @i915_get_vblank_counter(ptr nocaptu
   %116 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %115) #10, !srcloc !6
   %117 = icmp ne i32 %116, %107
   %118 = add nuw nsw i32 %106, 1
-  %119 = icmp ult i32 %106, 2
+  %119 = icmp samesign ult i32 %106, 2
   %120 = select i1 %117, i1 %119, i1 false
   br i1 %120, label %.split.split.us, label %.split6.us, !llvm.loop !7
 
@@ -209,7 +209,7 @@ define dso_local range(i32 0, 16777216) i32 @i915_get_vblank_counter(ptr nocaptu
   %131 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %130) #10, !srcloc !6
   %132 = icmp ne i32 %131, %125
   %133 = add nuw nsw i32 %124, 1
-  %134 = icmp ult i32 %124, 2
+  %134 = icmp samesign ult i32 %124, 2
   %135 = select i1 %132, i1 %134, i1 false
   br i1 %135, label %123, label %.split6.us, !llvm.loop !7
 

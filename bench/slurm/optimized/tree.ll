@@ -902,7 +902,7 @@ define range(i32 -1, 1) i32 @tree_msg_to_spawned_sruns(i32 noundef %0, ptr nound
   %.1 = phi i32 [ %.016, %6 ], [ %spec.select, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = zext i32 %20 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %6, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %12, %19, %2
@@ -1367,7 +1367,7 @@ define internal range(i32 -1, 1) i32 @_handle_spawn_resp(i32 %0, ptr noundef %1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %56 = load i32, ptr %44, align 4
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %indvars.iv.next.i, %57
+  %58 = icmp samesign ult i64 %indvars.iv.next.i, %57
   br i1 %58, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %46, %43
@@ -1863,7 +1863,7 @@ define internal fastcc void @_send_task_spawn_resp_pmi11(ptr nocapture noundef r
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %12, align 4
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %22, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %22, %14, %11

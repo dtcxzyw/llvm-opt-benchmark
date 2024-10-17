@@ -5217,7 +5217,7 @@ _ZNSt6vectorIN3nix6FormalESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; preds =
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %19
-  %24 = icmp ugt i64 %16, 256
+  %24 = icmp samesign ugt i64 %16, 256
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %.noexc
@@ -7704,7 +7704,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !59
 
 .critedge:                                        ; preds = %27

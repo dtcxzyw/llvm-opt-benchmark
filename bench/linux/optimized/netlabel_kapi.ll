@@ -614,7 +614,7 @@ define dso_local i32 @netlbl_catmap_walk(ptr noundef readonly %0, i32 noundef %1
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = add nuw nsw i64 %12, 256
-  %14 = icmp ugt i64 %13, %8
+  %14 = icmp samesign ugt i64 %13, %8
   br i1 %14, label %.loopexit9, label %15
 
 15:                                               ; preds = %9
@@ -714,7 +714,7 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly %0, i32 noundef
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = add nuw nsw i64 %12, 256
-  %14 = icmp ugt i64 %13, %8
+  %14 = icmp samesign ugt i64 %13, %8
   br i1 %14, label %.loopexit8, label %15
 
 15:                                               ; preds = %9
@@ -904,7 +904,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_getlong(ptr nounde
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
   %24 = add nuw nsw i64 %23, 256
-  %25 = icmp ugt i64 %24, %19
+  %25 = icmp samesign ugt i64 %24, %19
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %20
@@ -963,14 +963,14 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setbit(ptr nocaptu
   %10 = zext i32 %1 to i64
   %11 = zext i32 %7 to i64
   %12 = add nuw nsw i64 %11, 256
-  %13 = icmp ugt i64 %12, %10
+  %13 = icmp samesign ugt i64 %12, %10
   br i1 %13, label %.loopexit6, label %.preheader
 
 14:                                               ; preds = %.preheader
   %15 = load i32, ptr %21, align 8
   %16 = zext i32 %15 to i64
   %17 = add nuw nsw i64 %16, 256
-  %18 = icmp ugt i64 %17, %10
+  %18 = icmp samesign ugt i64 %17, %10
   br i1 %18, label %.loopexit6, label %.preheader, !llvm.loop !5
 
 .preheader:                                       ; preds = %9, %14
@@ -1079,14 +1079,14 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setrng(ptr nocaptu
   %26 = zext i32 %13 to i64
   %27 = zext i32 %23 to i64
   %28 = add nuw nsw i64 %27, 256
-  %29 = icmp ugt i64 %28, %26
+  %29 = icmp samesign ugt i64 %28, %26
   br i1 %29, label %.loopexit6.i, label %.preheader.i
 
 30:                                               ; preds = %.preheader.i
   %31 = load i32, ptr %37, align 8
   %32 = zext i32 %31 to i64
   %33 = add nuw nsw i64 %32, 256
-  %34 = icmp ugt i64 %33, %26
+  %34 = icmp samesign ugt i64 %33, %26
   br i1 %34, label %.loopexit6.i, label %.preheader.i, !llvm.loop !5
 
 .preheader.i:                                     ; preds = %25, %30
@@ -1167,14 +1167,14 @@ netlbl_catmap_setlong.exit:                       ; preds = %45, %58
   %80 = zext i32 %13 to i64
   %81 = zext i32 %77 to i64
   %82 = add nuw nsw i64 %81, 256
-  %83 = icmp ugt i64 %82, %80
+  %83 = icmp samesign ugt i64 %82, %80
   br i1 %83, label %.loopexit6.i3, label %.preheader.i2
 
 84:                                               ; preds = %.preheader.i2
   %85 = load i32, ptr %91, align 8
   %86 = zext i32 %85 to i64
   %87 = add nuw nsw i64 %86, 256
-  %88 = icmp ugt i64 %87, %80
+  %88 = icmp samesign ugt i64 %87, %80
   br i1 %88, label %.loopexit6.i3, label %.preheader.i2, !llvm.loop !5
 
 .preheader.i2:                                    ; preds = %79, %84
@@ -1268,14 +1268,14 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_setlong(ptr nocapt
   %14 = zext i32 %1 to i64
   %15 = zext i32 %11 to i64
   %16 = add nuw nsw i64 %15, 256
-  %17 = icmp ugt i64 %16, %14
+  %17 = icmp samesign ugt i64 %16, %14
   br i1 %17, label %.loopexit6, label %.preheader
 
 18:                                               ; preds = %.preheader
   %19 = load i32, ptr %25, align 8
   %20 = zext i32 %19 to i64
   %21 = add nuw nsw i64 %20, 256
-  %22 = icmp ugt i64 %21, %14
+  %22 = icmp samesign ugt i64 %21, %14
   br i1 %22, label %.loopexit6, label %.preheader, !llvm.loop !5
 
 .preheader:                                       ; preds = %13, %18

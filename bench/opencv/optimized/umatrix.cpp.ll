@@ -525,7 +525,7 @@ define void @_ZN2cv16UMatDataAutoLockC2EPNS_8UMatDataES2_(ptr noundef nonnull al
   %6 = urem i64 %5, 31
   %7 = ptrtoint ptr %2 to i64
   %8 = urem i64 %7, 31
-  %9 = icmp ugt i64 %6, %8
+  %9 = icmp samesign ugt i64 %6, %8
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3

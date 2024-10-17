@@ -137,7 +137,7 @@ set_base_rel_consider_startup.exit:               ; preds = %24, %2, %.lr.ph.i
   %55 = phi i32 [ %35, %40 ], [ %35, %34 ], [ %.pre.i, %52 ]
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i22, 1
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next.i24, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next.i24, %56
   br i1 %57, label %34, label %set_base_rel_sizes.exit, !llvm.loop !5
 
 set_base_rel_sizes.exit:                          ; preds = %54
@@ -181,7 +181,7 @@ set_base_rel_sizes.exit:                          ; preds = %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = load i32, ptr %28, align 8
   %77 = zext i32 %76 to i64
-  %78 = icmp ult i64 %indvars.iv.next, %77
+  %78 = icmp samesign ult i64 %indvars.iv.next, %77
   br i1 %78, label %60, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge.thread:                               ; preds = %set_base_rel_sizes.exit, %set_base_rel_consider_startup.exit
@@ -228,7 +228,7 @@ set_base_rel_sizes.exit:                          ; preds = %54
   %99 = phi i32 [ %85, %90 ], [ %85, %84 ], [ %.pre.i29, %93 ]
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i26, 1
   %100 = zext i32 %99 to i64
-  %101 = icmp ult i64 %indvars.iv.next.i28, %100
+  %101 = icmp samesign ult i64 %indvars.iv.next.i28, %100
   br i1 %101, label %84, label %set_base_rel_pathlists.exit, !llvm.loop !8
 
 set_base_rel_pathlists.exit:                      ; preds = %98, %._crit_edge.thread, %._crit_edge

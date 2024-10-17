@@ -9287,7 +9287,7 @@ _ZNK10open_spiel7oh_hell11OhHellState12MaxNumTricksEv.exit68: ; preds = %156, %1
 
 _ZNK10open_spiel7oh_hell11OhHellState12MaxNumTricksEv.exit70: ; preds = %176
   %179 = zext nneg i32 %177 to i64
-  %180 = icmp ult i64 %indvars.iv158, %179
+  %180 = icmp samesign ult i64 %indvars.iv158, %179
   br i1 %180, label %189, label %_ZNK10open_spiel7oh_hell11OhHellState12MaxNumTricksEv.exit72.loopexit
 
 _ZNK10open_spiel7oh_hell11OhHellState12MaxNumTricksEv.exit70.thread: ; preds = %176

@@ -12,7 +12,7 @@ define range(i64 0, 4294967296) i64 @f32_to_ui32_r_minMag(i32 %0, i1 noundef zer
   %5 = and i64 %4, 255
   %6 = and i64 %3, 8388607
   %7 = sub nsw i64 158, %5
-  %8 = icmp ult i64 %5, 127
+  %8 = icmp samesign ult i64 %5, 127
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %2
@@ -29,8 +29,8 @@ define range(i64 0, 4294967296) i64 @f32_to_ui32_r_minMag(i32 %0, i1 noundef zer
 
 14:                                               ; preds = %2
   %15 = icmp slt i32 %0, 0
-  %16 = icmp ugt i64 %5, 158
-  %or.cond = or i1 %15, %16
+  %16 = icmp samesign ugt i64 %5, 158
+  %or.cond = select i1 %15, i1 true, i1 %16
   br i1 %or.cond, label %17, label %21
 
 17:                                               ; preds = %14

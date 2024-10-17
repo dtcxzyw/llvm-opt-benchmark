@@ -487,13 +487,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout__insert_new
   %12 = getelementptr inbounds [10 x i8], ptr %6, i64 0, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
-  %15 = icmp ult i64 %indvars.iv, 10
-  %16 = and i1 %15, %14
+  %15 = icmp samesign ult i64 %indvars.iv, 10
+  %16 = select i1 %14, i1 %15, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %16, label %11, label %17
 
 17:                                               ; preds = %11
-  %18 = icmp ugt i64 %indvars.iv, 9
+  %18 = icmp samesign ugt i64 %indvars.iv, 9
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %17

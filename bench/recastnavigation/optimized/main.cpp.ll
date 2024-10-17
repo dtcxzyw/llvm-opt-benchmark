@@ -846,7 +846,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %245 = mul nsw i32 %238, %238
   %246 = mul nsw i32 %239, %239
   %247 = add nuw nsw i32 %246, %245
-  %248 = icmp ugt i32 %247, 9
+  %248 = icmp samesign ugt i32 %247, 9
   %spec.select580 = select i1 %248, i1 true, i1 %.1499
   br label %.backedge1601
 
@@ -959,7 +959,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.13851009 = phi float [ %306, %312 ], [ %.1385.ph, %.preheader809 ]
   %.03881008 = phi i32 [ %313, %312 ], [ 0, %.preheader809 ]
   %306 = fadd float %.13851009, 0xBFA99999A0000000
-  %307 = icmp ult i32 %.03881008, 5
+  %307 = icmp samesign ult i32 %.03881008, 5
   %or.cond11 = select i1 %307, i1 %142, i1 false
   br i1 %or.cond11, label %308, label %312
 

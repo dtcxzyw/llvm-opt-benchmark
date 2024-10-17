@@ -3898,7 +3898,7 @@ define dso_local noundef zeroext i1 @_ZN4Json6Reader12decodeNumberERNS0_5TokenER
   %.not51 = icmp ne ptr %21, %19
   %or.cond53.not65 = select i1 %30, i1 true, i1 %.not51
   %31 = zext nneg i32 %28 to i64
-  %32 = icmp ult i64 %17, %31
+  %32 = icmp samesign ult i64 %17, %31
   %or.cond56 = select i1 %or.cond53.not65, i1 true, i1 %32
   br i1 %or.cond56, label %33, label %35
 
@@ -9357,7 +9357,7 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader12decodeNumberERNS0_5Toke
   %.not47 = icmp ne ptr %19, %17
   %or.cond49.not58 = select i1 %28, i1 true, i1 %.not47
   %29 = zext nneg i32 %26 to i64
-  %30 = icmp ult i64 %15, %29
+  %30 = icmp samesign ult i64 %15, %29
   %or.cond52 = select i1 %or.cond49.not58, i1 true, i1 %30
   br i1 %or.cond52, label %31, label %33
 
@@ -14490,8 +14490,8 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value8CZStringltERKS1_(ptr nocapt
 
 19:                                               ; preds = %10
   %.not8 = icmp eq i32 %17, 0
-  %20 = icmp ult i32 %11, %14
-  %spec.select = and i1 %20, %.not8
+  %20 = icmp samesign ult i32 %11, %14
+  %spec.select = select i1 %.not8, i1 %20, i1 false
   br label %21
 
 21:                                               ; preds = %19, %10, %6
@@ -15168,7 +15168,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5ValueltERKS0_(ptr nocapture nound
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %2
-  %10 = icmp ult i16 %5, %8
+  %10 = icmp samesign ult i16 %5, %8
   br label %_ZSt30__lexicographical_compare_implISt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES3_EES7_N9__gnu_cxx5__ops15_Iter_less_iterEEbT_SB_T0_SC_T1_.exit
 
 11:                                               ; preds = %2
@@ -15206,7 +15206,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5ValueltERKS0_(ptr nocapture nound
   %26 = and i8 %25, 1
   %27 = load i8, ptr %1, align 8
   %28 = and i8 %27, 1
-  %29 = icmp ult i8 %26, %28
+  %29 = icmp samesign ult i8 %26, %28
   br label %_ZSt30__lexicographical_compare_implISt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES3_EES7_N9__gnu_cxx5__ops15_Iter_less_iterEEbT_SB_T0_SC_T1_.exit
 
 30:                                               ; preds = %11
@@ -17369,8 +17369,8 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5Value
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i.i: ; preds = %60
   %.not8.i.i.i.i.i = icmp eq i32 %63, 0
-  %65 = icmp ult i32 %61, %52
-  %spec.select.i.i.i.i.i = and i1 %65, %.not8.i.i.i.i.i
+  %65 = icmp samesign ult i32 %61, %52
+  %spec.select.i.i.i.i.i = select i1 %.not8.i.i.i.i.i, i1 %65, i1 false
   br i1 %spec.select.i.i.i.i.i, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i.i, label %66
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i.i: ; preds = %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i.i, %60, %58
@@ -17610,8 +17610,8 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Json5Valu
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i: ; preds = %30
   %.not8.i.i.i.i = icmp eq i32 %33, 0
-  %35 = icmp ult i32 %31, %22
-  %spec.select.i.i.i.i = and i1 %35, %.not8.i.i.i.i
+  %35 = icmp samesign ult i32 %31, %22
+  %spec.select.i.i.i.i = select i1 %.not8.i.i.i.i, i1 %35, i1 false
   br i1 %spec.select.i.i.i.i, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i, label %36
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i: ; preds = %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i, %30, %28
@@ -17828,8 +17828,8 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5Value
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i.i: ; preds = %63
   %.not8.i.i.i.i.i = icmp eq i32 %66, 0
-  %68 = icmp ult i32 %64, %55
-  %spec.select.i.i.i.i.i = and i1 %68, %.not8.i.i.i.i.i
+  %68 = icmp samesign ult i32 %64, %55
+  %spec.select.i.i.i.i.i = select i1 %.not8.i.i.i.i.i, i1 %68, i1 false
   br i1 %spec.select.i.i.i.i.i, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i.i, label %69
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i.i: ; preds = %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i.i, %63, %61
@@ -18124,8 +18124,8 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5Value
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i.i: ; preds = %67
   %.not8.i.i.i.i.i = icmp eq i32 %70, 0
-  %72 = icmp ult i32 %68, %59
-  %spec.select.i.i.i.i.i = and i1 %72, %.not8.i.i.i.i.i
+  %72 = icmp samesign ult i32 %68, %59
+  %spec.select.i.i.i.i.i = select i1 %.not8.i.i.i.i.i, i1 %72, i1 false
   br i1 %spec.select.i.i.i.i.i, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i.i, label %73
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i.i: ; preds = %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i.i, %67, %65
@@ -18407,8 +18407,8 @@ define dso_local noundef ptr @_ZNK4Json5Value4findEPKcS2_(ptr nocapture noundef 
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i: ; preds = %36
   %.not8.i.i.i.i = icmp eq i32 %39, 0
-  %41 = icmp ult i32 %37, %28
-  %spec.select.i.i.i.i = and i1 %41, %.not8.i.i.i.i
+  %41 = icmp samesign ult i32 %37, %28
+  %spec.select.i.i.i.i = select i1 %.not8.i.i.i.i, i1 %41, i1 false
   br i1 %spec.select.i.i.i.i, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i, label %42
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i: ; preds = %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i, %36, %34
@@ -18450,8 +18450,8 @@ _ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessI
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i: ; preds = %50
   %.not8.i.i.i = icmp eq i32 %57, 0
-  %59 = icmp ult i32 %28, %54
-  %spec.select.i.i.i = and i1 %59, %.not8.i.i.i
+  %59 = icmp samesign ult i32 %28, %54
+  %spec.select.i.i.i = select i1 %.not8.i.i.i, i1 %59, i1 false
   br i1 %spec.select.i.i.i, label %_ZN4Json5Value8CZStringD2Ev.exit15, label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.exit
 
 _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.exit: ; preds = %46, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i
@@ -18618,8 +18618,8 @@ define dso_local noundef zeroext i1 @_ZN4Json5Value12removeMemberEPKcS2_PS0_(ptr
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i: ; preds = %27
   %.not8.i.i.i.i = icmp eq i32 %30, 0
-  %32 = icmp ult i32 %28, %19
-  %spec.select.i.i.i.i = and i1 %32, %.not8.i.i.i.i
+  %32 = icmp samesign ult i32 %28, %19
+  %spec.select.i.i.i.i = select i1 %.not8.i.i.i.i, i1 %32, i1 false
   br i1 %spec.select.i.i.i.i, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i, label %33
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i: ; preds = %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i, %27, %25
@@ -18661,8 +18661,8 @@ _ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessI
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i: ; preds = %41
   %.not8.i.i.i = icmp eq i32 %48, 0
-  %50 = icmp ult i32 %19, %45
-  %spec.select.i.i.i = and i1 %50, %.not8.i.i.i
+  %50 = icmp samesign ult i32 %19, %45
+  %spec.select.i.i.i = select i1 %.not8.i.i.i, i1 %50, i1 false
   br i1 %spec.select.i.i.i, label %_ZN4Json5Value8CZStringD2Ev.exit9, label %51
 
 51:                                               ; preds = %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i, %37
@@ -18873,8 +18873,8 @@ define dso_local noundef zeroext i1 @_ZN4Json5Value11removeIndexEjPS0_(ptr nocap
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i: ; preds = %23
   %.not8.i.i.i.i = icmp eq i32 %26, 0
-  %28 = icmp ult i32 %24, %15
-  %spec.select.i.i.i.i = and i1 %28, %.not8.i.i.i.i
+  %28 = icmp samesign ult i32 %24, %15
+  %spec.select.i.i.i.i = select i1 %.not8.i.i.i.i, i1 %28, i1 false
   br i1 %spec.select.i.i.i.i, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i, label %29
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i: ; preds = %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i, %23, %21
@@ -19078,8 +19078,8 @@ _ZN4Json5Value8CZStringD2Ev.exit:                 ; preds = %81, %96, %100
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i38: ; preds = %121
   %.not8.i.i.i.i39 = icmp eq i32 %124, 0
-  %126 = icmp ult i32 %122, %113
-  %spec.select.i.i.i.i40 = and i1 %126, %.not8.i.i.i.i39
+  %126 = icmp samesign ult i32 %122, %113
+  %spec.select.i.i.i.i40 = select i1 %.not8.i.i.i.i39, i1 %126, i1 false
   br i1 %spec.select.i.i.i.i40, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i52, label %127
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i52: ; preds = %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i38, %121, %119
@@ -19182,8 +19182,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i.i: ; preds = %19
   %.not8.i.i.i.i.i = icmp eq i32 %22, 0
-  %24 = icmp ult i32 %20, %10
-  %spec.select.i.i.i.i.i = and i1 %24, %.not8.i.i.i.i.i
+  %24 = icmp samesign ult i32 %20, %10
+  %spec.select.i.i.i.i.i = select i1 %.not8.i.i.i.i.i, i1 %24, i1 false
   br i1 %spec.select.i.i.i.i.i, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i.i, label %25
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i.i.i: ; preds = %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i.i.i, %19, %17
@@ -19225,8 +19225,8 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boun
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit: ; preds = %33
   %.not8.i.i = icmp eq i32 %40, 0
-  %42 = icmp ult i32 %10, %37
-  %spec.select.i.i = and i1 %42, %.not8.i.i
+  %42 = icmp samesign ult i32 %10, %37
+  %spec.select.i.i = select i1 %.not8.i.i, i1 %42, i1 false
   br i1 %spec.select.i.i, label %.critedge, label %44
 
 .critedge:                                        ; preds = %33, %2, %29, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boundERS6_.exit, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit
@@ -20549,7 +20549,7 @@ define dso_local void @_ZN4Json13valueToStringB5cxx11Ej(ptr dead_on_unwind noali
   %11 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   store i8 %10, ptr %11, align 1, !noalias !233
   %12 = udiv i64 %.0.i.i, 10
-  %.not.i.i = icmp ult i64 %.0.i.i, 10
+  %.not.i.i = icmp samesign ult i64 %.0.i.i, 10
   br i1 %.not.i.i, label %_ZN4JsonL12uintToStringEyRPc.exit.i, label %7, !llvm.loop !170
 
 _ZN4JsonL12uintToStringEyRPc.exit.i:              ; preds = %7
@@ -30071,7 +30071,7 @@ _ZNSt11_Deque_baseIN4Json6Reader9ErrorInfoESaIS2_EE16_M_allocate_nodeEv.exit: ; 
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
   %53 = tail call ptr @__cxa_begin_catch(ptr %52) #41
-  %54 = icmp ugt i64 %.01424, 1
+  %54 = icmp samesign ugt i64 %.01424, 1
   br i1 %54, label %.lr.ph27, label %._crit_edge28
 
 .lr.ph27:                                         ; preds = %50, %.lr.ph27
@@ -30530,7 +30530,7 @@ _ZNSt11_Deque_baseIN4Json9OurReader9ErrorInfoESaIS2_EE16_M_allocate_nodeEv.exit:
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
   %53 = tail call ptr @__cxa_begin_catch(ptr %52) #41
-  %54 = icmp ugt i64 %.01424, 1
+  %54 = icmp samesign ugt i64 %.01424, 1
   br i1 %54, label %.lr.ph27, label %._crit_edge28
 
 .lr.ph27:                                         ; preds = %50, %.lr.ph27
@@ -30605,8 +30605,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZStltIKN4Json5Value8CZStringE
 
 _ZNK4Json5Value8CZStringltERKS1_.exit:            ; preds = %10
   %.not8.i = icmp eq i32 %17, 0
-  %19 = icmp ult i32 %11, %14
-  %spec.select.i = and i1 %19, %.not8.i
+  %19 = icmp samesign ult i32 %11, %14
+  %spec.select.i = select i1 %.not8.i, i1 %19, i1 false
   br i1 %spec.select.i, label %_ZNK4Json5Value8CZStringltERKS1_.exit.thread, label %20
 
 20:                                               ; preds = %._crit_edge, %_ZNK4Json5Value8CZStringltERKS1_.exit
@@ -30630,8 +30630,8 @@ _ZNK4Json5Value8CZStringltERKS1_.exit:            ; preds = %10
 
 _ZNK4Json5Value8CZStringltERKS1_.exit11:          ; preds = %25
   %.not8.i8 = icmp eq i32 %29, 0
-  %31 = icmp ult i32 %26, %27
-  %spec.select.i9 = and i1 %31, %.not8.i8
+  %31 = icmp samesign ult i32 %26, %27
+  %spec.select.i9 = select i1 %.not8.i8, i1 %31, i1 false
   br i1 %spec.select.i9, label %_ZNK4Json5Value8CZStringltERKS1_.exit.thread, label %32
 
 32:                                               ; preds = %23, %_ZNK4Json5Value8CZStringltERKS1_.exit11
@@ -30691,8 +30691,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN4Json5Value8CZString
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit: ; preds = %16
   %.not8.i.i = icmp eq i32 %19, 0
-  %21 = icmp ult i32 %17, %7
-  %spec.select.i.i = and i1 %21, %.not8.i.i
+  %21 = icmp samesign ult i32 %17, %7
+  %spec.select.i.i = select i1 %.not8.i.i, i1 %21, i1 false
   br i1 %spec.select.i.i, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread, label %22
 
 22:                                               ; preds = %14, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit
@@ -30712,8 +30712,8 @@ _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit: ; preds = %16
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit29: ; preds = %25
   %.not8.i.i26 = icmp eq i32 %28, 0
-  %30 = icmp ult i32 %7, %26
-  %spec.select.i.i27 = and i1 %30, %.not8.i.i26
+  %30 = icmp samesign ult i32 %7, %26
+  %spec.select.i.i27 = select i1 %.not8.i.i26, i1 %30, i1 false
   br i1 %spec.select.i.i27, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread, label %31
 
 31:                                               ; preds = %23, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit29
@@ -30748,8 +30748,8 @@ _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit29: ; preds = %25
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i: ; preds = %42
   %.not8.i.i.i = icmp eq i32 %45, 0
-  %47 = icmp ult i32 %43, %7
-  %spec.select.i.i.i = and i1 %47, %.not8.i.i.i
+  %47 = icmp samesign ult i32 %43, %7
+  %spec.select.i.i.i = select i1 %.not8.i.i.i, i1 %47, i1 false
   br i1 %spec.select.i.i.i, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i, label %48
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i: ; preds = %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i, %42, %40
@@ -30800,8 +30800,8 @@ _ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessI
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i36: ; preds = %.lr.ph.split.i
   %.not8.i.i.i37 = icmp eq i32 %59, 0
-  %61 = icmp ult i32 %7, %56
-  %spec.select.i.i.i38 = and i1 %61, %.not8.i.i.i37
+  %61 = icmp samesign ult i32 %7, %56
+  %spec.select.i.i.i38 = select i1 %.not8.i.i.i37, i1 %61, i1 false
   %spec.select.i = select i1 %spec.select.i.i.i38, i64 16, i64 24
   %spec.select16.i = select i1 %spec.select.i.i.i38, ptr %.013.i33, ptr %.0812.i34
   br label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread.i39
@@ -30966,8 +30966,8 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairI
 
 33:                                               ; preds = %23
   %.not8.i.i.i.i = icmp eq i32 %31, 0
-  %34 = icmp ult i32 %25, %28
-  %spec.select.i.i.i.i = and i1 %34, %.not8.i.i.i.i
+  %34 = icmp samesign ult i32 %25, %28
+  %spec.select.i.i.i.i = select i1 %.not8.i.i.i.i, i1 %34, i1 false
   br label %.thread
 
 .thread:                                          ; preds = %12, %19, %23, %33
@@ -31054,8 +31054,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN4Json5Value8CZString
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit: ; preds = %20
   %.not8.i.i = icmp eq i32 %27, 0
-  %29 = icmp ult i32 %21, %24
-  %spec.select.i.i = and i1 %29, %.not8.i.i
+  %29 = icmp samesign ult i32 %21, %24
+  %spec.select.i.i = select i1 %.not8.i.i, i1 %29, i1 false
   br i1 %spec.select.i.i, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread, label %30
 
 30:                                               ; preds = %16, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit, %6
@@ -31096,8 +31096,8 @@ _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit: ; preds = %20
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit15: ; preds = %43
   %.not8.i.i12 = icmp eq i32 %50, 0
-  %52 = icmp ult i32 %44, %47
-  %spec.select.i.i13 = and i1 %52, %.not8.i.i12
+  %52 = icmp samesign ult i32 %44, %47
+  %spec.select.i.i13 = select i1 %.not8.i.i12, i1 %52, i1 false
   br i1 %spec.select.i.i13, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit15.thread, label %78
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit15.thread: ; preds = %43, %39, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit15
@@ -31130,8 +31130,8 @@ _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit15.thread: ; preds = %43, %39
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit21: ; preds = %64
   %.not8.i.i18 = icmp eq i32 %68, 0
-  %70 = icmp ult i32 %65, %66
-  %spec.select.i.i19 = and i1 %70, %.not8.i.i18
+  %70 = icmp samesign ult i32 %65, %66
+  %spec.select.i.i19 = select i1 %.not8.i.i18, i1 %70, i1 false
   br i1 %spec.select.i.i19, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit21.thread, label %74
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit21.thread: ; preds = %64, %62, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit21
@@ -31169,8 +31169,8 @@ _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit21.thread: ; preds = %64, %62
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit27: ; preds = %83
   %.not8.i.i24 = icmp eq i32 %87, 0
-  %89 = icmp ult i32 %84, %85
-  %spec.select.i.i25 = and i1 %89, %.not8.i.i24
+  %89 = icmp samesign ult i32 %84, %85
+  %spec.select.i.i25 = select i1 %.not8.i.i24, i1 %89, i1 false
   br i1 %spec.select.i.i25, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit27.thread, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.thread
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit27.thread: ; preds = %83, %81, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit27
@@ -31204,8 +31204,8 @@ _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit27.thread: ; preds = %83, %81
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit33: ; preds = %99
   %.not8.i.i30 = icmp eq i32 %107, 0
-  %109 = icmp ult i32 %101, %104
-  %spec.select.i.i31 = and i1 %109, %.not8.i.i30
+  %109 = icmp samesign ult i32 %101, %104
+  %spec.select.i.i31 = select i1 %.not8.i.i30, i1 %109, i1 false
   br i1 %spec.select.i.i31, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit33.thread, label %113
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit33.thread: ; preds = %99, %95, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit33
@@ -31369,8 +31369,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN4Json5Value8CZString
   %18 = tail call i32 @memcmp(ptr noundef nonnull %5, ptr noundef %16, i64 noundef %17) #46
   %19 = icmp slt i32 %18, 0
   %.not8.i.i = icmp eq i32 %18, 0
-  %20 = icmp ult i32 %8, %15
-  %spec.select.i.i = and i1 %20, %.not8.i.i
+  %20 = icmp samesign ult i32 %8, %15
+  %spec.select.i.i = select i1 %.not8.i.i, i1 %20, i1 false
   %21 = select i1 %19, i1 true, i1 %spec.select.i.i
   %.sink = select i1 %21, i64 16, i64 24
   %22 = getelementptr inbounds i8, ptr %.02634, i64 %.sink
@@ -31428,8 +31428,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN4Json5Value8CZString
 
 _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit10: ; preds = %37
   %.not8.i.i7 = icmp eq i32 %44, 0
-  %46 = icmp ult i32 %38, %41
-  %spec.select.i.i8 = and i1 %46, %.not8.i.i7
+  %46 = icmp samesign ult i32 %38, %41
+  %spec.select.i.i8 = select i1 %.not8.i.i7, i1 %46, i1 false
   br i1 %spec.select.i.i8, label %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit10.thread, label %47
 
 47:                                               ; preds = %33, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit10
@@ -31536,8 +31536,8 @@ common.resume:                                    ; preds = %15, %58
 
 52:                                               ; preds = %42
   %.not8.i.i.i.i = icmp eq i32 %50, 0
-  %53 = icmp ult i32 %44, %47
-  %spec.select.i.i.i.i = and i1 %53, %.not8.i.i.i.i
+  %53 = icmp samesign ult i32 %44, %47
+  %spec.select.i.i.i.i = select i1 %.not8.i.i.i.i, i1 %53, i1 false
   br label %.thread
 
 .thread:                                          ; preds = %31, %38, %42, %52

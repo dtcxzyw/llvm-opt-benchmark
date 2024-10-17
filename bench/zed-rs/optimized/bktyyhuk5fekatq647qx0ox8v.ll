@@ -17836,7 +17836,7 @@ define void @"_ZN60_$LT$proto..InlayHint$u20$as$u20$prost..message..Message$GT$5
   store i64 2, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8, !range !269, !alias.scope !3137, !noundef !4
-  %switch.not.i = icmp ult i64 %3, 2
+  %switch.not.i = icmp samesign ult i64 %3, 2
   br i1 %switch.not.i, label %4, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..InlayHintLabel$GT$$GT$17hb52301609496948cE.exit"
 
 4:                                                ; preds = %1

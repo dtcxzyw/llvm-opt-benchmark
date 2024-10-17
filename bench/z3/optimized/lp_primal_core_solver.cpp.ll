@@ -2606,7 +2606,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i32 = phi i64 [ %22, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i32
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i32
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE4sizeEv.exit
@@ -5924,7 +5924,7 @@ if.end.i5:                                        ; preds = %for.cond
 
 _ZNK6vectorIjLb1EjE4sizeEv.exit8:                 ; preds = %for.cond, %if.end.i5
   %retval.0.i7 = phi i64 [ %11, %if.end.i5 ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i7
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i7
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIjLb1EjE4sizeEv.exit8
@@ -8016,7 +8016,7 @@ lpad9:                                            ; preds = %invoke.cont
 for.inc:                                          ; preds = %if.end.i51, %_ZN6vectorIjLb1EjE9push_backERKj.exit, %_ZN8rationalD2Ev.exit44
   %row_min_nz.1 = phi i32 [ %row_min_nz.0251, %_ZN8rationalD2Ev.exit44 ], [ %36, %if.end.i51 ], [ 0, %_ZN6vectorIjLb1EjE9push_backERKj.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv.next, %8
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %8
   %39 = load i8, ptr %unlimited, align 1
   %tobool = trunc i8 %39 to i1
   %40 = select i1 %cmp, i1 %tobool, i1 false
@@ -12143,7 +12143,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i32 = phi i64 [ %15, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i32
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i32
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE4sizeEv.exit
@@ -14446,7 +14446,7 @@ if.end.i5:                                        ; preds = %for.cond
 
 _ZNK6vectorIjLb1EjE4sizeEv.exit8:                 ; preds = %for.cond, %if.end.i5
   %retval.0.i7 = phi i64 [ %11, %if.end.i5 ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i7
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i7
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIjLb1EjE4sizeEv.exit8
@@ -16273,7 +16273,7 @@ ehcleanup:                                        ; preds = %lpad9, %lpad
 for.inc:                                          ; preds = %if.end.i51, %_ZN6vectorIjLb1EjE9push_backERKj.exit, %_ZN8rationalD2Ev.exit44
   %row_min_nz.1 = phi i32 [ %row_min_nz.0176, %_ZN8rationalD2Ev.exit44 ], [ %36, %if.end.i51 ], [ 0, %_ZN6vectorIjLb1EjE9push_backERKj.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv.next, %8
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %8
   %39 = load i8, ptr %unlimited, align 1
   %tobool = trunc i8 %39 to i1
   %40 = select i1 %cmp, i1 %tobool, i1 false

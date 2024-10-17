@@ -2013,7 +2013,7 @@ define void @get_CDR_fixed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   store i8 %73, ptr %76, align 1
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %.4 = add i32 %.4115, 1
-  %77 = icmp ult i64 %indvars.iv.next146, %71
+  %77 = icmp samesign ult i64 %indvars.iv.next146, %71
   br i1 %77, label %.lr.ph117, label %._crit_edge118, !llvm.loop !12
 
 ._crit_edge118:                                   ; preds = %.lr.ph117, %._crit_edge111
@@ -2027,7 +2027,7 @@ define void @get_CDR_fixed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 .lr.ph106:                                        ; preds = %.lr.ph106.preheader, %85
   %indvars.iv130 = phi i64 [ 1, %.lr.ph106.preheader ], [ %indvars.iv.next131, %85 ]
   %indvars.iv128 = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next129, %85 ]
-  %81 = icmp ult i64 %indvars.iv128, %59
+  %81 = icmp samesign ult i64 %indvars.iv128, %59
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %.lr.ph106
@@ -2890,8 +2890,8 @@ giop_getline.exit.i:                              ; preds = %string_to_IOR.exit.
   %21 = and i64 %17, 2147483647
   %22 = tail call noalias ptr @wmem_alloc0(ptr noundef null, i64 noundef %21) #14
   %23 = icmp ne ptr %22, null
-  %24 = icmp ugt i32 %18, 5
-  %or.cond.i.i = and i1 %24, %23
+  %24 = icmp samesign ugt i32 %18, 5
+  %or.cond.i.i = select i1 %23, i1 %24, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %string_to_IOR.exit.thread.i
 
 .lr.ph.i.i:                                       ; preds = %20
@@ -2954,7 +2954,7 @@ giop_getline.exit.i:                              ; preds = %string_to_IOR.exit.
   %60 = getelementptr i8, ptr %22, i64 %59
   store i8 %57, ptr %60, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
-  %61 = icmp ult i64 %indvars.iv.next.i.i, %26
+  %61 = icmp samesign ult i64 %indvars.iv.next.i.i, %26
   br i1 %61, label %28, label %string_to_IOR.exit.i, !llvm.loop !15
 
 ._crit_edge.loopexit.split.loop.exit.i.i:         ; preds = %28

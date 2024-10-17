@@ -3494,7 +3494,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit247
   %244 = lshr i64 %1, 15
   %245 = and i64 %244, 31
-  %246 = icmp ugt i64 %245, 15
+  %246 = icmp samesign ugt i64 %245, 15
   %247 = getelementptr inbounds i8, ptr %0, i64 120
   %248 = getelementptr inbounds [32 x i64], ptr %247, i64 0, i64 %245
   %249 = zext i64 %16 to i128
@@ -4270,7 +4270,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit247
   %244 = lshr i64 %1, 15
   %245 = and i64 %244, 31
-  %246 = icmp ugt i64 %245, 15
+  %246 = icmp samesign ugt i64 %245, 15
   %247 = getelementptr inbounds i8, ptr %0, i64 120
   %248 = getelementptr inbounds [32 x i64], ptr %247, i64 0, i64 %245
   %249 = zext i64 %16 to i128
@@ -5044,7 +5044,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit247
   %244 = lshr i64 %1, 15
   %245 = and i64 %244, 31
-  %246 = icmp ugt i64 %245, 15
+  %246 = icmp samesign ugt i64 %245, 15
   %247 = getelementptr inbounds i8, ptr %0, i64 120
   %248 = getelementptr inbounds [32 x i64], ptr %247, i64 0, i64 %245
   %249 = zext i64 %16 to i128
@@ -5820,7 +5820,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit247
   %244 = lshr i64 %1, 15
   %245 = and i64 %244, 31
-  %246 = icmp ugt i64 %245, 15
+  %246 = icmp samesign ugt i64 %245, 15
   %247 = getelementptr inbounds i8, ptr %0, i64 120
   %248 = getelementptr inbounds [32 x i64], ptr %247, i64 0, i64 %245
   %249 = zext i64 %16 to i128

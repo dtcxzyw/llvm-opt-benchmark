@@ -575,12 +575,12 @@ aom_rb_read_primitive_subexpfin.exit.i:           ; preds = %aom_rb_read_literal
   %.0.i.i = phi i16 [ %78, %aom_rb_read_primitive_quniform.exit.i.i ], [ %127, %aom_rb_read_literal.exit.i.i ]
   %134 = zext i16 %6 to i32
   %135 = shl nuw nsw i32 %134, 1
-  %.not.i.i = icmp ugt i32 %135, %10
+  %.not.i.i = icmp samesign ugt i32 %135, %10
   br i1 %.not.i.i, label %150, label %136
 
 136:                                              ; preds = %aom_rb_read_primitive_subexpfin.exit.i
   %137 = zext i16 %.0.i.i to i32
-  %138 = icmp ult i32 %135, %137
+  %138 = icmp samesign ult i32 %135, %137
   br i1 %138, label %aom_rb_read_primitive_refsubexpfin.exit, label %139
 
 139:                                              ; preds = %136
@@ -606,7 +606,7 @@ aom_rb_read_primitive_subexpfin.exit.i:           ; preds = %aom_rb_read_literal
   %153 = zext i16 %.0.i.i to i32
   %154 = zext i16 %152 to i32
   %155 = shl nuw nsw i32 %154, 1
-  %156 = icmp ult i32 %155, %153
+  %156 = icmp samesign ult i32 %155, %153
   br i1 %156, label %inv_recenter_nonneg.exit11.i.i, label %157
 
 157:                                              ; preds = %150

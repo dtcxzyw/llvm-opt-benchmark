@@ -995,7 +995,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_amocas_wP1
   %13 = load ptr, ptr %12, align 8
   %14 = lshr i64 %1, 15
   %15 = and i64 %14, 31
-  %16 = icmp ugt i64 %15, 15
+  %16 = icmp samesign ugt i64 %15, 15
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %11
@@ -1016,7 +1016,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_amocas_wP1
   %25 = load i64, ptr %24, align 8
   %26 = lshr i64 %1, 7
   %27 = and i64 %26, 31
-  %28 = icmp ugt i64 %27, 15
+  %28 = icmp samesign ugt i64 %27, 15
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %22
@@ -1035,7 +1035,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_amocas_wP1
   %35 = getelementptr inbounds [32 x i64], ptr %23, i64 0, i64 %27
   %36 = lshr i64 %1, 20
   %37 = and i64 %36, 31
-  %38 = icmp ugt i64 %37, 15
+  %38 = icmp samesign ugt i64 %37, 15
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %34
@@ -1097,7 +1097,7 @@ define noundef i64 @_Z19fast_rv64e_amocas_wP11processor_t6insn_tm(ptr nocapture 
   %13 = load ptr, ptr %12, align 8
   %14 = lshr i64 %1, 15
   %15 = and i64 %14, 31
-  %16 = icmp ugt i64 %15, 15
+  %16 = icmp samesign ugt i64 %15, 15
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %11
@@ -1118,7 +1118,7 @@ define noundef i64 @_Z19fast_rv64e_amocas_wP11processor_t6insn_tm(ptr nocapture 
   %25 = load i64, ptr %24, align 8
   %26 = lshr i64 %1, 7
   %27 = and i64 %26, 31
-  %28 = icmp ugt i64 %27, 15
+  %28 = icmp samesign ugt i64 %27, 15
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %22
@@ -1137,7 +1137,7 @@ define noundef i64 @_Z19fast_rv64e_amocas_wP11processor_t6insn_tm(ptr nocapture 
   %35 = getelementptr inbounds [32 x i64], ptr %23, i64 0, i64 %27
   %36 = lshr i64 %1, 20
   %37 = and i64 %36, 31
-  %38 = icmp ugt i64 %37, 15
+  %38 = icmp samesign ugt i64 %37, 15
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %34
@@ -1197,7 +1197,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_amocas_w
   %13 = load ptr, ptr %12, align 8
   %14 = lshr i64 %1, 15
   %15 = and i64 %14, 31
-  %16 = icmp ugt i64 %15, 15
+  %16 = icmp samesign ugt i64 %15, 15
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %11
@@ -1218,7 +1218,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_amocas_w
   %25 = load i64, ptr %24, align 8
   %26 = lshr i64 %1, 7
   %27 = and i64 %26, 31
-  %28 = icmp ugt i64 %27, 15
+  %28 = icmp samesign ugt i64 %27, 15
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %22
@@ -1237,7 +1237,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_amocas_w
   %35 = getelementptr inbounds [32 x i64], ptr %23, i64 0, i64 %27
   %36 = lshr i64 %1, 20
   %37 = and i64 %36, 31
-  %38 = icmp ugt i64 %37, 15
+  %38 = icmp samesign ugt i64 %37, 15
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %34
@@ -1356,7 +1356,7 @@ define noundef i64 @_Z21logged_rv64e_amocas_wP11processor_t6insn_tm(ptr noundef 
   %13 = load ptr, ptr %12, align 8
   %14 = lshr i64 %1, 15
   %15 = and i64 %14, 31
-  %16 = icmp ugt i64 %15, 15
+  %16 = icmp samesign ugt i64 %15, 15
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %11
@@ -1377,7 +1377,7 @@ define noundef i64 @_Z21logged_rv64e_amocas_wP11processor_t6insn_tm(ptr noundef 
   %25 = load i64, ptr %24, align 8
   %26 = lshr i64 %1, 7
   %27 = and i64 %26, 31
-  %28 = icmp ugt i64 %27, 15
+  %28 = icmp samesign ugt i64 %27, 15
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %22
@@ -1396,7 +1396,7 @@ define noundef i64 @_Z21logged_rv64e_amocas_wP11processor_t6insn_tm(ptr noundef 
   %35 = getelementptr inbounds [32 x i64], ptr %23, i64 0, i64 %27
   %36 = lshr i64 %1, 20
   %37 = and i64 %36, 31
-  %38 = icmp ugt i64 %37, 15
+  %38 = icmp samesign ugt i64 %37, 15
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %34

@@ -413,7 +413,7 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %44 = load i8, ptr %10, align 8
   %45 = zext i8 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next86, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next86, %45
   br i1 %46, label %.lr.ph63, label %._crit_edge64, !llvm.loop !8
 
 ._crit_edge64:                                    ; preds = %.lr.ph63, %.preheader
@@ -473,7 +473,7 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = load i8, ptr %10, align 8
   %74 = zext i8 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next, %74
   br i1 %75, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader44
@@ -558,7 +558,7 @@ define dso_local void @_ZN8TGAImage15flip_verticallyEv(ptr nocapture noundef non
   %32 = add nuw nsw i32 %.017.us, 1
   %33 = load i8, ptr %8, align 8
   %34 = zext i8 %33 to i32
-  %35 = icmp ult i32 %32, %34
+  %35 = icmp samesign ult i32 %32, %34
   br i1 %35, label %12, label %._crit_edge.us, !llvm.loop !13
 
 .preheader.us:                                    ; preds = %.preheader16.us, %._crit_edge.us
@@ -645,7 +645,7 @@ define dso_local void @_ZN8TGAImage17flip_horizontallyEv(ptr nocapture noundef n
   %34 = add nuw nsw i32 %.017, 1
   %35 = load i8, ptr %6, align 8
   %36 = zext i8 %35 to i32
-  %37 = icmp ult i32 %34, %36
+  %37 = icmp samesign ult i32 %34, %36
   br i1 %37, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -913,7 +913,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %28 = load i8, ptr %gep.us, align 1
   %29 = icmp eq i8 %27, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = icmp ult i64 %indvars.iv.next, %17
+  %30 = icmp samesign ult i64 %indvars.iv.next, %17
   %or.cond.us = select i1 %29, i1 %30, i1 false
   br i1 %or.cond.us, label %24, label %..critedge_crit_edge.us, !llvm.loop !20
 

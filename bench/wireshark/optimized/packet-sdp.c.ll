@@ -1265,7 +1265,7 @@ define internal fastcc void @complete_descriptions(ptr nocapture noundef readonl
   %indvars.iv.in = phi i64 [ %13, %.lr.ph80.preheader ], [ %indvars.iv, %.loopexit76 ]
   %indvars.iv = add nuw nsw i64 %indvars.iv.in, 1
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %15 = icmp ult i64 %indvars.iv.next97, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next97, %14
   br i1 %15, label %.lr.ph, label %.lr.ph88
 
 .lr.ph:                                           ; preds = %.lr.ph80
@@ -1281,7 +1281,7 @@ define internal fastcc void @complete_descriptions(ptr nocapture noundef readonl
   %22 = icmp eq i16 %18, %21
   %spec.select = select i1 %22, ptr %16, ptr null
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %23 = icmp ult i64 %indvars.iv.next94, %14
+  %23 = icmp samesign ult i64 %indvars.iv.next94, %14
   %.not74 = icmp eq ptr %spec.select, null
   %24 = select i1 %23, i1 %.not74, i1 false
   br i1 %24, label %19, label %.loopexit76, !llvm.loop !10

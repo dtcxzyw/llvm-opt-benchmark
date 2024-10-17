@@ -166,7 +166,7 @@ define dso_local range(i32 -22, 65536) i32 @ip6_find_1stfragopt(ptr nocapture no
   %24 = phi i32 [ 0, %21 ], [ 1, %20 ], [ %17, %.lr.ph ]
   %25 = zext i32 %18 to i64
   %26 = add nuw nsw i64 %25, 2
-  %27 = icmp ugt i64 %26, %14
+  %27 = icmp samesign ugt i64 %26, %14
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %23

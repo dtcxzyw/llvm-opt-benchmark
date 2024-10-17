@@ -1546,7 +1546,7 @@ if.end8.us:                                       ; preds = %if.end.us
 if.end18.us:                                      ; preds = %if.end8.us
   %and.i99.us = and i32 %3, 63
   %shr.us = lshr exact i32 %sub.us, 6
-  %cmp21.not.us = icmp ugt i32 %shr.us, %and.i99.us
+  %cmp21.not.us = icmp samesign ugt i32 %shr.us, %and.i99.us
   br i1 %cmp21.not.us, label %if.else.us, label %if.end29.us
 
 if.else.us:                                       ; preds = %if.end18.us
@@ -1606,7 +1606,7 @@ if.then16:                                        ; preds = %if.end8
 if.end18:                                         ; preds = %if.end8
   %and.i99 = and i32 %9, 63
   %shr = lshr exact i32 %sub, 6
-  %cmp21.not = icmp ugt i32 %shr, %and.i99
+  %cmp21.not = icmp samesign ugt i32 %shr, %and.i99
   br i1 %cmp21.not, label %if.else, label %if.end29
 
 if.else:                                          ; preds = %if.end18

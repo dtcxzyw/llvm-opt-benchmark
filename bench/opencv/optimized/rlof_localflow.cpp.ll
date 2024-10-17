@@ -2768,7 +2768,7 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit.i:           ; preds = %.noexc263, %.noexc2
   %592 = getelementptr inbounds i8, ptr %587, i64 %591
   %593 = mul i64 %589, %indvars.iv138.i
   %594 = getelementptr inbounds i8, ptr %587, i64 %593
-  %595 = icmp ult i64 %indvars.iv138.i, %583
+  %595 = icmp samesign ult i64 %indvars.iv138.i, %583
   %indvars.iv.next139.i = add nuw nsw i64 %indvars.iv138.i, 1
   %596 = trunc nuw nsw i64 %indvars.iv.next139.i to i32
   %597 = select i1 %595, i32 %596, i32 %573
@@ -3091,7 +3091,7 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit.i:           ; preds = %.noexc263, %.noexc2
   %755 = getelementptr inbounds i8, ptr %754, i64 %indvars.iv.i268
   store i8 -1, ptr %755, align 1
   %indvars.iv.next.i269 = add nuw nsw i64 %indvars.iv.i268, 1
-  %.not56.not.i = icmp ult i64 %indvars.iv.i268, %748
+  %.not56.not.i = icmp samesign ult i64 %indvars.iv.i268, %748
   br i1 %.not56.not.i, label %749, label %._crit_edge.i270, !llvm.loop !32
 
 756:                                              ; preds = %._crit_edge79.i
@@ -5765,7 +5765,7 @@ define linkonce_odr hidden void @_ZNK2cv7optflow3plk6radial14TrackerInvokerclERK
   %49 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %49, ptr %11, align 8
   %50 = getelementptr inbounds i8, ptr %11, i64 8
-  %.not.i.i = icmp ugt i32 %47, 520
+  %.not.i.i = icmp samesign ugt i32 %47, 520
   store i64 %48, ptr %50, align 8
   br i1 %.not.i.i, label %51, label %_ZN2cv10AutoBufferIsLm520EEC2Em.exit
 
@@ -7624,7 +7624,7 @@ define linkonce_odr hidden void @_ZNK2cv7optflow5beplk6radial14TrackerInvokerclE
   %68 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %68, ptr %8, align 8
   %69 = getelementptr inbounds i8, ptr %8, i64 8
-  %.not.i.i = icmp ugt i32 %66, 520
+  %.not.i.i = icmp samesign ugt i32 %66, 520
   store i64 %67, ptr %69, align 8
   br i1 %.not.i.i, label %70, label %_ZN2cv10AutoBufferIsLm520EEC2Em.exit
 
@@ -14244,7 +14244,7 @@ define linkonce_odr hidden void @_ZNK2cv7optflow6berlof6radial14TrackerInvokercl
   %70 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %70, ptr %8, align 8
   %71 = getelementptr inbounds i8, ptr %8, i64 8
-  %.not.i.i = icmp ugt i32 %68, 520
+  %.not.i.i = icmp samesign ugt i32 %68, 520
   store i64 %69, ptr %71, align 8
   br i1 %.not.i.i, label %72, label %_ZN2cv10AutoBufferIsLm520EEC2Em.exit
 
@@ -17450,7 +17450,7 @@ define linkonce_odr hidden void @_ZNK2cv7optflow6berlof3ica14TrackerInvokerclERK
   %54 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %54, ptr %8, align 8
   %55 = getelementptr inbounds i8, ptr %8, i64 8
-  %.not.i.i = icmp ugt i32 %52, 520
+  %.not.i.i = icmp samesign ugt i32 %52, 520
   store i64 %53, ptr %55, align 8
   br i1 %.not.i.i, label %56, label %_ZN2cv10AutoBufferIsLm520EEC2Em.exit
 

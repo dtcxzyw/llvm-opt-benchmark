@@ -2456,7 +2456,7 @@ dissect_rtcp_sdes.exit:                           ; preds = %353, %288
 
 ._crit_edge.i373:                                 ; preds = %.lr.ph.i371, %357
   %.040.lcssa.i = phi i32 [ %368, %357 ], [ %371, %.lr.ph.i371 ]
-  %373 = icmp ult i32 %185, %106
+  %373 = icmp samesign ult i32 %185, %106
   br i1 %373, label %374, label %383
 
 374:                                              ; preds = %._crit_edge.i373
@@ -4178,7 +4178,7 @@ validate_xr_block_length.exit.i:                  ; preds = %.sink.split.i.i390,
 1365:                                             ; preds = %1194
   %1366 = udiv i32 %.0471.i, 12
   %1367 = urem i32 %.0471.i, 12
-  %.not514.i = icmp ult i32 %.0471.i, 12
+  %.not514.i = icmp samesign ult i32 %.0471.i, 12
   br i1 %.not514.i, label %._crit_edge.i388, label %.lr.ph506.i
 
 .lr.ph506.i:                                      ; preds = %1365, %.lr.ph506.i
@@ -4215,7 +4215,7 @@ validate_xr_block_length.exit.i:                  ; preds = %.sink.split.i.i390,
   %1389 = load i32, ptr @hf_rtcp_xr_endseq, align 4
   %1390 = call ptr @proto_tree_add_item(ptr noundef %1198, i32 noundef %1389, ptr noundef %0, i32 noundef %1388, i32 noundef 2, i32 noundef 0) #7
   %1391 = add i32 %.0467510.i, 12
-  %1392 = icmp ugt i32 %.0471.i, 8
+  %1392 = icmp samesign ugt i32 %.0471.i, 8
   br i1 %1392, label %.lr.ph502.i, label %.loopexit.i
 
 .lr.ph502.i:                                      ; preds = %1381
@@ -4255,7 +4255,7 @@ validate_xr_block_length.exit.i:                  ; preds = %.sink.split.i.i390,
   %1418 = add i32 %.0467510.i, 12
   %1419 = load i32, ptr @ett_xr_loss_chunk, align 4
   %1420 = call ptr @proto_tree_add_subtree(ptr noundef %1198, ptr noundef %0, i32 noundef %1418, i32 noundef %.0471.i, i32 noundef %1419, ptr noundef null, ptr noundef nonnull @.str.926) #7
-  %1421 = icmp ugt i32 %.0471.i, 8
+  %1421 = icmp samesign ugt i32 %.0471.i, 8
   br i1 %1421, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %1409
@@ -5107,7 +5107,7 @@ dissect_rtcp_rtpfb_nack.exit.us.i:                ; preds = %1719, %.loopexit.us
   %indvars.iv.next279.i.us.i = add nuw nsw i64 %indvars.iv278.i.us.i, 1
   %1922 = load i32, ptr %7, align 4
   %1923 = zext i32 %1922 to i64
-  %1924 = icmp ult i64 %indvars.iv.next279.i.us.i, %1923
+  %1924 = icmp samesign ult i64 %indvars.iv.next279.i.us.i, %1923
   br i1 %1924, label %.lr.ph257.i.us.i, label %._crit_edge258.i.us.i, !llvm.loop !30
 
 ._crit_edge258.i.us.i:                            ; preds = %1920, %.lr.ph257.i.us.i, %._crit_edge.i.us.i

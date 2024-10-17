@@ -2314,7 +2314,7 @@ if.end5.i.i:                                      ; preds = %lor.lhs.false.i39
   %extpri.i.i = getelementptr inbounds i8, ptr %call.i, i64 220
   %7 = load i8, ptr %extpri.i.i, align 4
   %8 = and i8 %7, 127
-  %cmp8.i.i = icmp ult i8 %8, 8
+  %cmp8.i.i = icmp samesign ult i8 %8, 8
   br i1 %cmp8.i.i, label %session_ob_data_remove.exit.i, label %if.else11.i.i
 
 if.else11.i.i:                                    ; preds = %if.end5.i.i
@@ -2521,7 +2521,7 @@ if.end5.i:                                        ; preds = %lor.lhs.false
   %extpri.i = getelementptr inbounds i8, ptr %stream, i64 220
   %3 = load i8, ptr %extpri.i, align 4
   %4 = and i8 %3, 127
-  %cmp8.i = icmp ult i8 %4, 8
+  %cmp8.i = icmp samesign ult i8 %4, 8
   br i1 %cmp8.i, label %session_ob_data_remove.exit, label %if.else11.i
 
 if.else11.i:                                      ; preds = %if.end5.i
@@ -3279,7 +3279,7 @@ if.end5.i.i.i:                                    ; preds = %lor.lhs.false.i191.
   %extpri.i.i.i = getelementptr inbounds i8, ptr %call.i188.i, i64 220
   %22 = load i8, ptr %extpri.i.i.i, align 4
   %23 = and i8 %22, 127
-  %cmp8.i.i.i = icmp ult i8 %23, 8
+  %cmp8.i.i.i = icmp samesign ult i8 %23, 8
   br i1 %cmp8.i.i.i, label %session_ob_data_remove.exit.i.i, label %if.else11.i.i.i
 
 if.else11.i.i.i:                                  ; preds = %if.end5.i.i.i
@@ -3932,7 +3932,7 @@ land.lhs.true:                                    ; preds = %if.then20
   br i1 %tobool26.not, label %if.end45, label %land.lhs.true27
 
 land.lhs.true27:                                  ; preds = %land.lhs.true
-  %106 = icmp ult i32 %retval.0.i173206, -899
+  %106 = icmp samesign ult i32 %retval.0.i173206, -899
   %cmp35.not = icmp eq i8 %104, 8
   %or.cond = or i1 %106, %cmp35.not
   br i1 %or.cond, label %if.end45, label %land.lhs.true37
@@ -4256,7 +4256,7 @@ if.end5.i.i157:                                   ; preds = %lor.lhs.false.i156
   %extpri.i.i = getelementptr inbounds i8, ptr %call.i140, i64 220
   %152 = load i8, ptr %extpri.i.i, align 4
   %153 = and i8 %152, 127
-  %cmp8.i.i = icmp ult i8 %153, 8
+  %cmp8.i.i = icmp samesign ult i8 %153, 8
   br i1 %cmp8.i.i, label %session_ob_data_remove.exit.i, label %if.else11.i.i
 
 if.else11.i.i:                                    ; preds = %if.end5.i.i157
@@ -4435,7 +4435,7 @@ if.end5.i.i:                                      ; preds = %lor.lhs.false.i122
   %extpri.i.i = getelementptr inbounds i8, ptr %call.i, i64 220
   %16 = load i8, ptr %extpri.i.i, align 4
   %17 = and i8 %16, 127
-  %cmp8.i.i = icmp ult i8 %17, 8
+  %cmp8.i.i = icmp samesign ult i8 %17, 8
   br i1 %cmp8.i.i, label %session_ob_data_remove.exit.i, label %if.else11.i.i
 
 if.else11.i.i:                                    ; preds = %if.end5.i.i
@@ -8659,7 +8659,7 @@ if.else4.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.end.i
   %4 = and i8 %0, 127
-  %cmp8.i = icmp ult i8 %4, 8
+  %cmp8.i = icmp samesign ult i8 %4, 8
   br i1 %cmp8.i, label %session_ob_data_remove.exit, label %if.else11.i
 
 if.else11.i:                                      ; preds = %if.end5.i
@@ -13035,7 +13035,7 @@ if.end3.i:                                        ; preds = %if.end.i74
   %extpri.i.i = getelementptr inbounds i8, ptr %stream, i64 220
   %39 = load i8, ptr %extpri.i.i, align 4
   %40 = and i8 %39, 127
-  %cmp5.i.i = icmp ult i8 %40, 8
+  %cmp5.i.i = icmp samesign ult i8 %40, 8
   br i1 %cmp5.i.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end3.i
@@ -14251,7 +14251,7 @@ if.end5:                                          ; preds = %if.end
   %extpri = getelementptr inbounds i8, ptr %stream, i64 220
   %3 = load i8, ptr %extpri, align 4
   %4 = and i8 %3, 127
-  %cmp13 = icmp ult i8 %4, 8
+  %cmp13 = icmp samesign ult i8 %4, 8
   br i1 %cmp13, label %if.end17, label %if.else16
 
 if.else16:                                        ; preds = %if.end5
@@ -14449,7 +14449,7 @@ if.end5.i.i:                                      ; preds = %lor.lhs.false.i30
   %extpri.i.i = getelementptr inbounds i8, ptr %call.i, i64 220
   %24 = load i8, ptr %extpri.i.i, align 4
   %25 = and i8 %24, 127
-  %cmp8.i.i = icmp ult i8 %25, 8
+  %cmp8.i.i = icmp samesign ult i8 %25, 8
   br i1 %cmp8.i.i, label %session_ob_data_remove.exit.i, label %if.else11.i.i
 
 if.else11.i.i:                                    ; preds = %if.end5.i.i
@@ -14518,7 +14518,7 @@ if.end5.i:                                        ; preds = %lor.lhs.false
   %extpri.i = getelementptr inbounds i8, ptr %stream, i64 220
   %3 = load i8, ptr %extpri.i, align 4
   %4 = and i8 %3, 127
-  %cmp8.i = icmp ult i8 %4, 8
+  %cmp8.i = icmp samesign ult i8 %4, 8
   br i1 %cmp8.i, label %session_ob_data_remove.exit, label %if.else11.i
 
 if.else11.i:                                      ; preds = %if.end5.i

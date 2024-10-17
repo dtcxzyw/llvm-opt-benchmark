@@ -145,7 +145,7 @@ define void @Ptngc_comp_to_lz77(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %.not137.us.us, label %58, label %61
 
 58:                                               ; preds = %54
-  %59 = icmp ugt i32 %.0118.lcssa.us.us, 4
+  %59 = icmp samesign ugt i32 %.0118.lcssa.us.us, 4
   %60 = icmp eq i64 %55, 1
   %or.cond.us.us = and i1 %60, %59
   br i1 %or.cond.us.us, label %61, label %64

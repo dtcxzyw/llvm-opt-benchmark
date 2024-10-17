@@ -312,7 +312,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -357,7 +357,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -420,7 +420,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -477,7 +477,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -539,7 +539,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -606,7 +606,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -678,7 +678,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -735,7 +735,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -797,7 +797,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -864,7 +864,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -1059,7 +1059,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -1318,7 +1318,7 @@ check_size_impl.exit:                             ; preds = %entry
   tail call void @llvm.assume(i1 %cmp1.i)
   %1 = tail call range(i32 0, 3) i32 @llvm.ctpop.i32(i32 %rem.i)
   %add.i = add nuw nsw i32 %1, %div.i40
-  %cmp10.i = icmp ult i32 %add.i, 5
+  %cmp10.i = icmp samesign ult i32 %add.i, 5
   br i1 %cmp10.i, label %land.lhs.true1, label %if.end
 
 land.lhs.true1:                                   ; preds = %check_size_impl.exit
@@ -1371,7 +1371,7 @@ check_size_impl.exit25:                           ; preds = %if.end
   %rem.i19 = lshr exact i32 %size, 3
   %5 = and i32 %rem.i19, 1
   %add.i22 = add nuw nsw i32 %5, %div.i1841
-  %cmp10.i23 = icmp ult i32 %add.i22, 5
+  %cmp10.i23 = icmp samesign ult i32 %add.i22, 5
   br i1 %cmp10.i23, label %land.lhs.true22, label %if.end33
 
 land.lhs.true22:                                  ; preds = %check_size_impl.exit25
@@ -1497,7 +1497,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -1816,7 +1816,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -2205,7 +2205,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -2577,7 +2577,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -2950,7 +2950,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -3392,7 +3392,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -3741,7 +3741,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -3806,7 +3806,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -4117,7 +4117,7 @@ simd_desc.exit:                                   ; preds = %if.end153, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz.tr242360, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz.tr242360, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz.tr242360, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz.tr242360
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -4240,7 +4240,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -4277,7 +4277,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -4689,7 +4689,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -6379,7 +6379,7 @@ check_size_align.exit.i:                          ; preds = %do.body1.i.i, %do.b
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -6459,7 +6459,7 @@ check_size_align.exit.i:                          ; preds = %do.body1.i.i, %do.b
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -6531,7 +6531,7 @@ tcg_gen_gvec_dup_imm.exit:                        ; preds = %do.body.i.i, %do.bo
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -6597,7 +6597,7 @@ tcg_gen_gvec_dup_imm.exit:                        ; preds = %do.body.i.i, %do.bo
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -6663,7 +6663,7 @@ tcg_gen_gvec_dup_imm.exit:                        ; preds = %do.body.i.i, %do.bo
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -6807,7 +6807,7 @@ tcg_gen_gvec_dup_imm.exit:                        ; preds = %do.body.i.i, %do.bo
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -7073,7 +7073,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp2)
   %shl = shl nuw nsw i32 8, %vece
   %conv = zext nneg i32 %shl to i64
-  %cmp3 = icmp ult i64 %shift, %conv
+  %cmp3 = icmp samesign ult i64 %shift, %conv
   tail call void @llvm.assume(i1 %cmp3)
   %cmp8 = icmp eq i64 %shift, 0
   br i1 %cmp8, label %if.then10, label %if.else
@@ -7106,7 +7106,7 @@ check_size_align.exit.i:                          ; preds = %do.body1.i.i, %do.b
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -7252,7 +7252,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp2)
   %shl = shl nuw nsw i32 8, %vece
   %conv = zext nneg i32 %shl to i64
-  %cmp3 = icmp ult i64 %shift, %conv
+  %cmp3 = icmp samesign ult i64 %shift, %conv
   tail call void @llvm.assume(i1 %cmp3)
   %cmp8 = icmp eq i64 %shift, 0
   br i1 %cmp8, label %if.then10, label %if.else
@@ -7285,7 +7285,7 @@ check_size_align.exit.i:                          ; preds = %do.body1.i.i, %do.b
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -7467,7 +7467,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp2)
   %shl = shl nuw nsw i32 8, %vece
   %conv = zext nneg i32 %shl to i64
-  %cmp3 = icmp ult i64 %shift, %conv
+  %cmp3 = icmp samesign ult i64 %shift, %conv
   tail call void @llvm.assume(i1 %cmp3)
   %cmp8 = icmp eq i64 %shift, 0
   br i1 %cmp8, label %if.then10, label %if.else
@@ -7500,7 +7500,7 @@ check_size_align.exit.i:                          ; preds = %do.body1.i.i, %do.b
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -7638,7 +7638,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp2)
   %shl = shl nuw nsw i32 8, %vece
   %conv = zext nneg i32 %shl to i64
-  %cmp3 = icmp ult i64 %shift, %conv
+  %cmp3 = icmp samesign ult i64 %shift, %conv
   tail call void @llvm.assume(i1 %cmp3)
   %cmp8 = icmp eq i64 %shift, 0
   br i1 %cmp8, label %if.then10, label %if.else
@@ -7671,7 +7671,7 @@ check_size_align.exit.i:                          ; preds = %do.body1.i.i, %do.b
   tail call void @llvm.assume(i1 %cmp.sink.i.i)
   %cmp7.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i)
-  %cmp11.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i = select i1 %cmp11.i.i, i32 15, i32 7
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
@@ -7771,7 +7771,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp2)
   %shl = shl nuw nsw i32 8, %vece
   %conv = zext nneg i32 %shl to i64
-  %cmp3 = icmp ult i64 %shift, %conv
+  %cmp3 = icmp samesign ult i64 %shift, %conv
   tail call void @llvm.assume(i1 %cmp3)
   %sub = sub nsw i64 0, %shift
   %sub9 = add nsw i32 %shl, -1
@@ -7779,7 +7779,7 @@ entry:
   %and = and i64 %sub, %conv10
   %cmp.i = icmp ult i32 %vece, 4
   tail call void @llvm.assume(i1 %cmp.i)
-  %cmp3.i = icmp ult i64 %and, %conv
+  %cmp3.i = icmp samesign ult i64 %and, %conv
   tail call void @llvm.assume(i1 %cmp3.i)
   %cmp8.i = icmp eq i64 %and, 0
   br i1 %cmp8.i, label %if.then10.i, label %if.else.i
@@ -7812,7 +7812,7 @@ check_size_align.exit.i.i:                        ; preds = %do.body1.i.i.i, %do
   tail call void @llvm.assume(i1 %cmp.sink.i.i.i)
   %cmp7.i.i.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i.i.i)
-  %cmp11.i.i.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i.i.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i.i.i = select i1 %cmp11.i.i.i, i32 15, i32 7
   %and.i.i.i = and i32 %cond.i.i.i, %maxsz
   %cmp13.i.i.i = icmp eq i32 %and.i.i.i, 0
@@ -7879,7 +7879,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -7936,7 +7936,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %conv3.i = zext i32 %add2.i to i64
   tail call void @tcg_gen_st_vec(ptr noundef %call1.i, ptr noundef %4, i64 noundef %conv3.i) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %cmp.i119 = icmp ult i64 %indvars.iv.next, %1
+  %cmp.i119 = icmp samesign ult i64 %indvars.iv.next, %1
   br i1 %cmp.i119, label %for.body.i, label %expand_2sh_vec.exit, !llvm.loop !40
 
 expand_2sh_vec.exit:                              ; preds = %for.body.i, %sw.bb
@@ -8058,7 +8058,7 @@ for.body.i144:                                    ; preds = %for.body.i144.prehe
   %conv3.i150 = zext i32 %add2.i149 to i64
   tail call void @tcg_gen_st_vec(ptr noundef %call1.i146, ptr noundef %15, i64 noundef %conv3.i150) #7
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 32
-  %cmp.i152 = icmp ult i64 %indvars.iv.next226, %12
+  %cmp.i152 = icmp samesign ult i64 %indvars.iv.next226, %12
   br i1 %cmp.i152, label %for.body.i144, label %expand_2s_vec.exit, !llvm.loop !12
 
 expand_2s_vec.exit:                               ; preds = %for.body.i144, %sw.bb24
@@ -8937,7 +8937,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -9632,7 +9632,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   tail call void @llvm.assume(i1 %cmp.sink.i)
   %cmp7.i = icmp ult i32 %maxsz, 2049
   tail call void @llvm.assume(i1 %cmp7.i)
-  %cmp11.i = icmp ugt i32 %maxsz, 15
+  %cmp11.i = icmp samesign ugt i32 %maxsz, 15
   %cond.i = select i1 %cmp11.i, i32 15, i32 7
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
@@ -9701,7 +9701,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %conv3.i = zext i32 %add2.i to i64
   tail call void @tcg_gen_st_vec(ptr noundef %call.i, ptr noundef %3, i64 noundef %conv3.i) #7
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 32
-  %cmp.i96 = icmp ult i64 %indvars.iv.next147, %0
+  %cmp.i96 = icmp samesign ult i64 %indvars.iv.next147, %0
   br i1 %cmp.i96, label %for.body.i, label %expand_cmps_vec.exit, !llvm.loop !44
 
 expand_cmps_vec.exit:                             ; preds = %for.body.i, %sw.bb
@@ -9739,7 +9739,7 @@ for.body.i100:                                    ; preds = %for.body.i100.prehe
   %conv3.i105 = zext i32 %add2.i104 to i64
   tail call void @tcg_gen_st_vec(ptr noundef %call.i97, ptr noundef %7, i64 noundef %conv3.i105) #7
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 16
-  %cmp.i107 = icmp ult i64 %indvars.iv.next150, %4
+  %cmp.i107 = icmp samesign ult i64 %indvars.iv.next150, %4
   br i1 %cmp.i107, label %for.body.i100, label %sw.epilog, !llvm.loop !44
 
 sw.bb17:                                          ; preds = %if.then8
@@ -9766,7 +9766,7 @@ for.body.i112:                                    ; preds = %for.body.i112.prehe
   %conv3.i117 = zext i32 %add2.i116 to i64
   tail call void @tcg_gen_st_vec(ptr noundef %call.i109, ptr noundef %11, i64 noundef %conv3.i117) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %cmp.i119 = icmp ult i64 %indvars.iv.next, %8
+  %cmp.i119 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp.i119, label %for.body.i112, label %sw.epilog, !llvm.loop !44
 
 do.body:                                          ; preds = %if.then8

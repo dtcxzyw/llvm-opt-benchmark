@@ -1223,7 +1223,7 @@ do.body:                                          ; preds = %entry, %do.body
   %41 = xor i64 %and624, %40
   %xor911 = xor i64 %41, %xor511
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 22
+  %cmp = icmp samesign ult i64 %indvars.iv, 22
   br i1 %cmp, label %do.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %do.body

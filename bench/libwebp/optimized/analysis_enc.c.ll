@@ -215,7 +215,7 @@ MergeJobs.exit:                                   ; preds = %.critedge54
 
 .critedge.i:                                      ; preds = %116
   %121 = trunc nuw nsw i64 %indvars.iv.i59 to i32
-  %122 = icmp ult i64 %indvars.iv.i59, 255
+  %122 = icmp samesign ult i64 %indvars.iv.i59, 255
   br i1 %122, label %.lr.ph.i, label %.critedge2.i
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %126
@@ -323,7 +323,7 @@ MergeJobs.exit:                                   ; preds = %.critedge54
   %158 = load i32, ptr %157, align 4
   %159 = sub nsw i32 %150, %158
   %160 = call i32 @llvm.abs.i32(i32 %159, i1 true)
-  %161 = icmp ult i32 %156, %160
+  %161 = icmp samesign ult i32 %156, %160
   br i1 %161, label %.preheader.i, label %.critedge4.loopexit.i, !llvm.loop !9
 
 .critedge4.loopexit.i:                            ; preds = %152
@@ -834,7 +834,7 @@ define internal i32 @DoSegmentsJob(ptr nocapture noundef %0, ptr noundef %1) #0 
   %40 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i
   call void %36(ptr noundef %39, ptr noundef nonnull %40) #6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
-  %41 = icmp ult i64 %indvars.iv.i.i, 12
+  %41 = icmp samesign ult i64 %indvars.iv.i.i, 12
   br i1 %41, label %35, label %.preheader.i.i, !llvm.loop !22
 
 .preheader.i.i:                                   ; preds = %35, %.preheader.i.i

@@ -81,7 +81,7 @@ default.unreachable120:                           ; preds = %_ZN3std3sys3pal4uni
   unreachable
 
 39:                                               ; preds = %35
-  %40 = icmp ult i64 %.sroa.074.0.copyload, 2
+  %40 = icmp samesign ult i64 %.sroa.074.0.copyload, 2
   br i1 %40, label %41, label %70
 
 41:                                               ; preds = %39
@@ -99,7 +99,7 @@ default.unreachable120:                           ; preds = %_ZN3std3sys3pal4uni
   br label %130
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta25copy_file_range_candidate17h640cb50a5f59e855E.exit: ; preds = %41
-  %46 = icmp ult i64 %.sroa.077.0.copyload, 2
+  %46 = icmp samesign ult i64 %.sroa.077.0.copyload, 2
   %47 = and i32 %.sroa.379.0.copyload, 61440
   %48 = icmp eq i32 %47, 32768
   %or.cond117 = select i1 %46, i1 %48, i1 false
@@ -153,7 +153,7 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad9732
   br label %130
 
 66:                                               ; preds = %68
-  %67 = icmp ult i64 %.sroa.077.0.copyload, 2
+  %67 = icmp samesign ult i64 %.sroa.077.0.copyload, 2
   br i1 %67, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
 
 68:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit
@@ -271,7 +271,7 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.th
 104:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   %.299104127 = phi i64 [ %.299104126, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %.299104, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
   %105 = phi i64 [ %107, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %102, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
-  %106 = icmp ult i64 %.sroa.077.0.copyload, 2
+  %106 = icmp samesign ult i64 %.sroa.077.0.copyload, 2
   br i1 %106, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread: ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
@@ -448,7 +448,7 @@ default.unreachable120:                           ; preds = %_ZN3std3sys3pal4uni
   unreachable
 
 37:                                               ; preds = %33
-  %38 = icmp ult i64 %.sroa.074.0.copyload, 2
+  %38 = icmp samesign ult i64 %.sroa.074.0.copyload, 2
   br i1 %38, label %39, label %68
 
 39:                                               ; preds = %37
@@ -466,7 +466,7 @@ default.unreachable120:                           ; preds = %_ZN3std3sys3pal4uni
   br label %128
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta25copy_file_range_candidate17h640cb50a5f59e855E.exit: ; preds = %39
-  %44 = icmp ult i64 %.sroa.077.0.copyload, 2
+  %44 = icmp samesign ult i64 %.sroa.077.0.copyload, 2
   %45 = and i32 %.sroa.379.0.copyload, 61440
   %46 = icmp eq i32 %45, 32768
   %or.cond117 = select i1 %44, i1 %46, i1 false
@@ -520,7 +520,7 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad9732
   br label %128
 
 64:                                               ; preds = %66
-  %65 = icmp ult i64 %.sroa.077.0.copyload, 2
+  %65 = icmp samesign ult i64 %.sroa.077.0.copyload, 2
   br i1 %65, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
 
 66:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit
@@ -638,7 +638,7 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.th
 102:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   %.299104127 = phi i64 [ %.299104126, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %.299104, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
   %103 = phi i64 [ %105, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
-  %104 = icmp ult i64 %.sroa.077.0.copyload, 2
+  %104 = icmp samesign ult i64 %.sroa.077.0.copyload, 2
   br i1 %104, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread: ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
@@ -804,7 +804,7 @@ default.unreachable120:                           ; preds = %_ZN3std3sys3pal4uni
   unreachable
 
 38:                                               ; preds = %34
-  %39 = icmp ult i64 %.sroa.074.0.copyload, 2
+  %39 = icmp samesign ult i64 %.sroa.074.0.copyload, 2
   br i1 %39, label %40, label %69
 
 40:                                               ; preds = %38
@@ -822,7 +822,7 @@ default.unreachable120:                           ; preds = %_ZN3std3sys3pal4uni
   br label %129
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta25copy_file_range_candidate17h640cb50a5f59e855E.exit: ; preds = %40
-  %45 = icmp ult i64 %.sroa.077.0.copyload, 2
+  %45 = icmp samesign ult i64 %.sroa.077.0.copyload, 2
   %46 = and i32 %.sroa.379.0.copyload, 61440
   %47 = icmp eq i32 %46, 32768
   %or.cond117 = select i1 %45, i1 %47, i1 false
@@ -876,7 +876,7 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad9732
   br label %129
 
 65:                                               ; preds = %67
-  %66 = icmp ult i64 %.sroa.077.0.copyload, 2
+  %66 = icmp samesign ult i64 %.sroa.077.0.copyload, 2
   br i1 %66, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
 
 67:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit
@@ -994,7 +994,7 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.th
 103:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   %.299104127 = phi i64 [ %.299104126, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %.299104, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
   %104 = phi i64 [ %106, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %101, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
-  %105 = icmp ult i64 %.sroa.077.0.copyload, 2
+  %105 = icmp samesign ult i64 %.sroa.077.0.copyload, 2
   br i1 %105, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread: ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread

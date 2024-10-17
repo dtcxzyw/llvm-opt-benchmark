@@ -230,7 +230,7 @@ define internal noundef i32 @dissect_metamako(ptr noundef %0, ptr noundef %1, pt
   %17 = zext i1 %13 to i32
   %18 = icmp eq i32 %12, 0
   %19 = select i1 %18, i32 1, i32 2
-  %20 = icmp ugt i32 %19, %17
+  %20 = icmp samesign ugt i32 %19, %17
   br i1 %20, label %.lr.ph254, label %.thread
 
 .lr.ph254:                                        ; preds = %16
@@ -346,7 +346,7 @@ validate_metamako_timestamp.exit.thread:          ; preds = %48, %45, %36, %34, 
   %.4200 = phi i32 [ %.1197, %.loopexit239 ], [ %.0196249, %34 ], [ %.0196249, %36 ], [ %.0196249, %45 ], [ %.0196249, %48 ]
   %.1191 = phi i32 [ %spec.select231, %.loopexit239 ], [ %.0190251, %34 ], [ %.0190251, %36 ], [ %.0190251, %45 ], [ %.0190251, %48 ]
   %76 = add nuw nsw i32 %.0188252, 1
-  %77 = icmp ult i32 %76, %19
+  %77 = icmp samesign ult i32 %76, %19
   %78 = select i1 %77, i1 %.1213, i1 false
   br i1 %78, label %22, label %79, !llvm.loop !6
 

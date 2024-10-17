@@ -1223,7 +1223,7 @@ opal_argv_append.exit:                            ; preds = %.preheader.i.i, %25
   %75 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv70
   store ptr %73, ptr %75, align 8
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %76 = icmp ult i64 %indvars.iv.next71, %69
+  %76 = icmp samesign ult i64 %indvars.iv.next71, %69
   br i1 %76, label %.lr.ph63, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %opal_argv_append.exit, %.lr.ph63, %opal_argv_count.exit55.thread, %._crit_edge, %9, %3, %5

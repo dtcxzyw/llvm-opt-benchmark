@@ -1826,7 +1826,7 @@ HistogramCombineStochastic.exit.thread:           ; preds = %526
   %573 = urem i32 %572, %566
   %574 = udiv i32 %573, %565
   %575 = urem i32 %573, %565
-  %.not126.i = icmp uge i32 %575, %574
+  %.not126.i = icmp samesign uge i32 %575, %574
   %576 = zext i1 %.not126.i to i32
   %spec.select.i = add nuw nsw i32 %575, %576
   %577 = zext nneg i32 %574 to i64
@@ -2208,7 +2208,7 @@ RemoveEmptyHistograms.exit:                       ; preds = %734, %722
   %758 = load ptr, ptr %757, align 8
   %759 = icmp ne ptr %758, null
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
-  %760 = icmp ult i64 %indvars.iv.next115.i, %748
+  %760 = icmp samesign ult i64 %indvars.iv.next115.i, %748
   %or.cond110.i = select i1 %759, i1 %760, i1 false
   br i1 %or.cond110.i, label %.lr.ph.preheader.i153, label %.loopexit89.i
 

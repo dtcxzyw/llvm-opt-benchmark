@@ -1524,7 +1524,7 @@ define noundef zeroext i1 @"_ZN85_$LT$ring..rsa..padding..pkcs1..PKCS1$u20$as$u2
   %9 = zext i1 %8 to i64
   %10 = lshr i64 %3, 3
   %11 = add nuw nsw i64 %10, %9
-  %12 = icmp ugt i64 %11, 1024
+  %12 = icmp samesign ugt i64 %11, 1024
   br i1 %12, label %13, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.6801758991666044160.exit"
 
 13:                                               ; preds = %4

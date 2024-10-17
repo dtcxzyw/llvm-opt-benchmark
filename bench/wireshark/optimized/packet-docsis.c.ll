@@ -396,13 +396,13 @@ define internal i32 @dissect_docsis(ptr noundef %0, ptr noundef %1, ptr noundef 
 .thread280:                                       ; preds = %26
   %27 = zext i16 %19 to i32
   %28 = add nuw nsw i32 %20, 2
-  %29 = icmp ult i32 %28, %27
+  %29 = icmp samesign ult i32 %28, %27
   br label %.thread
 
 30:                                               ; preds = %18
   %31 = zext i16 %19 to i32
   %32 = add nuw nsw i32 %20, 2
-  %33 = icmp ult i32 %32, %31
+  %33 = icmp samesign ult i32 %32, %31
   %34 = getelementptr inbounds i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8
   tail call void @col_set_str(ptr noundef %35, i32 noundef 34, ptr noundef nonnull @.str.134) #3

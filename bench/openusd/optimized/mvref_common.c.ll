@@ -552,12 +552,12 @@ scan_blk_mbmi.exit.i:                             ; preds = %192, %is_inside.exi
   %or.cond.us.i = icmp eq i32 %241, 0
   %spec.select481.us.i = select i1 %or.cond.us.i, i32 %240, i32 %.1431591.us.i
   %242 = add nuw nsw i32 %.0435590.us.i, %238
-  %243 = icmp ult i32 %242, %225
+  %243 = icmp samesign ult i32 %242, %225
   br i1 %243, label %239, label %._crit_edge593.us.i, !llvm.loop !10
 
 ._crit_edge593.us.i:                              ; preds = %239
   %244 = add nuw nsw i32 %.0434595.us.i, %236
-  %245 = icmp ult i32 %244, %224
+  %245 = icmp samesign ult i32 %244, %224
   br i1 %245, label %.preheader584.us.i, label %._crit_edge597.i, !llvm.loop !11
 
 ._crit_edge597.i:                                 ; preds = %._crit_edge593.us.i
@@ -648,7 +648,7 @@ scan_blk_mbmi.exit499.i:                          ; preds = %271, %is_inside.exi
   %.reass.i = add nuw nsw i32 %.neg.i, %invariant.op.i
   %.reass603.i = add nuw nsw i32 %.neg.i, %invariant.op602.i
   %282 = tail call i32 @llvm.abs.i32(i32 %.reass.i, i1 true)
-  %.not475.i = icmp ule i32 %282, %170
+  %.not475.i = icmp samesign ule i32 %282, %170
   %283 = load i32, ptr %12, align 4
   %284 = icmp sgt i32 %282, %283
   %or.cond483.i = select i1 %.not475.i, i1 %284, i1 false
@@ -660,7 +660,7 @@ scan_blk_mbmi.exit499.i:                          ; preds = %271, %is_inside.exi
 
 286:                                              ; preds = %285, %281
   %287 = tail call i32 @llvm.abs.i32(i32 %.reass603.i, i1 true)
-  %.not476.i = icmp ule i32 %287, %174
+  %.not476.i = icmp samesign ule i32 %287, %174
   %288 = load i32, ptr %13, align 4
   %289 = icmp sgt i32 %287, %288
   %or.cond485.i = select i1 %.not476.i, i1 %289, i1 false
@@ -759,7 +759,7 @@ scan_blk_mbmi.exit499.i:                          ; preds = %271, %is_inside.exi
 
 .preheader581.i:                                  ; preds = %330, %.loopexit582.i
   %.0443609.i = phi i32 [ %.1442.i, %.loopexit582.i ], [ %210, %330 ]
-  %332 = icmp ugt i32 %.0443609.i, 1
+  %332 = icmp samesign ugt i32 %.0443609.i, 1
   br i1 %332, label %.lr.ph607.preheader.i, label %._crit_edge610.i
 
 .lr.ph607.preheader.i:                            ; preds = %.preheader581.i
@@ -1180,8 +1180,8 @@ process_compound_ref_mv_candidate.exit514.i:      ; preds = %.split41.us.i505.i
   %.0425.lcssa.i = phi i32 [ 0, %.preheader570.i ], [ %522, %.lr.ph644.i ]
   %523 = load i32, ptr %indvars.iv720.i.sroa.phi54, align 4
   %524 = icmp sgt i32 %523, 0
-  %525 = icmp ult i32 %.0425.lcssa.i, 2
-  %526 = and i1 %525, %524
+  %525 = icmp samesign ult i32 %.0425.lcssa.i, 2
+  %526 = select i1 %524, i1 %525, i1 false
   br i1 %526, label %.lr.ph649.preheader.i, label %.preheader568.i
 
 .lr.ph649.preheader.i:                            ; preds = %.preheader569.i
@@ -1206,7 +1206,7 @@ process_compound_ref_mv_candidate.exit514.i:      ; preds = %.split41.us.i505.i
 
 .preheader568.i:                                  ; preds = %.preheader568.loopexit.i, %.preheader569.i
   %.1426.lcssa.i = phi i32 [ %.0425.lcssa.i, %.preheader569.i ], [ %533, %.preheader568.loopexit.i ]
-  %534 = icmp ult i32 %.1426.lcssa.i, 2
+  %534 = icmp samesign ult i32 %.1426.lcssa.i, 2
   br i1 %534, label %.lr.ph652.i, label %._crit_edge653.i
 
 .lr.ph652.i:                                      ; preds = %.preheader568.i
@@ -1222,7 +1222,7 @@ process_compound_ref_mv_candidate.exit514.i:      ; preds = %.split41.us.i505.i
   %539 = load i32, ptr %538, align 4
   store i32 %539, ptr %537, align 4
   %indvars.iv.next711.i = add nuw nsw i64 %indvars.iv710.i, 1
-  %540 = icmp ult i64 %indvars.iv.next711.i, %527
+  %540 = icmp samesign ult i64 %indvars.iv.next711.i, %527
   %541 = icmp eq i64 %indvars.iv712.i, 0
   %542 = and i1 %541, %540
   br i1 %542, label %.lr.ph649.i, label %.preheader568.loopexit.i, !llvm.loop !23
@@ -1396,7 +1396,7 @@ process_compound_ref_mv_candidate.exit514.i:      ; preds = %.split41.us.i505.i
   %indvars.iv.next727.i = add nuw nsw i64 %indvars.iv726.i, 1
   %662 = load i8, ptr %63, align 1
   %663 = zext i8 %662 to i64
-  %664 = icmp ult i64 %indvars.iv.next727.i, %663
+  %664 = icmp samesign ult i64 %indvars.iv.next727.i, %663
   br i1 %664, label %597, label %setup_ref_mv_list.exit, !llvm.loop !27
 
 665:                                              ; preds = %process_single_ref_mv_candidate.exit.i, %.lr.ph621.i
@@ -1677,7 +1677,7 @@ process_single_ref_mv_candidate.exit540.i:        ; preds = %758
   %indvars.iv.next695.i = add nuw nsw i64 %indvars.iv694.i, 1
   %806 = load i8, ptr %63, align 1
   %807 = zext i8 %806 to i64
-  %808 = icmp ult i64 %indvars.iv.next695.i, %807
+  %808 = icmp samesign ult i64 %indvars.iv.next695.i, %807
   br i1 %808, label %773, label %._crit_edge629.i, !llvm.loop !32
 
 ._crit_edge629.i:                                 ; preds = %773
@@ -1722,7 +1722,7 @@ process_single_ref_mv_candidate.exit540.i:        ; preds = %758
   %818 = load i8, ptr %63, align 1
   %narrow566.i = tail call i8 @llvm.umin.i8(i8 %818, i8 2)
   %819 = zext nneg i8 %narrow566.i to i64
-  %820 = icmp ult i64 %indvars.iv.next701.i, %819
+  %820 = icmp samesign ult i64 %indvars.iv.next701.i, %819
   br i1 %820, label %.lr.ph636.i, label %setup_ref_mv_list.exit, !llvm.loop !34
 
 setup_ref_mv_list.exit:                           ; preds = %.lr.ph636.i, %597, %.preheader575.loopexit.i, %._crit_edge629.i.thread, %.loopexit567.i, %._crit_edge629.i
@@ -1772,7 +1772,7 @@ define internal fastcc i32 @gm_get_motion_vector(ptr nocapture noundef readonly 
 19:                                               ; preds = %17
   %20 = sub i16 %12, %18
   %21 = tail call i16 @llvm.abs.i16(i16 %18, i1 true)
-  %22 = icmp ugt i16 %21, 4
+  %22 = icmp samesign ugt i16 %21, 4
   br i1 %22, label %.sink.split.i, label %25
 
 .sink.split.i:                                    ; preds = %19
@@ -1790,7 +1790,7 @@ define internal fastcc i32 @gm_get_motion_vector(ptr nocapture noundef readonly 
 27:                                               ; preds = %25
   %28 = sub i16 %16, %26
   %29 = tail call i16 @llvm.abs.i16(i16 %26, i1 true)
-  %30 = icmp ugt i16 %29, 4
+  %30 = icmp samesign ugt i16 %29, 4
   br i1 %30, label %.sink.split20.i, label %integer_mv_precision.exit
 
 .sink.split20.i:                                  ; preds = %27
@@ -1922,7 +1922,7 @@ convert_to_trans_prec.exit31:                     ; preds = %89, %93, %107
 114:                                              ; preds = %112
   %115 = sub i16 %110, %113
   %116 = tail call i16 @llvm.abs.i16(i16 %113, i1 true)
-  %117 = icmp ugt i16 %116, 4
+  %117 = icmp samesign ugt i16 %116, 4
   br i1 %117, label %.sink.split.i36, label %120
 
 .sink.split.i36:                                  ; preds = %114
@@ -1940,7 +1940,7 @@ convert_to_trans_prec.exit31:                     ; preds = %89, %93, %107
 122:                                              ; preds = %120
   %123 = sub i16 %111, %121
   %124 = tail call i16 @llvm.abs.i16(i16 %121, i1 true)
-  %125 = icmp ugt i16 %124, 4
+  %125 = icmp samesign ugt i16 %124, 4
   br i1 %125, label %.sink.split20.i34, label %integer_mv_precision.exit
 
 .sink.split20.i34:                                ; preds = %122
@@ -2014,7 +2014,7 @@ lower_mv_precision.exit.us.us:                    ; preds = %17, %13
   %25 = sub i16 %22, %23
   store i16 %25, ptr %21, align 2
   %26 = tail call i16 @llvm.abs.i16(i16 %23, i1 true)
-  %27 = icmp ugt i16 %26, 4
+  %27 = icmp samesign ugt i16 %26, 4
   br i1 %27, label %.sink.split.i.i, label %30
 
 .sink.split.i.i:                                  ; preds = %24
@@ -2035,7 +2035,7 @@ lower_mv_precision.exit.us.us:                    ; preds = %17, %13
   %35 = sub i16 %32, %33
   store i16 %35, ptr %31, align 2
   %36 = tail call i16 @llvm.abs.i16(i16 %33, i1 true)
-  %37 = icmp ugt i16 %36, 4
+  %37 = icmp samesign ugt i16 %36, 4
   br i1 %37, label %.sink.split20.i.i, label %lower_mv_precision.exit
 
 .sink.split20.i.i:                                ; preds = %34
@@ -2536,7 +2536,7 @@ get_relative_dist.exit76:                         ; preds = %get_relative_dist.e
 
 .preheader.lr.ph:                                 ; preds = %.split.us
   %65 = icmp sgt i32 %63, 0
-  %.not.i78 = icmp ult i32 %2, 2
+  %.not.i78 = icmp samesign ult i32 %2, 2
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1124
   %67 = tail call i32 @llvm.abs.i32(i32 %.0.i121, i1 true)
   %.fr103 = freeze i32 %67
@@ -2581,7 +2581,7 @@ get_relative_dist.exit76:                         ; preds = %get_relative_dist.e
   %85 = getelementptr inbounds [8 x i32], ptr %3, i64 0, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = tail call i32 @llvm.abs.i32(i32 %86, i1 true)
-  %88 = icmp ult i32 %87, 32
+  %88 = icmp samesign ult i32 %87, 32
   %89 = icmp sgt i32 %86, 0
   %or.cond.us.us = and i1 %89, %88
   br i1 %or.cond.us.us, label %90, label %get_block_position.exit.thread.us100.us
@@ -2754,7 +2754,7 @@ define hidden zeroext range(i8 1, 0) i8 @av1_selectSamples(ptr nocapture noundef
   %36 = sub i32 %30, %35
   %37 = tail call i32 @llvm.abs.i32(i32 %36, i1 true)
   %38 = add nuw nsw i32 %37, %27
-  %39 = icmp ugt i32 %38, %14
+  %39 = icmp samesign ugt i32 %38, %14
   br i1 %39, label %51, label %40
 
 40:                                               ; preds = %17
@@ -3688,7 +3688,7 @@ get_relative_dist.exit:                           ; preds = %25
   store i32 %.val126, ptr %66, align 4
   %67 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 1, ptr %67, align 16
-  %.not121 = icmp ugt i64 %indvars.iv183, 5
+  %.not121 = icmp samesign ugt i64 %indvars.iv183, 5
   br i1 %.not121, label %.thread141, label %68
 
 68:                                               ; preds = %63
@@ -3810,7 +3810,7 @@ get_relative_dist.exit:                           ; preds = %25
   br i1 %exitcond197.not, label %.preheader, label %90, !llvm.loop !52
 
 .critedge.thread:                                 ; preds = %.preheader148, %.critedge2
-  %109 = icmp ult i64 %indvars.iv194, 5
+  %109 = icmp samesign ult i64 %indvars.iv194, 5
   br i1 %109, label %.lr.ph174, label %.preheader
 
 .lr.ph174:                                        ; preds = %.critedge.thread
@@ -4388,7 +4388,7 @@ get_mv_projection.exit:                           ; preds = %119, %123
 135:                                              ; preds = %133
   %136 = sub nsw i16 %129, %134
   %137 = tail call i16 @llvm.abs.i16(i16 %134, i1 true)
-  %138 = icmp ugt i16 %137, 4
+  %138 = icmp samesign ugt i16 %137, 4
   br i1 %138, label %.sink.split.i.i, label %141
 
 .sink.split.i.i:                                  ; preds = %135
@@ -4406,7 +4406,7 @@ get_mv_projection.exit:                           ; preds = %119, %123
 143:                                              ; preds = %141
   %144 = sub nsw i16 %132, %142
   %145 = tail call i16 @llvm.abs.i16(i16 %142, i1 true)
-  %146 = icmp ugt i16 %145, 4
+  %146 = icmp samesign ugt i16 %145, 4
   br i1 %146, label %.sink.split20.i.i, label %lower_mv_precision.exit
 
 .sink.split20.i.i:                                ; preds = %143
@@ -4453,7 +4453,7 @@ lower_mv_precision.exit:                          ; preds = %141, %143, %.sink.s
   %164 = sext i16 %163 to i32
   %165 = sub nsw i32 %162, %164
   %166 = tail call i32 @llvm.abs.i32(i32 %165, i1 true)
-  %167 = icmp ugt i32 %166, 15
+  %167 = icmp samesign ugt i32 %166, 15
   br i1 %167, label %176, label %168
 
 168:                                              ; preds = %161
@@ -4463,7 +4463,7 @@ lower_mv_precision.exit:                          ; preds = %141, %143, %.sink.s
   %172 = sext i16 %171 to i32
   %173 = sub nsw i32 %169, %172
   %174 = tail call i32 @llvm.abs.i32(i32 %173, i1 true)
-  %175 = icmp ugt i32 %174, 15
+  %175 = icmp samesign ugt i32 %174, 15
   br i1 %175, label %176, label %181
 
 176:                                              ; preds = %168, %161
@@ -4622,7 +4622,7 @@ get_mv_projection.exit110:                        ; preds = %242, %246
 258:                                              ; preds = %256
   %259 = sub nsw i16 %252, %257
   %260 = tail call i16 @llvm.abs.i16(i16 %257, i1 true)
-  %261 = icmp ugt i16 %260, 4
+  %261 = icmp samesign ugt i16 %260, 4
   br i1 %261, label %.sink.split.i.i116, label %264
 
 .sink.split.i.i116:                               ; preds = %258
@@ -4640,7 +4640,7 @@ get_mv_projection.exit110:                        ; preds = %242, %246
 266:                                              ; preds = %264
   %267 = sub nsw i16 %255, %265
   %268 = tail call i16 @llvm.abs.i16(i16 %265, i1 true)
-  %269 = icmp ugt i16 %268, 4
+  %269 = icmp samesign ugt i16 %268, 4
   br i1 %269, label %.sink.split20.i.i114, label %lower_mv_precision.exit123
 
 .sink.split20.i.i114:                             ; preds = %266
@@ -4683,7 +4683,7 @@ lower_mv_precision.exit123:                       ; preds = %264, %266, %.sink.s
   %285 = sext i16 %284 to i32
   %286 = sub nsw i32 %283, %285
   %287 = tail call i32 @llvm.abs.i32(i32 %286, i1 true)
-  %288 = icmp ugt i32 %287, 15
+  %288 = icmp samesign ugt i32 %287, 15
   br i1 %288, label %313, label %289
 
 289:                                              ; preds = %282
@@ -4693,7 +4693,7 @@ lower_mv_precision.exit123:                       ; preds = %264, %266, %.sink.s
   %293 = sext i16 %292 to i32
   %294 = sub nsw i32 %290, %293
   %295 = tail call i32 @llvm.abs.i32(i32 %294, i1 true)
-  %296 = icmp ugt i32 %295, 15
+  %296 = icmp samesign ugt i32 %295, 15
   br i1 %296, label %313, label %297
 
 297:                                              ; preds = %289
@@ -4703,7 +4703,7 @@ lower_mv_precision.exit123:                       ; preds = %264, %266, %.sink.s
   %301 = sext i16 %300 to i32
   %302 = sub nsw i32 %298, %301
   %303 = tail call i32 @llvm.abs.i32(i32 %302, i1 true)
-  %304 = icmp ugt i32 %303, 15
+  %304 = icmp samesign ugt i32 %303, 15
   br i1 %304, label %313, label %305
 
 305:                                              ; preds = %297
@@ -4713,7 +4713,7 @@ lower_mv_precision.exit123:                       ; preds = %264, %266, %.sink.s
   %309 = sext i16 %308 to i32
   %310 = sub nsw i32 %306, %309
   %311 = tail call i32 @llvm.abs.i32(i32 %310, i1 true)
-  %312 = icmp ugt i32 %311, 15
+  %312 = icmp samesign ugt i32 %311, 15
   br i1 %312, label %313, label %318
 
 313:                                              ; preds = %305, %297, %289, %282

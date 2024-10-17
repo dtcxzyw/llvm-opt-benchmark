@@ -4129,7 +4129,7 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr nocapture noundef readonl
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.689, i32 noundef %18) #23
   %20 = add nuw i64 %.03035, 1
   %21 = add nuw nsw i64 %.02936, 1
-  %22 = icmp ult i64 %.02936, 15
+  %22 = icmp samesign ult i64 %.02936, 15
   %23 = icmp ult i64 %20, %2
   %24 = select i1 %22, i1 %23, i1 false
   br i1 %24, label %14, label %.preheader34, !llvm.loop !10
@@ -4139,7 +4139,7 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr nocapture noundef readonl
   %25 = load ptr, ptr @ssl_debug_file, align 8
   %26 = tail call i64 @fwrite(ptr nonnull @.str.690, i64 3, i64 1, ptr %25)
   %27 = add nuw nsw i64 %.137, 1
-  %28 = icmp ult i64 %.137, 15
+  %28 = icmp samesign ult i64 %.137, 15
   br i1 %28, label %.lr.ph, label %.lr.ph41.preheader, !llvm.loop !11
 
 .lr.ph41.preheader:                               ; preds = %.lr.ph, %.preheader34
@@ -4671,7 +4671,7 @@ switch.lookup:                                    ; preds = %switch.edge.i
 
 60:                                               ; preds = %switch.lookup
   %61 = add nuw nsw i32 %switch.load, 8
-  %62 = icmp ugt i32 %61, %16
+  %62 = icmp samesign ugt i32 %61, %16
   br i1 %62, label %63, label %71
 
 63:                                               ; preds = %60
@@ -4685,7 +4685,7 @@ switch.lookup:                                    ; preds = %switch.edge.i
   br i1 %or.cond6.i, label %67, label %70
 
 67:                                               ; preds = %64
-  %68 = icmp ugt i32 %switch.load, %16
+  %68 = icmp samesign ugt i32 %switch.load, %16
   br i1 %68, label %69, label %86
 
 69:                                               ; preds = %67
@@ -5324,7 +5324,7 @@ ssl_cipher_decrypt.exit.thread:                   ; preds = %416, %419, %ssl_cip
   %440 = getelementptr i8, ptr %439, i64 -1
   %441 = load i8, ptr %440, align 1
   %442 = zext i8 %441 to i32
-  %.not170 = icmp ugt i32 %.pre-phi, %442
+  %.not170 = icmp samesign ugt i32 %.pre-phi, %442
   br i1 %.not170, label %444, label %443
 
 443:                                              ; preds = %437
@@ -10162,7 +10162,7 @@ define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr nounde
   %182 = getelementptr inbounds i8, ptr %0, i64 756
   %183 = getelementptr inbounds i8, ptr %0, i64 752
   %184 = getelementptr inbounds i8, ptr %0, i64 724
-  %switch.i = icmp ult i8 %6, 3
+  %switch.i = icmp samesign ult i8 %6, 3
   %185 = getelementptr inbounds i8, ptr %0, i64 704
   %186 = getelementptr inbounds i8, ptr %0, i64 708
   %187 = getelementptr inbounds i8, ptr %0, i64 716
@@ -11431,7 +11431,7 @@ ssl_dissect_hnd_hello_ext_token_binding.exit:     ; preds = %.lr.ph.i439, %574, 
   %833 = add nuw nsw i32 %.020.i, 1
   %834 = load i32, ptr %38, align 4
   %835 = lshr i32 %834, 2
-  %836 = icmp ult i32 %833, %835
+  %836 = icmp samesign ult i32 %833, %835
   br i1 %836, label %.lr.ph21.i, label %.loopexit.i, !llvm.loop !37
 
 837:                                              ; preds = %667

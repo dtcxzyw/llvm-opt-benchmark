@@ -549,7 +549,7 @@ define dso_local range(i32 -12, 1) i32 @intel_engines_init_mmio(ptr noundef %0) 
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %18, %21
-  %23 = icmp ult i32 %22, 3122
+  %23 = icmp samesign ult i32 %22, 3122
   %24 = sext i1 %23 to i32
   %25 = xor i32 %15, %24
   %26 = trunc i32 %25 to i16
@@ -557,7 +557,7 @@ define dso_local range(i32 -12, 1) i32 @intel_engines_init_mmio(ptr noundef %0) 
   %28 = lshr i32 %25, 16
   %29 = trunc nuw i32 %28 to i16
   %30 = and i16 %29, 15
-  %31 = icmp ugt i32 %22, 3121
+  %31 = icmp samesign ugt i32 %22, 3121
   br i1 %31, label %32, label %40
 
 32:                                               ; preds = %10
@@ -838,7 +838,7 @@ define dso_local range(i32 -12, 1) i32 @intel_engines_init_mmio(ptr noundef %0) 
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %222, i32 noundef 1, ptr noundef nonnull @.str.28, i32 noundef %223, i32 noundef %206) #18
   %224 = add nuw nsw i64 %205, 1
   %225 = and i64 %224, 7
-  %226 = icmp ugt i64 %225, 3
+  %226 = icmp samesign ugt i64 %225, 3
   br i1 %226, label %.thread.loopexit, label %196, !prof !25, !llvm.loop !26
 
 .thread.loopexit:                                 ; preds = %203, %221, %196
@@ -1273,7 +1273,7 @@ thread-pre-split:                                 ; preds = %308, %.thread49
   %491 = getelementptr %struct.engine_mmio_base, ptr %485, i64 %490
   %492 = load i32, ptr %491, align 4
   %493 = and i32 %492, 255
-  %494 = icmp ugt i32 %493, %488
+  %494 = icmp samesign ugt i32 %493, %488
   br i1 %494, label %495, label %498
 
 495:                                              ; preds = %489
@@ -2193,7 +2193,7 @@ define dso_local i32 @intel_engines_init(ptr nocapture noundef %0) local_unnamed
   %.ph37 = phi i1 [ true, %68 ], [ false, %58 ], [ false, %58 ], [ false, %58 ], [ false, %58 ], [ false, %67 ], [ false, %48 ]
   %.ph38 = phi i8 [ 0, %68 ], [ 1, %58 ], [ 1, %58 ], [ 1, %58 ], [ 1, %58 ], [ 0, %67 ], [ 0, %48 ]
   %.ph39 = phi ptr [ @intel_engine_init_tlb_invalidation.gen8_regs, %68 ], [ @intel_engine_init_tlb_invalidation.xehp_regs, %58 ], [ @intel_engine_init_tlb_invalidation.xehp_regs, %58 ], [ @intel_engine_init_tlb_invalidation.xehp_regs, %58 ], [ @intel_engine_init_tlb_invalidation.xehp_regs, %58 ], [ @intel_engine_init_tlb_invalidation.gen12_regs, %67 ], [ @intel_engine_init_tlb_invalidation.xelpmp_regs, %48 ]
-  %95 = icmp ugt i32 %.ph, %42
+  %95 = icmp samesign ugt i32 %.ph, %42
   br i1 %95, label %96, label %101
 
 96:                                               ; preds = %94
@@ -3114,7 +3114,7 @@ define internal fastcc i64 @intel_uncore_read64_2x32(ptr noundef %0, i32 %1, i32
   %39 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38) #18, !srcloc !84
   %40 = icmp ne i32 %39, %27
   %41 = add nuw nsw i32 %26, 1
-  %42 = icmp ult i32 %26, 2
+  %42 = icmp samesign ult i32 %26, 2
   %43 = select i1 %40, i1 %42, i1 false
   br i1 %43, label %.split.us.split.us, label %.split6.us, !llvm.loop !85
 
@@ -3136,7 +3136,7 @@ define internal fastcc i64 @intel_uncore_read64_2x32(ptr noundef %0, i32 %1, i32
   %56 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %55) #18, !srcloc !84
   %57 = icmp ne i32 %56, %47
   %58 = add nuw nsw i32 %46, 1
-  %59 = icmp ult i32 %46, 2
+  %59 = icmp samesign ult i32 %46, 2
   %60 = select i1 %57, i1 %59, i1 false
   br i1 %60, label %45, label %.split6.us, !llvm.loop !85
 
@@ -3158,7 +3158,7 @@ define internal fastcc i64 @intel_uncore_read64_2x32(ptr noundef %0, i32 %1, i32
   %72 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %71) #18, !srcloc !84
   %73 = icmp ne i32 %72, %63
   %74 = add nuw nsw i32 %62, 1
-  %75 = icmp ult i32 %62, 2
+  %75 = icmp samesign ult i32 %62, 2
   %76 = select i1 %73, i1 %75, i1 false
   br i1 %76, label %.split.split.us, label %.split6.us, !llvm.loop !85
 
@@ -3178,7 +3178,7 @@ define internal fastcc i64 @intel_uncore_read64_2x32(ptr noundef %0, i32 %1, i32
   %87 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %86) #18, !srcloc !84
   %88 = icmp ne i32 %87, %81
   %89 = add nuw nsw i32 %80, 1
-  %90 = icmp ult i32 %80, 2
+  %90 = icmp samesign ult i32 %80, 2
   %91 = select i1 %88, i1 %90, i1 false
   br i1 %91, label %79, label %.split6.us, !llvm.loop !85
 
@@ -3502,7 +3502,7 @@ define dso_local void @intel_engine_get_instdone(ptr nocapture noundef readonly 
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = or disjoint i32 %46, %49
-  %51 = icmp ugt i32 %50, 3121
+  %51 = icmp samesign ugt i32 %50, 3121
   br i1 %51, label %52, label %75
 
 52:                                               ; preds = %39
@@ -3515,7 +3515,7 @@ define dso_local void @intel_engine_get_instdone(ptr nocapture noundef readonly 
   %57 = getelementptr inbounds i8, ptr %41, i64 5137
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i64
-  %60 = icmp ult i64 %40, %59
+  %60 = icmp samesign ult i64 %40, %59
   br i1 %60, label %61, label %122
 
 61:                                               ; preds = %56
@@ -3621,7 +3621,7 @@ define dso_local void @intel_engine_get_instdone(ptr nocapture noundef readonly 
   %132 = load i8, ptr %131, align 1
   %133 = zext i8 %132 to i32
   %134 = or disjoint i32 %130, %133
-  %135 = icmp ugt i32 %134, 3126
+  %135 = icmp samesign ugt i32 %134, 3126
   br i1 %135, label %136, label %.loopexit
 
 136:                                              ; preds = %127
@@ -3642,7 +3642,7 @@ define dso_local void @intel_engine_get_instdone(ptr nocapture noundef readonly 
   %148 = load i8, ptr %147, align 1
   %149 = zext i8 %148 to i32
   %150 = or disjoint i32 %146, %149
-  %151 = icmp ugt i32 %150, 3121
+  %151 = icmp samesign ugt i32 %150, 3121
   br i1 %151, label %152, label %175
 
 152:                                              ; preds = %139
@@ -3655,7 +3655,7 @@ define dso_local void @intel_engine_get_instdone(ptr nocapture noundef readonly 
   %157 = getelementptr inbounds i8, ptr %141, i64 5137
   %158 = load i8, ptr %157, align 1
   %159 = zext i8 %158 to i64
-  %160 = icmp ult i64 %140, %159
+  %160 = icmp samesign ult i64 %140, %159
   br i1 %160, label %161, label %215
 
 161:                                              ; preds = %156
@@ -4992,7 +4992,7 @@ define dso_local void @intel_engine_dump(ptr noundef %0, ptr noundef %1, ptr nou
   call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.84, i32 noundef %388, i32 noundef %394, i32 noundef %395, i32 noundef %396, i32 noundef %397) #18
   %398 = icmp ult i8 %378, %345
   %399 = select i1 %398, i8 %378, i8 0
-  %400 = icmp ult i32 %396, %397
+  %400 = icmp samesign ult i32 %396, %397
   %401 = select i1 %400, i8 %382, i8 0
   %402 = icmp ugt i8 %399, %401
   %403 = select i1 %402, i8 %345, i8 0

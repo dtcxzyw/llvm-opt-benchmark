@@ -4132,7 +4132,7 @@ define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$lock_api..rwlock..
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1037)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1040)
-  %switch.i.i.i.i = icmp ult i64 %3, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr92drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$quanta..Clock$GT$$GT$$GT$17h89fbf9475845019eE.exit", label %6
 
 6:                                                ; preds = %5
@@ -4214,7 +4214,7 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$mini_lsm_mvcc..iterators..m
 define hidden void @"_ZN4core3ptr132drop_in_place$LT$$LP$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$C$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$RP$$GT$17h6c5c5551f53b4361E.llvm.14689451251361528239"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1084)
   %2 = load i64, ptr %0, align 8, !range !1087, !alias.scope !1084, !noundef !4
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %.sink.split.i, label %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4f27e66dfbd249f9E.llvm.14689451251361528239.exit"
 
 .sink.split.i:                                    ; preds = %1
@@ -4236,7 +4236,7 @@ define hidden void @"_ZN4core3ptr132drop_in_place$LT$$LP$core..ops..range..Bound
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1088)
   %13 = load i64, ptr %12, align 8, !range !1087, !alias.scope !1088, !noundef !4
-  %switch10 = icmp ult i64 %13, 2
+  %switch10 = icmp samesign ult i64 %13, 2
   br i1 %switch10, label %.sink.split.i1, label %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4f27e66dfbd249f9E.llvm.14689451251361528239.exit5"
 
 .sink.split.i1:                                   ; preds = %10
@@ -4256,7 +4256,7 @@ define hidden void @"_ZN4core3ptr132drop_in_place$LT$$LP$core..ops..range..Bound
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1091)
   %22 = load i64, ptr %21, align 8, !range !1087, !alias.scope !1091, !noundef !4
-  %switch11 = icmp ult i64 %22, 2
+  %switch11 = icmp samesign ult i64 %22, 2
   br i1 %switch11, label %.sink.split.i6, label %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4f27e66dfbd249f9E.llvm.14689451251361528239.exit9"
 
 .sink.split.i6:                                   ; preds = %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4f27e66dfbd249f9E.llvm.14689451251361528239.exit"
@@ -8422,7 +8422,7 @@ define hidden void @"_ZN4core3ptr171drop_in_place$LT$moka..sync_base..base_cache
 74:                                               ; preds = %70
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2561)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2564)
-  %switch.i.i.i.i.i = icmp ult i64 %72, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %72, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr131drop_in_place$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$quanta..Clock$GT$$GT$$GT$17h526f366640b2323dE.exit", label %75
 
 75:                                               ; preds = %74
@@ -10972,7 +10972,7 @@ define hidden void @"_ZN4core3ptr193drop_in_place$LT$alloc..sync..Weak$LT$lock_a
 define hidden void @"_ZN4core3ptr194drop_in_place$LT$$LP$core..ops..range..Bound$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$$C$core..ops..range..Bound$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$$RP$$GT$17h072d15920f6a83caE.llvm.14689451251361528239"(ptr noalias noundef align 8 dereferenceable(96) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3349)
   %2 = load i64, ptr %0, align 8, !range !1087, !alias.scope !3349, !noundef !4
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %.sink.split.i, label %"_ZN4core3ptr102drop_in_place$LT$core..ops..range..Bound$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hc550b331aaa6c23fE.exit"
 
 .sink.split.i:                                    ; preds = %1
@@ -10994,7 +10994,7 @@ define hidden void @"_ZN4core3ptr194drop_in_place$LT$$LP$core..ops..range..Bound
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3352)
   %13 = load i64, ptr %12, align 8, !range !1087, !alias.scope !3352, !noundef !4
-  %switch10 = icmp ult i64 %13, 2
+  %switch10 = icmp samesign ult i64 %13, 2
   br i1 %switch10, label %.sink.split.i1, label %"_ZN4core3ptr102drop_in_place$LT$core..ops..range..Bound$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hc550b331aaa6c23fE.exit5"
 
 .sink.split.i1:                                   ; preds = %10
@@ -11014,7 +11014,7 @@ define hidden void @"_ZN4core3ptr194drop_in_place$LT$$LP$core..ops..range..Bound
   %21 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3355)
   %22 = load i64, ptr %21, align 8, !range !1087, !alias.scope !3355, !noundef !4
-  %switch11 = icmp ult i64 %22, 2
+  %switch11 = icmp samesign ult i64 %22, 2
   br i1 %switch11, label %.sink.split.i6, label %"_ZN4core3ptr102drop_in_place$LT$core..ops..range..Bound$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hc550b331aaa6c23fE.exit9"
 
 .sink.split.i6:                                   ; preds = %"_ZN4core3ptr102drop_in_place$LT$core..ops..range..Bound$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hc550b331aaa6c23fE.exit"
@@ -12547,7 +12547,7 @@ define hidden void @"_ZN4core3ptr236drop_in_place$LT$crossbeam_skiplist..map..Ra
   call void @llvm.experimental.noalias.scope.decl(metadata !3751)
   call void @llvm.experimental.noalias.scope.decl(metadata !3754)
   %24 = load i64, ptr %0, align 8, !range !1087, !alias.scope !3757, !noundef !4
-  %switch.i.i = icmp ult i64 %24, 2
+  %switch.i.i = icmp samesign ult i64 %24, 2
   br i1 %switch.i.i, label %.sink.split.i.i.i, label %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4f27e66dfbd249f9E.llvm.14689451251361528239.exit.i.i"
 
 .sink.split.i.i.i:                                ; preds = %23
@@ -12569,7 +12569,7 @@ define hidden void @"_ZN4core3ptr236drop_in_place$LT$crossbeam_skiplist..map..Ra
   %34 = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !3758)
   %35 = load i64, ptr %34, align 8, !range !1087, !alias.scope !3761, !noundef !4
-  %switch10.i.i = icmp ult i64 %35, 2
+  %switch10.i.i = icmp samesign ult i64 %35, 2
   br i1 %switch10.i.i, label %.sink.split.i1.i.i, label %common.resume
 
 .sink.split.i1.i.i:                               ; preds = %32
@@ -12589,7 +12589,7 @@ define hidden void @"_ZN4core3ptr236drop_in_place$LT$crossbeam_skiplist..map..Ra
   %43 = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !3762)
   %44 = load i64, ptr %43, align 8, !range !1087, !alias.scope !3765, !noundef !4
-  %switch11.i.i = icmp ult i64 %44, 2
+  %switch11.i.i = icmp samesign ult i64 %44, 2
   br i1 %switch11.i.i, label %.sink.split.i6.i.i, label %"_ZN4core3ptr240drop_in_place$LT$crossbeam_skiplist..base..RefRange$LT$bytes..bytes..Bytes$C$$LP$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$C$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$RP$$C$bytes..bytes..Bytes$C$bytes..bytes..Bytes$GT$$GT$17hb3e5c604f272c81fE.llvm.14689451251361528239.exit"
 
 .sink.split.i6.i.i:                               ; preds = %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4f27e66dfbd249f9E.llvm.14689451251361528239.exit.i.i"
@@ -12941,7 +12941,7 @@ define hidden void @"_ZN4core3ptr240drop_in_place$LT$crossbeam_skiplist..base..R
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3919)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3922)
   %2 = load i64, ptr %0, align 8, !range !1087, !alias.scope !3925, !noundef !4
-  %switch.i = icmp ult i64 %2, 2
+  %switch.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i, label %.sink.split.i.i, label %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4f27e66dfbd249f9E.llvm.14689451251361528239.exit.i"
 
 .sink.split.i.i:                                  ; preds = %1
@@ -12963,7 +12963,7 @@ define hidden void @"_ZN4core3ptr240drop_in_place$LT$crossbeam_skiplist..base..R
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3926)
   %13 = load i64, ptr %12, align 8, !range !1087, !alias.scope !3929, !noundef !4
-  %switch10.i = icmp ult i64 %13, 2
+  %switch10.i = icmp samesign ult i64 %13, 2
   br i1 %switch10.i, label %.sink.split.i1.i, label %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4f27e66dfbd249f9E.llvm.14689451251361528239.exit5.i"
 
 .sink.split.i1.i:                                 ; preds = %10
@@ -12983,7 +12983,7 @@ define hidden void @"_ZN4core3ptr240drop_in_place$LT$crossbeam_skiplist..base..R
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3930)
   %22 = load i64, ptr %21, align 8, !range !1087, !alias.scope !3933, !noundef !4
-  %switch11.i = icmp ult i64 %22, 2
+  %switch11.i = icmp samesign ult i64 %22, 2
   br i1 %switch11.i, label %.sink.split.i6.i, label %"_ZN4core3ptr132drop_in_place$LT$$LP$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$C$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$RP$$GT$17h6c5c5551f53b4361E.llvm.14689451251361528239.exit"
 
 .sink.split.i6.i:                                 ; preds = %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4f27e66dfbd249f9E.llvm.14689451251361528239.exit.i"
@@ -14614,7 +14614,7 @@ define hidden void @"_ZN4core3ptr360drop_in_place$LT$crossbeam_skiplist..map..Ra
   call void @llvm.experimental.noalias.scope.decl(metadata !4443)
   call void @llvm.experimental.noalias.scope.decl(metadata !4446)
   %24 = load i64, ptr %0, align 8, !range !1087, !alias.scope !4449, !noundef !4
-  %switch.i.i = icmp ult i64 %24, 2
+  %switch.i.i = icmp samesign ult i64 %24, 2
   br i1 %switch.i.i, label %.sink.split.i.i.i, label %"_ZN4core3ptr102drop_in_place$LT$core..ops..range..Bound$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hc550b331aaa6c23fE.exit.i.i"
 
 .sink.split.i.i.i:                                ; preds = %23
@@ -14636,7 +14636,7 @@ define hidden void @"_ZN4core3ptr360drop_in_place$LT$crossbeam_skiplist..map..Ra
   %34 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !4450)
   %35 = load i64, ptr %34, align 8, !range !1087, !alias.scope !4453, !noundef !4
-  %switch10.i.i = icmp ult i64 %35, 2
+  %switch10.i.i = icmp samesign ult i64 %35, 2
   br i1 %switch10.i.i, label %.sink.split.i1.i.i, label %common.resume
 
 .sink.split.i1.i.i:                               ; preds = %32
@@ -14656,7 +14656,7 @@ define hidden void @"_ZN4core3ptr360drop_in_place$LT$crossbeam_skiplist..map..Ra
   %43 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !4454)
   %44 = load i64, ptr %43, align 8, !range !1087, !alias.scope !4457, !noundef !4
-  %switch11.i.i = icmp ult i64 %44, 2
+  %switch11.i.i = icmp samesign ult i64 %44, 2
   br i1 %switch11.i.i, label %.sink.split.i6.i.i, label %"_ZN4core3ptr364drop_in_place$LT$crossbeam_skiplist..base..RefRange$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$C$$LP$core..ops..range..Bound$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$$C$core..ops..range..Bound$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$$RP$$C$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$C$bytes..bytes..Bytes$GT$$GT$17h584c369fe6468bdcE.llvm.14689451251361528239.exit"
 
 .sink.split.i6.i.i:                               ; preds = %"_ZN4core3ptr102drop_in_place$LT$core..ops..range..Bound$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hc550b331aaa6c23fE.exit.i.i"
@@ -14697,7 +14697,7 @@ define hidden void @"_ZN4core3ptr364drop_in_place$LT$crossbeam_skiplist..base..R
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4458)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4461)
   %2 = load i64, ptr %0, align 8, !range !1087, !alias.scope !4464, !noundef !4
-  %switch.i = icmp ult i64 %2, 2
+  %switch.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i, label %.sink.split.i.i, label %"_ZN4core3ptr102drop_in_place$LT$core..ops..range..Bound$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hc550b331aaa6c23fE.exit.i"
 
 .sink.split.i.i:                                  ; preds = %1
@@ -14719,7 +14719,7 @@ define hidden void @"_ZN4core3ptr364drop_in_place$LT$crossbeam_skiplist..base..R
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4465)
   %13 = load i64, ptr %12, align 8, !range !1087, !alias.scope !4468, !noundef !4
-  %switch10.i = icmp ult i64 %13, 2
+  %switch10.i = icmp samesign ult i64 %13, 2
   br i1 %switch10.i, label %.sink.split.i1.i, label %"_ZN4core3ptr102drop_in_place$LT$core..ops..range..Bound$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hc550b331aaa6c23fE.exit5.i"
 
 .sink.split.i1.i:                                 ; preds = %10
@@ -14739,7 +14739,7 @@ define hidden void @"_ZN4core3ptr364drop_in_place$LT$crossbeam_skiplist..base..R
   %21 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4469)
   %22 = load i64, ptr %21, align 8, !range !1087, !alias.scope !4472, !noundef !4
-  %switch11.i = icmp ult i64 %22, 2
+  %switch11.i = icmp samesign ult i64 %22, 2
   br i1 %switch11.i, label %.sink.split.i6.i, label %"_ZN4core3ptr194drop_in_place$LT$$LP$core..ops..range..Bound$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$$C$core..ops..range..Bound$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$$RP$$GT$17h072d15920f6a83caE.llvm.14689451251361528239.exit"
 
 .sink.split.i6.i:                                 ; preds = %"_ZN4core3ptr102drop_in_place$LT$core..ops..range..Bound$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hc550b331aaa6c23fE.exit.i"
@@ -17482,7 +17482,7 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$mini_lsm_mvcc..lsm_iterator.
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5443)
   %5 = load i64, ptr %0, align 8, !range !1087, !alias.scope !5443, !noundef !4
-  %switch = icmp ult i64 %5, 2
+  %switch = icmp samesign ult i64 %5, 2
   br i1 %switch, label %.sink.split.i, label %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4f27e66dfbd249f9E.llvm.14689451251361528239.exit"
 
 .sink.split.i:                                    ; preds = %3
@@ -17501,7 +17501,7 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$mini_lsm_mvcc..lsm_iterator.
 13:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5446)
   %14 = load i64, ptr %0, align 8, !range !1087, !alias.scope !5446, !noundef !4
-  %switch9 = icmp ult i64 %14, 2
+  %switch9 = icmp samesign ult i64 %14, 2
   br i1 %switch9, label %.sink.split.i2, label %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4f27e66dfbd249f9E.llvm.14689451251361528239.exit6"
 
 .sink.split.i2:                                   ; preds = %13
@@ -19127,7 +19127,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$std..collections..hash..set.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4f27e66dfbd249f9E.llvm.14689451251361528239"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !1087, !noundef !4
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %.sink.split, label %10
 
 .sink.split:                                      ; preds = %1

@@ -6128,7 +6128,7 @@ _ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.sroa.01.1.lcssa = phi i64 [ %127, %._crit_edge ], [ %.sroa.01.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -6141,7 +6141,7 @@ _ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit: ; preds = %25, %27
   %.sroa.03.0.i10 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %.sroa.0.0.i11 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.sroa.03.0.i10, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -8334,7 +8334,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A
   br i1 %45, label %.thread.i.i.i, label %46
 
 46:                                               ; preds = %42
-  %switch.i.i.i.i.i = icmp ult i8 %44, 3
+  %switch.i.i.i.i.i = icmp samesign ult i8 %44, 3
   %47 = getelementptr inbounds i8, ptr %6, i64 16
   %48 = load i8, ptr %47, align 8, !range !1318, !alias.scope !1316, !noalias !1313, !noundef !9
   %49 = icmp eq i8 %48, 6
@@ -8343,14 +8343,14 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A
 .thread.i.i.i:                                    ; preds = %42
   %50 = getelementptr inbounds i8, ptr %6, i64 16
   %51 = load i8, ptr %50, align 8, !range !1318, !alias.scope !1316, !noalias !1313, !noundef !9
-  %switch.i.i3453.i.i.i = icmp ult i8 %51, 3
+  %switch.i.i3453.i.i.i = icmp samesign ult i8 %51, 3
   br i1 %switch.i.i3453.i.i.i, label %38, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit.i.i.i"
 
 ._crit_edge.i.i.i:                                ; preds = %46
   br i1 %switch.i.i.i.i.i, label %38, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit.i.i.i"
 
 52:                                               ; preds = %46
-  %switch.i.i34.i.i.i = icmp ult i8 %48, 3
+  %switch.i.i34.i.i.i = icmp samesign ult i8 %48, 3
   %53 = xor i1 %switch.i.i.i.i.i, %switch.i.i34.i.i.i
   br i1 %53, label %38, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit.i.i.i"
 

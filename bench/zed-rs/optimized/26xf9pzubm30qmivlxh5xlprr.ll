@@ -4826,7 +4826,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$anyhow..error..ErrorImpl$LT
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1256)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1259)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hc9e8ff1effb7abb4E.llvm.15385039395483765890.exit", label %8
 
 8:                                                ; preds = %7
@@ -5390,7 +5390,7 @@ define hidden void @"_ZN4core3ptr109drop_in_place$LT$$u5b$$LP$core..ops..range..
   %4 = add nuw i64 %.sroa.0.09, 1
   %5 = getelementptr inbounds [0 x { { i64, i64 }, { i8, [79 x i8] } }], ptr %0, i64 0, i64 %.sroa.0.09, i32 1
   %6 = load i8, ptr %5, align 8, !range !1405, !alias.scope !1406, !noundef !4
-  %7 = icmp ult i8 %6, 21
+  %7 = icmp samesign ult i8 %6, 21
   br i1 %7, label %8, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit"
 
 8:                                                ; preds = %.lr.ph
@@ -5415,7 +5415,7 @@ define hidden void @"_ZN4core3ptr109drop_in_place$LT$$u5b$$LP$core..ops..range..
   %13 = add i64 %.sroa.0.110, 1
   %14 = getelementptr inbounds [0 x { { i64, i64 }, { i8, [79 x i8] } }], ptr %0, i64 0, i64 %.sroa.0.110, i32 1
   %15 = load i8, ptr %14, align 8, !range !1405, !alias.scope !1411, !noundef !4
-  %16 = icmp ult i8 %15, 21
+  %16 = icmp samesign ult i8 %15, 21
   br i1 %16, label %17, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8"
 
 17:                                               ; preds = %.lr.ph12
@@ -5697,7 +5697,7 @@ define hidden void @"_ZN4core3ptr111drop_in_place$LT$anyhow..error..ErrorImpl$LT
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1465)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1468)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hc9e8ff1effb7abb4E.llvm.15385039395483765890.exit", label %8
 
 8:                                                ; preds = %7
@@ -7274,7 +7274,7 @@ define hidden void @"_ZN4core3ptr120drop_in_place$LT$anyhow..error..ErrorImpl$LT
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2008)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2011)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hc9e8ff1effb7abb4E.llvm.15385039395483765890.exit", label %8
 
 8:                                                ; preds = %7
@@ -7576,7 +7576,7 @@ define hidden void @"_ZN4core3ptr122drop_in_place$LT$alloc..vec..Vec$LT$$LP$core
   %7 = add nuw i64 %.sroa.0.09.i.i, 1
   %8 = getelementptr inbounds [0 x { { i64, i64 }, { i8, [79 x i8] } }], ptr %3, i64 0, i64 %.sroa.0.09.i.i, i32 1
   %9 = load i8, ptr %8, align 8, !range !1405, !alias.scope !2105, !noalias !2102, !noundef !4
-  %10 = icmp ult i8 %9, 21
+  %10 = icmp samesign ult i8 %9, 21
   br i1 %10, label %11, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i"
 
 11:                                               ; preds = %.lr.ph.i.i
@@ -7598,7 +7598,7 @@ define hidden void @"_ZN4core3ptr122drop_in_place$LT$alloc..vec..Vec$LT$$LP$core
   %16 = add i64 %.sroa.0.110.i.i, 1
   %17 = getelementptr inbounds [0 x { { i64, i64 }, { i8, [79 x i8] } }], ptr %3, i64 0, i64 %.sroa.0.110.i.i, i32 1
   %18 = load i8, ptr %17, align 8, !range !1405, !alias.scope !2112, !noalias !2102, !noundef !4
-  %19 = icmp ult i8 %18, 21
+  %19 = icmp samesign ult i8 %18, 21
   br i1 %19, label %20, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i"
 
 20:                                               ; preds = %.lr.ph12.i.i
@@ -8681,7 +8681,7 @@ define hidden void @"_ZN4core3ptr133drop_in_place$LT$anyhow..error..ErrorImpl$LT
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2457)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2460)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hc9e8ff1effb7abb4E.llvm.15385039395483765890.exit", label %8
 
 8:                                                ; preds = %7
@@ -10168,7 +10168,7 @@ define hidden void @"_ZN4core3ptr149drop_in_place$LT$alloc..vec..Vec$LT$$LP$core
   %7 = add nuw i64 %.sroa.0.09.i.i, 1
   %8 = getelementptr inbounds [0 x { { i64, i64 }, { i8, [79 x i8] } }], ptr %3, i64 0, i64 %.sroa.0.09.i.i, i32 1
   %9 = load i8, ptr %8, align 8, !range !1405, !alias.scope !3000, !noalias !2997, !noundef !4
-  %10 = icmp ult i8 %9, 21
+  %10 = icmp samesign ult i8 %9, 21
   br i1 %10, label %11, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i"
 
 11:                                               ; preds = %.lr.ph.i.i
@@ -10190,7 +10190,7 @@ define hidden void @"_ZN4core3ptr149drop_in_place$LT$alloc..vec..Vec$LT$$LP$core
   %16 = add i64 %.sroa.0.110.i.i, 1
   %17 = getelementptr inbounds [0 x { { i64, i64 }, { i8, [79 x i8] } }], ptr %3, i64 0, i64 %.sroa.0.110.i.i, i32 1
   %18 = load i8, ptr %17, align 8, !range !1405, !alias.scope !3007, !noalias !2997, !noundef !4
-  %19 = icmp ult i8 %18, 21
+  %19 = icmp samesign ult i8 %18, 21
   br i1 %19, label %20, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i"
 
 20:                                               ; preds = %.lr.ph12.i.i
@@ -22052,7 +22052,7 @@ define internal fastcc void @"_ZN4core3ptr39drop_in_place$LT$gpui..scene..Scene$
   %7 = add nuw i64 %.sroa.0.07.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5609)
   %8 = load i32, ptr %6, align 8, !range !5612, !alias.scope !5613, !noalias !5603, !noundef !4
-  %9 = icmp ult i32 %8, 7
+  %9 = icmp samesign ult i32 %8, 7
   br i1 %9, label %10, label %"_ZN4core3ptr48drop_in_place$LT$gpui..scene..PaintOperation$GT$17h3405049dc91eb7beE.exit.i.i.i"
 
 10:                                               ; preds = %.lr.ph.i.i.i
@@ -25527,7 +25527,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$std..backtrace..Inner$GT$17h
   %2 = alloca [0 x i8], align 8
   %3 = alloca [48 x i8], align 8
   %4 = load i64, ptr %0, align 8, !range !752, !noundef !4
-  %switch = icmp ult i64 %4, 2
+  %switch = icmp samesign ult i64 %4, 2
   br i1 %switch, label %14, label %5
 
 5:                                                ; preds = %1
@@ -27760,7 +27760,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT
   %3 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7554)
   %4 = load i64, ptr %0, align 8, !range !752, !alias.scope !7554, !noundef !4
-  %switch.i = icmp ult i64 %4, 2
+  %switch.i = icmp samesign ult i64 %4, 2
   br i1 %switch.i, label %"_ZN4core3ptr42drop_in_place$LT$std..backtrace..Inner$GT$17hd9f431e13c68b758E.llvm.15385039395483765890.exit", label %5
 
 5:                                                ; preds = %1
@@ -29758,7 +29758,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyMo
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr52drop_in_place$LT$markdown..parser..MarkdownEvent$GT$17h869814de6c5dd589E.llvm.15385039395483765890"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 8, !range !1405, !noundef !4
-  %3 = icmp ult i8 %2, 21
+  %3 = icmp samesign ult i8 %2, 21
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1, %5
@@ -40668,7 +40668,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std.
 6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12264)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12267)
-  %switch.i.i = icmp ult i64 %4, 2
+  %switch.i.i = icmp samesign ult i64 %4, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17hadfcbf11ba11c32bE.llvm.15385039395483765890.exit", label %7
 
 7:                                                ; preds = %6
@@ -45447,7 +45447,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$anyhow..error..ErrorImpl$LT$
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13862)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13865)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hc9e8ff1effb7abb4E.llvm.15385039395483765890.exit", label %8
 
 8:                                                ; preds = %7
@@ -47893,7 +47893,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$anyhow..error..ErrorImpl$LT$
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14654)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14657)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hc9e8ff1effb7abb4E.llvm.15385039395483765890.exit", label %8
 
 8:                                                ; preds = %7
@@ -47948,7 +47948,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$anyhow..error..ErrorImpl$LT$
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14671)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14674)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hc9e8ff1effb7abb4E.llvm.15385039395483765890.exit", label %8
 
 8:                                                ; preds = %7
@@ -48111,7 +48111,7 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$allo
 define hidden void @"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890"(ptr noalias noundef align 8 dereferenceable(96) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !range !1405, !alias.scope !14705, !noundef !4
-  %4 = icmp ult i8 %3, 21
+  %4 = icmp samesign ult i8 %3, 21
   br i1 %4, label %5, label %"_ZN4core3ptr52drop_in_place$LT$markdown..parser..MarkdownEvent$GT$17h869814de6c5dd589E.llvm.15385039395483765890.exit"
 
 5:                                                ; preds = %1
@@ -51934,7 +51934,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %7 = add nuw i64 %.sroa.0.09.i, 1
   %8 = getelementptr inbounds [0 x { { i64, i64 }, { i8, [79 x i8] } }], ptr %3, i64 0, i64 %.sroa.0.09.i, i32 1
   %9 = load i8, ptr %8, align 8, !range !1405, !alias.scope !15553, !noundef !4
-  %10 = icmp ult i8 %9, 21
+  %10 = icmp samesign ult i8 %9, 21
   br i1 %10, label %11, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i"
 
 11:                                               ; preds = %.lr.ph.i
@@ -51956,7 +51956,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %16 = add i64 %.sroa.0.110.i, 1
   %17 = getelementptr inbounds [0 x { { i64, i64 }, { i8, [79 x i8] } }], ptr %3, i64 0, i64 %.sroa.0.110.i, i32 1
   %18 = load i8, ptr %17, align 8, !range !1405, !alias.scope !15560, !noundef !4
-  %19 = icmp ult i8 %18, 21
+  %19 = icmp samesign ult i8 %18, 21
   br i1 %19, label %20, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i"
 
 20:                                               ; preds = %.lr.ph12.i
@@ -51994,7 +51994,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %7 = add nuw i64 %.sroa.0.09.i, 1
   %8 = getelementptr inbounds [0 x { { i64, i64 }, { i8, [79 x i8] } }], ptr %3, i64 0, i64 %.sroa.0.09.i, i32 1
   %9 = load i8, ptr %8, align 8, !range !1405, !alias.scope !15565, !noundef !4
-  %10 = icmp ult i8 %9, 21
+  %10 = icmp samesign ult i8 %9, 21
   br i1 %10, label %11, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i"
 
 11:                                               ; preds = %.lr.ph.i
@@ -52016,7 +52016,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %16 = add i64 %.sroa.0.110.i, 1
   %17 = getelementptr inbounds [0 x { { i64, i64 }, { i8, [79 x i8] } }], ptr %3, i64 0, i64 %.sroa.0.110.i, i32 1
   %18 = load i8, ptr %17, align 8, !range !1405, !alias.scope !15572, !noundef !4
-  %19 = icmp ult i8 %18, 21
+  %19 = icmp samesign ult i8 %18, 21
   br i1 %19, label %20, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i"
 
 20:                                               ; preds = %.lr.ph12.i

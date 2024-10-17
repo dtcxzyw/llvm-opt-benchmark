@@ -2189,8 +2189,8 @@ define hidden noundef zeroext i1 @_ZN2cv11TiffDecoder8readDataERNS_3MatE(ptr noc
   %204 = getelementptr inbounds i8, ptr %0, i64 288
   %205 = load i8, ptr %204, align 8
   %206 = trunc i8 %205 to i1
-  %207 = icmp ugt i32 %154, 4
-  %or.cond = and i1 %207, %206
+  %207 = icmp samesign ugt i32 %154, 4
+  %or.cond = select i1 %206, i1 %207, i1 false
   br i1 %or.cond, label %208, label %245
 
 208:                                              ; preds = %203
@@ -2349,7 +2349,7 @@ define hidden noundef zeroext i1 @_ZN2cv11TiffDecoder8readDataERNS_3MatE(ptr noc
   %277 = lshr i32 %267, 3
   %278 = and i32 %277, 511
   %279 = add nuw nsw i32 %278, 1
-  %or.cond.i = icmp ult i32 %278, 4
+  %or.cond.i = icmp samesign ult i32 %278, 4
   br i1 %or.cond.i, label %_ZNK2cv11TiffDecoder23normalizeChannelsNumberEi.exit, label %280
 
 280:                                              ; preds = %264
@@ -2676,7 +2676,7 @@ _ZNK2cv11TiffDecoder23normalizeChannelsNumberEi.exit: ; preds = %264
   %403 = zext nneg i32 %364 to i64
   %404 = zext nneg i32 %371 to i64
   %405 = mul nuw nsw i64 %404, %403
-  %406 = icmp ugt i64 %405, 255013682
+  %406 = icmp samesign ugt i64 %405, 255013682
   br i1 %406, label %407, label %.thread930
 
 407:                                              ; preds = %402
@@ -3080,7 +3080,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %573 = call i16 @llvm.umax.i16(i16 %572, i16 1)
   %574 = zext nneg i16 %573 to i64
   %575 = mul nuw nsw i64 %571, %574
-  %576 = icmp ugt i64 %575, 1020054731
+  %576 = icmp samesign ugt i64 %575, 1020054731
   br i1 %576, label %577, label %.thread937
 
 577:                                              ; preds = %566
@@ -3476,7 +3476,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %735 = load i32, ptr %49, align 4
   %736 = zext i32 %735 to i64
   %737 = mul nuw nsw i64 %734, %736
-  %738 = icmp ult i64 %737, 1073741824
+  %738 = icmp samesign ult i64 %737, 1073741824
   br i1 %738, label %740, label %739
 
 739:                                              ; preds = %.thread937
@@ -3488,11 +3488,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %742 = lshr exact i32 %741, 3
   %743 = zext nneg i32 %742 to i64
   %744 = mul nuw nsw i64 %743, %736
-  %745 = icmp ugt i32 %272, %730
+  %745 = icmp samesign ugt i32 %272, %730
   %746 = getelementptr inbounds i8, ptr %93, i64 16
   store ptr %746, ptr %93, align 8
   %747 = getelementptr inbounds i8, ptr %93, i64 8
-  %.not.i.i = icmp ugt i64 %737, 1032
+  %.not.i.i = icmp samesign ugt i64 %737, 1032
   store i64 %737, ptr %747, align 8
   br i1 %.not.i.i, label %748, label %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit
 
@@ -3507,7 +3507,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %740, %748
   %752 = getelementptr inbounds i8, ptr %94, i64 16
   store ptr %752, ptr %94, align 8
   %753 = getelementptr inbounds i8, ptr %94, i64 8
-  %.not.i.i761 = icmp ugt i64 %751, 1032
+  %.not.i.i761 = icmp samesign ugt i64 %751, 1032
   store i64 %751, ptr %753, align 8
   br i1 %.not.i.i761, label %754, label %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit762
 
@@ -5828,7 +5828,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %._crit_edge1023, %1
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit877:         ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, %1664
   %1665 = load i16, ptr %45, align 2
   %1666 = zext i16 %1665 to i32
-  %1667 = icmp ugt i32 %272, %1666
+  %1667 = icmp samesign ugt i32 %272, %1666
   br i1 %1667, label %1668, label %1682
 
 1668:                                             ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit877
@@ -6140,7 +6140,7 @@ _ZN2cvL21fixOrientationPartialERNS_3MatEt.exit.i: ; preds = %1749, %1742
 _ZN2cvL14fixOrientationERNS_3MatEtb.exit:         ; preds = %_ZN2cvL21fixOrientationPartialERNS_3MatEt.exit.i, %_ZN2cvL18fixOrientationFullERNS_3MatEi.exit.i, %254, %251
   %1755 = load i8, ptr %204, align 8
   %1756 = trunc i8 %1755 to i1
-  %or.cond91 = and i1 %207, %1756
+  %or.cond91 = select i1 %1756, i1 %207, i1 false
   br i1 %or.cond91, label %1757, label %_ZN2cv11TiffDecoder5closeEv.exit
 
 1757:                                             ; preds = %_ZN2cvL14fixOrientationERNS_3MatEtb.exit
@@ -7351,7 +7351,7 @@ _ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit437: ; preds = %167, %_ZN2cv3PtrIvE
   unreachable
 
 232:                                              ; preds = %220
-  %or.cond13 = icmp ult i32 %223, 4
+  %or.cond13 = icmp samesign ult i32 %223, 4
   br i1 %or.cond13, label %233, label %.invoke
 
 233:                                              ; preds = %232

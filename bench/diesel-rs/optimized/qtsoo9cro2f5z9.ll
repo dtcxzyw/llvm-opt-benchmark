@@ -645,7 +645,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
   %.0.lpad-body = phi i1 [ %48, %46 ], [ true, %41 ]
   %eh.lpad-body = phi { ptr, i32 } [ %47, %46 ], [ %42, %41 ]
   %49 = load i64, ptr %13, align 8, !range !36, !noundef !5
-  %50 = icmp ult i64 %49, 39
+  %50 = icmp samesign ult i64 %49, 39
   br i1 %50, label %103, label %105
 
 51:                                               ; preds = %.noexc
@@ -739,7 +739,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
 68:                                               ; preds = %67, %65
   %.15665 = phi i8 [ %.157, %67 ], [ %.15666, %65 ]
   %69 = load i64, ptr %13, align 8, !range !36, !noundef !5
-  %70 = icmp ult i64 %69, 39
+  %70 = icmp samesign ult i64 %69, 39
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %68
@@ -965,7 +965,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
   %.0.lpad-body = phi i1 [ %48, %46 ], [ true, %41 ]
   %eh.lpad-body = phi { ptr, i32 } [ %47, %46 ], [ %42, %41 ]
   %49 = load i64, ptr %13, align 8, !range !36, !noundef !5
-  %50 = icmp ult i64 %49, 39
+  %50 = icmp samesign ult i64 %49, 39
   br i1 %50, label %104, label %106
 
 51:                                               ; preds = %.noexc
@@ -1060,7 +1060,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
 69:                                               ; preds = %68, %.thread60
   %.15665 = phi i8 [ %.157, %68 ], [ %.15666, %.thread60 ]
   %70 = load i64, ptr %13, align 8, !range !36, !noundef !5
-  %71 = icmp ult i64 %70, 39
+  %71 = icmp samesign ult i64 %70, 39
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %69

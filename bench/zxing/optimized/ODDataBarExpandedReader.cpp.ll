@@ -278,7 +278,7 @@ _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %.critedge4.i, %_ZN5
   %64 = add nuw nsw i32 %61, %58
   %65 = add nuw nsw i32 %63, 5
   %66 = mul nuw nsw i32 %64, 9
-  %67 = icmp ugt i32 %65, %66
+  %67 = icmp samesign ugt i32 %65, %66
   br i1 %67, label %68, label %_ZN5ZXing11PatternView5shiftEi.exit30.i
 
 68:                                               ; preds = %46
@@ -290,14 +290,14 @@ _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %.critedge4.i, %_ZN5
 72:                                               ; preds = %68
   %73 = shl nuw nsw i32 %61, 2
   %74 = or disjoint i32 %73, 2
-  %75 = icmp ugt i32 %74, %49
+  %75 = icmp samesign ugt i32 %74, %49
   br i1 %75, label %_ZN5ZXing4OneDL15IsFinderPatternEiiiii.exit.i.i, label %_ZN5ZXing11PatternView5shiftEi.exit30.i
 
 _ZN5ZXing4OneDL15IsFinderPatternEiiiii.exit.i.i:  ; preds = %72
   %76 = shl nuw nsw i32 %49, 2
-  %77 = icmp ugt i32 %76, %64
+  %77 = icmp samesign ugt i32 %76, %64
   %78 = mul nuw nsw i32 %61, 3
-  %79 = icmp ult i32 %78, %55
+  %79 = icmp samesign ult i32 %78, %55
   %80 = select i1 %77, i1 %79, i1 false
   br i1 %80, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN5ZXing11PatternView5shiftEi.exit30.i
 
@@ -388,7 +388,7 @@ _ZN5ZXing4OneD7DataBar7IsGuardEii.exit.i:         ; preds = %103
   %115 = lshr i32 %110, 2
   %116 = add nuw nsw i32 %110, 2
   %117 = add nuw nsw i32 %116, %115
-  %118 = icmp ugt i32 %117, %107
+  %118 = icmp samesign ugt i32 %117, %107
   br i1 %118, label %_ZZN5ZXing4OneDL14ReadRowOfPairsILb1EEESt6vectorINS0_7DataBar4PairESaIS4_EERNS_11PatternViewEiENKUlS4_S7_E_clES4_S7_.exit.preheader.i, label %_ZN5ZXing11PatternView5shiftEi.exit30.i
 
 .loopexit.i:                                      ; preds = %213, %197
@@ -461,7 +461,7 @@ _ZN5ZXing11PatternView5shiftEi.exit30.i:          ; preds = %.critedge.i, %_ZN5Z
   %145 = add nuw nsw i32 %142, %139
   %146 = add nuw nsw i32 %144, 5
   %147 = mul nuw nsw i32 %145, 9
-  %148 = icmp ugt i32 %146, %147
+  %148 = icmp samesign ugt i32 %146, %147
   br i1 %148, label %149, label %.critedge4.i
 
 149:                                              ; preds = %127
@@ -473,14 +473,14 @@ _ZN5ZXing11PatternView5shiftEi.exit30.i:          ; preds = %.critedge.i, %_ZN5Z
 153:                                              ; preds = %149
   %154 = shl nuw nsw i32 %142, 2
   %155 = or disjoint i32 %154, 2
-  %156 = icmp ugt i32 %155, %130
+  %156 = icmp samesign ugt i32 %155, %130
   br i1 %156, label %_ZN5ZXing4OneDL15IsFinderPatternEiiiii.exit.i31.i, label %.critedge4.i
 
 _ZN5ZXing4OneDL15IsFinderPatternEiiiii.exit.i31.i: ; preds = %153
   %157 = shl nuw nsw i32 %130, 2
-  %158 = icmp ugt i32 %157, %145
+  %158 = icmp samesign ugt i32 %157, %145
   %159 = mul nuw nsw i32 %142, 3
-  %160 = icmp ult i32 %159, %136
+  %160 = icmp samesign ult i32 %159, %136
   %161 = select i1 %158, i1 %160, i1 false
   br i1 %161, label %.lr.ph.i.i.i.i.i.i32.i, label %.critedge4.i
 
@@ -779,7 +779,7 @@ _ZN5ZXing11PatternView5shiftEi.exit57.i:          ; preds = %206
   %231 = lshr i32 %225, 2
   %232 = add nuw nsw i32 %225, 2
   %233 = add nuw nsw i32 %232, %231
-  %234 = icmp ugt i32 %233, %222
+  %234 = icmp samesign ugt i32 %233, %222
   br i1 %234, label %_ZZN5ZXing4OneDL14ReadRowOfPairsILb1EEESt6vectorINS0_7DataBar4PairESaIS4_EERNS_11PatternViewEiENKUlS4_S7_E_clES4_S7_.exit.i.backedge, label %_ZN5ZXing4OneDL14ReadRowOfPairsILb1EEESt6vectorINS0_7DataBar4PairESaIS4_EERNS_11PatternViewEi.exit
 
 _ZZN5ZXing4OneDL14ReadRowOfPairsILb1EEESt6vectorINS0_7DataBar4PairESaIS4_EERNS_11PatternViewEiENKUlS4_S7_E_clES4_S7_.exit.i.backedge: ; preds = %230, %216
@@ -3206,7 +3206,7 @@ _ZN5ZXing6ReduceIPKtiSt4plusIiEEET0_T_S6_S5_T1_.exit.i.i.i.i.i: ; preds = %.lr.p
   br i1 %.not.i.i35.i.i.i.i.i, label %_ZN5ZXing6ReduceIPKtiSt4plusIiEEET0_T_S6_S5_T1_.exit37.i.i.i.i.i, label %.lr.ph.i.i32.i.i.i.i.i, !llvm.loop !44
 
 _ZN5ZXing6ReduceIPKtiSt4plusIiEEET0_T_S6_S5_T1_.exit37.i.i.i.i.i: ; preds = %.lr.ph.i.i32.i.i.i.i.i
-  %16 = icmp ult i32 %11, %15
+  %16 = icmp samesign ult i32 %11, %15
   br i1 %16, label %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewENS_12FixedPatternILi5ELi15ELb0EEEEEfRKT_RKT0_f.exit.i.i.i, label %17
 
 17:                                               ; preds = %_ZN5ZXing6ReduceIPKtiSt4plusIiEEET0_T_S6_S5_T1_.exit37.i.i.i.i.i

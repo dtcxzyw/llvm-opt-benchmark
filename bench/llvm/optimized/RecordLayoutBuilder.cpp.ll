@@ -7344,7 +7344,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang13CXXRecordDeclELb1EE9push_backES4_.e
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPKN5clang13CXXRecordDeclES3_EC2ES4_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !94
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %256
@@ -14445,7 +14445,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %110, %107
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 200
   %159 = load i16, ptr %158, align 8
   %160 = and i16 %159, 60
-  %161 = icmp ult i16 %160, 36
+  %161 = icmp samesign ult i16 %160, 36
   br i1 %161, label %162, label %184
 
 162:                                              ; preds = %._crit_edge, %155, %146
@@ -15549,7 +15549,7 @@ _ZN12_GLOBAL__N_114ExternalLayout22getExternalVBaseOffsetEPKN5clang13CXXRecordDe
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 200
   %81 = load i16, ptr %80, align 8
   %82 = and i16 %81, 60
-  %83 = icmp ult i16 %82, 12
+  %83 = icmp samesign ult i16 %82, 12
   br i1 %83, label %"_ZZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder10LayoutBaseEPKNS_17BaseSubobjectInfoEENK3$_0clEN5clang9CharUnitsE.exit76", label %.thread
 
 .thread:                                          ; preds = %77
@@ -17514,7 +17514,7 @@ _ZN4llvm13isPowerOf2_64Em.exit.thread:            ; preds = %575
   br i1 %.not.i.i123.not, label %_ZN4llvm13isPowerOf2_64Em.exit126.thread, label %_ZN4llvm13isPowerOf2_64Em.exit126
 
 _ZN4llvm13isPowerOf2_64Em.exit126:                ; preds = %.thread, %594
-  %595 = icmp ult i64 %578, 2
+  %595 = icmp samesign ult i64 %578, 2
   %spec.select = select i1 %595, i64 %577, i64 %549
   br label %_ZN4llvm13isPowerOf2_64Em.exit126.thread
 
@@ -17602,7 +17602,7 @@ _ZNK5clang4Decl7hasAttrINS_10PackedAttrEEEbv.exit.thread: ; preds = %629, %622, 
   %634 = getelementptr inbounds nuw i8, ptr %633, i64 200
   %635 = load i16, ptr %634, align 8
   %636 = and i16 %635, 60
-  %637 = icmp ult i16 %636, 36
+  %637 = icmp samesign ult i16 %636, 36
   br i1 %637, label %_ZNK5clang4Decl7hasAttrINS_10PackedAttrEEEbv.exit142, label %638
 
 638:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_10PackedAttrEEEbv.exit.thread

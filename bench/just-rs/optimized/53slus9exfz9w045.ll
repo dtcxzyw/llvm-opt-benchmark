@@ -7611,7 +7611,7 @@ _ZN4just5lexer5Lexer14internal_error17h45392498d7ca38a9E.exit: ; preds = %.noexc
   br label %38
 
 36:                                               ; preds = %2
-  %37 = icmp ult i32 %5, 128
+  %37 = icmp samesign ult i32 %5, 128
   br i1 %37, label %44, label %40
 
 38:                                               ; preds = %_ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread, %_ZN4just5lexer5Lexer14internal_error17h45392498d7ca38a9E.exit
@@ -7621,11 +7621,11 @@ _ZN4just5lexer5Lexer14internal_error17h45392498d7ca38a9E.exit: ; preds = %.noexc
   ret void
 
 40:                                               ; preds = %36
-  %41 = icmp ult i32 %5, 2048
+  %41 = icmp samesign ult i32 %5, 2048
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %40
-  %43 = icmp ult i32 %5, 65536
+  %43 = icmp samesign ult i32 %5, 65536
   %. = select i1 %43, i64 3, i64 4
   br label %44
 
@@ -18289,15 +18289,15 @@ _ZN4core3ops8function5FnMut8call_mut17he127efd6e38f9271E.exit.i.i.i.i: ; preds =
   br i1 %or.cond.i.i.i.i.i.i, label %255, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h75141e94fb7decd8E.exit.i.i.i.i.i.i"
 
 255:                                              ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb346d2f52aa671aeE.exit.i.i.i.i.i.i.i.i.i"
-  %256 = icmp ult i32 %.sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.0..sroa.6.i.i.i.i.i.0..sroa.6.i.i.i.i.0..sroa.6.i.i.i.i.0..sroa.6.i.i.i.0..sroa.6.i.i.i.0..sroa.6.i.i.0..sroa.6.i.i.0..sroa.6.i.0..sroa.6.i.0..sroa.6.0..sroa.6.0..sroa.6.8..i.i.i.i.i.i.i.i.i, 128
+  %256 = icmp samesign ult i32 %.sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.0..sroa.6.i.i.i.i.i.0..sroa.6.i.i.i.i.0..sroa.6.i.i.i.i.0..sroa.6.i.i.i.0..sroa.6.i.i.i.0..sroa.6.i.i.0..sroa.6.i.i.0..sroa.6.i.0..sroa.6.i.0..sroa.6.0..sroa.6.0..sroa.6.8..i.i.i.i.i.i.i.i.i, 128
   br i1 %256, label %261, label %257
 
 257:                                              ; preds = %255
-  %258 = icmp ult i32 %.sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.0..sroa.6.i.i.i.i.i.0..sroa.6.i.i.i.i.0..sroa.6.i.i.i.i.0..sroa.6.i.i.i.0..sroa.6.i.i.i.0..sroa.6.i.i.0..sroa.6.i.i.0..sroa.6.i.0..sroa.6.i.0..sroa.6.0..sroa.6.0..sroa.6.8..i.i.i.i.i.i.i.i.i, 2048
+  %258 = icmp samesign ult i32 %.sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.0..sroa.6.i.i.i.i.i.0..sroa.6.i.i.i.i.0..sroa.6.i.i.i.i.0..sroa.6.i.i.i.0..sroa.6.i.i.i.0..sroa.6.i.i.0..sroa.6.i.i.0..sroa.6.i.0..sroa.6.i.0..sroa.6.0..sroa.6.0..sroa.6.8..i.i.i.i.i.i.i.i.i, 2048
   br i1 %258, label %261, label %259
 
 259:                                              ; preds = %257
-  %260 = icmp ult i32 %.sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.0..sroa.6.i.i.i.i.i.0..sroa.6.i.i.i.i.0..sroa.6.i.i.i.i.0..sroa.6.i.i.i.0..sroa.6.i.i.i.0..sroa.6.i.i.0..sroa.6.i.i.0..sroa.6.i.0..sroa.6.i.0..sroa.6.0..sroa.6.0..sroa.6.8..i.i.i.i.i.i.i.i.i, 65536
+  %260 = icmp samesign ult i32 %.sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.i.0..sroa.6.i.i.i.i.i.0..sroa.6.i.i.i.i.i.0..sroa.6.i.i.i.i.0..sroa.6.i.i.i.i.0..sroa.6.i.i.i.0..sroa.6.i.i.i.0..sroa.6.i.i.0..sroa.6.i.i.0..sroa.6.i.0..sroa.6.i.0..sroa.6.0..sroa.6.0..sroa.6.8..i.i.i.i.i.i.i.i.i, 65536
   %..i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %260, i64 3, i64 4
   br label %261
 

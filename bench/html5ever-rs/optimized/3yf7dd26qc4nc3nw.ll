@@ -39,7 +39,7 @@ define internal fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalia
   %.sroa.8.1 = phi i64 [ 7816392313619706465, %3 ], [ %54, %.lr.ph.i.i.i ]
   %.sroa.0.1 = phi i64 [ 8317987319222330741, %3 ], [ %55, %.lr.ph.i.i.i ]
   %.1.lcssa.i.i.i = phi i64 [ 0, %3 ], [ %56, %.lr.ph.i.i.i ]
-  %8 = icmp ugt i64 %6, 3
+  %8 = icmp samesign ugt i64 %6, 3
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %._crit_edge.i.i.i
@@ -52,7 +52,7 @@ define internal fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalia
   %.017.i11.i.i.i = phi i64 [ 4, %9 ], [ 0, %._crit_edge.i.i.i ]
   %.0.i12.i.i.i = phi i64 [ %11, %9 ], [ 0, %._crit_edge.i.i.i ]
   %13 = or disjoint i64 %.017.i11.i.i.i, 1
-  %14 = icmp ult i64 %13, %6
+  %14 = icmp samesign ult i64 %13, %6
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %12
@@ -1165,7 +1165,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
 13:                                               ; preds = %2
   %14 = lshr i64 %4, 4
   %15 = and i64 %14, 15
-  %16 = icmp ugt i64 %15, 7
+  %16 = icmp samesign ugt i64 %15, 7
   br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i"
 
 17:                                               ; preds = %13
@@ -1231,7 +1231,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
 13:                                               ; preds = %2
   %14 = lshr i64 %4, 4
   %15 = and i64 %14, 15
-  %16 = icmp ugt i64 %15, 7
+  %16 = icmp samesign ugt i64 %15, 7
   br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i"
 
 17:                                               ; preds = %13

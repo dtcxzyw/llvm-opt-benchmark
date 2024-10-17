@@ -2754,7 +2754,7 @@ land.lhs.true63:                                  ; preds = %if.end55
   %30 = load i8, ptr %17, align 1, !tbaa !20
   %cmp59 = icmp eq i8 %30, 45
   %add = select i1 %cmp59, i64 41, i64 40
-  %cmp65 = icmp ult i64 %conv.i205, %add
+  %cmp65 = icmp samesign ult i64 %conv.i205, %add
   br i1 %cmp65, label %if.then66, label %if.end108
 
 if.then66:                                        ; preds = %land.lhs.true63

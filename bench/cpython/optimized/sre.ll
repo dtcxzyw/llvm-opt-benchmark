@@ -2165,7 +2165,7 @@ do.end21:                                         ; preds = %if.end15
 if.end28:                                         ; preds = %do.end21
   %incdec.ptr29 = getelementptr i8, ptr %code.addr.0264, i64 8
   %4 = load i32, ptr %incdec.ptr, align 4
-  %cmp33 = icmp ult i32 %2, %4
+  %cmp33 = icmp samesign ult i32 %2, %4
   br i1 %cmp33, label %return, label %sw.epilog1021
 
 do.end46:                                         ; preds = %if.end15, %if.end15, %if.end15, %if.end15, %if.end15, %if.end15, %if.end15, %if.end15
@@ -2552,7 +2552,7 @@ do.end784:                                        ; preds = %if.end15, %if.end15
 if.end792:                                        ; preds = %do.end784
   %incdec.ptr793 = getelementptr i8, ptr %code.addr.0264, i64 8
   %28 = load i32, ptr %incdec.ptr, align 4
-  %cmp798.not = icmp ult i32 %28, %0
+  %cmp798.not = icmp samesign ult i32 %28, %0
   br i1 %cmp798.not, label %sw.epilog1021, label %return
 
 do.end809:                                        ; preds = %if.end15
@@ -2563,7 +2563,7 @@ if.end817:                                        ; preds = %do.end809
   %incdec.ptr818 = getelementptr i8, ptr %code.addr.0264, i64 8
   %29 = load i32, ptr %incdec.ptr, align 4
   %conv822 = zext i32 %29 to i64
-  %cmp823.not = icmp ugt i64 %groups, %conv822
+  %cmp823.not = icmp samesign ugt i64 %groups, %conv822
   %cmp834.not = icmp ult ptr %incdec.ptr818, %end
   %or.cond249 = and i1 %cmp834.not, %cmp823.not
   br i1 %or.cond249, label %if.end841, label %return

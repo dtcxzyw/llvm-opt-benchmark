@@ -1294,7 +1294,7 @@ de_init.exit:                                     ; preds = %doh_decode.exit, %2
   %340 = sub i64 %.04457.us.i, %339
   %341 = getelementptr inbounds i8, ptr %.04556.us.i, i64 %339
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 2
-  %342 = icmp ult i64 %indvars.iv67.i, 14
+  %342 = icmp samesign ult i64 %indvars.iv67.i, 14
   br i1 %342, label %329, label %.loopexit.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %329
@@ -1378,7 +1378,7 @@ de_init.exit:                                     ; preds = %doh_decode.exit, %2
   %384 = sub i64 %.04457.i, %383
   %385 = getelementptr inbounds i8, ptr %.04556.i, i64 %383
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 2
-  %386 = icmp ult i64 %indvars.iv.i86, 14
+  %386 = icmp samesign ult i64 %indvars.iv.i86, 14
   br i1 %386, label %373, label %387, !llvm.loop !14
 
 387:                                              ; preds = %373

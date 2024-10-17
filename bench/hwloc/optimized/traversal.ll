@@ -400,7 +400,7 @@ hwloc_get_type_depth.exit:                        ; preds = %3
 
 16:                                               ; preds = %.lr.ph, %hwloc_get_obj_by_depth_and_gp_index.exit.thread
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %hwloc_get_obj_by_depth_and_gp_index.exit.thread ]
-  %.not.i = icmp ult i64 %indvars.iv, %15
+  %.not.i = icmp samesign ult i64 %indvars.iv, %15
   br i1 %.not.i, label %hwloc_get_depth_type.exit.thread, label %hwloc_get_obj_by_depth_and_gp_index.exit.thread
 
 hwloc_get_depth_type.exit.thread:                 ; preds = %16
@@ -714,7 +714,7 @@ define internal fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %0
   %.2 = phi i32 [ %40, %._crit_edge ], [ %.02833, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %20, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %28, %42, %.preheader, %4, %14
@@ -1158,7 +1158,7 @@ define internal fastcc ptr @hwloc__type_match(ptr noundef readonly %0, ptr nocap
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %.022.lcssa = phi ptr [ %0, %3 ], [ %22, %._crit_edge.loopexit ]
   %.0.lcssa = phi i64 [ 0, %3 ], [ %5, %._crit_edge.loopexit ]
-  %6 = icmp ugt i64 %2, %.0.lcssa
+  %6 = icmp samesign ugt i64 %2, %.0.lcssa
   %..022 = select i1 %6, ptr null, ptr %.022.lcssa
   br label %25
 
@@ -1190,7 +1190,7 @@ define internal fastcc ptr @hwloc__type_match(ptr noundef readonly %0, ptr nocap
 
 17:                                               ; preds = %14
   %18 = zext i32 %.042 to i64
-  %19 = icmp ugt i64 %2, %18
+  %19 = icmp samesign ugt i64 %2, %18
   %..02234 = select i1 %19, ptr null, ptr %.02240
   br label %25
 
@@ -2165,7 +2165,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %209 = load i32, ptr %180, align 8
   %210 = zext i32 %209 to i64
-  %211 = icmp ult i64 %indvars.iv.next, %210
+  %211 = icmp samesign ult i64 %indvars.iv.next, %210
   br i1 %211, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %198, %44, %142, %83, %178, %.thread177, %175, %50

@@ -271,7 +271,7 @@ _ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit: ; preds = %.lr.ph.i9, %5
   %83 = getelementptr inbounds i8, ptr %13, i64 1
   %84 = load i8, ptr %13, align 1
   %85 = zext i8 %84 to i32
-  %.not.i12 = icmp uge i32 %73, %85
+  %.not.i12 = icmp samesign uge i32 %73, %85
   %86 = sext i1 %.not.i12 to i8
   store i8 %86, ptr %82, align 1
   %.add = add nsw i64 %19, -1
@@ -313,7 +313,7 @@ _ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit: ; preds = %.lr.ph.i9, %5
   %104 = getelementptr inbounds i8, ptr %13, i64 %100
   %105 = load i8, ptr %13, align 1
   %106 = zext i8 %105 to i32
-  %.not.i22 = icmp uge i32 %73, %106
+  %.not.i22 = icmp samesign uge i32 %73, %106
   %107 = sext i1 %.not.i22 to i8
   store i8 %107, ptr %103, align 1
   %108 = sub nsw i64 0, %100
@@ -355,7 +355,7 @@ _ZN5ZXingL18ThresholdSharpenedENS_5RangeINS_10StrideIterIPKhEEEEiRSt6vectorIhSaI
   %.sroa.031.0.lcssa.i35.sink = phi ptr [ %.sroa.031.047.i, %81 ], [ %.sroa.031.047.i23, %99 ], [ %.sroa.031.0.i, %.lr.ph.i13 ], [ %.sroa.031.0.i31, %112 ]
   %125 = load i8, ptr %.sroa.034.0.lcssa.i34.sink, align 1
   %126 = zext i8 %125 to i32
-  %.not4.i36 = icmp uge i32 %73, %126
+  %.not4.i36 = icmp samesign uge i32 %73, %126
   %127 = sext i1 %.not4.i36 to i8
   store i8 %127, ptr %.sroa.031.0.lcssa.i35.sink, align 1
   %128 = load ptr, ptr %80, align 8

@@ -451,7 +451,7 @@ _unlink_free_nodes.exit.thread:                   ; preds = %39
   %52 = add i16 %45, -1
   store i16 %52, ptr %44, align 2
   %53 = zext i16 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.i, %53
+  %54 = icmp samesign ult i64 %indvars.iv.i, %53
   br i1 %54, label %.lr.ph32.i, label %.loopexit.i
 
 .lr.ph32.i:                                       ; preds = %51, %.lr.ph32.i
@@ -464,7 +464,7 @@ _unlink_free_nodes.exit.thread:                   ; preds = %39
   store ptr %57, ptr %58, align 8
   %59 = load i16, ptr %44, align 2
   %60 = zext i16 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next40.i, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next40.i, %60
   br i1 %61, label %.lr.ph32.i, label %.loopexit.i, !llvm.loop !11
 
 62:                                               ; preds = %48
@@ -698,7 +698,7 @@ _unlink_free_nodes.exit:                          ; preds = %.preheader24.i, %._
   %159 = add i16 %152, -1
   store i16 %159, ptr %151, align 2
   %160 = zext i16 %159 to i64
-  %161 = icmp ult i64 %indvars.iv.i102, %160
+  %161 = icmp samesign ult i64 %indvars.iv.i102, %160
   br i1 %161, label %.lr.ph32.i109, label %.loopexit.i106
 
 .lr.ph32.i109:                                    ; preds = %158, %.lr.ph32.i109
@@ -711,7 +711,7 @@ _unlink_free_nodes.exit:                          ; preds = %.preheader24.i, %._
   store ptr %164, ptr %165, align 8
   %166 = load i16, ptr %151, align 2
   %167 = zext i16 %166 to i64
-  %168 = icmp ult i64 %indvars.iv.next40.i111, %167
+  %168 = icmp samesign ult i64 %indvars.iv.next40.i111, %167
   br i1 %168, label %.lr.ph32.i109, label %.loopexit.i106, !llvm.loop !11
 
 169:                                              ; preds = %155
@@ -2105,7 +2105,7 @@ define internal void @_list_delete_part(ptr noundef %0) #0 {
   %15 = add i16 %8, -1
   store i16 %15, ptr %7, align 2
   %16 = zext i16 %15 to i64
-  %17 = icmp ult i64 %indvars.iv, %16
+  %17 = icmp samesign ult i64 %indvars.iv, %16
   br i1 %17, label %.lr.ph71, label %.loopexit
 
 .lr.ph71:                                         ; preds = %14, %.lr.ph71
@@ -2118,7 +2118,7 @@ define internal void @_list_delete_part(ptr noundef %0) #0 {
   store ptr %20, ptr %21, align 8
   %22 = load i16, ptr %7, align 2
   %23 = zext i16 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next79, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next79, %23
   br i1 %24, label %.lr.ph71, label %.loopexit, !llvm.loop !20
 
 25:                                               ; preds = %11
@@ -3713,7 +3713,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 422:                                              ; preds = %419
   %423 = and i16 %421, 32767
   %424 = zext nneg i16 %423 to i32
-  %425 = icmp ult i16 %423, 9
+  %425 = icmp samesign ult i16 %423, 9
   %426 = call i32 @get_log_level() #17
   %427 = icmp sgt i32 %426, 2
   br i1 %425, label %428, label %434

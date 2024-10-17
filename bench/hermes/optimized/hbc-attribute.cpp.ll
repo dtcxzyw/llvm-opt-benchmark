@@ -3905,8 +3905,8 @@ _ZN12_GLOBAL__N_112UsageCounter15countStringKindEj.exit: ; preds = %_ZSt11upper_
   %entry2.sroa.3.0.extract.trunc = trunc nuw i64 %entry2.sroa.3.0.extract.shift to i32
   %cmp.i = icmp ult i32 %entry2.sroa.0.0.extract.trunc, 8388608
   %and.i.i = and i32 %entry2.sroa.3.0.extract.trunc, 2147483647
-  %cmp5.i = icmp ult i32 %and.i.i, 255
-  %or.cond = and i1 %cmp.i, %cmp5.i
+  %cmp5.i = icmp samesign ult i32 %and.i.i, 255
+  %or.cond = select i1 %cmp.i, i1 %cmp5.i, i1 false
   br i1 %or.cond, label %_ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit, label %_ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit.thread
 
 _ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit.thread: ; preds = %_ZN12_GLOBAL__N_112UsageCounter15countStringKindEj.exit

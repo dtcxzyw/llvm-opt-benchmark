@@ -436,8 +436,8 @@ if.end3:                                          ; preds = %if.then2, %if.end
 if.end6:                                          ; preds = %if.end3
   %5 = load i32, ptr %minimum, align 4
   %cmp7.not = icmp sge i32 %5, %3
-  %cmp10 = icmp ult i32 %4, 3
-  %or.cond = or i1 %cmp7.not, %cmp10
+  %cmp10 = icmp samesign ult i32 %4, 3
+  %or.cond = select i1 %cmp7.not, i1 true, i1 %cmp10
   br i1 %or.cond, label %return, label %if.end12
 
 if.end6.thread:                                   ; preds = %if.end3
@@ -1488,7 +1488,7 @@ call.i46.noexc:                                   ; preds = %call5.i.noexc
   %cmp6.i = fcmp ogt double %call5.i50, %max.011.i
   %max.1.i = select i1 %cmp6.i, double %call5.i50, double %max.011.i
   %18 = zext i32 %call.i4651 to i64
-  %cmp.i47 = icmp ult i64 %indvars.iv.next.i, %18
+  %cmp.i47 = icmp samesign ult i64 %indvars.iv.next.i, %18
   br i1 %cmp.i47, label %for.body.i, label %if.end, !llvm.loop !23
 
 lpad.loopexit76:                                  ; preds = %for.cond41, %for.body47, %land.lhs.true, %if.end58
@@ -1548,7 +1548,7 @@ for.cond:                                         ; preds = %invoke.cont15, %for
 
 invoke.cont22:                                    ; preds = %for.cond
   %21 = zext i32 %call23 to i64
-  %cmp24 = icmp ult i64 %indvars.iv, %21
+  %cmp24 = icmp samesign ult i64 %indvars.iv, %21
   br i1 %cmp24, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont22
@@ -1703,7 +1703,7 @@ while.cond93:                                     ; preds = %invoke.cont89, %inv
 invoke.cont96:                                    ; preds = %while.cond93
   %sub98 = add i32 %call97, -1
   %29 = zext i32 %sub98 to i64
-  %cmp99 = icmp ult i64 %indvars.iv97, %29
+  %cmp99 = icmp samesign ult i64 %indvars.iv97, %29
   br i1 %cmp99, label %land.rhs, label %while.end108
 
 land.rhs:                                         ; preds = %invoke.cont96
@@ -2432,7 +2432,7 @@ for.body:                                         ; preds = %entry, %for.body
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(81) %this)
   %4 = zext i32 %call to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %4
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body, %entry
@@ -2622,7 +2622,7 @@ for.cond:                                         ; preds = %for.inc, %invoke.co
 
 invoke.cont8:                                     ; preds = %for.cond
   %16 = zext i32 %call9 to i64
-  %cmp = icmp ult i64 %indvars.iv, %16
+  %cmp = icmp samesign ult i64 %indvars.iv, %16
   br i1 %cmp, label %for.body, label %_ZNSt10unique_ptrIN4base12SampleVectorESt14default_deleteIS1_EED2Ev.exit
 
 for.body:                                         ; preds = %invoke.cont8

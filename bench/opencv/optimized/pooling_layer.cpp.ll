@@ -6931,7 +6931,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20PoolingLayerInt8Impl14PoolingInvok
   %236 = load i8, ptr %235, align 1
   %.sroa.speculated182.us.us.us = tail call i8 @llvm.smax.i8(i8 %.2293328.us.us.us, i8 %236)
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
-  %237 = icmp ult i64 %indvars.iv.next374, %228
+  %237 = icmp samesign ult i64 %indvars.iv.next374, %228
   br i1 %237, label %231, label %._crit_edge331.us.us.us, !llvm.loop !27
 
 ._crit_edge331.us.us.us:                          ; preds = %231
@@ -7078,7 +7078,7 @@ _ZSt11max_elementIPKaET_S2_S2_.exit:              ; preds = %.lr.ph.i.i, %242
   %308 = sext i8 %307 to i32
   %309 = add nsw i32 %.2312.us.us.us, %308
   %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
-  %310 = icmp ult i64 %indvars.iv.next362, %299
+  %310 = icmp samesign ult i64 %indvars.iv.next362, %299
   br i1 %310, label %302, label %._crit_edge.us.us.us, !llvm.loop !31
 
 ._crit_edge.us.us.us:                             ; preds = %302

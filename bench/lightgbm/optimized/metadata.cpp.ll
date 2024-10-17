@@ -13199,7 +13199,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %26
   %.0.lcssa.i = phi i32 [ %4, %26 ], [ %31, %.lr.ph.i11 ]
-  %46 = icmp ugt i32 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %._crit_edge.i
@@ -14248,7 +14248,7 @@ thread-pre-split:                                 ; preds = %15, %thread-pre-spl
 .preheader193:                                    ; preds = %.lr.ph226, %.critedge4
   %.1132.lcssa = phi double [ 1.000000e+00, %.critedge4 ], [ %62, %.lr.ph226 ]
   %.1126.lcssa = phi i32 [ %spec.store.select, %.critedge4 ], [ %63, %.lr.ph226 ]
-  %61 = icmp ugt i32 %.1126.lcssa, 7
+  %61 = icmp samesign ugt i32 %.1126.lcssa, 7
   br i1 %61, label %.lr.ph231, label %.preheader
 
 .lr.ph226:                                        ; preds = %.critedge4, %.lr.ph226

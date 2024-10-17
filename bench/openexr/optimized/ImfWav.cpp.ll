@@ -471,7 +471,7 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
 
 if.end64:                                         ; preds = %for.body52, %for.body52.us, %if.then43, %for.end40
   %shr65 = lshr i32 %p.1130, 1
-  %cmp5.not = icmp ult i32 %p.1130, 2
+  %cmp5.not = icmp samesign ult i32 %p.1130, 2
   br i1 %cmp5.not, label %while.end66, label %while.body6, !llvm.loop !13
 
 while.end66:                                      ; preds = %if.end64, %while.end

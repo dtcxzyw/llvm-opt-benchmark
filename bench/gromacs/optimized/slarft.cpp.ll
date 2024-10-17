@@ -145,7 +145,7 @@ define void @slarft_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .loopexit207:                                     ; preds = %.loopexit207.loopexit, %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not199.not = icmp ult i64 %indvars.iv, %33
+  %.not199.not = icmp samesign ult i64 %indvars.iv, %33
   %indvar.next233 = add nuw nsw i64 %indvar232, 1
   %77 = trunc i64 %indvars.iv to i32
   %78 = xor i32 %77, -1

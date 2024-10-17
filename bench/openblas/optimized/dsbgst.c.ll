@@ -2860,7 +2860,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %2000 = fneg double %1994
   %2001 = call double @llvm.fmuladd.f64(double %2000, double %1995, double %1999)
   store double %2001, ptr %1998, align 8, !tbaa !7
-  %2002 = icmp ult i64 %1989, %1986
+  %2002 = icmp samesign ult i64 %1989, %1986
   br i1 %2002, label %1987, label %.loopexit242.us, !llvm.loop !62
 
 .loopexit242.us:                                  ; preds = %1987, %1972
@@ -4159,7 +4159,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %2889 = fneg double %2880
   %2890 = call double @llvm.fmuladd.f64(double %2889, double %2881, double %2888)
   store double %2890, ptr %2887, align 8, !tbaa !7
-  %2891 = icmp ult i64 %2873, %2869
+  %2891 = icmp samesign ult i64 %2873, %2869
   br i1 %2891, label %2871, label %.loopexit257, !llvm.loop !85
 
 .loopexit257:                                     ; preds = %2871, %2859

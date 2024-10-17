@@ -208,7 +208,7 @@ if.end.i.i:                                       ; preds = %for.cond
 
 invoke.cont9:                                     ; preds = %if.end.i.i, %for.cond
   %retval.0.i.i = phi i64 [ %3, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %invoke.cont10, label %for.end
 
 invoke.cont10:                                    ; preds = %invoke.cont9

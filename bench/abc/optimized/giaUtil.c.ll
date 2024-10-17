@@ -665,7 +665,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit, 
   %47 = and i32 %11, 536870911
   %48 = trunc nuw i64 %15 to i32
   %49 = and i32 %48, 536870911
-  %.not53 = icmp ult i32 %47, %49
+  %.not53 = icmp samesign ult i32 %47, %49
   %50 = and i64 %.val, 9223372034707292159
   br i1 %.not53, label %51, label %Gia_ObjIsXor.exit.thread
 
@@ -1477,7 +1477,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit.t
   %113 = lshr i64 %.val20, 32
   %114 = trunc nuw i64 %113 to i32
   %115 = and i32 %114, 536870911
-  %.not51 = icmp ult i32 %112, %115
+  %.not51 = icmp samesign ult i32 %112, %115
   %116 = sub nsw i64 0, %109
   %117 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %116
   %118 = getelementptr i8, ptr %0, i64 160
@@ -2249,7 +2249,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit, 
   %54 = lshr i64 %.val51, 32
   %55 = trunc nuw i64 %54 to i32
   %56 = and i32 %55, 536870911
-  %.not89 = icmp ult i32 %53, %56
+  %.not89 = icmp samesign ult i32 %53, %56
   br i1 %.not89, label %57, label %Gia_ObjIsXor.exit.thread
 
 57:                                               ; preds = %Gia_ObjIsXor.exit
@@ -5884,7 +5884,7 @@ Gia_ObjIsXor.exit:                                ; preds = %90
   %93 = lshr i64 %.0.val131, 32
   %94 = trunc nuw i64 %93 to i32
   %95 = and i32 %94, 536870911
-  %.not193 = icmp ult i32 %92, %95
+  %.not193 = icmp samesign ult i32 %92, %95
   br i1 %.not193, label %96, label %Gia_ObjIsXor.exit.thread
 
 96:                                               ; preds = %Gia_ObjIsXor.exit
@@ -8557,7 +8557,7 @@ Vec_PtrPush.exit106:                              ; preds = %.Vec_PtrGrow.exit11
   %227 = getelementptr inbounds ptr, ptr %223, i64 %226
   store ptr %196, ptr %227, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %228 = icmp ult i64 %indvars.iv.next, %160
+  %228 = icmp samesign ult i64 %indvars.iv.next, %160
   br i1 %228, label %161, label %.loopexit, !llvm.loop !73
 
 .loopexit:                                        ; preds = %Vec_PtrPush.exit106, %154, %Vec_PtrPush.exit
@@ -16342,7 +16342,7 @@ Vec_WrdStart.exit.i:                              ; preds = %18, %7
   %31 = shl i32 %30, %14
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i64, ptr %22, i64 %32
-  %34 = icmp ult i64 %indvars.iv73.i, 5
+  %34 = icmp samesign ult i64 %indvars.iv73.i, 5
   br i1 %34, label %.preheader.us.us.i, label %.preheader27.us.us.i
 
 35:                                               ; preds = %.preheader27.us.us.i, %35
@@ -16849,7 +16849,7 @@ define void @Gia_ManTestProblem() local_unnamed_addr #15 {
 
 .preheader117:                                    ; preds = %0, %47
   %indvars.iv163 = phi i64 [ 0, %0 ], [ %indvars.iv.next164, %47 ]
-  %4 = icmp ult i64 %indvars.iv163, 8
+  %4 = icmp samesign ult i64 %indvars.iv163, 8
   %5 = trunc i64 %indvars.iv163 to i32
   %6 = add i32 %5, -8
   %7 = lshr i32 -255, %6
@@ -16885,11 +16885,11 @@ define void @Gia_ManTestProblem() local_unnamed_addr #15 {
   %.097129 = phi i32 [ 0, %.preheader117 ], [ %16, %.loopexit116 ]
   %.0102128 = phi i32 [ 0, %.preheader117 ], [ %.1103.lcssa, %.loopexit116 ]
   %16 = add nuw nsw i32 %.097129, 1
-  %17 = icmp ult i32 %.097129, 6
+  %17 = icmp samesign ult i32 %.097129, 6
   br i1 %17, label %.lr.ph, label %.loopexit116
 
 .lr.ph:                                           ; preds = %15
-  %18 = icmp ult i32 %.097129, 3
+  %18 = icmp samesign ult i32 %.097129, 3
   %19 = lshr i32 %8, %.097129
   %20 = and i32 %19, 1
   br i1 %18, label %Gia_GetMValue.exit.us.preheader, label %.lr.ph.split
@@ -16901,7 +16901,7 @@ Gia_GetMValue.exit.us.preheader:                  ; preds = %.lr.ph
 Gia_GetMValue.exit.us:                            ; preds = %Gia_GetMValue.exit.us.preheader, %Gia_GetMValue.exit.us
   %indvars.iv158 = phi i64 [ %21, %Gia_GetMValue.exit.us.preheader ], [ %indvars.iv.next159, %Gia_GetMValue.exit.us ]
   %.099119.us = phi i32 [ %16, %Gia_GetMValue.exit.us.preheader ], [ %29, %Gia_GetMValue.exit.us ]
-  %22 = icmp ult i32 %.099119.us, 3
+  %22 = icmp samesign ult i32 %.099119.us, 3
   %23 = lshr i32 %8, %.099119.us
   %24 = and i32 %23, 1
   %25 = icmp eq i32 %.099119.us, 3
@@ -16924,7 +16924,7 @@ Gia_GetMValue.exit.us:                            ; preds = %Gia_GetMValue.exit.
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %.lr.ph.split.split.us ], [ %31, %.lr.ph.split ]
   %.099119.us120 = phi i32 [ %39, %.lr.ph.split.split.us ], [ 4, %.lr.ph.split ]
-  %32 = icmp ult i32 %.099119.us120, 3
+  %32 = icmp samesign ult i32 %.099119.us120, 3
   %33 = lshr i32 %8, %.099119.us120
   %34 = and i32 %33, 1
   %35 = icmp eq i32 %.099119.us120, 3
@@ -16942,7 +16942,7 @@ Gia_GetMValue.exit.us:                            ; preds = %Gia_GetMValue.exit.
 Gia_GetMValue.exit:                               ; preds = %.lr.ph.split, %Gia_GetMValue.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Gia_GetMValue.exit ], [ %31, %.lr.ph.split ]
   %.099119 = phi i32 [ %46, %Gia_GetMValue.exit ], [ %16, %.lr.ph.split ]
-  %40 = icmp ult i32 %.099119, 3
+  %40 = icmp samesign ult i32 %.099119, 3
   %41 = lshr i32 %8, %.099119
   %42 = and i32 %41, 1
   %43 = icmp eq i32 %.099119, 3

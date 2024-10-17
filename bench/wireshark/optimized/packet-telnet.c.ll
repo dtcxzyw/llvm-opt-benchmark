@@ -998,7 +998,7 @@ add_telnet_info_str.exit.i:                       ; preds = %133, %131, %129, %1
   br i1 %183, label %184, label %214
 
 184:                                              ; preds = %182
-  %185 = icmp ugt i32 %159, 10239
+  %185 = icmp samesign ugt i32 %159, 10239
   br i1 %185, label %unescape_and_tvbuffify_telnet_option.exit.i.i, label %186
 
 186:                                              ; preds = %184
@@ -1074,7 +1074,7 @@ unescape_and_tvbuffify_telnet_option.exit.i.i:    ; preds = %.outer._crit_edge.i
   br i1 %217, label %218, label %249
 
 218:                                              ; preds = %216
-  %219 = icmp ugt i32 %159, 10239
+  %219 = icmp samesign ugt i32 %159, 10239
   br i1 %219, label %unescape_and_tvbuffify_telnet_option.exit113.i.i, label %220
 
 220:                                              ; preds = %218

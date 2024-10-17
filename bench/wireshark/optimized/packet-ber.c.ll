@@ -6221,7 +6221,7 @@ register_ber_oid_syntax.exit:                     ; preds = %16, %17, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr @num_oid_users, align 4
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %register_ber_oid_syntax.exit, %0
@@ -6382,7 +6382,7 @@ register_ber_oid_syntax.exit.i:                   ; preds = %34, %32, %31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = load i32, ptr @num_oid_users, align 4
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next.i, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next.i, %36
   br i1 %37, label %.lr.ph.i, label %ber_update_oids.exit, !llvm.loop !26
 
 ber_update_oids.exit:                             ; preds = %register_ber_oid_syntax.exit.i, %9

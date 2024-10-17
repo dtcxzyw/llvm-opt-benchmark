@@ -226,7 +226,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
 .split.split.us.split.i:                          ; preds = %105, %.split.split.us.split.preheader.i
   %indvars.iv153.i = phi i64 [ 0, %.split.split.us.split.preheader.i ], [ %indvars.iv.next154.i, %105 ]
   %.071106.us109.i = phi ptr [ %6, %.split.split.us.split.preheader.i ], [ %.273.us116.i, %105 ]
-  %91 = icmp ult i64 %indvars.iv153.i, %90
+  %91 = icmp samesign ult i64 %indvars.iv153.i, %90
   %92 = icmp eq i64 %indvars.iv153.i, 0
   br i1 %91, label %102, label %93
 

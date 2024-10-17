@@ -2099,7 +2099,7 @@ stbi__zreceive.exit.i.i:                          ; preds = %stbi__zget8.exit.i.
   br i1 %126, label %stbi__parse_uncompressed_block.exit.thread.i, label %.lr.ph49.i.i
 
 .preheader.i.i:                                   ; preds = %121
-  %127 = icmp ult i64 %indvars.iv.i.i, 3
+  %127 = icmp samesign ult i64 %indvars.iv.i.i, 3
   br i1 %127, label %.lr.ph49.i.i, label %._crit_edge50.i.i
 
 .lr.ph49.i.i:                                     ; preds = %.preheader.i.i, %.thread.i.i
@@ -4371,7 +4371,7 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr nound
   %.1211 = phi i32 [ %90, %87 ], [ %.0210227, %83 ], [ %117, %115 ], [ %139, %131 ], [ %157, %150 ], [ %161, %158 ], [ %165, %162 ]
   %.1 = phi i32 [ 0, %87 ], [ %84, %83 ], [ %.2, %115 ], [ %.2, %131 ], [ %.2, %150 ], [ %.2, %158 ], [ %.2, %162 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %65
-  %167 = icmp ult i64 %indvars.iv.next, %67
+  %167 = icmp samesign ult i64 %indvars.iv.next, %67
   br i1 %167, label %71, label %.preheader.loopexit
 
 168:                                              ; preds = %25, %3, %8, %11, %15, %19, %23, %.preheader
@@ -4972,7 +4972,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_tga_core(ptr noundef nonn
   %62 = add nuw nsw i32 %.1106147.us, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %63 = icmp slt i64 %indvars.iv.next, %37
-  %64 = icmp ult i32 %.1106147.us, 127
+  %64 = icmp samesign ult i32 %.1106147.us, 127
   %65 = select i1 %63, i1 %64, i1 false
   br i1 %65, label %.lr.ph.us, label %.loopexit144.us
 
@@ -5258,7 +5258,7 @@ stbiw__write_pixel.exit138.us:                    ; preds = %stbiw__write_pixel.
   %202 = add nuw nsw i32 %.2152.us, 1
   %indvars.iv.next174 = add nsw i64 %indvars.iv173, 1
   %203 = icmp slt i64 %indvars.iv.next174, %37
-  %204 = icmp ult i32 %.2152.us, 127
+  %204 = icmp samesign ult i32 %.2152.us, 127
   %205 = select i1 %203, i1 %204, i1 false
   br i1 %205, label %.lr.ph153.us, label %._crit_edge.us
 
@@ -6101,7 +6101,7 @@ stbiw__zlib_countm.exit282:                       ; preds = %148, %143, %._crit_
 
 159:                                              ; preds = %155
   %160 = trunc i64 %154 to i32
-  %161 = icmp ult i64 %indvars.iv840, 23
+  %161 = icmp samesign ult i64 %indvars.iv840, 23
   br i1 %161, label %.preheader708.preheader, label %201
 
 .preheader708.preheader:                          ; preds = %159
@@ -6452,7 +6452,7 @@ stbiw__zlib_flushf.exit337:                       ; preds = %stbiw__sbgrowf.exit
   %.19676 = phi i32 [ %298, %stbiw__zlib_bitrev.exit326 ], [ %327, %stbiw__sbgrowf.exit.i335 ]
   %.19647 = phi i32 [ %299, %stbiw__zlib_bitrev.exit326 ], [ %328, %stbiw__sbgrowf.exit.i335 ]
   %.0.lcssa.i328 = phi ptr [ %.4626, %stbiw__zlib_bitrev.exit326 ], [ %.1.i336, %stbiw__sbgrowf.exit.i335 ]
-  %.not243 = icmp ult i64 %indvars.iv843, 4
+  %.not243 = icmp samesign ult i64 %indvars.iv843, 4
   br i1 %.not243, label %stbiw__zlib_flushf.exit348, label %330
 
 330:                                              ; preds = %stbiw__zlib_flushf.exit337
@@ -8103,10 +8103,10 @@ define internal fastcc void @stbiw__encode_png_line(ptr nocapture noundef readon
   %130 = tail call i32 @llvm.abs.i32(i32 %129, i1 true)
   %131 = sub nsw i32 %126, %124
   %132 = tail call i32 @llvm.abs.i32(i32 %131, i1 true)
-  %.not.i138 = icmp ugt i32 %128, %130
-  %.not20.i139 = icmp ugt i32 %128, %132
+  %.not.i138 = icmp samesign ugt i32 %128, %130
+  %.not20.i139 = icmp samesign ugt i32 %128, %132
   %or.cond.i140 = select i1 %.not.i138, i1 true, i1 %.not20.i139
-  %.not21.i = icmp ugt i32 %130, %132
+  %.not21.i = icmp samesign ugt i32 %130, %132
   %..i = select i1 %.not21.i, i8 %123, i8 %119
   %.0.in.i141 = select i1 %or.cond.i140, i8 %..i, i8 %115
   %133 = sub i8 %112, %.0.in.i141
@@ -10492,7 +10492,7 @@ stbir__edge_wrap.exit.i.i:                        ; preds = %109, %89
 
 161:                                              ; preds = %160, %154
   %.0.add.i.i = add nuw nsw i64 %.0.idx.i.i, 12
-  %.not86.i.i = icmp ugt i64 %.0.idx.i.i, 384
+  %.not86.i.i = icmp samesign ugt i64 %.0.idx.i.i, 384
   br i1 %.not86.i.i, label %162, label %126
 
 162:                                              ; preds = %161, %126
@@ -10656,7 +10656,7 @@ stbir__edge_wrap.exit.i57.i:                      ; preds = %205, %191
 
 257:                                              ; preds = %256, %250
   %.0.add.i64.i = add nuw nsw i64 %.0.idx.i59.i, 12
-  %.not86.i65.i = icmp ugt i64 %.0.idx.i59.i, 384
+  %.not86.i65.i = icmp samesign ugt i64 %.0.idx.i59.i, 384
   br i1 %.not86.i65.i, label %258, label %222
 
 258:                                              ; preds = %257, %222
@@ -11195,7 +11195,7 @@ stbir__edge_wrap.exit.i.i16:                      ; preds = %516, %502
 
 568:                                              ; preds = %567, %561
   %.0.add.i.i23 = add nuw nsw i64 %.0.idx.i.i18, 12
-  %.not86.i.i24 = icmp ugt i64 %.0.idx.i.i18, 384
+  %.not86.i.i24 = icmp samesign ugt i64 %.0.idx.i.i18, 384
   br i1 %.not86.i.i24, label %569, label %533
 
 569:                                              ; preds = %568, %533
@@ -15991,7 +15991,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %807 = and i32 %804, 8388607
   %808 = lshr i32 %804, 16
   %809 = and i32 %808, 32768
-  %810 = icmp ugt i32 %806, 112
+  %810 = icmp samesign ugt i32 %806, 112
   %811 = shl nuw nsw i32 %805, 10
   %812 = and i32 %811, 31744
   %813 = lshr i32 %807, 13
@@ -16006,7 +16006,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %822 = add nuw nsw i32 %821, 1
   %823 = lshr i32 %822, 1
   %824 = select i1 %818, i32 %823, i32 0
-  %825 = icmp ugt i32 %806, 143
+  %825 = icmp samesign ugt i32 %806, 143
   %826 = select i1 %825, i32 32767, i32 0
   %827 = or disjoint i32 %826, %809
   %828 = or i32 %827, %816
@@ -16046,7 +16046,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %852 = and i32 %849, 8388607
   %853 = lshr i32 %849, 16
   %854 = and i32 %853, 32768
-  %855 = icmp ugt i32 %851, 112
+  %855 = icmp samesign ugt i32 %851, 112
   %856 = shl nuw nsw i32 %850, 10
   %857 = and i32 %856, 31744
   %858 = lshr i32 %852, 13
@@ -16061,7 +16061,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %867 = add nuw nsw i32 %866, 1
   %868 = lshr i32 %867, 1
   %869 = select i1 %863, i32 %868, i32 0
-  %870 = icmp ugt i32 %851, 143
+  %870 = icmp samesign ugt i32 %851, 143
   %871 = select i1 %870, i32 32767, i32 0
   %872 = or disjoint i32 %871, %854
   %873 = or i32 %872, %861
@@ -16078,7 +16078,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %883 = and i32 %880, 8388607
   %884 = lshr i32 %880, 16
   %885 = and i32 %884, 32768
-  %886 = icmp ugt i32 %882, 112
+  %886 = icmp samesign ugt i32 %882, 112
   %887 = shl nuw nsw i32 %881, 10
   %888 = and i32 %887, 31744
   %889 = lshr i32 %883, 13
@@ -16093,7 +16093,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %898 = add nuw nsw i32 %897, 1
   %899 = lshr i32 %898, 1
   %900 = select i1 %894, i32 %899, i32 0
-  %901 = icmp ugt i32 %882, 143
+  %901 = icmp samesign ugt i32 %882, 143
   %902 = select i1 %901, i32 32767, i32 0
   %903 = or disjoint i32 %902, %885
   %904 = or i32 %903, %892
@@ -16111,7 +16111,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %915 = and i32 %912, 8388607
   %916 = lshr i32 %912, 16
   %917 = and i32 %916, 32768
-  %918 = icmp ugt i32 %914, 112
+  %918 = icmp samesign ugt i32 %914, 112
   %919 = shl nuw nsw i32 %913, 10
   %920 = and i32 %919, 31744
   %921 = lshr i32 %915, 13
@@ -16126,7 +16126,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %930 = add nuw nsw i32 %929, 1
   %931 = lshr i32 %930, 1
   %932 = select i1 %926, i32 %931, i32 0
-  %933 = icmp ugt i32 %914, 143
+  %933 = icmp samesign ugt i32 %914, 143
   %934 = select i1 %933, i32 32767, i32 0
   %935 = or disjoint i32 %934, %917
   %936 = or i32 %935, %924
@@ -16169,7 +16169,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %962 = and i32 %959, 8388607
   %963 = lshr i32 %959, 16
   %964 = and i32 %963, 32768
-  %965 = icmp ugt i32 %961, 112
+  %965 = icmp samesign ugt i32 %961, 112
   %966 = shl nuw nsw i32 %960, 10
   %967 = and i32 %966, 31744
   %968 = lshr i32 %962, 13
@@ -16184,7 +16184,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %977 = add nuw nsw i32 %976, 1
   %978 = lshr i32 %977, 1
   %979 = select i1 %973, i32 %978, i32 0
-  %980 = icmp ugt i32 %961, 143
+  %980 = icmp samesign ugt i32 %961, 143
   %981 = select i1 %980, i32 32767, i32 0
   %982 = or disjoint i32 %981, %964
   %983 = or i32 %982, %971
@@ -16201,7 +16201,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %993 = and i32 %990, 8388607
   %994 = lshr i32 %990, 16
   %995 = and i32 %994, 32768
-  %996 = icmp ugt i32 %992, 112
+  %996 = icmp samesign ugt i32 %992, 112
   %997 = shl nuw nsw i32 %991, 10
   %998 = and i32 %997, 31744
   %999 = lshr i32 %993, 13
@@ -16216,7 +16216,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %1008 = add nuw nsw i32 %1007, 1
   %1009 = lshr i32 %1008, 1
   %1010 = select i1 %1004, i32 %1009, i32 0
-  %1011 = icmp ugt i32 %992, 143
+  %1011 = icmp samesign ugt i32 %992, 143
   %1012 = select i1 %1011, i32 32767, i32 0
   %1013 = or disjoint i32 %1012, %995
   %1014 = or i32 %1013, %1002
@@ -16234,7 +16234,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %1025 = and i32 %1022, 8388607
   %1026 = lshr i32 %1022, 16
   %1027 = and i32 %1026, 32768
-  %1028 = icmp ugt i32 %1024, 112
+  %1028 = icmp samesign ugt i32 %1024, 112
   %1029 = shl nuw nsw i32 %1023, 10
   %1030 = and i32 %1029, 31744
   %1031 = lshr i32 %1025, 13
@@ -16249,7 +16249,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %1040 = add nuw nsw i32 %1039, 1
   %1041 = lshr i32 %1040, 1
   %1042 = select i1 %1036, i32 %1041, i32 0
-  %1043 = icmp ugt i32 %1024, 143
+  %1043 = icmp samesign ugt i32 %1024, 143
   %1044 = select i1 %1043, i32 32767, i32 0
   %1045 = or disjoint i32 %1044, %1027
   %1046 = or i32 %1045, %1034
@@ -16267,7 +16267,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %1057 = and i32 %1054, 8388607
   %1058 = lshr i32 %1054, 16
   %1059 = and i32 %1058, 32768
-  %1060 = icmp ugt i32 %1056, 112
+  %1060 = icmp samesign ugt i32 %1056, 112
   %1061 = shl nuw nsw i32 %1055, 10
   %1062 = and i32 %1061, 31744
   %1063 = lshr i32 %1057, 13
@@ -16282,7 +16282,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %1072 = add nuw nsw i32 %1071, 1
   %1073 = lshr i32 %1072, 1
   %1074 = select i1 %1068, i32 %1073, i32 0
-  %1075 = icmp ugt i32 %1056, 143
+  %1075 = icmp samesign ugt i32 %1056, 143
   %1076 = select i1 %1075, i32 32767, i32 0
   %1077 = or disjoint i32 %1076, %1059
   %1078 = or i32 %1077, %1066
@@ -16335,7 +16335,7 @@ define internal fastcc zeroext i16 @FloatToHalf(float noundef %0) unnamed_addr #
   %6 = and i32 %3, 8388607
   %7 = lshr i32 %3, 16
   %8 = and i32 %7, 32768
-  %9 = icmp ugt i32 %5, 112
+  %9 = icmp samesign ugt i32 %5, 112
   %10 = shl nuw nsw i32 %4, 10
   %11 = and i32 %10, 31744
   %12 = lshr i32 %6, 13
@@ -16350,7 +16350,7 @@ define internal fastcc zeroext i16 @FloatToHalf(float noundef %0) unnamed_addr #
   %21 = add nuw nsw i32 %20, 1
   %22 = lshr i32 %21, 1
   %23 = select i1 %17, i32 %22, i32 0
-  %24 = icmp ugt i32 %5, 143
+  %24 = icmp samesign ugt i32 %5, 143
   %25 = select i1 %24, i32 32767, i32 0
   %26 = or disjoint i32 %25, %8
   %27 = or i32 %26, %15
@@ -16638,7 +16638,7 @@ switch.lookup159:                                 ; preds = %GetPixelDataSize.ex
 GetPixelDataSize.exit88:                          ; preds = %110, %116, %118
   %.016.i84 = phi i32 [ %113, %110 ], [ 8, %116 ], [ %spec.select.i87, %118 ]
   call void @ImageCopy(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %2, ptr noundef nonnull byval(%struct.Image) align 8 %0)
-  %120 = icmp ugt i32 %.058.lcssa, 1
+  %120 = icmp samesign ugt i32 %.058.lcssa, 1
   br i1 %120, label %.lr.ph119, label %._crit_edge120
 
 .lr.ph119:                                        ; preds = %GetPixelDataSize.exit88, %GetPixelDataSize.exit95
@@ -18277,7 +18277,7 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   %36 = and i32 %33, 8388607
   %37 = lshr i32 %33, 16
   %38 = and i32 %37, 32768
-  %39 = icmp ugt i32 %35, 112
+  %39 = icmp samesign ugt i32 %35, 112
   %40 = shl nuw nsw i32 %34, 10
   %41 = and i32 %40, 31744
   %42 = lshr i32 %36, 13
@@ -18292,7 +18292,7 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   %51 = add nuw nsw i32 %50, 1
   %52 = lshr i32 %51, 1
   %53 = select i1 %47, i32 %52, i32 0
-  %54 = icmp ugt i32 %35, 143
+  %54 = icmp samesign ugt i32 %35, 143
   %55 = select i1 %54, i32 32767, i32 0
   %56 = or disjoint i32 %55, %38
   %57 = or i32 %56, %45
@@ -18307,7 +18307,7 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   %66 = and i32 %63, 8388607
   %67 = lshr i32 %63, 16
   %68 = and i32 %67, 32768
-  %69 = icmp ugt i32 %65, 112
+  %69 = icmp samesign ugt i32 %65, 112
   %70 = shl nuw nsw i32 %64, 10
   %71 = and i32 %70, 31744
   %72 = lshr i32 %66, 13
@@ -18322,7 +18322,7 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   %81 = add nuw nsw i32 %80, 1
   %82 = lshr i32 %81, 1
   %83 = select i1 %77, i32 %82, i32 0
-  %84 = icmp ugt i32 %65, 143
+  %84 = icmp samesign ugt i32 %65, 143
   %85 = select i1 %84, i32 32767, i32 0
   %86 = or disjoint i32 %85, %68
   %87 = or i32 %86, %75
@@ -18337,7 +18337,7 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   %96 = and i32 %93, 8388607
   %97 = lshr i32 %93, 16
   %98 = and i32 %97, 32768
-  %99 = icmp ugt i32 %95, 112
+  %99 = icmp samesign ugt i32 %95, 112
   %100 = shl nuw nsw i32 %94, 10
   %101 = and i32 %100, 31744
   %102 = lshr i32 %96, 13
@@ -18352,7 +18352,7 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   %111 = add nuw nsw i32 %110, 1
   %112 = lshr i32 %111, 1
   %113 = select i1 %107, i32 %112, i32 0
-  %114 = icmp ugt i32 %95, 143
+  %114 = icmp samesign ugt i32 %95, 143
   %115 = select i1 %114, i32 32767, i32 0
   %116 = or disjoint i32 %115, %98
   %117 = or i32 %116, %105
@@ -18367,7 +18367,7 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   %126 = and i32 %123, 8388607
   %127 = lshr i32 %123, 16
   %128 = and i32 %127, 32768
-  %129 = icmp ugt i32 %125, 112
+  %129 = icmp samesign ugt i32 %125, 112
   %130 = shl nuw nsw i32 %124, 10
   %131 = and i32 %130, 31744
   %132 = lshr i32 %126, 13
@@ -18382,7 +18382,7 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   %141 = add nuw nsw i32 %140, 1
   %142 = lshr i32 %141, 1
   %143 = select i1 %137, i32 %142, i32 0
-  %144 = icmp ugt i32 %125, 143
+  %144 = icmp samesign ugt i32 %125, 143
   %145 = select i1 %144, i32 32767, i32 0
   %146 = or disjoint i32 %145, %128
   %147 = or i32 %146, %135
@@ -18492,7 +18492,7 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   %220 = getelementptr inbounds i16, ptr %219, i64 %indvars.iv150
   %221 = load i16, ptr %220, align 2
   %222 = and i16 %221, 1
-  %.not116 = icmp ugt i16 %222, %205
+  %.not116 = icmp samesign ugt i16 %222, %205
   br i1 %.not116, label %224, label %223
 
 223:                                              ; preds = %216
@@ -18557,7 +18557,7 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   %268 = getelementptr inbounds i16, ptr %267, i64 %indvars.iv147
   %269 = load i16, ptr %268, align 2
   %270 = and i16 %269, 15
-  %.not115 = icmp ugt i16 %270, %253
+  %.not115 = icmp samesign ugt i16 %270, %253
   br i1 %.not115, label %272, label %271
 
 271:                                              ; preds = %264
@@ -22650,7 +22650,7 @@ define void @ImageDrawLine(ptr nocapture noundef readonly %0, i32 noundef %1, i3
   %8 = tail call i32 @llvm.abs.i32(i32 %7, i1 true)
   %9 = sub nsw i32 %4, %2
   %10 = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
-  %11 = icmp ult i32 %10, %8
+  %11 = icmp samesign ult i32 %10, %8
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %6
@@ -27190,7 +27190,7 @@ stbi__get8.exit302.thread:                        ; preds = %250, %stbi__get8.ex
   br i1 %.not251, label %.preheader, label %302
 
 .preheader:                                       ; preds = %299
-  %.not743 = icmp ult i32 %64, 3
+  %.not743 = icmp samesign ult i32 %64, 3
   br i1 %.not743, label %stbi__skip.exit, label %.lr.ph740.preheader
 
 .lr.ph740.preheader:                              ; preds = %.preheader
@@ -27815,7 +27815,7 @@ stbi__getn.exit.thread:                           ; preds = %517, %stbi__getn.ex
 583:                                              ; preds = %582
   %584 = zext nneg i8 %.0200 to i32
   store i32 %584, ptr %57, align 8
-  %585 = icmp ugt i32 %2, 2
+  %585 = icmp samesign ugt i32 %2, 2
   %spec.select = select i1 %585, i32 %2, i32 %584
   store i32 %spec.select, ptr %562, align 4
   %586 = call fastcc i32 @stbi__expand_png_palette(ptr noundef %0, ptr noundef %4, i32 noundef %spec.select)
@@ -28617,12 +28617,12 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %86 = getelementptr inbounds i8, ptr %68, i64 %85
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %83, ptr align 1 %86, i64 %31, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %87 = icmp ult i64 %indvars.iv.next, %71
+  %87 = icmp samesign ult i64 %indvars.iv.next, %71
   br i1 %87, label %79, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %79
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %88 = icmp ult i64 %indvars.iv.next98, %72
+  %88 = icmp samesign ult i64 %indvars.iv.next98, %72
   br i1 %88, label %.preheader.us, label %._crit_edge91
 
 89:                                               ; preds = %55
@@ -29442,10 +29442,10 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %183 = tail call i32 @llvm.abs.i32(i32 %182, i1 true)
   %184 = sub nsw i32 %179, %177
   %185 = tail call i32 @llvm.abs.i32(i32 %184, i1 true)
-  %.not.i638 = icmp ugt i32 %181, %183
-  %.not20.i639 = icmp ugt i32 %181, %185
+  %.not.i638 = icmp samesign ugt i32 %181, %183
+  %.not20.i639 = icmp samesign ugt i32 %181, %185
   %or.cond.i640 = select i1 %.not.i638, i1 true, i1 %.not20.i639
-  %.not21.i = icmp ugt i32 %183, %185
+  %.not21.i = icmp samesign ugt i32 %183, %185
   %..i = select i1 %.not21.i, i8 %176, i8 %173
   %.0.i641 = select i1 %or.cond.i640, i8 %..i, i8 %170
   %.narrow623 = add i8 %.0.i641, %167
@@ -29707,10 +29707,10 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %267 = tail call i32 @llvm.abs.i32(i32 %266, i1 true)
   %268 = sub nsw i32 %263, %261
   %269 = tail call i32 @llvm.abs.i32(i32 %268, i1 true)
-  %.not.i648 = icmp ugt i32 %265, %267
-  %.not20.i649 = icmp ugt i32 %265, %269
+  %.not.i648 = icmp samesign ugt i32 %265, %267
+  %.not20.i649 = icmp samesign ugt i32 %265, %269
   %or.cond.i650 = select i1 %.not.i648, i1 true, i1 %.not20.i649
-  %.not21.i651 = icmp ugt i32 %267, %269
+  %.not21.i651 = icmp samesign ugt i32 %267, %269
   %..i652 = select i1 %.not21.i651, i8 %260, i8 %257
   %.0.i653 = select i1 %or.cond.i650, i8 %..i652, i8 %254
   %.narrow607 = add i8 %.0.i653, %251
@@ -30246,7 +30246,7 @@ stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %9
 
 stbi__mul2sizes_valid.exit12.i:                   ; preds = %14
   %16 = udiv i32 2147483647, %12
-  %.not.i = icmp ugt i32 %13, %16
+  %.not.i = icmp samesign ugt i32 %13, %16
   br i1 %.not.i, label %stbi__process_gif_raster.exit.thread.sink.split, label %stbi__mad3sizes_valid.exit
 
 stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_valid.exit12.i, %14
@@ -30577,7 +30577,7 @@ stbi__get8.exit185:                               ; preds = %153, %stbi__refill_
   store i32 %.sink300, ptr %184, align 4
   %185 = getelementptr inbounds i8, ptr %1, i64 34880
   store i32 %.sink, ptr %185, align 8
-  %.not171 = icmp ult i32 %183, 128
+  %.not171 = icmp samesign ult i32 %183, 128
   br i1 %.not171, label %196, label %186
 
 186:                                              ; preds = %182
@@ -32787,7 +32787,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr nocapture n
   %70 = zext i16 %rev.i.i to i32
   %71 = sub nuw nsw i32 16, %47
   %72 = lshr i32 %70, %71
-  %73 = icmp ult i32 %72, 512
+  %73 = icmp samesign ult i32 %72, 512
   br i1 %73, label %.lr.ph78, label %.loopexit
 
 .lr.ph78:                                         ; preds = %69
@@ -32801,7 +32801,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr nocapture n
   %78 = getelementptr inbounds [512 x i16], ptr %0, i64 0, i64 %indvars.iv91
   store i16 %63, ptr %78, align 2
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, %76
-  %79 = icmp ult i64 %indvars.iv.next92, 512
+  %79 = icmp samesign ult i64 %indvars.iv.next92, 512
   br i1 %79, label %77, label %.loopexit
 
 .loopexit:                                        ; preds = %77, %69, %48
@@ -32920,7 +32920,7 @@ stbi__fill_bits.exit:                             ; preds = %stbi__zget8.exit.i,
 
 44:                                               ; preds = %40
   %45 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %46 = icmp ugt i64 %indvars.iv.i, 15
+  %46 = icmp samesign ugt i64 %indvars.iv.i, 15
   br i1 %46, label %stbi__zhuffman_decode_slowpath.exit, label %47
 
 47:                                               ; preds = %44
@@ -33528,7 +33528,7 @@ define internal fastcc i32 @stbiw__jpg_processDU(ptr nocapture noundef nonnull r
   store float %66, ptr %41, align 4
   store float %70, ptr %43, align 4
   %indvars.iv.next.lver.orig = add nuw nsw i64 %indvars.iv.lver.orig, %34
-  %85 = icmp ult i64 %indvars.iv.next.lver.orig, %35
+  %85 = icmp samesign ult i64 %indvars.iv.next.lver.orig, %35
   br i1 %85, label %36, label %.preheader237
 
 .preheader237:                                    ; preds = %36
@@ -33708,7 +33708,7 @@ define internal fastcc i32 @stbiw__jpg_processDU(ptr nocapture noundef nonnull r
 180:                                              ; preds = %155
   %181 = sub nsw i32 %156, %6
   %182 = tail call i32 @llvm.abs.i32(i32 %181, i1 true)
-  %.not13.i = icmp ult i32 %182, 2
+  %.not13.i = icmp samesign ult i32 %182, 2
   %183 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %182, i1 true)
   %184 = trunc nuw nsw i32 %183 to i16
   %185 = sub nuw nsw i16 32, %184
@@ -33984,7 +33984,7 @@ stbiw__jpg_writeBits.exit188:                     ; preds = %289, %.lr.ph
   %299 = sub nuw nsw i32 32, %298
   %.lobit.i191 = ashr i32 %268, 31
   %300 = add nsw i32 %.lobit.i191, %268
-  %.not13.i189.inv = icmp ugt i32 %297, 1
+  %.not13.i189.inv = icmp samesign ugt i32 %297, 1
   %301 = select i1 %.not13.i189.inv, i32 %299, i32 1
   %notmask.i192 = shl nsw i32 -1, %301
   %302 = xor i32 %notmask.i192, -1
@@ -44077,8 +44077,8 @@ define internal void @stbir__decode_half_float_linear(ptr noundef %0, i32 nounde
   %11 = shufflevector <8 x i16> %.040.val, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %12 = bitcast <8 x i16> %11 to <4 x i32>
   %13 = and <4 x i32> %12, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %14 = icmp ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %15 = icmp ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %14 = icmp samesign ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %15 = icmp samesign ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
   %16 = shl nuw nsw <4 x i32> %13, <i32 13, i32 13, i32 13, i32 13>
   %17 = add nuw nsw <4 x i32> %16, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %18 = add nuw nsw <4 x i32> %16, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -44095,8 +44095,8 @@ define internal void @stbir__decode_half_float_linear(ptr noundef %0, i32 nounde
   %28 = shufflevector <8 x i16> %.040.val, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %29 = bitcast <8 x i16> %28 to <4 x i32>
   %30 = and <4 x i32> %29, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %31 = icmp ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %32 = icmp ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %31 = icmp samesign ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %32 = icmp samesign ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
   %33 = shl nuw nsw <4 x i32> %30, <i32 13, i32 13, i32 13, i32 13>
   %34 = add nuw nsw <4 x i32> %33, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %35 = add nuw nsw <4 x i32> %33, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -44483,8 +44483,8 @@ define internal void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 n
   %11 = shufflevector <8 x i16> %.051.val, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %12 = bitcast <8 x i16> %11 to <4 x i32>
   %13 = and <4 x i32> %12, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %14 = icmp ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %15 = icmp ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %14 = icmp samesign ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %15 = icmp samesign ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
   %16 = shl nuw nsw <4 x i32> %13, <i32 13, i32 13, i32 13, i32 13>
   %17 = add nuw nsw <4 x i32> %16, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %18 = add nuw nsw <4 x i32> %16, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -44500,8 +44500,8 @@ define internal void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 n
   %28 = shufflevector <8 x i16> %.051.val, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %29 = bitcast <8 x i16> %28 to <4 x i32>
   %30 = and <4 x i32> %29, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %31 = icmp ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %32 = icmp ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %31 = icmp samesign ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %32 = icmp samesign ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
   %33 = shl nuw nsw <4 x i32> %30, <i32 13, i32 13, i32 13, i32 13>
   %34 = add nuw nsw <4 x i32> %33, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %35 = add nuw nsw <4 x i32> %33, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -44821,8 +44821,8 @@ define internal void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 n
   %11 = shufflevector <8 x i16> %.051.val, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %12 = bitcast <8 x i16> %11 to <4 x i32>
   %13 = and <4 x i32> %12, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %14 = icmp ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %15 = icmp ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %14 = icmp samesign ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %15 = icmp samesign ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
   %16 = shl nuw nsw <4 x i32> %13, <i32 13, i32 13, i32 13, i32 13>
   %17 = add nuw nsw <4 x i32> %16, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %18 = add nuw nsw <4 x i32> %16, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -44838,8 +44838,8 @@ define internal void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 n
   %28 = shufflevector <8 x i16> %.051.val, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %29 = bitcast <8 x i16> %28 to <4 x i32>
   %30 = and <4 x i32> %29, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %31 = icmp ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %32 = icmp ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %31 = icmp samesign ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %32 = icmp samesign ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
   %33 = shl nuw nsw <4 x i32> %30, <i32 13, i32 13, i32 13, i32 13>
   %34 = add nuw nsw <4 x i32> %33, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %35 = add nuw nsw <4 x i32> %33, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -45159,8 +45159,8 @@ define internal void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 n
   %11 = shufflevector <8 x i16> %.051.val, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %12 = bitcast <8 x i16> %11 to <4 x i32>
   %13 = and <4 x i32> %12, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %14 = icmp ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %15 = icmp ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %14 = icmp samesign ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %15 = icmp samesign ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
   %16 = shl nuw nsw <4 x i32> %13, <i32 13, i32 13, i32 13, i32 13>
   %17 = add nuw nsw <4 x i32> %16, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %18 = add nuw nsw <4 x i32> %16, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -45176,8 +45176,8 @@ define internal void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 n
   %28 = shufflevector <8 x i16> %.051.val, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %29 = bitcast <8 x i16> %28 to <4 x i32>
   %30 = and <4 x i32> %29, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %31 = icmp ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %32 = icmp ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %31 = icmp samesign ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %32 = icmp samesign ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
   %33 = shl nuw nsw <4 x i32> %30, <i32 13, i32 13, i32 13, i32 13>
   %34 = add nuw nsw <4 x i32> %33, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %35 = add nuw nsw <4 x i32> %33, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -45631,8 +45631,8 @@ define internal void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 nou
   %11 = shufflevector <8 x i16> %.060.val, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %12 = bitcast <8 x i16> %11 to <4 x i32>
   %13 = and <4 x i32> %12, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %14 = icmp ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %15 = icmp ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %14 = icmp samesign ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %15 = icmp samesign ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
   %16 = shl nuw nsw <4 x i32> %13, <i32 13, i32 13, i32 13, i32 13>
   %17 = add nuw nsw <4 x i32> %16, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %18 = add nuw nsw <4 x i32> %16, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -45648,8 +45648,8 @@ define internal void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 nou
   %28 = shufflevector <8 x i16> %.060.val, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %29 = bitcast <8 x i16> %28 to <4 x i32>
   %30 = and <4 x i32> %29, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %31 = icmp ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %32 = icmp ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %31 = icmp samesign ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %32 = icmp samesign ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
   %33 = shl nuw nsw <4 x i32> %30, <i32 13, i32 13, i32 13, i32 13>
   %34 = add nuw nsw <4 x i32> %33, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %35 = add nuw nsw <4 x i32> %33, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -48286,11 +48286,11 @@ define internal void @stbir__encode_half_float_linear(ptr noundef %0, i32 nounde
   %13 = bitcast <4 x i32> %12 to <4 x float>
   %14 = fcmp uno <4 x float> %13, zeroinitializer
   %15 = sext <4 x i1> %14 to <4 x i32>
-  %16 = icmp ugt <4 x i32> %12, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %16 = icmp samesign ugt <4 x i32> %12, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %17 = bitcast <4 x i32> %15 to <2 x i64>
   %18 = and <2 x i64> %17, <i64 2199023256064, i64 2199023256064>
   %19 = or disjoint <2 x i64> %18, <i64 136339441875968, i64 136339441875968>
-  %20 = icmp ugt <4 x i32> %12, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %20 = icmp samesign ugt <4 x i32> %12, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %21 = fadd <4 x float> %13, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %22 = bitcast <4 x float> %21 to <4 x i32>
   %23 = add <4 x i32> %22, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -48314,11 +48314,11 @@ define internal void @stbir__encode_half_float_linear(ptr noundef %0, i32 nounde
   %40 = bitcast <4 x i32> %39 to <4 x float>
   %41 = fcmp uno <4 x float> %40, zeroinitializer
   %42 = sext <4 x i1> %41 to <4 x i32>
-  %43 = icmp ugt <4 x i32> %39, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %43 = icmp samesign ugt <4 x i32> %39, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %44 = bitcast <4 x i32> %42 to <2 x i64>
   %45 = and <2 x i64> %44, <i64 2199023256064, i64 2199023256064>
   %46 = or disjoint <2 x i64> %45, <i64 136339441875968, i64 136339441875968>
-  %47 = icmp ugt <4 x i32> %39, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %47 = icmp samesign ugt <4 x i32> %39, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %48 = fadd <4 x float> %40, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %49 = bitcast <4 x float> %48 to <4 x i32>
   %50 = add <4 x i32> %49, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -48370,16 +48370,16 @@ define internal void @stbir__encode_half_float_linear(ptr noundef %0, i32 nounde
   %74 = load float, ptr %.164, align 4
   %75 = tail call float @llvm.fabs.f32(float %74)
   %76 = bitcast float %75 to i32
-  %77 = icmp ugt i32 %76, 1199570943
+  %77 = icmp samesign ugt i32 %76, 1199570943
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %.lr.ph
-  %79 = icmp ugt i32 %76, 2139095040
+  %79 = icmp samesign ugt i32 %76, 2139095040
   %80 = select i1 %79, i32 32256, i32 31744
   br label %stbir__float_to_half.exit
 
 81:                                               ; preds = %.lr.ph
-  %82 = icmp ult i32 %76, 947912704
+  %82 = icmp samesign ult i32 %76, 947912704
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %81
@@ -48408,16 +48408,16 @@ stbir__float_to_half.exit:                        ; preds = %78, %83, %86
   %99 = load float, ptr %98, align 4
   %100 = tail call float @llvm.fabs.f32(float %99)
   %101 = bitcast float %100 to i32
-  %102 = icmp ugt i32 %101, 1199570943
+  %102 = icmp samesign ugt i32 %101, 1199570943
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %stbir__float_to_half.exit
-  %104 = icmp ugt i32 %101, 2139095040
+  %104 = icmp samesign ugt i32 %101, 2139095040
   %105 = select i1 %104, i32 32256, i32 31744
   br label %stbir__float_to_half.exit52
 
 106:                                              ; preds = %stbir__float_to_half.exit
-  %107 = icmp ult i32 %101, 947912704
+  %107 = icmp samesign ult i32 %101, 947912704
   br i1 %107, label %108, label %111
 
 108:                                              ; preds = %106
@@ -48446,16 +48446,16 @@ stbir__float_to_half.exit52:                      ; preds = %103, %108, %111
   %124 = load float, ptr %123, align 4
   %125 = tail call float @llvm.fabs.f32(float %124)
   %126 = bitcast float %125 to i32
-  %127 = icmp ugt i32 %126, 1199570943
+  %127 = icmp samesign ugt i32 %126, 1199570943
   br i1 %127, label %128, label %131
 
 128:                                              ; preds = %stbir__float_to_half.exit52
-  %129 = icmp ugt i32 %126, 2139095040
+  %129 = icmp samesign ugt i32 %126, 2139095040
   %130 = select i1 %129, i32 32256, i32 31744
   br label %stbir__float_to_half.exit54
 
 131:                                              ; preds = %stbir__float_to_half.exit52
-  %132 = icmp ult i32 %126, 947912704
+  %132 = icmp samesign ult i32 %126, 947912704
   br i1 %132, label %133, label %136
 
 133:                                              ; preds = %131
@@ -48484,16 +48484,16 @@ stbir__float_to_half.exit54:                      ; preds = %128, %133, %136
   %149 = load float, ptr %148, align 4
   %150 = tail call float @llvm.fabs.f32(float %149)
   %151 = bitcast float %150 to i32
-  %152 = icmp ugt i32 %151, 1199570943
+  %152 = icmp samesign ugt i32 %151, 1199570943
   br i1 %152, label %153, label %156
 
 153:                                              ; preds = %stbir__float_to_half.exit54
-  %154 = icmp ugt i32 %151, 2139095040
+  %154 = icmp samesign ugt i32 %151, 2139095040
   %155 = select i1 %154, i32 32256, i32 31744
   br label %stbir__float_to_half.exit56
 
 156:                                              ; preds = %stbir__float_to_half.exit54
-  %157 = icmp ult i32 %151, 947912704
+  %157 = icmp samesign ult i32 %151, 947912704
   br i1 %157, label %158, label %161
 
 158:                                              ; preds = %156
@@ -48529,16 +48529,16 @@ stbir__float_to_half.exit56:                      ; preds = %153, %158, %161
   %173 = load float, ptr %.268, align 4
   %174 = tail call float @llvm.fabs.f32(float %173)
   %175 = bitcast float %174 to i32
-  %176 = icmp ugt i32 %175, 1199570943
+  %176 = icmp samesign ugt i32 %175, 1199570943
   br i1 %176, label %177, label %180
 
 177:                                              ; preds = %.lr.ph69
-  %178 = icmp ugt i32 %175, 2139095040
+  %178 = icmp samesign ugt i32 %175, 2139095040
   %179 = select i1 %178, i32 32256, i32 31744
   br label %stbir__float_to_half.exit58
 
 180:                                              ; preds = %.lr.ph69
-  %181 = icmp ult i32 %175, 947912704
+  %181 = icmp samesign ult i32 %175, 947912704
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %180
@@ -49527,11 +49527,11 @@ define internal void @stbir__encode_half_float_linear_BGRA(ptr noundef %0, i32 n
   %17 = bitcast <4 x i32> %16 to <4 x float>
   %18 = fcmp uno <4 x float> %17, zeroinitializer
   %19 = sext <4 x i1> %18 to <4 x i32>
-  %20 = icmp ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %20 = icmp samesign ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %21 = bitcast <4 x i32> %19 to <2 x i64>
   %22 = and <2 x i64> %21, <i64 2199023256064, i64 2199023256064>
   %23 = or disjoint <2 x i64> %22, <i64 136339441875968, i64 136339441875968>
-  %24 = icmp ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %24 = icmp samesign ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %25 = fadd <4 x float> %17, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %26 = bitcast <4 x float> %25 to <4 x i32>
   %27 = add <4 x i32> %26, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -49555,11 +49555,11 @@ define internal void @stbir__encode_half_float_linear_BGRA(ptr noundef %0, i32 n
   %44 = bitcast <4 x i32> %43 to <4 x float>
   %45 = fcmp uno <4 x float> %44, zeroinitializer
   %46 = sext <4 x i1> %45 to <4 x i32>
-  %47 = icmp ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %47 = icmp samesign ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %48 = bitcast <4 x i32> %46 to <2 x i64>
   %49 = and <2 x i64> %48, <i64 2199023256064, i64 2199023256064>
   %50 = or disjoint <2 x i64> %49, <i64 136339441875968, i64 136339441875968>
-  %51 = icmp ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %51 = icmp samesign ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %52 = fadd <4 x float> %44, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %53 = bitcast <4 x float> %52 to <4 x i32>
   %54 = add <4 x i32> %53, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -49606,16 +49606,16 @@ define internal void @stbir__encode_half_float_linear_BGRA(ptr noundef %0, i32 n
   %78 = load float, ptr %77, align 4
   %79 = tail call float @llvm.fabs.f32(float %78)
   %80 = bitcast float %79 to i32
-  %81 = icmp ugt i32 %80, 1199570943
+  %81 = icmp samesign ugt i32 %80, 1199570943
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %.lr.ph
-  %83 = icmp ugt i32 %80, 2139095040
+  %83 = icmp samesign ugt i32 %80, 2139095040
   %84 = select i1 %83, i32 32256, i32 31744
   br label %stbir__float_to_half.exit
 
 85:                                               ; preds = %.lr.ph
-  %86 = icmp ult i32 %80, 947912704
+  %86 = icmp samesign ult i32 %80, 947912704
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %85
@@ -49644,16 +49644,16 @@ stbir__float_to_half.exit:                        ; preds = %82, %87, %90
   %103 = load float, ptr %102, align 4
   %104 = tail call float @llvm.fabs.f32(float %103)
   %105 = bitcast float %104 to i32
-  %106 = icmp ugt i32 %105, 1199570943
+  %106 = icmp samesign ugt i32 %105, 1199570943
   br i1 %106, label %107, label %110
 
 107:                                              ; preds = %stbir__float_to_half.exit
-  %108 = icmp ugt i32 %105, 2139095040
+  %108 = icmp samesign ugt i32 %105, 2139095040
   %109 = select i1 %108, i32 32256, i32 31744
   br label %stbir__float_to_half.exit49
 
 110:                                              ; preds = %stbir__float_to_half.exit
-  %111 = icmp ult i32 %105, 947912704
+  %111 = icmp samesign ult i32 %105, 947912704
   br i1 %111, label %112, label %115
 
 112:                                              ; preds = %110
@@ -49681,16 +49681,16 @@ stbir__float_to_half.exit49:                      ; preds = %107, %112, %115
   %127 = load float, ptr %.162, align 4
   %128 = tail call float @llvm.fabs.f32(float %127)
   %129 = bitcast float %128 to i32
-  %130 = icmp ugt i32 %129, 1199570943
+  %130 = icmp samesign ugt i32 %129, 1199570943
   br i1 %130, label %131, label %134
 
 131:                                              ; preds = %stbir__float_to_half.exit49
-  %132 = icmp ugt i32 %129, 2139095040
+  %132 = icmp samesign ugt i32 %129, 2139095040
   %133 = select i1 %132, i32 32256, i32 31744
   br label %stbir__float_to_half.exit51
 
 134:                                              ; preds = %stbir__float_to_half.exit49
-  %135 = icmp ult i32 %129, 947912704
+  %135 = icmp samesign ult i32 %129, 947912704
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %134
@@ -49719,16 +49719,16 @@ stbir__float_to_half.exit51:                      ; preds = %131, %136, %139
   %152 = load float, ptr %151, align 4
   %153 = tail call float @llvm.fabs.f32(float %152)
   %154 = bitcast float %153 to i32
-  %155 = icmp ugt i32 %154, 1199570943
+  %155 = icmp samesign ugt i32 %154, 1199570943
   br i1 %155, label %156, label %159
 
 156:                                              ; preds = %stbir__float_to_half.exit51
-  %157 = icmp ugt i32 %154, 2139095040
+  %157 = icmp samesign ugt i32 %154, 2139095040
   %158 = select i1 %157, i32 32256, i32 31744
   br label %stbir__float_to_half.exit53
 
 159:                                              ; preds = %stbir__float_to_half.exit51
-  %160 = icmp ult i32 %154, 947912704
+  %160 = icmp samesign ult i32 %154, 947912704
   br i1 %160, label %161, label %164
 
 161:                                              ; preds = %159
@@ -50450,11 +50450,11 @@ define internal void @stbir__encode_half_float_linear_ARGB(ptr noundef %0, i32 n
   %17 = bitcast <4 x i32> %16 to <4 x float>
   %18 = fcmp uno <4 x float> %17, zeroinitializer
   %19 = sext <4 x i1> %18 to <4 x i32>
-  %20 = icmp ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %20 = icmp samesign ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %21 = bitcast <4 x i32> %19 to <2 x i64>
   %22 = and <2 x i64> %21, <i64 2199023256064, i64 2199023256064>
   %23 = or disjoint <2 x i64> %22, <i64 136339441875968, i64 136339441875968>
-  %24 = icmp ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %24 = icmp samesign ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %25 = fadd <4 x float> %17, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %26 = bitcast <4 x float> %25 to <4 x i32>
   %27 = add <4 x i32> %26, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -50478,11 +50478,11 @@ define internal void @stbir__encode_half_float_linear_ARGB(ptr noundef %0, i32 n
   %44 = bitcast <4 x i32> %43 to <4 x float>
   %45 = fcmp uno <4 x float> %44, zeroinitializer
   %46 = sext <4 x i1> %45 to <4 x i32>
-  %47 = icmp ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %47 = icmp samesign ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %48 = bitcast <4 x i32> %46 to <2 x i64>
   %49 = and <2 x i64> %48, <i64 2199023256064, i64 2199023256064>
   %50 = or disjoint <2 x i64> %49, <i64 136339441875968, i64 136339441875968>
-  %51 = icmp ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %51 = icmp samesign ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %52 = fadd <4 x float> %44, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %53 = bitcast <4 x float> %52 to <4 x i32>
   %54 = add <4 x i32> %53, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -50529,16 +50529,16 @@ define internal void @stbir__encode_half_float_linear_ARGB(ptr noundef %0, i32 n
   %78 = load float, ptr %77, align 4
   %79 = tail call float @llvm.fabs.f32(float %78)
   %80 = bitcast float %79 to i32
-  %81 = icmp ugt i32 %80, 1199570943
+  %81 = icmp samesign ugt i32 %80, 1199570943
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %.lr.ph
-  %83 = icmp ugt i32 %80, 2139095040
+  %83 = icmp samesign ugt i32 %80, 2139095040
   %84 = select i1 %83, i32 32256, i32 31744
   br label %stbir__float_to_half.exit
 
 85:                                               ; preds = %.lr.ph
-  %86 = icmp ult i32 %80, 947912704
+  %86 = icmp samesign ult i32 %80, 947912704
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %85
@@ -50566,16 +50566,16 @@ stbir__float_to_half.exit:                        ; preds = %82, %87, %90
   %102 = load float, ptr %.162, align 4
   %103 = tail call float @llvm.fabs.f32(float %102)
   %104 = bitcast float %103 to i32
-  %105 = icmp ugt i32 %104, 1199570943
+  %105 = icmp samesign ugt i32 %104, 1199570943
   br i1 %105, label %106, label %109
 
 106:                                              ; preds = %stbir__float_to_half.exit
-  %107 = icmp ugt i32 %104, 2139095040
+  %107 = icmp samesign ugt i32 %104, 2139095040
   %108 = select i1 %107, i32 32256, i32 31744
   br label %stbir__float_to_half.exit49
 
 109:                                              ; preds = %stbir__float_to_half.exit
-  %110 = icmp ult i32 %104, 947912704
+  %110 = icmp samesign ult i32 %104, 947912704
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %109
@@ -50604,16 +50604,16 @@ stbir__float_to_half.exit49:                      ; preds = %106, %111, %114
   %127 = load float, ptr %126, align 4
   %128 = tail call float @llvm.fabs.f32(float %127)
   %129 = bitcast float %128 to i32
-  %130 = icmp ugt i32 %129, 1199570943
+  %130 = icmp samesign ugt i32 %129, 1199570943
   br i1 %130, label %131, label %134
 
 131:                                              ; preds = %stbir__float_to_half.exit49
-  %132 = icmp ugt i32 %129, 2139095040
+  %132 = icmp samesign ugt i32 %129, 2139095040
   %133 = select i1 %132, i32 32256, i32 31744
   br label %stbir__float_to_half.exit51
 
 134:                                              ; preds = %stbir__float_to_half.exit49
-  %135 = icmp ult i32 %129, 947912704
+  %135 = icmp samesign ult i32 %129, 947912704
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %134
@@ -50642,16 +50642,16 @@ stbir__float_to_half.exit51:                      ; preds = %131, %136, %139
   %152 = load float, ptr %151, align 4
   %153 = tail call float @llvm.fabs.f32(float %152)
   %154 = bitcast float %153 to i32
-  %155 = icmp ugt i32 %154, 1199570943
+  %155 = icmp samesign ugt i32 %154, 1199570943
   br i1 %155, label %156, label %159
 
 156:                                              ; preds = %stbir__float_to_half.exit51
-  %157 = icmp ugt i32 %154, 2139095040
+  %157 = icmp samesign ugt i32 %154, 2139095040
   %158 = select i1 %157, i32 32256, i32 31744
   br label %stbir__float_to_half.exit53
 
 159:                                              ; preds = %stbir__float_to_half.exit51
-  %160 = icmp ult i32 %154, 947912704
+  %160 = icmp samesign ult i32 %154, 947912704
   br i1 %160, label %161, label %164
 
 161:                                              ; preds = %159
@@ -51373,11 +51373,11 @@ define internal void @stbir__encode_half_float_linear_ABGR(ptr noundef %0, i32 n
   %17 = bitcast <4 x i32> %16 to <4 x float>
   %18 = fcmp uno <4 x float> %17, zeroinitializer
   %19 = sext <4 x i1> %18 to <4 x i32>
-  %20 = icmp ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %20 = icmp samesign ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %21 = bitcast <4 x i32> %19 to <2 x i64>
   %22 = and <2 x i64> %21, <i64 2199023256064, i64 2199023256064>
   %23 = or disjoint <2 x i64> %22, <i64 136339441875968, i64 136339441875968>
-  %24 = icmp ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %24 = icmp samesign ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %25 = fadd <4 x float> %17, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %26 = bitcast <4 x float> %25 to <4 x i32>
   %27 = add <4 x i32> %26, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -51401,11 +51401,11 @@ define internal void @stbir__encode_half_float_linear_ABGR(ptr noundef %0, i32 n
   %44 = bitcast <4 x i32> %43 to <4 x float>
   %45 = fcmp uno <4 x float> %44, zeroinitializer
   %46 = sext <4 x i1> %45 to <4 x i32>
-  %47 = icmp ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %47 = icmp samesign ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %48 = bitcast <4 x i32> %46 to <2 x i64>
   %49 = and <2 x i64> %48, <i64 2199023256064, i64 2199023256064>
   %50 = or disjoint <2 x i64> %49, <i64 136339441875968, i64 136339441875968>
-  %51 = icmp ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %51 = icmp samesign ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %52 = fadd <4 x float> %44, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %53 = bitcast <4 x float> %52 to <4 x i32>
   %54 = add <4 x i32> %53, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -51452,16 +51452,16 @@ define internal void @stbir__encode_half_float_linear_ABGR(ptr noundef %0, i32 n
   %78 = load float, ptr %77, align 4
   %79 = tail call float @llvm.fabs.f32(float %78)
   %80 = bitcast float %79 to i32
-  %81 = icmp ugt i32 %80, 1199570943
+  %81 = icmp samesign ugt i32 %80, 1199570943
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %.lr.ph
-  %83 = icmp ugt i32 %80, 2139095040
+  %83 = icmp samesign ugt i32 %80, 2139095040
   %84 = select i1 %83, i32 32256, i32 31744
   br label %stbir__float_to_half.exit
 
 85:                                               ; preds = %.lr.ph
-  %86 = icmp ult i32 %80, 947912704
+  %86 = icmp samesign ult i32 %80, 947912704
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %85
@@ -51490,16 +51490,16 @@ stbir__float_to_half.exit:                        ; preds = %82, %87, %90
   %103 = load float, ptr %102, align 4
   %104 = tail call float @llvm.fabs.f32(float %103)
   %105 = bitcast float %104 to i32
-  %106 = icmp ugt i32 %105, 1199570943
+  %106 = icmp samesign ugt i32 %105, 1199570943
   br i1 %106, label %107, label %110
 
 107:                                              ; preds = %stbir__float_to_half.exit
-  %108 = icmp ugt i32 %105, 2139095040
+  %108 = icmp samesign ugt i32 %105, 2139095040
   %109 = select i1 %108, i32 32256, i32 31744
   br label %stbir__float_to_half.exit49
 
 110:                                              ; preds = %stbir__float_to_half.exit
-  %111 = icmp ult i32 %105, 947912704
+  %111 = icmp samesign ult i32 %105, 947912704
   br i1 %111, label %112, label %115
 
 112:                                              ; preds = %110
@@ -51528,16 +51528,16 @@ stbir__float_to_half.exit49:                      ; preds = %107, %112, %115
   %128 = load float, ptr %127, align 4
   %129 = tail call float @llvm.fabs.f32(float %128)
   %130 = bitcast float %129 to i32
-  %131 = icmp ugt i32 %130, 1199570943
+  %131 = icmp samesign ugt i32 %130, 1199570943
   br i1 %131, label %132, label %135
 
 132:                                              ; preds = %stbir__float_to_half.exit49
-  %133 = icmp ugt i32 %130, 2139095040
+  %133 = icmp samesign ugt i32 %130, 2139095040
   %134 = select i1 %133, i32 32256, i32 31744
   br label %stbir__float_to_half.exit51
 
 135:                                              ; preds = %stbir__float_to_half.exit49
-  %136 = icmp ult i32 %130, 947912704
+  %136 = icmp samesign ult i32 %130, 947912704
   br i1 %136, label %137, label %140
 
 137:                                              ; preds = %135
@@ -51565,16 +51565,16 @@ stbir__float_to_half.exit51:                      ; preds = %132, %137, %140
   %152 = load float, ptr %.162, align 4
   %153 = tail call float @llvm.fabs.f32(float %152)
   %154 = bitcast float %153 to i32
-  %155 = icmp ugt i32 %154, 1199570943
+  %155 = icmp samesign ugt i32 %154, 1199570943
   br i1 %155, label %156, label %159
 
 156:                                              ; preds = %stbir__float_to_half.exit51
-  %157 = icmp ugt i32 %154, 2139095040
+  %157 = icmp samesign ugt i32 %154, 2139095040
   %158 = select i1 %157, i32 32256, i32 31744
   br label %stbir__float_to_half.exit53
 
 159:                                              ; preds = %stbir__float_to_half.exit51
-  %160 = icmp ult i32 %154, 947912704
+  %160 = icmp samesign ult i32 %154, 947912704
   br i1 %160, label %161, label %164
 
 161:                                              ; preds = %159
@@ -52483,11 +52483,11 @@ define internal void @stbir__encode_half_float_linear_AR(ptr noundef %0, i32 nou
   %17 = bitcast <4 x i32> %16 to <4 x float>
   %18 = fcmp uno <4 x float> %17, zeroinitializer
   %19 = sext <4 x i1> %18 to <4 x i32>
-  %20 = icmp ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %20 = icmp samesign ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %21 = bitcast <4 x i32> %19 to <2 x i64>
   %22 = and <2 x i64> %21, <i64 2199023256064, i64 2199023256064>
   %23 = or disjoint <2 x i64> %22, <i64 136339441875968, i64 136339441875968>
-  %24 = icmp ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %24 = icmp samesign ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %25 = fadd <4 x float> %17, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %26 = bitcast <4 x float> %25 to <4 x i32>
   %27 = add <4 x i32> %26, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -52511,11 +52511,11 @@ define internal void @stbir__encode_half_float_linear_AR(ptr noundef %0, i32 nou
   %44 = bitcast <4 x i32> %43 to <4 x float>
   %45 = fcmp uno <4 x float> %44, zeroinitializer
   %46 = sext <4 x i1> %45 to <4 x i32>
-  %47 = icmp ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %47 = icmp samesign ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %48 = bitcast <4 x i32> %46 to <2 x i64>
   %49 = and <2 x i64> %48, <i64 2199023256064, i64 2199023256064>
   %50 = or disjoint <2 x i64> %49, <i64 136339441875968, i64 136339441875968>
-  %51 = icmp ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %51 = icmp samesign ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %52 = fadd <4 x float> %44, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %53 = bitcast <4 x float> %52 to <4 x i32>
   %54 = add <4 x i32> %53, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -52568,16 +52568,16 @@ define internal void @stbir__encode_half_float_linear_AR(ptr noundef %0, i32 nou
   %79 = load float, ptr %78, align 4
   %80 = tail call float @llvm.fabs.f32(float %79)
   %81 = bitcast float %80 to i32
-  %82 = icmp ugt i32 %81, 1199570943
+  %82 = icmp samesign ugt i32 %81, 1199570943
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %.lr.ph
-  %84 = icmp ugt i32 %81, 2139095040
+  %84 = icmp samesign ugt i32 %81, 2139095040
   %85 = select i1 %84, i32 32256, i32 31744
   br label %stbir__float_to_half.exit
 
 86:                                               ; preds = %.lr.ph
-  %87 = icmp ult i32 %81, 947912704
+  %87 = icmp samesign ult i32 %81, 947912704
   br i1 %87, label %88, label %91
 
 88:                                               ; preds = %86
@@ -52605,16 +52605,16 @@ stbir__float_to_half.exit:                        ; preds = %83, %88, %91
   %103 = load float, ptr %.180, align 4
   %104 = tail call float @llvm.fabs.f32(float %103)
   %105 = bitcast float %104 to i32
-  %106 = icmp ugt i32 %105, 1199570943
+  %106 = icmp samesign ugt i32 %105, 1199570943
   br i1 %106, label %107, label %110
 
 107:                                              ; preds = %stbir__float_to_half.exit
-  %108 = icmp ugt i32 %105, 2139095040
+  %108 = icmp samesign ugt i32 %105, 2139095040
   %109 = select i1 %108, i32 32256, i32 31744
   br label %stbir__float_to_half.exit62
 
 110:                                              ; preds = %stbir__float_to_half.exit
-  %111 = icmp ult i32 %105, 947912704
+  %111 = icmp samesign ult i32 %105, 947912704
   br i1 %111, label %112, label %115
 
 112:                                              ; preds = %110
@@ -52643,16 +52643,16 @@ stbir__float_to_half.exit62:                      ; preds = %107, %112, %115
   %128 = load float, ptr %127, align 4
   %129 = tail call float @llvm.fabs.f32(float %128)
   %130 = bitcast float %129 to i32
-  %131 = icmp ugt i32 %130, 1199570943
+  %131 = icmp samesign ugt i32 %130, 1199570943
   br i1 %131, label %132, label %135
 
 132:                                              ; preds = %stbir__float_to_half.exit62
-  %133 = icmp ugt i32 %130, 2139095040
+  %133 = icmp samesign ugt i32 %130, 2139095040
   %134 = select i1 %133, i32 32256, i32 31744
   br label %stbir__float_to_half.exit64
 
 135:                                              ; preds = %stbir__float_to_half.exit62
-  %136 = icmp ult i32 %130, 947912704
+  %136 = icmp samesign ult i32 %130, 947912704
   br i1 %136, label %137, label %140
 
 137:                                              ; preds = %135
@@ -52681,16 +52681,16 @@ stbir__float_to_half.exit64:                      ; preds = %132, %137, %140
   %153 = load float, ptr %152, align 4
   %154 = tail call float @llvm.fabs.f32(float %153)
   %155 = bitcast float %154 to i32
-  %156 = icmp ugt i32 %155, 1199570943
+  %156 = icmp samesign ugt i32 %155, 1199570943
   br i1 %156, label %157, label %160
 
 157:                                              ; preds = %stbir__float_to_half.exit64
-  %158 = icmp ugt i32 %155, 2139095040
+  %158 = icmp samesign ugt i32 %155, 2139095040
   %159 = select i1 %158, i32 32256, i32 31744
   br label %stbir__float_to_half.exit66
 
 160:                                              ; preds = %stbir__float_to_half.exit64
-  %161 = icmp ult i32 %155, 947912704
+  %161 = icmp samesign ult i32 %155, 947912704
   br i1 %161, label %162, label %165
 
 162:                                              ; preds = %160
@@ -52727,16 +52727,16 @@ stbir__float_to_half.exit66:                      ; preds = %157, %162, %165
   %178 = load float, ptr %177, align 4
   %179 = tail call float @llvm.fabs.f32(float %178)
   %180 = bitcast float %179 to i32
-  %181 = icmp ugt i32 %180, 1199570943
+  %181 = icmp samesign ugt i32 %180, 1199570943
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %.lr.ph85
-  %183 = icmp ugt i32 %180, 2139095040
+  %183 = icmp samesign ugt i32 %180, 2139095040
   %184 = select i1 %183, i32 32256, i32 31744
   br label %stbir__float_to_half.exit68
 
 185:                                              ; preds = %.lr.ph85
-  %186 = icmp ult i32 %180, 947912704
+  %186 = icmp samesign ult i32 %180, 947912704
   br i1 %186, label %187, label %190
 
 187:                                              ; preds = %185
@@ -52764,16 +52764,16 @@ stbir__float_to_half.exit68:                      ; preds = %182, %187, %190
   %202 = load float, ptr %.284, align 4
   %203 = tail call float @llvm.fabs.f32(float %202)
   %204 = bitcast float %203 to i32
-  %205 = icmp ugt i32 %204, 1199570943
+  %205 = icmp samesign ugt i32 %204, 1199570943
   br i1 %205, label %206, label %209
 
 206:                                              ; preds = %stbir__float_to_half.exit68
-  %207 = icmp ugt i32 %204, 2139095040
+  %207 = icmp samesign ugt i32 %204, 2139095040
   %208 = select i1 %207, i32 32256, i32 31744
   br label %stbir__float_to_half.exit70
 
 209:                                              ; preds = %stbir__float_to_half.exit68
-  %210 = icmp ult i32 %204, 947912704
+  %210 = icmp samesign ult i32 %204, 947912704
   br i1 %210, label %211, label %214
 
 211:                                              ; preds = %209

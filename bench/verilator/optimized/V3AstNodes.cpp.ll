@@ -95074,7 +95074,7 @@ _ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit.i.i.i: ; preds = %55
   %57 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 48
   %58 = load i8, ptr %57, align 4
   %59 = and i8 %58, 1
-  %60 = icmp ult i8 %59, %20
+  %60 = icmp samesign ult i8 %59, %20
   br i1 %60, label %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit.thread.i.i.i, label %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit.thread12.i.i.i
 
 _ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit.thread.i.i.i: ; preds = %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit.i.i.i, %51, %45, %39, %33, %27, %21
@@ -97942,7 +97942,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -174774,7 +174774,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK9VNumRangeltERKS_(ptr noun
   %20 = getelementptr inbounds i8, ptr %1, i64 8
   %21 = load i8, ptr %20, align 4
   %22 = and i8 %21, 1
-  %23 = icmp ult i8 %19, %22
+  %23 = icmp samesign ult i8 %19, %22
   br label %24
 
 24:                                               ; preds = %16, %14, %8, %6, %2
@@ -175316,7 +175316,7 @@ _ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit:     ; preds = %53
   %55 = getelementptr inbounds i8, ptr %.02236, i64 48
   %56 = load i8, ptr %55, align 4
   %57 = and i8 %56, 1
-  %58 = icmp ult i8 %18, %57
+  %58 = icmp samesign ult i8 %18, %57
   br i1 %58, label %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit.thread, label %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit.thread27
 
 _ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit.thread27: ; preds = %53, %47, %41, %35, %29, %23, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit

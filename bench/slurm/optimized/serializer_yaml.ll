@@ -776,7 +776,7 @@ define internal fastcc range(i32 2, 6) i32 @_yaml_to_data(i32 noundef %0, ptr no
 
 12:                                               ; preds = %.preheader, %40
   %.0 = phi i32 [ %41, %40 ], [ 1, %.preheader ]
-  %13 = icmp ult i32 %.0, 4
+  %13 = icmp samesign ult i32 %.0, 4
   br i1 %13, label %14, label %.loopexit
 
 14:                                               ; preds = %12

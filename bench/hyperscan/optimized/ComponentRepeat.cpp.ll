@@ -1657,7 +1657,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %15 = load i32, ptr %m_min, align 8
   %16 = zext i32 %15 to i64
-  %cmp.us = icmp ult i64 %indvars.iv.next74, %16
+  %cmp.us = icmp samesign ult i64 %indvars.iv.next74, %16
   br i1 %cmp.us, label %for.body.us, label %do.end50, !llvm.loop !18
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1674,7 +1674,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %m_min, align 8
   %22 = zext i32 %21 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %22
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %cmp, label %for.body, label %do.end50, !llvm.loop !18
 
 do.end50:                                         ; preds = %for.body, %for.body.us, %for.cond.preheader

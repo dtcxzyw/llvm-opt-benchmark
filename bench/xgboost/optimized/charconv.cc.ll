@@ -96,7 +96,7 @@ define noundef i32 @_ZN7xgboost6detail16ToCharsFloatImplEfPc(float noundef %0, p
   %31 = shl nuw nsw i32 %.0.i7, 2
   %32 = or disjoint i32 %31, 2
   %33 = icmp ne i32 %7, 0
-  %34 = icmp ult i32 %9, 2
+  %34 = icmp samesign ult i32 %9, 2
   %35 = or i1 %33, %34
   %36 = zext i1 %35 to i32
   %37 = xor i32 %36, -1
@@ -219,7 +219,7 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
 ._crit_edge:                                      ; preds = %tailrecurse.i71.preheader, %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit
   %.066.lcssa = phi i32 [ 0, %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit ], [ %28, %tailrecurse.i71.preheader ]
   %.064.lcssa = phi i32 [ %.sroa.0.0.extract.trunc, %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit ], [ %12, %tailrecurse.i71.preheader ]
-  %29 = icmp ugt i32 %.064.lcssa, 99
+  %29 = icmp samesign ugt i32 %.064.lcssa, 99
   br i1 %29, label %30, label %42
 
 30:                                               ; preds = %._crit_edge
@@ -243,7 +243,7 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
 42:                                               ; preds = %30, %._crit_edge
   %.167 = phi i32 [ %41, %30 ], [ %.066.lcssa, %._crit_edge ]
   %.165 = phi i32 [ %.zext80, %30 ], [ %.064.lcssa, %._crit_edge ]
-  %43 = icmp ugt i32 %.165, 9
+  %43 = icmp samesign ugt i32 %.165, 9
   br i1 %43, label %44, label %57
 
 44:                                               ; preds = %42
@@ -270,7 +270,7 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
 60:                                               ; preds = %57, %44
   %storemerge = phi i8 [ %59, %57 ], [ %56, %44 ]
   store i8 %storemerge, ptr %8, align 1
-  %61 = icmp ugt i32 %.0.i, 1
+  %61 = icmp samesign ugt i32 %.0.i, 1
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %60
@@ -363,7 +363,7 @@ tailrecurse.i19.preheader:                        ; preds = %tailrecurse.i19.pre
 
 _ZN7xgboost6detail4TensEj.exit._crit_edge:        ; preds = %tailrecurse.i19.preheader, %3
   %.0.lcssa = phi i64 [ %2, %3 ], [ %7, %tailrecurse.i19.preheader ]
-  %19 = icmp ugt i64 %.0.lcssa, 9
+  %19 = icmp samesign ugt i64 %.0.lcssa, 9
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %_ZN7xgboost6detail4TensEj.exit._crit_edge
@@ -462,7 +462,7 @@ tailrecurse.i19.preheader.i:                      ; preds = %tailrecurse.i19.pre
 
 _ZN7xgboost6detail4TensEj.exit.i._crit_edge:      ; preds = %tailrecurse.i19.preheader.i, %19
   %.0.i.lcssa = phi i64 [ %2, %19 ], [ %23, %tailrecurse.i19.preheader.i ]
-  %35 = icmp ugt i64 %.0.i.lcssa, 9
+  %35 = icmp samesign ugt i64 %.0.i.lcssa, 9
   br i1 %35, label %36, label %44
 
 36:                                               ; preds = %_ZN7xgboost6detail4TensEj.exit.i._crit_edge
@@ -602,7 +602,7 @@ define { ptr, i32 } @_ZN7xgboost6detail17FromCharFloatImplEPKciPf(ptr noundef %0
   br i1 %or.cond5, label %.loopexit.loopexit, label %43
 
 43:                                               ; preds = %.lr.ph238
-  %44 = icmp ugt i32 %.0153237, 3
+  %44 = icmp samesign ugt i32 %.0153237, 3
   br i1 %44, label %.loopexit.loopexit, label %45
 
 45:                                               ; preds = %43
@@ -920,7 +920,7 @@ define linkonce_odr noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13T
   %48 = add i32 %45, -1
   %49 = udiv i32 %48, 10
   %50 = udiv i32 %30, 10
-  %.not82 = icmp ugt i32 %49, %50
+  %.not82 = icmp samesign ugt i32 %49, %50
   br i1 %.not82, label %72, label %51
 
 51:                                               ; preds = %47
@@ -1070,7 +1070,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
   %138 = add i32 %128, -1
   %139 = udiv i32 %138, 10
   %140 = udiv i32 %135, 10
-  %.not80 = icmp ugt i32 %139, %140
+  %.not80 = icmp samesign ugt i32 %139, %140
   br i1 %.not80, label %161, label %141
 
 141:                                              ; preds = %137
@@ -1145,7 +1145,7 @@ define linkonce_odr i64 @_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresen
   %brmerge = or i1 %0, %1
   %7 = udiv i32 %.sroa.29.8.extract.trunc, 10
   %8 = udiv i32 %.sroa.2.0.extract.trunc, 10
-  %9 = icmp ugt i32 %7, %8
+  %9 = icmp samesign ugt i32 %7, %8
   br i1 %brmerge, label %.preheader64, label %.preheader65
 
 .preheader65:                                     ; preds = %6
@@ -1174,7 +1174,7 @@ define linkonce_odr i64 @_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresen
   %20 = add nuw nsw i32 %.04676, 1
   %21 = udiv i32 %11, 10
   %22 = udiv i32 %10, 10
-  %23 = icmp ugt i32 %21, %22
+  %23 = icmp samesign ugt i32 %21, %22
   br i1 %23, label %.lr.ph77, label %._crit_edge78, !llvm.loop !10
 
 ._crit_edge78:                                    ; preds = %.lr.ph77, %.preheader64
@@ -1237,7 +1237,7 @@ define linkonce_odr i64 @_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresen
   %46 = add nuw nsw i32 %.467, 1
   %47 = udiv i32 %43, 10
   %48 = udiv i32 %42, 10
-  %49 = icmp ugt i32 %47, %48
+  %49 = icmp samesign ugt i32 %47, %48
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph

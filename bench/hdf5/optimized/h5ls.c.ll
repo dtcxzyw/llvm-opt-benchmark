@@ -1770,7 +1770,7 @@ print_string.exit:                                ; preds = %.preheader112
   %111 = add nuw nsw i64 %.0114, 1
   %112 = load i64, ptr %21, align 8
   %113 = and i64 %112, 4294967295
-  %114 = icmp ult i64 %111, %113
+  %114 = icmp samesign ult i64 %111, %113
   br i1 %114, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %100

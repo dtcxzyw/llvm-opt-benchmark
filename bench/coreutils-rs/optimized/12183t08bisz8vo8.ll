@@ -1460,7 +1460,7 @@ define void @_ZN6uu_env13string_parser12StringParser34consume_one_ascii_or_all_n
   %.sroa.5.i.sroa.4.0.copyload = load i32, ptr %.sroa.5.i.sroa.4.0..sroa_idx, align 8, !noalias !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !192
   %52 = icmp eq ptr %.sroa.5.i.sroa.0.0.copyload, null
-  %53 = icmp ult i32 %.sroa.5.i.sroa.4.0.copyload, 128
+  %53 = icmp samesign ult i32 %.sroa.5.i.sroa.4.0.copyload, 128
   %or.cond = select i1 %52, i1 %53, i1 false
   br i1 %or.cond, label %54, label %19
 

@@ -750,7 +750,7 @@ for.inc:                                          ; preds = %delete.notnull.i, %
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %14 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp = icmp ult i64 %indvars.iv.next, %14
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !47
 }
 
@@ -1579,7 +1579,7 @@ _ZN3irr4core5arrayINS0_4rectIiEEE10reallocateEjb.exit: ; preds = %_ZNSt12_Vector
   %sub.ptr.sub.i.i136 = sub i64 %sub.ptr.lhs.cast.i.i134, %sub.ptr.rhs.cast.i.i135
   %sub.ptr.div.i.i137 = lshr exact i64 %sub.ptr.sub.i.i136, 3
   %55 = and i64 %sub.ptr.div.i.i137, 4294967295
-  %cmp = icmp ult i64 %indvars.iv.next, %55
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %55
   br i1 %cmp, label %for.body, label %for.cond15.preheader, !llvm.loop !123
 
 for.cond66.preheader:                             ; preds = %for.inc60, %for.cond15.preheader
@@ -2182,7 +2182,7 @@ for.inc88:                                        ; preds = %if.then77, %land.lh
   %sub.ptr.sub.i.i341 = sub i64 %sub.ptr.lhs.cast.i.i339, %sub.ptr.rhs.cast.i.i340
   %sub.ptr.div.i.i342 = sdiv exact i64 %sub.ptr.sub.i.i341, 72
   %137 = and i64 %sub.ptr.div.i.i342, 4294967295
-  %cmp68 = icmp ult i64 %indvars.iv.next401, %137
+  %cmp68 = icmp samesign ult i64 %indvars.iv.next401, %137
   br i1 %cmp68, label %for.body70, label %cleanup92, !llvm.loop !147
 
 cleanup92.loopexit398:                            ; preds = %if.end29, %if.end.i, %for.body18

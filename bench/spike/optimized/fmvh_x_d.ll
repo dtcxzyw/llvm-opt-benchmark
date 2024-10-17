@@ -520,7 +520,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_fmvh_x_dP1
   %.sroa.010.0 = phi i64 [ %56, %50 ], [ %49, %44 ], [ 0, %34 ]
   %58 = lshr i64 %1, 7
   %59 = and i64 %58, 31
-  %60 = icmp ugt i64 %59, 15
+  %60 = icmp samesign ugt i64 %59, 15
   br i1 %60, label %61, label %66
 
 61:                                               ; preds = %57
@@ -739,7 +739,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %58, ptr %.0.i.i38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %86 = icmp ugt i64 %61, 15
+  %86 = icmp samesign ugt i64 %61, 15
   br i1 %86, label %87, label %92
 
 87:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

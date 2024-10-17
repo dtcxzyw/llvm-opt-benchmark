@@ -283,7 +283,7 @@ for.body.i.i.i.us.us:                             ; preds = %for.body.i.i.i.us.u
   %shr.i.i.i.us.us = lshr i32 %conv240.i.i.i.us.us, 1
   %shl22.i.i.i.us.us = shl nuw nsw i32 %conv341.i.i.i.us.us, 1
   %conv3.i.i.i.us.us = and i32 %shl22.i.i.i.us.us, 65534
-  %cmp.i.i.i.us.us = icmp ugt i32 %shr.i.i.i.us.us, %conv3.i.i.i.us.us
+  %cmp.i.i.i.us.us = icmp samesign ugt i32 %shr.i.i.i.us.us, %conv3.i.i.i.us.us
   br i1 %cmp.i.i.i.us.us, label %for.body.i.i.i.us.us, label %for.body.i.us.us.preheader, !llvm.loop !18
 
 for.body.i.us.us.preheader:                       ; preds = %for.body.i.i.i.us.us
@@ -372,7 +372,7 @@ for.body.i.i14.us.us:                             ; preds = %for.body.i.i14.us.u
   %shr.i.i18.us.us = lshr i32 %conv240.i.i.us.us, 1
   %shl22.i.i.us.us = shl nuw nsw i32 %conv341.i.i.us.us, 1
   %conv3.i.i.us.us = and i32 %shl22.i.i.us.us, 65534
-  %cmp.i.i19.us.us = icmp ugt i32 %shr.i.i18.us.us, %conv3.i.i.us.us
+  %cmp.i.i19.us.us = icmp samesign ugt i32 %shr.i.i18.us.us, %conv3.i.i.us.us
   br i1 %cmp.i.i19.us.us, label %for.body.i.i14.us.us, label %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us, !llvm.loop !19
 
 _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us: ; preds = %for.body.i.i14.us.us
@@ -407,7 +407,7 @@ for.body.i.i.i.us:                                ; preds = %for.body.i.i.i.us, 
   %shr.i.i.i.us = lshr i32 %conv240.i.i.i.us, 1
   %shl22.i.i.i.us = shl nuw nsw i32 %conv341.i.i.i.us, 1
   %conv3.i.i.i.us = and i32 %shl22.i.i.i.us, 65534
-  %cmp.i.i.i.us = icmp ugt i32 %shr.i.i.i.us, %conv3.i.i.i.us
+  %cmp.i.i.i.us = icmp samesign ugt i32 %shr.i.i.i.us, %conv3.i.i.i.us
   br i1 %cmp.i.i.i.us, label %for.body.i.i.i.us, label %for.body.i.us.preheader, !llvm.loop !18
 
 for.body.i.us.preheader:                          ; preds = %for.body.i.i.i.us
@@ -516,7 +516,7 @@ for.body.i.i14.us:                                ; preds = %for.body.i.i.us, %f
   %shr.i.i18.us = lshr i32 %conv240.i.i.us, 1
   %shl22.i.i.us = shl nuw nsw i32 %conv341.i.i.us, 1
   %conv3.i.i.us = and i32 %shl22.i.i.us, 65534
-  %cmp.i.i19.us = icmp ugt i32 %shr.i.i18.us, %conv3.i.i.us
+  %cmp.i.i19.us = icmp samesign ugt i32 %shr.i.i18.us, %conv3.i.i.us
   br i1 %cmp.i.i19.us, label %for.body.i.i14.us, label %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us, !llvm.loop !19
 
 _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us: ; preds = %for.body.i.i14.us
@@ -552,7 +552,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %shr.i.i.i = lshr i32 %conv240.i.i.i, 1
   %shl22.i.i.i = shl nuw nsw i32 %conv341.i.i.i, 1
   %conv3.i.i.i = and i32 %shl22.i.i.i, 65534
-  %cmp.i.i.i = icmp ugt i32 %shr.i.i.i, %conv3.i.i.i
+  %cmp.i.i.i = icmp samesign ugt i32 %shr.i.i.i, %conv3.i.i.i
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.body.i.preheader, !llvm.loop !18
 
 for.body.i.preheader:                             ; preds = %for.body.i.i.i

@@ -468,7 +468,7 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %162
   %201 = phi i32 [ %190, %.lr.ph.i21 ], [ %.pre.i, %194 ]
   %202 = add nuw nsw i64 %.013.i, 1
   %203 = zext i32 %201 to i64
-  %204 = icmp ult i64 %202, %203
+  %204 = icmp samesign ult i64 %202, %203
   br i1 %204, label %.lr.ph.i21, label %mca_pml_ob1_free_rdma_resources.exit, !llvm.loop !7
 
 mca_pml_ob1_free_rdma_resources.exit:             ; preds = %200, %188
@@ -1495,7 +1495,7 @@ define internal fastcc void @send_request_pml_complete(ptr noundef %0) unnamed_a
   %23 = phi i32 [ %12, %11 ], [ %.pre.i, %16 ]
   %24 = add nuw nsw i64 %.013.i, 1
   %25 = zext i32 %23 to i64
-  %26 = icmp ult i64 %24, %25
+  %26 = icmp samesign ult i64 %24, %25
   br i1 %26, label %11, label %mca_pml_ob1_free_rdma_resources.exit, !llvm.loop !7
 
 mca_pml_ob1_free_rdma_resources.exit:             ; preds = %22, %6
@@ -3448,7 +3448,7 @@ mca_bml_base_btl_array_get_next.exit:             ; preds = %26, %28
   %37 = fpext float %36 to double
   %38 = fadd double %.032, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = icmp ult i64 %indvars.iv.next, %22
+  %39 = icmp samesign ult i64 %indvars.iv.next, %22
   %40 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 228), align 4
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
@@ -5303,7 +5303,7 @@ opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atom
   %85 = phi i32 [ %74, %73 ], [ %.pre.i, %78 ]
   %86 = add nuw nsw i64 %.013.i, 1
   %87 = zext i32 %85 to i64
-  %88 = icmp ult i64 %86, %87
+  %88 = icmp samesign ult i64 %86, %87
   br i1 %88, label %73, label %mca_pml_ob1_free_rdma_resources.exit, !llvm.loop !7
 
 mca_pml_ob1_free_rdma_resources.exit:             ; preds = %84, %69

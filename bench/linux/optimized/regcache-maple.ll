@@ -352,7 +352,7 @@ define internal i32 @regcache_maple_sync(ptr noundef %0, i32 noundef %1, i32 nou
   %25 = and i64 %23, 4294967295
   %26 = load i64, ptr %9, align 8
   %27 = call i64 @llvm.umin.i64(i64 %26, i64 %10)
-  %28 = icmp ult i64 %27, %25
+  %28 = icmp samesign ult i64 %27, %25
   br i1 %28, label %.loopexit6, label %.preheader
 
 .preheader:                                       ; preds = %.preheader7, %48
@@ -390,7 +390,7 @@ define internal i32 @regcache_maple_sync(ptr noundef %0, i32 noundef %1, i32 nou
   %52 = zext i32 %51 to i64
   %53 = load i64, ptr %9, align 8
   %54 = call i64 @llvm.umin.i64(i64 %53, i64 %10)
-  %55 = icmp ult i64 %54, %52
+  %55 = icmp samesign ult i64 %54, %52
   br i1 %55, label %.loopexit6, label %.preheader, !llvm.loop !9
 
 .loopexit6:                                       ; preds = %48, %.preheader7

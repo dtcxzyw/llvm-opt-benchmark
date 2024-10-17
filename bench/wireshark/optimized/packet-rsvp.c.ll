@@ -3675,7 +3675,7 @@ define internal fastcc void @find_rsvp_session_tempfilt(ptr noundef %0, ptr noca
   %.227 = phi i32 [ %.12632, %14 ], [ %.02433, %18 ], [ %.12632, %17 ]
   %.2 = phi i32 [ %.134, %14 ], [ %.134, %18 ], [ %.02433, %17 ]
   %20 = add nuw nsw i32 %.02433, %12
-  %21 = icmp ult i32 %20, %7
+  %21 = icmp samesign ult i32 %20, %7
   br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph, %10, %19, %5, %3
@@ -4057,7 +4057,7 @@ proto_item_set_hidden.exit:                       ; preds = %65, %62, %57, %50
   %86 = load i32, ptr getelementptr inbounds (i8, ptr @ett_treelist, i64 208), align 16
   call fastcc void @dissect_rsvp_msg_tree(ptr noundef %85, ptr noundef %1, ptr noundef %28, i32 noundef %86, ptr noundef %4, i32 noundef %5)
   %87 = add nuw nsw i32 %.0431703, %84
-  %88 = icmp ult i32 %87, %24
+  %88 = icmp samesign ult i32 %87, %24
   br i1 %88, label %.lr.ph704, label %.loopexit, !llvm.loop !7
 
 89:                                               ; preds = %79
@@ -5934,7 +5934,7 @@ proto_item_set_hidden.exit.i497:                  ; preds = %1142, %1139, %1134
   %1168 = load i32, ptr @hf_rsvp_label_generalized_label, align 4
   %1169 = add i32 %.080.i, %1136
   %1170 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %1168, ptr noundef %0, i32 noundef %1169, i32 noundef 4, i32 noundef 0) #10
-  %1171 = icmp ult i32 %.080.i, 16
+  %1171 = icmp samesign ult i32 %.080.i, 16
   br i1 %1171, label %1172, label %1176
 
 1172:                                             ; preds = %.lr.ph.i498
@@ -6195,7 +6195,7 @@ proto_item_set_hidden.exit.i501:                  ; preds = %1329, %1326, %1321
   %1354 = load i32, ptr @hf_rsvp_label_set_subchannel, align 4
   %1355 = add nuw nsw i32 %.044.i, 1
   %1356 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %135, i32 noundef %1354, ptr noundef %0, i32 noundef %1352, i32 noundef 4, i32 noundef %1353, ptr noundef nonnull @.str.1709, i32 noundef %1355, i32 noundef %1353, i32 noundef %1353) #10
-  %1357 = icmp ult i32 %.044.i, 5
+  %1357 = icmp samesign ult i32 %.044.i, 5
   br i1 %1357, label %1358, label %1362
 
 1358:                                             ; preds = %.lr.ph.i503
@@ -6582,7 +6582,7 @@ proto_item_set_hidden.exit.i529:                  ; preds = %1572, %1569, %1564
   %1586 = add i32 %.031.i, %.0700
   %1587 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %1585, ptr noundef %0, i32 noundef %1586, i32 noundef 4, i32 noundef 0) #10
   %1588 = add nuw nsw i32 %.031.i, 4
-  %1589 = icmp ult i32 %1588, %94
+  %1589 = icmp samesign ult i32 %1588, %94
   br i1 %1589, label %.lr.ph.i532, label %._crit_edge.i531, !llvm.loop !18
 
 ._crit_edge.i531:                                 ; preds = %.lr.ph.i532, %1578
@@ -6682,14 +6682,14 @@ proto_item_set_hidden.exit.i538:                  ; preds = %1627, %1624, %1620
   %1640 = lshr i8 %1639, 2
   %1641 = zext nneg i8 %1640 to i32
   %1642 = icmp eq i32 %.033.i, %1634
-  %1643 = icmp ult i32 %.033.i, 16
+  %1643 = icmp samesign ult i32 %.033.i, 16
   %1644 = icmp eq i32 %.033.i, 16
   %1645 = select i1 %1644, ptr @.str.1765, ptr @.str.1460
   %1646 = select i1 %1643, ptr @.str.1687, ptr %1645
   %1647 = select i1 %1642, ptr @.str.1460, ptr %1646
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1621, ptr noundef nonnull @.str.1764, i32 noundef %1641, ptr noundef nonnull %1647) #10
   %1648 = add nuw nsw i32 %.033.i, 4
-  %1649 = icmp ult i32 %1648, %94
+  %1649 = icmp samesign ult i32 %1648, %94
   br i1 %1649, label %1635, label %dissect_rsvp_hop.exit, !llvm.loop !19
 
 1650:                                             ; preds = %proto_item_set_hidden.exit.i538
@@ -6812,7 +6812,7 @@ proto_item_set_hidden.exit.i549:                  ; preds = %1702, %1699, %1695
 
 1718:                                             ; preds = %.lr.ph.i552
   %1719 = add nuw nsw i32 %.098.i553, %1716
-  %1720 = icmp ugt i32 %1719, %94
+  %1720 = icmp samesign ugt i32 %1719, %94
   br i1 %1720, label %1721, label %1723
 
 1721:                                             ; preds = %1718, %.lr.ph.i552
@@ -7495,7 +7495,7 @@ proto_item_set_hidden.exit.i570:                  ; preds = %1963, %1960, %1955
   %2177 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2174) #10
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2176, ptr noundef nonnull @.str.1843, i32 noundef %2177) #10
   %2178 = add nuw nsw i32 %.0457472.i, 4
-  %2179 = icmp ult i32 %2178, %1975
+  %2179 = icmp samesign ult i32 %2178, %1975
   br i1 %2179, label %.lr.ph.i575, label %._crit_edge.i574, !llvm.loop !21
 
 ._crit_edge.i574:                                 ; preds = %.lr.ph.i575, %2149
@@ -9327,7 +9327,7 @@ dissect_rsvp_hop.exit:                            ; preds = %3009, %1775, %1635,
   %.1 = phi i32 [ %.0430698, %dissect_rsvp_vendor_private_use.exit ], [ %.0430698, %dissect_rsvp_diffserv.exit ], [ %.0430698, %dissect_rsvp_capability.exit ], [ %.0430698, %dissect_rsvp_restart_cap.exit ], [ %.0430698, %dissect_rsvp_3gpp_object.exit ], [ %.0430698, %dissect_rsvp_call_id.exit ], [ %.0430698, %dissect_rsvp_gen_uni.exit ], [ %.0430698, %dissect_rsvp_policy.exit ], [ 1, %dissect_rsvp_integrity.exit ], [ %.0430698, %dissect_rsvp_adspec.exit ], [ %.0430698, %dissect_rsvp_flowspec.exit ], [ %.0430698, %dissect_rsvp_tspec.exit ], [ %.0430698, %411 ], [ %.0430698, %144 ], [ %.0430698, %161 ], [ %.0430698, %169 ], [ %.0430698, %175 ], [ %.0430698, %186 ], [ %.0430698, %197 ], [ %.0430698, %215 ], [ %.0430698, %223 ], [ %.0430698, %241 ], [ %.0430698, %242 ], [ %.0430698, %243 ], [ %.0430698, %246 ], [ %.0430698, %247 ], [ %.0430698, %251 ], [ %.0430698, %dissect_rsvp_error_value.exit.i ], [ %.0430698, %315 ], [ %.0430698, %321 ], [ %.0430698, %344 ], [ %.0430698, %350 ], [ %.0430698, %356 ], [ %.0430698, %373 ], [ %.0430698, %381 ], [ %.0430698, %399 ], [ %.0430698, %404 ], [ %.0430698, %407 ], [ %.0430698, %1041 ], [ %.0430698, %1048 ], [ %.0430698, %1100 ], [ %.0430698, %1111 ], [ %.0430698, %1130 ], [ %.0430698, %1153 ], [ %.0430698, %1162 ], [ %.0430698, %1163 ], [ %.0430698, %1167 ], [ %.0430698, %1182 ], [ %.0430698, %1211 ], [ %.0430698, %1255 ], [ %.0430698, %1268 ], [ %.0430698, %1280 ], [ %.0430698, %1295 ], [ %.0430698, %1303 ], [ %.0430698, %1311 ], [ %.0430698, %1316 ], [ %.0430698, %proto_item_set_hidden.exit.i501 ], [ %.0430698, %1437 ], [ %.0430698, %1439 ], [ %.0430698, %1459 ], [ %.0430698, %1460 ], [ %.0430698, %1477 ], [ %.0430698, %1479 ], [ %.0430698, %1497 ], [ %.0430698, %1499 ], [ %.0430698, %1518 ], [ %.0430698, %1531 ], [ %.0430698, %1540 ], [ %.0430698, %1550 ], [ %.0430698, %1560 ], [ %.0430698, %._crit_edge.i531 ], [ %.0430698, %1592 ], [ %.0430698, %proto_item_set_hidden.exit.i535 ], [ %.0430698, %1609 ], [ %.0430698, %1631 ], [ %.0430698, %1650 ], [ %.0430698, %1671 ], [ %.0430698, %1691 ], [ %.0430698, %1709 ], [ %.0430698, %1721 ], [ %.0430698, %1777 ], [ %.0430698, %1799 ], [ %.0430698, %1812 ], [ %.0430698, %1825 ], [ %.0430698, %1844 ], [ %.0430698, %1862 ], [ %.0430698, %1871 ], [ %.0430698, %1887 ], [ %.0430698, %1903 ], [ %.0430698, %1923 ], [ %.0430698, %1941 ], [ %.0430698, %1946 ], [ %.0430698, %1951 ], [ %.0430698, %proto_item_set_hidden.exit.i598 ], [ %.0430698, %2689 ], [ %.0430698, %2742 ], [ %.0430698, %2778 ], [ %.0430698, %2884 ], [ %.0430698, %2905 ], [ %.0430698, %2942 ], [ %.0430698, %2948 ], [ %.0430698, %2968 ], [ %.0430698, %2974 ], [ %.0430698, %2980 ], [ %.0430698, %2998 ], [ %.0430698, %3005 ], [ %.0430698, %3027 ], [ %.0430698, %3088 ], [ %.0430698, %3096 ], [ %.0430698, %3144 ], [ %.0430698, %3146 ], [ %.0430698, %3164 ], [ %.0430698, %3166 ], [ %.0430698, %3178 ], [ %.0430698, %3180 ], [ %.0430698, %3181 ], [ %.0430698, %._crit_edge.i654 ], [ %.0430698, %3241 ], [ %.0430698, %3242 ], [ %.0430698, %proto_item_set_hidden.exit.i657 ], [ %.0430698, %3257 ], [ %.0430698, %.lr.ph6.i ], [ %.0430698, %.lr.ph.i ], [ %.0430698, %1179 ], [ %.0430698, %1362 ], [ %.0430698, %1635 ], [ %.0430698, %1775 ], [ %.0430698, %3009 ]
   %3262 = add i32 %.0700, %94
   %3263 = add nuw nsw i32 %.0429699, %94
-  %3264 = icmp ult i32 %3263, %24
+  %3264 = icmp samesign ult i32 %3263, %24
   br i1 %3264, label %92, label %.loopexit679, !llvm.loop !28
 
 .loopexit679:                                     ; preds = %dissect_rsvp_hop.exit, %.preheader678, %139
@@ -10819,7 +10819,7 @@ define internal fastcc void @dissect_rsvp_ro_subobjects(ptr noundef %0, ptr noun
   %.0619.in = phi ptr [ getelementptr inbounds (i8, ptr @ett_treelist, i64 156), %10 ], [ getelementptr inbounds (i8, ptr @ett_treelist, i64 164), %9 ], [ getelementptr inbounds (i8, ptr @ett_treelist, i64 148), %7 ], [ getelementptr inbounds (i8, ptr @ett_treelist, i64 148), %7 ]
   %.0619 = load i32, ptr %.0619.in, align 4
   %12 = add nsw i32 %5, -4
-  %13 = icmp ugt i32 %5, 4
+  %13 = icmp samesign ugt i32 %5, 4
   br i1 %13, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %11
@@ -10828,7 +10828,7 @@ define internal fastcc void @dissect_rsvp_ro_subobjects(ptr noundef %0, ptr noun
   %16 = icmp eq i32 %6, 200
   %17 = getelementptr inbounds i8, ptr %1, i64 408
   %or.cond27 = or i1 %14, %16
-  %or.cond9 = icmp ult i32 %6, 22
+  %or.cond9 = icmp samesign ult i32 %6, 22
   %18 = and i32 %6, 254
   %19 = icmp eq i32 %18, 200
   %or.cond13 = or i1 %or.cond9, %19

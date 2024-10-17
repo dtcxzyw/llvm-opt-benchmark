@@ -2015,7 +2015,7 @@ define internal void @tele_param_cb_num(ptr noundef %0, ptr noundef %1, ptr noun
   %69 = getelementptr [1024 x i8], ptr @ansi_637_bigbuf, i64 0, i64 %indvars.iv
   store i8 %68, ptr %69, align 2
   %70 = or disjoint i64 %indvars.iv, 1
-  %.not103 = icmp ult i64 %70, %61
+  %.not103 = icmp samesign ult i64 %70, %61
   br i1 %.not103, label %71, label %84
 
 71:                                               ; preds = %62
@@ -2032,7 +2032,7 @@ define internal void @tele_param_cb_num(ptr noundef %0, ptr noundef %1, ptr noun
   %82 = getelementptr [1024 x i8], ptr @ansi_637_bigbuf, i64 0, i64 %70
   store i8 %81, ptr %82, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %83 = icmp ult i64 %indvars.iv.next, %61
+  %83 = icmp samesign ult i64 %indvars.iv.next, %61
   br i1 %83, label %62, label %84, !llvm.loop !13
 
 84:                                               ; preds = %71, %62
@@ -2165,7 +2165,7 @@ define internal void @tele_param_mult_enc_user_data(ptr noundef %0, ptr noundef 
   %.161 = phi i32 [ %50, %31 ], [ %29, %23 ]
   %.159 = phi i32 [ %49, %31 ], [ %28, %23 ]
   %52 = and i32 %.161, 65535
-  %53 = icmp ugt i32 %52, 7
+  %53 = icmp samesign ugt i32 %52, 7
   br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %51
@@ -2178,7 +2178,7 @@ define internal void @tele_param_mult_enc_user_data(ptr noundef %0, ptr noundef 
   br i1 %24, label %57, label %76
 
 57:                                               ; preds = %54
-  %58 = icmp ugt i32 %52, 3
+  %58 = icmp samesign ugt i32 %52, 3
   br i1 %58, label %59, label %65
 
 59:                                               ; preds = %57
@@ -2283,7 +2283,7 @@ define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef 
   %22 = shl i32 %3, 3
   %23 = add i32 %22, 65531
   %24 = and i32 %23, 65531
-  %25 = icmp ugt i32 %24, 7
+  %25 = icmp samesign ugt i32 %24, 7
   br i1 %25, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %21
@@ -2344,7 +2344,7 @@ define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef 
   %.185 = phi i32 [ %66, %47 ], [ %45, %.lr.ph ]
   %.1 = phi i32 [ %65, %47 ], [ %44, %.lr.ph ]
   %68 = and i32 %.185, 65535
-  %69 = icmp ugt i32 %68, 7
+  %69 = icmp samesign ugt i32 %68, 7
   br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %67
@@ -2359,7 +2359,7 @@ define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef 
   br i1 %cond, label %72, label %91
 
 72:                                               ; preds = %._crit_edge.thread
-  %73 = icmp ugt i32 %.lcssa102, 3
+  %73 = icmp samesign ugt i32 %.lcssa102, 3
   br i1 %73, label %74, label %80
 
 74:                                               ; preds = %72
@@ -2476,7 +2476,7 @@ define internal void @tele_param_msg_status(ptr noundef %0, ptr noundef %1, ptr 
   ]
 
 18:                                               ; preds = %9
-  %19 = icmp ult i8 %16, 4
+  %19 = icmp samesign ult i8 %16, 4
   br i1 %19, label %switch.lookup, label %35
 
 20:                                               ; preds = %9
@@ -2706,7 +2706,7 @@ define internal fastcc void @tele_param_timestamp(ptr noundef %0, ptr noundef %1
   %13 = mul nuw nsw i32 %12, 65530
   %14 = add nuw nsw i32 %13, %11
   %15 = and i32 %14, 65504
-  %16 = icmp ult i32 %15, 96
+  %16 = icmp samesign ult i32 %15, 96
   %17 = select i1 %16, i32 2000, i32 1900
   %18 = add nuw nsw i32 %17, %14
   %19 = and i32 %18, 65535

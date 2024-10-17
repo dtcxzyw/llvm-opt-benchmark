@@ -735,7 +735,7 @@ if.then67.i.i:                                    ; preds = %if.then59.i.i
   %incdec.ptr73.i.i = getelementptr inbounds i8, ptr %s.addr.0.lcssa.i.i, i64 4
   %91 = load i8, ptr %incdec.ptr55.i.i, align 1
   %cmp75.not.i.i = icmp ne i8 %91, 58
-  %cmp82.i.i = icmp ugt i64 %add72.i.i, 59
+  %cmp82.i.i = icmp samesign ugt i64 %add72.i.i, 59
   %or.cond61.i.i = select i1 %cmp75.not.i.i, i1 true, i1 %cmp82.i.i
   br i1 %or.cond61.i.i, label %if.then131.i, label %if.end85.i.i
 
@@ -1825,7 +1825,7 @@ for.inc:                                          ; preds = %if.then32, %if.else
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i8, ptr %num_indices, align 1
   %14 = zext i8 %13 to i64
-  %cmp23 = icmp ult i64 %indvars.iv.next, %14
+  %cmp23 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %cmp23, label %for.body25, label %for.inc41, !llvm.loop !14
 
 for.inc41:                                        ; preds = %for.inc, %if.end20
@@ -1833,7 +1833,7 @@ for.inc41:                                        ; preds = %for.inc, %if.end20
   %15 = load i32, ptr %num_tracks, align 4
   %sub = add i32 %15, -1
   %16 = zext i32 %sub to i64
-  %cmp = icmp ult i64 %indvars.iv.next41, %16
+  %cmp = icmp samesign ult i64 %indvars.iv.next41, %16
   br i1 %cmp, label %for.body, label %for.end43.loopexit, !llvm.loop !15
 
 for.end43.loopexit:                               ; preds = %for.inc41

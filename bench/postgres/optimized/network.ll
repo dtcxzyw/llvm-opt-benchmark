@@ -123,7 +123,7 @@ define internal fastcc noundef ptr @network_in(ptr noundef %0, i1 noundef zeroex
 
 38:                                               ; preds = %35
   %39 = lshr i32 %18, 3
-  %40 = icmp ult i32 %39, %.20.i
+  %40 = icmp samesign ult i32 %39, %.20.i
   br i1 %40, label %.lr.ph.preheader.i, label %addressOK.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %38
@@ -386,7 +386,7 @@ define internal fastcc ptr @network_recv(ptr noundef %0, i1 noundef zeroext %1) 
 
 60:                                               ; preds = %54
   %61 = lshr i32 %18, 3
-  %62 = icmp ult i32 %61, %.20.i
+  %62 = icmp samesign ult i32 %61, %.20.i
   br i1 %62, label %.lr.ph.preheader.i, label %addressOK.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %60
@@ -572,7 +572,7 @@ define dso_local noundef i64 @inet_to_cidr(ptr nocapture noundef readonly %0) lo
   %12 = load i8, ptr %8, align 1
   %13 = icmp eq i8 %12, 2
   %14 = select i1 %13, i32 32, i32 128
-  %15 = icmp ult i32 %14, %11
+  %15 = icmp samesign ult i32 %14, %11
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %1
@@ -773,7 +773,7 @@ define dso_local i64 @inet_set_masklen(ptr nocapture noundef readonly %0) #0 {
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 2
   %27 = select i1 %26, i32 32, i32 128
-  %28 = icmp ugt i32 %.045, %27
+  %28 = icmp samesign ugt i32 %.045, %27
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %18, %16
@@ -920,7 +920,7 @@ define dso_local noundef i64 @cidr_set_masklen(ptr nocapture noundef readonly %0
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 2
   %22 = select i1 %21, i32 32, i32 128
-  %23 = icmp ugt i32 %.017, %22
+  %23 = icmp samesign ugt i32 %.017, %22
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %18, %16
@@ -3624,7 +3624,7 @@ define internal fastcc noundef ptr @internal_inetpl(ptr nocapture noundef readon
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %29 = icmp ult i64 %.04352, 256
-  %30 = icmp ult i32 %24, 256
+  %30 = icmp samesign ult i32 %24, 256
   %or.cond = select i1 %29, i1 %30, i1 false
   br i1 %or.cond, label %38, label %31
 
@@ -3743,7 +3743,7 @@ define dso_local i64 @inetmi(ptr nocapture noundef readonly %0) local_unnamed_ad
   %35 = add nuw nsw i32 %.03953, %30
   %36 = add nuw nsw i32 %35, %34
   %37 = and i32 %36, 255
-  %38 = icmp ult i64 %indvars.iv58, 8
+  %38 = icmp samesign ult i64 %indvars.iv58, 8
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %.lr.ph
@@ -3782,7 +3782,7 @@ define dso_local i64 @inetmi(ptr nocapture noundef readonly %0) local_unnamed_ad
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %52
-  %54 = icmp ult i32 %36, 256
+  %54 = icmp samesign ult i32 %36, 256
   %or.cond = and i1 %54, %24
   %55 = shl nuw nsw i32 %25, 3
   %56 = add nuw nsw i32 %55, 8

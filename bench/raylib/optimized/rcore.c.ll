@@ -5809,7 +5809,7 @@ define internal fastcc range(i32 0, 2) i32 @glad_gl_find_extensions_gl(i32 nound
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = load i32, ptr %2, align 4
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next.i, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next.i, %29
   br i1 %30, label %.lr.ph.i, label %.preheader28.i
 
 glad_gl_get_extensions.exit.thread:               ; preds = %4, %7, %14, %12
@@ -22196,11 +22196,11 @@ define void @rlGenTextureMipmaps(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 
 8:                                                ; preds = %5
   %9 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %1)
-  %10 = icmp ult i32 %9, 2
+  %10 = icmp samesign ult i32 %9, 2
   %11 = icmp sgt i32 %2, 0
   %or.cond = and i1 %10, %11
   %12 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %2)
-  %13 = icmp ult i32 %12, 2
+  %13 = icmp samesign ult i32 %12, 2
   %or.cond19 = select i1 %or.cond, i1 %13, i1 false
   br i1 %or.cond19, label %.critedge, label %14
 
@@ -33159,7 +33159,7 @@ define hidden range(i32 0, 2) i32 @msf_gif_frame(ptr nocapture noundef %0, ptr n
   br i1 %exitcond335.not.i, label %._crit_edge313.i, label %.lr.ph312.i
 
 ._crit_edge313.i:                                 ; preds = %.lr.ph312.i
-  %215 = icmp ugt i32 %214, 255
+  %215 = icmp samesign ugt i32 %214, 255
   br i1 %215, label %216, label %.critedge.loopexit.split.loop.exit350.i
 
 216:                                              ; preds = %._crit_edge313.i
@@ -34769,7 +34769,7 @@ sinfl_decode.exit195:                             ; preds = %sinfl_refill.exit18
   store i32 %406, ptr %26, align 8
   %407 = lshr i32 %.0.i191, 16
   %408 = and i32 %407, 4095
-  %409 = icmp ult i32 %408, 256
+  %409 = icmp samesign ult i32 %408, 256
   br i1 %409, label %410, label %448
 
 410:                                              ; preds = %sinfl_decode.exit195
@@ -34827,7 +34827,7 @@ sinfl_decode.exit203:                             ; preds = %._crit_edge.i200, %
   store i32 %441, ptr %26, align 8
   %442 = lshr i32 %.0.i199, 16
   %443 = and i32 %442, 4095
-  %444 = icmp ult i32 %443, 256
+  %444 = icmp samesign ult i32 %443, 256
   br i1 %444, label %445, label %448
 
 445:                                              ; preds = %sinfl_decode.exit203
@@ -34863,7 +34863,7 @@ sinfl_decode.exit203:                             ; preds = %._crit_edge.i200, %
   br label %.loopexit260
 
 456:                                              ; preds = %448
-  %457 = icmp ugt i32 %.0133, 285
+  %457 = icmp samesign ugt i32 %.0133, 285
   br i1 %457, label %458, label %462
 
 458:                                              ; preds = %456
@@ -35745,7 +35745,7 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   %.178.lcssa.i.i = phi i32 [ %.077.i.i, %.preheader.i.i ], [ %267, %.lr.ph.i.i ]
   %.1.lcssa.i.i = phi ptr [ %.0.i.i, %.preheader.i.i ], [ %265, %.lr.ph.i.i ]
   %.lcssa97.i.i = phi i32 [ %256, %.preheader.i.i ], [ %268, %.lr.ph.i.i ]
-  %270 = icmp ugt i32 %.lcssa97.i.i, 2
+  %270 = icmp samesign ugt i32 %.lcssa97.i.i, 2
   br i1 %270, label %.loopexit.thread.i.i, label %.loopexit.i.i
 
 .loopexit.thread.i.i:                             ; preds = %._crit_edge.i.i
@@ -36317,7 +36317,7 @@ sdefl_put.exit180.i:                              ; preds = %.lr.ph.i178.i, %.lr
   %566 = phi i32 [ %555, %.lr.ph234.i ], [ %561, %.lr.ph.i178.i ]
   %.30 = phi ptr [ %.29, %.lr.ph234.i ], [ %564, %.lr.ph.i178.i ]
   %567 = phi i32 [ %556, %.lr.ph234.i ], [ %563, %.lr.ph.i178.i ]
-  %568 = icmp ult i32 %547, 16
+  %568 = icmp samesign ult i32 %547, 16
   br i1 %568, label %sdefl_put.exit186.i, label %569
 
 569:                                              ; preds = %sdefl_put.exit180.i
@@ -39851,7 +39851,7 @@ define internal void @WindowDropCallback(ptr nocapture readnone %0, i32 noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -39881,7 +39881,7 @@ define internal void @WindowDropCallback(ptr nocapture readnone %0, i32 noundef 
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %25 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next19, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next19, %26
   br i1 %27, label %.lr.ph15, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph15, %3
@@ -47189,7 +47189,7 @@ sdefl_sort_sym.exit:                              ; preds = %.lr.ph.i.i, %sdefl_
   %120 = getelementptr inbounds i32, ptr %1, i64 %113
   %121 = load i32, ptr %120, align 4
   %122 = lshr i32 %121, 10
-  %.not46.i = icmp ugt i32 %119, %122
+  %.not46.i = icmp samesign ugt i32 %119, %122
   br i1 %.not46.i, label %125, label %123
 
 123:                                              ; preds = %115, %112
@@ -47220,7 +47220,7 @@ sdefl_sort_sym.exit:                              ; preds = %.lr.ph.i.i, %sdefl_
   %136 = getelementptr inbounds i32, ptr %1, i64 %129
   %137 = load i32, ptr %136, align 4
   %138 = lshr i32 %137, 10
-  %.not48.i = icmp ugt i32 %135, %138
+  %.not48.i = icmp samesign ugt i32 %135, %138
   br i1 %.not48.i, label %141, label %139
 
 139:                                              ; preds = %131, %128
@@ -47293,7 +47293,7 @@ sdefl_build_tree.exit:                            ; preds = %143
   %182 = shl i32 %180, 10
   %183 = or disjoint i32 %182, %181
   store i32 %183, ptr %173, align 4
-  %.not35.i = icmp ult i32 %180, %4
+  %.not35.i = icmp samesign ult i32 %180, %4
   br i1 %.not35.i, label %.lr.ph..loopexit_crit_edge.i, label %.preheader.i43
 
 .lr.ph..loopexit_crit_edge.i:                     ; preds = %.lr.ph.i40

@@ -3926,7 +3926,7 @@ define range(i32 -1, 2) i32 @compare(ptr noundef readonly %0, ptr noundef readon
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %16
-  %27 = icmp ult i32 %23, %24
+  %27 = icmp samesign ult i32 %23, %24
   %.22 = select i1 %27, i32 -1, i32 1
   br label %28
 

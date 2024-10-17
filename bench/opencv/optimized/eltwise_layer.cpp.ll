@@ -4016,7 +4016,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn20EltwiseLayerInt8Impl
 
 .lr.ph172:                                        ; preds = %.preheader113
   %163 = and i64 %46, 2147483647
-  %164 = icmp ult i64 %163, 3
+  %164 = icmp samesign ult i64 %163, 3
   br label %165
 
 165:                                              ; preds = %.lr.ph172, %.loopexit112
@@ -4035,7 +4035,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn20EltwiseLayerInt8Impl
   %.154 = select i1 %169, i8 %.053169, i8 1
   %.not = icmp eq i64 %.052170, %.156
   %or.cond = select i1 %169, i1 true, i1 %.not
-  %brmerge = or i1 %or.cond, %164
+  %brmerge = select i1 %or.cond, i1 true, i1 %164
   %.pre195 = load ptr, ptr %1, align 8
   br i1 %brmerge, label %.loopexit112, label %.lr.ph167
 
@@ -4102,7 +4102,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn20EltwiseLayerInt8Impl
 
 .preheader:                                       ; preds = %._crit_edge173
   %201 = and i64 %46, 2147483647
-  %202 = icmp ugt i64 %201, 2
+  %202 = icmp samesign ugt i64 %201, 2
   br i1 %202, label %.lr.ph176, label %.loopexit
 
 .lr.ph176:                                        ; preds = %.preheader, %.lr.ph176
@@ -6642,7 +6642,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20EltwiseLayerInt8Impl14EltwiseInvok
   %132 = getelementptr inbounds i8, ptr %119, i64 %indvars.iv
   store i8 %131, ptr %132, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %133 = icmp ult i64 %indvars.iv.next, %110
+  %133 = icmp samesign ult i64 %indvars.iv.next, %110
   br i1 %133, label %.lr.ph, label %.loopexit231, !llvm.loop !52
 
 134:                                              ; preds = %129
@@ -6668,7 +6668,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20EltwiseLayerInt8Impl14EltwiseInvok
   %145 = getelementptr inbounds float, ptr %120, i64 %indvars.iv277
   store float %144, ptr %145, align 4
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
-  %146 = icmp ult i64 %indvars.iv.next278, %110
+  %146 = icmp samesign ult i64 %indvars.iv.next278, %110
   br i1 %146, label %.lr.ph243, label %.loopexit231, !llvm.loop !53
 
 147:                                              ; preds = %111
@@ -6713,7 +6713,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20EltwiseLayerInt8Impl14EltwiseInvok
   %175 = getelementptr inbounds float, ptr %120, i64 %indvars.iv286
   store float %174, ptr %175, align 4
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
-  %176 = icmp ult i64 %indvars.iv.next287, %110
+  %176 = icmp samesign ult i64 %indvars.iv.next287, %110
   br i1 %176, label %.lr.ph249, label %.loopexit231, !llvm.loop !54
 
 .lr.ph247:                                        ; preds = %147, %.lr.ph247
@@ -6726,7 +6726,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20EltwiseLayerInt8Impl14EltwiseInvok
   %182 = getelementptr inbounds i8, ptr %119, i64 %indvars.iv283
   store i8 %181, ptr %182, align 1
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
-  %183 = icmp ult i64 %indvars.iv.next284, %110
+  %183 = icmp samesign ult i64 %indvars.iv.next284, %110
   br i1 %183, label %.lr.ph247, label %.loopexit231, !llvm.loop !55
 
 .lr.ph245.preheader:                              ; preds = %147
@@ -6747,7 +6747,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20EltwiseLayerInt8Impl14EltwiseInvok
   %194 = getelementptr inbounds float, ptr %120, i64 %indvars.iv280
   store float %193, ptr %194, align 4
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
-  %195 = icmp ult i64 %indvars.iv.next281, %110
+  %195 = icmp samesign ult i64 %indvars.iv.next281, %110
   br i1 %195, label %.lr.ph245, label %.loopexit231, !llvm.loop !56
 
 196:                                              ; preds = %147
@@ -6825,7 +6825,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20EltwiseLayerInt8Impl14EltwiseInvok
   %233 = fmul float %232, %230
   store float %233, ptr %231, align 4
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
-  %234 = icmp ult i64 %indvars.iv.next296, %110
+  %234 = icmp samesign ult i64 %indvars.iv.next296, %110
   br i1 %234, label %.lr.ph255, label %.loopexit, !llvm.loop !57
 
 .lr.ph253:                                        ; preds = %208, %.lr.ph253
@@ -6837,7 +6837,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20EltwiseLayerInt8Impl14EltwiseInvok
   %239 = tail call i8 @llvm.smax.i8(i8 %237, i8 %238)
   store i8 %239, ptr %235, align 1
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
-  %240 = icmp ult i64 %indvars.iv.next293, %110
+  %240 = icmp samesign ult i64 %indvars.iv.next293, %110
   br i1 %240, label %.lr.ph253, label %.loopexit, !llvm.loop !58
 
 .lr.ph251.preheader:                              ; preds = %208
@@ -6855,7 +6855,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20EltwiseLayerInt8Impl14EltwiseInvok
   %248 = tail call float @llvm.fmuladd.f32(float %242, float %245, float %247)
   store float %248, ptr %246, align 4
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
-  %249 = icmp ult i64 %indvars.iv.next290, %110
+  %249 = icmp samesign ult i64 %indvars.iv.next290, %110
   br i1 %249, label %.lr.ph251, label %.loopexit, !llvm.loop !59
 
 250:                                              ; preds = %208
@@ -6906,7 +6906,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20EltwiseLayerInt8Impl14EltwiseInvok
   %271 = getelementptr inbounds i8, ptr %119, i64 %indvars.iv298
   store i8 %270, ptr %271, align 1
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
-  %272 = icmp ult i64 %indvars.iv.next299, %110
+  %272 = icmp samesign ult i64 %indvars.iv.next299, %110
   br i1 %272, label %.lr.ph259, label %.loopexit230, !llvm.loop !61
 
 .loopexit230:                                     ; preds = %.lr.ph259, %._crit_edge

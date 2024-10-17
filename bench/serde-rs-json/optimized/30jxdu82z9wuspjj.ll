@@ -79,15 +79,15 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E(i32 noundef range(i32 0, 1114112) %0, ptr noalias noundef nonnull align 1 %1) unnamed_addr #2 {
-  %3 = icmp ult i32 %0, 128
+  %3 = icmp samesign ult i32 %0, 128
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ult i32 %0, 2048
+  %5 = icmp samesign ult i32 %0, 2048
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %4
-  %7 = icmp ult i32 %0, 65536
+  %7 = icmp samesign ult i32 %0, 65536
   %8 = getelementptr inbounds i8, ptr %1, i64 1
   br i1 %7, label %22, label %34
 
@@ -1448,7 +1448,7 @@ _ZN10serde_json4read11next_or_eof17h09e8ba88635149dcE.llvm.9986987180720998494.e
 142:                                              ; preds = %134
   %143 = zext i16 %136 to i32
   %144 = xor i32 %143, -1058816
-  %145 = icmp ult i32 %144, -1112064
+  %145 = icmp samesign ult i32 %144, -1112064
   br i1 %145, label %148, label %149
 
 146:                                              ; preds = %134

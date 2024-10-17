@@ -76,7 +76,7 @@ define hidden void @_ZN4DictC2EPFiPKvS1_EPFiS1_EP5Arenai(ptr nocapture noundef n
   store ptr %1, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   %9 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %4)
-  %10 = icmp ult i32 %9, 2
+  %10 = icmp samesign ult i32 %9, 2
   %or.cond.i = select i1 %8, i1 %10, i1 false
   %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %4, i1 true)
   %12 = sub nuw nsw i32 32, %11
@@ -232,7 +232,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit17: ; preds = 
   %72 = phi i32 [ %36, %.lr.ph ], [ %.pre, %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = zext i32 %72 to i64
-  %74 = icmp ult i64 %indvars.iv.next, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next, %73
   br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %71, %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit
@@ -435,7 +435,7 @@ define hidden noundef ptr @_ZN4Dict6InsertEPvS0_b(ptr nocapture noundef nonnull 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %15, align 8
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %23, label %._crit_edge.loopexit, !llvm.loop !11
 
 23:                                               ; preds = %.lr.ph, %19
@@ -594,7 +594,7 @@ define hidden noundef ptr @_ZN4Dict6DeleteEPv(ptr nocapture noundef nonnull alig
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %13, align 8
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %21, label %.loopexit, !llvm.loop !12
 
 21:                                               ; preds = %.lr.ph, %17
@@ -671,7 +671,7 @@ define hidden noundef ptr @_ZNK4DictixEPKv(ptr nocapture noundef nonnull readonl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %13, align 8
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %21, label %.loopexit, !llvm.loop !13
 
 21:                                               ; preds = %.lr.ph, %17
@@ -954,8 +954,8 @@ define hidden noundef range(i32 -1073741824, 1073741824) i32 @_Z7hashstrPKv(ptr 
   %13 = add i32 %12, %11
   %14 = load i8, ptr %4, align 1
   %15 = icmp ne i8 %14, 0
-  %16 = icmp ult i64 %indvars.iv, 18
-  %17 = and i1 %15, %16
+  %16 = icmp samesign ult i64 %indvars.iv, 18
+  %17 = select i1 %15, i1 %16, i1 false
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1

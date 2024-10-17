@@ -1563,7 +1563,7 @@ filter_ascii85decode.exit.i:                      ; preds = %filter_ascii85decod
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %578 = load i32, ptr %38, align 4
   %579 = zext i32 %578 to i64
-  %580 = icmp ult i64 %indvars.iv.next.i, %579
+  %580 = icmp samesign ult i64 %indvars.iv.next.i, %579
   br i1 %580, label %77, label %.loopexit.i
 
 .loopexit.ithread-pre-split:                      ; preds = %58, %569, %.loopexit

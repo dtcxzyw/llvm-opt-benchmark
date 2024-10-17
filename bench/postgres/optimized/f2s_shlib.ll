@@ -80,8 +80,8 @@ define i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr nocapture nound
   %35 = select i1 %31, i32 %33, i32 %34
   %36 = or disjoint i32 %35, 2
   %37 = icmp ne i32 %5, 0
-  %38 = icmp ult i32 %7, 2
-  %39 = or i1 %37, %38
+  %38 = icmp samesign ult i32 %7, 2
+  %39 = select i1 %37, i1 true, i1 %38
   %.neg.i = sext i1 %39 to i32
   %40 = add nsw i32 %35, -1
   %41 = add nsw i32 %40, %.neg.i
@@ -130,7 +130,7 @@ define i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr nocapture nound
   %79 = add i32 %70, -1
   %80 = udiv i32 %79, 10
   %81 = udiv i32 %77, 10
-  %.not159.i = icmp ugt i32 %80, %81
+  %.not159.i = icmp samesign ugt i32 %80, %81
   br i1 %.not159.i, label %102, label %82
 
 82:                                               ; preds = %78
@@ -208,7 +208,7 @@ multipleOfPowerOf5.exit169.i:                     ; preds = %.lr.ph.i.i165.i, %1
   %.4126.ph.i = phi i32 [ %140, %184 ], [ %63, %multipleOfPowerOf5.exit169.i ], [ %63, %multipleOfPowerOf5.exit.i ], [ %63, %102 ], [ %140, %182 ]
   %116 = udiv i32 %.3130.ph.i, 10
   %117 = udiv i32 %.4135.ph.i, 10
-  %118 = icmp ugt i32 %116, %117
+  %118 = icmp samesign ugt i32 %116, %117
   br i1 %118, label %.lr.ph194.i, label %217
 
 119:                                              ; preds = %30
@@ -254,7 +254,7 @@ multipleOfPowerOf5.exit169.i:                     ; preds = %.lr.ph.i.i165.i, %1
 155:                                              ; preds = %119
   %156 = udiv i32 %.pre.i, 10
   %157 = udiv i32 %154, 10
-  %.not157.i = icmp ugt i32 %156, %157
+  %.not157.i = icmp samesign ugt i32 %156, %157
   br i1 %.not157.i, label %177, label %158
 
 158:                                              ; preds = %155
@@ -292,7 +292,7 @@ multipleOfPowerOf5.exit169.i:                     ; preds = %.lr.ph.i.i165.i, %1
   %.1123.ph.i = phi i32 [ %140, %184 ], [ %63, %multipleOfPowerOf5.exit.i ], [ %140, %177 ], [ %140, %119 ]
   %179 = udiv i32 %.1128.ph.i, 10
   %180 = udiv i32 %.1132.ph.i, 10
-  %181 = icmp ugt i32 %179, %180
+  %181 = icmp samesign ugt i32 %179, %180
   br i1 %181, label %.lr.ph.i, label %._crit_edge.i
 
 182:                                              ; preds = %177
@@ -322,7 +322,7 @@ multipleOfPowerOf5.exit169.i:                     ; preds = %.lr.ph.i.i165.i, %1
   %196 = add i32 %.0120187.i, 1
   %197 = udiv i32 %190, 10
   %198 = udiv i32 %189, 10
-  %199 = icmp ugt i32 %197, %198
+  %199 = icmp samesign ugt i32 %197, %198
   br i1 %199, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !4
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -356,7 +356,7 @@ multipleOfPowerOf5.exit169.i:                     ; preds = %.lr.ph.i.i165.i, %1
   %212 = add i32 %.4193.i, 1
   %213 = udiv i32 %209, 10
   %214 = udiv i32 %208, 10
-  %215 = icmp ugt i32 %213, %214
+  %215 = icmp samesign ugt i32 %213, %214
   br i1 %215, label %.lr.ph194.i, label %._crit_edge195.i, !llvm.loop !6
 
 ._crit_edge195.i:                                 ; preds = %.lr.ph194.i
@@ -499,7 +499,7 @@ decimalLength.exit.i:                             ; preds = %240, %238, %236, %2
 ._crit_edge.i.i:                                  ; preds = %261, %255
   %.071.lcssa.i.i = phi i32 [ 0, %255 ], [ %279, %261 ]
   %.069.lcssa.i.i = phi i32 [ %.sroa.0.068, %255 ], [ %262, %261 ]
-  %281 = icmp ugt i32 %.069.lcssa.i.i, 99
+  %281 = icmp samesign ugt i32 %.069.lcssa.i.i, 99
   br i1 %281, label %282, label %298
 
 282:                                              ; preds = %._crit_edge.i.i
@@ -526,7 +526,7 @@ decimalLength.exit.i:                             ; preds = %240, %238, %236, %2
 298:                                              ; preds = %282, %._crit_edge.i.i
   %.172.i.i = phi i32 [ %297, %282 ], [ %.071.lcssa.i.i, %._crit_edge.i.i ]
   %.170.i.i = phi i32 [ %.zext77.i.i, %282 ], [ %.069.lcssa.i.i, %._crit_edge.i.i ]
-  %299 = icmp ugt i32 %.170.i.i, 9
+  %299 = icmp samesign ugt i32 %.170.i.i, 9
   br i1 %299, label %300, label %313
 
 300:                                              ; preds = %298
@@ -681,7 +681,7 @@ to_chars_f.exit.i:                                ; preds = %344, %340
 ._crit_edge.i25:                                  ; preds = %363, %.loopexit.i
   %.086.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %381, %363 ]
   %.282.lcssa.i = phi i32 [ %.080.i, %.loopexit.i ], [ %364, %363 ]
-  %383 = icmp ugt i32 %.282.lcssa.i, 99
+  %383 = icmp samesign ugt i32 %.282.lcssa.i, 99
   br i1 %383, label %384, label %400
 
 384:                                              ; preds = %._crit_edge.i25
@@ -708,7 +708,7 @@ to_chars_f.exit.i:                                ; preds = %344, %340
 400:                                              ; preds = %384, %._crit_edge.i25
   %.187.i = phi i32 [ %399, %384 ], [ %.086.lcssa.i, %._crit_edge.i25 ]
   %.3.i26 = phi i32 [ %.zext93.i, %384 ], [ %.282.lcssa.i, %._crit_edge.i25 ]
-  %401 = icmp ugt i32 %.3.i26, 9
+  %401 = icmp samesign ugt i32 %.3.i26, 9
   br i1 %401, label %402, label %415
 
 402:                                              ; preds = %400

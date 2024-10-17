@@ -274,7 +274,7 @@ define weak_odr void @_ZN7mitsuba17StratifiedSamplerIfN5drjit6MatrixINS_8Spectru
   %33 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 false)
   %34 = trunc nuw nsw i32 %33 to i8
   %35 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %24)
-  %36 = icmp ult i32 %35, 2
+  %36 = icmp samesign ult i32 %35, 2
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %23

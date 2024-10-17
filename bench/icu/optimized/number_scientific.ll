@@ -675,7 +675,7 @@ _ZN6icu_756number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilde
   %20 = load i16, ptr %fMinExponentDigits, align 2
   %conv = sext i16 %20 to i32
   %cmp37 = icmp slt i32 %inc, %conv
-  %cmp38 = icmp ugt i32 %disp.032, 9
+  %cmp38 = icmp samesign ugt i32 %disp.032, 9
   %21 = select i1 %cmp37, i1 true, i1 %cmp38
   br i1 %21, label %for.body, label %for.end, !llvm.loop !4
 

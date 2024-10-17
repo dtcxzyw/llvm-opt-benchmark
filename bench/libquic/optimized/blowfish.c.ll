@@ -1627,7 +1627,7 @@ for.body34:                                       ; preds = %for.end, %for.body3
   %arrayidx41 = getelementptr inbounds i32, ptr %key, i64 %9
   store i32 %8, ptr %arrayidx41, align 4
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 2
-  %cmp32 = icmp ult i64 %indvars.iv46, 16
+  %cmp32 = icmp samesign ult i64 %indvars.iv46, 16
   br i1 %cmp32, label %for.body34, label %for.end44, !llvm.loop !11
 
 for.end44:                                        ; preds = %for.body34
@@ -1645,7 +1645,7 @@ for.body49:                                       ; preds = %for.end44, %for.bod
   %arrayidx57 = getelementptr inbounds i32, ptr %S, i64 %12
   store i32 %11, ptr %arrayidx57, align 4
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 2
-  %cmp47 = icmp ult i64 %indvars.iv50, 1022
+  %cmp47 = icmp samesign ult i64 %indvars.iv50, 1022
   br i1 %cmp47, label %for.body49, label %for.end60, !llvm.loop !12
 
 for.end60:                                        ; preds = %for.body49

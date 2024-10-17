@@ -6592,7 +6592,7 @@ define noundef zeroext i1 @_ZN11LayerDialog9startAnimEv(ptr nocapture noundef no
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %27 = icmp ult i32 %spec.select, 2
+  %27 = icmp samesign ult i32 %spec.select, 2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18

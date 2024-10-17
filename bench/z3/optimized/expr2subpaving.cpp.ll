@@ -1775,7 +1775,7 @@ for.body.i.i214:                                  ; preds = %call.i.i.noexc239, 
   %indvars.iv.next.i.i221 = add nuw nsw i64 %indvars.iv.i.i215, 1
   %22 = load i32, ptr %m_pos.i.i.i, align 8
   %23 = zext i32 %22 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i221, %23
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i221, %23
   br i1 %cmp.i.i, label %for.body.i.i214, label %for.end.i.i222, !llvm.loop !11
 
 for.end.i.i222:                                   ; preds = %for.body.i.i214, %call.i.i.noexc239
@@ -1882,7 +1882,7 @@ for.body.i.i250:                                  ; preds = %call.i.i.noexc292, 
   %indvars.iv.next.i.i262 = add nuw nsw i64 %indvars.iv.i.i251, 1
   %38 = load i32, ptr %m_pos.i.i.i32, align 8
   %39 = zext i32 %38 to i64
-  %cmp.i.i263 = icmp ult i64 %indvars.iv.next.i.i262, %39
+  %cmp.i.i263 = icmp samesign ult i64 %indvars.iv.next.i.i262, %39
   br i1 %cmp.i.i263, label %for.body.i.i250, label %for.end.i.i264, !llvm.loop !11
 
 for.end.i.i264:                                   ; preds = %for.body.i.i250, %call.i.i.noexc292

@@ -719,7 +719,7 @@ default.unreachable.i:                            ; preds = %20
   %205 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !6
   %206 = icmp ult i64 %205, 6
   call void @llvm.assume(i1 %206)
-  %switch.i17.i.i.i = icmp ugt i64 %205, 3
+  %switch.i17.i.i.i = icmp samesign ugt i64 %205, 3
   br i1 %switch.i17.i.i.i, label %207, label %203
 
 207:                                              ; preds = %204
@@ -2330,7 +2330,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %110 = load i32, ptr %38, align 8, !noundef !5
   %111 = zext i32 %110 to i64
   %112 = add nuw nsw i64 %111, %109
-  %113 = icmp ugt i64 %112, 12
+  %113 = icmp samesign ugt i64 %112, 12
   br i1 %113, label %197, label %194
 
 114:                                              ; preds = %141, %132, %123, %101
@@ -2966,7 +2966,7 @@ _ZN8sum_tree3sum17hc7f5d903f6717c7bE.exit169:     ; preds = %.lr.ph.i158, %"_ZN4
   %322 = load i32, ptr %321, align 8, !noundef !5
   %323 = zext i32 %322 to i64
   %324 = add nuw nsw i64 %323, %320
-  %325 = icmp ugt i64 %324, 12
+  %325 = icmp samesign ugt i64 %324, 12
   br i1 %325, label %365, label %332
 
 "_ZN4core3ptr100drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$notifications..NotificationEntry$C$12_usize$GT$$GT$17had2f7ca5b5ae3738E.exit288": ; preds = %442, %374, %377, %.body208.thread.thread, %459, %"_ZN4core3ptr100drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$notifications..NotificationEntry$C$12_usize$GT$$GT$17had2f7ca5b5ae3738E.exit285", %330

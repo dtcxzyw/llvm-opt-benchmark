@@ -1762,7 +1762,7 @@ define dso_local ptr @jtransform_adjust_parameters(ptr noundef %0, ptr noundef %
   %indvars.iv.next54.i.us.i = add nuw nsw i64 %indvars.iv53.i.us.i, 1
   %190 = load i32, ptr %163, align 4
   %191 = zext i32 %190 to i64
-  %192 = icmp ult i64 %indvars.iv.next54.i.us.i, %191
+  %192 = icmp samesign ult i64 %indvars.iv.next54.i.us.i, %191
   br i1 %192, label %.lr.ph.i63.us.i, label %._crit_edge.loopexit.i68.us.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i68.us.i:                    ; preds = %189
@@ -1855,7 +1855,7 @@ dequant_comp.exit.us.i:                           ; preds = %._crit_edge42.i.us.
   %indvars.iv.next54.i86.us.i = add nuw nsw i64 %indvars.iv53.i81.us.i, 1
   %234 = load i32, ptr %207, align 4
   %235 = zext i32 %234 to i64
-  %236 = icmp ult i64 %indvars.iv.next54.i86.us.i, %235
+  %236 = icmp samesign ult i64 %indvars.iv.next54.i86.us.i, %235
   br i1 %236, label %.lr.ph.i80.us.i, label %._crit_edge.loopexit.i87.us.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i87.us.i:                    ; preds = %233
@@ -2087,7 +2087,7 @@ largest_common_denominator.exit.us.i:             ; preds = %.preheader.us.i
   %indvars.iv.next80.i.i = add nuw nsw i64 %indvars.iv79.i.i, 1
   %351 = load i32, ptr %305, align 4
   %352 = zext i32 %351 to i64
-  %353 = icmp ult i64 %indvars.iv.next80.i.i, %352
+  %353 = icmp samesign ult i64 %indvars.iv.next80.i.i, %352
   br i1 %353, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i:                         ; preds = %350
@@ -2377,7 +2377,7 @@ define internal fastcc void @adjust_exif_parameters(ptr noundef %0, i32 noundef 
   %90 = add nsw i32 %.1169232.us, -1
   %91 = icmp eq i32 %90, 0
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 12
-  %92 = icmp ugt i64 %indvars.iv.next247, %80
+  %92 = icmp samesign ugt i64 %indvars.iv.next247, %80
   %or.cond = select i1 %91, i1 true, i1 %92
   br i1 %or.cond, label %.thread, label %.lr.ph.split.us
 
@@ -2399,7 +2399,7 @@ define internal fastcc void @adjust_exif_parameters(ptr noundef %0, i32 noundef 
   %102 = add nsw i32 %.1169232, -1
   %103 = icmp eq i32 %102, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 12
-  %104 = icmp ugt i64 %indvars.iv.next, %80
+  %104 = icmp samesign ugt i64 %indvars.iv.next, %80
   %or.cond239 = select i1 %103, i1 true, i1 %104
   br i1 %or.cond239, label %.thread, label %.thread209
 
@@ -2489,7 +2489,7 @@ define internal fastcc void @adjust_exif_parameters(ptr noundef %0, i32 noundef 
   %.sink310 = load i8, ptr %.sink310.in, align 1
   %158 = zext i8 %.sink310 to i32
   %159 = or disjoint i32 %.sink308, %158
-  %160 = icmp ult i32 %159, 2
+  %160 = icmp samesign ult i32 %159, 2
   br i1 %160, label %.thread, label %161
 
 161:                                              ; preds = %157
@@ -2512,7 +2512,7 @@ define internal fastcc void @adjust_exif_parameters(ptr noundef %0, i32 noundef 
 .split.us236:                                     ; preds = %161, %180
   %indvars.iv252 = phi i64 [ %indvars.iv.next253, %180 ], [ %163, %161 ]
   %.3.us = phi i32 [ %181, %180 ], [ %159, %161 ]
-  %165 = icmp ugt i64 %indvars.iv252, %164
+  %165 = icmp samesign ugt i64 %indvars.iv252, %164
   br i1 %165, label %.thread, label %166
 
 166:                                              ; preds = %.split.us236
@@ -2565,7 +2565,7 @@ define internal fastcc void @adjust_exif_parameters(ptr noundef %0, i32 noundef 
 .split:                                           ; preds = %161, %196
   %indvars.iv249 = phi i64 [ %indvars.iv.next250, %196 ], [ %163, %161 ]
   %.3 = phi i32 [ %197, %196 ], [ %159, %161 ]
-  %182 = icmp ugt i64 %indvars.iv249, %164
+  %182 = icmp samesign ugt i64 %indvars.iv249, %164
   br i1 %182, label %.thread, label %.thread219
 
 .thread219:                                       ; preds = %.split
@@ -3007,7 +3007,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
   %241 = getelementptr inbounds i8, ptr %.05969.i, i64 4
   store i16 %240, ptr %237, align 2
   %242 = add nuw nsw i32 %.06367.i, 2
-  %243 = icmp ult i32 %.06367.i, 62
+  %243 = icmp samesign ult i32 %.06367.i, 62
   br i1 %243, label %234, label %.loopexit.i138, !llvm.loop !31
 
 244:                                              ; preds = %224
@@ -3020,7 +3020,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
   %indvars.iv.next.i139 = add nuw nsw i64 %indvars.iv.i137, 1
   %246 = load i32, ptr %199, align 4
   %247 = zext i32 %246 to i64
-  %248 = icmp ult i64 %indvars.iv.next.i139, %247
+  %248 = icmp samesign ult i64 %indvars.iv.next.i139, %247
   br i1 %248, label %224, label %._crit_edge.loopexit.i140, !llvm.loop !32
 
 ._crit_edge.loopexit.i140:                        ; preds = %.loopexit.i138
@@ -3166,12 +3166,12 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
   %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
   %334 = load i32, ptr %295, align 4
   %335 = zext i32 %334 to i64
-  %336 = icmp ult i64 %indvars.iv.next128.i, %335
+  %336 = icmp samesign ult i64 %indvars.iv.next128.i, %335
   br i1 %336, label %.lr.ph.us.i, label %.loopexit.us.loopexit.i, !llvm.loop !36
 
 337:                                              ; preds = %.preheader.us.i
   %338 = add nuw nsw i32 %.087101.us.i, 2
-  %339 = icmp ult i32 %.087101.us.i, 6
+  %339 = icmp samesign ult i32 %.087101.us.i, 6
   br i1 %339, label %.preheader94.us.i, label %333, !llvm.loop !37
 
 .preheader.us.i:                                  ; preds = %345, %.preheader.us.i
@@ -3554,7 +3554,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
   %gep338.i.us = getelementptr i16, ptr %invariant.gep335.i.us, i64 %539
   store i16 %538, ptr %gep338.i.us, align 2
   %indvars.iv.next271.i.us = add nuw nsw i64 %indvars.iv270.i.us, 2
-  %540 = icmp ult i64 %indvars.iv270.i.us, 6
+  %540 = icmp samesign ult i64 %indvars.iv270.i.us, 6
   br i1 %540, label %530, label %541, !llvm.loop !51
 
 541:                                              ; preds = %530
@@ -3615,7 +3615,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
   %gep342.i.us = getelementptr i16, ptr %invariant.gep339.i.us, i64 %573
   store i16 %572, ptr %gep342.i.us, align 2
   %indvars.iv.next282.i.us = add nuw nsw i64 %indvars.iv281.i.us, 2
-  %574 = icmp ult i64 %indvars.iv281.i.us, 6
+  %574 = icmp samesign ult i64 %indvars.iv281.i.us, 6
   br i1 %574, label %564, label %575, !llvm.loop !54
 
 575:                                              ; preds = %564
@@ -3640,12 +3640,12 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
   %gep346.i.us = getelementptr i16, ptr %invariant.gep343.i.us, i64 %587
   store i16 %586, ptr %gep346.i.us, align 2
   %indvars.iv.next285.i.us = add nuw nsw i64 %indvars.iv284.i.us, 2
-  %588 = icmp ult i64 %indvars.iv284.i.us, 6
+  %588 = icmp samesign ult i64 %indvars.iv284.i.us, 6
   br i1 %588, label %578, label %589, !llvm.loop !55
 
 589:                                              ; preds = %578
   %indvars.iv.next288.i.us = add nuw nsw i64 %indvars.iv287.i.us, 2
-  %590 = icmp ult i64 %indvars.iv287.i.us, 6
+  %590 = icmp samesign ult i64 %indvars.iv287.i.us, 6
   br i1 %590, label %.preheader.us.us.us.i.us, label %.loopexit.us.us.us.i.us, !llvm.loop !56
 
 .loopexit.us.us.us.i.us:                          ; preds = %589
@@ -3739,7 +3739,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
 
 638:                                              ; preds = %640
   %indvars.iv.next265.i = add nuw nsw i64 %indvars.iv264.i, 2
-  %639 = icmp ult i64 %indvars.iv264.i, 6
+  %639 = icmp samesign ult i64 %indvars.iv264.i, 6
   br i1 %639, label %.preheader190.us.i, label %.loopexit193.us.i, !llvm.loop !59
 
 640:                                              ; preds = %640, %636
@@ -3985,7 +3985,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
 
 757:                                              ; preds = %759
   %indvars.iv.next163.i = add nuw nsw i64 %indvars.iv162.i, 2
-  %758 = icmp ult i64 %indvars.iv162.i, 6
+  %758 = icmp samesign ult i64 %indvars.iv162.i, 6
   br i1 %758, label %.preheader.us.i181, label %.loopexit.us.i182, !llvm.loop !66
 
 759:                                              ; preds = %759, %755
@@ -4222,7 +4222,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
 
 877:                                              ; preds = %.preheader150.us.i
   %878 = add nuw nsw i32 %.1138166.us.i, 2
-  %879 = icmp ult i32 %.1138166.us.i, 6
+  %879 = icmp samesign ult i32 %.1138166.us.i, 6
   br i1 %879, label %.preheader151.us.i, label %.loopexit.us.i193, !llvm.loop !76
 
 .preheader150.us.i:                               ; preds = %885, %.preheader150.us.i
@@ -4261,12 +4261,12 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
   %indvars.iv.next218.i = add nuw nsw i64 %indvars.iv217.i, 1
   %895 = load i32, ptr %834, align 4
   %896 = zext i32 %895 to i64
-  %897 = icmp ult i64 %indvars.iv.next218.i, %896
+  %897 = icmp samesign ult i64 %indvars.iv.next218.i, %896
   br i1 %897, label %.lr.ph179.us.i, label %.loopexit154.us.loopexit.i, !llvm.loop !79
 
 898:                                              ; preds = %.preheader.us.i194
   %899 = add nuw nsw i32 %.0137175.us.i, 2
-  %900 = icmp ult i32 %.0137175.us.i, 6
+  %900 = icmp samesign ult i32 %.0137175.us.i, 6
   br i1 %900, label %.preheader149.us.i, label %.loopexit.us.i193, !llvm.loop !80
 
 .preheader.us.i194:                               ; preds = %910, %.preheader.us.i194
@@ -4283,7 +4283,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
   %907 = getelementptr inbounds i8, ptr %.2174.us.i, i64 4
   store i16 %906, ptr %904, align 2
   %908 = add nuw nsw i32 %.1134172.us.i, 2
-  %909 = icmp ult i32 %.1134172.us.i, 6
+  %909 = icmp samesign ult i32 %.1134172.us.i, 6
   br i1 %909, label %.preheader.us.i194, label %898, !llvm.loop !81
 
 910:                                              ; preds = %.preheader149.us.i, %910
@@ -4300,7 +4300,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
   %917 = getelementptr inbounds i8, ptr %.1121171.us.i, i64 4
   store i16 %916, ptr %913, align 2
   %918 = add nuw nsw i32 %.0133169.us.i, 2
-  %919 = icmp ult i32 %.0133169.us.i, 6
+  %919 = icmp samesign ult i32 %.0133169.us.i, 6
   br i1 %919, label %910, label %.preheader.us.i194, !llvm.loop !82
 
 .preheader149.us.i:                               ; preds = %898, %890
@@ -4376,7 +4376,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
   %948 = getelementptr inbounds i8, ptr %.6158.i, i64 4
   store i16 %947, ptr %944, align 2
   %949 = add nuw nsw i32 %.2139156.i, 2
-  %950 = icmp ult i32 %.2139156.i, 62
+  %950 = icmp samesign ult i32 %.2139156.i, 62
   br i1 %950, label %941, label %.loopexit153.i, !llvm.loop !84
 
 951:                                              ; preds = %931
@@ -4389,7 +4389,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
   %indvars.iv.next.i190 = add nuw nsw i64 %indvars.iv.i188, 1
   %953 = load i32, ptr %834, align 4
   %954 = zext i32 %953 to i64
-  %955 = icmp ult i64 %indvars.iv.next.i190, %954
+  %955 = icmp samesign ult i64 %indvars.iv.next.i190, %954
   br i1 %955, label %931, label %.loopexit155.loopexit.i, !llvm.loop !85
 
 .loopexit155.loopexit.i:                          ; preds = %.loopexit153.i
@@ -4553,7 +4553,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
   %gep164.i.us = getelementptr i16, ptr %invariant.gep161.i.us, i64 %1046
   store i16 %1045, ptr %gep164.i.us, align 2
   %indvars.iv.next135.i.us = add nuw nsw i64 %indvars.iv134.i.us, 2
-  %1047 = icmp ult i64 %indvars.iv134.i.us, 6
+  %1047 = icmp samesign ult i64 %indvars.iv134.i.us, 6
   br i1 %1047, label %1037, label %1048, !llvm.loop !89
 
 1048:                                             ; preds = %1037
@@ -5379,7 +5379,7 @@ define internal fastcc void @do_crop_ext_reflect(ptr noundef %0, ptr nocapture n
   %111 = getelementptr inbounds i8, ptr %.0107140.us, i64 4
   store i16 %110, ptr %107, align 2
   %112 = add nuw nsw i32 %.0122138.us, 2
-  %113 = icmp ult i32 %.0122138.us, 62
+  %113 = icmp samesign ult i32 %.0122138.us, 62
   br i1 %113, label %104, label %97, !llvm.loop !111
 
 ..loopexit133_crit_edge.us:                       ; preds = %97
@@ -5444,7 +5444,7 @@ define internal fastcc void @do_crop_ext_reflect(ptr noundef %0, ptr nocapture n
   %136 = getelementptr inbounds i8, ptr %.1108150.us, i64 4
   store i16 %135, ptr %132, align 2
   %137 = add nuw nsw i32 %.1123148.us, 2
-  %138 = icmp ult i32 %.1123148.us, 62
+  %138 = icmp samesign ult i32 %.1123148.us, 62
   br i1 %138, label %129, label %122, !llvm.loop !113
 
 ..loopexit_crit_edge.us:                          ; preds = %122
@@ -5661,7 +5661,7 @@ define internal fastcc void @do_crop_ext_flat(ptr noundef %0, ptr nocapture noun
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %122 = load i32, ptr %44, align 4
   %123 = zext i32 %122 to i64
-  %124 = icmp ult i64 %indvars.iv.next130, %123
+  %124 = icmp samesign ult i64 %indvars.iv.next130, %123
   br i1 %124, label %.lr.ph, label %.loopexit, !llvm.loop !119
 
 .loopexit:                                        ; preds = %.lr.ph, %108, %.loopexit107
@@ -5897,7 +5897,7 @@ define internal fastcc void @do_flip_h_no_crop(ptr noundef %0, ptr nocapture nou
   %64 = getelementptr inbounds i8, ptr %.06070.us.us.us, i64 4
   store i16 %63, ptr %58, align 2
   %65 = add nuw nsw i32 %.06268.us.us.us, 2
-  %66 = icmp ult i32 %.06268.us.us.us, 62
+  %66 = icmp samesign ult i32 %.06268.us.us.us, 62
   br i1 %66, label %54, label %53, !llvm.loop !128
 
 ._crit_edge.us.us.us:                             ; preds = %53
@@ -5921,7 +5921,7 @@ define internal fastcc void @do_flip_h_no_crop(ptr noundef %0, ptr nocapture nou
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %74 = load i32, ptr %27, align 4
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %indvars.iv.next110, %75
+  %76 = icmp samesign ult i64 %indvars.iv.next110, %75
   br i1 %76, label %.lr.ph73.us.us, label %.loopexit.us.us, !llvm.loop !130
 
 77:                                               ; preds = %85, %.preheader67.us.us
@@ -5959,7 +5959,7 @@ define internal fastcc void @do_flip_h_no_crop(ptr noundef %0, ptr nocapture nou
   %96 = getelementptr inbounds i8, ptr %.06070.us.us, i64 4
   store i16 %95, ptr %90, align 2
   %97 = add nuw nsw i32 %.06268.us.us, 2
-  %98 = icmp ult i32 %.06268.us.us, 62
+  %98 = icmp samesign ult i32 %.06268.us.us, 62
   br i1 %98, label %86, label %85, !llvm.loop !128
 
 .loopexit.us.us:                                  ; preds = %.lr.ph73.us.us, %._crit_edge.us.us
@@ -6029,7 +6029,7 @@ define internal fastcc void @do_flip_h_no_crop(ptr noundef %0, ptr nocapture nou
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %129 = load i32, ptr %27, align 4
   %130 = zext i32 %129 to i64
-  %131 = icmp ult i64 %indvars.iv.next124, %130
+  %131 = icmp samesign ult i64 %indvars.iv.next124, %130
   br i1 %131, label %125, label %.loopexit.loopexit, !llvm.loop !130
 
 .loopexit.loopexit:                               ; preds = %125
@@ -6175,7 +6175,7 @@ define internal fastcc void @do_reflect(ptr noundef %0, ptr nocapture noundef re
   %62 = getelementptr inbounds i8, ptr %.1109.us.us, i64 4
   store i16 %61, ptr %58, align 2
   %63 = add nuw nsw i32 %.183107.us.us, 2
-  %64 = icmp ult i32 %.183107.us.us, 62
+  %64 = icmp samesign ult i32 %.183107.us.us, 62
   br i1 %64, label %55, label %48, !llvm.loop !135
 
 ..loopexit95_crit_edge.us.us:                     ; preds = %.loopexit.us.us, %42
@@ -6282,7 +6282,7 @@ define internal fastcc void @do_reflect(ptr noundef %0, ptr nocapture noundef re
   %105 = getelementptr inbounds i8, ptr %.07299, i64 4
   store i16 %104, ptr %101, align 2
   %106 = add nuw nsw i32 %.08297, 2
-  %107 = icmp ult i32 %.08297, 62
+  %107 = icmp samesign ult i32 %.08297, 62
   br i1 %107, label %98, label %108, !llvm.loop !139
 
 108:                                              ; preds = %98

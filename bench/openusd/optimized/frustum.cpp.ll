@@ -5419,101 +5419,101 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
 .loopexit:                                        ; preds = %338, %.loopexit105
   %or.cond60 = or i1 %88, %142
   %or.cond61 = or i1 %or.cond60, %188
-  %or.cond62 = or i1 %102, %or.cond61
-  %or.cond63 = or i1 %148, %or.cond62
+  %342 = or i1 %102, %148
+  %or.cond63 = select i1 %or.cond61, i1 true, i1 %342
   %or.cond64 = or i1 %194, %or.cond63
-  %342 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %343 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %344 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %345 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.4.0..sroa_idx.i.i4.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
-  %346 = getelementptr inbounds i8, ptr %0, i64 64
-  %347 = getelementptr inbounds i8, ptr %5, i64 8
-  %348 = getelementptr inbounds i8, ptr %5, i64 16
-  %349 = getelementptr inbounds i8, ptr %6, i64 8
-  %350 = getelementptr inbounds i8, ptr %6, i64 16
-  %351 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  br label %356
+  %347 = getelementptr inbounds i8, ptr %0, i64 64
+  %348 = getelementptr inbounds i8, ptr %5, i64 8
+  %349 = getelementptr inbounds i8, ptr %5, i64 16
+  %350 = getelementptr inbounds i8, ptr %6, i64 8
+  %351 = getelementptr inbounds i8, ptr %6, i64 16
+  %352 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  br label %357
 
-352:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit
-  %353 = add nuw nsw i64 %.0109, 1
-  %354 = icmp ult i64 %.0109, 3
-  %355 = and i1 %or.cond64, %354
-  br i1 %355, label %356, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, !llvm.loop !187
+353:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit
+  %354 = add nuw nsw i64 %.0109, 1
+  %355 = icmp samesign ult i64 %.0109, 3
+  %356 = select i1 %or.cond64, i1 %355, i1 false
+  br i1 %356, label %357, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, !llvm.loop !187
 
-356:                                              ; preds = %.loopexit, %352
-  %.0109 = phi i64 [ 0, %.loopexit ], [ %353, %352 ]
-  %357 = icmp ult i64 %.0109, 3
-  br i1 %357, label %switch.lookup, label %358
+357:                                              ; preds = %.loopexit, %353
+  %.0109 = phi i64 [ 0, %.loopexit ], [ %354, %353 ]
+  %358 = icmp samesign ult i64 %.0109, 3
+  br i1 %358, label %switch.lookup, label %359
 
-switch.lookup:                                    ; preds = %356
+switch.lookup:                                    ; preds = %357
   %switch.gep = getelementptr inbounds [3 x double], ptr @switch.table._ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10IntersectsERKNS_7GfVec3dES3_S3_, i64 0, i64 %.0109
   %switch.load = load double, ptr %switch.gep, align 8
   %switch.gep119 = getelementptr inbounds [3 x double], ptr @switch.table._ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10IntersectsERKNS_7GfVec3dES3_S3_.5, i64 0, i64 %.0109
   %switch.load120 = load double, ptr %switch.gep119, align 8
-  br label %358
+  br label %359
 
-358:                                              ; preds = %356, %switch.lookup
-  %.sroa.5.0 = phi double [ %switch.load, %switch.lookup ], [ 0.000000e+00, %356 ]
-  %.sroa.0.0 = phi double [ %switch.load120, %switch.lookup ], [ 1.000000e+00, %356 ]
+359:                                              ; preds = %357, %switch.lookup
+  %.sroa.5.0 = phi double [ %switch.load, %switch.lookup ], [ 0.000000e+00, %357 ]
+  %.sroa.0.0 = phi double [ %switch.load120, %switch.lookup ], [ 1.000000e+00, %357 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  %359 = load i32, ptr %342, align 8, !noalias !188
-  %360 = load double, ptr %344, align 8, !noalias !188
+  %360 = load i32, ptr %343, align 8, !noalias !188
+  %361 = load double, ptr %345, align 8, !noalias !188
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !188
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !188
-  %.sroa.0.0.copyload2.i.i3.i.i.i = load double, ptr %345, align 8, !noalias !191
+  %.sroa.0.0.copyload2.i.i3.i.i.i = load double, ptr %346, align 8, !noalias !191
   %.sroa.4.0.copyload.i.i5.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i4.i.i.i, align 8, !noalias !191
-  %361 = load double, ptr %343, align 8, !noalias !191
-  %362 = fsub double %.sroa.0.0.copyload2.i.i3.i.i.i, %361
-  %363 = load double, ptr %346, align 8, !noalias !191
-  %364 = fsub double %.sroa.4.0.copyload.i.i5.i.i.i, %363
-  %365 = fmul double %.sroa.0.0, %362
-  %366 = fmul double %.sroa.5.0, %364
-  %367 = fadd double %361, %365
-  %368 = fadd double %363, %366
-  %369 = icmp eq i32 %359, 1
-  br i1 %369, label %370, label %380
+  %362 = load double, ptr %344, align 8, !noalias !191
+  %363 = fsub double %.sroa.0.0.copyload2.i.i3.i.i.i, %362
+  %364 = load double, ptr %347, align 8, !noalias !191
+  %365 = fsub double %.sroa.4.0.copyload.i.i5.i.i.i, %364
+  %366 = fmul double %.sroa.0.0, %363
+  %367 = fmul double %.sroa.5.0, %365
+  %368 = fadd double %362, %366
+  %369 = fadd double %364, %367
+  %370 = icmp eq i32 %360, 1
+  br i1 %370, label %371, label %381
 
-370:                                              ; preds = %358
-  %371 = fmul double %368, %368
-  %372 = call double @llvm.fmuladd.f64(double %367, double %367, double %371)
-  %373 = fadd double %372, 1.000000e+00
-  %sqrt.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %373)
-  %374 = fcmp ogt double %sqrt.i.i.i.i.i, 1.000000e-10
-  %375 = select i1 %374, double %sqrt.i.i.i.i.i, double 1.000000e-10
-  %376 = fdiv double 1.000000e+00, %375
-  %377 = fmul double %367, %376
-  %378 = fmul double %368, %376
-  %379 = fneg double %376
+371:                                              ; preds = %359
+  %372 = fmul double %369, %369
+  %373 = call double @llvm.fmuladd.f64(double %368, double %368, double %372)
+  %374 = fadd double %373, 1.000000e+00
+  %sqrt.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %374)
+  %375 = fcmp ogt double %sqrt.i.i.i.i.i, 1.000000e-10
+  %376 = select i1 %375, double %sqrt.i.i.i.i.i, double 1.000000e-10
+  %377 = fdiv double 1.000000e+00, %376
+  %378 = fmul double %368, %377
+  %379 = fmul double %369, %377
+  %380 = fneg double %377
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit
 
-380:                                              ; preds = %358
-  %381 = fneg double %360
+381:                                              ; preds = %359
+  %382 = fneg double %361
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit: ; preds = %370, %380
-  %.sink19.i.i = phi double [ 0.000000e+00, %370 ], [ %367, %380 ]
-  %.sink18.i.i = phi double [ 0.000000e+00, %370 ], [ %368, %380 ]
-  %.sink17.i.i = phi double [ 0.000000e+00, %370 ], [ %381, %380 ]
-  %.sink16.i.i = phi double [ %377, %370 ], [ -0.000000e+00, %380 ]
-  %.sink15.i.i = phi double [ %378, %370 ], [ -0.000000e+00, %380 ]
-  %.sink.i.i = phi double [ %379, %370 ], [ -1.000000e+00, %380 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit: ; preds = %371, %381
+  %.sink19.i.i = phi double [ 0.000000e+00, %371 ], [ %368, %381 ]
+  %.sink18.i.i = phi double [ 0.000000e+00, %371 ], [ %369, %381 ]
+  %.sink17.i.i = phi double [ 0.000000e+00, %371 ], [ %382, %381 ]
+  %.sink16.i.i = phi double [ %378, %371 ], [ -0.000000e+00, %381 ]
+  %.sink15.i.i = phi double [ %379, %371 ], [ -0.000000e+00, %381 ]
+  %.sink.i.i = phi double [ %380, %371 ], [ -1.000000e+00, %381 ]
   store double %.sink19.i.i, ptr %5, align 8, !noalias !191
-  store double %.sink18.i.i, ptr %347, align 8, !noalias !191
-  store double %.sink17.i.i, ptr %348, align 8, !noalias !191
+  store double %.sink18.i.i, ptr %348, align 8, !noalias !191
+  store double %.sink17.i.i, ptr %349, align 8, !noalias !191
   store double %.sink16.i.i, ptr %6, align 8, !noalias !191
-  store double %.sink15.i.i, ptr %349, align 8, !noalias !191
-  store double %.sink.i.i, ptr %350, align 8, !noalias !191
+  store double %.sink15.i.i, ptr %350, align 8, !noalias !191
+  store double %.sink.i.i, ptr %351, align 8, !noalias !191
   call void @_ZN32pxrInternal_v0_24__pxrReserved__5GfRay20SetPointAndDirectionERKNS_7GfVec3dES3_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6), !noalias !188
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !188
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !188
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum32_ComputePickRayOffsetToNearPlaneERKNS_7GfVec3dES3_(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfRay") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %351)
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum32_ComputePickRayOffsetToNearPlaneERKNS_7GfVec3dES3_(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfRay") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %352)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  %382 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfVec3dES3_S3_PdPS1_Pbd(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, double noundef 0x7FF0000000000000)
-  br i1 %382, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, label %352
+  %383 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfVec3dES3_S3_PdPS1_Pbd(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, double noundef 0x7FF0000000000000)
+  br i1 %383, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, label %353
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit: ; preds = %246, %293, %340, %352, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit, %200, %4
-  %.049 = phi i1 [ false, %4 ], [ true, %200 ], [ %382, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit ], [ %382, %352 ], [ true, %340 ], [ true, %293 ], [ true, %246 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit: ; preds = %246, %293, %340, %353, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit, %200, %4
+  %.049 = phi i1 [ false, %4 ], [ true, %200 ], [ %383, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit ], [ %383, %353 ], [ true, %340 ], [ true, %293 ], [ true, %246 ]
   ret i1 %.049
 }
 

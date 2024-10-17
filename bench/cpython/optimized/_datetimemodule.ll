@@ -8040,7 +8040,7 @@ if.end:                                           ; preds = %entry
   %idxprom.i.i.i = zext nneg i32 %m to i64
   %arrayidx.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i
   %0 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.i.i.i = icmp ugt i32 %m, 2
+  %cmp.i.i.i = icmp samesign ugt i32 %m, 2
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %weekday.exit
 
 land.lhs.true.i.i.i:                              ; preds = %if.end
@@ -8611,7 +8611,7 @@ ymd_to_ord.exit:                                  ; preds = %if.else52, %is_leap
   %30 = load i8, ptr %arrayidx89, align 1
   %conv90 = zext i8 %30 to i32
   %or91 = or disjoint i32 %or87, %conv90
-  %or.cond.i.i = icmp ugt i32 %or91, 999999
+  %or.cond.i.i = icmp samesign ugt i32 %or91, 999999
   br i1 %or.cond.i.i, label %normalize_pair.exit.i.i, label %if.end.i.i55
 
 normalize_pair.exit.i.i:                          ; preds = %ymd_to_ord.exit
@@ -11196,7 +11196,7 @@ if.end6.i.i:                                      ; preds = %if.end.i.i
   br i1 %or.cond2.i.i, label %check_time_args.exit.thread.i, label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.end6.i.i
-  %or.cond3.i.i = icmp ugt i32 %or17, 999999
+  %or.cond3.i.i = icmp samesign ugt i32 %or17, 999999
   br i1 %or.cond3.i.i, label %check_time_args.exit.thread.i, label %if.end16.i.i
 
 if.end16.i.i:                                     ; preds = %if.end11.i.i
@@ -13297,7 +13297,7 @@ if.end.i:                                         ; preds = %entry
   %idxprom.i.i.i = zext nneg i32 %month to i64
   %arrayidx.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.i.i.i = icmp ugt i32 %month, 2
+  %cmp.i.i.i = icmp samesign ugt i32 %month, 2
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %ymd_to_ord.exit.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i
@@ -14481,7 +14481,7 @@ if.else38:                                        ; preds = %if.end31
   %21 = load i8, ptr %arrayidx60, align 1
   %conv61 = zext i8 %21 to i32
   %or62 = or disjoint i32 %or58, %conv61
-  %or.cond.i.i = icmp ugt i32 %or62, 999999
+  %or.cond.i.i = icmp samesign ugt i32 %or62, 999999
   br i1 %or.cond.i.i, label %normalize_pair.exit.i.i, label %if.end.i.i45
 
 normalize_pair.exit.i.i:                          ; preds = %if.else38
@@ -15136,7 +15136,7 @@ land.lhs.true13:                                  ; preds = %if.then10
   %ob_sval.i = getelementptr inbounds i8, ptr %2, i64 32
   %9 = load i8, ptr %ob_sval.i, align 1
   %10 = and i8 %9, 120
-  %cmp16 = icmp ult i8 %10, 24
+  %cmp16 = icmp samesign ult i8 %10, 24
   br i1 %cmp16, label %if.then18, label %if.end46
 
 if.then18:                                        ; preds = %land.lhs.true13
@@ -15231,7 +15231,7 @@ PyUnicode_DATA.exit26.i:                          ; preds = %if.end.i24.i, %if.t
 PyUnicode_READ_CHAR.exit:                         ; preds = %PyUnicode_DATA.exit.i, %PyUnicode_DATA.exit16.i, %PyUnicode_DATA.exit26.i
   %retval.0.i = phi i32 [ %conv.i30, %PyUnicode_DATA.exit.i ], [ %conv6.i, %PyUnicode_DATA.exit16.i ], [ %22, %PyUnicode_DATA.exit26.i ]
   %and30 = and i32 %retval.0.i, 120
-  %cmp31 = icmp ult i32 %and30, 24
+  %cmp31 = icmp samesign ult i32 %and30, 24
   br i1 %cmp31, label %if.then33, label %if.end46
 
 if.then33:                                        ; preds = %PyUnicode_READ_CHAR.exit

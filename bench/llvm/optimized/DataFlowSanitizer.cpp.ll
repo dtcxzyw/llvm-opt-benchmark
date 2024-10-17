@@ -6349,7 +6349,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10AllocaInstES3_NS_12DenseMapInfoIS3_vEE
 
 2674:                                             ; preds = %2672
   %.sroa.0.0.copyload.i.i.i.i.i574.b = load i1, ptr @_ZL18MinOriginAlignment.0, align 1
-  %2675 = icmp ult i8 %2554, 2
+  %2675 = icmp samesign ult i8 %2554, 2
   %2676 = select i1 %.sroa.0.0.copyload.i.i.i.i.i574.b, i1 %2675, i1 false
   br i1 %2676, label %_ZN12_GLOBAL__N_113DFSanFunction29useCallbackLoadLabelAndOriginEmN4llvm5AlignE.exit.thread.i.i.i.i, label %_ZN12_GLOBAL__N_113DFSanFunction29useCallbackLoadLabelAndOriginEmN4llvm5AlignE.exit.i.i.i.i
 
@@ -21615,7 +21615,7 @@ _ZN12_GLOBAL__N_127transformFunctionAttributesERKNS_19TransformedFunctionERN4llv
   %1221 = load i32, ptr %440, align 4
   %1222 = add i32 %1221, -1
   %1223 = zext i32 %1222 to i64
-  %1224 = icmp ult i64 %indvars.iv.next.i, %1223
+  %1224 = icmp samesign ult i64 %indvars.iv.next.i, %1223
   br i1 %1224, label %1178, label %._crit_edge240.i, !llvm.loop !240
 
 ._crit_edge240.i:                                 ; preds = %1220, %_ZN12_GLOBAL__N_127transformFunctionAttributesERKNS_19TransformedFunctionERN4llvm11LLVMContextENS3_13AttributeListE.exit.i
@@ -22593,7 +22593,7 @@ _ZNK4llvm4User10getOperandEj.exit.i:              ; preds = %26, %23
   %32 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DFSanFunction9getShadowEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(420) %4, ptr noundef %31)
   %33 = load i32, ptr %5, align 4
   %34 = and i32 %33, 134217727
-  %35 = icmp ugt i32 %34, 1
+  %35 = icmp samesign ugt i32 %34, 1
   br i1 %35, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm4User10getOperandEj.exit.i
@@ -25878,7 +25878,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit37: ; preds = %45, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load i32, ptr %41, align 4
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %64, label %45, label %.loopexit, !llvm.loop !272
 
 .loopexit:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit37, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, %.preheader, %38, %10
@@ -28859,7 +28859,7 @@ _ZN12_GLOBAL__N_113DFSanFunction14originToIntptrERN4llvm9IRBuilderINS1_14Constan
   %132 = add i64 %4, 3
   %133 = lshr i64 %132, 2
   %134 = zext i32 %.0 to i64
-  %135 = icmp ugt i64 %133, %134
+  %135 = icmp samesign ugt i64 %133, %134
   br i1 %135, label %.lr.ph58, label %._crit_edge
 
 .lr.ph58:                                         ; preds = %.loopexit
@@ -28889,7 +28889,7 @@ _ZN12_GLOBAL__N_113DFSanFunction14originToIntptrERN4llvm9IRBuilderINS1_14Constan
   %.sroa.016.0.copyload18 = select i1 %.sroa.016.0.copyload18.b, i8 2, i8 0
   %146 = add i32 %.04656, 1
   %147 = zext i32 %146 to i64
-  %148 = icmp ugt i64 %133, %147
+  %148 = icmp samesign ugt i64 %133, %147
   br i1 %148, label %137, label %._crit_edge, !llvm.loop !281
 
 ._crit_edge:                                      ; preds = %143, %.loopexit

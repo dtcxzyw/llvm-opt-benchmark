@@ -1898,7 +1898,7 @@ _ZN3std2io4Read10read_exact17h2aaf4d7d329403e5E.exit.i: ; preds = %"_ZN63_$LT$u8
 
 457:                                              ; preds = %455, %440
   %.sroa.06.0.i.i = phi i8 [ %445, %440 ], [ %spec.select16.i.i, %455 ]
-  %458 = icmp ugt i32 %.sroa.0.0.in.sroa.speculated.i18.i.i, 39
+  %458 = icmp samesign ugt i32 %.sroa.0.0.in.sroa.speculated.i18.i.i, 39
   br i1 %388, label %460, label %459
 
 459:                                              ; preds = %457
@@ -1909,11 +1909,11 @@ _ZN3std2io4Read10read_exact17h2aaf4d7d329403e5E.exit.i: ; preds = %"_ZN63_$LT$u8
   br label %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17h737856393c473b71E.exit.i"
 
 461:                                              ; preds = %459
-  %462 = icmp ugt i32 %.sroa.0.0.in.sroa.speculated.i18.i.i, 19
+  %462 = icmp samesign ugt i32 %.sroa.0.0.in.sroa.speculated.i18.i.i, 19
   br i1 %462, label %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17h737856393c473b71E.exit.thread.i", label %463
 
 463:                                              ; preds = %461
-  %464 = icmp ugt i32 %.sroa.0.0.in.sroa.speculated.i18.i.i, 14
+  %464 = icmp samesign ugt i32 %.sroa.0.0.in.sroa.speculated.i18.i.i, 14
   %spec.select.i.i = zext i1 %464 to i8
   br label %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17h737856393c473b71E.exit.i"
 
@@ -3476,7 +3476,7 @@ default.unreachable.i110:                         ; preds = %928
   %953 = or disjoint i64 %944, 336
   %954 = getelementptr inbounds i32, ptr %51, i64 %953
   call void @_ZN10image_webp3vp811add_residue17h9046cff199c914adE(ptr noalias noundef nonnull align 1 %3, i64 noundef 81, ptr noalias noundef nonnull readonly align 4 dereferenceable(64) %954, i64 noundef %946, i64 noundef 5, i64 noundef 9), !noalias !370
-  %955 = icmp ult i64 %spec.select99.i, 2
+  %955 = icmp samesign ult i64 %spec.select99.i, 2
   %956 = zext i1 %955 to i64
   %spec.select.i = add nuw nsw i64 %spec.select99.i, %956
   br i1 %955, label %.preheader45.i, label %.preheader.i104
@@ -3720,7 +3720,7 @@ define internal fastcc void @"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$15init_par
   %9 = alloca [24 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [32 x i8], align 8
-  %12 = icmp ugt i64 %2, 1
+  %12 = icmp samesign ugt i64 %2, 1
   br i1 %12, label %17, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit74"
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit74": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i73", %._crit_edge, %3
@@ -4046,7 +4046,7 @@ define internal fastcc void @"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$17read_coe
   %. = zext i1 %18 to i64
   %19 = getelementptr inbounds i8, ptr %1, i64 696
   %20 = load ptr, ptr %19, align 8, !nonnull !16, !align !472, !noundef !16
-  %21 = icmp ult i64 %4, 8
+  %21 = icmp samesign ult i64 %4, 8
   %22 = getelementptr inbounds i8, ptr %1, i64 160
   %23 = getelementptr inbounds [8 x { { { { i64, ptr, {} }, i64 }, i64 }, i32, i32, i8, i8, [6 x i8] }], ptr %22, i64 0, i64 %4
   %24 = getelementptr inbounds i8, ptr %17, i64 1
@@ -4973,7 +4973,7 @@ define internal fastcc void @"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$25read_qua
   br i1 %143, label %147, label %144
 
 144:                                              ; preds = %141, %147
-  %145 = icmp ult i64 %.sroa.0238.0297, 3
+  %145 = icmp samesign ult i64 %.sroa.0238.0297, 3
   %146 = select i1 %93, i1 %145, i1 false
   br i1 %146, label %101, label %100
 
@@ -13000,7 +13000,7 @@ define internal fastcc void @_ZN3exr4meta9attribute15TileDescription4read17h6962
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %43 = and i8 %42, 15
   %44 = lshr i8 %42, 4
-  %switch = icmp ult i8 %43, 3
+  %switch = icmp samesign ult i8 %43, 3
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %switch, label %48, label %47
 
@@ -23928,7 +23928,7 @@ _ZN3gif6reader13DecodeOptions9read_info17hc8eff300e5a793a6E.exit.thread: ; preds
   %63 = zext i8 %62 to i64
   %.sroa.011.0.i.i = select i1 %trunc.i.i, i64 %63, i64 0
   %64 = udiv i64 %60, 3
-  %.not.i.i = icmp ult i64 %.sroa.011.0.i.i, %64
+  %.not.i.i = icmp samesign ult i64 %.sroa.011.0.i.i, %64
   br i1 %.not.i.i, label %_ZN3gif6reader13DecodeOptions9read_info17hc8eff300e5a793a6E.exit, label %65
 
 65:                                               ; preds = %58
@@ -26683,7 +26683,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.sroa.04.0.lcssa = phi i64 [ %127, %._crit_edge ], [ %.sroa.0.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -26696,7 +26696,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
   %.sroa.011.0.i11 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.sroa.0.0.i12 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.sroa.0.0.i12, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -28519,7 +28519,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   %143 = zext i16 %122 to i64
   %144 = add nuw nsw i64 %143, %142
   %145 = zext i16 %138 to i64
-  %.not.i = icmp ugt i64 %144, %145
+  %.not.i = icmp samesign ugt i64 %144, %145
   br i1 %.not.i, label %146, label %151
 
 146:                                              ; preds = %141, %._crit_edge438.i
@@ -28727,7 +28727,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   call void @llvm.lifetime.end.p0(i64 63, ptr nonnull %.sroa.699.i)
   %205 = zext i16 %122 to i64
   %206 = mul nuw nsw i64 %148, %205
-  %207 = icmp ugt i64 %206, %149
+  %207 = icmp samesign ugt i64 %206, %149
   br i1 %207, label %208, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hb16618b44765106dE.exit.i"
 
 208:                                              ; preds = %204
@@ -28825,7 +28825,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   %238 = add nuw nsw i64 %236, %237
   %239 = shl nuw nsw i64 %238, 2
   %240 = add nuw nsw i64 %239, 4
-  %241 = icmp ugt i64 %240, %149
+  %241 = icmp samesign ugt i64 %240, %149
   br i1 %241, label %.split423.us.i, label %242
 
 242:                                              ; preds = %234
@@ -34713,7 +34713,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   %185 = icmp sgt i32 %.sroa.064.1152.us.i, 0
   %186 = add nsw i32 %.sroa.064.1152.us.i, -1
   %.sroa.064.1.us.i = select i1 %185, i32 %186, i32 %.sroa.064.1152.us.i
-  %.not79.us.i = icmp ult i64 %indvars.iv.next.i, %150
+  %.not79.us.i = icmp samesign ult i64 %indvars.iv.next.i, %150
   %or.cond.us.i = select i1 %185, i1 %.not79.us.i, i1 false
   br i1 %or.cond.us.i, label %.lr.ph.us.i, label %.loopexit.us.loopexit.i
 

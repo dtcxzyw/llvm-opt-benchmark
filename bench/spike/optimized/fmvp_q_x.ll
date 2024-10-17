@@ -375,7 +375,7 @@ define noundef i64 @_Z19fast_rv64e_fmvp_q_xP11processor_t6insn_tm(ptr nocapture 
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 %1, i1 noundef zeroext false)
   %23 = lshr i64 %1, 20
   %24 = and i64 %23, 31
-  %25 = icmp ugt i64 %24, 15
+  %25 = icmp samesign ugt i64 %24, 15
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %20
@@ -393,7 +393,7 @@ define noundef i64 @_Z19fast_rv64e_fmvp_q_xP11processor_t6insn_tm(ptr nocapture 
 31:                                               ; preds = %20
   %32 = lshr i64 %1, 15
   %33 = and i64 %32, 31
-  %34 = icmp ugt i64 %33, 15
+  %34 = icmp samesign ugt i64 %33, 15
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %31
@@ -488,7 +488,7 @@ define noundef i64 @_Z21logged_rv64e_fmvp_q_xP11processor_t6insn_tm(ptr noundef 
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 %1, i1 noundef zeroext false)
   %23 = lshr i64 %1, 20
   %24 = and i64 %23, 31
-  %25 = icmp ugt i64 %24, 15
+  %25 = icmp samesign ugt i64 %24, 15
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %20
@@ -509,7 +509,7 @@ define noundef i64 @_Z21logged_rv64e_fmvp_q_xP11processor_t6insn_tm(ptr noundef 
   %34 = load i64, ptr %33, align 8
   %35 = lshr i64 %1, 15
   %36 = and i64 %35, 31
-  %37 = icmp ugt i64 %36, 15
+  %37 = icmp samesign ugt i64 %36, 15
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %31

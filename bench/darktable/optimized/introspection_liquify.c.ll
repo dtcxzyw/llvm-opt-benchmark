@@ -452,7 +452,7 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %139 = fmul reassoc nsz arcp contract afn float %116, 6.000000e+00
   %140 = fsub reassoc nsz arcp contract afn float %130, %139
   %141 = and i64 %113, 2147483646
-  %142 = icmp ult i64 %141, 32
+  %142 = icmp samesign ult i64 %141, 32
   br i1 %142, label %.preheader105, label %143
 
 143:                                              ; preds = %138

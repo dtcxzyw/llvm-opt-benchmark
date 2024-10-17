@@ -83,7 +83,7 @@ define dso_local ptr @alloc_cpu_rmap(i32 noundef %0, i32 noundef %1) #0 align 16
   store i16 -1, ptr %35, align 2
   %36 = add nuw nsw i64 %27, 1
   %37 = and i64 %36, 127
-  %38 = icmp ugt i64 %37, 63
+  %38 = icmp samesign ugt i64 %37, 63
   br i1 %38, label %.thread, label %21, !prof !6, !llvm.loop !7
 
 .thread:                                          ; preds = %21, %30, %26
@@ -213,7 +213,7 @@ define dso_local noundef i32 @cpu_rmap_update(ptr nocapture noundef %0, i16 noun
   %25 = phi i64 [ %.pre, %22 ], [ %7, %17 ]
   %26 = add nuw nsw i64 %13, 1
   %27 = and i64 %26, 127
-  %28 = icmp ugt i64 %27, 63
+  %28 = icmp samesign ugt i64 %27, 63
   br i1 %28, label %.thread, label %6, !prof !6, !llvm.loop !15
 
 29:                                               ; preds = %.thread, %41
@@ -253,7 +253,7 @@ define dso_local noundef i32 @cpu_rmap_update(ptr nocapture noundef %0, i16 noun
   store i64 %53, ptr %4, align 8
   %54 = add nuw nsw i64 %37, 1
   %55 = and i64 %54, 127
-  %56 = icmp ugt i64 %55, 63
+  %56 = icmp samesign ugt i64 %55, 63
   br i1 %56, label %.thread13, label %29, !prof !6, !llvm.loop !16
 
 57:                                               ; preds = %.thread13, %.thread21
@@ -309,7 +309,7 @@ define dso_local noundef i32 @cpu_rmap_update(ptr nocapture noundef %0, i16 noun
 93:                                               ; preds = %87, %84
   %94 = add nuw nsw i64 %81, 1
   %95 = and i64 %94, 127
-  %96 = icmp ugt i64 %95, 63
+  %96 = icmp samesign ugt i64 %95, 63
   br i1 %96, label %.thread17, label %75, !prof !6, !llvm.loop !17
 
 .thread17:                                        ; preds = %75, %93, %80
@@ -347,7 +347,7 @@ define dso_local noundef i32 @cpu_rmap_update(ptr nocapture noundef %0, i16 noun
 118:                                              ; preds = %112, %109
   %119 = add nuw nsw i64 %106, 1
   %120 = and i64 %119, 127
-  %121 = icmp ugt i64 %120, 63
+  %121 = icmp samesign ugt i64 %120, 63
   br i1 %121, label %.thread19, label %100, !prof !6, !llvm.loop !17
 
 .thread19:                                        ; preds = %100, %118, %105
@@ -388,7 +388,7 @@ define dso_local noundef i32 @cpu_rmap_update(ptr nocapture noundef %0, i16 noun
 146:                                              ; preds = %140, %137
   %147 = add nuw nsw i64 %134, 1
   %148 = and i64 %147, 127
-  %149 = icmp ugt i64 %148, 63
+  %149 = icmp samesign ugt i64 %148, 63
   br i1 %149, label %.thread21, label %128, !prof !6, !llvm.loop !17
 
 .thread21.sink.split:                             ; preds = %87, %112, %140
@@ -402,7 +402,7 @@ define dso_local noundef i32 @cpu_rmap_update(ptr nocapture noundef %0, i16 noun
 .thread21:                                        ; preds = %128, %146, %133, %.thread21.sink.split
   %151 = add nuw nsw i64 %63, 1
   %152 = and i64 %151, 127
-  %153 = icmp ugt i64 %152, 63
+  %153 = icmp samesign ugt i64 %152, 63
   br i1 %153, label %.thread15, label %57, !prof !6, !llvm.loop !18
 
 .thread15:                                        ; preds = %57, %.thread21, %62
@@ -444,7 +444,7 @@ define dso_local void @free_irq_cpu_rmap(ptr noundef %0) #0 align 16 {
   %20 = phi i16 [ %.pre, %16 ], [ %10, %9 ]
   %21 = add nuw nsw i64 %11, 1
   %22 = zext i16 %20 to i64
-  %23 = icmp ult i64 %21, %22
+  %23 = icmp samesign ult i64 %21, %22
   br i1 %23, label %9, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %19, %3

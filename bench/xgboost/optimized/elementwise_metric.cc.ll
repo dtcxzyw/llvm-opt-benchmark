@@ -2324,11 +2324,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.fr101 = freeze i64 %177
   %178 = trunc i64 %.fr101 to i32
   %179 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %178)
-  %.not.i7.i.i.i.i = icmp ult i32 %179, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %179, 2
   %180 = add i32 %178, -1
   %181 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %180)
   %182 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr101)
-  %.not.i.i.i.i48.i = icmp ult i64 %182, 2
+  %.not.i.i.i.i48.i = icmp samesign ult i64 %182, 2
   %183 = add i64 %.fr101, -1
   %184 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %183)
   br i1 %.not.i.i.i.i48.i, label %.lr.ph69.i.i.i.us, label %.lr.ph69.i.i.i
@@ -5743,7 +5743,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 178:                                              ; preds = %.lr.ph69.i.i.i
   %179 = load i64, ptr %175, align 8, !noalias !128
   %180 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %179)
-  %.not.i.i.i.i48.i = icmp ult i64 %180, 2
+  %.not.i.i.i.i48.i = icmp samesign ult i64 %180, 2
   br i1 %.not.i.i.i.i48.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %178
@@ -5764,7 +5764,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %189 = load i64, ptr %175, align 8, !noalias !133
   %190 = trunc i64 %189 to i32
   %191 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %190)
-  %.not.i7.i.i.i.i = icmp ult i32 %191, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %191, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %187
@@ -6541,11 +6541,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.fr101 = freeze i64 %177
   %178 = trunc i64 %.fr101 to i32
   %179 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %178)
-  %.not.i7.i.i.i.i = icmp ult i32 %179, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %179, 2
   %180 = add i32 %178, -1
   %181 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %180)
   %182 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr101)
-  %.not.i.i.i.i48.i = icmp ult i64 %182, 2
+  %.not.i.i.i.i48.i = icmp samesign ult i64 %182, 2
   %183 = add i64 %.fr101, -1
   %184 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %183)
   br i1 %.not.i.i.i.i48.i, label %.lr.ph69.i.i.i.us, label %.lr.ph69.i.i.i
@@ -7408,11 +7408,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.fr101 = freeze i64 %177
   %178 = trunc i64 %.fr101 to i32
   %179 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %178)
-  %.not.i7.i.i.i.i = icmp ult i32 %179, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %179, 2
   %180 = add i32 %178, -1
   %181 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %180)
   %182 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr101)
-  %.not.i.i.i.i48.i = icmp ult i64 %182, 2
+  %.not.i.i.i.i48.i = icmp samesign ult i64 %182, 2
   %183 = add i64 %.fr101, -1
   %184 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %183)
   br i1 %.not.i.i.i.i48.i, label %.lr.ph69.i.i.i.us, label %.lr.ph69.i.i.i
@@ -8271,11 +8271,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %177 = load i64, ptr %176, align 8
   %178 = trunc i64 %177 to i32
   %179 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %178)
-  %.not.i7.i.i.i.i = icmp ult i32 %179, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %179, 2
   %180 = add i32 %178, -1
   %181 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %180)
   %182 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %177)
-  %.not.i.i.i.i48.i = icmp ult i64 %182, 2
+  %.not.i.i.i.i48.i = icmp samesign ult i64 %182, 2
   %183 = add i64 %177, -1
   %184 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %183)
   br label %.lr.ph69.i.i.i
@@ -9511,11 +9511,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.fr98 = freeze i64 %175
   %176 = trunc i64 %.fr98 to i32
   %177 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %176)
-  %.not.i7.i.i.i.i = icmp ult i32 %177, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %177, 2
   %178 = add i32 %176, -1
   %179 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %178)
   %180 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr98)
-  %.not.i.i.i.i48.i = icmp ult i64 %180, 2
+  %.not.i.i.i.i48.i = icmp samesign ult i64 %180, 2
   %181 = add i64 %.fr98, -1
   %182 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %181)
   %183 = fmul float %131, %131
@@ -13215,7 +13215,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 178:                                              ; preds = %.lr.ph69.i.i.i
   %179 = load i64, ptr %175, align 8, !noalias !331
   %180 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %179)
-  %.not.i.i.i.i48.i = icmp ult i64 %180, 2
+  %.not.i.i.i.i48.i = icmp samesign ult i64 %180, 2
   br i1 %.not.i.i.i.i48.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %178
@@ -13236,7 +13236,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %189 = load i64, ptr %175, align 8, !noalias !336
   %190 = trunc i64 %189 to i32
   %191 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %190)
-  %.not.i7.i.i.i.i = icmp ult i32 %191, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %191, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %187
@@ -14027,7 +14027,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 178:                                              ; preds = %.lr.ph69.i.i.i
   %179 = load i64, ptr %175, align 8, !noalias !369
   %180 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %179)
-  %.not.i.i.i.i48.i = icmp ult i64 %180, 2
+  %.not.i.i.i.i48.i = icmp samesign ult i64 %180, 2
   br i1 %.not.i.i.i.i48.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %178
@@ -14048,7 +14048,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %189 = load i64, ptr %175, align 8, !noalias !374
   %190 = trunc i64 %189 to i32
   %191 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %190)
-  %.not.i7.i.i.i.i = icmp ult i32 %191, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %191, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %187
@@ -14831,7 +14831,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 178:                                              ; preds = %.lr.ph69.i.i.i
   %179 = load i64, ptr %175, align 8, !noalias !407
   %180 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %179)
-  %.not.i.i.i.i48.i = icmp ult i64 %180, 2
+  %.not.i.i.i.i48.i = icmp samesign ult i64 %180, 2
   br i1 %.not.i.i.i.i48.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %178
@@ -14852,7 +14852,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %189 = load i64, ptr %175, align 8, !noalias !412
   %190 = trunc i64 %189 to i32
   %191 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %190)
-  %.not.i7.i.i.i.i = icmp ult i32 %191, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %191, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %187
@@ -15770,11 +15770,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.fr107 = freeze i64 %179
   %180 = trunc i64 %.fr107 to i32
   %181 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %180)
-  %.not.i7.i.i.i.i = icmp ult i32 %181, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %181, 2
   %182 = add i32 %180, -1
   %183 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %182)
   %184 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr107)
-  %.not.i.i.i.i48.i = icmp ult i64 %184, 2
+  %.not.i.i.i.i48.i = icmp samesign ult i64 %184, 2
   %185 = add i64 %.fr107, -1
   %186 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %185)
   br i1 %.not.i.i.i.i48.i, label %.lr.ph69.i.i.i.us, label %.lr.ph69.i.i.i
@@ -16908,7 +16908,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 204:                                              ; preds = %.lr.ph79.i.i.i
   %205 = load i64, ptr %200, align 8, !noalias !478
   %206 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %205)
-  %.not.i.i.i.i52.i = icmp ult i64 %206, 2
+  %.not.i.i.i.i52.i = icmp samesign ult i64 %206, 2
   br i1 %.not.i.i.i.i52.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %204
@@ -16929,7 +16929,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %215 = load i64, ptr %200, align 8, !noalias !483
   %216 = trunc i64 %215 to i32
   %217 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %216)
-  %.not.i7.i.i.i.i = icmp ult i32 %217, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %217, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %213
@@ -18838,7 +18838,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 279:                                              ; preds = %.lr.ph79.i.i.i
   %280 = load i64, ptr %275, align 8, !noalias !550
   %281 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %280)
-  %.not.i.i.i.i52.i = icmp ult i64 %281, 2
+  %.not.i.i.i.i52.i = icmp samesign ult i64 %281, 2
   br i1 %.not.i.i.i.i52.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %279
@@ -18859,7 +18859,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %290 = load i64, ptr %275, align 8, !noalias !555
   %291 = trunc i64 %290 to i32
   %292 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %291)
-  %.not.i7.i.i.i.i = icmp ult i32 %292, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %292, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %288
@@ -20434,7 +20434,7 @@ define linkonce_odr void @_ZZN7xgboost6metric13QuantileError4EvalERKNS_16HostDev
   %12 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv.i.i
   %13 = load i64, ptr %12, align 8, !noalias !586
   %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
-  %.not.i.i = icmp ult i64 %14, 2
+  %.not.i.i = icmp samesign ult i64 %14, 2
   br i1 %.not.i.i, label %18, label %15
 
 15:                                               ; preds = %11
@@ -20480,7 +20480,7 @@ define linkonce_odr void @_ZZN7xgboost6metric13QuantileError4EvalERKNS_16HostDev
   %35 = load i64, ptr %34, align 8, !noalias !597
   %36 = trunc i64 %35 to i32
   %37 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %36)
-  %.not.i9.i = icmp ult i32 %37, 2
+  %.not.i9.i = icmp samesign ult i32 %37, 2
   br i1 %.not.i9.i, label %41, label %38
 
 38:                                               ; preds = %33

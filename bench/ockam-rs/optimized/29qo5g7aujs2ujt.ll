@@ -1021,7 +1021,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$12pus
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %21
-  %26 = icmp ult i32 %.0, 7
+  %26 = icmp samesign ult i32 %.0, 7
   br i1 %26, label %.preheader.i, label %27
 
 27:                                               ; preds = %25
@@ -1029,7 +1029,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$12pus
           to label %.thread.i unwind label %63
 
 .thread.i:                                        ; preds = %.preheader.i, %27
-  %28 = icmp ult i32 %.0, 11
+  %28 = icmp samesign ult i32 %.0, 11
   %29 = load atomic i64, ptr %5 monotonic, align 128
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31
 
@@ -1064,7 +1064,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$12pus
   br label %40
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit: ; preds = %40
-  %38 = icmp ult i32 %.0, 7
+  %38 = icmp samesign ult i32 %.0, 7
   %39 = load atomic i64, ptr %5 monotonic, align 128
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31
 
@@ -1107,7 +1107,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31: ; preds = 
   br label %57
 
 55:                                               ; preds = %57
-  %56 = icmp ult i32 %.0, 7
+  %56 = icmp samesign ult i32 %.0, 7
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31
 
 57:                                               ; preds = %57, %54
@@ -3404,14 +3404,14 @@ _ZN4core4hash3sip9u8to64_le17h7d49da03e1a9dcd6E.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %126, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %81, %76
   %.015.i13 = phi i64 [ %83, %81 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %81 ], [ 0, %76 ]
   %79 = or disjoint i64 %.0.i14, 1
-  %80 = icmp ult i64 %79, %44
+  %80 = icmp samesign ult i64 %79, %44
   br i1 %80, label %84, label %92
 
 81:                                               ; preds = %76
@@ -5746,15 +5746,15 @@ _ZN4core3str11validations15next_code_point17h1f20b876d124e479E.exit.thread.i.i.i
   br i1 %596, label %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h0b389cb7ddbcb0faE.exit.thread.i", label %597
 
 597:                                              ; preds = %595
-  %598 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 128
+  %598 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 128
   br i1 %598, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17haf72e4932b39de21E.exit.i.i.i", label %599
 
 599:                                              ; preds = %597
-  %600 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 2048
+  %600 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 2048
   br i1 %600, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17haf72e4932b39de21E.exit.i.i.i", label %601
 
 601:                                              ; preds = %599
-  %602 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 65536
+  %602 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 65536
   %..i.i.i.i = select i1 %602, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17haf72e4932b39de21E.exit.i.i.i"
 

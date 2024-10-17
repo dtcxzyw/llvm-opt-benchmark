@@ -1181,7 +1181,7 @@ define internal range(i32 -1, 1) i32 @H5D__chunk_io_init(ptr noundef %0, ptr nou
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %192 = load i32, ptr %154, align 8
   %193 = zext i32 %192 to i64
-  %194 = icmp ult i64 %indvars.iv.next.i.i, %193
+  %194 = icmp samesign ult i64 %indvars.iv.next.i.i, %193
   br i1 %194, label %168, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %179, %162
@@ -5244,7 +5244,7 @@ H5VM_log2_gen.exit:                               ; preds = %19, %25, %31, %37
 
 H5VM_log2_gen.exit49:                             ; preds = %47, %53, %59, %65, %73, %79, %85, %91
   %.0.i45 = phi i32 [ %52, %47 ], [ %57, %53 ], [ %64, %59 ], [ %69, %65 ], [ %78, %73 ], [ %83, %79 ], [ %90, %85 ], [ %94, %91 ]
-  %95 = icmp ugt i32 %.0.i45, 63
+  %95 = icmp samesign ugt i32 %.0.i45, 63
   br i1 %95, label %96, label %100
 
 96:                                               ; preds = %H5VM_log2_gen.exit49
@@ -5260,7 +5260,7 @@ H5VM_log2_gen.exit49:                             ; preds = %47, %53, %59, %65, 
   %104 = lshr i32 %103, 3
   %105 = tail call i32 @llvm.umin.i32(i32 %104, i32 7)
   %spec.store.select = add nuw nsw i32 %105, 1
-  %106 = icmp ugt i32 %102, %spec.store.select
+  %106 = icmp samesign ugt i32 %102, %spec.store.select
   br i1 %106, label %107, label %111
 
 107:                                              ; preds = %100
@@ -11635,7 +11635,7 @@ define internal noundef i32 @H5D__chunk_dump_index_cb(ptr nocapture noundef read
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %21, align 4
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %24, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24, %12
@@ -12589,7 +12589,7 @@ define internal i32 @H5D__chunk_iter_cb(ptr nocapture noundef readonly %0, ptr n
   %17 = getelementptr inbounds [33 x i64], ptr %3, i64 0, i64 %indvars.iv
   store i64 %16, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = icmp ult i64 %indvars.iv.next, %9
+  %18 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %18, label %10, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -12670,7 +12670,7 @@ define range(i32 -1, 1) i32 @H5D__chunk_get_offset_copy(ptr nocapture noundef re
   %32 = getelementptr inbounds i8, ptr %31, i64 2508
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %29, %3, %25, %15
@@ -12878,7 +12878,7 @@ define internal range(i32 -1, 1) i32 @H5D__piece_file_cb(ptr nocapture readnone 
   %108 = getelementptr inbounds [33 x i64], ptr %6, i64 0, i64 %indvars.iv
   store i64 %107, ptr %108, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %109 = icmp ult i64 %indvars.iv.next, %98
+  %109 = icmp samesign ult i64 %indvars.iv.next, %98
   br i1 %109, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %95

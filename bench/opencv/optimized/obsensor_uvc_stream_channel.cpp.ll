@@ -1590,7 +1590,7 @@ define hidden void @_ZN2cv8obsensor19DepthFrameProcessor7processEPNS0_5FrameE(pt
   %16 = load i32, ptr %5, align 4
   %17 = lshr i32 %16, 1
   %18 = zext nneg i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %8, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %8, %2

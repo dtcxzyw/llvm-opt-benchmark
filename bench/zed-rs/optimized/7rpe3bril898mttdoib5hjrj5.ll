@@ -7576,7 +7576,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd33a61d03fa9025dE.exit.i146: ; preds = 
   br label %276
 
 274:                                              ; preds = %270
-  %275 = icmp ult i32 %.sroa.4.0.i.ph.i, 128
+  %275 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 128
   br i1 %275, label %282, label %278
 
 276:                                              ; preds = %282, %272
@@ -7586,11 +7586,11 @@ _ZN4core3ops8function6FnOnce9call_once17hd33a61d03fa9025dE.exit.i146: ; preds = 
   br i1 %277, label %.thread325, label %.lr.ph467
 
 278:                                              ; preds = %274
-  %279 = icmp ult i32 %.sroa.4.0.i.ph.i, 2048
+  %279 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 2048
   br i1 %279, label %282, label %280
 
 280:                                              ; preds = %278
-  %281 = icmp ult i32 %.sroa.4.0.i.ph.i, 65536
+  %281 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 65536
   %. = select i1 %281, i64 3, i64 4
   br label %282
 
@@ -7645,7 +7645,7 @@ default.unreachable:                              ; preds = %319, %288
   unreachable
 
 295:                                              ; preds = %288
-  %296 = icmp ult i64 %286, 4
+  %296 = icmp samesign ult i64 %286, 4
   br i1 %296, label %297, label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17h6211b2f6ab6c6f86E.exit.i.i.i"
 
 297:                                              ; preds = %295
@@ -7674,7 +7674,7 @@ default.unreachable:                              ; preds = %319, %288
   br i1 %306, label %.split.i.i.i.i.i, label %.split2.i.i.i.i.i
 
 .split2.i.i.i.i.i:                                ; preds = %303
-  %307 = icmp ult i64 %286, 5
+  %307 = icmp samesign ult i64 %286, 5
   br i1 %307, label %308, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hd9912bdb1be70aaeE.exit.i.i.i.i.i"
 
 308:                                              ; preds = %.split2.i.i.i.i.i
@@ -7694,7 +7694,7 @@ default.unreachable:                              ; preds = %319, %288
   br label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_bool17h7bf815ed92aa1977E.exit.i.i.i"
 
 .split.i.i.i.i.i:                                 ; preds = %303
-  %312 = icmp ult i64 %286, 4
+  %312 = icmp samesign ult i64 %286, 4
   br i1 %312, label %313, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hd9912bdb1be70aaeE.exit5.i.i.i.i.i"
 
 313:                                              ; preds = %.split.i.i.i.i.i
@@ -7742,7 +7742,7 @@ default.unreachable:                              ; preds = %319, %288
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %323
   %.sroa.012.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 20, %323 ], [ %335, %.lr.ph.i.i.i.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i.i.i.i = phi i64 [ %324, %323 ], [ %328, %.lr.ph.i.i.i.i.i.i.i ]
-  %326 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i.i.i.i.i, 99
+  %326 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i.i.i.i.i, 99
   br i1 %326, label %342, label %351
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %323, %.lr.ph.i.i.i.i.i.i.i
@@ -7786,7 +7786,7 @@ default.unreachable:                              ; preds = %319, %288
 351:                                              ; preds = %342, %._crit_edge.i.i.i.i.i.i.i
   %.sroa.012.1.i.i.i.i.i.i.i = phi i64 [ %347, %342 ], [ %.sroa.012.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.sroa.06.0.i.i.i.i.i.i.i = phi i64 [ %.zext30.i.i.i.i.i.i.i, %342 ], [ %.sroa.0.1.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
-  %352 = icmp ult i64 %.sroa.06.0.i.i.i.i.i.i.i, 10
+  %352 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i.i.i.i, 10
   br i1 %352, label %359, label %353
 
 353:                                              ; preds = %351
@@ -7846,7 +7846,7 @@ default.unreachable:                              ; preds = %319, %288
 ._crit_edge.i.i.i4.i.i.i.i:                       ; preds = %.lr.ph.i.i.i7.i.i.i.i, %373
   %.sroa.010.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 20, %373 ], [ %386, %.lr.ph.i.i.i7.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i5.i.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i.i.i.i, %373 ], [ %379, %.lr.ph.i.i.i7.i.i.i.i ]
-  %377 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i5.i.i.i.i, 99
+  %377 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i5.i.i.i.i, 99
   br i1 %377, label %393, label %402
 
 .lr.ph.i.i.i7.i.i.i.i:                            ; preds = %373, %.lr.ph.i.i.i7.i.i.i.i
@@ -7890,7 +7890,7 @@ default.unreachable:                              ; preds = %319, %288
 402:                                              ; preds = %393, %._crit_edge.i.i.i4.i.i.i.i
   %.sroa.010.1.i.i.i.i.i.i.i = phi i64 [ %398, %393 ], [ %.sroa.010.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i4.i.i.i.i ]
   %.sroa.04.0.i.i.i.i.i.i.i = phi i64 [ %.zext28.i.i.i.i.i.i.i, %393 ], [ %.sroa.0.1.lcssa.i.i.i5.i.i.i.i, %._crit_edge.i.i.i4.i.i.i.i ]
-  %403 = icmp ult i64 %.sroa.04.0.i.i.i.i.i.i.i, 10
+  %403 = icmp samesign ult i64 %.sroa.04.0.i.i.i.i.i.i.i, 10
   br i1 %403, label %410, label %404
 
 404:                                              ; preds = %402
@@ -7954,7 +7954,7 @@ default.unreachable:                              ; preds = %319, %288
   br i1 %or.cond1.i.i.i.i.i, label %431, label %439
 
 431:                                              ; preds = %428
-  %432 = icmp ult i64 %286, 4
+  %432 = icmp samesign ult i64 %286, 4
   br i1 %432, label %433, label %_ZN10serde_json3ser9Formatter10write_null17hfda13011f540eb49E.exit.i.i.i.i.i
 
 433:                                              ; preds = %431

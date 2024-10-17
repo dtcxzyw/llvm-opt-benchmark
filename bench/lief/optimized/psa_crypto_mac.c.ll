@@ -188,7 +188,7 @@ mac_init.exit:                                    ; preds = %12
   %37 = icmp eq i32 %32, 33554451
   %38 = select i1 %37, i64 72, i64 0
   store i32 %32, ptr %31, align 8
-  %39 = icmp ult i64 %38, %36
+  %39 = icmp samesign ult i64 %38, %36
   br i1 %39, label %psa_hmac_setup_internal.exit, label %40
 
 40:                                               ; preds = %.thread84.i, %.thread84.thread.i

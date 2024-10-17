@@ -825,7 +825,7 @@ if.then97:                                        ; preds = %land.lhs.true91.if.
 
 if.end102:                                        ; preds = %lor.lhs.false73, %if.end66.thread, %if.then83, %lor.lhs.false93, %if.then97, %if.end81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp4564 = icmp ult i64 %indvars.iv.next, %30
+  %cmp4564 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %cmp4564, label %for.body, label %if.end105.loopexit, !llvm.loop !13
 
 if.end105.loopexit:                               ; preds = %if.end102

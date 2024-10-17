@@ -538,7 +538,7 @@ Abc_NtkFraigEquiv.exit:                           ; preds = %.outer._crit_edge.i
   %246 = getelementptr inbounds i8, ptr %.113.i.i, i64 20
   %247 = load i32, ptr %246, align 4
   %248 = lshr i32 %247, 12
-  %249 = icmp ugt i32 %245, %248
+  %249 = icmp samesign ugt i32 %245, %248
   %spec.select.i.i = select i1 %249, ptr %.113.i.i, ptr %.06612.i.i
   br label %.critedge.i.i
 
@@ -587,7 +587,7 @@ Abc_NtkFraigEquiv.exit:                           ; preds = %.outer._crit_edge.i
   %265 = getelementptr inbounds i8, ptr %.321.i.i, i64 20
   %266 = load i32, ptr %265, align 4
   %267 = lshr i32 %266, 12
-  %268 = icmp ugt i32 %264, %267
+  %268 = icmp samesign ugt i32 %264, %267
   %spec.select1.i.i = select i1 %268, ptr %.321.i.i, ptr %.26820.i.i
   br label %.critedge88.i.i
 
@@ -640,7 +640,7 @@ Abc_NtkFraigMergeClassMapped.exit.i:              ; preds = %272, %.preheader2.i
   %284 = getelementptr inbounds i8, ptr %.04056.i.i, i64 20
   %285 = load i32, ptr %284, align 4
   %286 = lshr i32 %285, 12
-  %287 = icmp ugt i32 %283, %286
+  %287 = icmp samesign ugt i32 %283, %286
   %spec.select.i19.i = select i1 %287, ptr %.04056.i.i, ptr %.04355.i.i
   %288 = getelementptr inbounds i8, ptr %.04056.i.i, i64 8
   %.040.i.i = load ptr, ptr %288, align 8
@@ -1036,7 +1036,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %99, label %Vec_PtrPush.exit101.sink.split, label %Vec_PtrPush.exit101
 
 Vec_PtrPush.exit101.sink.split:                   ; preds = %97
-  %100 = icmp ult i32 %.val117, 17
+  %100 = icmp samesign ult i32 %.val117, 17
   %101 = shl nuw nsw i32 %69, 1
   %102 = zext nneg i32 %101 to i64
   %103 = shl nuw nsw i64 %102, 3

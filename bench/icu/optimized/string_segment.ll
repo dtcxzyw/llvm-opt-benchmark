@@ -676,7 +676,7 @@ _ZNK6icu_7513StringSegment6charAtEi.exit:         ; preds = %for.body, %if.then.
   %17 = load i32, ptr %fLength.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %17, i32 %shr.i.i.i.i
   %18 = zext i32 %cond.i.i.i to i64
-  %cmp.i.i7 = icmp ult i64 %indvars.iv, %18
+  %cmp.i.i7 = icmp samesign ult i64 %indvars.iv, %18
   br i1 %cmp.i.i7, label %if.then.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit
 
 if.then.i.i:                                      ; preds = %_ZNK6icu_7513StringSegment6charAtEi.exit

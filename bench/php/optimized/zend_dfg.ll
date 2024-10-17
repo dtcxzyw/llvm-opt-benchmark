@@ -1745,7 +1745,7 @@ zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i313, %.loop
   %622 = or i64 %617, %621
   store i64 %622, ptr %620, align 8
   %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
-  %623 = icmp ult i64 %indvars.iv.next357, %612
+  %623 = icmp samesign ult i64 %indvars.iv.next357, %612
   br i1 %623, label %.lr.ph346, label %.lr.ph.i.backedge
 
 624:                                              ; preds = %530

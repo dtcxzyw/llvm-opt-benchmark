@@ -147,7 +147,7 @@ entry:
 if.end:                                           ; preds = %entry
   %conv = zext i32 %ref to i64
   %cond = select i1 %queue_ok, i64 40, i64 56
-  %cmp3 = icmp ugt i64 %cond, %conv
+  %cmp3 = icmp samesign ugt i64 %cond, %conv
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -1740,7 +1740,7 @@ if.end:                                           ; preds = %entry
   %0 = trunc nuw i64 %req_size to i32
   %add2 = add nuw nsw i32 %0, 23
   %and = and i32 %add2, 2147483640
-  %cmp4 = icmp ult i32 %and, 17
+  %cmp4 = icmp samesign ult i32 %and, 17
   br i1 %cmp4, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end

@@ -395,7 +395,7 @@ define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef n
 
 36:                                               ; preds = %28
   %37 = sub nuw nsw i64 %34, %33
-  %38 = icmp ult i64 %37, %27
+  %38 = icmp samesign ult i64 %37, %27
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %36
@@ -603,7 +603,7 @@ define void @_ZN16WirelessTimeline23captureFileReadFinishedEv(ptr noundef nonnul
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.preheader, %16

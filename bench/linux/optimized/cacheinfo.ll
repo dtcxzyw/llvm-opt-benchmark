@@ -447,7 +447,7 @@ thread-pre-split:                                 ; preds = %7
   %87 = add nuw nsw i32 %37, 1
   %88 = load i16, ptr @num_cache_leaves, align 2
   %89 = zext i16 %88 to i32
-  %90 = icmp ult i32 %87, %89
+  %90 = icmp samesign ult i32 %87, %89
   br i1 %90, label %34, label %.loopexit11, !llvm.loop !11
 
 .loopexit11:                                      ; preds = %80, %.thread-pre-split7_crit_edge
@@ -1070,13 +1070,13 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
 108:                                              ; preds = %107, %102
   %109 = add nuw nsw i64 %99, 1
   %110 = and i64 %109, 127
-  %111 = icmp ugt i64 %110, 63
+  %111 = icmp samesign ugt i64 %110, 63
   br i1 %111, label %.thread23, label %89, !prof !21, !llvm.loop !22
 
 .thread23:                                        ; preds = %89, %108, %98, %83
   %112 = add nuw nsw i64 %80, 1
   %113 = and i64 %112, 127
-  %114 = icmp ugt i64 %113, 63
+  %114 = icmp samesign ugt i64 %113, 63
   br i1 %114, label %.thread, label %.preheader, !prof !21, !llvm.loop !23
 
 115:                                              ; preds = %69
@@ -1169,13 +1169,13 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
   %177 = phi i64 [ %.pre, %175 ], [ %155, %164 ]
   %178 = add nuw nsw i64 %161, 1
   %179 = and i64 %178, 127
-  %180 = icmp ugt i64 %179, 63
+  %180 = icmp samesign ugt i64 %179, 63
   br i1 %180, label %.thread27, label %154, !prof !21, !llvm.loop !24
 
 .thread27:                                        ; preds = %154, %176, %160, %141, %137
   %181 = add nuw nsw i64 %134, 1
   %182 = and i64 %181, 127
-  %183 = icmp ugt i64 %182, 63
+  %183 = icmp samesign ugt i64 %182, 63
   br i1 %183, label %.thread, label %127, !prof !21, !llvm.loop !25
 
 184:                                              ; preds = %115, %22
@@ -1239,7 +1239,7 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
 223:                                              ; preds = %221, %218, %215, %203
   %224 = add nuw nsw i64 %200, 1
   %225 = and i64 %224, 127
-  %226 = icmp ugt i64 %225, 63
+  %226 = icmp samesign ugt i64 %225, 63
   br i1 %226, label %.thread, label %193, !prof !21, !llvm.loop !26
 
 .thread:                                          ; preds = %127, %.thread27, %133, %.preheader, %.thread23, %79, %193, %223, %199, %184

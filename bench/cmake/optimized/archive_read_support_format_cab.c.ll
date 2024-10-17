@@ -135,7 +135,7 @@ define internal range(i32 -1, 65) i32 @archive_read_format_cab_bid(ptr noundef %
 
 20:                                               ; preds = %.outer.split
   %21 = lshr i64 %.022, 1
-  %22 = icmp ult i64 %.022, 256
+  %22 = icmp samesign ult i64 %.022, 256
   br i1 %22, label %find_cab_magic.exit, label %.outer.split, !llvm.loop !5
 
 23:                                               ; preds = %.outer.split
@@ -295,7 +295,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_cab_read_header(ptr n
 
 ._crit_edge32.i.i:                                ; preds = %._crit_edge.i.i, %.outer.i.i
   %37 = lshr i64 %.022.ph.i.i, 1
-  %38 = icmp ult i64 %.022.ph.i.i, 256
+  %38 = icmp samesign ult i64 %.022.ph.i.i, 256
   br i1 %38, label %cab_skip_sfx.exit.thread.i, label %.outer.i.i
 
 cab_skip_sfx.exit.thread.i:                       ; preds = %._crit_edge32.i.i
@@ -716,7 +716,7 @@ cab_strnlen.exit291.i:                            ; preds = %205
   %250 = zext i8 %.val275.i to i16
   %251 = getelementptr inbounds i8, ptr %241, i64 8
   store i16 %250, ptr %251, align 8
-  %252 = icmp ult i8 %247, 4
+  %252 = icmp samesign ult i8 %247, 4
   br i1 %252, label %253, label %257
 
 253:                                              ; preds = %239
@@ -755,7 +755,7 @@ cab_strnlen.exit291.i:                            ; preds = %205
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %271 = load i16, ptr %101, align 8
   %272 = zext i16 %271 to i64
-  %273 = icmp ult i64 %indvars.iv.next.i, %272
+  %273 = icmp samesign ult i64 %indvars.iv.next.i, %272
   br i1 %273, label %239, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %269, %.preheader311.i
@@ -894,7 +894,7 @@ cab_strnlen.exit296.i:                            ; preds = %321
   %339 = zext i32 %338 to i64
   %340 = zext nneg i32 %335 to i64
   %341 = add nuw nsw i64 %339, %340
-  %342 = icmp ugt i64 %341, 2147450880
+  %342 = icmp samesign ugt i64 %341, 2147450880
   br i1 %342, label %cab_strnlen.exit.thread.i, label %343
 
 343:                                              ; preds = %337
@@ -967,7 +967,7 @@ cab_strnlen.exit296.i:                            ; preds = %321
   %indvars.iv.next363.i = add nuw nsw i64 %indvars.iv362.i, 1
   %373 = load i16, ptr %110, align 2
   %374 = zext i16 %373 to i64
-  %375 = icmp ult i64 %indvars.iv.next363.i, %374
+  %375 = icmp samesign ult i64 %indvars.iv.next363.i, %374
   br i1 %375, label %.lr.ph336.i, label %._crit_edge337.i, !llvm.loop !12
 
 ._crit_edge337.i:                                 ; preds = %372, %.preheader.i
@@ -1611,7 +1611,7 @@ define internal noundef i32 @archive_read_format_cab_cleanup(ptr nocapture nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i16, ptr %7, align 8
   %13 = zext i16 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -1643,7 +1643,7 @@ define internal noundef i32 @archive_read_format_cab_cleanup(ptr nocapture nound
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %23 = load i16, ptr %19, align 2
   %24 = zext i16 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next33, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next33, %24
   br i1 %25, label %.lr.ph27, label %._crit_edge28.loopexit, !llvm.loop !16
 
 ._crit_edge28.loopexit:                           ; preds = %.lr.ph27
@@ -2996,7 +2996,7 @@ thread-pre-split.i:                               ; preds = %126, %122
   %173 = trunc i64 %171 to i32
   %174 = and i32 %173, 65535
   %175 = zext i16 %170 to i32
-  %176 = icmp ult i32 %174, %175
+  %176 = icmp samesign ult i32 %174, %175
   br i1 %176, label %177, label %178
 
 177:                                              ; preds = %.critedge.i
@@ -4669,7 +4669,7 @@ lzx_read_pre_tree.exit313.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %988 = zext i8 %987 to i32
   %989 = sub nsw i32 %972, %988
   store i32 %989, ptr %404, align 8
-  %990 = icmp ugt i32 %..i375.us.i.i.i, 255
+  %990 = icmp samesign ugt i32 %..i375.us.i.i.i, 255
   br i1 %990, label %.split.us.i.i.i, label %991
 
 991:                                              ; preds = %971
@@ -4783,7 +4783,7 @@ lzx_read_pre_tree.exit313.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
 
 1042:                                             ; preds = %1023, %1006
   %.0259.i.i.i = phi i32 [ %..i375.i.i.i, %1023 ], [ %..i.i.i.i, %1006 ]
-  %1043 = icmp ugt i32 %.0259.i.i.i, 255
+  %1043 = icmp samesign ugt i32 %.0259.i.i.i, 255
   br i1 %1043, label %.split.us.i.i.i, label %1044
 
 1044:                                             ; preds = %1042
@@ -5302,7 +5302,7 @@ lzx_decode.exit.i:                                ; preds = %.loopexit.i.i, %427
   %1278 = load i8, ptr %1277, align 8
   %1279 = icmp eq i8 %1278, 0
   %1280 = icmp ult i16 %1276, 11
-  %or.cond.i94.i = or i1 %1280, %1279
+  %or.cond.i94.i = select i1 %1279, i1 true, i1 %1280
   %.pre877.i = load ptr, ptr %225, align 8
   br i1 %or.cond.i94.i, label %lzx_translation.exit.i, label %.lr.ph.i95.i
 

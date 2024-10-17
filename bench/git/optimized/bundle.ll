@@ -1042,7 +1042,7 @@ for.inc:                                          ; preds = %for.body, %if.then5
   %26 = phi i32 [ %21, %for.body ], [ %.pre, %if.then59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = zext i32 %26 to i64
-  %cmp55 = icmp ult i64 %indvars.iv.next, %27
+  %cmp55 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %cmp55, label %for.bodythread-pre-split, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %for.body.lr.ph, %if.end50
@@ -1308,7 +1308,7 @@ for.inc.i:                                        ; preds = %skip_write_ref.i, %
   %ref_count.1.i = phi i32 [ %ref_count.042.i, %for.body.i ], [ %ref_count.2.i, %skip_write_ref.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %65 = zext i32 %64 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %65
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %65
   br i1 %cmp.i, label %for.body.i, label %write_bundle_refs.exit, !llvm.loop !14
 
 write_bundle_refs.exit:                           ; preds = %for.inc.i
@@ -1432,7 +1432,7 @@ if.end31.i:                                       ; preds = %if.then29.i, %for.b
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i49, 1
   %80 = load i32, ptr %pending, align 8
   %81 = zext i32 %80 to i64
-  %cmp25.i = icmp ult i64 %indvars.iv.next.i53, %81
+  %cmp25.i = icmp samesign ult i64 %indvars.iv.next.i53, %81
   br i1 %cmp25.i, label %for.body.i48, label %for.end.i, !llvm.loop !15
 
 for.end.i:                                        ; preds = %if.end31.i, %for.cond.preheader.i

@@ -394,7 +394,7 @@ define dso_local i32 @acpi_hw_disable_gpe_block(ptr nocapture readnone %0, ptr n
   %10 = add nuw nsw i64 %15, 1
   %11 = load i32, ptr %4, align 8
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %10, %12
+  %13 = icmp samesign ult i64 %10, %12
   br i1 %13, label %14, label %.loopexit, !llvm.loop !6
 
 14:                                               ; preds = %9, %7
@@ -440,7 +440,7 @@ define dso_local i32 @acpi_hw_clear_gpe_block(ptr nocapture noundef readnone %0,
   %10 = add nuw nsw i64 %15, 1
   %11 = load i32, ptr %4, align 8
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %10, %12
+  %13 = icmp samesign ult i64 %10, %12
   br i1 %13, label %14, label %.loopexit, !llvm.loop !9
 
 14:                                               ; preds = %9, %7
@@ -517,7 +517,7 @@ define dso_local i32 @acpi_hw_enable_runtime_gpe_block(ptr nocapture readnone %0
   %33 = add nuw nsw i64 %10, 1
   %34 = load i32, ptr %4, align 8
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %33, %35
+  %36 = icmp samesign ult i64 %33, %35
   br i1 %36, label %9, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %32, %28, %3
@@ -561,7 +561,7 @@ define internal i32 @acpi_hw_enable_wakeup_gpe_block(ptr nocapture readnone %0, 
   %10 = add nuw nsw i64 %15, 1
   %11 = load i32, ptr %4, align 8
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %10, %12
+  %13 = icmp samesign ult i64 %10, %12
   br i1 %13, label %14, label %.loopexit, !llvm.loop !11
 
 14:                                               ; preds = %9, %7
@@ -760,7 +760,7 @@ define internal noundef i32 @acpi_hw_get_gpe_block_status(ptr nocapture readnone
   %69 = add nuw nsw i64 %14, 1
   %70 = load i32, ptr %6, align 8
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %69, %71
+  %72 = icmp samesign ult i64 %69, %71
   br i1 %72, label %13, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %68, %3

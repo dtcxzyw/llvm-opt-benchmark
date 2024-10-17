@@ -945,7 +945,7 @@ define internal fastcc void @virtio_gpu_process_post_deps(ptr nocapture noundef 
   %21 = add nuw nsw i64 %10, 1
   %22 = load i32, ptr %7, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %21, %23
+  %24 = icmp samesign ult i64 %21, %23
   br i1 %24, label %.preheader, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %20, %4, %1

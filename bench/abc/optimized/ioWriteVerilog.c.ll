@@ -3196,7 +3196,7 @@ Io_WriteVerilogGetName.exit450:                   ; preds = %462, %._crit_edge.i
 
 .preheader531:                                    ; preds = %Io_WriteVerilogGetName.exit475
   %478 = trunc nuw nsw i64 %indvars.iv.next630 to i32
-  %479 = icmp ult i64 %indvars.iv629, 5
+  %479 = icmp samesign ult i64 %indvars.iv629, 5
   br i1 %479, label %.lr.ph577.preheader, label %.sink.split
 
 .lr.ph577.preheader:                              ; preds = %Io_WriteVerilogGetName.exit450, %.preheader531

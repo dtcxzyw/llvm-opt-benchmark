@@ -19418,7 +19418,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end5.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp3.i.i = icmp ugt i64 %and.i.i, 4080
+  %cmp3.i.i = icmp samesign ugt i64 %and.i.i, 4080
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i

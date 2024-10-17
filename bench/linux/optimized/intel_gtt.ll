@@ -802,7 +802,7 @@ define dso_local void @free_scratch(ptr nocapture noundef readonly %0) local_unn
   %17 = add nuw nsw i64 %8, 1
   %18 = load i8, ptr %6, align 1
   %19 = zext i8 %18 to i64
-  %20 = icmp ult i64 %8, %19
+  %20 = icmp samesign ult i64 %8, %19
   br i1 %20, label %7, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.thread, %1
@@ -977,7 +977,7 @@ define dso_local void @setup_private_pat(ptr noundef %0) local_unnamed_addr #1 a
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = or disjoint i32 %20, %23
-  %25 = icmp ugt i32 %24, 3141
+  %25 = icmp samesign ugt i32 %24, 3141
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %16
@@ -989,7 +989,7 @@ define dso_local void @setup_private_pat(ptr noundef %0) local_unnamed_addr #1 a
   br label %77
 
 27:                                               ; preds = %16
-  %28 = icmp ugt i32 %24, 3121
+  %28 = icmp samesign ugt i32 %24, 3121
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %27

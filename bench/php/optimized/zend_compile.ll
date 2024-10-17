@@ -927,21 +927,21 @@ define hidden range(i32 0, 256) i32 @zend_modifier_list_to_flags(i32 noundef %0,
   br i1 %or.cond30.not.not.i.us, label %25, label %zend_add_member_modifier.exit.thread
 
 25:                                               ; preds = %23
-  %or.cond31.not.not.i.us = icmp ult i32 %19, 128
+  %or.cond31.not.not.i.us = icmp samesign ult i32 %19, 128
   br i1 %or.cond31.not.not.i.us, label %zend_add_member_modifier.exit.us, label %zend_add_member_modifier.exit.thread
 
 zend_add_member_modifier.exit.us:                 ; preds = %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %3, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %.lr.ph.split.us, label %.loopexit
 
 29:                                               ; preds = %zend_add_member_modifier.exit
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %30 = load i32, ptr %3, align 8
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next38, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next38, %31
   br i1 %32, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %29
@@ -985,7 +985,7 @@ zend_add_member_modifier.exit.us:                 ; preds = %25
   br i1 %or.cond30.not.not.i, label %52, label %zend_add_member_modifier.exit.thread
 
 52:                                               ; preds = %50
-  %or.cond31.not.not.i = icmp ult i32 %46, 128
+  %or.cond31.not.not.i = icmp samesign ult i32 %46, 128
   br i1 %or.cond31.not.not.i, label %zend_add_member_modifier.exit, label %zend_add_member_modifier.exit.thread
 
 zend_add_member_modifier.exit:                    ; preds = %52
@@ -4982,7 +4982,7 @@ define hidden noundef zeroext i1 @zend_handle_encoding_declaration(ptr nocapture
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = load i32, ptr %2, align 8
   %71 = zext i32 %70 to i64
-  %.not63 = icmp ult i64 %indvars.iv.next, %71
+  %.not63 = icmp samesign ult i64 %indvars.iv.next, %71
   br i1 %.not63, label %6, label %.loopexit
 
 .loopexit:                                        ; preds = %69, %1, %25
@@ -5051,8 +5051,8 @@ define void @zend_set_function_arg_flags(ptr nocapture noundef %0) local_unnamed
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 100663296
   %.not24 = icmp ne i32 %26, 0
-  %27 = icmp ult i32 %.0.lcssa, 12
-  %or.cond = and i1 %.not24, %27
+  %27 = icmp samesign ult i32 %.0.lcssa, 12
+  %or.cond = select i1 %.not24, i1 %27, i1 false
   br i1 %or.cond, label %.lr.ph27, label %.critedge
 
 .lr.ph27:                                         ; preds = %22
@@ -6121,7 +6121,7 @@ tailrecurse:                                      ; preds = %139
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %343 = load i32, ptr %19, align 8
   %344 = zext i32 %343 to i64
-  %345 = icmp ult i64 %indvars.iv.next, %344
+  %345 = icmp samesign ult i64 %indvars.iv.next, %344
   br i1 %345, label %341, label %common.ret673
 
 346:                                              ; preds = %zend_check_stack_limit.exit
@@ -6735,7 +6735,7 @@ define hidden void @zend_compile_top_stmt(ptr noundef %0) local_unnamed_addr #0 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %4, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %12, label %7, label %zend_verify_namespace.exit
 
 13:                                               ; preds = %2
@@ -7587,7 +7587,7 @@ zend_begin_func_decl.exit:                        ; preds = %zend_register_seen_
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %424 = load i32, ptr %410, align 8
   %425 = zext i32 %424 to i64
-  %426 = icmp ult i64 %indvars.iv.next.i, %425
+  %426 = icmp samesign ult i64 %indvars.iv.next.i, %425
   br i1 %426, label %414, label %find_implicit_binds.exit
 
 find_implicit_binds.exit:                         ; preds = %414, %409
@@ -7796,7 +7796,7 @@ zend_is_auto_global.exit.i:                       ; preds = %.critedge2.i
   %indvars.iv.next.i213 = add nuw nsw i64 %indvars.iv.i210, 1
   %543 = load i32, ptr %470, align 8
   %544 = zext i32 %543 to i64
-  %545 = icmp ult i64 %indvars.iv.next.i213, %544
+  %545 = icmp samesign ult i64 %indvars.iv.next.i213, %544
   br i1 %545, label %479, label %compile_implicit_lexical_binds.exit
 
 compile_implicit_lexical_binds.exit:              ; preds = %525, %466, %475, %469, %435, %find_implicit_binds.exit, %468, %zend_begin_method_decl.exit
@@ -8298,7 +8298,7 @@ zend_is_valid_default_value.exit.thread.i:        ; preds = %771, %761, %760, %7
   br i1 %.not268.i, label %794, label %776
 
 776:                                              ; preds = %zend_is_valid_default_value.exit.thread.i
-  %777 = icmp ult i64 %indvars.iv452.i, %618
+  %777 = icmp samesign ult i64 %indvars.iv452.i, %618
   %778 = load i8, ptr %10, align 8
   %779 = icmp eq i8 %778, 1
   %or.cond9.i = select i1 %777, i1 %779, i1 false
@@ -8609,7 +8609,7 @@ zend_is_constructor.exit.i222:                    ; preds = %849
 924:                                              ; preds = %922, %918, %844
   %925 = load i32, ptr %577, align 8
   %926 = zext i32 %925 to i64
-  %927 = icmp ult i64 %indvars.iv.next453.i, %926
+  %927 = icmp samesign ult i64 %indvars.iv.next453.i, %926
   br i1 %927, label %632, label %._crit_edge.i223
 
 ._crit_edge.i223:                                 ; preds = %924, %609
@@ -8676,8 +8676,8 @@ zend_is_constructor.exit.i222:                    ; preds = %849
   %953 = load i32, ptr %952, align 8
   %954 = and i32 %953, 100663296
   %.not24.i.i228 = icmp ne i32 %954, 0
-  %955 = icmp ult i32 %.0.lcssa.i.i, 12
-  %or.cond.i300.i = and i1 %955, %.not24.i.i228
+  %955 = icmp samesign ult i32 %.0.lcssa.i.i, 12
+  %or.cond.i300.i = select i1 %.not24.i.i228, i1 %955, i1 false
   br i1 %or.cond.i300.i, label %.lr.ph27.i.i, label %zend_set_function_arg_flags.exit.i
 
 .lr.ph27.i.i:                                     ; preds = %950
@@ -8770,7 +8770,7 @@ zend_set_function_arg_flags.exit.i:               ; preds = %..critedge.loopexit
   %1002 = phi i32 [ %970, %969 ], [ %.pre459.i, %989 ]
   %indvars.iv.next456.i = add nuw nsw i64 %indvars.iv455.i, 1
   %1003 = zext i32 %1002 to i64
-  %1004 = icmp ult i64 %indvars.iv.next456.i, %1003
+  %1004 = icmp samesign ult i64 %indvars.iv.next456.i, %1003
   br i1 %1004, label %969, label %zend_compile_params.exit
 
 zend_compile_params.exit:                         ; preds = %1001, %604, %zend_set_function_arg_flags.exit.i
@@ -8977,7 +8977,7 @@ zend_compile_implicit_closure_uses.exit:          ; preds = %1056, %1038
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %1099 = load i32, ptr %1060, align 8
   %1100 = zext i32 %1099 to i64
-  %1101 = icmp ult i64 %indvars.iv.next59.i, %1100
+  %1101 = icmp samesign ult i64 %indvars.iv.next59.i, %1100
   br i1 %1101, label %1067, label %zend_compile_closure_uses.exit
 
 zend_compile_closure_uses.exit:                   ; preds = %._crit_edge.i243, %1059
@@ -9768,7 +9768,7 @@ zend_initialize_class_data.exit:                  ; preds = %.loopexit, %197
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %270 = load i32, ptr %256, align 8
   %271 = zext i32 %270 to i64
-  %272 = icmp ult i64 %indvars.iv.next.i, %271
+  %272 = icmp samesign ult i64 %indvars.iv.next.i, %271
   br i1 %272, label %263, label %zend_compile_implements.exit
 
 zend_compile_implements.exit:                     ; preds = %263, %254
@@ -10538,7 +10538,7 @@ zend_is_unticked_stmt.exit.thread:                ; preds = %zend_is_unticked_st
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %35, align 8
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next, %42
   br i1 %43, label %38, label %zend_compile_stmt_list.exit
 
 44:                                               ; preds = %zend_is_unticked_stmt.exit.thread
@@ -11878,14 +11878,14 @@ zend_const_expr_to_zval.exit:                     ; preds = %161, %170
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %173 = load i32, ptr %110, align 8
   %174 = zext i32 %173 to i64
-  %175 = icmp ult i64 %indvars.iv.next219, %174
+  %175 = icmp samesign ult i64 %indvars.iv.next219, %174
   br i1 %175, label %115, label %.loopexit185
 
 .loopexit185:                                     ; preds = %zend_const_expr_to_zval.exit, %107, %106, %67, %78, %79, %71
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %176 = load i32, ptr %20, align 8
   %177 = zext i32 %176 to i64
-  %178 = icmp ult i64 %indvars.iv.next221, %177
+  %178 = icmp samesign ult i64 %indvars.iv.next221, %177
   br i1 %178, label %23, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit185
@@ -11896,7 +11896,7 @@ zend_const_expr_to_zval.exit:                     ; preds = %161, %170
   %179 = phi i32 [ %.pre226, %._crit_edge.loopexit ], [ %15, %14 ]
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %180 = zext i32 %179 to i64
-  %181 = icmp ult i64 %indvars.iv.next224, %180
+  %181 = icmp samesign ult i64 %indvars.iv.next224, %180
   br i1 %181, label %14, label %._crit_edge202
 
 ._crit_edge202:                                   ; preds = %._crit_edge, %5
@@ -12525,7 +12525,7 @@ tailrecurse.backedge:                             ; preds = %46, %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %49, align 8
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next, %56
   br i1 %57, label %52, label %.critedge
 
 58:                                               ; preds = %47
@@ -12563,7 +12563,7 @@ tailrecurse.backedge:                             ; preds = %46, %76
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %73 = load i32, ptr %62, align 8
   %74 = zext i32 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next122, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next122, %74
   br i1 %75, label %65, label %.critedge
 
 76:                                               ; preds = %58
@@ -13022,7 +13022,7 @@ zend_are_intersection_types_redundant.exit:       ; preds = %._crit_edge.i, %zen
   %136 = load i32, ptr %26, align 8
   %137 = add i32 %136, -1
   %138 = zext i32 %137 to i64
-  %139 = icmp ult i64 %135, %138
+  %139 = icmp samesign ult i64 %135, %138
   br i1 %139, label %56, label %.loopexit
 
 140:                                              ; preds = %32
@@ -13123,7 +13123,7 @@ zend_are_intersection_types_redundant.exit:       ; preds = %._crit_edge.i, %zen
   %indvars.iv.next623 = add nuw nsw i64 %indvars.iv622, 1
   %182 = load i32, ptr %14, align 8
   %183 = zext i32 %182 to i64
-  %184 = icmp ult i64 %indvars.iv.next623, %183
+  %184 = icmp samesign ult i64 %indvars.iv.next623, %183
   br i1 %184, label %32, label %._crit_edge594
 
 ._crit_edge594:                                   ; preds = %.loopexit
@@ -13336,7 +13336,7 @@ thread-pre-split:                                 ; preds = %279
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %295 = load i32, ptr %228, align 8
   %296 = zext i32 %295 to i64
-  %297 = icmp ult i64 %indvars.iv.next, %296
+  %297 = icmp samesign ult i64 %indvars.iv.next, %296
   br i1 %297, label %258, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %290
@@ -13455,7 +13455,7 @@ thread-pre-split:                                 ; preds = %279
   unreachable
 
 343:                                              ; preds = %.thread.thread.thread
-  %.not495 = icmp ult i32 %.0, 131072
+  %.not495 = icmp samesign ult i32 %.0, 131072
   br i1 %.not495, label %.thread526, label %344
 
 344:                                              ; preds = %343
@@ -13964,7 +13964,7 @@ zend_is_intersection_type_redundant_by_single_type.exit: ; preds = %42
   %58 = load i32, ptr %0, align 8
   %59 = add i32 %58, -1
   %60 = zext i32 %59 to i64
-  %61 = icmp ult i64 %57, %60
+  %61 = icmp samesign ult i64 %57, %60
   br i1 %61, label %12, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %56, %3
@@ -15491,7 +15491,7 @@ zend_compile_expr.exit:                           ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %13, align 8
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %29, label %16, label %zend_compile_expr_list.exit
 
 zend_compile_expr_list.exit:                      ; preds = %zend_compile_expr.exit, %.preheader23, %1
@@ -15617,7 +15617,7 @@ zend_compile_expr.exit19:                         ; preds = %78
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %89 = load i32, ptr %75, align 8
   %90 = zext i32 %89 to i64
-  %91 = icmp ult i64 %indvars.iv.next40, %90
+  %91 = icmp samesign ult i64 %indvars.iv.next40, %90
   br i1 %91, label %78, label %zend_compile_expr_list.exit12
 
 zend_compile_expr_list.exit12:                    ; preds = %zend_compile_expr.exit19, %.preheader22, %zend_emit_jump.exit
@@ -15684,7 +15684,7 @@ zend_compile_expr.exit21:                         ; preds = %107
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %118 = load i32, ptr %104, align 8
   %119 = zext i32 %118 to i64
-  %120 = icmp ult i64 %indvars.iv.next43, %119
+  %120 = icmp samesign ult i64 %indvars.iv.next43, %119
   br i1 %120, label %107, label %zend_compile_expr_list.exit15
 
 zend_compile_expr_list.exit15:                    ; preds = %zend_compile_expr.exit21, %.preheader, %zend_update_jump_target_to_next.exit
@@ -16619,7 +16619,7 @@ zend_update_jump_target_to_next.exit:             ; preds = %106, %104, %108
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = load i32, ptr %3, align 8
   %113 = zext i32 %112 to i64
-  %114 = icmp ult i64 %indvars.iv.next, %113
+  %114 = icmp samesign ult i64 %indvars.iv.next, %113
   br i1 %114, label %13, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %zend_update_jump_target_to_next.exit
@@ -16657,7 +16657,7 @@ zend_update_jump_target_to_next.exit39:           ; preds = %127, %129
   %131 = load i32, ptr %3, align 8
   %132 = add i32 %131, -1
   %133 = zext i32 %132 to i64
-  %134 = icmp ult i64 %indvars.iv.next53, %133
+  %134 = icmp samesign ult i64 %indvars.iv.next53, %133
   br i1 %134, label %.lr.ph45, label %._crit_edge46
 
 ._crit_edge46:                                    ; preds = %zend_update_jump_target_to_next.exit39
@@ -16816,7 +16816,7 @@ zend_begin_loop.exit:                             ; preds = %zend_check_stack_li
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %79 = load i32, ptr %49, align 8
   %80 = zext i32 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next.i, %80
+  %81 = icmp samesign ult i64 %indvars.iv.next.i, %80
   br i1 %81, label %52, label %determine_switch_jumptable_type.exit
 
 determine_switch_jumptable_type.exit:             ; preds = %.critedge.i
@@ -17086,7 +17086,7 @@ zend_add_literal.exit:                            ; preds = %183, %186, %192
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %225 = load i32, ptr %49, align 8
   %226 = zext i32 %225 to i64
-  %227 = icmp ult i64 %indvars.iv.next, %226
+  %227 = icmp samesign ult i64 %indvars.iv.next, %226
   br i1 %227, label %127, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %224
@@ -17220,7 +17220,7 @@ zend_update_jump_target_to_next.exit.us:          ; preds = %290, %292, %277, %2
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %294 = load i32, ptr %49, align 8
   %295 = zext i32 %294 to i64
-  %296 = icmp ult i64 %indvars.iv.next146, %295
+  %296 = icmp samesign ult i64 %indvars.iv.next146, %295
   br i1 %296, label %.lr.ph134.split.us, label %._crit_edge135
 
 .lr.ph134.split:                                  ; preds = %.lr.ph134, %354
@@ -17323,7 +17323,7 @@ zend_update_jump_target_to_next.exit118:          ; preds = %346, %344
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %355 = load i32, ptr %49, align 8
   %356 = zext i32 %355 to i64
-  %357 = icmp ult i64 %indvars.iv.next143, %356
+  %357 = icmp samesign ult i64 %indvars.iv.next143, %356
   br i1 %357, label %.lr.ph134.split, label %._crit_edge135
 
 ._crit_edge135:                                   ; preds = %354, %zend_update_jump_target_to_next.exit.us, %zend_emit_jump.exit
@@ -18236,7 +18236,7 @@ zend_emit_jump.exit165:                           ; preds = %._crit_edge.i.i.i16
 429:                                              ; preds = %394, %zend_emit_jump.exit165
   %430 = load i32, ptr %157, align 8
   %431 = zext i32 %430 to i64
-  %432 = icmp ult i64 %indvars.iv.next, %431
+  %432 = icmp samesign ult i64 %indvars.iv.next, %431
   br i1 %432, label %170, label %.preheader191
 
 .lr.ph203:                                        ; preds = %.lr.ph203.preheader, %zend_update_jump_target_to_next.exit
@@ -18270,7 +18270,7 @@ zend_update_jump_target_to_next.exit:             ; preds = %444, %446
   %448 = load i32, ptr %157, align 8
   %449 = add i32 %448, -1
   %450 = zext i32 %449 to i64
-  %451 = icmp ult i64 %indvars.iv.next222, %450
+  %451 = icmp samesign ult i64 %indvars.iv.next222, %450
   br i1 %451, label %.lr.ph203, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %zend_update_jump_target_to_next.exit, %.preheader191
@@ -18352,7 +18352,7 @@ zend_emit_jump.exit170:                           ; preds = %._crit_edge.i.i.i16
 488:                                              ; preds = %.critedge146, %zend_emit_jump.exit170
   %489 = load i32, ptr %10, align 8
   %490 = zext i32 %489 to i64
-  %491 = icmp ult i64 %indvars.iv.next225, %490
+  %491 = icmp samesign ult i64 %indvars.iv.next225, %490
   br i1 %491, label %132, label %.preheader
 
 .lr.ph208:                                        ; preds = %.preheader, %zend_update_jump_target_to_next.exit172
@@ -18385,7 +18385,7 @@ zend_update_jump_target_to_next.exit172:          ; preds = %503, %505
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %507 = load i32, ptr %10, align 8
   %508 = zext i32 %507 to i64
-  %509 = icmp ult i64 %indvars.iv.next228, %508
+  %509 = icmp samesign ult i64 %indvars.iv.next228, %508
   br i1 %509, label %.lr.ph208, label %._crit_edge209
 
 ._crit_edge209:                                   ; preds = %zend_update_jump_target_to_next.exit172, %100, %115, %.preheader
@@ -18796,7 +18796,7 @@ thread-pre-split:                                 ; preds = %36
   %93 = load i16, ptr %88, align 8
   %.not.i60 = icmp eq i16 %93, 538
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %94 = icmp ult i64 %indvars.iv.next.i, %86
+  %94 = icmp samesign ult i64 %indvars.iv.next.i, %86
   %or.cond26.i = select i1 %.not.i60, i1 %94, i1 false
   br i1 %or.cond26.i, label %.lr.ph.split.i, label %.loopexit
 
@@ -18842,7 +18842,7 @@ thread-pre-split:                                 ; preds = %36
   %113 = load i16, ptr %108, align 8
   %.not.i65 = icmp eq i16 %113, 538
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i64, 1
-  %114 = icmp ult i64 %indvars.iv.next.i66, %106
+  %114 = icmp samesign ult i64 %indvars.iv.next.i66, %106
   %or.cond26.i67 = select i1 %.not.i65, i1 %114, i1 false
   br i1 %or.cond26.i67, label %.lr.ph.split.i63, label %.loopexit77
 
@@ -18934,7 +18934,7 @@ zend_is_first_statement.exit:                     ; preds = %.lr.ph.split.i, %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %147 = load i32, ptr %11, align 8
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next, %148
   br i1 %149, label %18, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %zend_is_first_statement.exit, %1
@@ -19862,7 +19862,7 @@ define internal fastcc void @zend_compile_use_trait(ptr nocapture readonly %.8.v
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %6, align 8
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %15, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %29, %0
@@ -20019,7 +20019,7 @@ zend_resolve_const_class_name_reference.exit:     ; preds = %85, %108, %116
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %126 = load i32, ptr %60, align 8
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next.i, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next.i, %127
   br i1 %128, label %85, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %zend_resolve_const_class_name_reference.exit, %zend_compile_method_ref.exit.i
@@ -20163,7 +20163,7 @@ zend_compile_trait_alias.exit:                    ; preds = %.preheader.i.i50, %
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %190 = load i32, ptr %50, align 8
   %191 = zext i32 %190 to i64
-  %192 = icmp ult i64 %indvars.iv.next13, %191
+  %192 = icmp samesign ult i64 %indvars.iv.next13, %191
   br i1 %192, label %53, label %.loopexit
 
 .loopexit:                                        ; preds = %189, %.preheader, %._crit_edge
@@ -20255,7 +20255,7 @@ define internal fastcc void @zend_compile_group_use(ptr nocapture noundef nonnul
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %8, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %16, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %50, %1
@@ -20657,7 +20657,7 @@ switch.lookup302:                                 ; preds = %169
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %197 = load i32, ptr %20, align 8
   %198 = zext i32 %197 to i64
-  %199 = icmp ult i64 %indvars.iv.next, %198
+  %199 = icmp samesign ult i64 %indvars.iv.next, %198
   br i1 %199, label %28, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %196, %zend_get_import_ht.exit
@@ -20853,7 +20853,7 @@ zend_register_seen_symbol.exit:                   ; preds = %89, %92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = load i32, ptr %7, align 8
   %95 = zext i32 %94 to i64
-  %96 = icmp ult i64 %indvars.iv.next, %95
+  %96 = icmp samesign ult i64 %indvars.iv.next, %95
   br i1 %96, label %16, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %zend_register_seen_symbol.exit, %1
@@ -26846,7 +26846,7 @@ zval_make_interned_string.exit:                   ; preds = %108, %120
   %153 = phi i32 [ %.pre.i117, %..critedge2_crit_edge.i ], [ %139, %144 ]
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
   %154 = zext i32 %153 to i64
-  %155 = icmp ult i64 %indvars.iv.next55.i, %154
+  %155 = icmp samesign ult i64 %indvars.iv.next55.i, %154
   br i1 %155, label %138, label %zend_get_arg_num.exit
 
 156:                                              ; preds = %.critedge4.i, %.lr.ph.i
@@ -27671,7 +27671,7 @@ zend_add_literal_string.exit:                     ; preds = %._crit_edge.i.i81, 
   store i32 %.sink, ptr %557, align 8
   %558 = load i32, ptr %81, align 8
   %559 = zext i32 %558 to i64
-  %560 = icmp ult i64 %indvars.iv.next, %559
+  %560 = icmp samesign ult i64 %indvars.iv.next, %559
   br i1 %560, label %86, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %556
@@ -28533,7 +28533,7 @@ find_frameless_function_offset.exit:              ; preds = %4, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %23 = load i32, ptr %19, align 8
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv, %24
+  %25 = icmp samesign ult i64 %indvars.iv, %24
   br i1 %25, label %26, label %38
 
 26:                                               ; preds = %22
@@ -29725,7 +29725,7 @@ zend_compile_expr.exit:                           ; preds = %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = load i32, ptr %6, align 8
   %84 = zext i32 %83 to i64
-  %85 = icmp ult i64 %indvars.iv.next, %84
+  %85 = icmp samesign ult i64 %indvars.iv.next, %84
   br i1 %85, label %67, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %zend_compile_expr.exit, %zend_compile_init_user_func.exit
@@ -31062,7 +31062,7 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_array(ptr noundef %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %9, align 8
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next, %43
   br i1 %44, label %12, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %41
@@ -31383,7 +31383,7 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_array(ptr noundef %0
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %197 = load i32, ptr %9, align 8
   %198 = zext i32 %197 to i64
-  %199 = icmp ult i64 %indvars.iv.next252, %198
+  %199 = icmp samesign ult i64 %indvars.iv.next252, %198
   br i1 %199, label %52, label %.loopexit211
 
 .loopexit211:                                     ; preds = %.loopexit, %47, %._crit_edge, %196, %168, %91, %.thread
@@ -32390,7 +32390,7 @@ define internal fastcc zeroext i1 @zend_propagate_list_refs(ptr nocapture nounde
   %.1 = phi i8 [ %24, %18 ], [ %.017, %5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %5, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %25
@@ -32768,7 +32768,7 @@ zend_compile_expr.exit66:                         ; preds = %144
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %156 = load i32, ptr %9, align 8
   %157 = zext i32 %156 to i64
-  %158 = icmp ult i64 %indvars.iv.next, %157
+  %158 = icmp samesign ult i64 %indvars.iv.next, %157
   br i1 %158, label %44, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %155
@@ -37871,7 +37871,7 @@ zend_add_literal.exit79:                          ; preds = %214, %217, %223
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %244 = load i32, ptr %9, align 8
   %245 = zext i32 %244 to i64
-  %246 = icmp ult i64 %indvars.iv.next, %245
+  %246 = icmp samesign ult i64 %indvars.iv.next, %245
   br i1 %246, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %243
@@ -38985,7 +38985,7 @@ zend_compile_rope_add.exit:                       ; preds = %zend_add_literal.ex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %250 = load i32, ptr %4, align 8
   %251 = zext i32 %250 to i64
-  %252 = icmp ult i64 %indvars.iv.next, %251
+  %252 = icmp samesign ult i64 %indvars.iv.next, %251
   br i1 %252, label %16, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %249
@@ -39555,7 +39555,7 @@ zend_compile_expr.exit:                           ; preds = %2
   %indvars.iv.next.i178 = add nuw nsw i64 %indvars.iv.i177, 1
   %54 = load i32, ptr %43, align 8
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next.i178, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next.i178, %55
   br i1 %56, label %46, label %.loopexit.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %53
@@ -39566,7 +39566,7 @@ zend_compile_expr.exit:                           ; preds = %2
   %57 = phi i32 [ %.pre.i, %.loopexit.loopexit.i ], [ %38, %.preheader.i ], [ %38, %.lr.ph34.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %58 = zext i32 %57 to i64
-  %.not36.i = icmp ult i64 %indvars.iv.next40.i, %58
+  %.not36.i = icmp samesign ult i64 %indvars.iv.next40.i, %58
   br i1 %.not36.i, label %.lr.ph34.i, label %can_match_use_jumptable.exit
 
 can_match_use_jumptable.exit.loopexit:            ; preds = %50, %46
@@ -39874,7 +39874,7 @@ zend_emit_op.exit:                                ; preds = %178, %._crit_edge.i
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %201 = load i32, ptr %118, align 8
   %202 = zext i32 %201 to i64
-  %203 = icmp ult i64 %indvars.iv.next323, %202
+  %203 = icmp samesign ult i64 %indvars.iv.next323, %202
   br i1 %203, label %121, label %.loopexit267.loopexit
 
 .loopexit267.loopexit:                            ; preds = %zend_emit_op.exit
@@ -39886,7 +39886,7 @@ zend_emit_op.exit:                                ; preds = %178, %._crit_edge.i
   %.1146 = phi i32 [ %.0145282, %112 ], [ %.0145282, %.preheader266 ], [ %200, %.loopexit267.loopexit ]
   %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
   %205 = zext i32 %204 to i64
-  %206 = icmp ult i64 %indvars.iv.next326, %205
+  %206 = icmp samesign ult i64 %indvars.iv.next326, %205
   br i1 %206, label %112, label %._crit_edge285
 
 ._crit_edge285:                                   ; preds = %.loopexit267, %._crit_edge.thread
@@ -40185,7 +40185,7 @@ zend_update_jump_target_to_next.exit184:          ; preds = %340, %338, %.lr.ph2
   %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
   %360 = load i32, ptr %299, align 8
   %361 = zext i32 %360 to i64
-  %362 = icmp ult i64 %indvars.iv.next329, %361
+  %362 = icmp samesign ult i64 %indvars.iv.next329, %361
   br i1 %362, label %.lr.ph288.split, label %.loopexit
 
 363:                                              ; preds = %292
@@ -40391,7 +40391,7 @@ zend_emit_jump.exit202:                           ; preds = %._crit_edge.i.i.i19
   %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 1
   %466 = load i32, ptr %24, align 8
   %467 = zext i32 %466 to i64
-  %468 = icmp ult i64 %indvars.iv.next332, %467
+  %468 = icmp samesign ult i64 %indvars.iv.next332, %467
   br i1 %468, label %292, label %._crit_edge296
 
 ._crit_edge296:                                   ; preds = %zend_emit_jump.exit202
@@ -40443,7 +40443,7 @@ zend_update_jump_target_to_next.exit204:          ; preds = %485, %487
   %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
   %489 = load i32, ptr %24, align 8
   %490 = zext i32 %489 to i64
-  %491 = icmp ult i64 %indvars.iv.next334, %490
+  %491 = icmp samesign ult i64 %indvars.iv.next334, %490
   br i1 %491, label %.lr.ph300, label %._crit_edge301
 
 ._crit_edge301:                                   ; preds = %zend_update_jump_target_to_next.exit204, %._crit_edge296.thread

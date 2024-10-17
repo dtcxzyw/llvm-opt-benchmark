@@ -1833,7 +1833,7 @@ define hidden noundef zeroext i1 @_ZN14G1BarrierSetC218is_g1_pre_val_loadEP4Node
 45:                                               ; preds = %39, %34, %36
   %.1 = phi i32 [ %35, %34 ], [ %.01622, %36 ], [ %spec.select, %39 ]
   %.sroa.3.021.add = add nuw nsw i64 %.sroa.3.021.idx, 8
-  %46 = icmp ult i64 %.sroa.3.021.idx, 16
+  %46 = icmp samesign ult i64 %.sroa.3.021.idx, 16
   br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %45
@@ -1927,7 +1927,7 @@ define hidden noundef zeroext i1 @_ZNK14G1BarrierSetC222is_gc_pre_barrier_nodeEP
 46:                                               ; preds = %40, %37, %35
   %.1.i = phi i32 [ %36, %35 ], [ %.01622.i, %37 ], [ %spec.select.i, %40 ]
   %.sroa.3.021.add.i = add nuw nsw i64 %.sroa.3.021.idx.i, 8
-  %47 = icmp ult i64 %.sroa.3.021.idx.i, 16
+  %47 = icmp samesign ult i64 %.sroa.3.021.idx.i, 16
   br i1 %47, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %46
@@ -2021,7 +2021,7 @@ define hidden void @_ZNK14G1BarrierSetC220eliminate_gc_barrierEP16PhaseMacroExpa
 47:                                               ; preds = %41, %38, %36
   %.1.i = phi i32 [ %37, %36 ], [ %.01622.i, %38 ], [ %spec.select.i, %41 ]
   %.sroa.3.021.add.i = add nuw nsw i64 %.sroa.3.021.idx.i, 8
-  %48 = icmp ult i64 %.sroa.3.021.idx.i, 16
+  %48 = icmp samesign ult i64 %.sroa.3.021.idx.i, 16
   br i1 %48, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %47
@@ -2395,7 +2395,7 @@ define hidden noundef ptr @_ZNK14G1BarrierSetC220step_over_gc_barrierEP4Node(ptr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = load i32, ptr %24, align 8
   %77 = zext i32 %76 to i64
-  %78 = icmp ult i64 %indvars.iv.next, %77
+  %78 = icmp samesign ult i64 %indvars.iv.next, %77
   br i1 %78, label %30, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %75, %.lr.ph63, %18, %23
@@ -2404,7 +2404,7 @@ define hidden noundef ptr @_ZNK14G1BarrierSetC220step_over_gc_barrierEP4Node(ptr
   %79 = getelementptr inbounds i8, ptr %.4, i64 24
   %80 = load i32, ptr %79, align 8
   %81 = zext i32 %80 to i64
-  %82 = icmp ult i64 %indvars.iv.next67, %81
+  %82 = icmp samesign ult i64 %indvars.iv.next67, %81
   br i1 %82, label %.lr.ph63, label %.loopexit55, !llvm.loop !10
 
 .loopexit55:                                      ; preds = %.loopexit, %2, %5, %10, %71

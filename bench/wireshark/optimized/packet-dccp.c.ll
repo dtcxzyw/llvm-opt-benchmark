@@ -909,7 +909,7 @@ proto_item_set_hidden.exit604:                    ; preds = %215, %221, %224
 
 278:                                              ; preds = %275, %275
   %279 = add nuw nsw i32 %.0534, 4
-  %280 = icmp ult i32 %102, %279
+  %280 = icmp samesign ult i32 %102, %279
   br i1 %280, label %281, label %285
 
 281:                                              ; preds = %278
@@ -956,7 +956,7 @@ proto_item_set_hidden.exit604:                    ; preds = %215, %221, %224
 
 306:                                              ; preds = %275
   %307 = add nuw nsw i32 %.0534, 12
-  %308 = icmp ult i32 %102, %307
+  %308 = icmp samesign ult i32 %102, %307
   br i1 %308, label %309, label %311
 
 309:                                              ; preds = %306
@@ -1086,7 +1086,7 @@ proto_item_set_hidden.exit607:                    ; preds = %321, %318, %314, %3
 
 376:                                              ; preds = %374
   %377 = add nuw nsw i32 %.0534, 8
-  %378 = icmp ult i32 %102, %377
+  %378 = icmp samesign ult i32 %102, %377
   br i1 %378, label %379, label %383
 
 379:                                              ; preds = %376
@@ -1180,7 +1180,7 @@ proto_item_set_hidden.exit610:                    ; preds = %393, %390, %386, %3
 
 425:                                              ; preds = %374
   %426 = add nuw nsw i32 %.0534, 4
-  %427 = icmp ult i32 %102, %426
+  %427 = icmp samesign ult i32 %102, %426
   br i1 %427, label %428, label %432
 
 428:                                              ; preds = %425
@@ -1276,7 +1276,7 @@ proto_item_set_hidden.exit613:                    ; preds = %443, %440, %436, %4
 
 476:                                              ; preds = %275
   %477 = add nuw nsw i32 %.0534, 4
-  %478 = icmp ult i32 %102, %477
+  %478 = icmp samesign ult i32 %102, %477
   br i1 %478, label %479, label %481
 
 479:                                              ; preds = %476
@@ -1414,7 +1414,7 @@ proto_item_set_hidden.exit616:                    ; preds = %491, %488, %484, %4
 
 560:                                              ; preds = %275, %275, %275, %275
   %561 = add nuw nsw i32 %.0534, 8
-  %562 = icmp ult i32 %102, %561
+  %562 = icmp samesign ult i32 %102, %561
   br i1 %562, label %563, label %567
 
 563:                                              ; preds = %560

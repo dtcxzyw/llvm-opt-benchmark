@@ -608,7 +608,7 @@ entry:
 if.end:                                           ; preds = %entry
   %sub = add i64 %blocksize, -1
   %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %blocksize)
-  %cmp2 = icmp ult i64 %0, 2
+  %cmp2 = icmp samesign ult i64 %0, 2
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end

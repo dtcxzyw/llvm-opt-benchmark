@@ -167,7 +167,7 @@ define internal range(i32 -1, 31) i32 @archive_read_format_rar_bid(ptr noundef %
 
 25:                                               ; preds = %22
   %26 = lshr i64 %.022, 1
-  %27 = icmp ult i64 %.022, 128
+  %27 = icmp samesign ult i64 %.022, 128
   br i1 %27, label %.loopexit, label %19, !llvm.loop !5
 
 28:                                               ; preds = %22
@@ -313,7 +313,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_rar_read_header(ptr n
 
 40:                                               ; preds = %37
   %41 = lshr i64 %.0.i, 1
-  %42 = icmp ult i64 %.0.i, 128
+  %42 = icmp samesign ult i64 %.0.i, 128
   br i1 %42, label %skip_sfx.exit.thread, label %34, !llvm.loop !8
 
 43:                                               ; preds = %37
@@ -3085,7 +3085,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_exttime(ptr noundef nonnull re
   %67 = zext nneg i32 %56 to i64
   %68 = getelementptr i8, ptr %scevgep, i64 %67
   %scevgep64 = getelementptr i8, ptr %68, i64 -1
-  %.cmp = icmp ugt i32 %64, 9999999
+  %.cmp = icmp samesign ugt i32 %64, 9999999
   %69 = zext i1 %.cmp to i32
   br label %._crit_edge
 
@@ -3581,7 +3581,7 @@ thread-pre-split248:                              ; preds = %42, %40
 90:                                               ; preds = %89
   %91 = and i32 %51, 31
   %92 = add nuw nsw i32 %91, 1
-  %93 = icmp ugt i32 %91, 15
+  %93 = icmp samesign ugt i32 %91, 15
   %94 = mul nuw nsw i32 %91, 3
   %95 = add nsw i32 %94, -29
   %.0206 = select i1 %93, i32 %95, i32 %92
@@ -3767,7 +3767,7 @@ thread-pre-split250:                              ; preds = %149, %146
   %.0203258 = phi i32 [ 0, %.lr.ph.preheader ], [ %183, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %183 = add nuw nsw i32 %.0203258, 1
-  %184 = icmp ult i32 %183, %177
+  %184 = icmp samesign ult i32 %183, %177
   %185 = icmp slt i64 %indvars.iv, 19
   %186 = and i1 %184, %185
   br i1 %186, label %.lr.ph, label %.loopexit256.loopexit, !llvm.loop !28
@@ -3913,7 +3913,7 @@ thread-pre-split250:                              ; preds = %149, %146
   store i8 %load_initial, ptr %249, align 1
   %indvars.iv.next285 = add nsw i64 %indvars.iv284, 1
   %250 = add nuw nsw i32 %.1204265, 1
-  %251 = icmp ult i32 %250, %246
+  %251 = icmp samesign ult i32 %250, %246
   %252 = icmp slt i64 %indvars.iv284, 403
   %253 = and i1 %251, %252
   br i1 %253, label %.lr.ph267, label %.loopexit.loopexit, !llvm.loop !30
@@ -3987,7 +3987,7 @@ thread-pre-split250:                              ; preds = %149, %146
   %.2205261 = phi i32 [ 0, %.lr.ph263.preheader ], [ %285, %.lr.ph263 ]
   %indvars.iv.next278 = add nsw i64 %indvars.iv277, 1
   %285 = add nuw nsw i32 %.2205261, 1
-  %286 = icmp ult i32 %285, %278
+  %286 = icmp samesign ult i32 %285, %278
   %287 = icmp slt i64 %indvars.iv277, 403
   %288 = and i1 %286, %287
   br i1 %288, label %.lr.ph263, label %.loopexit.loopexit270, !llvm.loop !31
@@ -5882,7 +5882,7 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
 131:                                              ; preds = %._crit_edge.i27, %123
   %indvars.iv.i = phi i64 [ 0, %123 ], [ %indvars.iv.next.i, %._crit_edge.i27 ]
   %.05876.i = phi ptr [ %124, %123 ], [ %.1.lcssa.i28, %._crit_edge.i27 ]
-  %132 = icmp ult i64 %indvars.iv.i, %125
+  %132 = icmp samesign ult i64 %indvars.iv.i, %125
   br i1 %132, label %.lr.ph.preheader.i, label %._crit_edge.i27
 
 .lr.ph.preheader.i:                               ; preds = %131
@@ -5910,13 +5910,13 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
   %143 = tail call i32 @llvm.abs.i32(i32 %142, i1 true)
   %144 = add nsw i32 %142, %139
   %145 = tail call i32 @llvm.abs.i32(i32 %144, i1 true)
-  %146 = icmp ugt i32 %140, %143
-  %147 = icmp ugt i32 %140, %145
+  %146 = icmp samesign ugt i32 %140, %143
+  %147 = icmp samesign ugt i32 %140, %145
   %or.cond70.i = select i1 %146, i1 true, i1 %147
   br i1 %or.cond70.i, label %148, label %150
 
 148:                                              ; preds = %133
-  %.not68.i = icmp ugt i32 %143, %145
+  %.not68.i = icmp samesign ugt i32 %143, %145
   %149 = select i1 %.not68.i, i8 %137, i8 %135
   br label %150
 
@@ -5929,7 +5929,7 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
   store i8 %153, ptr %154, align 1
   %155 = getelementptr inbounds i8, ptr %.06173.i, i64 3
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 3
-  %156 = icmp ult i64 %indvars.iv.next81.i, %125
+  %156 = icmp samesign ult i64 %indvars.iv.next81.i, %125
   br i1 %156, label %.lr.ph.i32, label %._crit_edge.i27, !llvm.loop !49
 
 ._crit_edge.i27:                                  ; preds = %150, %131
@@ -7137,7 +7137,7 @@ membr_bits.exit29:                                ; preds = %78, %.membr_fill.ex
   %91 = lshr i64 %89, %90
   %92 = trunc i64 %91 to i32
   %93 = and i32 %92, 255
-  %94 = icmp ugt i32 %93, 15
+  %94 = icmp samesign ugt i32 %93, 15
   br i1 %94, label %membr_bits.exit19, label %membr_bits.exit29.thread
 
 membr_bits.exit29.thread:                         ; preds = %membr_fill.exit.thread.i28, %66, %membr_bits.exit29

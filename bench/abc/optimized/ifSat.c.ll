@@ -1325,7 +1325,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   %indvars.iv1244 = phi i64 [ 0, %141 ], [ %indvars.iv.next1245, %.loopexit461 ]
   %indvars.iv1238 = phi i64 [ 1, %141 ], [ %indvars.iv.next1239, %.loopexit461 ]
   %indvars.iv.next1245 = add nuw nsw i64 %indvars.iv1244, 1
-  %145 = icmp ult i64 %indvars.iv1244, 3
+  %145 = icmp samesign ult i64 %indvars.iv1244, 3
   br i1 %145, label %.lr.ph944, label %.loopexit461
 
 .lr.ph944:                                        ; preds = %144
@@ -1667,7 +1667,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   %indvars.iv1196 = phi i64 [ 0, %242 ], [ %indvars.iv.next1197, %.loopexit471 ]
   %indvars.iv1190 = phi i64 [ 1, %242 ], [ %indvars.iv.next1191, %.loopexit471 ]
   %indvars.iv.next1197 = add nuw nsw i64 %indvars.iv1196, 1
-  %246 = icmp ult i64 %indvars.iv1196, 4
+  %246 = icmp samesign ult i64 %indvars.iv1196, 4
   br i1 %246, label %.lr.ph814, label %.loopexit471
 
 .lr.ph814:                                        ; preds = %245
@@ -1805,7 +1805,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   %indvars.iv1212 = phi i64 [ 1, %284 ], [ %indvars.iv.next1213, %.loopexit468 ]
   %indvars.iv1204 = phi i64 [ 2, %284 ], [ %indvars.iv.next1205, %.loopexit468 ]
   %indvars.iv.next1219 = add nuw nsw i64 %indvars.iv1218, 1
-  %288 = icmp ult i64 %indvars.iv1218, 4
+  %288 = icmp samesign ult i64 %indvars.iv1218, 4
   br i1 %288, label %.lr.ph853, label %.loopexit468
 
 .lr.ph853:                                        ; preds = %287
@@ -1821,7 +1821,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   %indvars.iv1214 = phi i64 [ %indvars.iv1212, %.lr.ph853 ], [ %indvars.iv.next1215, %.loopexit467 ]
   %indvars.iv1206 = phi i64 [ %indvars.iv1204, %.lr.ph853 ], [ %indvars.iv.next1207, %.loopexit467 ]
   %indvars.iv.next1215 = add nuw nsw i64 %indvars.iv1214, 1
-  %291 = icmp ult i64 %indvars.iv1214, 4
+  %291 = icmp samesign ult i64 %indvars.iv1214, 4
   br i1 %291, label %.lr.ph850, label %.loopexit467
 
 .lr.ph850:                                        ; preds = %290
@@ -2235,7 +2235,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   %indvars.iv1122 = phi i64 [ 0, %405 ], [ %indvars.iv.next1123, %.loopexit484 ]
   %indvars.iv1116 = phi i64 [ 1, %405 ], [ %indvars.iv.next1117, %.loopexit484 ]
   %indvars.iv.next1123 = add nuw nsw i64 %indvars.iv1122, 1
-  %409 = icmp ult i64 %indvars.iv1122, 5
+  %409 = icmp samesign ult i64 %indvars.iv1122, 5
   br i1 %409, label %.lr.ph609, label %.loopexit484
 
 .lr.ph609:                                        ; preds = %408
@@ -2401,7 +2401,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   %indvars.iv1138 = phi i64 [ 1, %451 ], [ %indvars.iv.next1139, %.loopexit482 ]
   %indvars.iv1130 = phi i64 [ 2, %451 ], [ %indvars.iv.next1131, %.loopexit482 ]
   %indvars.iv.next1145 = add nuw nsw i64 %indvars.iv1144, 1
-  %455 = icmp ult i64 %indvars.iv1144, 5
+  %455 = icmp samesign ult i64 %indvars.iv1144, 5
   br i1 %455, label %.lr.ph653, label %.loopexit482
 
 .lr.ph653:                                        ; preds = %454
@@ -2417,7 +2417,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   %indvars.iv1140 = phi i64 [ %indvars.iv1138, %.lr.ph653 ], [ %indvars.iv.next1141, %.loopexit481 ]
   %indvars.iv1132 = phi i64 [ %indvars.iv1130, %.lr.ph653 ], [ %indvars.iv.next1133, %.loopexit481 ]
   %indvars.iv.next1141 = add nuw nsw i64 %indvars.iv1140, 1
-  %458 = icmp ult i64 %indvars.iv1140, 5
+  %458 = icmp samesign ult i64 %indvars.iv1140, 5
   br i1 %458, label %.lr.ph650, label %.loopexit481
 
 .lr.ph650:                                        ; preds = %457
@@ -2586,7 +2586,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   %indvars.iv1164 = phi i64 [ 1, %503 ], [ %indvars.iv.next1165, %.loopexit478 ]
   %indvars.iv1152 = phi i64 [ 2, %503 ], [ %indvars.iv.next1153, %.loopexit478 ]
   %indvars.iv.next1171 = add nuw nsw i64 %indvars.iv1170, 1
-  %507 = icmp ult i64 %indvars.iv1170, 5
+  %507 = icmp samesign ult i64 %indvars.iv1170, 5
   br i1 %507, label %.lr.ph703, label %.loopexit478
 
 .lr.ph703:                                        ; preds = %506
@@ -2602,7 +2602,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   %indvars.iv1166 = phi i64 [ %indvars.iv1164, %.lr.ph703 ], [ %indvars.iv.next1167, %.loopexit477 ]
   %indvars.iv1154 = phi i64 [ %indvars.iv1152, %.lr.ph703 ], [ %indvars.iv.next1155, %.loopexit477 ]
   %indvars.iv.next1167 = add nuw nsw i64 %indvars.iv1166, 1
-  %510 = icmp ult i64 %indvars.iv1166, 5
+  %510 = icmp samesign ult i64 %indvars.iv1166, 5
   br i1 %510, label %.preheader476.lr.ph, label %.loopexit477
 
 .preheader476.lr.ph:                              ; preds = %509

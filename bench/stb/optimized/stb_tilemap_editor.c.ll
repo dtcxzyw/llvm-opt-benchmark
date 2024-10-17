@@ -246,7 +246,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo, i64 0, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp24 = icmp ult i64 %indvars.iv.next, %6
+  %cmp24 = icmp samesign ult i64 %indvars.iv.next, %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, i8 0, i64 16, i1 false)
   br i1 %cmp24, label %for.body, label %for.end, !llvm.loop !7
 
@@ -8351,7 +8351,7 @@ if.else80:                                        ; preds = %if.else
 if.then85:                                        ; preds = %if.else80
   %51 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 40), align 8
   %and86 = and i32 %51, 508
-  %cmp87 = icmp ult i32 %and86, 380
+  %cmp87 = icmp samesign ult i32 %and86, 380
   br i1 %cmp87, label %if.then88, label %if.end144
 
 if.then88:                                        ; preds = %if.then85
@@ -8428,7 +8428,7 @@ land.lhs.true148:                                 ; preds = %if.end144
 if.then152:                                       ; preds = %land.lhs.true148
   %61 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 40), align 8
   %and153 = and i32 %61, 508
-  %cmp154 = icmp ult i32 %and153, 300
+  %cmp154 = icmp samesign ult i32 %and153, 300
   br i1 %cmp154, label %for.cond157.preheader, label %if.end176
 
 for.cond157.preheader:                            ; preds = %if.then152
@@ -9971,7 +9971,7 @@ if.then34:                                        ; preds = %if.then32
 
 if.end36:                                         ; preds = %if.then34, %if.then32
   %str.0 = phi ptr [ %text, %if.then34 ], [ %20, %if.then32 ]
-  %cmp38 = icmp ult i64 %indvars.iv, 9
+  %cmp38 = icmp samesign ult i64 %indvars.iv, 9
   %mul = select i1 %cmp38, i32 2, i32 0
   %shl = shl i32 %19, 7
   %add40 = or disjoint i32 %shl, 9

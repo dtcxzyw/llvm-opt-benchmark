@@ -3433,7 +3433,7 @@ for.body:                                         ; preds = %invoke.cont, %for.b
   %inc = add nuw nsw i64 %i.059, 1
   %10 = load i32, ptr %mNumMeshes, align 8
   %conv16 = zext i32 %10 to i64
-  %cmp17 = icmp ult i64 %inc, %conv16
+  %cmp17 = icmp samesign ult i64 %inc, %conv16
   br i1 %cmp17, label %for.body, label %for.end, !llvm.loop !25
 
 lpad:                                             ; preds = %if.end
@@ -4851,7 +4851,7 @@ _ZN6aiFaceD2Ev.exit537:                           ; preds = %for.inc339
   %inc343 = add nuw nsw i64 %fi.0646, 1
   %153 = load i32, ptr %mNumFaces.i, align 8
   %conv216 = zext i32 %153 to i64
-  %cmp217 = icmp ult i64 %inc343, %conv216
+  %cmp217 = icmp samesign ult i64 %inc343, %conv216
   br i1 %cmp217, label %for.body, label %for.end344, !llvm.loop !36
 
 for.end344:                                       ; preds = %_ZN6aiFaceD2Ev.exit537, %cond.end207
@@ -6007,7 +6007,7 @@ for.body:                                         ; preds = %invoke.cont, %for.b
   %inc = add nuw nsw i64 %i.058, 1
   %10 = load i32, ptr %mNumMeshes, align 8
   %conv16 = zext i32 %10 to i64
-  %cmp = icmp ult i64 %inc, %conv16
+  %cmp = icmp samesign ult i64 %inc, %conv16
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !44
 
 lpad:                                             ; preds = %entry

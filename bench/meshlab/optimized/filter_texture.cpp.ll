@@ -18873,7 +18873,7 @@ _ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11IndexVertexEi
   %726 = add nuw nsw i64 %.03469.i, 1
   %727 = load i32, ptr %136, align 8
   %728 = zext i32 %727 to i64
-  %729 = icmp ult i64 %726, %728
+  %729 = icmp samesign ult i64 %726, %728
   br i1 %729, label %.lr.ph71.i, label %.preheader.i312, !llvm.loop !113
 
 .lr.ph74.i:                                       ; preds = %.preheader.i312, %739
@@ -44466,7 +44466,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorINS_3tri12VoronoiAtla
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !429
 
 ._crit_edge:                                      ; preds = %17, %2

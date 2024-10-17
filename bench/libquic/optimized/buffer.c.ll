@@ -401,7 +401,7 @@ for.inc:                                          ; preds = %for.body
   %7 = load i32, ptr %ibuf_len, align 8
   %8 = sext i32 %7 to i64
   %cmp6 = icmp slt i64 %indvars.iv.next, %8
-  %cmp7 = icmp ult i64 %indvars.iv.next, %4
+  %cmp7 = icmp samesign ult i64 %indvars.iv.next, %4
   %9 = select i1 %cmp6, i1 %cmp7, i1 false
   br i1 %9, label %for.body, label %for.end.loopexit, !llvm.loop !9
 

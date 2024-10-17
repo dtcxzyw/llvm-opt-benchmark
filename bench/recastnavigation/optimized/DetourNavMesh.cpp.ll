@@ -2232,7 +2232,7 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   %57 = add nuw nsw i32 %.04554, 1
   %58 = load i8, ptr %47, align 1
   %59 = zext i8 %58 to i32
-  %60 = icmp ult i32 %57, %59
+  %60 = icmp samesign ult i32 %57, %59
   br i1 %60, label %61, label %._crit_edge56, !llvm.loop !28
 
 61:                                               ; preds = %.lr.ph55, %56
@@ -2420,7 +2420,7 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   %167 = add nuw nsw i32 %.05469.i, 1
   %168 = load i8, ptr %104, align 1
   %169 = zext i8 %168 to i32
-  %170 = icmp ult i32 %167, %169
+  %170 = icmp samesign ult i32 %167, %169
   br i1 %170, label %112, label %_ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb0EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit, !llvm.loop !32
 
 _ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb0EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit: ; preds = %166
@@ -2678,7 +2678,7 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
   %.1.i = phi float [ %.073.i, %91 ], [ %.3.i, %.loopexit.loopexit.i ]
   %144 = add nuw nsw i32 %.05370.i, 1
   %145 = zext i8 %143 to i32
-  %146 = icmp ult i32 %144, %145
+  %146 = icmp samesign ult i32 %144, %145
   br i1 %146, label %91, label %_ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb1EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit, !llvm.loop !35
 
 _ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb1EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit: ; preds = %.loopexit.i

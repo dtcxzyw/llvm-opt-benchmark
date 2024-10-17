@@ -1050,7 +1050,7 @@ for.body:                                         ; preds = %entry, %gf_weak_red
   %idxprom = zext nneg i32 %div81 to i64
   %arrayidx = getelementptr inbounds i8, ptr %scalar, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
-  %cmp7 = icmp ult i32 %t.0215, 8
+  %cmp7 = icmp samesign ult i32 %t.0215, 8
   %1 = and i8 %0, -4
   %cmp9 = icmp eq i32 %t.0215, 447
   %spec.select = select i1 %cmp9, i8 -1, i8 %0
@@ -1623,7 +1623,7 @@ for.body.i:                                       ; preds = %while.end.i, %entry
   %position.048.i = phi i32 [ 75, %entry ], [ %position.1.lcssa.i, %while.end.i ]
   %current.047.i = phi i64 [ %and.i, %entry ], [ %shr43.i, %while.end.i ]
   %w.046.i = phi i32 [ 1, %entry ], [ %inc.i, %while.end.i ]
-  %cmp7.i = icmp ult i32 %w.046.i, 28
+  %cmp7.i = icmp samesign ult i32 %w.046.i, 28
   br i1 %cmp7.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -1722,7 +1722,7 @@ for.body.i48:                                     ; preds = %while.end.i80, %rec
   %position.048.i49 = phi i32 [ 112, %recode_wnaf.exit ], [ %position.1.lcssa.i82, %while.end.i80 ]
   %current.047.i50 = phi i64 [ %and.i45, %recode_wnaf.exit ], [ %shr43.i83, %while.end.i80 ]
   %w.046.i51 = phi i32 [ 1, %recode_wnaf.exit ], [ %inc.i84, %while.end.i80 ]
-  %cmp7.i52 = icmp ult i32 %w.046.i51, 28
+  %cmp7.i52 = icmp samesign ult i32 %w.046.i51, 28
   br i1 %cmp7.i52, label %if.then.i102, label %if.end.i53
 
 if.then.i102:                                     ; preds = %for.body.i48

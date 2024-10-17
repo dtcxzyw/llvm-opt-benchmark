@@ -70,7 +70,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %num_val.0236 = phi i64 [ %add82, %if.end101 ], [ 0, %for.cond.preheader ]
   %max_len.0235 = phi i64 [ %spec.select, %if.end101 ], [ 0, %for.cond.preheader ]
   %i.0234 = phi i64 [ %add83, %if.end101 ], [ 0, %for.cond.preheader ]
-  %cmp42.not = icmp ult i64 %i.0234, %conv
+  %cmp42.not = icmp samesign ult i64 %i.0234, %conv
   %spec.select371 = select i1 %cmp42.not, ptr %p_scalar, ptr %g_scalar
   %call48 = tail call i32 @BN_num_bits(ptr noundef %spec.select371) #5
   %cmp52 = icmp ugt i32 %call48, 1999
@@ -409,7 +409,7 @@ for.cond148.preheader:                            ; preds = %if.end143
 
 for.body151:                                      ; preds = %for.cond148.preheader, %for.inc199
   %i.2249 = phi i64 [ %inc200, %for.inc199 ], [ 0, %for.cond148.preheader ]
-  %cmp152 = icmp ult i64 %i.2249, %conv
+  %cmp152 = icmp samesign ult i64 %i.2249, %conv
   br i1 %cmp152, label %if.then154, label %if.else
 
 if.then154:                                       ; preds = %for.body151

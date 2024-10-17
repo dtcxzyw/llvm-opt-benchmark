@@ -71,7 +71,7 @@ define hidden void @_ZN12LogSelectionC2EPKN6LogTag4typeEbN8LogLevel4typeE(ptr no
   store i32 %12, ptr %14, align 4
   %15 = add nuw nsw i64 %10, 1
   store i64 %15, ptr %0, align 8
-  %16 = icmp ult i64 %10, 4
+  %16 = icmp samesign ult i64 %10, 4
   br i1 %16, label %9, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %9, %13

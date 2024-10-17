@@ -401,7 +401,7 @@ define void @_ZNK6opencc16SerializedValues15SerializeToFileEP8_IO_FILE(ptr nocap
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %52 = add i64 %.125, 1
   %53 = add nuw i16 %.01724, 1
-  %54 = icmp ult i16 %53, %38
+  %54 = icmp samesign ult i16 %53, %38
   br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph30, %35

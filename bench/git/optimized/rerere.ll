@@ -3177,7 +3177,7 @@ if.then17:                                        ; preds = %if.end12
 if.end25:                                         ; preds = %if.then17, %if.end12
   %10 = phi i32 [ %.pre, %if.then17 ], [ %2, %if.end12 ]
   %11 = zext i32 %10 to i64
-  %cmp5 = icmp ult i64 %indvars.iv.next, %11
+  %cmp5 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp5, label %while.body, label %for.body.preheader, !llvm.loop !29
 
 for.body.preheader:                               ; preds = %if.end25, %lor.lhs.false, %while.body, %if.end

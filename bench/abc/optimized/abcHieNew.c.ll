@@ -2628,7 +2628,7 @@ define i32 @Au_ObjSuppSize_rec(ptr nocapture noundef %0, i32 noundef %1) local_u
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val20 = load i64, ptr %20, align 4
   %29 = lshr i64 %.val20, 35
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %23, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %23, %.preheader, %11, %2
@@ -5350,7 +5350,7 @@ define void @Au_NtkDeriveFlatGia_rec(ptr noundef %0, ptr nocapture noundef reado
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %.val122 = load i64, ptr %56, align 4
   %97 = lshr i64 %.val122, 35
-  %98 = icmp ult i64 %indvars.iv.next189, %97
+  %98 = icmp samesign ult i64 %indvars.iv.next189, %97
   br i1 %98, label %68, label %.critedge6, !llvm.loop !53
 
 .critedge6:                                       ; preds = %68, %62
@@ -5608,7 +5608,7 @@ Au_NtkCleanCopy.exit:                             ; preds = %227, %Vec_IntGrow.e
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val121 = load i64, ptr %56, align 4
   %285 = lshr i64 %.val121, 35
-  %286 = icmp ult i64 %indvars.iv.next, %285
+  %286 = icmp samesign ult i64 %indvars.iv.next, %285
   br i1 %286, label %234, label %.critedge8, !llvm.loop !54
 
 .critedge8:                                       ; preds = %234, %Au_NtkCleanCopy.exit
@@ -6634,7 +6634,7 @@ Au_XsimMux.exit:                                  ; preds = %161, %210, %211, %2
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %.val99 = load i64, ptr %69, align 4
   %261 = lshr i64 %.val99, 35
-  %262 = icmp ult i64 %indvars.iv.next202, %261
+  %262 = icmp samesign ult i64 %indvars.iv.next202, %261
   br i1 %262, label %235, label %.critedge6, !llvm.loop !62
 
 .critedge6:                                       ; preds = %235, %221

@@ -9161,7 +9161,7 @@ _ZN4llvm19CodeGenRegisterFileD2Ev.exit:           ; preds = %_ZNSt6vectorIN4llvm
   %132 = phi i32 [ %130, %127 ], [ 1, %119 ]
   %133 = load i32, ptr %114, align 8
   %134 = zext i32 %133 to i64
-  %135 = icmp ult i64 %indvars.iv, %134
+  %135 = icmp samesign ult i64 %indvars.iv, %134
   br i1 %135, label %136, label %142
 
 136:                                              ; preds = %131

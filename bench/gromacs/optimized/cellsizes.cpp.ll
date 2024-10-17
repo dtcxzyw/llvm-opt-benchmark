@@ -1694,7 +1694,7 @@ _ZL26set_dd_cell_sizes_dlb_rootP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_t
 523:                                              ; preds = %_ZL32relative_to_absolute_cell_boundsP12gmx_domdec_tPK11gmx_ddbox_ti.exit.i.i.i, %491
   %indvars.iv.i39.i.i = phi i64 [ 0, %491 ], [ %indvars.iv.next.i41.i.i, %_ZL32relative_to_absolute_cell_boundsP12gmx_domdec_tPK11gmx_ddbox_ti.exit.i.i.i ]
   %.03342.i.i.i = phi i32 [ %522, %491 ], [ %.1.i.i.i, %_ZL32relative_to_absolute_cell_boundsP12gmx_domdec_tPK11gmx_ddbox_ti.exit.i.i.i ]
-  %524 = icmp ult i64 %indvars.iv.i39.i.i, %indvars.iv.i.i
+  %524 = icmp samesign ult i64 %indvars.iv.i39.i.i, %indvars.iv.i.i
   br i1 %524, label %525, label %535
 
 525:                                              ; preds = %523

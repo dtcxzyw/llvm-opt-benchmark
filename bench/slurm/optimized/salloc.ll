@@ -780,12 +780,12 @@ _match_job_name.exit:                             ; preds = %225, %._crit_edge.i
 
 308:                                              ; preds = %305
   %309 = icmp ne i32 %307, 11
-  %310 = icmp ugt i32 %.0196, 9
-  %or.cond3 = or i1 %310, %309
+  %310 = icmp samesign ugt i32 %.0196, 9
+  %or.cond3 = select i1 %309, i1 true, i1 %310
   br i1 %or.cond3, label %323, label %312
 
 311:                                              ; preds = %305
-  %.old2 = icmp ugt i32 %.0196, 9
+  %.old2 = icmp samesign ugt i32 %.0196, 9
   br i1 %.old2, label %.thread442, label %312
 
 312:                                              ; preds = %308, %311
@@ -2134,7 +2134,7 @@ define internal fastcc range(i32 -1, 1) i32 @_proc_alloc(ptr noundef %0) unnamed
   br label %48
 
 42:                                               ; preds = %36
-  %43 = icmp ugt i32 %.030.i, 2
+  %43 = icmp samesign ugt i32 %.030.i, 2
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %42

@@ -3334,7 +3334,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI25cmExpandedCommandArgumentSaIS
   br i1 %.not.i.i.i, label %_ZSt8distanceISt14_List_iteratorI25cmExpandedCommandArgumentEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit, label %.lr.ph.i.i.i, !llvm.loop !45
 
 _ZSt8distanceISt14_List_iteratorI25cmExpandedCommandArgumentEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit: ; preds = %.lr.ph.i.i.i
-  %5 = icmp ugt i64 %.015.i.i.i, 230584300921369394
+  %5 = icmp samesign ugt i64 %.015.i.i.i, 230584300921369394
   br i1 %5, label %6, label %_ZNSt16allocator_traitsISaI25cmExpandedCommandArgumentEE8allocateERS1_m.exit.i
 
 6:                                                ; preds = %_ZSt8distanceISt14_List_iteratorI25cmExpandedCommandArgumentEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit

@@ -7558,7 +7558,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %inc.i = add nuw nsw i64 %i.08.i, 1
   %7 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %7 to i64
-  %cmp.i = icmp ult i64 %inc.i, %conv.i.i
+  %cmp.i = icmp samesign ult i64 %inc.i, %conv.i.i
   br i1 %cmp.i, label %for.body.i, label %_ZN6hermes28HBCAllocObjectFromBufferInstC2EPNS_13LiteralNumberERKN4llvh11SmallVectorISt4pairIPNS_7LiteralES7_ELj4EEE.exit, !llvm.loop !4
 
 _ZN6hermes28HBCAllocObjectFromBufferInstC2EPNS_13LiteralNumberERKN4llvh11SmallVectorISt4pairIPNS_7LiteralES7_ELj4EEE.exit: ; preds = %for.body.i, %entry

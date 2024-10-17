@@ -3624,7 +3624,7 @@ if.then807:                                       ; preds = %invoke.cont804
 
 invoke.cont811:                                   ; preds = %if.then807
   %div813 = udiv i32 %call812, 6
-  %cmp8151787 = icmp ult i32 %div813, %div7861042
+  %cmp8151787 = icmp samesign ult i32 %div813, %div7861042
   br i1 %cmp8151787, label %for.body817.lr.ph, label %for.cond.cleanup816
 
 for.body817.lr.ph:                                ; preds = %invoke.cont811

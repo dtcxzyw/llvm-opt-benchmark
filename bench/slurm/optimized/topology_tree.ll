@@ -769,7 +769,7 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   %202 = getelementptr inbounds %struct.switch_record_t, ptr %201, i64 %148, i32 6
   %203 = load i16, ptr %202, align 2
   %204 = zext i16 %203 to i64
-  %205 = icmp ult i64 %indvars.iv.next.i, %204
+  %205 = icmp samesign ult i64 %indvars.iv.next.i, %204
   br i1 %205, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %200, %195
@@ -993,7 +993,7 @@ define noundef i32 @topology_p_topology_free(ptr noundef %0) local_unnamed_addr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %0, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -1072,7 +1072,7 @@ define range(i32 -1, 1) i32 @topology_p_get(i32 noundef %0, ptr nocapture nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %4, align 8
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next, %43
   br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 45:                                               ; preds = %2
@@ -1161,7 +1161,7 @@ define noundef i32 @topology_p_topology_pack(ptr nocapture noundef readonly %0, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %0, align 8
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %40, label %7, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %37, %3
@@ -1281,14 +1281,14 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %19 = load i32, ptr %0, align 8
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next65, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next65, %20
   br i1 %21, label %16, label %.loopexit, !llvm.loop !23
 
 22:                                               ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %0, align 8
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %25, label %28, label %.preheader46, !llvm.loop !24
 
 .preheader46:                                     ; preds = %22
@@ -1355,7 +1355,7 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %55 = load i32, ptr %0, align 8
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next62, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next62, %56
   br i1 %57, label %36, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %54
@@ -1421,7 +1421,7 @@ define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef wr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %8, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %24, label %.loopexit, !llvm.loop !26
 
 24:                                               ; preds = %.lr.ph, %20
@@ -1496,7 +1496,7 @@ define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef wr
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %55 = load i32, ptr %8, align 8
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next.i, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next.i, %56
   br i1 %57, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i

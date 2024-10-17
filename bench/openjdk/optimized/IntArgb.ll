@@ -1401,7 +1401,7 @@ define hidden void @IntArgbToIntArgbSrcOverMaskBlit(ptr noundef %0, ptr noundef 
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = add nuw nsw i32 %98, %94
-  %100 = icmp ult i32 %70, 255
+  %100 = icmp samesign ult i32 %70, 255
   br i1 %100, label %101, label %.thread
 
 101:                                              ; preds = %56
@@ -1529,7 +1529,7 @@ define hidden void @IntArgbToIntArgbSrcOverMaskBlit(ptr noundef %0, ptr noundef 
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
   %197 = add nuw nsw i32 %196, %192
-  %198 = icmp ult i32 %168, 255
+  %198 = icmp samesign ult i32 %168, 255
   br i1 %198, label %199, label %.thread188
 
 199:                                              ; preds = %154
@@ -2034,7 +2034,7 @@ define hidden void @IntArgbPreToIntArgbSrcOverMaskBlit(ptr noundef %0, ptr nound
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
   %113 = add nuw nsw i32 %112, %108
-  %114 = icmp ult i32 %85, 255
+  %114 = icmp samesign ult i32 %85, 255
   br i1 %114, label %115, label %.thread
 
 115:                                              ; preds = %71
@@ -2179,7 +2179,7 @@ define hidden void @IntArgbPreToIntArgbSrcOverMaskBlit(ptr noundef %0, ptr nound
   %222 = load i8, ptr %221, align 1
   %223 = zext i8 %222 to i32
   %224 = add nuw nsw i32 %223, %219
-  %225 = icmp ult i32 %196, 255
+  %225 = icmp samesign ult i32 %196, 255
   br i1 %225, label %226, label %.thread190
 
 226:                                              ; preds = %182

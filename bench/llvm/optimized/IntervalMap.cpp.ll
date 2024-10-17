@@ -461,7 +461,7 @@ define dso_local i64 @_ZN4llvm15IntervalMapImpl10distributeEjjjPKjPjjb(i32 nound
   %.032 = phi i32 [ 0, %8 ], [ %20, %15 ]
   %.sroa.6.130 = phi i32 [ 0, %8 ], [ %.sroa.6.2, %15 ]
   %.sroa.026.129 = phi i32 [ %0, %8 ], [ %.sroa.026.2, %15 ]
-  %16 = icmp ult i64 %indvars.iv, %14
+  %16 = icmp samesign ult i64 %indvars.iv, %14
   %17 = zext i1 %16 to i32
   %18 = add i32 %11, %17
   %19 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv

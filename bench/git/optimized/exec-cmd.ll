@@ -339,13 +339,13 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   %arrayidx2 = getelementptr inbounds [33 x ptr], ptr %argv, i64 0, i64 %indvars.iv
   store ptr %4, ptr %arrayidx2, align 8
   %tobool = icmp ne ptr %4, null
-  %cmp = icmp ult i64 %indvars.iv, 31
+  %cmp = icmp samesign ult i64 %indvars.iv, 31
   %or.cond = select i1 %tobool, i1 %cmp, i1 false
   br i1 %or.cond, label %while.body, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %vaarg.end
   call void @llvm.va_end.p0(ptr nonnull %param)
-  %cmp4 = icmp ugt i64 %indvars.iv, 30
+  %cmp4 = icmp samesign ugt i64 %indvars.iv, 30
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %while.end

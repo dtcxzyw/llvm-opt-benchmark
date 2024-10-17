@@ -879,7 +879,7 @@ declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 10, -2147483648) %4) unnamed_addr #0 {
-  %6 = icmp ugt i32 %4, 14
+  %6 = icmp samesign ugt i32 %4, 14
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %5

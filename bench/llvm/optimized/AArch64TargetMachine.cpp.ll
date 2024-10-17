@@ -1734,12 +1734,12 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread: ; preds = %_ZNK4llvm9MCAsmInf
 
 132:                                              ; preds = %128, %128
   %133 = and i32 %129, 522240
-  %134 = icmp ugt i32 %133, 65536
+  %134 = icmp samesign ugt i32 %133, 65536
   br i1 %134, label %.thread.sink.split, label %.thread
 
 135:                                              ; preds = %128
   %136 = and i32 %129, 522240
-  %137 = icmp ugt i32 %136, 49152
+  %137 = icmp samesign ugt i32 %136, 49152
   br i1 %137, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %135, %132
@@ -6593,7 +6593,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19TargetTransformInfo5Mod
 
 _ZN4llvm13isPowerOf2_64Em.exit.i.i:               ; preds = %9
   %16 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %11)
-  %17 = icmp ult i32 %16, 2
+  %17 = icmp samesign ult i32 %16, 2
   %18 = add i32 %14, -8
   %19 = icmp ult i32 %18, 121
   %or.cond3.i.i = and i1 %17, %19
@@ -6601,7 +6601,7 @@ _ZN4llvm13isPowerOf2_64Em.exit.i.i:               ; preds = %9
 
 20:                                               ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i.i
   %21 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %14)
-  %22 = icmp ult i32 %21, 2
+  %22 = icmp samesign ult i32 %21, 2
   br label %_ZN4llvm14AArch64TTIImpl14isLegalNTStoreEPNS_4TypeENS_5AlignE.exit
 
 23:                                               ; preds = %3
@@ -6631,7 +6631,7 @@ _ZN4llvm13isPowerOf2_64Em.exit.i.i:               ; preds = %9
 
 36:                                               ; preds = %34
   %37 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %35)
-  %38 = icmp ult i32 %37, 2
+  %38 = icmp samesign ult i32 %37, 2
   br label %_ZNK4llvm27TargetTransformInfoImplBase14isLegalNTStoreEPNS_4TypeENS_5AlignE.exit.i.i
 
 _ZNK4llvm27TargetTransformInfoImplBase14isLegalNTStoreEPNS_4TypeENS_5AlignE.exit.i.i: ; preds = %36, %34, %23
@@ -7397,7 +7397,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm19TargetTransformInfo5ModelINS_
 
 _ZN4llvm13isPowerOf2_32Ej.exit.i:                 ; preds = %8
   %9 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1)
-  %10 = icmp ult i32 %9, 2
+  %10 = icmp samesign ult i32 %9, 2
   %11 = icmp ugt i32 %1, 3
   %or.cond.i = and i1 %11, %10
   br i1 %or.cond.i, label %_ZNK4llvm14AArch64TTIImpl17getStoreMinimumVFEjPNS_4TypeES2_.exit, label %12
@@ -11787,7 +11787,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14AArch64TTIImpl13isLegal
 
 _ZN4llvm13isPowerOf2_64Em.exit.i:                 ; preds = %16
   %23 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %18)
-  %24 = icmp ult i32 %23, 2
+  %24 = icmp samesign ult i32 %23, 2
   %25 = add i32 %21, -8
   %26 = icmp ult i32 %25, 121
   %or.cond3.i = and i1 %24, %26
@@ -11795,7 +11795,7 @@ _ZN4llvm13isPowerOf2_64Em.exit.i:                 ; preds = %16
 
 27:                                               ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i
   %28 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %21)
-  %29 = icmp ult i32 %28, 2
+  %29 = icmp samesign ult i32 %28, 2
   br label %_ZN4llvm14AArch64TTIImpl18isLegalNTStoreLoadEPNS_4TypeENS_5AlignE.exit
 
 30:                                               ; preds = %11
@@ -11825,7 +11825,7 @@ _ZN4llvm13isPowerOf2_64Em.exit.i:                 ; preds = %16
 
 43:                                               ; preds = %41
   %44 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %42)
-  %45 = icmp ult i32 %44, 2
+  %45 = icmp samesign ult i32 %44, 2
   br label %_ZNK4llvm27TargetTransformInfoImplBase14isLegalNTStoreEPNS_4TypeENS_5AlignE.exit.i
 
 _ZNK4llvm27TargetTransformInfoImplBase14isLegalNTStoreEPNS_4TypeENS_5AlignE.exit.i: ; preds = %43, %41, %30
@@ -11860,7 +11860,7 @@ _ZNK4llvm27TargetTransformInfoImplBase14isLegalNTStoreEPNS_4TypeENS_5AlignE.exit
 
 60:                                               ; preds = %58
   %61 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %59)
-  %62 = icmp ult i32 %61, 2
+  %62 = icmp samesign ult i32 %61, 2
   br label %_ZNK4llvm27TargetTransformInfoImplBase13isLegalNTLoadEPNS_4TypeENS_5AlignE.exit
 
 _ZNK4llvm27TargetTransformInfoImplBase13isLegalNTLoadEPNS_4TypeENS_5AlignE.exit: ; preds = %47, %58, %60

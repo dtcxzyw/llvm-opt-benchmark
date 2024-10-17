@@ -2528,7 +2528,7 @@ _ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateES2_i.exit141: ; preds = %235, %240
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %246 = load i32, ptr %227, align 4
   %247 = zext i32 %246 to i64
-  %248 = icmp ult i64 %indvars.iv.next, %247
+  %248 = icmp samesign ult i64 %indvars.iv.next, %247
   br i1 %248, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateES2_i.exit141, %.lr.ph, %223
@@ -3097,7 +3097,7 @@ define hidden noundef ptr @_ZN7Matcher10match_treeEPK4Node(ptr noundef nonnull a
 81:                                               ; preds = %75
   %82 = load i32, ptr %73, align 8
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv63, %83
+  %84 = icmp samesign ult i64 %indvars.iv63, %83
   %85 = load ptr, ptr %31, align 8
   %86 = getelementptr inbounds ptr, ptr %85, i64 %indvars.iv63
   %87 = load ptr, ptr %86, align 8
@@ -3500,7 +3500,7 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %64, %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %90, align 8
   %96 = zext i32 %95 to i64
-  %97 = icmp ult i64 %indvars.iv.next, %96
+  %97 = icmp samesign ult i64 %indvars.iv.next, %96
   br i1 %97, label %98, label %.loopexit214, !llvm.loop !24
 
 98:                                               ; preds = %.lr.ph, %94
@@ -3538,7 +3538,7 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %64, %68
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %116 = load i32, ptr %90, align 8
   %117 = zext i32 %116 to i64
-  %118 = icmp ult i64 %indvars.iv.next240, %117
+  %118 = icmp samesign ult i64 %indvars.iv.next240, %117
   br i1 %118, label %119, label %.loopexit213, !llvm.loop !25
 
 119:                                              ; preds = %.lr.ph220, %115
@@ -3626,7 +3626,7 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %64, %68
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %160 = load i32, ptr %90, align 8
   %161 = zext i32 %160 to i64
-  %162 = icmp ult i64 %indvars.iv.next243, %161
+  %162 = icmp samesign ult i64 %indvars.iv.next243, %161
   br i1 %162, label %144, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %158, %.loopexit213
@@ -4265,7 +4265,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit207:   ; preds = %483, %487
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %504 = load i32, ptr %90, align 8
   %505 = zext i32 %504 to i64
-  %506 = icmp ult i64 %indvars.iv.next246, %505
+  %506 = icmp samesign ult i64 %indvars.iv.next246, %505
   br i1 %506, label %.lr.ph225, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph225, %493, %176
@@ -4305,7 +4305,7 @@ define hidden noundef range(i32 -8388608, -2147483647) i32 @_ZN7Matcher28scalabl
   %6 = add nsw i32 %4, %5
   %7 = icmp sgt i32 %6, 0
   %8 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %6)
-  %9 = icmp ult i32 %8, 2
+  %9 = icmp samesign ult i32 %8, 2
   %or.cond.i = select i1 %7, i1 %9, i1 false
   %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 true)
   %11 = sub nuw nsw i32 32, %10
@@ -5090,7 +5090,7 @@ _ZN7Matcher21vector_size_supportedE9BasicTypei.exit149: ; preds = %_ZN7RegMask2O
   store i64 %436, ptr %434, align 8
   %437 = add nuw nsw i32 %.0103335, 1
   %438 = icmp sgt i32 %.098, %106
-  %439 = icmp ult i32 %.0103335, 3
+  %439 = icmp samesign ult i32 %.0103335, 3
   %440 = select i1 %438, i1 %439, i1 false
   br i1 %440, label %.lr.ph338, label %._crit_edge339, !llvm.loop !32
 
@@ -5177,7 +5177,7 @@ _ZN7Matcher21vector_size_supportedE9BasicTypei.exit156: ; preds = %_ZN7RegMask2O
   store i64 %481, ptr %479, align 8
   %482 = add nuw nsw i32 %.0101341, 1
   %483 = icmp sgt i32 %.0102, %106
-  %484 = icmp ult i32 %.0101341, 7
+  %484 = icmp samesign ult i32 %.0101341, 7
   %485 = select i1 %483, i1 %484, i1 false
   br i1 %485, label %.lr.ph343, label %._crit_edge344, !llvm.loop !33
 
@@ -5264,7 +5264,7 @@ _ZN7Matcher21vector_size_supportedE9BasicTypei.exit163: ; preds = %_ZN7RegMask2O
   store i64 %526, ptr %524, align 8
   %527 = add nuw nsw i32 %.099346, 1
   %528 = icmp sgt i32 %.0100, %106
-  %529 = icmp ult i32 %.099346, 15
+  %529 = icmp samesign ult i32 %.099346, 15
   %530 = select i1 %528, i1 %529, i1 false
   br i1 %530, label %.lr.ph348, label %._crit_edge349, !llvm.loop !34
 
@@ -7083,7 +7083,7 @@ _ZN4NodenwEm.exit70:                              ; preds = %195, %197
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %230 = load i16, ptr %216, align 2
   %231 = zext i16 %230 to i64
-  %232 = icmp ult i64 %indvars.iv.next.i, %231
+  %232 = icmp samesign ult i64 %indvars.iv.next.i, %231
   br i1 %232, label %219, label %_ZN7Matcher20specialize_mach_nodeEP8MachNode.exit, !llvm.loop !36
 
 _ZN7Matcher20specialize_mach_nodeEP8MachNode.exit: ; preds = %229, %215, %210
@@ -8768,7 +8768,7 @@ _ZN4Node7set_reqEjPS_.exit68:                     ; preds = %154, %158, %170
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %175 = load i32, ptr %151, align 8
   %176 = zext i32 %175 to i64
-  %177 = icmp ult i64 %indvars.iv.next, %176
+  %177 = icmp samesign ult i64 %indvars.iv.next, %176
   br i1 %177, label %154, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %_ZN4Node7set_reqEjPS_.exit68, %_ZN4Node7set_reqEjPS_.exit
@@ -8968,7 +8968,7 @@ define hidden noundef i32 @_ZN7Matcher19ReduceInst_InteriorEP5StateiRP4NodeP8Mac
   %24 = phi i32 [ %18, %17 ], [ %.pre.i, %22 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next.i, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next.i, %25
   br i1 %26, label %17, label %_ZN7Matcher23handle_precedence_edgesEP4NodeP8MachNode.exit.loopexit, !llvm.loop !49
 
 _ZN7Matcher23handle_precedence_edgesEP4NodeP8MachNode.exit.loopexit: ; preds = %23
@@ -9214,7 +9214,7 @@ define hidden void @_ZN7Matcher23handle_precedence_edgesEP4NodeP8MachNode(ptr no
   %18 = phi i32 [ %12, %11 ], [ %.pre, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %11, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %17, %3
@@ -9294,7 +9294,7 @@ define hidden void @_ZN7Matcher10ReduceOperEP5StateiRP4NodeP8MachNode(ptr nounde
   %48 = phi i32 [ %42, %41 ], [ %.pre.i, %46 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next.i, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next.i, %49
   br i1 %50, label %41, label %_ZN7Matcher23handle_precedence_edgesEP4NodeP8MachNode.exit.loopexit, !llvm.loop !49
 
 _ZN7Matcher23handle_precedence_edgesEP4NodeP8MachNode.exit.loopexit: ; preds = %47
@@ -12159,7 +12159,7 @@ define hidden void @_ZN7Matcher20specialize_mach_nodeEP8MachNode(ptr nocapture n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i16, ptr %3, align 2
   %18 = zext i16 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %6, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %16, %2
@@ -12344,7 +12344,7 @@ _ZN16Unique_Node_List3popEv.exit:                 ; preds = %53, %58
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %99 = load i16, ptr %85, align 2
   %100 = zext i16 %99 to i64
-  %101 = icmp ult i64 %indvars.iv.next.i, %100
+  %101 = icmp samesign ult i64 %indvars.iv.next.i, %100
   br i1 %101, label %88, label %_ZN7Matcher20specialize_mach_nodeEP8MachNode.exit, !llvm.loop !36
 
 _ZN7Matcher20specialize_mach_nodeEP8MachNode.exit: ; preds = %98, %84, %72, %80, %_ZN16Unique_Node_List3popEv.exit

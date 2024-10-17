@@ -2876,7 +2876,7 @@ _ZN2cv8superres6detail2atINS_3MatESaIS3_EEERT_iRSt6vectorIS5_T0_E.exit64: ; pred
           to label %200 unwind label %.loopexit
 
 200:                                              ; preds = %_ZN2cv8superres6detail2atINS_3MatESaIS3_EEERT_iRSt6vectorIS5_T0_E.exit64, %183
-  %201 = icmp ugt i32 %.03099, %.sroa.speculated91
+  %201 = icmp samesign ugt i32 %.03099, %.sroa.speculated91
   br i1 %201, label %202, label %217
 
 202:                                              ; preds = %200
@@ -3331,14 +3331,14 @@ _ZN2cv8superres6detail2atINS_3MatESaIS3_EEERT_iRSt6vectorIS5_T0_E.exit70: ; pred
   br label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge.i.i, %.preheader.lr.ph.i.i
-  %indvars.iv104.in = phi i32 [ %indvars.iv104, %._crit_edge.i.i ], [ %369, %.preheader.lr.ph.i.i ]
+  %indvars.iv105.in = phi i32 [ %indvars.iv105, %._crit_edge.i.i ], [ %369, %.preheader.lr.ph.i.i ]
   %.01825.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 0, %.preheader.lr.ph.i.i ]
   %.01924.i.i = phi i32 [ %383, %._crit_edge.i.i ], [ 0, %.preheader.lr.ph.i.i ]
-  %indvars.iv104 = add i32 %indvars.iv104.in, 1
+  %indvars.iv105 = add i32 %indvars.iv105.in, 1
   %sext.i.i = shl i64 %.01825.i.i, 32
   %372 = ashr exact i64 %sext.i.i, 32
   %373 = trunc i64 %.01825.i.i to i32
-  %374 = add i32 %indvars.iv104, %373
+  %374 = add i32 %indvars.iv105, %373
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -3355,8 +3355,8 @@ _ZN2cv8superres6detail2atINS_3MatESaIS3_EEERT_iRSt6vectorIS5_T0_E.exit70: ; pred
   %382 = add nsw i32 %.022.i.i, -1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next.i.i to i32
-  %exitcond106 = icmp eq i32 %374, %lftr.wideiv
-  br i1 %exitcond106, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  %exitcond107 = icmp eq i32 %374, %lftr.wideiv
+  br i1 %exitcond107, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %383 = add nuw nsw i32 %.01924.i.i, 1
@@ -3368,11 +3368,11 @@ _ZN12_GLOBAL__N_114calcBtvWeightsEidRSt6vectorIfSaIfEE.exit.i: ; preds = %._crit
   store i32 %384, ptr %348, align 8
   %385 = load double, ptr %278, align 8
   store double %385, ptr %350, align 8
-  %.pre107 = load ptr, ptr %111, align 8
+  %.pre108 = load ptr, ptr %111, align 8
   br label %386
 
 386:                                              ; preds = %_ZN12_GLOBAL__N_114calcBtvWeightsEidRSt6vectorIfSaIfEE.exit.i, %342
-  %387 = phi ptr [ %.pre107, %_ZN12_GLOBAL__N_114calcBtvWeightsEidRSt6vectorIfSaIfEE.exit.i ], [ %.pre, %342 ]
+  %387 = phi ptr [ %.pre108, %_ZN12_GLOBAL__N_114calcBtvWeightsEidRSt6vectorIfSaIfEE.exit.i ], [ %.pre, %342 ]
   %388 = getelementptr inbounds i8, ptr %0, i64 264
   %389 = getelementptr inbounds i8, ptr %0, i64 288
   %390 = getelementptr inbounds i8, ptr %387, i64 64

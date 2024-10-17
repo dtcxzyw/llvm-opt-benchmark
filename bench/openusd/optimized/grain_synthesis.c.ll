@@ -913,11 +913,11 @@ generate_luma_grain_block.exit:                   ; preds = %.split.i, %.split.u
   br label %293
 
 293:                                              ; preds = %.loopexit174.i, %292
-  %294 = icmp ugt i32 %21, 3
+  %294 = icmp samesign ugt i32 %21, 3
   br i1 %294, label %.preheader172.lr.ph.i, label %.loopexit
 
 .preheader172.lr.ph.i:                            ; preds = %293
-  %295 = icmp ugt i32 %27, 3
+  %295 = icmp samesign ugt i32 %27, 3
   %296 = add nsw i32 %10, %9
   %297 = shl nuw i32 1, %296
   %298 = ashr i32 %297, 1
@@ -2762,7 +2762,7 @@ copy_area.exit907:                                ; preds = %1339, %copy_area.ex
 
 ._crit_edge:                                      ; preds = %copy_area.exit907, %681
   %indvars.iv.next1038 = add nuw nsw i64 %indvars.iv1037, 16
-  %1344 = icmp ult i64 %indvars.iv.next1038, %680
+  %1344 = icmp samesign ult i64 %indvars.iv.next1038, %680
   br i1 %1344, label %681, label %._crit_edge1017, !llvm.loop !35
 
 ._crit_edge1017:                                  ; preds = %._crit_edge, %init_scaling_function.exit748

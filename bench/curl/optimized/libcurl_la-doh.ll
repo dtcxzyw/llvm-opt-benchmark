@@ -1279,7 +1279,7 @@ for.body35.us.i:                                  ; preds = %for.body35.us.i, %i
   %sub.us.i = sub i64 %len.040.us.i, %call52.us.i
   %add.ptr.us.i = getelementptr inbounds i8, ptr %ptr.039.us.i, i64 %call52.us.i
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 2
-  %cmp33.us.i = icmp ult i64 %indvars.iv53.i, 14
+  %cmp33.us.i = icmp samesign ult i64 %indvars.iv53.i, 14
   br i1 %cmp33.us.i, label %for.body35.us.i, label %for.inc70.us.loopexit.i, !llvm.loop !13
 
 for.inc70.us.loopexit.i:                          ; preds = %for.body35.us.i
@@ -1363,7 +1363,7 @@ for.body35.i:                                     ; preds = %for.body35.i, %if.t
   %sub.i = sub i64 %len.040.i, %call52.i
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr.039.i, i64 %call52.i
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i63, 2
-  %cmp33.i = icmp ult i64 %indvars.iv.i63, 14
+  %cmp33.i = icmp samesign ult i64 %indvars.iv.i63, 14
   br i1 %cmp33.i, label %for.body35.i, label %do.body54.i, !llvm.loop !13
 
 do.body54.i:                                      ; preds = %for.body35.i

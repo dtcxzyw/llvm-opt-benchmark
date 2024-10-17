@@ -4409,7 +4409,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i:         ; preds = %610, %_ZN4llvm14Tim
   %620 = or i32 %619, %618
   store i32 %620, ptr %605, align 4
   %621 = add nuw nsw i32 %storemerge6.i.i, 8
-  %622 = icmp ult i32 %storemerge6.i.i, 24
+  %622 = icmp samesign ult i32 %storemerge6.i.i, 24
   br i1 %622, label %_ZN4llvm15BitstreamWriter4EmitEjj.exit49.i, label %623
 
 623:                                              ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit.i
@@ -5092,7 +5092,7 @@ _ZN12_GLOBAL__N_126IdentifierIndexWriterTrait8EmitDataERN4llvm11raw_ostreamENS1_
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %926 = load i32, ptr %34, align 8
   %927 = zext i32 %926 to i64
-  %928 = icmp ult i64 %indvars.iv.next.i.i, %927
+  %928 = icmp samesign ult i64 %indvars.iv.next.i.i, %927
   br i1 %928, label %887, label %._crit_edge.i.i, !llvm.loop !228
 
 ._crit_edge.i.i:                                  ; preds = %.loopexit.i.i, %883
@@ -5151,7 +5151,7 @@ _ZN12_GLOBAL__N_126IdentifierIndexWriterTrait8EmitDataERN4llvm11raw_ostreamENS1_
   %indvars.iv.next30.i.i = add nuw nsw i64 %indvars.iv29.i.i, 1
   %955 = load i32, ptr %34, align 8
   %956 = zext i32 %955 to i64
-  %957 = icmp ult i64 %indvars.iv.next30.i.i, %956
+  %957 = icmp samesign ult i64 %indvars.iv.next30.i.i, %956
   br i1 %957, label %.lr.ph24.i.i, label %_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_126IdentifierIndexWriterTraitEE4EmitERNS_11raw_ostreamERS2_.exit.i, !llvm.loop !230
 
 _ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_126IdentifierIndexWriterTraitEE4EmitERNS_11raw_ostreamERS2_.exit.i: ; preds = %.lr.ph24.i.i, %._crit_edge21.i.i
@@ -11942,7 +11942,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
   %32 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %16, %15 ]
   %33 = add nuw nsw i64 %.016, 1
   %34 = zext i32 %32 to i64
-  %35 = icmp ult i64 %33, %34
+  %35 = icmp samesign ult i64 %33, %34
   br i1 %35, label %15, label %._crit_edge18, !llvm.loop !381
 
 ._crit_edge18:                                    ; preds = %._crit_edge, %_ZN4llvm11safe_callocEmm.exit
@@ -12224,7 +12224,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit:           ; preds = %33, %46
   %61 = or i32 %53, %60
   store i32 %61, ptr %11, align 4
   %62 = add nuw nsw i32 %storemerge6.i, 3
-  %63 = icmp ult i32 %storemerge6.i, 29
+  %63 = icmp samesign ult i32 %storemerge6.i, 29
   br i1 %63, label %_ZN4llvm15BitstreamWriter4EmitEjj.exit16, label %64
 
 64:                                               ; preds = %56

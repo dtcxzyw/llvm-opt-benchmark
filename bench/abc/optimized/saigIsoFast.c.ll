@@ -216,7 +216,7 @@ define void @Iso_StoCollectInfo_rec(ptr noundef %0, ptr nocapture noundef readon
   %51 = ptrtoint ptr %.val70 to i64
   %52 = trunc i64 %51 to i32
   %53 = and i32 %52, 1
-  %54 = icmp ult i32 %50, %53
+  %54 = icmp samesign ult i32 %50, %53
   br i1 %54, label %._crit_edge95, label %55
 
 ._crit_edge95:                                    ; preds = %47
@@ -248,7 +248,7 @@ define void @Iso_StoCollectInfo_rec(ptr noundef %0, ptr nocapture noundef readon
   %69 = lshr i64 %68, 32
   %70 = trunc nuw i64 %69 to i32
   %71 = and i32 %70, 16777215
-  %72 = icmp ult i32 %64, %71
+  %72 = icmp samesign ult i32 %64, %71
   %spec.select = select i1 %72, ptr %59, ptr %66
   %spec.select121 = select i1 %72, ptr %37, ptr %33
   br label %73

@@ -9891,7 +9891,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit213:            ; preds = %127, %125, %123, %1
 
 ._crit_edge442:                                   ; preds = %.lr.ph441.split, %.lr.ph441.split.us, %.lr.ph445
   %indvars.iv.next564 = add nuw nsw i64 %indvars.iv563, 1
-  %243 = icmp ult i64 %indvars.iv.next564, %212
+  %243 = icmp samesign ult i64 %indvars.iv.next564, %212
   br i1 %243, label %.lr.ph445, label %._crit_edge446, !llvm.loop !98
 
 ._crit_edge446:                                   ; preds = %._crit_edge442, %198
@@ -10140,7 +10140,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit213:            ; preds = %127, %125, %123, %1
   %.0159.lcssa = phi double [ 0.000000e+00, %317 ], [ %334, %.lr.ph453.split.us ], [ %349, %.lr.ph453.split ]
   %350 = call double @llvm.fmuladd.f64(double %318, double %.0159.lcssa, double %.1161455)
   %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
-  %351 = icmp ult i64 %indvars.iv.next582, %296
+  %351 = icmp samesign ult i64 %indvars.iv.next582, %296
   br i1 %351, label %.lr.ph458, label %.preheader, !llvm.loop !104
 
 352:                                              ; preds = %.lr.ph471, %453

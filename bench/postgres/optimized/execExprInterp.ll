@@ -6080,7 +6080,7 @@ define dso_local void @ExecEvalHashedScalarArrayOp(ptr nocapture readnone %0, pt
   %67 = fptoui double %66 to i64
   %68 = call i64 @llvm.umax.i64(i64 %67, i64 2)
   %69 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %68)
-  %70 = icmp ult i64 %69, 2
+  %70 = icmp samesign ult i64 %69, 2
   %71 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %68, i1 true)
   %72 = sub nuw nsw i64 64, %71
   %73 = shl nuw i64 1, %72
@@ -6101,7 +6101,7 @@ saophash_compute_size.exit.i:                     ; preds = %29
   %80 = getelementptr inbounds i8, ptr %60, i64 24
   store ptr %79, ptr %80, align 8
   %81 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i)
-  %82 = icmp ult i64 %81, 2
+  %82 = icmp samesign ult i64 %81, 2
   %83 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i, i1 true)
   %84 = sub nuw nsw i64 64, %83
   %85 = shl nuw i64 1, %84
@@ -6350,7 +6350,7 @@ fetch_att.exit.thread:                            ; preds = %135, %132, %129, %1
   %213 = load ptr, ptr %199, align 8
   %214 = call i64 @llvm.umax.i64(i64 %212, i64 2)
   %215 = call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %214)
-  %216 = icmp ult i64 %215, 2
+  %216 = icmp samesign ult i64 %215, 2
   %217 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %214, i1 true)
   %218 = sub nuw nsw i64 64, %217
   %219 = shl nuw i64 1, %218
@@ -6371,7 +6371,7 @@ saophash_compute_size.exit.i.i.i:                 ; preds = %211
   %225 = call ptr @MemoryContextAllocExtended(ptr noundef %.val.i.i.i, i64 noundef %220, i32 noundef 5) #15
   store ptr %225, ptr %199, align 8
   %226 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i)
-  %227 = icmp ult i64 %226, 2
+  %227 = icmp samesign ult i64 %226, 2
   %228 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i.i, i1 true)
   %229 = sub nuw nsw i64 64, %228
   %230 = shl nuw i64 1, %229

@@ -1351,7 +1351,7 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %while.body
-  %cmp.i = icmp ugt i64 %ndigits.013, 2305843009213693944
+  %cmp.i = icmp samesign ugt i64 %ndigits.013, 2305843009213693944
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.end
@@ -1433,7 +1433,7 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %while.body
-  %cmp.i = icmp ugt i64 %ndigits.013, 2305843009213693944
+  %cmp.i = icmp samesign ugt i64 %ndigits.013, 2305843009213693944
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.end
@@ -1515,7 +1515,7 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body
-  %cmp.i = icmp ugt i64 %ndigits.013, 2305843009213693944
+  %cmp.i = icmp samesign ugt i64 %ndigits.013, 2305843009213693944
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.end
@@ -1787,7 +1787,7 @@ if.then22:                                        ; preds = %while.end
   br label %exit
 
 if.else24:                                        ; preds = %while.end
-  %cmp25 = icmp ugt i32 %6, 1
+  %cmp25 = icmp samesign ugt i32 %6, 1
   %cmp27 = icmp eq i64 %x.0, -9223372036854775808
   %or.cond = and i1 %cmp25, %cmp27
   br i1 %or.cond, label %exit, label %if.else30
@@ -1943,7 +1943,7 @@ if.then18:                                        ; preds = %while.end
   br label %return
 
 if.else:                                          ; preds = %while.end
-  %cmp20 = icmp ugt i32 %7, 1
+  %cmp20 = icmp samesign ugt i32 %7, 1
   %cmp22 = icmp eq i64 %x.0, -9223372036854775808
   %or.cond = and i1 %cmp20, %cmp22
   br i1 %or.cond, label %return, label %overflow
@@ -2714,7 +2714,7 @@ while.body.us:                                    ; preds = %while.body.us.prehe
   %accumbits.161.us = phi i32 [ %inc.us, %while.body.us ], [ %accumbits.074.us, %while.body.us.preheader ]
   %shr21.us = lshr i32 %s.062.us, 1
   %inc.us = add i32 %accumbits.161.us, 1
-  %cmp19.not.us = icmp ult i32 %s.062.us, 2
+  %cmp19.not.us = icmp samesign ult i32 %s.062.us, 2
   br i1 %cmp19.not.us, label %if.end24.us, label %while.body.us, !llvm.loop !23
 
 if.end24.us:                                      ; preds = %while.body.us, %if.then15.us
@@ -3524,7 +3524,7 @@ if.then22:                                        ; preds = %while.end
   br label %exit
 
 if.else24:                                        ; preds = %while.end
-  %cmp25 = icmp ugt i32 %6, 1
+  %cmp25 = icmp samesign ugt i32 %6, 1
   %cmp27 = icmp eq i64 %x.0, -9223372036854775808
   %or.cond = and i1 %cmp25, %cmp27
   br i1 %or.cond, label %exit, label %if.else30
@@ -3889,7 +3889,7 @@ land.lhs.true:                                    ; preds = %if.then6
   %conv11 = zext nneg i32 %div to i64
   %sub = add nsw i64 %shr.i, -11
   %div12 = udiv i64 %sub, 10
-  %cmp13.not = icmp ult i64 %div12, %conv11
+  %cmp13.not = icmp samesign ult i64 %div12, %conv11
   br i1 %cmp13.not, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %land.lhs.true
@@ -5710,7 +5710,7 @@ while.cond.preheader.i:                           ; preds = %land.lhs.true100, %
   %tobool126.not4675 = phi i1 [ %tobool126.not46.ph66, %if.end117.thread ], [ true, %if.end117 ], [ true, %land.lhs.true87 ], [ true, %land.lhs.true74 ], [ true, %land.lhs.true100 ]
   %base.addr.04873 = phi i32 [ %base.addr.048.ph65, %if.end117.thread ], [ %base.addr.048, %if.end117 ], [ 8, %land.lhs.true87 ], [ 16, %land.lhs.true74 ], [ 2, %land.lhs.true100 ]
   %14 = phi i8 [ %.ph, %if.end117.thread ], [ %12, %if.end117 ], [ 48, %land.lhs.true87 ], [ 48, %land.lhs.true74 ], [ 48, %land.lhs.true100 ]
-  %cmp.i1978 = icmp ult i32 %cmp.i1978.in, 2
+  %cmp.i1978 = icmp samesign ult i32 %cmp.i1978.in, 2
   %idxprom49.i = zext i8 %14 to i64
   %arrayidx50.i = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %idxprom49.i
   %15 = load i8, ptr %arrayidx50.i, align 1
@@ -6216,7 +6216,7 @@ if.end:                                           ; preds = %entry
 
 land.lhs.true:                                    ; preds = %if.end
   %cmp4 = icmp ne i64 %shr.i, 307445734561825861
-  %cmp6 = icmp ugt i32 %retval.0.i.i, 7
+  %cmp6 = icmp samesign ugt i32 %retval.0.i.i, 7
   %or.cond = select i1 %cmp4, i1 true, i1 %cmp6
   br i1 %or.cond, label %overflow, label %if.end9
 
@@ -6688,7 +6688,7 @@ entry:
   %1 = getelementptr i8, ptr %b, i64 16
   %b.val = load i64, ptr %1, align 8
   %shr.i30 = lshr i64 %b.val, 3
-  %cmp = icmp ult i64 %shr.i, %shr.i30
+  %cmp = icmp samesign ult i64 %shr.i, %shr.i30
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -6700,7 +6700,7 @@ if.end:                                           ; preds = %if.then, %entry
   %b.addr.0 = phi ptr [ %a, %if.then ], [ %b, %entry ]
   %a.addr.0 = phi ptr [ %b, %if.then ], [ %a, %entry ]
   %add = add nuw nsw i64 %size_a.0, 1
-  %cmp.i = icmp ugt i64 %size_a.0, 2305843009213693944
+  %cmp.i = icmp samesign ugt i64 %size_a.0, 2305843009213693944
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
@@ -6754,7 +6754,7 @@ for.body.lr.ph:                                   ; preds = %_PyLong_New.exit
 
 for.cond15.preheader:                             ; preds = %for.body, %_PyLong_New.exit
   %carry.0.lcssa = phi i32 [ 0, %_PyLong_New.exit ], [ %shr, %for.body ]
-  %cmp1640 = icmp ult i64 %size_b.0, %size_a.0
+  %cmp1640 = icmp samesign ult i64 %size_b.0, %size_a.0
   br i1 %cmp1640, label %for.body17.lr.ph, label %for.end29
 
 for.body17.lr.ph:                                 ; preds = %for.cond15.preheader
@@ -6846,7 +6846,7 @@ entry:
   %1 = getelementptr i8, ptr %b, i64 16
   %b.val = load i64, ptr %1, align 8
   %shr.i47 = lshr i64 %b.val, 3
-  %cmp = icmp ult i64 %shr.i, %shr.i47
+  %cmp = icmp samesign ult i64 %shr.i, %shr.i47
   br i1 %cmp, label %if.end23, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -7246,7 +7246,7 @@ entry:
   store ptr null, ptr %al, align 8
   store ptr null, ptr %bh, align 8
   store ptr null, ptr %bl, align 8
-  %cmp = icmp ugt i64 %shr.i, %shr.i86
+  %cmp = icmp samesign ugt i64 %shr.i, %shr.i86
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -7259,7 +7259,7 @@ if.end:                                           ; preds = %if.then, %entry
   %a.addr.0 = phi ptr [ %b, %if.then ], [ %a, %entry ]
   %cmp2 = icmp eq ptr %b, %a
   %conv = select i1 %cmp2, i64 140, i64 70
-  %cmp3.not = icmp ugt i64 %asize.0, %conv
+  %cmp3.not = icmp samesign ugt i64 %asize.0, %conv
   br i1 %cmp3.not, label %if.end11, label %if.then5
 
 if.then5:                                         ; preds = %if.end
@@ -7274,7 +7274,7 @@ if.else:                                          ; preds = %if.then5
   %b.val.i = load i64, ptr %3, align 8
   %shr.i59.i = lshr i64 %b.val.i, 3
   %add.i = add nuw nsw i64 %shr.i59.i, %shr.i.i
-  %cmp.i60.i = icmp ugt i64 %add.i, 2305843009213693945
+  %cmp.i60.i = icmp samesign ugt i64 %add.i, 2305843009213693945
   br i1 %cmp.i60.i, label %if.then.i.i, label %if.end.i61.i
 
 if.then.i.i:                                      ; preds = %if.else
@@ -7474,7 +7474,7 @@ if.then42.i:                                      ; preds = %while.end.i
   %26 = trunc i64 %add44.i to i32
   %conv46.i = and i32 %26, 1073741823
   store i32 %conv46.i, ptr %pz.0.lcssa.i, align 4
-  %tobool48.not.i = icmp ult i64 %add44.i, 1073741824
+  %tobool48.not.i = icmp samesign ult i64 %add44.i, 1073741824
   br i1 %tobool48.not.i, label %for.inc.i, label %if.then49.i
 
 if.then49.i:                                      ; preds = %if.then42.i
@@ -7554,7 +7554,7 @@ if.end5.sink.split.i.i:                           ; preds = %if.else.i.i, %while
 
 if.end11:                                         ; preds = %if.end
   %mul = shl nuw nsw i64 %asize.0, 1
-  %cmp12.not = icmp ugt i64 %mul, %bsize.0
+  %cmp12.not = icmp samesign ugt i64 %mul, %bsize.0
   br i1 %cmp12.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %if.end11
@@ -7565,7 +7565,7 @@ if.then14:                                        ; preds = %if.end11
   %b.val.i89 = load i64, ptr %31, align 8
   %shr.i351 = lshr i64 %b.val.i89, 3
   %add.i90 = add nuw nsw i64 %shr.i351, %shr.i352
-  %cmp.i328 = icmp ugt i64 %add.i90, 2305843009213693945
+  %cmp.i328 = icmp samesign ugt i64 %add.i90, 2305843009213693945
   br i1 %cmp.i328, label %if.then.i349, label %if.end.i329
 
 if.then.i349:                                     ; preds = %if.then14
@@ -7888,7 +7888,7 @@ if.else27:                                        ; preds = %if.end21
 
 if.end33:                                         ; preds = %if.else27, %_Py_NewRef.exit109
   %add = add nuw nsw i64 %shr.i86, %shr.i
-  %cmp.i110 = icmp ugt i64 %add, 2305843009213693945
+  %cmp.i110 = icmp samesign ugt i64 %add, 2305843009213693945
   br i1 %cmp.i110, label %if.then.i, label %if.end.i111
 
 if.then.i:                                        ; preds = %if.end33
@@ -9300,7 +9300,7 @@ cond.true59:                                      ; preds = %cond.end
 cond.end69:                                       ; preds = %cond.end, %cond.true59
   %cond70 = phi i64 [ %shl67, %cond.true59 ], [ 0, %cond.end ]
   %or71 = or i64 %cond70, %cond
-  %cmp72.not = icmp ult i64 %shr.i190, %shr.i188416
+  %cmp72.not = icmp samesign ult i64 %shr.i190, %shr.i188416
   br i1 %cmp72.not, label %cond.end84, label %cond.true74
 
 cond.true74:                                      ; preds = %cond.end69
@@ -10095,7 +10095,7 @@ if.then.i25:                                      ; preds = %if.end
   br label %return
 
 if.end.i23:                                       ; preds = %if.end
-  %cmp2.i = icmp ult i64 %shr.i, %shr.i31.i
+  %cmp2.i = icmp samesign ult i64 %shr.i, %shr.i31.i
   br i1 %cmp2.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i23
@@ -10884,7 +10884,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp ult i64 %shr.i, %shr.i45
+  %cmp2 = icmp samesign ult i64 %shr.i, %shr.i45
   br i1 %cmp2, label %if.then9, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
@@ -11519,7 +11519,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %3 = load i32, ptr %arrayidx, align 4
   %conv = zext i32 %3 to i64
   %add = add nuw nsw i64 %or, %conv
-  %cmp7 = icmp ugt i64 %add, 2305843009213693950
+  %cmp7 = icmp samesign ugt i64 %add, 2305843009213693950
   %sub = add nsw i64 %add, -2305843009213693951
   %spec.select = select i1 %cmp7, i64 %sub, i64 %add
   %cmp6 = icmp ugt i64 %i.024, 1
@@ -12571,7 +12571,7 @@ if.then.i:                                        ; preds = %entry
   br label %return
 
 if.end.i16:                                       ; preds = %entry
-  %tobool.not.i = icmp ule i64 %shr.i, %size
+  %tobool.not.i = icmp samesign ule i64 %shr.i, %size
   %2 = shl nsw i64 %sub, 2
   %3 = add nsw i64 %2, 24
   %add.i = select i1 %tobool.not.i, i64 28, i64 %3
@@ -13650,7 +13650,7 @@ if.then18.i:                                      ; preds = %while.end.i
   br label %PyLong_AsSsize_t.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %cmp20.i = icmp ugt i32 %7, 1
+  %cmp20.i = icmp samesign ugt i32 %7, 1
   %cmp22.i = icmp eq i64 %x.0.i, -9223372036854775808
   %or.cond.i = and i1 %cmp20.i, %cmp22.i
   br i1 %or.cond.i, label %PyLong_AsSsize_t.exit, label %overflow.i
@@ -14155,7 +14155,7 @@ lor.lhs.false68:                                  ; preds = %if.end66
   %shr.i = lshr i64 %a.2.val196, 3
   %.val = load i64, ptr %32, align 8
   %shr.i234 = lshr i64 %.val, 3
-  %cmp71 = icmp ugt i64 %shr.i, %shr.i234
+  %cmp71 = icmp samesign ugt i64 %shr.i, %shr.i234
   br i1 %cmp71, label %if.then72, label %if.end86
 
 if.then72:                                        ; preds = %lor.lhs.false68, %if.end66
@@ -14513,7 +14513,7 @@ Py_XDECREF.exit301:                               ; preds = %if.then.i294, %if.e
 for.inc199:                                       ; preds = %do.end180, %Py_XDECREF.exit301, %Py_XDECREF.exit292
   %z.6 = phi ptr [ %77, %Py_XDECREF.exit301 ], [ %retval.0.i282416, %Py_XDECREF.exit292 ], [ %z.5, %do.end180 ]
   %shr200 = lshr i32 %bit.2533, 1
-  %cmp165.not = icmp ult i32 %bit.2533, 2
+  %cmp165.not = icmp samesign ult i32 %bit.2533, 2
   br i1 %cmp165.not, label %for.end201, label %do.body166, !llvm.loop !103
 
 for.end201:                                       ; preds = %for.inc199, %for.cond163
@@ -17160,7 +17160,7 @@ if.end.i181:                                      ; preds = %if.else25
 
 if.end26:                                         ; preds = %for.body.i147, %if.end18, %if.end.i181, %if.else25
   %b.addr.0 = phi ptr [ %b, %if.else25 ], [ %b, %if.end.i181 ], [ %call.i126, %if.end18 ], [ %call.i126, %for.body.i147 ]
-  %cmp27 = icmp ult i64 %shr.i, %shr.i119
+  %cmp27 = icmp samesign ult i64 %shr.i, %shr.i119
   br i1 %cmp27, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %if.end26
@@ -17617,7 +17617,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %mul.i = mul nuw nsw i64 %sub.i, 30
   %conv.i = zext nneg i32 %retval.0.i.i.i to i64
   %add.i = add nuw nsw i64 %mul.i, %conv.i
-  %or.cond.i.i = icmp ult i64 %add.i, 257
+  %or.cond.i.i = icmp samesign ult i64 %add.i, 257
   br i1 %or.cond.i.i, label %if.then.i.i, label %while.body.i.i
 
 if.then.i.i:                                      ; preds = %if.then4.i
@@ -17630,7 +17630,7 @@ while.body.i.i:                                   ; preds = %if.then4.i, %while.
   %t.020.i.i = phi i64 [ %shr.i33.i, %while.body.i.i ], [ %add.i, %if.then4.i ]
   %inc.i.i = add nuw nsw i32 %ndigits.021.i.i, 1
   %shr.i33.i = lshr i64 %t.020.i.i, 30
-  %tobool.not.i.i = icmp ult i64 %t.020.i.i, 1073741824
+  %tobool.not.i.i = icmp samesign ult i64 %t.020.i.i, 1073741824
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !29
 
 while.end.i.i:                                    ; preds = %while.body.i.i
@@ -17681,7 +17681,7 @@ while.body15.i.i:                                 ; preds = %while.body15.i.i, %
   %incdec.ptr.i.i = getelementptr i8, ptr %p.024.i.i, i64 4
   store i32 %conv16.i.i, ptr %p.024.i.i, align 4
   %shr17.i.i = lshr i64 %t.123.i.i, 30
-  %tobool14.not.i.i = icmp ult i64 %t.123.i.i, 1073741824
+  %tobool14.not.i.i = icmp samesign ult i64 %t.123.i.i, 1073741824
   br i1 %tobool14.not.i.i, label %int_bit_length_impl.exit, label %while.body15.i.i, !llvm.loop !30
 
 while.body.i38.i:                                 ; preds = %if.end.i, %while.body.i38.i
@@ -18206,7 +18206,7 @@ if.then18.i:                                      ; preds = %while.end.i
   br label %PyLong_AsSsize_t.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %cmp20.i = icmp ugt i32 %10, 1
+  %cmp20.i = icmp samesign ugt i32 %10, 1
   %cmp22.i = icmp eq i64 %x.0.i, -9223372036854775808
   %or.cond.i = and i1 %cmp20.i, %cmp22.i
   br i1 %or.cond.i, label %PyLong_AsSsize_t.exit, label %overflow.i

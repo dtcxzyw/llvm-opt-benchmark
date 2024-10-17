@@ -284,7 +284,7 @@ define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesFilter(ptr 
   %110 = load i32, ptr %6, align 4
   %111 = lshr i32 %110, 16
   %112 = and i32 %111, 4095
-  %113 = icmp ugt i32 %112, 1
+  %113 = icmp samesign ugt i32 %112, 1
   br i1 %113, label %isVersionGte12x.exit.i, label %114
 
 114:                                              ; preds = %109

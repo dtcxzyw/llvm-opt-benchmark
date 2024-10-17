@@ -189,7 +189,7 @@ _ZNK4llvm10CallBrInst12getSuccessorEj.exit:       ; preds = %.lr.ph, %88
   %89 = load i32, ptr %71, align 8
   %90 = add i32 %89, 1
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next, %91
   br i1 %92, label %_ZNK4llvm10CallBrInst12getSuccessorEj.exit, label %.loopexit300, !llvm.loop !10
 
 .loopexit300:                                     ; preds = %88, %57, %.preheader, %59, %63

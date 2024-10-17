@@ -1258,7 +1258,7 @@ getTocEntryByDumpId.exit.us:                      ; preds = %129
 
 getTocEntryByDumpId.exit.thread.us:               ; preds = %139, %134, %getTocEntryByDumpId.exit.us, %129, %125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %143 = icmp ult i64 %indvars.iv.next, %124
+  %143 = icmp samesign ult i64 %indvars.iv.next, %124
   br i1 %143, label %125, label %.critedge, !llvm.loop !7
 
 .lr.ph.splitthread-pre-split:                     ; preds = %getTocEntryByDumpId.exit.thread

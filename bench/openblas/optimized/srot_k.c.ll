@@ -49,7 +49,7 @@ define noundef i32 @srot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   br label %38
 
 .loopexit4.i:                                     ; preds = %38, %25
-  %35 = icmp ult i64 %31, %30
+  %35 = icmp samesign ult i64 %31, %30
   br i1 %35, label %36, label %.loopexit.i
 
 36:                                               ; preds = %.loopexit4.i
@@ -102,7 +102,7 @@ define noundef i32 @srot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   store <16 x float> %72, ptr %55, align 1, !tbaa !7
   store <16 x float> %74, ptr %57, align 1, !tbaa !7
   %75 = add nuw nsw i64 %39, 64
-  %76 = icmp ult i64 %75, %31
+  %76 = icmp samesign ult i64 %75, %31
   br i1 %76, label %38, label %.loopexit4.i, !llvm.loop !8
 
 77:                                               ; preds = %77, %36
@@ -118,7 +118,7 @@ define noundef i32 @srot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   %86 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %27, <16 x float> %82, <16 x float> %85)
   store <16 x float> %86, ptr %81, align 1, !tbaa !7
   %87 = add nuw nsw i64 %78, 16
-  %88 = icmp ult i64 %87, %30
+  %88 = icmp samesign ult i64 %87, %30
   br i1 %88, label %77, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %77, %.loopexit4.i
@@ -221,7 +221,7 @@ define internal noundef i32 @rot_thread_function(ptr nocapture noundef readonly 
   br label %34
 
 .loopexit4.i:                                     ; preds = %34, %21
-  %31 = icmp ult i64 %27, %26
+  %31 = icmp samesign ult i64 %27, %26
   br i1 %31, label %32, label %.loopexit.i
 
 32:                                               ; preds = %.loopexit4.i
@@ -274,7 +274,7 @@ define internal noundef i32 @rot_thread_function(ptr nocapture noundef readonly 
   store <16 x float> %68, ptr %51, align 1, !tbaa !7
   store <16 x float> %70, ptr %53, align 1, !tbaa !7
   %71 = add nuw nsw i64 %35, 64
-  %72 = icmp ult i64 %71, %27
+  %72 = icmp samesign ult i64 %71, %27
   br i1 %72, label %34, label %.loopexit4.i, !llvm.loop !8
 
 73:                                               ; preds = %73, %32
@@ -290,7 +290,7 @@ define internal noundef i32 @rot_thread_function(ptr nocapture noundef readonly 
   %82 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %23, <16 x float> %78, <16 x float> %81)
   store <16 x float> %82, ptr %77, align 1, !tbaa !7
   %83 = add nuw nsw i64 %74, 16
-  %84 = icmp ult i64 %83, %26
+  %84 = icmp samesign ult i64 %83, %26
   br i1 %84, label %73, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %73, %.loopexit4.i

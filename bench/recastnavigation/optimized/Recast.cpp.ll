@@ -1150,7 +1150,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 
 114:                                              ; preds = %.loopexit.us
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
-  %115 = icmp ult i64 %indvars.iv.next239, %109
+  %115 = icmp samesign ult i64 %indvars.iv.next239, %109
   br i1 %115, label %.lr.ph215.us, label %._crit_edge.us, !llvm.loop !14
 
 116:                                              ; preds = %.loopexit.us, %.lr.ph215.us
@@ -1215,7 +1215,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 
 155:                                              ; preds = %152
   %156 = sub nuw nsw i64 %indvars.iv231, %179
-  %or.cond3.us = icmp ugt i64 %156, 62
+  %or.cond3.us = icmp samesign ugt i64 %156, 62
   %157 = trunc nuw nsw i64 %156 to i32
   br i1 %or.cond3.us, label %165, label %158
 
@@ -1242,7 +1242,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 167:                                              ; preds = %165, %152, %140
   %.6.us = phi i32 [ %166, %165 ], [ %.5208.us, %152 ], [ %.5208.us, %140 ]
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
-  %168 = icmp ult i64 %indvars.iv.next232, %180
+  %168 = icmp samesign ult i64 %indvars.iv.next232, %180
   br i1 %168, label %140, label %.loopexit.us, !llvm.loop !16
 
 .lr.ph210.us:                                     ; preds = %133

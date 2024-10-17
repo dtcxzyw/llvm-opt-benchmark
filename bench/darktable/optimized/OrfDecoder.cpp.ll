@@ -358,7 +358,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder12handleSlicesEv(ptr dead_on_unwind
   %25 = add nuw nsw i64 %24, %23
   %26 = load i32, ptr %20, align 8, !tbaa !24
   %27 = zext i32 %26 to i64
-  %28 = icmp ugt i64 %25, %27
+  %28 = icmp samesign ugt i64 %25, %27
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %19
@@ -394,7 +394,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder12handleSlicesEv(ptr dead_on_unwind
   %44 = zext i32 %34 to i64
   %45 = add nuw nsw i64 %44, %43
   %46 = and i64 %36, 2147483647
-  %47 = icmp ugt i64 %45, %46
+  %47 = icmp samesign ugt i64 %45, %46
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %40
@@ -406,7 +406,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder12handleSlicesEv(ptr dead_on_unwind
   %51 = icmp ne ptr %50, null
   tail call void @llvm.assume(i1 %51)
   %52 = add nuw nsw i32 %34, %15
-  %53 = icmp ule i32 %52, %37
+  %53 = icmp samesign ule i32 %52, %37
   tail call void @llvm.assume(i1 %53)
   %54 = icmp sgt i32 %34, -1
   tail call void @llvm.assume(i1 %54)
@@ -430,7 +430,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder12handleSlicesEv(ptr dead_on_unwind
   %66 = add nuw nsw i64 %65, %64
   %67 = load i32, ptr %20, align 8, !tbaa !24
   %68 = zext i32 %67 to i64
-  %69 = icmp ugt i64 %66, %68
+  %69 = icmp samesign ugt i64 %66, %68
   br i1 %69, label %.loopexit, label %70
 
 .loopexit:                                        ; preds = %.preheader, %19
@@ -1696,7 +1696,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder29decodeUncompressedInterleavedENS_
   %28 = getelementptr inbounds i8, ptr %1, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !24
   %30 = zext i32 %29 to i64
-  %31 = icmp ugt i64 %27, %30
+  %31 = icmp samesign ugt i64 %27, %30
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %21
@@ -1708,7 +1708,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder29decodeUncompressedInterleavedENS_
   %35 = icmp sgt i32 %29, -1
   tail call void @llvm.assume(i1 %35)
   %36 = add nuw nsw i32 %24, %22
-  %37 = icmp ule i32 %36, %29
+  %37 = icmp samesign ule i32 %36, %29
   tail call void @llvm.assume(i1 %37)
   %38 = icmp sgt i32 %24, -1
   tail call void @llvm.assume(i1 %38)
@@ -1745,7 +1745,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder29decodeUncompressedInterleavedENS_
   %56 = zext nneg i32 %45 to i64
   %57 = zext i32 %55 to i64
   %58 = add nuw nsw i64 %56, %57
-  %59 = icmp ugt i64 %58, %30
+  %59 = icmp samesign ugt i64 %58, %30
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %54
@@ -1784,7 +1784,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder29decodeUncompressedInterleavedENS_
   tail call void @llvm.assume(i1 %84)
   %85 = icmp sgt i32 %80, -1
   tail call void @llvm.assume(i1 %85)
-  %86 = icmp uge i32 %80, %75
+  %86 = icmp samesign uge i32 %80, %75
   tail call void @llvm.assume(i1 %86)
   %87 = icmp eq i32 %75, 0
   %88 = icmp ne i32 %77, 0
@@ -1792,7 +1792,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder29decodeUncompressedInterleavedENS_
   tail call void @llvm.assume(i1 %89)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %90 = icmp ult i32 %22, 4
+  %90 = icmp samesign ult i32 %22, 4
   br i1 %90, label %100, label %91
 
 91:                                               ; preds = %61
@@ -1820,7 +1820,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder29decodeUncompressedInterleavedENS_
   %104 = phi i32 [ 0, %95 ], [ %168, %126 ]
   %105 = phi i64 [ 0, %95 ], [ %169, %126 ]
   %106 = shl nuw nsw i64 %102, 1
-  %107 = icmp ult i64 %106, %98
+  %107 = icmp samesign ult i64 %106, %98
   %108 = trunc i64 %106 to i32
   %109 = mul nsw i32 %80, %108
   %110 = add nuw nsw i32 %109, %75
@@ -1833,7 +1833,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder29decodeUncompressedInterleavedENS_
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  %114 = icmp ult i32 %55, 4
+  %114 = icmp samesign ult i32 %55, 4
   br i1 %114, label %125, label %115
 
 115:                                              ; preds = %.loopexit16
@@ -1924,7 +1924,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder29decodeUncompressedInterleavedENS_
   %171 = and i64 %130, 2147483648
   %172 = icmp eq i64 %171, 0
   tail call void @llvm.assume(i1 %172)
-  %173 = icmp ult i64 %130, %96
+  %173 = icmp samesign ult i64 %130, %96
   tail call void @llvm.assume(i1 %173)
   tail call void @llvm.assume(i1 %107)
   tail call void @llvm.assume(i1 %111)
@@ -1941,7 +1941,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder29decodeUncompressedInterleavedENS_
   %181 = phi i32 [ 0, %120 ], [ %229, %191 ]
   %182 = shl nuw nsw i64 %178, 1
   %183 = or disjoint i64 %182, 1
-  %184 = icmp ult i64 %183, %123
+  %184 = icmp samesign ult i64 %183, %123
   %185 = trunc i64 %183 to i32
   %186 = mul nsw i32 %80, %185
   %187 = add nuw nsw i32 %186, %75
@@ -2022,7 +2022,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder29decodeUncompressedInterleavedENS_
   %236 = and i64 %195, 2147483648
   %237 = icmp eq i64 %236, 0
   tail call void @llvm.assume(i1 %237)
-  %238 = icmp ult i64 %195, %121
+  %238 = icmp samesign ult i64 %195, %121
   tail call void @llvm.assume(i1 %238)
   tail call void @llvm.assume(i1 %184)
   tail call void @llvm.assume(i1 %188)
@@ -2570,7 +2570,7 @@ define hidden void @_ZN8rawspeed10OrfDecoder22decodeMetaDataInternalEPKNS_14Came
   call void @llvm.assume(i1 %193)
   %194 = icmp sgt i32 %192, -1
   call void @llvm.assume(i1 %194)
-  %195 = icmp uge i32 %192, %186
+  %195 = icmp samesign uge i32 %192, %186
   call void @llvm.assume(i1 %195)
   %196 = icmp eq i32 %186, 0
   %197 = icmp ne i32 %189, 0
@@ -2651,7 +2651,7 @@ define hidden void @_ZN8rawspeed10OrfDecoder22decodeMetaDataInternalEPKNS_14Came
 
 239:                                              ; preds = %234
   %240 = zext i16 %238 to i32
-  %241 = icmp ugt i32 %204, 1
+  %241 = icmp samesign ugt i32 %204, 1
   call void @llvm.assume(i1 %241)
   %242 = getelementptr inbounds i8, ptr %181, i64 4
   store i32 %240, ptr %242, align 4, !tbaa !43
@@ -2673,7 +2673,7 @@ define hidden void @_ZN8rawspeed10OrfDecoder22decodeMetaDataInternalEPKNS_14Came
 
 253:                                              ; preds = %248
   %254 = zext i16 %252 to i32
-  %255 = icmp ugt i32 %204, 2
+  %255 = icmp samesign ugt i32 %204, 2
   call void @llvm.assume(i1 %255)
   %256 = getelementptr inbounds i8, ptr %181, i64 8
   store i32 %254, ptr %256, align 4, !tbaa !43
@@ -2695,7 +2695,7 @@ define hidden void @_ZN8rawspeed10OrfDecoder22decodeMetaDataInternalEPKNS_14Came
 
 267:                                              ; preds = %262
   %268 = zext i16 %266 to i32
-  %269 = icmp ugt i32 %204, 3
+  %269 = icmp samesign ugt i32 %204, 3
   call void @llvm.assume(i1 %269)
   %270 = getelementptr inbounds i8, ptr %181, i64 12
   store i32 %268, ptr %270, align 4, !tbaa !43

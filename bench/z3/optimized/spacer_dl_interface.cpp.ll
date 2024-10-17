@@ -616,7 +616,7 @@ if.end.i.i.i:                                     ; preds = %land.rhs
 
 _ZNK7datalog8rule_set13get_num_rulesEv.exit:      ; preds = %land.rhs, %if.end.i.i.i
   %retval.0.i.i.i = phi i64 [ %5, %if.end.i.i.i ], [ 0, %land.rhs ]
-  %cmp = icmp ult i64 %indvars.iv23, %retval.0.i.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv23, %retval.0.i.i.i
   br i1 %cmp, label %land.rhs7, label %for.end21
 
 land.rhs7:                                        ; preds = %_ZNK7datalog8rule_set13get_num_rulesEv.exit, %for.body11
@@ -634,7 +634,7 @@ if.end.i.i:                                       ; preds = %land.rhs7
 
 _ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit: ; preds = %land.rhs7, %if.end.i.i
   %retval.0.i.i = phi i64 [ %8, %if.end.i.i ], [ 0, %land.rhs7 ]
-  %cmp9 = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp9 = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp9, label %for.body11, label %if.then17
 
 for.body11:                                       ; preds = %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit
@@ -3474,7 +3474,7 @@ for.inc:                                          ; preds = %.noexc35, %lor.lhs.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %m_arity.i, align 8
   %32 = zext i32 %31 to i64
-  %cmp10 = icmp ult i64 %indvars.iv.next, %32
+  %cmp10 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !17
 
 lpad8.loopexit:                                   ; preds = %for.body, %if.then.i.i, %if.then.i.i29, %if.then.i

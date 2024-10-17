@@ -169,7 +169,7 @@ define dso_local void @gov_update_cpu_data(ptr noundef readonly %0) #0 align 16 
 42:                                               ; preds = %35, %24
   %43 = add nuw nsw i64 %21, 1
   %44 = and i64 %43, 127
-  %45 = icmp ugt i64 %44, 63
+  %45 = icmp samesign ugt i64 %44, 63
   br i1 %45, label %.thread, label %13, !prof !11, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.thread, %1
@@ -311,7 +311,7 @@ define dso_local i32 @dbs_update(ptr nocapture noundef readonly %0) #0 align 16 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   %90 = add nuw nsw i64 %27, 1
   %91 = and i64 %90, 127
-  %92 = icmp ugt i64 %91, 63
+  %92 = icmp samesign ugt i64 %91, 63
   br i1 %92, label %.thread, label %18, !prof !11, !llvm.loop !15
 
 .thread:                                          ; preds = %18, %87, %26
@@ -385,7 +385,7 @@ define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
   store ptr %10, ptr %39, align 8
   %40 = add nuw nsw i64 %30, 1
   %41 = and i64 %40, 127
-  %42 = icmp ugt i64 %41, 63
+  %42 = icmp samesign ugt i64 %41, 63
   br i1 %42, label %.thread, label %23, !prof !11, !llvm.loop !16
 
 .thread:                                          ; preds = %29, %33, %23
@@ -507,7 +507,7 @@ define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
   %106 = add nuw nsw i64 %96, 1
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
   %107 = and i64 %106, 127
-  %108 = icmp ugt i64 %107, 63
+  %108 = icmp samesign ugt i64 %107, 63
   br i1 %108, label %.thread12, label %87, !prof !11, !llvm.loop !20
 
 .thread12:                                        ; preds = %87, %99, %95
@@ -617,7 +617,7 @@ define dso_local void @cpufreq_dbs_governor_exit(ptr nocapture noundef %0) #0 al
   %34 = add nuw nsw i64 %24, 1
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   %35 = and i64 %34, 127
-  %36 = icmp ugt i64 %35, 63
+  %36 = icmp samesign ugt i64 %35, 63
   br i1 %36, label %.thread, label %15, !prof !11, !llvm.loop !20
 
 .thread:                                          ; preds = %15, %27, %23
@@ -691,7 +691,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_dbs_governor_start(ptr n
   store i32 0, ptr %43, align 8
   %44 = add nuw nsw i64 %32, 1
   %45 = and i64 %44, 127
-  %46 = icmp ugt i64 %45, 63
+  %46 = icmp samesign ugt i64 %45, 63
   br i1 %46, label %.thread, label %.split.us, !prof !11, !llvm.loop !22
 
 .split:                                           ; preds = %9, %56
@@ -728,7 +728,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_dbs_governor_start(ptr n
   store i64 %69, ptr %70, align 8
   %71 = add nuw nsw i64 %53, 1
   %72 = and i64 %71, 127
-  %73 = icmp ugt i64 %72, 63
+  %73 = icmp samesign ugt i64 %72, 63
   br i1 %73, label %.thread, label %.split, !prof !11, !llvm.loop !22
 
 .thread:                                          ; preds = %52, %56, %.split, %.split.us, %31, %35
@@ -768,7 +768,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_dbs_governor_start(ptr n
   tail call void @cpufreq_add_update_util_hook(i32 noundef %89, ptr noundef %97, ptr noundef nonnull @dbs_update_util_handler) #9
   %98 = add nuw nsw i64 %88, 1
   %99 = and i64 %98, 127
-  %100 = icmp ugt i64 %99, 63
+  %100 = icmp samesign ugt i64 %99, 63
   br i1 %100, label %.thread7, label %81, !prof !11, !llvm.loop !23
 
 .thread7:                                         ; preds = %81, %91, %87, %1
@@ -801,7 +801,7 @@ define dso_local void @cpufreq_dbs_governor_stop(ptr nocapture noundef readonly 
   tail call void @cpufreq_remove_update_util_hook(i32 noundef %13) #9
   %16 = add nuw nsw i64 %12, 1
   %17 = and i64 %16, 127
-  %18 = icmp ugt i64 %17, 63
+  %18 = icmp samesign ugt i64 %17, 63
   br i1 %18, label %.thread, label %5, !prof !11, !llvm.loop !24
 
 .thread:                                          ; preds = %5, %15, %11

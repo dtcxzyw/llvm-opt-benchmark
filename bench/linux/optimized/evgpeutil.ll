@@ -319,7 +319,7 @@ define dso_local noundef i32 @acpi_ev_delete_gpe_handlers(ptr nocapture noundef 
   %34 = add nuw nsw i64 %10, 1
   %35 = load i32, ptr %4, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %34, %36
+  %37 = icmp samesign ult i64 %34, %36
   br i1 %37, label %9, label %.loopexit3, !llvm.loop !15
 
 .loopexit3:                                       ; preds = %33, %3

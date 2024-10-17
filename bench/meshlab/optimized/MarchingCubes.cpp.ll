@@ -924,11 +924,11 @@ define noundef i32 @_ZN15MarchingSquares8AddEdgesEPKddP4Edge(ptr nocapture nound
   ]
 
 27:                                               ; preds = %25, %25
-  %.cmp.i.i = icmp ugt i64 %indvars.iv, 1
+  %.cmp.i.i = icmp samesign ugt i64 %indvars.iv, 1
   br label %.sink.split.i.i
 
 28:                                               ; preds = %25, %25
-  %.cmp6.i.i = icmp ult i64 %indvars.iv, 2
+  %.cmp6.i.i = icmp samesign ult i64 %indvars.iv, 2
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %28, %27
@@ -948,7 +948,7 @@ _ZN6Square15FactorEdgeIndexEiRiS0_.exit.i:        ; preds = %.sink.split.i.i, %2
   ]
 
 _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i.i: ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i
-  %.cmp.i.inv.i.i = icmp ult i64 %indvars.iv, 2
+  %.cmp.i.inv.i.i = icmp samesign ult i64 %indvars.iv, 2
   %30 = select i1 %.cmp.i.inv.i.i, i32 0, i32 2
   br label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i.i
 
@@ -958,7 +958,7 @@ _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i.i: ; preds = %_ZN6Square15Facto
   br label %_ZN6Square11EdgeCornersEiRiS0_.exit.i
 
 32:                                               ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i
-  %.cmp6.i.i.i = icmp ult i64 %indvars.iv, 2
+  %.cmp6.i.i.i = icmp samesign ult i64 %indvars.iv, 2
   %33 = zext i1 %.cmp6.i.i.i to i32
   %34 = or disjoint i32 %33, 2
   br label %_ZN6Square11EdgeCornersEiRiS0_.exit.i

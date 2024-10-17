@@ -702,7 +702,7 @@ for.inc:                                          ; preds = %for.body, %_.exit21
   %res.2 = phi i32 [ -1, %_.exit21 ], [ %res.125, %for.body ]
   %inc = add nuw nsw i64 %i.024, 1
   %conv = zext i32 %14 to i64
-  %cmp = icmp ult i64 %inc, %conv
+  %cmp = icmp samesign ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %return, !llvm.loop !13
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %if.end8, %entry, %lor.lhs.false

@@ -314,7 +314,7 @@ define hidden noundef ptr @_ZN11FpuStackSim11write_stateEv(ptr nocapture noundef
   %13 = add nsw i32 %9, 1
   %14 = icmp sgt i32 %9, -1
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %or.cond.i.i.i.i = select i1 %14, i1 %16, i1 false
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %18 = sub nuw nsw i32 32, %17
@@ -348,7 +348,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
   %33 = add nsw i32 %29, 1
   %34 = icmp sgt i32 %29, -1
   %35 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %33)
-  %36 = icmp ult i32 %35, 2
+  %36 = icmp samesign ult i32 %35, 2
   %or.cond.i.i.i.i6 = select i1 %34, i1 %36, i1 false
   %37 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %33, i1 true)
   %38 = sub nuw nsw i32 32, %37

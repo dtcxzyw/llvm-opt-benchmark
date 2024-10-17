@@ -884,7 +884,7 @@ define internal ptr @H5B2__cache_int_deserialize(ptr noundef %0, i64 %1, ptr noc
   %112 = load i64, ptr %111, align 8
   %113 = getelementptr inbounds i8, ptr %.08293, i64 %112
   %114 = add nuw nsw i32 %.07994, 1
-  %115 = icmp ult i32 %114, %89
+  %115 = icmp samesign ult i32 %114, %89
   br i1 %115, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %103, %83
@@ -918,7 +918,7 @@ define internal ptr @H5B2__cache_int_deserialize(ptr noundef %0, i64 %1, ptr noc
   %129 = zext i8 %128 to i32
   %130 = or disjoint i32 %126, %129
   %131 = add nuw nsw i64 %.07697, 1
-  %132 = icmp ult i64 %131, %123
+  %132 = icmp samesign ult i64 %131, %123
   br i1 %132, label %.lr.ph99, label %._crit_edge100
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %117
@@ -966,7 +966,7 @@ define internal ptr @H5B2__cache_int_deserialize(ptr noundef %0, i64 %1, ptr noc
   %160 = getelementptr i8, ptr %159, i64 -24
   %161 = load i8, ptr %160, align 8
   %162 = zext i8 %161 to i64
-  %163 = icmp ult i64 %157, %162
+  %163 = icmp samesign ult i64 %157, %162
   br i1 %163, label %.lr.ph106, label %._crit_edge107
 
 ._crit_edge107:                                   ; preds = %.lr.ph106, %139
@@ -986,7 +986,7 @@ define internal ptr @H5B2__cache_int_deserialize(ptr noundef %0, i64 %1, ptr noc
 169:                                              ; preds = %166, %._crit_edge107
   %170 = getelementptr inbounds i8, ptr %.081109, i64 24
   %171 = add nuw nsw i32 %.180110, 1
-  %.not87.not = icmp ult i32 %.180110, %116
+  %.not87.not = icmp samesign ult i32 %.180110, %116
   br i1 %.not87.not, label %117, label %.thread
 
 172:                                              ; preds = %17, %30, %37, %49, %64, %79, %99
@@ -1078,7 +1078,7 @@ define internal range(i32 -1, 1) i32 @H5B2__cache_int_serialize(ptr noundef %0, 
   %43 = add nuw nsw i32 %.05464, 1
   %44 = load i16, ptr %15, align 8
   %45 = zext i16 %44 to i32
-  %46 = icmp ult i32 %43, %45
+  %46 = icmp samesign ult i32 %43, %45
   br i1 %46, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %32, %4
@@ -1119,7 +1119,7 @@ define internal range(i32 -1, 1) i32 @H5B2__cache_int_serialize(ptr noundef %0, 
   %63 = getelementptr inbounds i8, ptr %62, i64 286
   %64 = load i8, ptr %63, align 2
   %65 = zext i8 %64 to i64
-  %66 = icmp ult i64 %60, %65
+  %66 = icmp samesign ult i64 %60, %65
   br i1 %66, label %.lr.ph69, label %._crit_edge70.loopexit
 
 ._crit_edge70.loopexit:                           ; preds = %.lr.ph69
@@ -1169,7 +1169,7 @@ define internal range(i32 -1, 1) i32 @H5B2__cache_int_serialize(ptr noundef %0, 
   %91 = getelementptr i8, ptr %90, i64 -24
   %92 = load i8, ptr %91, align 8
   %93 = zext i8 %92 to i64
-  %94 = icmp ult i64 %83, %93
+  %94 = icmp samesign ult i64 %83, %93
   br i1 %94, label %.lr.ph76, label %._crit_edge77.loopexit
 
 ._crit_edge77.loopexit:                           ; preds = %.lr.ph76
@@ -1189,7 +1189,7 @@ define internal range(i32 -1, 1) i32 @H5B2__cache_int_serialize(ptr noundef %0, 
   %100 = add nuw nsw i32 %.180, 1
   %101 = load i16, ptr %15, align 8
   %102 = zext i16 %101 to i32
-  %.not.not = icmp ult i32 %.180, %102
+  %.not.not = icmp samesign ult i32 %.180, %102
   br i1 %.not.not, label %50, label %103
 
 103:                                              ; preds = %97
@@ -1516,7 +1516,7 @@ define internal ptr @H5B2__cache_leaf_deserialize(ptr noundef %0, i64 %1, ptr no
   %90 = load i64, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %.05564, i64 %90
   %92 = add nuw nsw i32 %.05465, 1
-  %93 = icmp ult i32 %92, %68
+  %93 = icmp samesign ult i32 %92, %68
   br i1 %93, label %.lr.ph, label %.thread
 
 94:                                               ; preds = %16, %29, %36, %48, %60, %77
@@ -1607,7 +1607,7 @@ define internal range(i32 -1, 1) i32 @H5B2__cache_leaf_serialize(ptr nocapture r
   %41 = add nuw nsw i32 %.03946, 1
   %42 = load i16, ptr %14, align 8
   %43 = zext i16 %42 to i32
-  %44 = icmp ult i32 %41, %43
+  %44 = icmp samesign ult i32 %41, %43
   br i1 %44, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %30, %4

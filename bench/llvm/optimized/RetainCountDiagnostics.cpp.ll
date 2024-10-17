@@ -817,7 +817,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit49.i:             ; preds = %146, %139, %209, %2
   %216 = load ptr, ptr %215, align 8, !noalias !12
   %217 = call noundef i32 %216(ptr noundef nonnull align 8 dereferenceable(72) %213) #18, !noalias !12
   %218 = zext i32 %217 to i64
-  %219 = icmp ult i64 %indvars.iv.next, %218
+  %219 = icmp samesign ult i64 %indvars.iv.next, %218
   br i1 %219, label %122, label %.critedge.i, !llvm.loop !18
 
 .critedge.i:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit49.i, %122, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
@@ -4092,7 +4092,7 @@ _ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.thread: ; preds 
   %247 = load i16, ptr %95, align 8
   %248 = lshr i16 %247, 5
   %249 = and i16 %248, 7
-  %or.cond = icmp ult i16 %249, 2
+  %or.cond = icmp samesign ult i16 %249, 2
   br i1 %or.cond, label %250, label %253
 
 250:                                              ; preds = %246

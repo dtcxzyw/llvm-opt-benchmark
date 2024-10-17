@@ -95,7 +95,7 @@ define dso_local ptr @sifive_plic_create(i64 noundef %addr, ptr noundef %hart_co
 entry:
   %call = tail call ptr @qdev_new(ptr noundef nonnull @.str) #9
   %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %enable_stride)
-  %cmp = icmp ult i32 %0, 2
+  %cmp = icmp samesign ult i32 %0, 2
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -104,7 +104,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %context_stride)
-  %cmp3 = icmp ult i32 %1, 2
+  %cmp3 = icmp samesign ult i32 %1, 2
   br i1 %cmp3, label %if.end6, label %if.else5
 
 if.else5:                                         ; preds = %if.end

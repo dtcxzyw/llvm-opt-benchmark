@@ -159,7 +159,7 @@ define dso_local noundef range(i32 -12, 1) i32 @gro_cells_init(ptr nocapture nou
   tail call void @napi_enable(ptr noundef %24) #5
   %26 = add nuw nsw i64 %11, 1
   %27 = and i64 %26, 127
-  %28 = icmp ugt i64 %27, 63
+  %28 = icmp samesign ugt i64 %27, 63
   br i1 %28, label %.thread, label %.preheader, !prof !9, !llvm.loop !10
 
 .thread:                                          ; preds = %.preheader, %14, %10, %2
@@ -279,7 +279,7 @@ define dso_local void @gro_cells_destroy(ptr nocapture noundef %0) #0 align 16 {
 .loopexit:                                        ; preds = %28, %13
   %40 = add nuw nsw i64 %10, 1
   %41 = and i64 %40, 127
-  %42 = icmp ugt i64 %41, 63
+  %42 = icmp samesign ugt i64 %41, 63
   br i1 %42, label %.thread, label %.preheader, !prof !9, !llvm.loop !15
 
 .thread:                                          ; preds = %.preheader, %.loopexit, %9

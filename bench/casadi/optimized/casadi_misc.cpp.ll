@@ -2505,7 +2505,7 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc37
   %99 = getelementptr inbounds i64, ptr %87, i64 %98
   store i64 %.041, ptr %99, align 8
   %100 = add nuw nsw i64 %.041, 1
-  %101 = icmp ult i64 %100, %95
+  %101 = icmp samesign ult i64 %100, %95
   br i1 %101, label %96, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %96, %93

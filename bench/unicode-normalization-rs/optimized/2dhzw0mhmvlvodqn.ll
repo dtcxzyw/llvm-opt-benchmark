@@ -236,7 +236,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.33
 22:                                               ; preds = %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit
   %.sroa.58.0.extract.shift12 = lshr i64 %.sroa.03.0.copyload.i, 48
   %23 = sub nuw nsw i64 3406, %20
-  %24 = icmp ult i64 %23, %.sroa.58.0.extract.shift12
+  %24 = icmp samesign ult i64 %23, %.sroa.58.0.extract.shift12
   br i1 %24, label %25, label %"_ZN21unicode_normalization7lookups26canonical_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h8e2d0b0857b7106bE.llvm.3355593342274400970.exit"
 
 25:                                               ; preds = %22
@@ -268,7 +268,7 @@ define hidden { ptr, i64 } @"_ZN21unicode_normalization7lookups26canonical_fully
 5:                                                ; preds = %2
   %6 = sub nuw nsw i64 3406, %3
   %7 = zext i16 %1 to i64
-  %8 = icmp ult i64 %6, %7
+  %8 = icmp samesign ult i64 %6, %7
   br i1 %8, label %9, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he1d2e0fc4a523fc5E.llvm.3355593342274400970.exit"
 
 9:                                                ; preds = %5
@@ -321,7 +321,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.33
 22:                                               ; preds = %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit
   %.sroa.58.0.extract.shift12 = lshr i64 %.sroa.03.0.copyload.i, 48
   %23 = sub nuw nsw i64 5735, %20
-  %24 = icmp ult i64 %23, %.sroa.58.0.extract.shift12
+  %24 = icmp samesign ult i64 %23, %.sroa.58.0.extract.shift12
   br i1 %24, label %25, label %"_ZN21unicode_normalization7lookups30compatibility_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h1cb84bb88a75d1a0E.llvm.3355593342274400970.exit"
 
 25:                                               ; preds = %22
@@ -353,7 +353,7 @@ define hidden { ptr, i64 } @"_ZN21unicode_normalization7lookups30compatibility_f
 5:                                                ; preds = %2
   %6 = sub nuw nsw i64 5735, %3
   %7 = zext i16 %1 to i64
-  %8 = icmp ult i64 %6, %7
+  %8 = icmp samesign ult i64 %6, %7
   br i1 %8, label %9, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he1d2e0fc4a523fc5E.llvm.3355593342274400970.exit"
 
 9:                                                ; preds = %5
@@ -406,7 +406,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.33
 22:                                               ; preds = %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit
   %.sroa.58.0.extract.shift12 = lshr i64 %.sroa.03.0.copyload.i, 48
   %23 = sub nuw nsw i64 2004, %20
-  %24 = icmp ult i64 %23, %.sroa.58.0.extract.shift12
+  %24 = icmp samesign ult i64 %23, %.sroa.58.0.extract.shift12
   br i1 %24, label %25, label %"_ZN21unicode_normalization7lookups36cjk_compat_variants_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h11e9bd9139359a17E.exit"
 
 25:                                               ; preds = %22

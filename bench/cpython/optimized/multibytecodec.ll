@@ -1396,8 +1396,8 @@ entry:
   %0 = getelementptr i8, ptr %text, i64 16
   %text.val = load i64, ptr %0, align 8
   %cmp = icmp eq i64 %text.val, 0
-  %tobool.not = icmp ult i32 %flags, 2
-  %or.cond = and i1 %tobool.not, %cmp
+  %tobool.not = icmp samesign ult i32 %flags, 2
+  %or.cond = select i1 %cmp, i1 %tobool.not, i1 false
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1518,7 +1518,7 @@ while.end:                                        ; preds = %while.cond, %while.
   %encreset = getelementptr inbounds i8, ptr %codec, i64 40
   %15 = load ptr, ptr %encreset, align 8
   %cmp45.not = icmp eq ptr %15, null
-  %or.cond27 = or i1 %tobool.not, %cmp45.not
+  %or.cond27 = select i1 %cmp45.not, i1 true, i1 %tobool.not
   br i1 %or.cond27, label %if.end67, label %for.cond
 
 for.cond:                                         ; preds = %while.end, %if.else61

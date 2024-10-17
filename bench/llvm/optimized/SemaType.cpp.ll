@@ -3787,7 +3787,7 @@ _ZL25getPrintableNameForEntityB5cxx11N5clang15DeclarationNameE.exit149: ; preds 
   %.not.i.i156 = icmp eq i8 %190, 13
   %191 = load i32, ptr %189, align 16
   %192 = and i32 %191, 267911168
-  %193 = icmp ugt i32 %192, 256901120
+  %193 = icmp samesign ugt i32 %192, 256901120
   %.0.i.i157 = select i1 %.not.i.i156, i1 %193, i1 false
   br i1 %.0.i.i157, label %194, label %.thread252
 
@@ -4351,8 +4351,8 @@ _ZNK5clang4Type10isSamplerTEv.exit:               ; preds = %477
   %490 = and i32 %489, 267911168
   %491 = icmp eq i32 %490, 254279680
   %492 = and i32 %489, 266338304
-  %switch.i = icmp ult i32 %492, 18874368
-  %or.cond286 = or i1 %491, %switch.i
+  %switch.i = icmp samesign ult i32 %492, 18874368
+  %or.cond286 = select i1 %491, i1 true, i1 %switch.i
   br i1 %or.cond286, label %493, label %_ZNK5clang4Type11isImageTypeEv.exit.thread
 
 493:                                              ; preds = %477, %477, %_ZNK5clang4Type10isSamplerTEv.exit
@@ -5061,8 +5061,8 @@ _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread71: ; preds = %61, %_ZN
 
 _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread71
   %71 = tail call range(i32 1, 25) i32 @llvm.ctpop.i32(i32 %70)
-  %72 = icmp ugt i32 %71, 1
-  %73 = icmp ult i32 %70, 8
+  %72 = icmp samesign ugt i32 %71, 1
+  %73 = icmp samesign ult i32 %70, 8
   %or.cond = or i1 %73, %72
   br i1 %or.cond, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread
 
@@ -5983,8 +5983,8 @@ _ZNK5clang4Type6castAsINS_10BitIntTypeEEEPKT_v.exit: ; preds = %85, %88
 
 _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %_ZNK5clang4Type6castAsINS_10BitIntTypeEEEPKT_v.exit
   %94 = tail call range(i32 1, 25) i32 @llvm.ctpop.i32(i32 %93)
-  %95 = icmp ugt i32 %94, 1
-  %96 = icmp ult i32 %93, 8
+  %95 = icmp samesign ugt i32 %94, 1
+  %96 = icmp samesign ult i32 %93, 8
   %or.cond = or i1 %96, %95
   br i1 %or.cond, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %101
 
@@ -11154,7 +11154,7 @@ _ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj8EED2Ev.exit.i: ; preds = %794
 _ZNK5clang4Type11isImageTypeEv.exit.i:            ; preds = %815
   %829 = load i32, ptr %826, align 16
   %830 = and i32 %829, 266338304
-  %switch.i.i = icmp ult i32 %830, 18874368
+  %switch.i.i = icmp samesign ult i32 %830, 18874368
   br i1 %switch.i.i, label %833, label %_ZNK5clang4Type10isSamplerTEv.exit.i
 
 _ZNK5clang4Type10isSamplerTEv.exit.i:             ; preds = %_ZNK5clang4Type11isImageTypeEv.exit.i
@@ -13765,7 +13765,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i: ; preds 
 
 479:                                              ; preds = %467
   %480 = icmp eq i32 %.2.i, 2
-  %481 = icmp ult i32 %.052.i, 2
+  %481 = icmp samesign ult i32 %.052.i, 2
   %or.cond5.i = select i1 %480, i1 %481, i1 false
   br i1 %or.cond5.i, label %498, label %493
 
@@ -13780,7 +13780,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i: ; preds 
 485:                                              ; preds = %484
   %486 = call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %466) #21
   %487 = icmp eq i32 %.2.i, 2
-  %488 = icmp ult i32 %.052.i, 2
+  %488 = icmp samesign ult i32 %.052.i, 2
   %or.cond7.i = select i1 %487, i1 %488, i1 false
   br i1 %or.cond7.i, label %489, label %493
 
@@ -14964,7 +14964,7 @@ _ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread: ; preds = %979, %
 _ZNK5clang4Type11isImageTypeEv.exit:              ; preds = %997
   %1008 = load i32, ptr %1005, align 16
   %1009 = and i32 %1008, 266338304
-  %switch.i = icmp ult i32 %1009, 18874368
+  %switch.i = icmp samesign ult i32 %1009, 18874368
   %1010 = and i32 %1008, 267911168
   %1011 = icmp eq i32 %1010, 254279680
   %or.cond2266 = or i1 %switch.i, %1011
@@ -15909,7 +15909,7 @@ _ZNK5clang4Type10isHalfTypeEv.exit.thread:        ; preds = %_ZNK5clang4Type10is
 _ZNK5clang4Type11isImageTypeEv.exit1201:          ; preds = %1427
   %1437 = load i32, ptr %1435, align 16
   %1438 = and i32 %1437, 266338304
-  %switch.i1200 = icmp ult i32 %1438, 18874368
+  %switch.i1200 = icmp samesign ult i32 %1438, 18874368
   %1439 = and i32 %1437, 267911168
   %1440 = icmp eq i32 %1439, 254279680
   %or.cond2275 = or i1 %switch.i1200, %1440
@@ -19561,7 +19561,7 @@ _ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit104.i: ; preds = %3026, %_ZNK12_GLOB
   br i1 %.not.i.i.i.i1494, label %select.unfold.i.i.i.i, label %3053
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i1493
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %_ZNSt17_Temporary_bufferIPSt4pairIPKN5clang14AttributedTypeEPKNS1_4AttrEES8_EC2ES9_l.exit.thread.i.i, label %.lr.ph.i.i.i.i1493, !llvm.loop !119
 
 3053:                                             ; preds = %.lr.ph.i.i.i.i1493
@@ -27005,7 +27005,7 @@ _ZL21GetEnumUnderlyingTypeRN5clang4SemaENS_8QualTypeENS_14SourceLocationE.exit.i
   %147 = load i32, ptr %146, align 16
   %148 = lshr i32 %147, 1
   %149 = and i32 %148, 16777215
-  %150 = icmp ugt i32 %149, 1
+  %150 = icmp samesign ugt i32 %149, 1
   br i1 %150, label %151, label %156
 
 151:                                              ; preds = %145
@@ -29042,7 +29042,7 @@ _ZN5clang20ParsedAttributesViewC2ERKS0_.exit:     ; preds = %89, %94
   br i1 %.not461533, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5clang20ParsedAttributesViewC2ERKS0_.exit
-  %or.cond = icmp ugt i32 %2, 1
+  %or.cond = icmp samesign ugt i32 %2, 1
   %99 = icmp eq i32 %2, 1
   %100 = getelementptr inbounds i8, ptr %10, i64 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
@@ -30657,7 +30657,7 @@ _ZL32HandleRISCVRVVVectorBitsTypeAttrRN5clang8QualTypeERNS_10ParsedAttrERNS_4Sem
 _ZNK5clang4Type11isImageTypeEv.exit.i:            ; preds = %805
   %816 = load i32, ptr %813, align 16
   %817 = and i32 %816, 266338304
-  %switch.i.i306 = icmp ult i32 %817, 18874368
+  %switch.i.i306 = icmp samesign ult i32 %817, 18874368
   br i1 %switch.i.i306, label %824, label %.thread.i
 
 818:                                              ; preds = %805
@@ -32571,7 +32571,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i: ; pr
   %1701 = load i32, ptr %127, align 8
   %1702 = and i32 %1701, 65535
   %1703 = zext nneg i32 %1702 to i64
-  %1704 = icmp ult i64 %indvars.iv.next.i427, %1703
+  %1704 = icmp samesign ult i64 %indvars.iv.next.i427, %1703
   br i1 %1704, label %1689, label %._crit_edge.i, !llvm.loop !179
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i, %_ZN4llvm15SmallVectorImplIPN5clang4ExprEE7reserveEm.exit.i
@@ -32920,7 +32920,7 @@ _ZNK5clang11AutoTypeLoc12getRAngleLocEv.exit:     ; preds = %71, %62, %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %96 = load i32, ptr %79, align 4
   %97 = zext i32 %96 to i64
-  %98 = icmp ult i64 %indvars.iv.next, %97
+  %98 = icmp samesign ult i64 %indvars.iv.next, %97
   br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !187
 
 ._crit_edge:                                      ; preds = %.critedge
@@ -39635,7 +39635,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %42 = add nuw nsw i32 %.02845, 1
   %43 = load i32, ptr %10, align 8
   %44 = and i32 %43, 65535
-  %45 = icmp ult i32 %42, %44
+  %45 = icmp samesign ult i32 %42, %44
   br i1 %45, label %20, label %.loopexit.loopexit, !llvm.loop !220
 
 .loopexit.loopexit:                               ; preds = %36, %20
@@ -39782,7 +39782,7 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread7: ; preds = %13
   %65 = and i64 %64, 4294967295
   %66 = tail call i16 @_ZN5clang4Sema21ActOnEffectExpressionEPNS_4ExprEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(17560) %.0.val, ptr noundef %59, ptr nonnull %63, i64 %65)
   %.fr = freeze i16 %66
-  %.not21 = icmp ult i16 %.fr, 256
+  %.not21 = icmp samesign ult i16 %.fr, 256
   br i1 %.not21, label %67, label %73
 
 67:                                               ; preds = %56
@@ -43610,7 +43610,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %32,
   %.0.i.i.i.i.i = phi ptr [ %31, %29 ], [ %33, %32 ]
   %34 = load i32, ptr %.0.i.i.i.i.i, align 8
   %35 = and i32 %34, 2147483647
-  %36 = icmp ult i32 %26, %35
+  %36 = icmp samesign ult i32 %26, %35
   br i1 %36, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %37
 
 37:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -43634,7 +43634,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %39
   %48 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %25, i32 noundef %28, ptr noundef null)
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 2147483647
-  %51 = icmp ult i32 %26, %50
+  %51 = icmp samesign ult i32 %26, %50
   br i1 %51, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %44, %37
@@ -45720,7 +45720,7 @@ define linkonce_odr void @_ZSt11__make_heapIPN5clang14SourceLocationEN9__gnu_cxx
   %.sroa.0.0.copyload15 = load ptr, ptr %2, align 8
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %14 = icmp ult i64 %10, %13
+  %14 = icmp samesign ult i64 %10, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -46603,7 +46603,7 @@ define linkonce_odr void @_ZSt13__stable_sortIPSt4pairIPKN5clang14AttributedType
   br i1 %.not.i.i, label %select.unfold.i.i, label %12
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIPSt4pairIPKN5clang14AttributedTypeEPKNS1_4AttrEES8_EC2ES9_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !119
 
 12:                                               ; preds = %.lr.ph.i.i
@@ -50103,7 +50103,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   %56 = load i64, ptr %55, align 8, !noalias !274
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %54, ptr %57, align 8, !alias.scope !274
-  %58 = icmp ult i32 %54, 65
+  %58 = icmp samesign ult i32 %54, 65
   br i1 %58, label %59, label %67
 
 59:                                               ; preds = %52

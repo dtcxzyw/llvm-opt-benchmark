@@ -242,7 +242,7 @@ define hidden void @_ZNK8rawspeed20SonyArw1Decompressor10decompressENS_10ByteStr
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp uge i32 %16, %11
+  %22 = icmp samesign uge i32 %16, %11
   tail call void @llvm.assume(i1 %22)
   %23 = icmp ne i32 %11, 0
   tail call void @llvm.assume(i1 %23)
@@ -256,7 +256,7 @@ define hidden void @_ZNK8rawspeed20SonyArw1Decompressor10decompressENS_10ByteStr
   %28 = load i32, ptr %27, align 8, !tbaa !96
   %29 = getelementptr inbounds i8, ptr %1, i64 8
   %30 = load i32, ptr %29, align 8, !tbaa !101
-  %31 = icmp uge i32 %30, %28
+  %31 = icmp samesign uge i32 %30, %28
   tail call void @llvm.assume(i1 %31)
   %32 = icmp sgt i32 %30, -1
   tail call void @llvm.assume(i1 %32)
@@ -267,7 +267,7 @@ define hidden void @_ZNK8rawspeed20SonyArw1Decompressor10decompressENS_10ByteStr
   %36 = zext i32 %34 to i64
   %37 = add nuw nsw i64 %36, %35
   %38 = zext nneg i32 %30 to i64
-  %39 = icmp ugt i64 %37, %38
+  %39 = icmp samesign ugt i64 %37, %38
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %2
@@ -280,7 +280,7 @@ define hidden void @_ZNK8rawspeed20SonyArw1Decompressor10decompressENS_10ByteStr
   tail call void @llvm.assume(i1 %43)
   %44 = getelementptr inbounds i8, ptr %42, i64 %35
   store i32 0, ptr %3, align 4
-  %45 = icmp ult i32 %34, 4
+  %45 = icmp samesign ult i32 %34, 4
   br i1 %45, label %49, label %46
 
 46:                                               ; preds = %41

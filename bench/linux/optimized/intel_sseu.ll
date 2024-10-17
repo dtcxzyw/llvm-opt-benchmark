@@ -180,7 +180,7 @@ define dso_local i32 @intel_sseu_copy_eumask_to_user(ptr noundef %0, ptr nocaptu
   %34 = phi i8 [ %27, %.split.us.split ], [ %.pre, %32 ]
   %35 = add nuw nsw i64 %28, 1
   %36 = zext i8 %34 to i64
-  %37 = icmp ult i64 %35, %36
+  %37 = icmp samesign ult i64 %35, %36
   br i1 %37, label %.split.us.split, label %.loopexit4, !llvm.loop !20
 
 .split:                                           ; preds = %24, %.loopexit
@@ -237,7 +237,7 @@ define dso_local i32 @intel_sseu_copy_eumask_to_user(ptr noundef %0, ptr nocaptu
   %69 = add nuw nsw i64 %38, 1
   %70 = load i8, ptr %11, align 1
   %71 = zext i8 %70 to i64
-  %72 = icmp ult i64 %69, %71
+  %72 = icmp samesign ult i64 %69, %71
   br i1 %72, label %.split, label %.loopexit4, !llvm.loop !20
 
 .loopexit4:                                       ; preds = %.loopexit, %33, %.split.us, %.split7
@@ -246,7 +246,7 @@ define dso_local i32 @intel_sseu_copy_eumask_to_user(ptr noundef %0, ptr nocaptu
   %75 = add nuw nsw i64 %22, 1
   %76 = load i8, ptr %9, align 8
   %77 = zext i8 %76 to i64
-  %78 = icmp ult i64 %75, %77
+  %78 = icmp samesign ult i64 %75, %77
   br i1 %78, label %.split7, label %.loopexit5, !llvm.loop !22
 
 .loopexit5:                                       ; preds = %.loopexit4, %14, %2
@@ -255,7 +255,7 @@ define dso_local i32 @intel_sseu_copy_eumask_to_user(ptr noundef %0, ptr nocaptu
   %81 = mul nuw nsw i32 %80, %79
   %82 = mul nuw nsw i32 %81, %8
   %83 = zext nneg i32 %82 to i64
-  %84 = icmp ult i32 %82, 129
+  %84 = icmp samesign ult i32 %82, 129
   br i1 %84, label %86, label %85, !prof !10
 
 85:                                               ; preds = %.loopexit5
@@ -315,7 +315,7 @@ define dso_local i32 @intel_sseu_copy_ssmask_to_user(ptr noundef %0, ptr noundef
   %26 = phi i64 [ 0, %23 ], [ %53, %52 ]
   %27 = load i8, ptr %9, align 8
   %28 = zext i8 %27 to i64
-  %29 = icmp ult i64 %20, %28
+  %29 = icmp samesign ult i64 %20, %28
   br i1 %29, label %30, label %52
 
 30:                                               ; preds = %25
@@ -356,7 +356,7 @@ define dso_local i32 @intel_sseu_copy_ssmask_to_user(ptr noundef %0, ptr noundef
   %53 = add nuw nsw i64 %26, 1
   %54 = load i8, ptr %4, align 1
   %55 = zext i8 %54 to i64
-  %56 = icmp ult i64 %53, %55
+  %56 = icmp samesign ult i64 %53, %55
   br i1 %56, label %25, label %.loopexit.loopexit, !llvm.loop !25
 
 .loopexit.loopexit:                               ; preds = %52
@@ -368,14 +368,14 @@ define dso_local i32 @intel_sseu_copy_ssmask_to_user(ptr noundef %0, ptr noundef
   %58 = phi i8 [ %54, %.loopexit.loopexit ], [ 0, %.split ]
   %59 = add nuw nsw i64 %20, 1
   %60 = zext i8 %57 to i64
-  %61 = icmp ult i64 %59, %60
+  %61 = icmp samesign ult i64 %59, %60
   br i1 %61, label %.split, label %.loopexit4, !llvm.loop !26
 
 .loopexit4:                                       ; preds = %.loopexit, %12, %2
   %62 = zext i8 %10 to i32
   %63 = mul nuw nsw i32 %8, %62
   %64 = zext nneg i32 %63 to i64
-  %65 = icmp ult i32 %63, 65
+  %65 = icmp samesign ult i32 %63, 65
   br i1 %65, label %67, label %66, !prof !10
 
 66:                                               ; preds = %.loopexit4
@@ -405,7 +405,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = or disjoint i32 %7, %10
-  %12 = icmp ugt i32 %11, 3121
+  %12 = icmp samesign ugt i32 %11, 3121
   br i1 %12, label %13, label %161
 
 13:                                               ; preds = %1
@@ -549,7 +549,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %110 = add nuw nsw i64 %89, 1
   %111 = load i8, ptr %34, align 1
   %112 = zext i8 %111 to i64
-  %113 = icmp ult i64 %110, %112
+  %113 = icmp samesign ult i64 %110, %112
   br i1 %113, label %88, label %.loopexit38, !llvm.loop !29
 
 .loopexit38:                                      ; preds = %109, %.loopexit39
@@ -872,10 +872,10 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %327 = phi i64 [ 0, %323 ], [ %375, %374 ]
   %328 = load i8, ptr %292, align 8
   %329 = zext i8 %328 to i64
-  %330 = icmp ult i64 %308, %329
+  %330 = icmp samesign ult i64 %308, %329
   %331 = zext i8 %326 to i64
-  %332 = icmp ult i64 %327, %331
-  %or.cond = and i1 %330, %332
+  %332 = icmp samesign ult i64 %327, %331
+  %or.cond = select i1 %330, i1 %332, i1 false
   br i1 %or.cond, label %333, label %374
 
 333:                                              ; preds = %325
@@ -942,7 +942,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %375 = add nuw nsw i64 %327, 1
   %376 = load i8, ptr %293, align 1
   %377 = zext i8 %376 to i64
-  %378 = icmp ult i64 %375, %377
+  %378 = icmp samesign ult i64 %375, %377
   br i1 %378, label %325, label %.loopexit45, !llvm.loop !43
 
 .loopexit45:                                      ; preds = %374, %314, %306
@@ -950,7 +950,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %380 = add nuw nsw i64 %308, 1
   %381 = load i8, ptr %292, align 8
   %382 = zext i8 %381 to i64
-  %383 = icmp ult i64 %380, %382
+  %383 = icmp samesign ult i64 %380, %382
   br i1 %383, label %306, label %384, !llvm.loop !44
 
 384:                                              ; preds = %.loopexit45
@@ -1312,10 +1312,10 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %621 = phi i64 [ 0, %616 ], [ %672, %671 ]
   %622 = load i8, ptr %574, align 8
   %623 = zext i8 %622 to i64
-  %624 = icmp ult i64 %606, %623
+  %624 = icmp samesign ult i64 %606, %623
   %625 = zext i8 %620 to i64
-  %626 = icmp ult i64 %621, %625
-  %or.cond138 = and i1 %624, %626
+  %626 = icmp samesign ult i64 %621, %625
+  %or.cond138 = select i1 %624, i1 %626, i1 false
   br i1 %or.cond138, label %627, label %671
 
 627:                                              ; preds = %619
@@ -1385,14 +1385,14 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %672 = add nuw nsw i64 %621, 1
   %673 = load i8, ptr %575, align 1
   %674 = zext i8 %673 to i64
-  %675 = icmp ult i64 %672, %674
+  %675 = icmp samesign ult i64 %672, %674
   br i1 %675, label %619, label %.loopexit49, !llvm.loop !47
 
 .loopexit49:                                      ; preds = %671, %612, %605
   %676 = add nuw nsw i64 %606, 1
   %677 = load i8, ptr %574, align 8
   %678 = zext i8 %677 to i64
-  %679 = icmp ult i64 %676, %678
+  %679 = icmp samesign ult i64 %676, %678
   br i1 %679, label %605, label %680, !llvm.loop !48
 
 680:                                              ; preds = %.loopexit49
@@ -1912,7 +1912,7 @@ default.unreachable21:                            ; preds = %14
   %68 = add nuw nsw i64 %51, 1
   %69 = load i8, ptr %38, align 1
   %70 = zext i8 %69 to i64
-  %71 = icmp ult i64 %68, %70
+  %71 = icmp samesign ult i64 %68, %70
   br i1 %71, label %.preheader, label %.loopexit7, !llvm.loop !59
 
 .loopexit7:                                       ; preds = %61, %46
@@ -1920,7 +1920,7 @@ default.unreachable21:                            ; preds = %14
   %73 = add nuw nsw i64 %47, 1
   %74 = load i8, ptr %37, align 8
   %75 = zext i8 %74 to i64
-  %76 = icmp ult i64 %73, %75
+  %76 = icmp samesign ult i64 %73, %75
   br i1 %76, label %46, label %.loopexit8, !llvm.loop !60
 
 .loopexit8:                                       ; preds = %.loopexit7, %27
@@ -2052,7 +2052,7 @@ define dso_local i32 @intel_sseu_make_rpcs(ptr nocapture noundef readonly %0, pt
   %39 = lshr i32 %38, 1
   %40 = and i32 %39, 255
   %41 = tail call i32 @llvm.umin.i32(i32 %40, i32 4)
-  %42 = icmp ugt i32 %34, %41
+  %42 = icmp samesign ugt i32 %34, %41
   %43 = select i1 %42, i8 0, i8 %7
   %44 = select i1 %42, i32 2, i32 %24
   br label %45
@@ -2174,7 +2174,7 @@ define dso_local void @intel_sseu_dump(ptr noundef %0, ptr noundef %1) local_unn
   %45 = add nuw nsw i64 %39, 1
   %46 = load i8, ptr %36, align 8
   %47 = zext i8 %46 to i64
-  %48 = icmp ult i64 %45, %47
+  %48 = icmp samesign ult i64 %45, %47
   br i1 %48, label %.preheader, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit2, %7
@@ -2227,7 +2227,7 @@ define dso_local void @intel_sseu_print_topology(ptr nocapture noundef readonly 
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = or disjoint i32 %12, %15
-  %17 = icmp ugt i32 %16, 3121
+  %17 = icmp samesign ugt i32 %16, 3121
   br i1 %17, label %18, label %45
 
 18:                                               ; preds = %8
@@ -2263,7 +2263,7 @@ define dso_local void @intel_sseu_print_topology(ptr nocapture noundef readonly 
   %41 = add nuw nsw i64 %27, 1
   %42 = load i8, ptr %19, align 1
   %43 = zext i8 %42 to i64
-  %44 = icmp ult i64 %41, %43
+  %44 = icmp samesign ult i64 %41, %43
   br i1 %44, label %26, label %.loopexit, !llvm.loop !62
 
 45:                                               ; preds = %8
@@ -2300,7 +2300,7 @@ define dso_local void @intel_sseu_print_topology(ptr nocapture noundef readonly 
   %67 = add nuw nsw i64 %61, 1
   %68 = load i8, ptr %47, align 1
   %69 = zext i8 %68 to i64
-  %70 = icmp ult i64 %67, %69
+  %70 = icmp samesign ult i64 %67, %69
   br i1 %70, label %.split.us, label %.loopexit2, !llvm.loop !63
 
 .split:                                           ; preds = %59, %79
@@ -2331,14 +2331,14 @@ define dso_local void @intel_sseu_print_topology(ptr nocapture noundef readonly 
   %85 = add nuw nsw i64 %71, 1
   %86 = load i8, ptr %47, align 1
   %87 = zext i8 %86 to i64
-  %88 = icmp ult i64 %85, %87
+  %88 = icmp samesign ult i64 %85, %87
   br i1 %88, label %.split, label %.loopexit2, !llvm.loop !63
 
 .loopexit2:                                       ; preds = %79, %.split.us, %50
   %89 = add nuw nsw i64 %51, 1
   %90 = load i8, ptr %4, align 8
   %91 = zext i8 %90 to i64
-  %92 = icmp ult i64 %89, %91
+  %92 = icmp samesign ult i64 %89, %91
   br i1 %92, label %50, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %.loopexit2, %26, %18, %7
@@ -2603,7 +2603,7 @@ define internal fastcc void @gen11_compute_sseu_info(ptr noundef %0, i32 noundef
   %46 = add nuw nsw i64 %26, 1
   %47 = load i8, ptr %4, align 1
   %48 = zext i8 %47 to i64
-  %49 = icmp ult i64 %46, %48
+  %49 = icmp samesign ult i64 %46, %48
   br i1 %49, label %.splitthread-pre-split, label %.loopexit6, !llvm.loop !74
 
 .loopexit6:                                       ; preds = %45, %17, %3

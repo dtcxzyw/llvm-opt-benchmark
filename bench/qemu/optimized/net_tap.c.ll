@@ -1333,7 +1333,7 @@ if.else10:                                        ; preds = %while.body
   store ptr %call5, ptr %arrayidx7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add.ptr11 = getelementptr i8, ptr %call2, i64 1
-  %cmp = icmp ult i64 %indvars.iv, 1023
+  %cmp = icmp samesign ult i64 %indvars.iv, 1023
   %cmp1 = icmp ult ptr %add.ptr11, %add.ptr
   %1 = and i1 %cmp, %cmp1
   br i1 %1, label %while.body, label %while.end.loopexit, !llvm.loop !14
@@ -2341,7 +2341,7 @@ tap_read_poll.exit:                               ; preds = %if.then25, %land.rh
 if.else:                                          ; preds = %if.end19
   %cmp26 = icmp slt i32 %conv22, 0
   %inc = add nuw nsw i32 %packets.0, 1
-  %cmp31 = icmp ugt i32 %packets.0, 48
+  %cmp31 = icmp samesign ugt i32 %packets.0, 48
   %or.cond = select i1 %cmp26, i1 true, i1 %cmp31
   br i1 %or.cond, label %while.end, label %while.body
 

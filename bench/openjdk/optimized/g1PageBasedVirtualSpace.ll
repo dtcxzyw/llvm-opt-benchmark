@@ -324,7 +324,7 @@ define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace17is_area_committ
 21:                                               ; preds = %24, %18
   %.025.i.i = phi i64 [ %8, %18 ], [ %22, %24 ]
   %22 = add nuw nsw i64 %.025.i.i, 1
-  %23 = icmp ult i64 %22, %20
+  %23 = icmp samesign ult i64 %22, %20
   br i1 %23, label %24, label %.loopexit.i.i
 
 24:                                               ; preds = %21
@@ -385,7 +385,7 @@ define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace19is_area_uncommi
 20:                                               ; preds = %23, %17
   %.025.i.i = phi i64 [ %8, %17 ], [ %21, %23 ]
   %21 = add nuw nsw i64 %.025.i.i, 1
-  %22 = icmp ult i64 %21, %19
+  %22 = icmp samesign ult i64 %21, %19
   br i1 %22, label %23, label %.loopexit.i.i
 
 23:                                               ; preds = %20
@@ -607,7 +607,7 @@ define hidden noundef zeroext i1 @_ZN23G1PageBasedVirtualSpace6commitEmm(ptr nou
 20:                                               ; preds = %23, %17
   %.025.i.i.i = phi i64 [ %8, %17 ], [ %21, %23 ]
   %21 = add nuw nsw i64 %.025.i.i.i, 1
-  %22 = icmp ult i64 %21, %19
+  %22 = icmp samesign ult i64 %21, %19
   br i1 %22, label %23, label %_ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread
 
 23:                                               ; preds = %20
@@ -673,7 +673,7 @@ _ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread.thread: ; pred
 52:                                               ; preds = %55, %49
   %.025.i.i = phi i64 [ %8, %49 ], [ %53, %55 ]
   %53 = add nuw nsw i64 %.025.i.i, 1
-  %54 = icmp ult i64 %53, %51
+  %54 = icmp samesign ult i64 %53, %51
   br i1 %54, label %55, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 55:                                               ; preds = %52
@@ -777,7 +777,7 @@ define hidden void @_ZN23G1PageBasedVirtualSpace8uncommitEmm(ptr noundef nonnull
 21:                                               ; preds = %24, %18
   %.025.i.i.i = phi i64 [ %8, %18 ], [ %22, %24 ]
   %22 = add nuw nsw i64 %.025.i.i.i, 1
-  %23 = icmp ult i64 %22, %20
+  %23 = icmp samesign ult i64 %22, %20
   br i1 %23, label %24, label %_ZNK23G1PageBasedVirtualSpace17is_area_committedEmm.exit.thread
 
 24:                                               ; preds = %21

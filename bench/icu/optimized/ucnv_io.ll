@@ -855,7 +855,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10gMainTable, i64 76), align 4
   %6 = zext i32 %5 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %6
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %6
   br i1 %cmp.i, label %for.body.i, label %_ZL12getTagNumberPKc.exit, !llvm.loop !12
 
 return.loopexit.split.loop.exit8.i:               ; preds = %for.body.i
@@ -1322,7 +1322,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10gMainTable, i64 76), align 4
   %7 = zext i32 %6 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %7
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %7
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZL12getTagNumberPKc.exit.i, !llvm.loop !12
 
 return.loopexit.split.loop.exit8.i.i:             ; preds = %for.body.i.i

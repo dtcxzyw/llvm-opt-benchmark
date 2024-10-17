@@ -10550,7 +10550,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit23.i: ; preds = %94
   call void @llvm.lifetime.start.p0(i64 95, ptr nonnull %.sroa.63)
   call void @llvm.experimental.noalias.scope.decl(metadata !1180)
   %131 = load i64, ptr %41, align 8, !range !294, !alias.scope !1180, !noalias !1183, !noundef !5
-  %132 = icmp ult i64 %131, 35
+  %132 = icmp samesign ult i64 %131, 35
   br i1 %132, label %switch.hole_check, label %149
 
 133:                                              ; preds = %181, %177, %.noexc28.i
@@ -11940,7 +11940,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit23.i: ; preds = %94
   call void @llvm.lifetime.start.p0(i64 95, ptr nonnull %.sroa.63)
   call void @llvm.experimental.noalias.scope.decl(metadata !1430)
   %131 = load i64, ptr %41, align 8, !range !294, !alias.scope !1430, !noalias !1433, !noundef !5
-  %132 = icmp ult i64 %131, 35
+  %132 = icmp samesign ult i64 %131, 35
   br i1 %132, label %switch.hole_check, label %149
 
 133:                                              ; preds = %181, %177, %.noexc28.i
@@ -18182,7 +18182,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit80.i.i: ; preds = %1760
   %1810 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !2151
   %1811 = icmp ult i64 %1810, 6
   tail call void @llvm.assume(i1 %1811)
-  %switch.selectcmp67.i.i = icmp ugt i64 %1810, 3
+  %switch.selectcmp67.i.i = icmp samesign ugt i64 %1810, 3
   br i1 %switch.selectcmp67.i.i, label %1812, label %1802
 
 1812:                                             ; preds = %1806
@@ -19702,7 +19702,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131.i: ; preds = %1997
   br i1 %brmerge.not.i, label %2239, label %2238
 
 2238:                                             ; preds = %"_ZN4core3ptr150drop_in_place$LT$core..result..Result$LT$datafusion_expr..built_in_function..BuiltinScalarFunction$C$datafusion_common..error..DataFusionError$GT$$GT$17h1c2503db73c880edE.exit2330"
-  %or.cond806.i.not = icmp ult i64 %2233, 4
+  %or.cond806.i.not = icmp samesign ult i64 %2233, 4
   br i1 %or.cond806.i.not, label %2252, label %2244
 
 2239:                                             ; preds = %"_ZN4core3ptr150drop_in_place$LT$core..result..Result$LT$datafusion_expr..built_in_function..BuiltinScalarFunction$C$datafusion_common..error..DataFusionError$GT$$GT$17h1c2503db73c880edE.exit2330"
@@ -33377,7 +33377,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit80.i.i: ; preds = %1685
   %1735 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !3586
   %1736 = icmp ult i64 %1735, 6
   tail call void @llvm.assume(i1 %1736)
-  %switch.selectcmp67.i.i = icmp ugt i64 %1735, 3
+  %switch.selectcmp67.i.i = icmp samesign ugt i64 %1735, 3
   br i1 %switch.selectcmp67.i.i, label %1737, label %1727
 
 1737:                                             ; preds = %1731
@@ -34897,7 +34897,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131.i: ; preds = %1922
   br i1 %brmerge.not.i, label %2164, label %2163
 
 2163:                                             ; preds = %"_ZN4core3ptr150drop_in_place$LT$core..result..Result$LT$datafusion_expr..built_in_function..BuiltinScalarFunction$C$datafusion_common..error..DataFusionError$GT$$GT$17h1c2503db73c880edE.exit2312"
-  %or.cond806.i.not = icmp ult i64 %2158, 4
+  %or.cond806.i.not = icmp samesign ult i64 %2158, 4
   br i1 %or.cond806.i.not, label %2177, label %2169
 
 2164:                                             ; preds = %"_ZN4core3ptr150drop_in_place$LT$core..result..Result$LT$datafusion_expr..built_in_function..BuiltinScalarFunction$C$datafusion_common..error..DataFusionError$GT$$GT$17h1c2503db73c880edE.exit2312"
@@ -74513,7 +74513,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %226 = load ptr, ptr %225, align 8, !nonnull !5, !noundef !5
   %227 = getelementptr i8, ptr %.sroa.01.072, i64 40
   %228 = load i64, ptr %227, align 8, !noundef !5
-  %switch = icmp ult i64 %224, 2
+  %switch = icmp samesign ult i64 %224, 2
   br i1 %switch, label %.invoke, label %232
 
 229:                                              ; preds = %.lr.ph
@@ -75380,7 +75380,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %226 = load ptr, ptr %225, align 8, !nonnull !5, !noundef !5
   %227 = getelementptr i8, ptr %.sroa.01.072, i64 40
   %228 = load i64, ptr %227, align 8, !noundef !5
-  %switch = icmp ult i64 %224, 2
+  %switch = icmp samesign ult i64 %224, 2
   br i1 %switch, label %.invoke, label %232
 
 229:                                              ; preds = %.lr.ph
@@ -88974,7 +88974,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit238: ; preds = %199
 341:                                              ; preds = %336, %338, %.thread369
   call void @__rust_dealloc(ptr noundef nonnull %76, i64 noundef 936, i64 noundef 8) #22
   %342 = load i8, ptr %2, align 8, !range !5336, !noundef !5
-  %switch = icmp ult i8 %342, 4
+  %switch = icmp samesign ult i8 %342, 4
   br i1 %switch, label %.critedge, label %343
 
 343:                                              ; preds = %341
@@ -90287,7 +90287,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit238: ; preds = %199
 341:                                              ; preds = %336, %338, %.thread369
   call void @__rust_dealloc(ptr noundef nonnull %76, i64 noundef 936, i64 noundef 8) #22
   %342 = load i8, ptr %2, align 8, !range !5336, !noundef !5
-  %switch = icmp ult i8 %342, 4
+  %switch = icmp samesign ult i8 %342, 4
   br i1 %switch, label %.critedge, label %343
 
 343:                                              ; preds = %341
@@ -94456,7 +94456,7 @@ define internal fastcc void @"_ZN14datafusion_sql9statement60_$LT$impl$u20$dataf
   %65 = alloca { i64, [6 x i64] }, align 8
   %66 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %67 = load i64, ptr %2, align 8, !range !8933, !noundef !5
-  %68 = icmp ult i64 %67, 71
+  %68 = icmp samesign ult i64 %67, 71
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %6
@@ -96459,7 +96459,7 @@ define internal fastcc void @"_ZN14datafusion_sql9statement60_$LT$impl$u20$dataf
   unreachable
 
 51:                                               ; preds = %45
-  %52 = icmp ult i64 %.sroa.08.0.copyload9, 71
+  %52 = icmp samesign ult i64 %.sroa.08.0.copyload9, 71
   br i1 %52, label %55, label %115
 
 53:                                               ; preds = %45

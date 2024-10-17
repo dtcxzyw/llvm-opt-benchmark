@@ -5756,7 +5756,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.thread:           ; preds = %if.end165, %for.bod
   %arrayidx.i644 = getelementptr inbounds i8, ptr %281, i64 -4
   %282 = load i32, ptr %arrayidx.i644, align 4
   %283 = zext i32 %282 to i64
-  %cmp169727 = icmp ult i64 %indvars.iv, %283
+  %cmp169727 = icmp samesign ult i64 %indvars.iv, %283
   br i1 %cmp169727, label %for.body170, label %if.then.i650
 
 for.body170:                                      ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread
@@ -6302,7 +6302,7 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.ex
   %arrayidx.i27 = getelementptr inbounds i8, ptr %22, i64 -4
   %23 = load i32, ptr %arrayidx.i27, align 4
   %24 = zext i32 %23 to i64
-  %cmp2135 = icmp ult i64 %indvars.iv44, %24
+  %cmp2135 = icmp samesign ult i64 %indvars.iv44, %24
   br i1 %cmp2135, label %for.body22, label %_ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE3endEv.exit.i
 
 for.body22:                                       ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.exit29.thread

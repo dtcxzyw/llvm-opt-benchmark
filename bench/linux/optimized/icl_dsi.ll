@@ -4707,7 +4707,7 @@ define internal fastcc noundef zeroext i1 @wait_for_header_credits(ptr noundef %
   %14 = tail call i32 %13(ptr noundef %9, i32 %8, i1 noundef zeroext true) #11
   %15 = lshr i32 %14, 8
   %16 = and i32 %15, 31
-  %17 = icmp ult i32 %16, %2
+  %17 = icmp samesign ult i32 %16, %2
   %18 = select i1 %17, i1 %12, i1 false
   br i1 %18, label %.lr.ph, label %._crit_edge
 
@@ -4720,7 +4720,7 @@ define internal fastcc noundef zeroext i1 @wait_for_header_credits(ptr noundef %
   %22 = tail call i32 %21(ptr noundef %9, i32 %8, i1 noundef zeroext true) #11
   %23 = lshr i32 %22, 8
   %24 = and i32 %23, 31
-  %25 = icmp ult i32 %24, %2
+  %25 = icmp samesign ult i32 %24, %2
   %26 = select i1 %25, i1 %20, i1 false
   br i1 %26, label %.lr.ph, label %._crit_edge
 
@@ -4762,7 +4762,7 @@ define internal fastcc noundef zeroext i1 @wait_for_payload_credits(ptr noundef 
   %13 = load ptr, ptr %10, align 8
   %14 = tail call i32 %13(ptr noundef %9, i32 %8, i1 noundef zeroext true) #11
   %15 = and i32 %14, 255
-  %16 = icmp ult i32 %15, %2
+  %16 = icmp samesign ult i32 %15, %2
   %17 = select i1 %16, i1 %12, i1 false
   br i1 %17, label %.lr.ph, label %._crit_edge
 
@@ -4774,7 +4774,7 @@ define internal fastcc noundef zeroext i1 @wait_for_payload_credits(ptr noundef 
   %20 = load ptr, ptr %10, align 8
   %21 = tail call i32 %20(ptr noundef %9, i32 %8, i1 noundef zeroext true) #11
   %22 = and i32 %21, 255
-  %23 = icmp ult i32 %22, %2
+  %23 = icmp samesign ult i32 %22, %2
   %24 = select i1 %23, i1 %19, i1 false
   br i1 %24, label %.lr.ph, label %._crit_edge
 

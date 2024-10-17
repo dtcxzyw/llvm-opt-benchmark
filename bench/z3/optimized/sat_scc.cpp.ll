@@ -1325,7 +1325,7 @@ if.end.i.i324:                                    ; preds = %for.cond261
 
 invoke.cont263:                                   ; preds = %if.end.i.i324, %for.cond261
   %retval.0.i.i326 = phi i64 [ %151, %if.end.i.i324 ], [ 0, %for.cond261 ]
-  %cmp265 = icmp ult i64 %indvars.iv497, %retval.0.i.i326
+  %cmp265 = icmp samesign ult i64 %indvars.iv497, %retval.0.i.i326
   br i1 %cmp265, label %for.body266, label %cleanup
 
 for.body266:                                      ; preds = %invoke.cont263
@@ -1851,7 +1851,7 @@ while.body:                                       ; preds = %entry, %while.body
   %add.i = add i32 %8, %call.i
   store i32 %add.i, ptr %m_num_elim_bin.i, align 8
   %cmp = icmp ugt i32 %call.i, %.sroa.speculated15
-  %cmp2 = icmp ult i32 %count.021, 9
+  %cmp2 = icmp samesign ult i32 %count.021, 9
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %while.body, label %while.cond5.preheader, !llvm.loop !17
 
@@ -1869,7 +1869,7 @@ while.body12:                                     ; preds = %while.cond5.prehead
   %add.i10 = add i32 %11, %call.i8
   store i32 %add.i10, ptr %m_num_elim_bin.i, align 8
   %cmp7 = icmp ugt i32 %call.i8, %.sroa.speculated
-  %cmp10 = icmp ult i32 %count.126, 9
+  %cmp10 = icmp samesign ult i32 %count.126, 9
   %or.cond6 = select i1 %cmp7, i1 %cmp10, i1 false
   br i1 %or.cond6, label %while.body12, label %while.end17, !llvm.loop !18
 

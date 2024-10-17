@@ -3401,7 +3401,7 @@ common.resume.sink.split.i.i.i:                   ; preds = %81, %45
   tail call void @llvm.experimental.noalias.scope.decl(metadata !776)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !779)
   %51 = load i8, ptr %50, align 8, !range !782, !alias.scope !783, !noundef !5
-  %switch.i.i.i.i.i.i.i = icmp ult i8 %51, 10
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i8 %51, 10
   br i1 %switch.i.i.i.i.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hfe2d373690943f8aE.exit.i.i.i.i.i", label %52
 
 52:                                               ; preds = %49
@@ -10986,7 +10986,7 @@ define hidden void @"_ZN4core3ptr264drop_in_place$LT$futures_util..future..join_
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884"(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !1134, !noundef !5
-  %.not = icmp ult i64 %2, 2
+  %.not = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit" [
@@ -11217,7 +11217,7 @@ define hidden void @"_ZN4core3ptr274drop_in_place$LT$$u5b$futures_util..future..
   %4 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %0, i64 0, i64 %.08
   %5 = add nuw i64 %.08, 1
   %6 = load i64, ptr %4, align 8, !range !1134, !noundef !5
-  %.not.i = icmp ult i64 %6, 2
+  %.not.i = icmp samesign ult i64 %6, 2
   %7 = add nsw i64 %6, -1
   %8 = select i1 %.not.i, i64 0, i64 %7
   switch i64 %8, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit" [
@@ -11379,7 +11379,7 @@ define hidden void @"_ZN4core3ptr275drop_in_place$LT$futures_util..future..join_
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !1134, !noundef !5
-  %.not = icmp ult i64 %2, 2
+  %.not = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit" [
@@ -11445,7 +11445,7 @@ define hidden void @"_ZN4core3ptr285drop_in_place$LT$$u5b$futures_util..future..
   %4 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %0, i64 0, i64 %.08
   %5 = add nuw i64 %.08, 1
   %6 = load i64, ptr %4, align 8, !range !1134, !noundef !5
-  %.not.i = icmp ult i64 %6, 2
+  %.not.i = icmp samesign ult i64 %6, 2
   %7 = add nsw i64 %6, -1
   %8 = select i1 %.not.i, i64 0, i64 %7
   switch i64 %8, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit" [
@@ -11689,7 +11689,7 @@ define hidden void @"_ZN4core3ptr287drop_in_place$LT$alloc..vec..Vec$LT$futures_
   %7 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.08.i.i
   %8 = add nuw i64 %.08.i.i, 1
   %9 = load i64, ptr %7, align 8, !range !1134, !noundef !5
-  %.not.i.i.i = icmp ult i64 %9, 2
+  %.not.i.i.i = icmp samesign ult i64 %9, 2
   %10 = add nsw i64 %9, -1
   %11 = select i1 %.not.i.i.i, i64 0, i64 %10
   switch i64 %11, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i.i" [
@@ -11960,7 +11960,7 @@ define hidden void @"_ZN4core3ptr298drop_in_place$LT$alloc..vec..Vec$LT$futures_
   %7 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.08.i.i
   %8 = add nuw i64 %.08.i.i, 1
   %9 = load i64, ptr %7, align 8, !range !1134, !noundef !5
-  %.not.i.i.i = icmp ult i64 %9, 2
+  %.not.i.i.i = icmp samesign ult i64 %9, 2
   %10 = add nsw i64 %9, -1
   %11 = select i1 %.not.i.i.i, i64 0, i64 %10
   switch i64 %11, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i.i" [
@@ -12050,7 +12050,7 @@ define hidden void @"_ZN4core3ptr299drop_in_place$LT$alloc..boxed..Box$LT$$u5b$f
   %6 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %2, i64 0, i64 %.08.i
   %7 = add nuw i64 %.08.i, 1
   %8 = load i64, ptr %6, align 8, !range !1134, !noundef !5
-  %.not.i.i = icmp ult i64 %8, 2
+  %.not.i.i = icmp samesign ult i64 %8, 2
   %9 = add nsw i64 %8, -1
   %10 = select i1 %.not.i.i, i64 0, i64 %9
   switch i64 %10, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i" [
@@ -12235,7 +12235,7 @@ define hidden void @"_ZN4core3ptr310drop_in_place$LT$alloc..boxed..Box$LT$$u5b$f
   %6 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %2, i64 0, i64 %.08.i
   %7 = add nuw i64 %.08.i, 1
   %8 = load i64, ptr %6, align 8, !range !1134, !noundef !5
-  %.not.i.i = icmp ult i64 %8, 2
+  %.not.i.i = icmp samesign ult i64 %8, 2
   %9 = add nsw i64 %8, -1
   %10 = select i1 %.not.i.i, i64 0, i64 %9
   switch i64 %10, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i" [
@@ -13581,7 +13581,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17hca68dd1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4372)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4375)
   %2 = load i8, ptr %0, align 8, !range !92, !alias.scope !4378, !noundef !5
-  %switch.i.i = icmp ult i8 %2, 2
+  %switch.i.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17h5ce5239894e0c927E.exit", label %3
 
 3:                                                ; preds = %1
@@ -15338,7 +15338,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h55
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr40drop_in_place$LT$http..method..Inner$GT$17h8f821d475b718fc3E.llvm.11632439649900387884"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !782, !noundef !5
-  %switch = icmp ult i8 %2, 10
+  %switch = icmp samesign ult i8 %2, 10
   br i1 %switch, label %"_ZN4core3ptr64drop_in_place$LT$http..method..extension..AllocatedExtension$GT$17hfdfd7da1ead28ebfE.llvm.11632439649900387884.exit", label %3
 
 3:                                                ; preds = %1
@@ -15705,7 +15705,7 @@ define hidden void @"_ZN4core3ptr41drop_in_place$LT$flate2..gz..GzHeader$GT$17hb
 define hidden void @"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hfe2d373690943f8aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5155)
   %2 = load i8, ptr %0, align 8, !range !782, !alias.scope !5155, !noundef !5
-  %switch.i = icmp ult i8 %2, 10
+  %switch.i = icmp samesign ult i8 %2, 10
   br i1 %switch.i, label %"_ZN4core3ptr40drop_in_place$LT$http..method..Inner$GT$17h8f821d475b718fc3E.llvm.11632439649900387884.exit", label %3
 
 3:                                                ; preds = %1
@@ -16246,7 +16246,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$actix_http..test..Inner$GT$1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5375)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5378)
   %4 = load i8, ptr %3, align 8, !range !782, !alias.scope !5381, !noundef !5
-  %switch.i.i = icmp ult i8 %4, 10
+  %switch.i.i = icmp samesign ult i8 %4, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hfe2d373690943f8aE.exit", label %5
 
 5:                                                ; preds = %1
@@ -16771,7 +16771,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT
 define hidden void @"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17h5ce5239894e0c927E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5596)
   %2 = load i8, ptr %0, align 8, !range !92, !alias.scope !5596, !noundef !5
-  %switch.i = icmp ult i8 %2, 2
+  %switch.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr47drop_in_place$LT$http..uri..scheme..Scheme2$GT$17hb30d4baa833833b7E.llvm.11632439649900387884.exit", label %3
 
 3:                                                ; preds = %1
@@ -17181,7 +17181,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$http..header..name..Custom$G
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr47drop_in_place$LT$http..uri..scheme..Scheme2$GT$17hb30d4baa833833b7E.llvm.11632439649900387884"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !92, !noundef !5
-  %switch = icmp ult i8 %2, 2
+  %switch = icmp samesign ult i8 %2, 2
   br i1 %switch, label %16, label %3
 
 3:                                                ; preds = %1
@@ -17921,7 +17921,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$actix_web..guard..MethodGuar
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6231)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6234)
   %2 = load i8, ptr %0, align 8, !range !782, !alias.scope !6237, !noundef !5
-  %switch.i.i = icmp ult i8 %2, 10
+  %switch.i.i = icmp samesign ult i8 %2, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hfe2d373690943f8aE.exit", label %3
 
 3:                                                ; preds = %1
@@ -18486,7 +18486,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$$u5b$http..method..Method$u5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6597)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6600)
   %6 = load i8, ptr %4, align 8, !range !782, !alias.scope !6603, !noundef !5
-  %switch.i.i = icmp ult i8 %6, 10
+  %switch.i.i = icmp samesign ult i8 %6, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hfe2d373690943f8aE.exit", label %7
 
 7:                                                ; preds = %.lr.ph
@@ -21626,7 +21626,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$actix_web..guard..Registered
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7927)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7930)
   %9 = load i8, ptr %7, align 8, !range !782, !alias.scope !7933, !noalias !7923, !noundef !5
-  %switch.i.i.i.i.i = icmp ult i8 %9, 10
+  %switch.i.i.i.i.i = icmp samesign ult i8 %9, 10
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hfe2d373690943f8aE.exit.i.i.i", label %10
 
 10:                                               ; preds = %.lr.ph.i.i.i
@@ -22935,7 +22935,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$actix_web..http..header..all
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8358)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8361)
   %9 = load i8, ptr %7, align 8, !range !782, !alias.scope !8364, !noalias !8354, !noundef !5
-  %switch.i.i.i.i.i = icmp ult i8 %9, 10
+  %switch.i.i.i.i.i = icmp samesign ult i8 %9, 10
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hfe2d373690943f8aE.exit.i.i.i", label %10
 
 10:                                               ; preds = %.lr.ph.i.i.i
@@ -24145,7 +24145,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$actix_http..requests..head..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8732)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8735)
   %4 = load i8, ptr %3, align 8, !range !782, !alias.scope !8738, !noundef !5
-  %switch.i.i = icmp ult i8 %4, 10
+  %switch.i.i = icmp samesign ult i8 %4, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hfe2d373690943f8aE.exit", label %5
 
 5:                                                ; preds = %1
@@ -25950,7 +25950,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$http..met
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9509)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9512)
   %9 = load i8, ptr %7, align 8, !range !782, !alias.scope !9515, !noalias !9503, !noundef !5
-  %switch.i.i.i.i = icmp ult i8 %9, 10
+  %switch.i.i.i.i = icmp samesign ult i8 %9, 10
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hfe2d373690943f8aE.exit.i.i", label %10
 
 10:                                               ; preds = %.lr.ph.i.i
@@ -26677,7 +26677,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$tokio..sync..oneshot..Sender
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr660drop_in_place$LT$core..option..Item$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$$GT$17h96ae224e5b607a14E.llvm.11632439649900387884"(ptr noalias noundef align 8 dereferenceable(192) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !1134, !alias.scope !9825, !noundef !5
-  %switch.not.i = icmp ult i64 %2, 2
+  %switch.not.i = icmp samesign ult i64 %2, 2
   br i1 %switch.not.i, label %3, label %"_ZN4core3ptr662drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$$GT$17hb62962c12d9258bdE.llvm.11632439649900387884.exit"
 
 3:                                                ; preds = %1
@@ -26691,7 +26691,7 @@ define hidden void @"_ZN4core3ptr660drop_in_place$LT$core..option..Item$LT$core.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr662drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$$GT$17hb62962c12d9258bdE.llvm.11632439649900387884"(ptr noalias noundef align 8 dereferenceable(192) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !1134, !noundef !5
-  %switch.not = icmp ult i64 %2, 2
+  %switch.not = icmp samesign ult i64 %2, 2
   br i1 %switch.not, label %3, label %"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit"
 
 "_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit": ; preds = %1, %3
@@ -26723,7 +26723,7 @@ define hidden void @"_ZN4core3ptr664drop_in_place$LT$alloc..raw_vec..RawVec$LT$c
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr664drop_in_place$LT$core..option..IntoIter$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$$GT$17h92c168b0e66f1e10E"(ptr noalias noundef align 8 dereferenceable(192) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !1134, !alias.scope !9836, !noundef !5
-  %switch.not.i.i = icmp ult i64 %2, 2
+  %switch.not.i.i = icmp samesign ult i64 %2, 2
   br i1 %switch.not.i.i, label %3, label %"_ZN4core3ptr660drop_in_place$LT$core..option..Item$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$$GT$17h96ae224e5b607a14E.llvm.11632439649900387884.exit"
 
 3:                                                ; preds = %1
@@ -35604,7 +35604,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %7 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.08.i
   %8 = add nuw i64 %.08.i, 1
   %9 = load i64, ptr %7, align 8, !range !1134, !noundef !5
-  %.not.i.i = icmp ult i64 %9, 2
+  %.not.i.i = icmp samesign ult i64 %9, 2
   %10 = add nsw i64 %9, -1
   %11 = select i1 %.not.i.i, i64 0, i64 %10
   switch i64 %11, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i" [
@@ -35676,7 +35676,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12406)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12409)
   %9 = load i8, ptr %7, align 8, !range !782, !alias.scope !12412, !noundef !5
-  %switch.i.i.i = icmp ult i8 %9, 10
+  %switch.i.i.i = icmp samesign ult i8 %9, 10
   br i1 %switch.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hfe2d373690943f8aE.exit.i", label %10
 
 10:                                               ; preds = %.lr.ph.i
@@ -35869,7 +35869,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %7 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.08.i
   %8 = add nuw i64 %.08.i, 1
   %9 = load i64, ptr %7, align 8, !range !1134, !noundef !5
-  %.not.i.i = icmp ult i64 %9, 2
+  %.not.i.i = icmp samesign ult i64 %9, 2
   %10 = add nsw i64 %9, -1
   %11 = select i1 %.not.i.i, i64 0, i64 %10
   switch i64 %11, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i" [

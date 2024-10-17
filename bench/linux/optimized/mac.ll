@@ -202,7 +202,7 @@ define dso_local i32 @e1000_check_alt_mac_addr_generic(ptr noundef %0) local_unn
   %43 = getelementptr [6 x i8], ptr %4, i64 0, i64 %42
   store i8 %41, ptr %43, align 1
   %44 = add nuw nsw i64 %28, 2
-  %45 = icmp ult i64 %28, 4
+  %45 = icmp samesign ult i64 %28, 4
   br i1 %45, label %27, label %46, !llvm.loop !11
 
 46:                                               ; preds = %36
@@ -1730,7 +1730,7 @@ define dso_local noundef i32 @e1000e_blink_led_generic(ptr noundef %0) local_unn
 30:                                               ; preds = %24, %20
   %31 = phi i32 [ %29, %24 ], [ %12, %20 ]
   %32 = add nuw nsw i32 %11, 8
-  %33 = icmp ult i32 %11, 24
+  %33 = icmp samesign ult i32 %11, 24
   br i1 %33, label %10, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %30, %1

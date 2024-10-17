@@ -41,9 +41,9 @@ define internal fastcc void @"_ZN4core4iter6traits8iterator8Iterator8for_each4ca
   br i1 %10, label %.critedge27.i, label %11
 
 11:                                               ; preds = %2
-  %12 = icmp ult i64 %9, 5
+  %12 = icmp samesign ult i64 %9, 5
   tail call void @llvm.assume(i1 %12)
-  %13 = icmp ult i64 %9, 2
+  %13 = icmp samesign ult i64 %9, 2
   br i1 %13, label %14, label %.critedge27.i
 
 14:                                               ; preds = %11

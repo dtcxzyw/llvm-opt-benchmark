@@ -1497,7 +1497,7 @@ if.else29:                                        ; preds = %lor.lhs.false21
   %shr = lshr i64 %m, 2
   %mul = mul nuw nsw i64 %shr, 3
   %shr30 = lshr i64 %n, 2
-  %cmp31 = icmp ult i64 %mul, %shr30
+  %cmp31 = icmp samesign ult i64 %mul, %shr30
   br i1 %cmp31, label %if.then32, label %if.else38
 
 if.then32:                                        ; preds = %if.else29

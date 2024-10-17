@@ -3320,7 +3320,7 @@ define internal noundef i32 @snd_ctl_release(ptr nocapture readnone %0, ptr noun
   %33 = phi i32 [ %.pre, %31 ], [ %26, %25 ]
   %34 = add nuw nsw i64 %27, 1
   %35 = zext i32 %33 to i64
-  %36 = icmp ult i64 %34, %35
+  %36 = icmp samesign ult i64 %34, %35
   br i1 %36, label %25, label %.loopexit4, !llvm.loop !64
 
 .loopexit6:                                       ; preds = %.loopexit4, %2

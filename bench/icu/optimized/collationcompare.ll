@@ -252,7 +252,7 @@ do.end94:                                         ; preds = %do.body87
   br i1 %cmp95.not, label %if.end99, label %if.then96
 
 if.then96:                                        ; preds = %do.end94
-  %cmp97 = icmp ult i32 %shr83.le, %shr91.le
+  %cmp97 = icmp samesign ult i32 %shr83.le, %shr91.le
   %cond98 = select i1 %cmp97, i32 -1, i32 1
   br label %return
 
@@ -353,7 +353,7 @@ while.end148:                                     ; preds = %while.end148.loopex
   br i1 %cmp149.not, label %if.end153, label %if.then150
 
 if.then150:                                       ; preds = %while.end148
-  %cmp151 = icmp ult i32 %leftSecondary126.0.lcssa, %rightSecondary137.0.lcssa
+  %cmp151 = icmp samesign ult i32 %leftSecondary126.0.lcssa, %rightSecondary137.0.lcssa
   %cond152 = select i1 %cmp151, i32 -1, i32 1
   br label %return
 
@@ -467,7 +467,7 @@ if.then221:                                       ; preds = %if.end219.loopexit2
   %.us-phi271 = phi i32 [ %leftCase.0.us, %if.end219.loopexit.us ], [ %leftCase.0, %if.end219.loopexit230 ]
   %and222 = and i32 %1, 256
   %cmp223 = icmp eq i32 %and222, 0
-  %cmp225 = icmp ult i32 %.us-phi271, %.us-phi
+  %cmp225 = icmp samesign ult i32 %.us-phi271, %.us-phi
   br i1 %cmp223, label %if.then224, label %if.else227
 
 if.then224:                                       ; preds = %if.then221
@@ -542,7 +542,7 @@ if.then264:                                       ; preds = %do.end262
   br i1 %cmp.i213.not, label %if.then267, label %if.end285
 
 if.then267:                                       ; preds = %if.then264
-  %cmp268 = icmp ugt i32 %and250, 256
+  %cmp268 = icmp samesign ugt i32 %and250, 256
   br i1 %cmp268, label %if.then269, label %if.end275
 
 if.then269:                                       ; preds = %if.then267
@@ -559,7 +559,7 @@ if.else272:                                       ; preds = %if.then269
 
 if.end275:                                        ; preds = %if.then271, %if.else272, %if.then267
   %leftTertiary.1 = phi i32 [ %xor, %if.then271 ], [ %add273, %if.else272 ], [ %and250, %if.then267 ]
-  %cmp276 = icmp ugt i32 %and259, 256
+  %cmp276 = icmp samesign ugt i32 %and259, 256
   br i1 %cmp276, label %if.then277, label %if.end285
 
 if.then277:                                       ; preds = %if.end275
@@ -610,7 +610,7 @@ do.body304:                                       ; preds = %do.body304, %for.co
   %69 = load i64, ptr %arrayidx.i.i.i218, align 8
   %conv308 = trunc i64 %69 to i32
   %and309 = and i32 %conv308, 65535
-  %cmp310 = icmp ult i32 %and309, 257
+  %cmp310 = icmp samesign ult i32 %and309, 257
   %shr312 = lshr i64 %69, 32
   %conv313 = trunc nuw i64 %shr312 to i32
   %or315 = or i32 %conv308, -193
@@ -630,7 +630,7 @@ do.body320:                                       ; preds = %do.body320.preheade
   %71 = load i64, ptr %arrayidx.i.i.i221, align 8
   %conv324 = trunc i64 %71 to i32
   %and325 = and i32 %conv324, 65535
-  %cmp326 = icmp ult i32 %and325, 257
+  %cmp326 = icmp samesign ult i32 %and325, 257
   %shr328 = lshr i64 %71, 32
   %conv329 = trunc nuw i64 %shr328 to i32
   %or331 = or i32 %conv324, -193
@@ -712,7 +712,7 @@ if.end7:                                          ; preds = %lor.lhs.false.if.th
   %5 = load ptr, ptr %vfn, align 8
   %call8 = call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %and = and i32 %call8, 255
-  %cmp9 = icmp ult i32 %and, 192
+  %cmp9 = icmp samesign ult i32 %and, 192
   br i1 %cmp9, label %if.then10, label %if.end22
 
 if.then10:                                        ; preds = %if.end7
@@ -839,7 +839,7 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit:        ; preds = %cond.true.i, %cond.
   %arrayidx52.i = getelementptr inbounds i32, ptr %14, i64 %idxprom51.i
   %26 = load i32, ptr %arrayidx52.i, align 4
   %and33 = and i32 %26, 255
-  %cmp34 = icmp ult i32 %and33, 192
+  %cmp34 = icmp samesign ult i32 %and33, 192
   br i1 %cmp34, label %if.then35, label %if.end52
 
 if.then35:                                        ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit

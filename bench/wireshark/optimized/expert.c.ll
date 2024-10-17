@@ -367,7 +367,7 @@ define internal void @uat_expert_post_update_cb() #0 {
   %14 = phi i32 [ %5, %.lr.ph ], [ %.pre, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %13, %0
@@ -409,7 +409,7 @@ expert_registrar_get_byname.exit:                 ; preds = %.lr.ph15
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %32 = load i32, ptr @expert_level_entry_count, align 4
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next21, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next21, %33
   br i1 %34, label %.lr.ph15, label %._crit_edge16, !llvm.loop !8
 
 ._crit_edge16:                                    ; preds = %31, %._crit_edge

@@ -176,7 +176,7 @@ define internal void @ieee80211_free_tid_rx(ptr noundef %0) #0 align 16 {
   %30 = phi i16 [ %.pre, %.loopexit.loopexit ], [ %8, %7 ]
   %31 = add nuw nsw i64 %9, 1
   %32 = zext i16 %30 to i64
-  %33 = icmp ult i64 %31, %32
+  %33 = icmp samesign ult i64 %31, %32
   br i1 %33, label %7, label %.loopexit3, !llvm.loop !11
 
 .loopexit3:                                       ; preds = %.loopexit, %1

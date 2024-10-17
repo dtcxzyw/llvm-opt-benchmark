@@ -81,7 +81,7 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
 
 26:                                               ; preds = %.lr.ph.i.i
   %27 = add nuw nsw i64 %.021.i.i, 1
-  %28 = icmp ult i64 %.021.i.i, 1023
+  %28 = icmp samesign ult i64 %.021.i.i, 1023
   %29 = icmp ult i64 %21, %1
   %30 = select i1 %28, i1 %29, i1 false
   br i1 %30, label %.lr.ph.i.i.backedge, label %._crit_edge.i.i
@@ -144,7 +144,7 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
 
 52:                                               ; preds = %.lr.ph.i.i.i
   %53 = add nuw nsw i64 %.021.i.i.i, 1
-  %54 = icmp ult i64 %.021.i.i.i, 1023
+  %54 = icmp samesign ult i64 %.021.i.i.i, 1023
   %55 = icmp ult i64 %47, %45
   %56 = select i1 %54, i1 %55, i1 false
   br i1 %56, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !5
@@ -412,7 +412,7 @@ ReadPAMFields.exit.i:                             ; preds = %160, %158, %157, %1
 
 172:                                              ; preds = %.lr.ph.i60.i
   %173 = add nuw nsw i64 %.021.i61.i, 1
-  %174 = icmp ult i64 %.021.i61.i, 1023
+  %174 = icmp samesign ult i64 %.021.i61.i, 1023
   %175 = icmp ult i64 %167, %165
   %176 = select i1 %174, i1 %175, i1 false
   br i1 %176, label %.lr.ph.i60.i, label %._crit_edge.i63.i, !llvm.loop !5
@@ -461,7 +461,7 @@ ReadPAMFields.exit.i:                             ; preds = %160, %158, %157, %1
 
 194:                                              ; preds = %.lr.ph.i
   %195 = add nuw nsw i64 %.021.i, 1
-  %196 = icmp ult i64 %.021.i, 1023
+  %196 = icmp samesign ult i64 %.021.i, 1023
   %197 = icmp ult i64 %189, %187
   %198 = select i1 %196, i1 %197, i1 false
   br i1 %198, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5

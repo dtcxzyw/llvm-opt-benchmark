@@ -2098,7 +2098,7 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit: ; preds = %_ZNSt6vectorIiS
   %.sroa.6747.4 = getelementptr inbounds i8, ptr %.pn954, i64 4
   %829 = icmp ne i32 %828, -1
   %indvars.iv.next1332 = add nuw nsw i64 %indvars.iv1331, 1
-  %830 = icmp ult i64 %indvars.iv1331, 2
+  %830 = icmp samesign ult i64 %indvars.iv1331, 2
   %831 = select i1 %830, i1 %829, i1 false
   br i1 %831, label %.preheader977, label %832, !llvm.loop !26
 
@@ -2561,7 +2561,7 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit498: ; preds = %_ZNSt6vector
   %.sroa.6.4 = getelementptr inbounds i8, ptr %.pn951, i64 4
   %1010 = icmp ne i32 %1009, -1
   %indvars.iv.next1335 = add nuw nsw i64 %indvars.iv1334, 1
-  %1011 = icmp ult i64 %indvars.iv1334, 3
+  %1011 = icmp samesign ult i64 %indvars.iv1334, 3
   %1012 = select i1 %1011, i1 %1010, i1 false
   br i1 %1012, label %.preheader, label %1013, !llvm.loop !27
 
@@ -5541,7 +5541,7 @@ define linkonce_odr void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_less_iter
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i

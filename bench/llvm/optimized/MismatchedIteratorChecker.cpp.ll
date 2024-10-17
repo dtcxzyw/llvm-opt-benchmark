@@ -1225,7 +1225,7 @@ _ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.thread.i: ; pr
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %321 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %21) #17
   %322 = zext i32 %321 to i64
-  %323 = icmp ult i64 %indvars.iv.next.i, %322
+  %323 = icmp samesign ult i64 %indvars.iv.next.i, %322
   br i1 %323, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %_ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.thread.i, %.preheader.i, %289, %287, %280
@@ -1233,7 +1233,7 @@ _ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.thread.i: ; pr
   %325 = load i32, ptr %274, align 4
   %326 = and i32 %325, 536870911
   %327 = zext nneg i32 %326 to i64
-  %328 = icmp ult i64 %324, %327
+  %328 = icmp samesign ult i64 %324, %327
   br i1 %328, label %280, label %_ZNK12_GLOBAL__N_125MismatchedIteratorChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, !llvm.loop !14
 
 _ZNK12_GLOBAL__N_125MismatchedIteratorChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit: ; preds = %.loopexit.i, %3, %22, %_ZN4llvm8dyn_castIN5clang4ento15CXXInstanceCallEKNS2_9CallEventEEEDcPT0_.exit.i, %48, %55, %62, %71, %77, %84, %91, %_ZN4llvm8dyn_castIN5clang4ento15CXXInstanceCallEKNS2_9CallEventEEEDcPT0_.exit217.i, %120, %135, %147, %162, %169, %176, %185, %187, %203, %209, %216, %_ZNK5clang9NamedDecl7getNameEv.exit.i, %_ZN4llvmneENS_9StringRefES0_.exit.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread255.i, %_ZNK5clang9NamedDecl7getNameEv.exit228.i, %_ZN4llvmneENS_9StringRefES0_.exit232.i, %_ZN4llvmneENS_9StringRefES0_.exit232.thread258.i, %252, %259, %268, %270

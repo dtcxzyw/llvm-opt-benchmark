@@ -7783,7 +7783,7 @@ _ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i90:     ; preds = %_ZN5faiss4CMinIfiE4
   store float %175, ptr %181, align 4
   %182 = getelementptr inbounds i32, ptr %43, i64 %.025.i88
   store i32 %.pre125, ptr %182, align 4
-  %183 = icmp ugt i64 %.025.i88, 3
+  %183 = icmp samesign ugt i64 %.025.i88, 3
   br i1 %183, label %.lr.ph.i87, label %_ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91, !llvm.loop !87
 
 _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91: ; preds = %_ZN5faiss4CMinIfiE4cmp2Effii.exit.i89, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i90, %169
@@ -8251,7 +8251,7 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i90:     ; preds = %_ZN5faiss4CMaxIfiE4
   store float %175, ptr %181, align 4
   %182 = getelementptr inbounds i32, ptr %43, i64 %.025.i88
   store i32 %.pre125, ptr %182, align 4
-  %183 = icmp ugt i64 %.025.i88, 3
+  %183 = icmp samesign ugt i64 %.025.i88, 3
   br i1 %183, label %.lr.ph.i87, label %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91, !llvm.loop !91
 
 _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91: ; preds = %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.i89, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i90, %169
@@ -8707,7 +8707,7 @@ _ZN5faiss4CMinIiiE4cmp2Eiiii.exit.thread.i93:     ; preds = %_ZN5faiss4CMinIiiE4
   store i32 %175, ptr %181, align 4
   %182 = getelementptr inbounds i32, ptr %43, i64 %.025.i91
   store i32 %.pre129, ptr %182, align 4
-  %183 = icmp ugt i64 %.025.i91, 3
+  %183 = icmp samesign ugt i64 %.025.i91, 3
   br i1 %183, label %.lr.ph.i90, label %_ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94, !llvm.loop !95
 
 _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94: ; preds = %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit.i92, %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit.thread.i93, %169
@@ -9163,7 +9163,7 @@ _ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.thread.i93:     ; preds = %_ZN5faiss4CMaxIiiE4
   store i32 %175, ptr %181, align 4
   %182 = getelementptr inbounds i32, ptr %43, i64 %.025.i91
   store i32 %.pre129, ptr %182, align 4
-  %183 = icmp ugt i64 %.025.i91, 3
+  %183 = icmp samesign ugt i64 %.025.i91, 3
   br i1 %183, label %.lr.ph.i90, label %_ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94, !llvm.loop !100
 
 _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94: ; preds = %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.i92, %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.thread.i93, %169

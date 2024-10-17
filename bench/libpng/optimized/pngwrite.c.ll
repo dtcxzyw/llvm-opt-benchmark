@@ -1838,7 +1838,7 @@ define void @png_set_filter(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = mul nuw nsw i32 %53, %50
-  %55 = icmp ugt i32 %54, 7
+  %55 = icmp samesign ugt i32 %54, 7
   %56 = load i32, ptr %29, align 8
   %57 = zext i32 %56 to i64
   br i1 %55, label %58, label %62
@@ -1870,7 +1870,7 @@ define void @png_set_filter(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   br label %75
 
 75:                                               ; preds = %73, %67
-  %76 = icmp ugt i32 %.3, 1
+  %76 = icmp samesign ugt i32 %.3, 1
   br i1 %76, label %77, label %83
 
 77:                                               ; preds = %75
@@ -2683,7 +2683,7 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   %.not.i = icmp eq i32 %74, 0
   %75 = select i1 %72, i32 0, i32 %67
   %76 = zext nneg i32 %75 to i64
-  %77 = icmp ugt i32 %67, 1
+  %77 = icmp samesign ugt i32 %67, 1
   %78 = zext i1 %72 to i64
   %79 = or disjoint i32 %70, %73
   %80 = xor i32 %79, 2
@@ -3303,7 +3303,7 @@ png_image_set_PLTE.exit:                          ; preds = %._crit_edge.i, %350
   %434 = load i8, ptr %433, align 1, !alias.scope !38
   %435 = zext i8 %434 to i32
   %436 = mul nuw nsw i32 %435, %432
-  %437 = icmp ugt i32 %436, 7
+  %437 = icmp samesign ugt i32 %436, 7
   %438 = zext i32 %429 to i64
   br i1 %437, label %439, label %443
 

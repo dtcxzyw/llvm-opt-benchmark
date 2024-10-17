@@ -3371,7 +3371,7 @@ define internal fastcc range(i32 -1, 46) i32 @capture_android_tcpdump(ptr nounde
   %spec.select = select i1 %.096115, i32 %.sroa.7.0, i32 %91
   %92 = add i32 %.sroa.15.0, 16
   %93 = zext i32 %92 to i64
-  %94 = icmp ult i64 %83, %93
+  %94 = icmp samesign ult i64 %83, %93
   br i1 %94, label %._crit_edge, label %95
 
 95:                                               ; preds = %90

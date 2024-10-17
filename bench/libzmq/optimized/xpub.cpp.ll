@@ -1947,11 +1947,11 @@ if.else198:                                       ; preds = %invoke.cont163
   %conv203 = zext i8 %40 to i32
   %add204 = add nuw nsw i32 %conv203, %conv200
   %conv206 = zext i8 %it.sroa.65.0.copyload to i32
-  %cmp207 = icmp ult i32 %add204, %conv206
+  %cmp207 = icmp samesign ult i32 %add204, %conv206
   %conv215 = trunc i32 %add204 to i8
   %spec.select = select i1 %cmp207, i8 %conv215, i8 %it.sroa.65.0.copyload
   %conv225 = zext i8 %it.sroa.82.0.copyload to i32
-  %cmp226 = icmp ugt i32 %add204, %conv225
+  %cmp226 = icmp samesign ugt i32 %add204, %conv225
   %spec.select151 = select i1 %cmp226, i8 %conv215, i8 %it.sroa.82.0.copyload
   br label %if.end238
 
@@ -2058,7 +2058,7 @@ do.body314:                                       ; preds = %if.then305.do.body3
   %54 = load i16, ptr %_count114, align 2
   %conv322 = zext i16 %54 to i32
   %add323 = add nuw nsw i32 %conv322, %conv319
-  %cmp324.not = icmp ugt i32 %add323, %conv316
+  %cmp324.not = icmp samesign ugt i32 %add323, %conv316
   br i1 %cmp324.not, label %do.end335, label %if.then327
 
 if.then327:                                       ; preds = %do.body314
@@ -2188,7 +2188,7 @@ do.body457:                                       ; preds = %if.then448.do.body4
   %76 = load i16, ptr %_count114, align 2
   %conv465 = zext i16 %76 to i32
   %add466 = add nuw nsw i32 %conv465, %conv462
-  %cmp468.not.not = icmp ugt i32 %add466, %conv459
+  %cmp468.not.not = icmp samesign ugt i32 %add466, %conv459
   br i1 %cmp468.not.not, label %do.body480, label %if.then471
 
 if.then471:                                       ; preds = %do.body457
@@ -2858,11 +2858,11 @@ if.else198:                                       ; preds = %invoke.cont163
   %conv203 = zext i8 %40 to i32
   %add204 = add nuw nsw i32 %conv203, %conv200
   %conv206 = zext i8 %it.sroa.65.0.copyload to i32
-  %cmp207 = icmp ult i32 %add204, %conv206
+  %cmp207 = icmp samesign ult i32 %add204, %conv206
   %conv215 = trunc i32 %add204 to i8
   %spec.select = select i1 %cmp207, i8 %conv215, i8 %it.sroa.65.0.copyload
   %conv225 = zext i8 %it.sroa.82.0.copyload to i32
-  %cmp226 = icmp ugt i32 %add204, %conv225
+  %cmp226 = icmp samesign ugt i32 %add204, %conv225
   %spec.select151 = select i1 %cmp226, i8 %conv215, i8 %it.sroa.82.0.copyload
   br label %if.end238
 
@@ -2969,7 +2969,7 @@ do.body314:                                       ; preds = %if.then305.do.body3
   %54 = load i16, ptr %_count114, align 2
   %conv322 = zext i16 %54 to i32
   %add323 = add nuw nsw i32 %conv322, %conv319
-  %cmp324.not = icmp ugt i32 %add323, %conv316
+  %cmp324.not = icmp samesign ugt i32 %add323, %conv316
   br i1 %cmp324.not, label %do.end335, label %if.then327
 
 if.then327:                                       ; preds = %do.body314
@@ -3099,7 +3099,7 @@ do.body457:                                       ; preds = %if.then448.do.body4
   %76 = load i16, ptr %_count114, align 2
   %conv465 = zext i16 %76 to i32
   %add466 = add nuw nsw i32 %conv465, %conv462
-  %cmp468.not.not = icmp ugt i32 %add466, %conv459
+  %cmp468.not.not = icmp samesign ugt i32 %add466, %conv459
   br i1 %cmp468.not.not, label %do.body480, label %if.then471
 
 if.then471:                                       ; preds = %do.body457
@@ -3333,7 +3333,7 @@ if.else.i:                                        ; preds = %if.end14.i
   %conv29.i = zext i8 %13 to i32
   %cmp30.i = icmp uge i8 %12, %13
   %add.i = add nuw nsw i32 %conv29.i, %conv.i
-  %cmp37.not.i = icmp ugt i32 %add.i, %conv27.i
+  %cmp37.not.i = icmp samesign ugt i32 %add.i, %conv27.i
   %or.cond.i = select i1 %cmp30.i, i1 %cmp37.not.i, i1 false
   br i1 %or.cond.i, label %if.end39.i, label %_ZN3zmq15generic_mtrie_tINS_6pipe_tEE5matchIPNS_6xpub_tEEEvPKhmPFvPS1_T_ES9_.exit
 
@@ -3419,7 +3419,7 @@ if.else.i36:                                      ; preds = %if.end14.i23
   %conv29.i40 = zext i8 %22 to i32
   %cmp30.i41 = icmp uge i8 %21, %22
   %add.i42 = add nuw nsw i32 %conv29.i40, %conv.i37
-  %cmp37.not.i43 = icmp ugt i32 %add.i42, %conv27.i38
+  %cmp37.not.i43 = icmp samesign ugt i32 %add.i42, %conv27.i38
   %or.cond.i44 = select i1 %cmp30.i41, i1 %cmp37.not.i43, i1 false
   br i1 %or.cond.i44, label %if.end39.i45, label %if.end
 

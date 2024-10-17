@@ -1381,12 +1381,12 @@ for.body253:                                      ; preds = %for.body242, %for.b
   %51 = load ptr, ptr %tmp, align 8
   %conv260 = zext nneg i32 %j.0 to i64
   call void @bn_scatter5(ptr noundef %51, i64 noundef %conv105, ptr noundef nonnull %add.ptr, i64 noundef %conv260) #7
-  %cmp251 = icmp ult i32 %j.0.in360, 8
+  %cmp251 = icmp samesign ult i32 %j.0.in360, 8
   br i1 %cmp251, label %for.body253, label %for.inc264, !llvm.loop !22
 
 for.inc264:                                       ; preds = %for.body253
   %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 2
-  %cmp240 = icmp ult i64 %indvars.iv405, 6
+  %cmp240 = icmp samesign ult i64 %indvars.iv405, 6
   br i1 %cmp240, label %for.body242, label %for.body270, !llvm.loop !23
 
 for.body270:                                      ; preds = %for.inc264, %for.body270
@@ -1404,7 +1404,7 @@ for.body270:                                      ; preds = %for.inc264, %for.bo
   %59 = shl nuw nsw i64 %indvars.iv409, 1
   call void @bn_scatter5(ptr noundef %58, i64 noundef %conv105, ptr noundef nonnull %add.ptr, i64 noundef %59) #7
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 2
-  %cmp268 = icmp ult i64 %indvars.iv409, 14
+  %cmp268 = icmp samesign ult i64 %indvars.iv409, 14
   br i1 %cmp268, label %for.body270, label %for.body291, !llvm.loop !24
 
 for.body291:                                      ; preds = %for.body270, %for.body291
@@ -1417,7 +1417,7 @@ for.body291:                                      ; preds = %for.body270, %for.b
   %64 = load ptr, ptr %tmp, align 8
   call void @bn_scatter5(ptr noundef %64, i64 noundef %conv105, ptr noundef nonnull %add.ptr, i64 noundef %indvars.iv414) #7
   %indvars.iv.next415 = add nuw nsw i64 %indvars.iv414, 2
-  %cmp289 = icmp ult i64 %indvars.iv414, 30
+  %cmp289 = icmp samesign ult i64 %indvars.iv414, 30
   br i1 %cmp289, label %for.body291, label %for.end300, !llvm.loop !25
 
 for.end300:                                       ; preds = %for.body291
@@ -1824,7 +1824,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp ult i32 %window, 4
+  %cmp2 = icmp samesign ult i32 %window, 4
   br i1 %cmp2, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %if.end

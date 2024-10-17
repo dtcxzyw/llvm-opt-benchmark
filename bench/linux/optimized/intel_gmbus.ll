@@ -129,7 +129,7 @@ define dso_local zeroext i1 @intel_gmbus_is_valid_pin(ptr nocapture noundef read
   %31 = phi ptr [ @gmbus_pins_mtp, %2 ], [ @gmbus_pins_dg2, %6 ], [ @gmbus_pins_dg1, %8 ], [ @gmbus_pins_mtp, %10 ], [ @gmbus_pins_icp, %12 ], [ @gmbus_pins_cnp, %14 ], [ @gmbus_pins_bxt, %16 ], [ @gmbus_pins_skl, %22 ], [ %29, %26 ]
   %32 = phi i64 [ 13, %2 ], [ 10, %6 ], [ 5, %8 ], [ 13, %10 ], [ 15, %12 ], [ 5, %14 ], [ 4, %16 ], [ 7, %22 ], [ 7, %26 ]
   %33 = zext i32 %1 to i64
-  %34 = icmp ugt i64 %32, %33
+  %34 = icmp samesign ugt i64 %32, %33
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %30
@@ -1104,7 +1104,7 @@ define dso_local i32 @intel_gmbus_setup(ptr noundef %0) local_unnamed_addr #1 al
 51:                                               ; preds = %47, %44, %39, %37, %35, %33, %31, %29, %25
   %52 = phi ptr [ @gmbus_pins_mtp, %25 ], [ @gmbus_pins_dg2, %29 ], [ @gmbus_pins_dg1, %31 ], [ @gmbus_pins_mtp, %33 ], [ @gmbus_pins_icp, %35 ], [ @gmbus_pins_cnp, %37 ], [ @gmbus_pins_bxt, %39 ], [ @gmbus_pins_skl, %44 ], [ %50, %47 ]
   %53 = phi i64 [ 13, %25 ], [ 10, %29 ], [ 5, %31 ], [ 13, %33 ], [ 15, %35 ], [ 5, %37 ], [ 4, %39 ], [ 7, %44 ], [ 7, %47 ]
-  %54 = icmp ugt i64 %53, %26
+  %54 = icmp samesign ugt i64 %53, %26
   br i1 %54, label %55, label %.thread
 
 55:                                               ; preds = %51
@@ -1423,7 +1423,7 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_read(ptr noundef %0, p
   %33 = load i16, ptr %1, align 8
   %34 = icmp ugt i16 %21, 8
   %35 = select i1 %34, i32 511, i32 256
-  %36 = icmp ult i32 %35, %.fr27
+  %36 = icmp samesign ult i32 %35, %.fr27
   br i1 %36, label %37, label %74
 
 37:                                               ; preds = %30

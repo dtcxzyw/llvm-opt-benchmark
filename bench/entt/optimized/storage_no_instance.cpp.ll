@@ -29986,7 +29986,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -30165,7 +30165,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161
@@ -113028,7 +113028,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 for.body.i.i.i.i.i.i.preheader:                   ; preds = %for.body.i
   %diff.neg = sub nsw i64 0, %__i.sroa.0.025.i.idx
   %sub.ptr.div.i.i.i.i.i.i.i = lshr exact i64 %diff.neg, 2
-  %min.iters.check75 = icmp ult i64 %diff.neg, 32
+  %min.iters.check75 = icmp samesign ult i64 %diff.neg, 32
   br i1 %min.iters.check75, label %for.body.i.i.i.i.i.i, label %vector.ph76
 
 vector.ph76:                                      ; preds = %for.body.i.i.i.i.i.i.preheader
@@ -113064,7 +113064,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %middle.block73, %fo
   %__n.010.i.i.i.i.i.i.ph = phi i64 [ %sub.ptr.div.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.preheader ], [ %ind.end83, %middle.block73 ]
   %6 = load i32, ptr %agg.tmp1.sroa.0.0.i.i.i.i.i.ph, align 4, !tbaa !555, !noalias !1738
   store i32 %6, ptr %agg.tmp2.sroa.0.0.i.i.i.i.i.ph, align 4, !tbaa !555, !noalias !1738
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.010.i.i.i.i.i.i.ph, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.010.i.i.i.i.i.i.ph, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.1, label %for.inc.i, !llvm.loop !1750
 
 for.body.i.i.i.i.i.i.1:                           ; preds = %for.body.i.i.i.i.i.i
@@ -113235,7 +113235,7 @@ for.body.i.i.i.i.i.i51:                           ; preds = %middle.block, %for.
   %__n.010.i.i.i.i.i.i54.ph = phi i64 [ %sub.ptr.div.i.i.i.i.i.i.i49, %for.body.i.i.i.i.i.i51.preheader ], [ %ind.end66, %middle.block ]
   %31 = load i32, ptr %agg.tmp1.sroa.0.0.i.i.i.i.i52.ph, align 4, !tbaa !555, !noalias !1754
   store i32 %31, ptr %agg.tmp2.sroa.0.0.i.i.i.i.i53.ph, align 4, !tbaa !555, !noalias !1754
-  %cmp.i.i.i.i.i.i58 = icmp ugt i64 %__n.010.i.i.i.i.i.i54.ph, 1
+  %cmp.i.i.i.i.i.i58 = icmp samesign ugt i64 %__n.010.i.i.i.i.i.i54.ph, 1
   br i1 %cmp.i.i.i.i.i.i58, label %for.body.i.i.i.i.i.i51.1, label %for.inc.i39, !llvm.loop !1766
 
 for.body.i.i.i.i.i.i51.1:                         ; preds = %for.body.i.i.i.i.i.i51

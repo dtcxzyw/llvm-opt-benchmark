@@ -50454,7 +50454,7 @@ define hidden void @"_ZN9regalloc25moves66MoveAndScratchResolver$LT$GetReg$C$Get
   %70 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %71 = icmp ult i64 %70, 6
   tail call void @llvm.assume(i1 %71)
-  %72 = icmp ugt i64 %70, 4
+  %72 = icmp samesign ugt i64 %70, 4
   br i1 %72, label %73, label %50
 
 73:                                               ; preds = %69
@@ -50573,7 +50573,7 @@ define hidden void @"_ZN9regalloc25moves66MoveAndScratchResolver$LT$GetReg$C$Get
   %107 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %108 = icmp ult i64 %107, 6
   call void @llvm.assume(i1 %108)
-  %109 = icmp ugt i64 %107, 4
+  %109 = icmp samesign ugt i64 %107, 4
   br i1 %109, label %110, label %103
 
 110:                                              ; preds = %105
@@ -50627,7 +50627,7 @@ define hidden void @"_ZN9regalloc25moves66MoveAndScratchResolver$LT$GetReg$C$Get
   %131 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %132 = icmp ult i64 %131, 6
   call void @llvm.assume(i1 %132)
-  %133 = icmp ugt i64 %131, 4
+  %133 = icmp samesign ugt i64 %131, 4
   br i1 %133, label %134, label %117
 
 134:                                              ; preds = %120
@@ -50813,7 +50813,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %.noexc108
   %197 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %198 = icmp ult i64 %197, 6
   call void @llvm.assume(i1 %198)
-  %199 = icmp ugt i64 %197, 4
+  %199 = icmp samesign ugt i64 %197, 4
   br i1 %199, label %200, label %192
 
 200:                                              ; preds = %.thread
@@ -50970,7 +50970,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i129: ; preds = %.noexc131
   %252 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %253 = icmp ult i64 %252, 6
   call void @llvm.assume(i1 %253)
-  %254 = icmp ugt i64 %252, 4
+  %254 = icmp samesign ugt i64 %252, 4
   br i1 %254, label %255, label %250
 
 255:                                              ; preds = %251
@@ -51516,7 +51516,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %78 = getelementptr inbounds i8, ptr %.sroa.033.0, i64 2
   %79 = add nuw nsw i64 %.sroa.735.0, 1
   %80 = load i16, ptr %.sroa.033.0, align 2, !noundef !4
-  %81 = icmp ugt i64 %.sroa.735.0, 65535
+  %81 = icmp samesign ugt i64 %.sroa.735.0, 65535
   %82 = trunc nuw i64 %.sroa.735.0 to i16
   %.sroa.57.0 = select i1 %81, i16 undef, i16 %82
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6)
@@ -52054,7 +52054,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %78 = getelementptr inbounds i8, ptr %.sroa.033.0, i64 2
   %79 = add nuw nsw i64 %.sroa.735.0, 1
   %80 = load i16, ptr %.sroa.033.0, align 2, !noundef !4
-  %81 = icmp ugt i64 %.sroa.735.0, 65535
+  %81 = icmp samesign ugt i64 %.sroa.735.0, 65535
   %82 = trunc nuw i64 %.sroa.735.0 to i16
   %.sroa.57.0 = select i1 %81, i16 undef, i16 %82
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6)
@@ -52273,11 +52273,11 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower16put_in
 25:                                               ; preds = %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$8value_ty17h4026d7869768fb2fE.exit.i"
   %26 = getelementptr inbounds i8, ptr %7, i64 8
   %27 = load i64, ptr %26, align 8, !noalias !19947, !noundef !4
-  %28 = icmp ugt i16 %22, 255
+  %28 = icmp samesign ugt i16 %22, 255
   br i1 %28, label %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit.thread.i, label %29
 
 29:                                               ; preds = %25
-  %30 = icmp ult i16 %22, 128
+  %30 = icmp samesign ult i16 %22, 128
   %31 = and i16 %21, 15
   %32 = or disjoint i16 %31, 112
   %.0.i.i.i.i.i = select i1 %30, i16 %22, i16 %32
@@ -52528,7 +52528,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ;
   %29 = lshr i16 %28, 4
   %30 = zext nneg i16 %29 to i32
   %31 = shl nuw nsw i32 %.0.i.i.i, %30
-  %32 = icmp ugt i32 %31, 31
+  %32 = icmp samesign ugt i32 %31, 31
   br label %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit
 
 _ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit: ; preds = %19, %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
@@ -53299,7 +53299,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower28matches_small
   call void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$28get_value_as_source_or_const17hd91b32b87cda16b8E"(ptr noalias nocapture noundef nonnull sret({ { i64, [1 x i64] }, { i32, [3 x i32] } }) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(1944) %1, i32 noundef %7)
   %8 = getelementptr inbounds i8, ptr %6, i64 16
   %9 = load i32, ptr %8, align 8, !range !20237, !alias.scope !20238, !noalias !20241, !noundef !4
-  %switch.i.i = icmp ult i32 %9, 2
+  %switch.i.i = icmp samesign ult i32 %9, 2
   br i1 %switch.i.i, label %10, label %_ZN17cranelift_codegen3isa3x645lower13matches_input17h33f749b6ac7a86caE.exit.thread
 
 _ZN17cranelift_codegen3isa3x645lower13matches_input17h33f749b6ac7a86caE.exit.thread: ; preds = %4
@@ -53416,7 +53416,7 @@ define hidden void @_ZN17cranelift_codegen3isa3x645lower14lower_to_amode17h95015
   call void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$28get_value_as_source_or_const17hd91b32b87cda16b8E"(ptr noalias nocapture noundef nonnull sret({ { i64, [1 x i64] }, { i32, [3 x i32] } }) align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(1944) %1, i32 noundef %27)
   %28 = getelementptr inbounds i8, ptr %7, i64 16
   %29 = load i32, ptr %28, align 8, !range !20237, !alias.scope !20284, !noalias !20287, !noundef !4
-  %switch.i.i = icmp ult i32 %29, 2
+  %switch.i.i = icmp samesign ult i32 %29, 2
   br i1 %switch.i.i, label %30, label %_ZN17cranelift_codegen3isa3x645lower13matches_input17h33f749b6ac7a86caE.exit.thread
 
 _ZN17cranelift_codegen3isa3x645lower13matches_input17h33f749b6ac7a86caE.exit.thread: ; preds = %25
@@ -53547,7 +53547,7 @@ default.unreachable:                              ; preds = %100, %65
   %79 = tail call noundef i32 @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14input_as_value17h2fa3408009b05633E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(1944) %1, i32 noundef %.03.i.i, i64 noundef %.sroa.0.079)
   call void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$28get_value_as_source_or_const17hd91b32b87cda16b8E"(ptr noalias nocapture noundef nonnull sret({ { i64, [1 x i64] }, { i32, [3 x i32] } }) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(1944) %1, i32 noundef %79)
   %80 = load i32, ptr %62, align 8, !range !20237, !alias.scope !20316, !noalias !20319, !noundef !4
-  %switch.i.i45 = icmp ult i32 %80, 2
+  %switch.i.i45 = icmp samesign ult i32 %80, 2
   br i1 %switch.i.i45, label %84, label %_ZN17cranelift_codegen3isa3x645lower13matches_input17h33f749b6ac7a86caE.exit53.thread
 
 _ZN17cranelift_codegen3isa3x645lower13matches_input17h33f749b6ac7a86caE.exit53.thread: ; preds = %78

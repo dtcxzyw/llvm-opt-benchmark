@@ -1342,7 +1342,7 @@ define noundef zeroext i1 @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl13ini
   br i1 %exitcond79.not, label %50, label %34, !llvm.loop !27
 
 50:                                               ; preds = %47
-  %51 = icmp ult i32 %48, 4
+  %51 = icmp samesign ult i32 %48, 4
   br i1 %51, label %.loopexit, label %52
 
 52:                                               ; preds = %50

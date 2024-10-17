@@ -245,7 +245,7 @@ for.body14.i.i.i.i:                               ; preds = %_ZN4llvh6detail12De
   %call.i.i.i.i.i = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %23) #7
   %sub.i.i.i.i.i = add i32 %call.i.i.i.i.i, -2
   %24 = zext i32 %sub.i.i.i.i.i to i64
-  %cmp19.i.i.i.i = icmp ult i64 %20, %24
+  %cmp19.i.i.i.i = icmp samesign ult i64 %20, %24
   br i1 %cmp19.i.i.i.i, label %if.then20.i.i.i.i, label %if.end22.i.i.i.i
 
 if.then20.i.i.i.i:                                ; preds = %for.body14.i.i.i.i

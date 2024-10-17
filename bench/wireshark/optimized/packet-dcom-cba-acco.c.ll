@@ -4313,7 +4313,7 @@ cba_connection_disconnect.exit.us:                ; preds = %.lr.ph, %cba_connec
   %45 = call i32 @dissect_dcom_indexed_HRESULT(ptr noundef %0, i32 noundef %.162, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, i32 noundef %44) #7
   %46 = load i32, ptr %13, align 8
   %47 = zext i32 %46 to i64
-  %.not57 = icmp ugt i64 %indvars.iv, %47
+  %.not57 = icmp samesign ugt i64 %indvars.iv, %47
   br i1 %.not57, label %cba_connection_disconnect.exit, label %48
 
 48:                                               ; preds = %.lr.ph.split
@@ -6263,7 +6263,7 @@ cba_frame_disconnect.exit.us:                     ; preds = %.lr.ph, %cba_frame_
   %41 = call i32 @dissect_dcom_indexed_HRESULT(ptr noundef %0, i32 noundef %.160, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, i32 noundef %40) #7
   %42 = load i32, ptr %.fr, align 8
   %43 = zext i32 %42 to i64
-  %.not55 = icmp ugt i64 %indvars.iv, %43
+  %.not55 = icmp samesign ugt i64 %indvars.iv, %43
   br i1 %.not55, label %cba_frame_disconnect.exit, label %44
 
 44:                                               ; preds = %.lr.ph.split

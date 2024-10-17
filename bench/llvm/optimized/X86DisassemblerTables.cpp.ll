@@ -828,7 +828,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit89:         ; preds = %93, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i88
   %119 = phi ptr [ %95, %93 ], [ %116, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i88 ]
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 8
-  %120 = icmp ult i64 %indvars.iv200, 56
+  %120 = icmp samesign ult i64 %indvars.iv200, 56
   br i1 %120, label %87, label %.preheader, !llvm.loop !11
 
 .preheader:                                       ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit89, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit98
@@ -906,7 +906,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit98:         ; preds = %126, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i97
   %152 = phi ptr [ %128, %126 ], [ %149, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i97 ]
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 8
-  %153 = icmp ult i64 %indvars.iv203, 248
+  %153 = icmp samesign ult i64 %indvars.iv203, 248
   br i1 %153, label %.preheader, label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, !llvm.loop !12
 
 154:                                              ; preds = %_ZL15getDecisionTypeR13ModRMDecision.exit.thread.thread219, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit107
@@ -984,7 +984,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit107:        ; preds = %160, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i106
   %186 = phi ptr [ %162, %160 ], [ %183, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i106 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %187 = icmp ult i64 %indvars.iv, 56
+  %187 = icmp samesign ult i64 %indvars.iv, 56
   br i1 %187, label %154, label %.preheader180, !llvm.loop !13
 
 .preheader180:                                    ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit107, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit116
@@ -3301,8 +3301,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit262:              ; preds = %138, %136, %_ZN4llv
 _ZN4llvm11raw_ostreamlsEPKc.exit268:              ; preds = %172, %170, %165, %163
   %175 = and i32 %42, 4096
   %.not186 = icmp eq i32 %175, 0
-  %.not187 = icmp ult i64 %indvars.iv, 32768
-  %or.cond207 = or i1 %.not187, %.not186
+  %.not187 = icmp samesign ult i64 %indvars.iv, 32768
+  %or.cond207 = select i1 %.not186, i1 true, i1 %.not187
   br i1 %or.cond207, label %176, label %_ZN4llvm11raw_ostreamlsEPKc.exit274
 
 176:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit268

@@ -1073,7 +1073,7 @@ if.then21.i:                                      ; preds = %if.end17.i
   %conv23.i = zext i8 %21 to i64
   %mul.i = shl nuw nsw i64 %conv23.i, 1
   %add26.i = add nuw nsw i64 %mul.i, 39
-  %cmp27.not.i = icmp ult i64 %add12.i, %add26.i
+  %cmp27.not.i = icmp samesign ult i64 %add12.i, %add26.i
   br i1 %cmp27.not.i, label %if.end40.i, label %if.then29.i
 
 if.then29.i:                                      ; preds = %if.then21.i
@@ -1082,7 +1082,7 @@ if.then29.i:                                      ; preds = %if.then21.i
   %call31.i = call zeroext i16 @Curl_read16_le(ptr noundef nonnull %arrayidx30.i) #12
   %conv32.i = zext i16 %call31.i to i64
   %add34.i = add nuw nsw i64 %add26.i, %conv32.i
-  %cmp35.i = icmp ult i64 %add12.i, %add34.i
+  %cmp35.i = icmp samesign ult i64 %add12.i, %add34.i
   br i1 %cmp35.i, label %smb_recv_message.exit, label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.then29.i, %if.then21.i, %if.end17.i

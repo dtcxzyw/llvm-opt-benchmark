@@ -1493,7 +1493,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %105, %109, %112, %1
   %124 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0243) #4
   %125 = sext i32 %124 to i64
   %spec.select = tail call i64 @llvm.umin.i64(i64 %125, i64 %123)
-  %126 = icmp ult i64 %spec.select, 24
+  %126 = icmp samesign ult i64 %spec.select, 24
   br i1 %126, label %.loopexit250, label %127
 
 127:                                              ; preds = %dissect_osd_attribute_data_in.exit
@@ -1557,7 +1557,7 @@ select.unfold244:                                 ; preds = %150, %149, %146, %1
   %.1218 = phi i1 [ %158, %153 ], [ false, %146 ], [ false, %149 ], [ true, %150 ]
   %159 = add i32 %.0243, 24
   %160 = zext i32 %134 to i64
-  %161 = icmp ugt i64 %spec.select231, %160
+  %161 = icmp samesign ugt i64 %spec.select231, %160
   br i1 %161, label %.lr.ph253, label %.loopexit250
 
 .lr.ph253:                                        ; preds = %select.unfold244
@@ -1577,7 +1577,7 @@ select.unfold244:                                 ; preds = %150, %149, %146, %1
   %165 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %164, ptr noundef %0, i32 noundef %.2252.us.us, i32 noundef 8, i32 noundef 0) #4
   %166 = add i32 %.2252.us.us, 8
   %167 = zext i32 %.2252.us.us to i64
-  %168 = icmp ugt i64 %spec.select231, %167
+  %168 = icmp samesign ugt i64 %spec.select231, %167
   br i1 %168, label %.lr.ph253.split.us.split.us, label %.loopexit250, !llvm.loop !8
 
 .lr.ph253.split.us.split:                         ; preds = %.lr.ph253.split.us
@@ -1589,7 +1589,7 @@ select.unfold244:                                 ; preds = %150, %149, %146, %1
   %170 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %169, ptr noundef %0, i32 noundef %.2252.us.us256, i32 noundef 8, i32 noundef 0) #4
   %171 = add i32 %.2252.us.us256, 8
   %172 = zext i32 %.2252.us.us256 to i64
-  %173 = icmp ugt i64 %spec.select231, %172
+  %173 = icmp samesign ugt i64 %spec.select231, %172
   br i1 %173, label %.lr.ph253.split.us.split.split.us, label %.loopexit250, !llvm.loop !8
 
 .lr.ph253.split.us.split.split:                   ; preds = %.lr.ph253.split.us.split, %.lr.ph253.split.us.split.split
@@ -1598,7 +1598,7 @@ select.unfold244:                                 ; preds = %150, %149, %146, %1
   %175 = tail call fastcc ptr @dissect_osd_partition_id(ptr noundef %1, ptr noundef %0, i32 noundef %.2252.us, ptr noundef %2, i32 noundef %174, ptr noundef %9, i32 noundef 0, i32 noundef 0)
   %176 = add i32 %.2252.us, 8
   %177 = zext i32 %.2252.us to i64
-  %178 = icmp ugt i64 %spec.select231, %177
+  %178 = icmp samesign ugt i64 %spec.select231, %177
   br i1 %178, label %.lr.ph253.split.us.split.split, label %.loopexit250, !llvm.loop !8
 
 .lr.ph253.split:                                  ; preds = %.lr.ph253, %.loopexit
@@ -1627,7 +1627,7 @@ select.unfold244:                                 ; preds = %150, %149, %146, %1
   %.0219 = phi ptr [ %182, %180 ], [ %185, %183 ], [ %188, %186 ]
   %190 = add i32 %.2252, 16
   %191 = zext i32 %190 to i64
-  %192 = icmp ult i64 %spec.select231, %191
+  %192 = icmp samesign ult i64 %spec.select231, %191
   br i1 %192, label %.loopexit250, label %193
 
 193:                                              ; preds = %189
@@ -1641,7 +1641,7 @@ select.unfold244:                                 ; preds = %150, %149, %146, %1
   %201 = zext i16 %200 to i32
   %202 = add i32 %190, %201
   %203 = zext i32 %202 to i64
-  %204 = icmp ult i64 %163, %203
+  %204 = icmp samesign ult i64 %163, %203
   br i1 %204, label %.loopexit250, label %.preheader
 
 .preheader:                                       ; preds = %193
@@ -1666,7 +1666,7 @@ select.unfold244:                                 ; preds = %150, %149, %146, %1
 .loopexit:                                        ; preds = %.lr.ph, %.preheader
   %217 = add i32 %202, -8
   %218 = zext i32 %217 to i64
-  %219 = icmp ugt i64 %spec.select231, %218
+  %219 = icmp samesign ugt i64 %spec.select231, %218
   br i1 %219, label %.lr.ph253.split, label %.loopexit250, !llvm.loop !8
 
 .loopexit250:                                     ; preds = %193, %189, %.loopexit, %.lr.ph253.split.us.split.split, %.lr.ph253.split.us.split.split.us, %.lr.ph253.split.us.split.us, %select.unfold244, %dissect_osd_attribute_data_in.exit, %select.unfold, %103
@@ -4112,7 +4112,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %91, %95, %98, %101
   %110 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0128) #4
   %111 = sext i32 %110 to i64
   %spec.select = tail call i64 @llvm.umin.i64(i64 %111, i64 %109)
-  %112 = icmp ult i64 %spec.select, 12
+  %112 = icmp samesign ult i64 %spec.select, 12
   br i1 %112, label %.loopexit, label %113
 
 113:                                              ; preds = %dissect_osd_attribute_data_in.exit
@@ -4133,7 +4133,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %91, %95, %98, %101
 .preheader:                                       ; preds = %113
   %123 = add i32 %.0128, 8
   %124 = zext i32 %123 to i64
-  %125 = icmp ugt i64 %spec.select122, %124
+  %125 = icmp samesign ugt i64 %spec.select122, %124
   br i1 %125, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -4151,7 +4151,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %91, %95, %98, %101
   %131 = add i32 %.1129, 8
   %.reass = add i32 %.1129, 4
   %132 = zext i32 %.reass to i64
-  %133 = icmp ugt i64 %spec.select122, %132
+  %133 = icmp samesign ugt i64 %spec.select122, %132
   br i1 %133, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %dissect_osd_attribute_data_in.exit, %127, %89
@@ -4299,7 +4299,7 @@ dissect_osd_offset.exit.thread143:                ; preds = %63
 
 70:                                               ; preds = %68
   %.neg.i = or i32 %64, -8
-  %71 = icmp ult i32 %.neg.i, -5
+  %71 = icmp samesign ult i32 %.neg.i, -5
   %72 = icmp ne i32 %69, 268435455
   %or.cond.i = and i1 %72, %71
   br i1 %or.cond.i, label %dissect_osd_offset.exit.thread, label %dissect_osd_offset.exit
@@ -4364,7 +4364,7 @@ dissect_osd_offset.exit130.thread148:             ; preds = %91
 
 98:                                               ; preds = %96
   %.neg.i125 = or i32 %92, -8
-  %99 = icmp ult i32 %.neg.i125, -5
+  %99 = icmp samesign ult i32 %.neg.i125, -5
   %100 = icmp ne i32 %97, 268435455
   %or.cond.i126 = and i1 %100, %99
   br i1 %or.cond.i126, label %dissect_osd_offset.exit130.thread, label %dissect_osd_offset.exit130
@@ -4429,7 +4429,7 @@ dissect_osd_offset.exit139.thread153:             ; preds = %119
 
 126:                                              ; preds = %124
   %.neg.i134 = or i32 %120, -8
-  %127 = icmp ult i32 %.neg.i134, -5
+  %127 = icmp samesign ult i32 %.neg.i134, -5
   %128 = icmp ne i32 %125, 268435455
   %or.cond.i135 = and i1 %128, %127
   br i1 %or.cond.i135, label %dissect_osd_offset.exit139.thread, label %dissect_osd_offset.exit139

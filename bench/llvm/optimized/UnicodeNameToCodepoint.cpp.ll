@@ -729,7 +729,7 @@ define dso_local void @_ZN4llvm3sys7unicode28nameToCodepointLooseMatchingENS_9St
   %6 = getelementptr inbounds i8, ptr %4, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %6, i64 noundef 64) #16
   %7 = call fastcc i64 @_ZN4llvm3sys7unicodeL15nameToCodepointENS_9StringRefEbRNS_11SmallStringILj64EEE(ptr %1, i64 %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(88) %4)
-  %.not = icmp ult i64 %7, 4294967296
+  %.not = icmp samesign ult i64 %7, 4294967296
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %3

@@ -387,7 +387,7 @@ thread-pre-split95:                               ; preds = %thread-pre-split95.
   %gep = getelementptr double, ptr %173, i64 %239
   %241 = getelementptr double, ptr %gep, i64 %240
   store double 1.000000e+00, ptr %241, align 8, !tbaa !7
-  %242 = icmp ugt i64 %239, 1
+  %242 = icmp samesign ugt i64 %239, 1
   br i1 %242, label %.preheader122, label %.loopexit123
 
 .preheader122:                                    ; preds = %238, %.preheader122
@@ -400,7 +400,7 @@ thread-pre-split95:                               ; preds = %thread-pre-split95.
   br i1 %247, label %.loopexit123, label %.preheader122, !llvm.loop !18
 
 .loopexit123:                                     ; preds = %.preheader122, %238
-  %248 = icmp ult i64 %239, %230
+  %248 = icmp samesign ult i64 %239, %230
   br i1 %248, label %249, label %.loopexit121
 
 249:                                              ; preds = %.loopexit123
@@ -1052,7 +1052,7 @@ thread-pre-split95:                               ; preds = %thread-pre-split95.
   %gep164 = getelementptr double, ptr %538, i64 %662
   %664 = getelementptr double, ptr %gep164, i64 %663
   store double 1.000000e+00, ptr %664, align 8, !tbaa !7
-  %665 = icmp ult i64 %662, %650
+  %665 = icmp samesign ult i64 %662, %650
   br i1 %665, label %.preheader111, label %.loopexit112
 
 .preheader111:                                    ; preds = %661, %.preheader111
@@ -1065,7 +1065,7 @@ thread-pre-split95:                               ; preds = %thread-pre-split95.
   br i1 %670, label %.loopexit112, label %.preheader111, !llvm.loop !38
 
 .loopexit112:                                     ; preds = %.preheader111, %661
-  %671 = icmp ugt i64 %662, 1
+  %671 = icmp samesign ugt i64 %662, 1
   br i1 %671, label %672, label %.loopexit110
 
 672:                                              ; preds = %.loopexit112

@@ -2248,7 +2248,7 @@ if.end74.i:                                       ; preds = %if.end69.i
           to label %call.i.i.noexc unwind label %lpad50.loopexit.split-lp.loopexit.split-lp
 
 call.i.i.noexc:                                   ; preds = %if.end74.i
-  %cmp10.not101.i.i = icmp ugt i64 %brent.sroa.77.0, 99
+  %cmp10.not101.i.i = icmp samesign ugt i64 %brent.sroa.77.0, 99
   br i1 %cmp10.not101.i.i, label %do.body.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %call.i.i.noexc

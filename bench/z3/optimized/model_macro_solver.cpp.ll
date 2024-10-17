@@ -8013,7 +8013,7 @@ _ZN6vectorIP10quantifierLb0EjE9push_backERKS1_.exit.i: ; preds = %.noexc, %lor.l
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i28, 1
   %22 = load i32, ptr %arrayidx.i, align 4
   %23 = zext i32 %22 to i64
-  %cmp.i11 = icmp ult i64 %indvars.iv.next.i, %23
+  %cmp.i11 = icmp samesign ult i64 %indvars.iv.next.i, %23
   br i1 %cmp.i11, label %for.body.i, label %if.then.i.i.i, !llvm.loop !55
 
 if.then.i.i.i:                                    ; preds = %_ZN6vectorIP10quantifierLb0EjE9push_backERKS1_.exit.i, %for.cond.i.preheader, %invoke.cont16, %_ZNK6vectorIP10quantifierLb0EjE5emptyEv.exit

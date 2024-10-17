@@ -2344,7 +2344,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %787 = phi i64 [ %778, %.lr.ph.i ], [ %728, %.lr.ph.i.preheader ]
   %.sroa.044.051.i69 = phi ptr [ %731, %.lr.ph.i ], [ %725, %.lr.ph.i.preheader ]
-  %788 = icmp ult i64 %787, 170
+  %788 = icmp samesign ult i64 %787, 170
   br i1 %788, label %730, label %789
 
 789:                                              ; preds = %.lr.ph

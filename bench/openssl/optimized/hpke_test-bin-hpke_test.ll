@@ -672,7 +672,7 @@ if.end25:                                         ; preds = %if.end14, %if.then1
   br i1 %cmp27117, label %for.body29.lr.ph, label %for.inc240
 
 for.body29.lr.ph:                                 ; preds = %if.end25
-  %or.cond1.not = icmp ult i64 %mind.0122, 2
+  %or.cond1.not = icmp samesign ult i64 %mind.0122, 2
   %arrayidx225 = getelementptr inbounds [4 x ptr], ptr @mode_str_list, i64 0, i64 %mind.0122
   %conv226 = trunc nuw nsw i64 %mind.0122 to i32
   br label %for.body29
@@ -897,14 +897,14 @@ if.then222:                                       ; preds = %if.end185
 for.inc:                                          ; preds = %if.then222, %if.end185
   %inc = add nuw nsw i64 %aeadind.0112, 1
   %cmp58 = icmp eq i32 %overallresult.20, 1
-  %cmp61 = icmp ult i64 %aeadind.0112, 2
-  %30 = and i1 %cmp58, %cmp61
+  %cmp61 = icmp samesign ult i64 %aeadind.0112, 2
+  %30 = select i1 %cmp58, i1 %cmp61, i1 false
   br i1 %30, label %for.body64, label %for.inc234, !llvm.loop !7
 
 for.inc234:                                       ; preds = %for.inc
   %inc235 = add nuw nsw i64 %kdfind.0114, 1
-  %cmp51 = icmp ult i64 %kdfind.0114, 2
-  %31 = and i1 %cmp58, %cmp51
+  %cmp51 = icmp samesign ult i64 %kdfind.0114, 2
+  %31 = select i1 %cmp58, i1 %cmp51, i1 false
   br i1 %31, label %for.body54, label %for.end236, !llvm.loop !8
 
 for.end236:                                       ; preds = %for.inc234, %if.end46
@@ -915,8 +915,8 @@ for.end236:                                       ; preds = %for.inc234, %if.end
   call void @EVP_PKEY_free(ptr noundef %32) #6
   %inc238 = add nuw nsw i64 %kemind.0120, 1
   %cmp27 = icmp eq i32 %overallresult.4.lcssa, 1
-  %cmp28 = icmp ult i64 %kemind.0120, 4
-  %33 = and i1 %cmp27, %cmp28
+  %cmp28 = icmp samesign ult i64 %kemind.0120, 4
+  %33 = select i1 %cmp27, i1 %cmp28, i1 false
   br i1 %33, label %for.body29, label %for.inc240, !llvm.loop !9
 
 for.inc240:                                       ; preds = %for.end236, %if.end25

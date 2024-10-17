@@ -17929,7 +17929,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   br i1 %22, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.exit", label %23
 
 23:                                               ; preds = %15
-  %.not.i.i.i = icmp ult i64 %11, 2
+  %.not.i.i.i = icmp samesign ult i64 %11, 2
   br i1 %.not.i.i.i, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i.i:    ; preds = %23
@@ -17945,7 +17945,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.i.i:       ; preds = %_ZNK4llvm9StringRef
   br i1 %27, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread711.i.i
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread.i.i: ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i
-  %28 = icmp ugt i64 %11, 3
+  %28 = icmp samesign ugt i64 %11, 3
   br i1 %28, label %29, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i.i
 
 29:                                               ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i.i
@@ -18671,7 +18671,7 @@ define internal noundef range(i32 0, 201803) i32 @"_ZN4llvm12function_refIFiRN5c
   %8 = trunc i64 %7 to i32
   %9 = lshr i32 %8, 9
   %10 = and i32 %9, 65535
-  %11 = icmp ugt i32 %10, 35
+  %11 = icmp samesign ugt i32 %10, 35
   %12 = icmp ne i32 %10, 65534
   %or.cond.i.i = and i1 %11, %12
   %13 = add nsw i32 %10, -36
@@ -18750,7 +18750,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %44, %38
 
 60:                                               ; preds = %54
   %61 = and i64 %59, 4294967295
-  %.not.i22.i = icmp ult i64 %61, 10
+  %.not.i22.i = icmp samesign ult i64 %61, 10
   br i1 %.not.i22.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread120.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %60
@@ -18759,7 +18759,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %60
   br i1 %62, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit27.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread120.i: ; preds = %60
-  %.not.i25.i = icmp ult i64 %61, 5
+  %.not.i25.i = icmp samesign ult i64 %61, 5
   br i1 %.not.i25.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit32.thread122.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit27.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit27.i:    ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread120.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i
@@ -18768,7 +18768,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit27.i:    ; preds = %_ZNK4llvm9StringRef
   br i1 %63, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit27.thread121.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit27.thread121.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit27.i
-  %.not.i30.i = icmp ult i64 %61, 6
+  %.not.i30.i = icmp samesign ult i64 %61, 6
   br i1 %.not.i30.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit32.thread122.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit32.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit32.i:    ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit27.thread121.i
@@ -18988,7 +18988,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %8 = trunc i64 %7 to i32
   %9 = lshr i32 %8, 9
   %10 = and i32 %9, 65535
-  %11 = icmp ult i32 %10, 36
+  %11 = icmp samesign ult i32 %10, 36
   %12 = icmp eq i32 %10, 65534
   %or.cond.i.not.i = or i1 %11, %12
   %13 = add nsw i32 %10, -36

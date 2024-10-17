@@ -901,7 +901,7 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
   %138 = lshr i32 %107, 3
   %139 = and i32 %138, 1023
   %140 = zext nneg i32 %139 to i64
-  %141 = icmp ult i32 %139, 733
+  %141 = icmp samesign ult i32 %139, 733
   %142 = getelementptr inbounds [733 x i8], ptr @anon.861f5f7cb78117a4ec6a459232069be7.56, i64 0, i64 %140
   %143 = icmp ne i32 %107, 0
   %or.cond251.i.i.i = select i1 %143, i1 %switch243.i.i.i, i1 false
@@ -1040,18 +1040,18 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
   %238 = add nuw nsw i32 %134, -719163
   %239 = sub nsw i64 %237, %..sroa.3.0.i.i.i
   %240 = zext nneg i32 %111 to i64
-  %241 = icmp ult i32 %209, 10
-  %242 = icmp ult i32 %166, 10
+  %241 = icmp samesign ult i32 %209, 10
+  %242 = icmp samesign ult i32 %166, 10
   %243 = urem i32 %167, 12
   %244 = icmp eq i32 %243, 0
   %245 = trunc nuw nsw i32 %243 to i8
   %246 = select i1 %244, i8 12, i8 %245
   %.frozen.i.i.i = freeze i8 %246
-  %.cmp9.i.i.i = icmp ugt i8 %.frozen.i.i.i, 9
+  %.cmp10.i.i.i = icmp samesign ugt i8 %.frozen.i.i.i, 9
   %247 = icmp ult i8 %.frozen.i.i.i, 10
-  %248 = select i1 %.cmp9.i.i.i, i32 49, i32 48
-  %.urem10.i.i.i = add i8 %.frozen.i.i.i, -10
-  %249 = select i1 %247, i8 %.frozen.i.i.i, i8 %.urem10.i.i.i
+  %248 = select i1 %.cmp10.i.i.i, i32 49, i32 48
+  %.urem11.i.i.i = add i8 %.frozen.i.i.i, -10
+  %249 = select i1 %247, i8 %.frozen.i.i.i, i8 %.urem11.i.i.i
   %250 = or disjoint i8 %249, 48
   %251 = zext nneg i8 %250 to i32
   %252 = icmp ult i8 %171, 10
@@ -1186,29 +1186,29 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
   %.sroa.8.0..sroa_idx127.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %.sroa.10.0..sroa_idx128.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %.sroa.11129.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 40
-  %298 = icmp ult i16 %137, 6
+  %298 = icmp samesign ult i16 %137, 6
   %narrow = add nuw nsw i16 %137, 1
   %narrow24 = select i1 %298, i16 %narrow, i16 0
   %299 = zext nneg i16 %narrow24 to i64
   %300 = getelementptr inbounds [0 x { ptr, i64 }], ptr @anon.861f5f7cb78117a4ec6a459232069be7.105, i64 0, i64 %299
   %301 = getelementptr inbounds i8, ptr %300, i64 8
-  %302 = icmp ult i16 %137, 6
+  %302 = icmp samesign ult i16 %137, 6
   %narrow25 = add nuw nsw i16 %137, 1
   %narrow26 = select i1 %302, i16 %narrow25, i16 0
   %303 = zext nneg i16 %narrow26 to i64
   %304 = getelementptr inbounds [0 x { ptr, i64 }], ptr @anon.861f5f7cb78117a4ec6a459232069be7.52, i64 0, i64 %303
-  %305 = icmp ult i16 %137, 6
+  %305 = icmp samesign ult i16 %137, 6
   %narrow27 = add nuw nsw i16 %137, 1
   %narrow28 = select i1 %305, i16 %narrow27, i16 0
   %306 = zext nneg i16 %narrow28 to i64
   %307 = getelementptr inbounds [0 x { ptr, i64 }], ptr @anon.861f5f7cb78117a4ec6a459232069be7.52, i64 0, i64 %306
-  %308 = icmp ult i16 %137, 6
+  %308 = icmp samesign ult i16 %137, 6
   %narrow29 = add nuw nsw i16 %137, 49
   %switch.offset14 = zext nneg i16 %narrow29 to i32
-  %309 = icmp ult i16 %137, 6
+  %309 = icmp samesign ult i16 %137, 6
   %narrow30 = add nuw nsw i16 %137, 49
   %switch.offset11 = zext nneg i16 %narrow30 to i32
-  %310 = icmp ult i16 %137, 6
+  %310 = icmp samesign ult i16 %137, 6
   %switch.idx.cast7 = zext nneg i16 %137 to i32
   %switch.idx.mult8 = sub nsw i32 0, %switch.idx.cast7
   %.sroa.02.0.i107.neg.i.i.i = select i1 %310, i32 %switch.idx.mult8, i32 65530
@@ -1224,7 +1224,7 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
   %319 = urem i8 %314, 10
   %320 = or disjoint i8 %319, 48
   %321 = zext nneg i8 %320 to i32
-  %322 = icmp ult i16 %137, 6
+  %322 = icmp samesign ult i16 %137, 6
   %narrow31 = sub nuw nsw i16 -7, %137
   %narrow32 = select i1 %322, i16 %narrow31, i16 -6
   %323 = trunc nuw nsw i32 %134 to i16
@@ -1606,8 +1606,8 @@ _ZN4core3ops5range11RangeBounds8contains17h56356d923267023dE.exit.thread.i83.i.i
   %466 = zext i8 %465 to i32
   %467 = add nuw nsw i32 %139, %466
   %468 = lshr i32 %467, 6
-  %.cmp.i.i.i = icmp ugt i32 %467, 639
-  %469 = icmp ult i32 %467, 640
+  %.cmp.i.i.i = icmp samesign ugt i32 %467, 639
+  %469 = icmp samesign ult i32 %467, 640
   br i1 %469, label %470, label %471
 
 470:                                              ; preds = %464
@@ -1657,7 +1657,7 @@ _ZN4core3ops5range11RangeBounds8contains17h56356d923267023dE.exit.thread.i83.i.i
   %490 = and i8 %489, 31
   %491 = udiv i8 %490, 10
   %492 = urem i8 %490, 10
-  %493 = icmp ult i8 %490, 10
+  %493 = icmp samesign ult i8 %490, 10
   br i1 %493, label %494, label %495
 
 494:                                              ; preds = %486
@@ -1770,7 +1770,7 @@ _ZN6chrono5naive4date9NaiveDate10weeks_from17h20fddae3b16491a3E.exit112.i.i.i: ;
   %535 = and i8 %534, 63
   %536 = udiv i8 %535, 10
   %537 = urem i8 %535, 10
-  %538 = icmp ult i8 %535, 10
+  %538 = icmp samesign ult i8 %535, 10
   br i1 %538, label %539, label %540
 
 539:                                              ; preds = %.noexc45.i.i
@@ -3079,7 +3079,7 @@ _ZN4core3fmt5Write9write_fmt17h26ebc69c48199035E.exit288.i.i.i: ; preds = %629
   %877 = add nuw nsw i32 %139, %876
   %878 = lshr i32 %877, 1
   %879 = and i32 %878, 31
-  %880 = icmp ult i32 %879, 10
+  %880 = icmp samesign ult i32 %879, 10
   br i1 %880, label %889, label %_ZN6chrono6format10formatting14write_hundreds17h0975d7d0b5bf4e8cE.exit.thread.i.i.i
 
 _ZN6chrono6format10formatting14write_hundreds17h0975d7d0b5bf4e8cE.exit.thread.i.i.i: ; preds = %874
@@ -3353,7 +3353,7 @@ _ZN6chrono6format10formatting14write_hundreds17h0975d7d0b5bf4e8cE.exit165.thread
   %979 = load i8, ptr %142, align 1, !noalias !585, !noundef !4
   %980 = zext i8 %979 to i32
   %981 = add nuw nsw i32 %139, %980
-  %.cmp.i124.i.i = icmp ugt i32 %981, 639
+  %.cmp.i124.i.i = icmp samesign ugt i32 %981, 639
   %982 = zext i1 %.cmp.i124.i.i to i32
   %983 = or disjoint i32 %982, 48
   %984 = invoke noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h381e644f460e06cfE.llvm.14828969249010433255"(ptr noalias noundef nonnull align 8 dereferenceable(24) %87, i32 noundef %983)
@@ -3362,7 +3362,7 @@ _ZN6chrono6format10formatting14write_hundreds17h0975d7d0b5bf4e8cE.exit165.thread
 .noexc133.i.i:                                    ; preds = %978
   %985 = lshr i32 %981, 6
   %.urem.i125.i.i = add nuw nsw i32 %985, 246
-  %.cmp188.i.i.i = icmp ult i32 %981, 640
+  %.cmp188.i.i.i = icmp samesign ult i32 %981, 640
   %986 = select i1 %.cmp188.i.i.i, i32 %985, i32 %.urem.i125.i.i
   %987 = and i32 %986, 207
   %988 = or disjoint i32 %987, 48

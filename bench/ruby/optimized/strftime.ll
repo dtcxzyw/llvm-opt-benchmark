@@ -782,7 +782,7 @@ rbimpl_rstring_getmem.exit2354:                   ; preds = %buffer_size_check.e
   %324 = and i32 %323, 31
   %325 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %324, i32 23)
   %326 = icmp eq i32 %324, 0
-  %327 = icmp ugt i32 %324, 12
+  %327 = icmp samesign ugt i32 %324, 12
   %328 = add nsw i32 %325, -12
   %spec.select2296 = select i1 %327, i32 %328, i32 %325
   %.11884 = select i1 %326, i32 12, i32 %spec.select2296
@@ -1153,7 +1153,7 @@ rbimpl_rstring_getmem.exit2398:                   ; preds = %buffer_size_check.e
   %.61899 = phi i32 [ %497, %495 ], [ %.018933425, %492 ]
   %499 = load i32, ptr %48, align 8
   %500 = and i32 %499, 7340032
-  %501 = icmp ult i32 %500, 3145728
+  %501 = icmp samesign ult i32 %500, 3145728
   %rb_strftime_with_timespec.ampm. = select i1 %501, ptr @rb_strftime_with_timespec.ampm, ptr getelementptr inbounds (i8, ptr @rb_strftime_with_timespec.ampm, i64 3)
   br label %.critedge.thread
 
@@ -2700,8 +2700,8 @@ rb_num2long_inline.exit.thread:                   ; preds = %1092, %rb_num2long_
   %1233 = getelementptr i8, ptr %.14, i64 %1232
   %1234 = icmp eq i16 %1227, 0
   %or.cond26 = and i1 %1216, %1234
-  %1235 = icmp ult i32 %.019013424, 2
-  %or.cond46.not = or i1 %1235, %or.cond26
+  %1235 = icmp samesign ult i32 %.019013424, 2
+  %or.cond46.not = select i1 %or.cond26, i1 true, i1 %1235
   br i1 %or.cond46.not, label %case_conv.exit2884, label %1236
 
 1236:                                             ; preds = %1231
@@ -3775,7 +3775,7 @@ rbimpl_rstring_getmem.exit2693:                   ; preds = %buffer_size_check.e
   %1710 = and i32 %1709, 31
   %1711 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %1710, i32 23)
   %1712 = icmp eq i32 %1710, 0
-  %1713 = icmp ugt i32 %1710, 12
+  %1713 = icmp samesign ugt i32 %1710, 12
   %1714 = add nsw i32 %1711, -12
   %spec.select2308 = select i1 %1713, i32 %1714, i32 %1711
   %.31886 = select i1 %1712, i32 12, i32 %spec.select2308
@@ -4467,7 +4467,7 @@ rbimpl_rstring_getmem.exit2780:                   ; preds = %buffer_size_check.e
 
 2023:                                             ; preds = %2015
   %2024 = icmp eq i32 %2020, 1
-  %2025 = icmp ugt i32 %2017, 51
+  %2025 = icmp samesign ugt i32 %2017, 51
   %or.cond38 = select i1 %2024, i1 %2025, i1 false
   br i1 %or.cond38, label %.sink.split4290, label %2027
 

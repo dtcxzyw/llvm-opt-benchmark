@@ -1694,7 +1694,7 @@ if.then8.i.i:                                     ; preds = %explist.exit.i
   br label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.then8.i.i, %explist.exit.i
-  %cmp10.i.i = icmp ult i32 %n.0.i.i.lcssa, 4
+  %cmp10.i.i = icmp samesign ult i32 %n.0.i.i.lcssa, 4
   br i1 %cmp10.i.i, label %if.end13.thread.i.i, label %if.else17.i.i
 
 if.end13.thread.i.i:                              ; preds = %if.end9.i.i
@@ -1708,7 +1708,7 @@ if.end13.i.i:                                     ; preds = %explist.exit.i, %ex
   %198 = call i32 @llvm.smax.i32(i32 %sub.i118.i, i32 -1)
   %spec.store.select.i.i = add nsw i32 %198, 1
   call void @luaK_setreturns(ptr noundef %ls.val.i314, ptr noundef nonnull %e.i285, i32 noundef %spec.store.select.i.i) #11
-  %cmp14.i.i = icmp ult i32 %n.0.i.i.lcssa, 4
+  %cmp14.i.i = icmp samesign ult i32 %n.0.i.i.lcssa, 4
   br i1 %cmp14.i.i, label %if.then16.i.i, label %if.else17.i.i
 
 if.then16.i.i:                                    ; preds = %if.end13.i.i, %if.end13.thread.i.i
@@ -3089,7 +3089,7 @@ if.then.i26:                                      ; preds = %localdebuginfo.exit
 
 if.end.i:                                         ; preds = %if.then.i26, %localdebuginfo.exit.i, %while.body.i24
   %18 = phi i8 [ %dec.i25, %while.body.i24 ], [ %.pre.i, %if.then.i26 ], [ %dec.i25, %localdebuginfo.exit.i ]
-  %cmp.i28 = icmp ugt i8 %18, %2
+  %cmp.i28 = icmp samesign ugt i8 %18, %2
   br i1 %cmp.i28, label %while.body.i24, label %removevars.exit, !llvm.loop !17
 
 removevars.exit:                                  ; preds = %if.end.i, %reglevel.exit
@@ -3223,7 +3223,7 @@ if.then.i27.i:                                    ; preds = %while.body.i16.i
 
 reglevel.exit31.i:                                ; preds = %while.cond.i12.i, %if.then.i27.i
   %retval.0.i15.i = phi i32 [ %add.i30.i, %if.then.i27.i ], [ 0, %while.cond.i12.i ]
-  %cmp5.i = icmp ugt i32 %retval.0.i.i, %retval.0.i15.i
+  %cmp5.i = icmp samesign ugt i32 %retval.0.i.i, %retval.0.i15.i
   br i1 %cmp5.i, label %if.then.i38, label %if.end.i36
 
 if.then.i38:                                      ; preds = %reglevel.exit31.i
@@ -3525,7 +3525,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %idxprom = zext nneg i32 %op.062 to i64
   %arrayidx = getelementptr inbounds [21 x %struct.anon.13], ptr @priority, i64 0, i64 %idxprom
   %13 = load i8, ptr %arrayidx, align 2
-  %cmp6 = icmp ugt i8 %13, %12
+  %cmp6 = icmp samesign ugt i8 %13, %12
   br i1 %cmp6, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs

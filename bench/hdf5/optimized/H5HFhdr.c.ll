@@ -299,7 +299,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_finish_init_phase2(ptr noundef %0) local_
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %13 = load i32, ptr %4, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv, %14
+  %15 = icmp samesign ult i64 %indvars.iv, %14
   %16 = load ptr, ptr %5, align 8
   %17 = getelementptr inbounds i64, ptr %16, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
@@ -376,7 +376,7 @@ H5HF__hdr_compute_free_space.exit:                ; preds = %39, %.._crit_edge_c
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr %2, align 4
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %indvars.iv.next, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next, %59
   br i1 %60, label %12, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55, %1
@@ -655,7 +655,7 @@ define i64 @H5HF__hdr_create(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %131 = load i8, ptr %130, align 2
   %132 = zext i8 %131 to i32
   %133 = add nuw nsw i32 %129, %132
-  %134 = icmp ugt i32 %133, %103
+  %134 = icmp samesign ugt i32 %133, %103
   br i1 %134, label %135, label %139
 
 135:                                              ; preds = %125

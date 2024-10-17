@@ -1252,7 +1252,7 @@ define internal range(i32 -2147483648, 512) i32 @dissect_s_validator_time_coord_
   %18 = add i32 %13, %.01821
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %17, ptr noundef %3, i32 noundef %18, i32 noundef 2, i32 noundef -2147483648) #6
   %20 = add nuw nsw i32 %.01821, 2
-  %21 = icmp ult i32 %20, %11
+  %21 = icmp samesign ult i32 %20, %11
   br i1 %21, label %16, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %16, %.preheader, %14
@@ -1289,7 +1289,7 @@ define internal range(i32 -2147483648, 512) i32 @dissect_s_validator_network_tim
   %18 = add i32 %13, %.01821
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %17, ptr noundef %3, i32 noundef %18, i32 noundef 2, i32 noundef -2147483648) #6
   %20 = add nuw nsw i32 %.01821, 2
-  %21 = icmp ult i32 %20, %11
+  %21 = icmp samesign ult i32 %20, %11
   br i1 %21, label %16, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %16, %.preheader, %14
@@ -1362,7 +1362,7 @@ define internal range(i32 -2147483648, 512) i32 @dissect_s_validator_coordinatio
   %18 = add i32 %13, %.01821
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %17, ptr noundef %3, i32 noundef %18, i32 noundef 2, i32 noundef -2147483648) #6
   %20 = add nuw nsw i32 %.01821, 2
-  %21 = icmp ult i32 %20, %11
+  %21 = icmp samesign ult i32 %20, %11
   br i1 %21, label %16, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %16, %.preheader, %14

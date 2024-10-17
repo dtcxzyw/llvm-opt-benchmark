@@ -1145,7 +1145,7 @@ proto_item_set_generated.exit.i:                  ; preds = %80, %77, %70, %63
   %122 = zext nneg i8 %119 to i64
   %123 = tail call ptr @tfs_get_string(i32 noundef %120, ptr noundef nonnull @tfs_supported_not_supported) #3
   %124 = tail call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %56, i32 noundef %121, ptr noundef %0, i32 noundef 95, i32 noundef 1, i64 noundef %122, i32 noundef 0, ptr noundef nonnull @.str.259, ptr noundef %123) #3
-  %125 = icmp ugt i32 %53, 3
+  %125 = icmp samesign ugt i32 %53, 3
   %spec.select118.i = select i1 %125, i32 13, i32 12
   br i1 %.not.i, label %126, label %dissect_iso14443_atqb.exit
 
@@ -1410,7 +1410,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %28, %21, %10
   %71 = and i8 %60, 15
   %72 = load i32, ptr @hf_iso14443_fsci, align 4
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %72, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
-  %74 = icmp ult i8 %71, 13
+  %74 = icmp samesign ult i8 %71, 13
   br i1 %74, label %75, label %89
 
 75:                                               ; preds = %59
@@ -1582,7 +1582,7 @@ define internal i32 @dissect_iso14443_cmd_type_attrib(ptr noundef %0, ptr nounde
   %40 = load i32, ptr @hf_iso14443_max_frame_size_code, align 4
   %41 = zext nneg i8 %39 to i32
   %42 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %33, i32 noundef %40, ptr noundef %0, i32 noundef 52, i32 noundef 4, i32 noundef %41, i32 noundef 0, ptr noundef nonnull @.str.258, i32 noundef %41) #3
-  %43 = icmp ult i8 %39, 13
+  %43 = icmp samesign ult i8 %39, 13
   br i1 %43, label %44, label %proto_item_set_generated.exit.i
 
 44:                                               ; preds = %10

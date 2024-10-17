@@ -2260,7 +2260,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %17 = load i32, ptr %__begin1.012, align 4
   %cmp.i6 = icmp ult i32 %17, 8388608
   %and.i.i = and i32 %16, 2147483647
-  %cmp5.i = icmp ult i32 %and.i.i, 255
+  %cmp5.i = icmp samesign ult i32 %and.i.i, 255
   %or.cond = select i1 %cmp.i6, i1 %cmp5.i, i1 false
   br i1 %or.cond, label %if.then.i, label %if.else.i
 
@@ -2387,7 +2387,7 @@ for.body:                                         ; preds = %_ZN6hermes3hbc18Byt
   %16 = load i32, ptr %__begin1.027, align 4
   %cmp.i6 = icmp ult i32 %16, 8388608
   %and.i.i = and i32 %15, 2147483647
-  %cmp5.i = icmp ult i32 %and.i.i, 255
+  %cmp5.i = icmp samesign ult i32 %and.i.i, 255
   %or.cond = select i1 %cmp.i6, i1 %cmp5.i, i1 false
   br i1 %or.cond, label %_ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit, label %if.then
 

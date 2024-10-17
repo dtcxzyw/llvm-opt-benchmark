@@ -94,7 +94,7 @@ for.cond52.loopexit:                              ; preds = %for.inc71, %for.bod
 for.body55:                                       ; preds = %for.body44, %for.cond52.loopexit
   %i.2110 = phi i64 [ %add56, %for.cond52.loopexit ], [ 0, %for.body44 ]
   %add56 = add nuw nsw i64 %i.2110, 1
-  %cmp58108 = icmp ult i64 %i.2110, 3
+  %cmp58108 = icmp samesign ult i64 %i.2110, 3
   br i1 %cmp58108, label %for.body60.lr.ph, label %for.cond52.loopexit
 
 for.body60.lr.ph:                                 ; preds = %for.body55
@@ -220,7 +220,7 @@ land.rhs:                                         ; preds = %for.cond128.prehead
 
 for.body135:                                      ; preds = %land.rhs
   %inc136 = add nuw nsw i32 %reps.0113, 1
-  %cmp129 = icmp ult i64 %k.0114.in, 254
+  %cmp129 = icmp samesign ult i64 %k.0114.in, 254
   br i1 %cmp129, label %land.rhs, label %for.end139, !llvm.loop !9
 
 for.end139:                                       ; preds = %land.rhs, %for.body135
@@ -320,7 +320,7 @@ FastLog2.exit22.i:                                ; preds = %if.end.i17.i, %if.t
   %retval.i14.i.0 = phi double [ %30, %if.then.i20.i ], [ %call.i19.i, %if.end.i17.i ]
   %neg8.i = fneg double %conv6.i
   %31 = tail call double @llvm.fmuladd.f64(double %neg8.i, double %retval.i14.i.0, double %28)
-  %cmp.i201 = icmp ult i64 %population.addr.i196.1.idx130, 64
+  %cmp.i201 = icmp samesign ult i64 %population.addr.i196.1.idx130, 64
   br i1 %cmp.i201, label %while.body.i, label %while.end.i, !llvm.loop !12
 
 while.end.i:                                      ; preds = %FastLog2.exit22.i
@@ -454,7 +454,7 @@ for.cond52.loopexit:                              ; preds = %for.inc71, %for.bod
 for.body55:                                       ; preds = %for.body44, %for.cond52.loopexit
   %i.2110 = phi i64 [ %add56, %for.cond52.loopexit ], [ 0, %for.body44 ]
   %add56 = add nuw nsw i64 %i.2110, 1
-  %cmp58108 = icmp ult i64 %i.2110, 3
+  %cmp58108 = icmp samesign ult i64 %i.2110, 3
   br i1 %cmp58108, label %for.body60.lr.ph, label %for.cond52.loopexit
 
 for.body60.lr.ph:                                 ; preds = %for.body55
@@ -533,7 +533,7 @@ for.body99:                                       ; preds = %FastLog2.exit190, %
   br i1 %cmp102.not, label %for.cond128.preheader, label %if.then104
 
 for.cond128.preheader:                            ; preds = %for.body99
-  %cmp129112 = icmp ult i64 %i.3121, 703
+  %cmp129112 = icmp samesign ult i64 %i.3121, 703
   br i1 %cmp129112, label %land.rhs.preheader, label %for.end139.thread
 
 land.rhs.preheader:                               ; preds = %for.cond128.preheader
@@ -601,7 +601,7 @@ for.end139.thread:                                ; preds = %for.cond128.prehead
   br i1 %cmp142140, label %for.end160, label %if.then148
 
 if.end145:                                        ; preds = %for.end139
-  %cmp146 = icmp ult i32 %reps.0.lcssa, 3
+  %cmp146 = icmp samesign ult i32 %reps.0.lcssa, 3
   br i1 %cmp146, label %if.then148, label %while.body.preheader
 
 if.then148:                                       ; preds = %for.end139.thread, %if.end145
@@ -692,7 +692,7 @@ FastLog2.exit22.i:                                ; preds = %if.end.i17.i, %if.t
   %retval.i14.i.0 = phi double [ %32, %if.then.i20.i ], [ %call.i19.i, %if.end.i17.i ]
   %neg8.i = fneg double %conv6.i
   %33 = tail call double @llvm.fmuladd.f64(double %neg8.i, double %retval.i14.i.0, double %30)
-  %cmp.i201 = icmp ult i64 %population.addr.i196.1.idx130, 64
+  %cmp.i201 = icmp samesign ult i64 %population.addr.i196.1.idx130, 64
   br i1 %cmp.i201, label %while.body.i, label %while.end.i, !llvm.loop !12
 
 while.end.i:                                      ; preds = %FastLog2.exit22.i
@@ -820,7 +820,7 @@ for.cond52.loopexit:                              ; preds = %for.inc71, %for.bod
 for.body55:                                       ; preds = %for.body44, %for.cond52.loopexit
   %i.2110 = phi i64 [ %add56, %for.cond52.loopexit ], [ 0, %for.body44 ]
   %add56 = add nuw nsw i64 %i.2110, 1
-  %cmp58108 = icmp ult i64 %i.2110, 3
+  %cmp58108 = icmp samesign ult i64 %i.2110, 3
   br i1 %cmp58108, label %for.body60.lr.ph, label %for.cond52.loopexit
 
 for.body60.lr.ph:                                 ; preds = %for.body55
@@ -899,7 +899,7 @@ for.body99:                                       ; preds = %FastLog2.exit190, %
   br i1 %cmp102.not, label %for.cond128.preheader, label %if.then104
 
 for.cond128.preheader:                            ; preds = %for.body99
-  %cmp129112 = icmp ult i64 %i.3121, 543
+  %cmp129112 = icmp samesign ult i64 %i.3121, 543
   br i1 %cmp129112, label %land.rhs.preheader, label %for.end139.thread
 
 land.rhs.preheader:                               ; preds = %for.cond128.preheader
@@ -967,7 +967,7 @@ for.end139.thread:                                ; preds = %for.cond128.prehead
   br i1 %cmp142140, label %for.end160, label %if.then148
 
 if.end145:                                        ; preds = %for.end139
-  %cmp146 = icmp ult i32 %reps.0.lcssa, 3
+  %cmp146 = icmp samesign ult i32 %reps.0.lcssa, 3
   br i1 %cmp146, label %if.then148, label %while.body.preheader
 
 if.then148:                                       ; preds = %for.end139.thread, %if.end145
@@ -1058,7 +1058,7 @@ FastLog2.exit22.i:                                ; preds = %if.end.i17.i, %if.t
   %retval.i14.i.0 = phi double [ %32, %if.then.i20.i ], [ %call.i19.i, %if.end.i17.i ]
   %neg8.i = fneg double %conv6.i
   %33 = tail call double @llvm.fmuladd.f64(double %neg8.i, double %retval.i14.i.0, double %30)
-  %cmp.i201 = icmp ult i64 %population.addr.i196.1.idx130, 64
+  %cmp.i201 = icmp samesign ult i64 %population.addr.i196.1.idx130, 64
   br i1 %cmp.i201, label %while.body.i, label %while.end.i, !llvm.loop !12
 
 while.end.i:                                      ; preds = %FastLog2.exit22.i

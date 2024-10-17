@@ -1584,13 +1584,13 @@ _ZN5eastl5alignEmmRPvRm.exit445:                  ; preds = %for.body601, %if.th
   %sub615 = sub i64 %space.2, %a.0570
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i444, i8 -1, i64 %a.0570, i1 false)
   %add617 = add nuw nsw i64 %i590.0569, %a.0570
-  %cmp600 = icmp ult i64 %add617, 256
+  %cmp600 = icmp samesign ult i64 %add617, 256
   br i1 %cmp600, label %for.body601, label %for.end618, !llvm.loop !12
 
 for.end618:                                       ; preds = %_ZN5eastl5alignEmmRPvRm.exit445
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %buffer, i8 0, i64 512, i1 false)
   %mul = shl nuw nsw i64 %a.0570, 1
-  %cmp597 = icmp ult i64 %a.0570, 32
+  %cmp597 = icmp samesign ult i64 %a.0570, 32
   br i1 %cmp597, label %for.cond599.preheader, label %for.cond627.preheader, !llvm.loop !13
 
 for.cond627.preheader:                            ; preds = %for.end618, %for.end648
@@ -1645,14 +1645,14 @@ _ZN5eastl13align_advanceEmmPvmPS0_Pm.exit:        ; preds = %for.body629, %if.th
   %cmp644 = icmp eq ptr %call643, null
   %call645 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp644, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 754, ptr noundef nonnull @.str.73)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i463, i8 -1, i64 %a623.0574, i1 false)
-  %cmp628 = icmp ult i64 %240, 256
+  %cmp628 = icmp samesign ult i64 %240, 256
   br i1 %cmp628, label %for.body629, label %for.end648, !llvm.loop !14
 
 for.end648:                                       ; preds = %_ZN5eastl13align_advanceEmmPvmPS0_Pm.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %buffer, i8 0, i64 512, i1 false)
   %mul652 = shl nuw nsw i64 %a623.0574, 1
   %sub1.i456 = sub nsw i64 0, %mul652
-  %cmp625 = icmp ult i64 %a623.0574, 32
+  %cmp625 = icmp samesign ult i64 %a623.0574, 32
   br i1 %cmp625, label %for.cond627.preheader, label %_ZN5eastl5alignEmmRPvRm.exit488, !llvm.loop !15
 
 _ZN5eastl5alignEmmRPvRm.exit488:                  ; preds = %for.end648

@@ -4656,7 +4656,7 @@ define i32 @PMIx_Store_internal(ptr noundef readonly %0, ptr noundef readonly %1
   br i1 %exitcond.not.i, label %pmix_keylen.exit.thread, label %.preheader, !llvm.loop !27
 
 pmix_keylen.exit:                                 ; preds = %.preheader
-  %21 = icmp ugt i64 %.0711.i, 511
+  %21 = icmp samesign ugt i64 %.0711.i, 511
   br i1 %21, label %pmix_keylen.exit.thread, label %22
 
 22:                                               ; preds = %pmix_keylen.exit

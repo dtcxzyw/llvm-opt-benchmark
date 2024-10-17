@@ -5773,7 +5773,7 @@ cvQuadSensUpdateNorm.exit.i:                      ; preds = %.lr.ph.i.i158.i, %.
   br i1 %exitcond, label %369, label %166, !llvm.loop !50
 
 369:                                              ; preds = %366
-  %370 = icmp ult i32 %.090138, 3
+  %370 = icmp samesign ult i32 %.090138, 3
   %or.cond7 = and i1 %370, %.not139.i
   br i1 %or.cond7, label %cvYddNorm.exit, label %371
 
@@ -5804,7 +5804,7 @@ cvQuadSensUpdateNorm.exit.i:                      ; preds = %.lr.ph.i.i158.i, %.
   %383 = fcmp ogt double %382, 5.000000e-01
   %384 = fcmp olt double %382, 2.000000e+00
   %or.cond3 = and i1 %383, %384
-  %385 = icmp ugt i32 %.090138, 1
+  %385 = icmp samesign ugt i32 %.090138, 1
   %386 = fcmp ogt double %382, 2.000000e+00
   %or.cond5 = and i1 %385, %386
   %.283 = select i1 %or.cond5, double %.189137, double %381

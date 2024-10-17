@@ -366,7 +366,7 @@ define internal fastcc void @add_rtes_to_flat_rtable(ptr nocapture noundef reado
 81:                                               ; preds = %77
   %82 = load i32, ptr %66, align 8
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv90, %83
+  %84 = icmp samesign ult i64 %indvars.iv90, %83
   br i1 %84, label %85, label %97
 
 85:                                               ; preds = %81
@@ -434,7 +434,7 @@ define internal fastcc void @add_rtes_to_flat_rtable(ptr nocapture noundef reado
 118:                                              ; preds = %114
   %119 = load i32, ptr %103, align 8
   %120 = zext i32 %119 to i64
-  %121 = icmp ult i64 %indvars.iv83, %120
+  %121 = icmp samesign ult i64 %indvars.iv83, %120
   br i1 %121, label %122, label %138
 
 122:                                              ; preds = %118

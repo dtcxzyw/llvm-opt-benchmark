@@ -1503,7 +1503,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i138: ; pr
   br label %._crit_edge.i.i.i.i.i.i140
 
 ._crit_edge.i.i.i.i.i.i140:                       ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i138, %.lr.ph.i.i.i.i.i.i.i146.preheader
-  %51 = icmp ult i64 %48, %22
+  %51 = icmp samesign ult i64 %48, %22
   br i1 %51, label %.lr.ph.i17.i.i.i.i.i.i141, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit
 
 .lr.ph.i17.i.i.i.i.i.i141:                        ; preds = %._crit_edge.i.i.i.i.i.i140, %.lr.ph.i17.i.i.i.i.i.i141

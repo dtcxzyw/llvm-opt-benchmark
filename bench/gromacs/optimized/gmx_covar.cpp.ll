@@ -1481,7 +1481,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit485:       ; preds = %491, %494
 614:                                              ; preds = %613
   %615 = load i8, ptr @_ZZ9gmx_covariPPcE4bRef, align 1
   %616 = trunc i8 %615 to i1
-  %617 = icmp ult i32 %.0406, %.0407
+  %617 = icmp samesign ult i32 %.0406, %.0407
   %618 = select i1 %616, i1 true, i1 %617
   br i1 %618, label %496, label %.critedge, !llvm.loop !20
 
@@ -3507,7 +3507,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i

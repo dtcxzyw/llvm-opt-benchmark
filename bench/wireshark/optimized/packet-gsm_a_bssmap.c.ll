@@ -2182,7 +2182,7 @@ define internal noundef zeroext i16 @be_field_element_dissect(ptr noundef %0, pt
   %41 = call zeroext i16 %40(ptr noundef %0, ptr noundef %22, ptr noundef %2, i32 noundef %.1, i32 noundef %.057, ptr noundef null, i32 noundef 0) #3
   %42 = zext i16 %41 to i32
   %43 = add i32 %.1, %42
-  %44 = icmp ugt i32 %.057, %42
+  %44 = icmp samesign ugt i32 %.057, %42
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %38
@@ -2484,7 +2484,7 @@ define internal noundef zeroext i16 @be_l3_info(ptr noundef %0, ptr noundef %1, 
 
 17:                                               ; preds = %7
   %18 = and i32 %12, 15
-  %19 = icmp ult i32 %18, 8
+  %19 = icmp samesign ult i32 %18, 8
   br i1 %19, label %20, label %33
 
 20:                                               ; preds = %17
@@ -2513,7 +2513,7 @@ proto_item_set_hidden.exit:                       ; preds = %20, %23, %26
   br label %49
 
 33:                                               ; preds = %17
-  %34 = icmp ult i32 %18, 13
+  %34 = icmp samesign ult i32 %18, 13
   %35 = load i32, ptr @hf_gsm_a_bssmap_cell_discriminator, align 4
   br i1 %34, label %36, label %47
 

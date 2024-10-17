@@ -139,7 +139,7 @@ entry:
   %0 = add i32 %size, -2
   %or.cond = icmp ult i32 %0, 65535
   %1 = tail call range(i32 0, 18) i32 @llvm.ctpop.i32(i32 %size)
-  %tobool.not = icmp ult i32 %1, 2
+  %tobool.not = icmp samesign ult i32 %1, 2
   %or.cond24 = select i1 %or.cond, i1 %tobool.not, i1 false
   br i1 %or.cond24, label %for.cond.preheader, label %return
 

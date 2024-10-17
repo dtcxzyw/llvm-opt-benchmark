@@ -2776,7 +2776,7 @@ if.then35.i:                                      ; preds = %if.end28.i
 
 for.inc.i:                                        ; preds = %if.end28.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %cmp21.i = icmp ult i64 %indvars.iv.i, 154
+  %cmp21.i = icmp samesign ult i64 %indvars.iv.i, 154
   br i1 %cmp21.i, label %for.body.i, label %if.then10.i.invoke, !llvm.loop !12
 
 invoke.cont76.thread.sink.split:                  ; preds = %if.then14.i, %if.then4.i
@@ -2960,7 +2960,7 @@ if.then23.i:                                      ; preds = %for.body.i87
 
 for.inc.i90:                                      ; preds = %for.body.i87
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i88, 2
-  %cmp18.i = icmp ult i64 %indvars.iv.i88, 10
+  %cmp18.i = icmp samesign ult i64 %indvars.iv.i88, 10
   br i1 %cmp18.i, label %for.body.i87, label %for.end.i92, !llvm.loop !13
 
 for.end.i92:                                      ; preds = %for.inc.i90, %if.then23.i
@@ -4860,7 +4860,7 @@ do.body82.i:                                      ; preds = %if.end70.i
 
 for.inc.i:                                        ; preds = %invoke.cont47.i, %land.lhs.true.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %cmp32.i = icmp ult i64 %indvars.iv.i, 48
+  %cmp32.i = icmp samesign ult i64 %indvars.iv.i, 48
   br i1 %cmp32.i, label %for.body.i, label %for.body107.preheader.i, !llvm.loop !32
 
 for.end.i:                                        ; preds = %do.body82.i, %if.end70.i
@@ -4927,7 +4927,7 @@ if.end143.i:                                      ; preds = %if.else.i, %do.body
 
 for.inc147.i:                                     ; preds = %if.then115.i, %invoke.cont112.i
   %indvars.iv.next673.i = add nuw nsw i64 %indvars.iv672.i, 2
-  %cmp106.i = icmp ult i64 %indvars.iv672.i, 50
+  %cmp106.i = icmp samesign ult i64 %indvars.iv672.i, 50
   br i1 %cmp106.i, label %for.body107.i, label %if.end150.i, !llvm.loop !33
 
 if.end150.i:                                      ; preds = %for.inc147.i, %if.end143.i, %for.end.i
@@ -5508,7 +5508,7 @@ if.then315.i:                                     ; preds = %for.inc.i.i.i285.i
   br label %while.cond.backedge.i
 
 if.end320.i:                                      ; preds = %land.lhs.true.i.i.i288.i, %if.end.i.i275.i, %if.end307.i
-  %tobool323.not.i = icmp ult i16 %next.0545.i, 128
+  %tobool323.not.i = icmp samesign ult i16 %next.0545.i, 128
   br i1 %tobool323.not.i, label %while.end407.i, label %if.then324.i
 
 if.then324.i:                                     ; preds = %if.end320.i

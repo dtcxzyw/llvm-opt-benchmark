@@ -1890,7 +1890,7 @@ _ZN5clang4Decl14getDeclContextEv.exit100.i:       ; preds = %105, %93
   %114 = load i32, ptr %113, align 8
   %115 = and i32 %114, -1040385
   store i32 %115, ptr %113, align 8
-  %116 = icmp ugt i64 %indvars.iv.i, 254
+  %116 = icmp samesign ugt i64 %indvars.iv.i, 254
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %_ZN5clang4Decl14getDeclContextEv.exit100.i
@@ -4428,7 +4428,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %201, %19
   %208 = phi i32 [ %187, %.lr.ph.i ], [ %.pre.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i ]
   %209 = add nuw nsw i32 %.010.i, 1
   %210 = and i32 %208, 536870911
-  %211 = icmp ult i32 %209, %210
+  %211 = icmp samesign ult i32 %209, %210
   br i1 %211, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %207, %_ZN5clang19RecursiveASTVisitorIZN12_GLOBAL__N_146TemplateParamsReferencedInTemplateArgumentListEPKNS_21TemplateParameterListEN4llvm8ArrayRefINS_16TemplateArgumentEEEE30TemplateParamsReferencedFinderE25TraverseTemplateArgumentsES8_.exit.i
@@ -9068,7 +9068,7 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIZN12_GLOBAL__N_146Te
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 536870911
-  %8 = icmp ugt i32 %7, %3
+  %8 = icmp samesign ugt i32 %7, %3
   br i1 %8, label %9, label %_ZN5clang19RecursiveASTVisitorIZN12_GLOBAL__N_146TemplateParamsReferencedInTemplateArgumentListEPKNS_21TemplateParameterListEN4llvm8ArrayRefINS_16TemplateArgumentEEEE30TemplateParamsReferencedFinderE30WalkUpFromTemplateTypeParmTypeEPNS_20TemplateTypeParmTypeE.exit
 
 9:                                                ; preds = %1
@@ -30379,7 +30379,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %30
   %45 = load i64, ptr %5, align 16
   %46 = lshr i64 %45, 38
   %47 = and i64 %46, 65535
-  %48 = icmp ult i64 %indvars.iv, %47
+  %48 = icmp samesign ult i64 %indvars.iv, %47
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %44
@@ -31028,7 +31028,7 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIZN12_GLOBAL__N_146Te
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 536870911
-  %10 = icmp ugt i32 %9, %5
+  %10 = icmp samesign ugt i32 %9, %5
   br i1 %10, label %11, label %_ZN5clang19RecursiveASTVisitorIZN12_GLOBAL__N_146TemplateParamsReferencedInTemplateArgumentListEPKNS_21TemplateParameterListEN4llvm8ArrayRefINS_16TemplateArgumentEEEE30TemplateParamsReferencedFinderE30WalkUpFromTemplateTypeParmTypeEPNS_20TemplateTypeParmTypeE.exit
 
 11:                                               ; preds = %2
@@ -37826,7 +37826,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
@@ -38433,7 +38433,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread: ; preds = %2, %_
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread
@@ -46194,7 +46194,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv, %10
+  %11 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %11, label %12, label %36
 
 12:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -46638,7 +46638,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -46787,7 +46787,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
@@ -49490,7 +49490,7 @@ _ZNK5clang17ConstantArrayType11getSizeExprEv.exit28: ; preds = %42
   %72 = load i64, ptr %71, align 8, !noalias !135
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %70, ptr %73, align 8, !alias.scope !135
-  %74 = icmp ult i32 %70, 65
+  %74 = icmp samesign ult i32 %70, 65
   br i1 %74, label %75, label %83
 
 75:                                               ; preds = %68
@@ -58927,7 +58927,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_128ExtractTypeForDeductionGuideEE27Transf
   %.not.i.i.i70 = icmp eq i8 %108, 13
   %109 = load i32, ptr %107, align 16
   %110 = and i32 %109, 267911168
-  %111 = icmp ugt i32 %110, 256901120
+  %111 = icmp samesign ugt i32 %110, 256901120
   %.0.i.i.i = select i1 %.not.i.i.i70, i1 %111, i1 false
   br i1 %.0.i.i.i, label %112, label %.thread
 
@@ -68356,7 +68356,7 @@ _ZNSt8optionalIPN5clang4ExprEEaSIPNS0_14IntegerLiteralEEENSt9enable_ifIX7__and_v
   %219 = load i64, ptr %218, align 8, !noalias !198
   %220 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %217, ptr %220, align 8, !alias.scope !198
-  %221 = icmp ult i32 %217, 65
+  %221 = icmp samesign ult i32 %217, 65
   br i1 %221, label %222, label %230
 
 222:                                              ; preds = %215
@@ -74062,7 +74062,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_128ExtractTypeForDeductionGuideEE13Transf
   %75 = lshr i64 %74, 32
   %76 = trunc nuw i64 %75 to i32
   %77 = and i32 %76, 2147483647
-  %78 = icmp ult i32 %77, 65
+  %78 = icmp samesign ult i32 %77, 65
   br i1 %78, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %71
@@ -99678,7 +99678,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5cla
   %48 = load i32, ptr %11, align 8
   %49 = select i1 %.not.i.i, i32 %48, i32 8
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %45, %50
+  %51 = icmp samesign ult i64 %45, %50
   br i1 %51, label %15, label %._crit_edge, !llvm.loop !292
 
 ._crit_edge:                                      ; preds = %.critedge, %2

@@ -4293,7 +4293,7 @@ define hidden void @"_ZN4core3ptr41drop_in_place$LT$rustls..error..Error$GT$17hb
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1485)
   %27 = load i64, ptr %26, align 8, !range !1488, !alias.scope !1485, !noundef !4
-  %switch.i = icmp ult i64 %27, 11
+  %switch.i = icmp samesign ult i64 %27, 11
   br i1 %switch.i, label %"_ZN4core3ptr59drop_in_place$LT$rustls..error..other_error..OtherError$GT$17h455c2d55f0681404E.exit", label %28
 
 28:                                               ; preds = %25
@@ -5832,7 +5832,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBl
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr52drop_in_place$LT$rustls..error..CertificateError$GT$17h73aa1bc046876a34E.llvm.4248407042397360440"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !1488, !noundef !4
-  %switch = icmp ult i64 %2, 11
+  %switch = icmp samesign ult i64 %2, 11
   br i1 %switch, label %"_ZN4core3ptr59drop_in_place$LT$rustls..error..other_error..OtherError$GT$17h455c2d55f0681404E.exit", label %3
 
 3:                                                ; preds = %1
@@ -13096,12 +13096,12 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$aws_lc_rs..aead..quic..Heade
   %4 = landingpad { ptr, i32 }
           cleanup
   %5 = load i8, ptr %2, align 8, !range !1020, !alias.scope !6286, !noundef !4
-  %switch.i = icmp ult i8 %5, 2
+  %switch.i = icmp samesign ult i8 %5, 2
   br i1 %switch.i, label %"_ZN4core3ptr59drop_in_place$LT$aws_lc_rs..cipher..chacha..ChaCha20Key$GT$17haa13483e8854346fE.llvm.4248407042397360440.exit.i", label %10
 
 6:                                                ; preds = %1
   %7 = load i8, ptr %2, align 8, !range !1020, !alias.scope !6286, !noundef !4
-  %switch1.i = icmp ult i8 %7, 2
+  %switch1.i = icmp samesign ult i8 %7, 2
   br i1 %switch1.i, label %"_ZN4core3ptr63drop_in_place$LT$aws_lc_rs..cipher..key..SymmetricCipherKey$GT$17h8f450974504809c6E.llvm.4248407042397360440.exit", label %8
 
 8:                                                ; preds = %6
@@ -13136,12 +13136,12 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$aws_lc_rs..cipher..key..Symm
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = load i8, ptr %0, align 4, !range !1020, !noundef !4
-  %switch = icmp ult i8 %4, 2
+  %switch = icmp samesign ult i8 %4, 2
   br i1 %switch, label %"_ZN4core3ptr59drop_in_place$LT$aws_lc_rs..cipher..chacha..ChaCha20Key$GT$17haa13483e8854346fE.llvm.4248407042397360440.exit", label %10
 
 5:                                                ; preds = %1
   %6 = load i8, ptr %0, align 4, !range !1020, !noundef !4
-  %switch1 = icmp ult i8 %6, 2
+  %switch1 = icmp samesign ult i8 %6, 2
   br i1 %switch1, label %9, label %7
 
 7:                                                ; preds = %5
@@ -17566,12 +17566,12 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$rustls..crypto..aws_lc_rs..q
   %4 = landingpad { ptr, i32 }
           cleanup
   %5 = load i8, ptr %2, align 8, !range !1020, !alias.scope !8814, !noundef !4
-  %switch.i.i = icmp ult i8 %5, 2
+  %switch.i.i = icmp samesign ult i8 %5, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr59drop_in_place$LT$aws_lc_rs..cipher..chacha..ChaCha20Key$GT$17haa13483e8854346fE.llvm.4248407042397360440.exit.i.i", label %10
 
 6:                                                ; preds = %1
   %7 = load i8, ptr %2, align 8, !range !1020, !alias.scope !8814, !noundef !4
-  %switch1.i.i = icmp ult i8 %7, 2
+  %switch1.i.i = icmp samesign ult i8 %7, 2
   br i1 %switch1.i.i, label %"_ZN4core3ptr63drop_in_place$LT$aws_lc_rs..aead..quic..HeaderProtectionKey$GT$17h02728a069fd2e912E.llvm.4248407042397360440.exit", label %8
 
 8:                                                ; preds = %6

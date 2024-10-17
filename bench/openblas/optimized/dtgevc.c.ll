@@ -171,7 +171,7 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br i1 %103, label %104, label %128
 
 104:                                              ; preds = %99
-  %105 = icmp ult i64 %100, %95
+  %105 = icmp samesign ult i64 %100, %95
   br i1 %105, label %106, label %122
 
 106:                                              ; preds = %104
@@ -278,7 +278,7 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 175:                                              ; preds = %174, %167
   %176 = phi i32 [ 1, %174 ], [ %147, %167 ]
-  %177 = icmp ult i64 %146, %140
+  %177 = icmp samesign ult i64 %146, %140
   br i1 %177, label %178, label %184
 
 178:                                              ; preds = %175
@@ -455,7 +455,7 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %294 = getelementptr double, ptr %250, i64 %252
   store double %291, ptr %294, align 8, !tbaa !7
   %295 = add nuw nsw i64 %252, 1
-  %296 = icmp ult i64 %252, %245
+  %296 = icmp samesign ult i64 %252, %245
   %297 = trunc i64 %295 to i32
   %298 = select i1 %296, i32 %297, i32 %214
   %299 = icmp slt i32 %264, %298

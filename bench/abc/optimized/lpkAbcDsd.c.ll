@@ -314,14 +314,14 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %4, %Kit_DsdNtkObj.e
   %33 = load i32, ptr %15, align 4
   %34 = lshr i32 %33, 26
   %35 = zext nneg i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next94, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next94, %35
   br i1 %36, label %26, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %26, %.preheader70
   %.056.lcssa = phi i32 [ 0, %.preheader70 ], [ %32, %26 ]
   %.lcssa = phi i32 [ %24, %.preheader70 ], [ %34, %26 ]
   %notmask = shl nsw i32 -1, %.lcssa
-  %37 = icmp ult i32 %notmask, -2
+  %37 = icmp samesign ult i32 %notmask, -2
   br i1 %37, label %.preheader.lr.ph, label %.critedge2
 
 .preheader.lr.ph:                                 ; preds = %.critedge
@@ -556,7 +556,7 @@ Vec_IntPush.exit69:                               ; preds = %.Vec_IntGrow.exit10
   %155 = load i32, ptr %15, align 4
   %156 = lshr i32 %155, 26
   %157 = zext nneg i32 %156 to i64
-  %158 = icmp ult i64 %indvars.iv.next, %157
+  %158 = icmp samesign ult i64 %indvars.iv.next, %157
   br i1 %158, label %100, label %.critedge2, !llvm.loop !11
 
 .critedge2:                                       ; preds = %154, %97, %.preheader71, %.critedge, %Kit_DsdNtkObj.exit.thread
@@ -1579,7 +1579,7 @@ Vec_IntFree.exit:                                 ; preds = %Lpk_DsdLateArriving
   %57 = load ptr, ptr %56, align 8
   %58 = lshr i32 %47, 7
   %59 = and i32 %58, 31
-  %60 = icmp ult i32 %59, 6
+  %60 = icmp samesign ult i32 %59, 6
   %61 = add nsw i32 %59, -5
   %62 = shl nuw nsw i32 1, %61
   %63 = select i1 %60, i32 1, i32 %62
@@ -1625,7 +1625,7 @@ Kit_TruthCopy.exit:                               ; preds = %65
   br i1 %85, label %.lr.ph.preheader, label %86
 
 86:                                               ; preds = %84
-  %87 = icmp ugt i32 %75, 3
+  %87 = icmp samesign ugt i32 %75, 3
   br i1 %87, label %88, label %108
 
 88:                                               ; preds = %86
@@ -1664,7 +1664,7 @@ Kit_TruthCopy.exit:                               ; preds = %65
 108:                                              ; preds = %106, %86
   %109 = phi i32 [ %92, %106 ], [ %73, %86 ]
   %110 = and i32 %109, 61440
-  %111 = icmp ugt i32 %110, 16384
+  %111 = icmp samesign ugt i32 %110, 16384
   br i1 %111, label %112, label %133
 
 112:                                              ; preds = %108
@@ -1743,7 +1743,7 @@ define ptr @Lpk_DsdSplit(ptr nocapture noundef readonly %0, ptr noundef %1, ptr 
   %10 = load i32, ptr %9, align 8
   %11 = lshr i32 %10, 7
   %12 = and i32 %11, 31
-  %13 = icmp ult i32 %12, 6
+  %13 = icmp samesign ult i32 %12, 6
   %14 = add nsw i32 %12, -5
   %15 = shl nuw nsw i32 1, %14
   %16 = select i1 %13, i32 1, i32 %15
@@ -1917,7 +1917,7 @@ Kit_WordFindFirstBit.exit:                        ; preds = %Kit_TruthCopy.exit,
   %95 = load i32, ptr %9, align 8
   %96 = lshr i32 %95, 7
   %97 = and i32 %96, 31
-  %98 = icmp ult i32 %97, 6
+  %98 = icmp samesign ult i32 %97, 6
   %99 = add nsw i32 %97, -5
   %100 = shl nuw nsw i32 1, %99
   %101 = select i1 %98, i32 1, i32 %100

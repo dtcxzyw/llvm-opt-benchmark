@@ -1141,9 +1141,9 @@ _slurm_connect.exit:                              ; preds = %65, %84, %105
   %.0.i39 = phi i32 [ %.0.i.ph, %_slurm_connect.exit.thread36 ], [ %.0.i, %_slurm_connect.exit ]
   %114 = and i32 %.0.i39, -2
   %or.cond = icmp eq i32 %114, 110
-  %115 = icmp ult i32 %.02650, 3
+  %115 = icmp samesign ult i32 %.02650, 3
   %116 = and i1 %1, %or.cond
-  %or.cond32 = and i1 %116, %115
+  %or.cond32 = select i1 %116, i1 %115, i1 false
   br i1 %or.cond32, label %120, label %117
 
 117:                                              ; preds = %113

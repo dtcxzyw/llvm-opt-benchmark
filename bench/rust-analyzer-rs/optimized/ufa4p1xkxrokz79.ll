@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit", label %3
 
 3:                                                ; preds = %1
@@ -789,14 +789,14 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
   %39 = getelementptr inbounds i32, ptr %.sink5.i.i, i64 %30
   %40 = load i32, ptr %39, align 4, !noundef !5
   %41 = load i64, ptr %7, align 8, !range !4, !noundef !5
-  %switch7 = icmp ult i64 %41, 2
+  %switch7 = icmp samesign ult i64 %41, 2
   br i1 %switch7, label %"_ZN51_$LT$salsa..Cycle$u20$as$u20$core..clone..Clone$GT$5clone17hd5c0630ac31b016cE.exit", label %50
 
 "_ZN4core3ptr93drop_in_place$LT$smallvec..IntoIter$LT$$u5b$salsa..runtime..RuntimeId$u3b$$u20$4$u5d$$GT$$GT$17h7455aff19f0feb8aE.exit": ; preds = %"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf8f7c8f16fa9283cE.llvm.12611796297594801985.exit.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !165)
   %42 = load i64, ptr %7, align 8, !range !4, !alias.scope !165, !noundef !5
-  %switch.i = icmp ult i64 %42, 2
+  %switch.i = icmp samesign ult i64 %42, 2
   br i1 %switch.i, label %"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE.exit", label %43
 
 43:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$smallvec..IntoIter$LT$$u5b$salsa..runtime..RuntimeId$u3b$$u20$4$u5d$$GT$$GT$17h7455aff19f0feb8aE.exit"
@@ -996,7 +996,7 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !214
   call void @llvm.experimental.noalias.scope.decl(metadata !219)
   %58 = load i64, ptr %35, align 8, !range !4, !alias.scope !222, !noundef !5
-  %switch.i.i.i = icmp ult i64 %58, 2
+  %switch.i.i.i = icmp samesign ult i64 %58, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17hb48d8406b963a492E.exit", label %59
 
 59:                                               ; preds = %57

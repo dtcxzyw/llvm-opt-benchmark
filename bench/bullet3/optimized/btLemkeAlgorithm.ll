@@ -999,7 +999,7 @@ invoke.cont97:                                    ; preds = %invoke.cont97.prehe
   %arrayidx.i.i269 = getelementptr inbounds float, ptr %151, i64 %idxprom.i.i268
   store float %149, ptr %arrayidx.i.i269, align 4
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
-  %cmp93 = icmp ult i64 %indvars.iv.next316, %145
+  %cmp93 = icmp samesign ult i64 %indvars.iv.next316, %145
   br i1 %cmp93, label %invoke.cont97, label %if.then.i.i.i272.sink.split, !llvm.loop !24
 
 cleanup:                                          ; preds = %for.end83, %if.end88
@@ -2044,7 +2044,7 @@ for.inc91:                                        ; preds = %for.inc91.sink.spli
   %76 = phi i32 [ %44, %if.else83 ], [ %inc.i307, %for.inc91.sink.split ]
   %currentMin.4 = phi float [ %currentMin.3392, %if.else83 ], [ %currentMin.4.ph, %for.inc91.sink.split ]
   %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
-  %cmp61 = icmp ult i64 %indvars.iv.next406, %43
+  %cmp61 = icmp samesign ult i64 %indvars.iv.next406, %43
   br i1 %cmp61, label %invoke.cont69, label %for.end93, !llvm.loop !31
 
 for.end93:                                        ; preds = %for.inc91

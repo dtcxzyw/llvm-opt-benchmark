@@ -271,7 +271,7 @@ sw.epilog.i:                                      ; preds = %sw.bb10.i, %if.end7
   %ms.i = getelementptr inbounds i8, ptr %ns, i64 8690
   %3 = load i16, ptr %ms.i, align 2
   %conv12.i = zext i16 %3 to i32
-  %cmp13.i = icmp ugt i32 %pi_size.0.i, %conv12.i
+  %cmp13.i = icmp samesign ugt i32 %pi_size.0.i, %conv12.i
   br i1 %cmp13.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %sw.epilog.i
@@ -1047,7 +1047,7 @@ for.body.i75:                                     ; preds = %for.body.i75, %for.
   %indvars.iv.next141.i = add nuw nsw i64 %indvars.iv140.i, 1
   %112 = load i16, ptr %nrg.i, align 2
   %113 = zext i16 %112 to i64
-  %cmp.i77 = icmp ult i64 %indvars.iv.next141.i, %113
+  %cmp.i77 = icmp samesign ult i64 %indvars.iv.next141.i, %113
   br i1 %cmp.i77, label %for.body.i75, label %nvme_ns_init_fdp.exit, !llvm.loop !10
 
 if.else.i:                                        ; preds = %nvme_find_ruh_by_attr.exit.i
@@ -1172,7 +1172,7 @@ for.body82.i:                                     ; preds = %for.cond76.loopexit
   %indvars.iv132.i = phi i64 [ 0, %for.body82.preheader.i ], [ %indvars.iv.next133.i, %for.cond76.loopexit.i ]
   %indvars.iv.i57 = phi i64 [ 1, %for.body82.preheader.i ], [ %indvars.iv.next.i58, %for.cond76.loopexit.i ]
   %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
-  %cmp87110.i = icmp ult i64 %indvars.iv.next133.i, %128
+  %cmp87110.i = icmp samesign ult i64 %indvars.iv.next133.i, %128
   br i1 %cmp87110.i, label %for.body89.lr.ph.i, label %for.cond76.loopexit.i
 
 for.body89.lr.ph.i:                               ; preds = %for.body82.i
@@ -1264,7 +1264,7 @@ for.body151.i:                                    ; preds = %for.body151.i, %for
   %indvars.iv.next138.i = add nuw nsw i64 %indvars.iv137.i, 1
   %140 = load i16, ptr %nrg147.i, align 2
   %141 = zext i16 %140 to i64
-  %cmp149.i = icmp ult i64 %indvars.iv.next138.i, %141
+  %cmp149.i = icmp samesign ult i64 %indvars.iv.next138.i, %141
   br i1 %cmp149.i, label %for.body151.i, label %sw.epilog.i60, !llvm.loop !15
 
 sw.bb160.i:                                       ; preds = %if.end126.i
@@ -1293,7 +1293,7 @@ sw.epilog.i60:                                    ; preds = %for.body151.i, %sw.
   %incdec.ptr173.i = getelementptr i8, ptr %ph.0120.i, i64 2
   %143 = load i16, ptr %fdp77.i, align 8
   %conv116.i = zext i16 %143 to i32
-  %cmp117.i = icmp ult i32 %inc171.i, %conv116.i
+  %cmp117.i = icmp samesign ult i32 %inc171.i, %conv116.i
   br i1 %cmp117.i, label %for.body119.i, label %nvme_ns_init_fdp.exit, !llvm.loop !16
 
 nvme_ns_init_fdp.exit.thread:                     ; preds = %if.then10.i69, %if.then25.i, %if.then96.i, %sw.bb168.i, %if.then166.i, %if.then125.i, %if.then42.i, %if.then51.i, %if.then55.i, %if.then71.i

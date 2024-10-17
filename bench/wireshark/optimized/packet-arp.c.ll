@@ -2048,7 +2048,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
 283:                                              ; preds = %279
   %284 = load i32, ptr @hf_atmarp_src_atm_num_nsap, align 4
   %285 = call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %284, ptr noundef %0, i32 noundef 12, i32 noundef %38, i32 noundef 0) #9
-  %286 = icmp ugt i32 %38, 19
+  %286 = icmp samesign ugt i32 %38, 19
   br i1 %286, label %287, label %dissect_atm_number.exit
 
 287:                                              ; preds = %283
@@ -2095,7 +2095,7 @@ dissect_atm_number.exit:                          ; preds = %287, %283, %280, %2
 307:                                              ; preds = %303
   %308 = load i32, ptr @hf_atmarp_dst_atm_num_nsap, align 4
   %309 = call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %308, ptr noundef %0, i32 noundef %29, i32 noundef %76, i32 noundef 0) #9
-  %310 = icmp ugt i32 %76, 19
+  %310 = icmp samesign ugt i32 %76, 19
   br i1 %310, label %311, label %dissect_atm_number.exit345
 
 311:                                              ; preds = %307

@@ -1542,7 +1542,7 @@ invoke.cont264:                                   ; preds = %_ZNKSt4lessINSt7__c
   store i64 %inc268, ptr %fields, align 8
   %155 = load i16, ptr %n, align 2
   %conv169 = zext i16 %155 to i64
-  %cmp170 = icmp ult i64 %inc, %conv169
+  %cmp170 = icmp samesign ult i64 %inc, %conv169
   br i1 %cmp170, label %for.body171, label %for.end269, !llvm.loop !13
 
 for.end269:                                       ; preds = %invoke.cont264, %for.cond168.preheader

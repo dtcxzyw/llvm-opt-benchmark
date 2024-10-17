@@ -246,7 +246,7 @@ for.body:                                         ; preds = %if.else, %for.body
   %conv13 = select i1 %cmp8.not, i16 0, i16 %0
   %exponent.1 = add i16 %conv13, %exponent.024
   %div11 = lshr i32 %offset.025, 1
-  %cmp6.not = icmp ult i32 %offset.025, 2
+  %cmp6.not = icmp samesign ult i32 %offset.025, 2
   br i1 %cmp6.not, label %if.end53, label %for.body, !llvm.loop !5
 
 if.end53:                                         ; preds = %for.body

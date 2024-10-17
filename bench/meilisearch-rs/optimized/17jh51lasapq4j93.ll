@@ -4604,7 +4604,7 @@ define internal fastcc void @"_ZN80_$LT$milli..update..settings..Setting$LT$T$GT
   %.sroa.02.0.i = phi i64 [ -9223372036854775807, %157 ], [ %.sroa.02.0.copyload.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he0580e05a238d898E.exit21.i" ], [ -9223372036854775808, %146 ]
   %164 = getelementptr inbounds i8, ptr %1, i64 292
   %165 = load i8, ptr %164, align 4, !range !678, !alias.scope !650, !noalias !654, !noundef !4
-  %.not.i = icmp ult i8 %165, 2
+  %.not.i = icmp samesign ult i8 %165, 2
   %166 = zext nneg i8 %165 to i64
   %167 = add nsw i64 %166, -1
   %168 = select i1 %.not.i, i64 0, i64 %167
@@ -4878,7 +4878,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   store i64 %66, ptr %34, align 8
   %67 = load i16, ptr %35, align 2, !noundef !4
   %68 = zext i16 %67 to i64
-  %69 = icmp ult i64 %45, %68
+  %69 = icmp samesign ult i64 %45, %68
   br i1 %69, label %39, label %._crit_edge140
 
 70:                                               ; preds = %46
@@ -5017,7 +5017,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   br label %.thread128
 
 109:                                              ; preds = %102
-  %110 = icmp ult i64 %.sroa.7.0136, 11
+  %110 = icmp samesign ult i64 %.sroa.7.0136, 11
   call void @llvm.assume(i1 %110)
   %111 = getelementptr inbounds ptr, ptr %23, i64 %101
   %112 = load ptr, ptr %111, align 8, !noalias !717, !nonnull !4, !noundef !4
@@ -5078,7 +5078,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   %127 = load i16, ptr %94, align 2, !noundef !4
   %128 = zext i16 %127 to i64
-  %129 = icmp ult i64 %101, %128
+  %129 = icmp samesign ult i64 %101, %128
   br i1 %129, label %97, label %._crit_edge
 
 .loopexit131:                                     ; preds = %116
@@ -5233,7 +5233,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %53 = landingpad { ptr, i32 }
           cleanup
   %54 = load i64, ptr %14, align 8, !range !649, !alias.scope !730, !noalias !733, !noundef !4
-  %55 = icmp ult i64 %54, 3
+  %55 = icmp samesign ult i64 %54, 3
   br i1 %55, label %56, label %"_ZN4core3ptr103drop_in_place$LT$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$17h06ebf5fdf781faa9E.llvm.10555397350879664896.exit.i"
 
 56:                                               ; preds = %52
@@ -5267,7 +5267,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   store i64 %65, ptr %34, align 8
   %66 = load i16, ptr %35, align 2, !noundef !4
   %67 = zext i16 %66 to i64
-  %68 = icmp ult i64 %45, %67
+  %68 = icmp samesign ult i64 %45, %67
   br i1 %68, label %39, label %._crit_edge141
 
 69:                                               ; preds = %46
@@ -5402,7 +5402,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   br label %"_ZN4core3ptr103drop_in_place$LT$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$17h06ebf5fdf781faa9E.exit108.thread"
 
 104:                                              ; preds = %101
-  %105 = icmp ult i64 %.sroa.7.0137, 11
+  %105 = icmp samesign ult i64 %.sroa.7.0137, 11
   call void @llvm.assume(i1 %105)
   %106 = getelementptr inbounds ptr, ptr %23, i64 %100
   %107 = load ptr, ptr %106, align 8, !noalias !739, !nonnull !4, !noundef !4
@@ -5463,7 +5463,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   %122 = load i16, ptr %93, align 2, !noundef !4
   %123 = zext i16 %122 to i64
-  %124 = icmp ult i64 %100, %123
+  %124 = icmp samesign ult i64 %100, %123
   br i1 %124, label %96, label %._crit_edge
 
 .loopexit132:                                     ; preds = %111
@@ -5479,7 +5479,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 125:                                              ; preds = %.loopexit.split-lp133, %.loopexit132
   %lpad.phi136 = phi { ptr, i32 } [ %lpad.loopexit134, %.loopexit132 ], [ %lpad.loopexit.split-lp135, %.loopexit.split-lp133 ]
   %126 = load i64, ptr %7, align 8, !range !649, !alias.scope !742, !noundef !4
-  %127 = icmp ult i64 %126, 3
+  %127 = icmp samesign ult i64 %126, 3
   br i1 %127, label %128, label %.noexc106
 
 128:                                              ; preds = %125
@@ -5494,7 +5494,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %130 = landingpad { ptr, i32 }
           cleanup
   %131 = load i64, ptr %10, align 8, !range !649, !alias.scope !745, !noundef !4
-  %132 = icmp ult i64 %131, 3
+  %132 = icmp samesign ult i64 %131, 3
   br i1 %132, label %133, label %"_ZN4core3ptr103drop_in_place$LT$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$17h06ebf5fdf781faa9E.exit108.thread"
 
 133:                                              ; preds = %129
@@ -5644,7 +5644,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   store i64 %58, ptr %31, align 8
   %59 = load i16, ptr %32, align 2, !noundef !4
   %60 = zext i16 %59 to i64
-  %61 = icmp ult i64 %42, %60
+  %61 = icmp samesign ult i64 %42, %60
   br i1 %61, label %36, label %._crit_edge130
 
 62:                                               ; preds = %92, %117, %.body102, %.body
@@ -5771,7 +5771,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %95 = extractvalue { ptr, ptr } %88, 1
   %.val101 = load i8, ptr %95, align 1, !range !572, !noundef !4
   %96 = trunc nuw i8 %.val101 to i1
-  %97 = icmp ult i64 %.sroa.7.0126, 11
+  %97 = icmp samesign ult i64 %.sroa.7.0126, 11
   call void @llvm.assume(i1 %97)
   %98 = getelementptr inbounds ptr, ptr %20, i64 %91
   %99 = load ptr, ptr %98, align 8, !noalias !760, !nonnull !4, !noundef !4
@@ -5828,7 +5828,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %114 = load i16, ptr %84, align 2, !noundef !4
   %115 = zext i16 %114 to i64
-  %116 = icmp ult i64 %91, %115
+  %116 = icmp samesign ult i64 %91, %115
   br i1 %116, label %87, label %._crit_edge
 
 .loopexit121:                                     ; preds = %103
@@ -5979,7 +5979,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   store i64 %55, ptr %31, align 8
   %56 = load i16, ptr %32, align 2, !noundef !4
   %57 = zext i16 %56 to i64
-  %58 = icmp ult i64 %41, %57
+  %58 = icmp samesign ult i64 %41, %57
   br i1 %58, label %35, label %._crit_edge129
 
 59:                                               ; preds = %89, %112, %.body101, %.body
@@ -6103,7 +6103,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
           to label %.body101 unwind label %59
 
 91:                                               ; preds = %86
-  %92 = icmp ult i64 %.sroa.7.0125, 11
+  %92 = icmp samesign ult i64 %.sroa.7.0125, 11
   call void @llvm.assume(i1 %92)
   %93 = getelementptr inbounds ptr, ptr %20, i64 %88
   %94 = load ptr, ptr %93, align 8, !noalias !775, !nonnull !4, !noundef !4
@@ -6160,7 +6160,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %109 = load i16, ptr %81, align 2, !noundef !4
   %110 = zext i16 %109 to i64
-  %111 = icmp ult i64 %88, %110
+  %111 = icmp samesign ult i64 %88, %110
   br i1 %111, label %84, label %._crit_edge
 
 .loopexit120:                                     ; preds = %98
@@ -6392,7 +6392,7 @@ define noundef zeroext i1 @"_ZN150_$LT$meilisearch_types..facet_values_sort..Fac
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN17meilisearch_types8settings129_$LT$impl$u20$core..convert..From$LT$meilisearch_types..settings..RankingRuleView$GT$$u20$for$u20$milli..criterion..Criterion$GT$4from17hd83a2683464770eeE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #7 {
   %3 = load i64, ptr %1, align 8, !range !782, !noundef !4
-  %switch = icmp ult i64 %3, 6
+  %switch = icmp samesign ult i64 %3, 6
   br i1 %switch, label %6, label %.sink.split
 
 .sink.split:                                      ; preds = %2

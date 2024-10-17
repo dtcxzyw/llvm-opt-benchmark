@@ -1887,7 +1887,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %141 = add i64 %132, -8
   %142 = tail call i64 @llvm.fshl.i64(i64 %141, i64 %141, i64 61)
   %143 = and i64 %140, 31
-  %144 = icmp ugt i64 %143, 15
+  %144 = icmp samesign ugt i64 %143, 15
   %145 = getelementptr inbounds i8, ptr %0, i64 120
   %146 = getelementptr inbounds [32 x i64], ptr %145, i64 0, i64 %143
   br label %147
@@ -2326,7 +2326,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %141 = add i64 %132, -8
   %142 = tail call i64 @llvm.fshl.i64(i64 %141, i64 %141, i64 61)
   %143 = and i64 %140, 31
-  %144 = icmp ugt i64 %143, 15
+  %144 = icmp samesign ugt i64 %143, 15
   %145 = getelementptr inbounds i8, ptr %0, i64 120
   %146 = getelementptr inbounds [32 x i64], ptr %145, i64 0, i64 %143
   br label %147
@@ -2763,7 +2763,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %141 = add i64 %132, -8
   %142 = tail call i64 @llvm.fshl.i64(i64 %141, i64 %141, i64 61)
   %143 = and i64 %140, 31
-  %144 = icmp ugt i64 %143, 15
+  %144 = icmp samesign ugt i64 %143, 15
   %145 = getelementptr inbounds i8, ptr %0, i64 120
   %146 = getelementptr inbounds [32 x i64], ptr %145, i64 0, i64 %143
   br label %147
@@ -3202,7 +3202,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %141 = add i64 %132, -8
   %142 = tail call i64 @llvm.fshl.i64(i64 %141, i64 %141, i64 61)
   %143 = and i64 %140, 31
-  %144 = icmp ugt i64 %143, 15
+  %144 = icmp samesign ugt i64 %143, 15
   %145 = getelementptr inbounds i8, ptr %0, i64 120
   %146 = getelementptr inbounds [32 x i64], ptr %145, i64 0, i64 %143
   br label %147

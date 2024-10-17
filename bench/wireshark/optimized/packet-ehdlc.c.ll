@@ -165,7 +165,7 @@ switch.lookup:                                    ; preds = %.lr.ph, %.backedge
   %15 = lshr i16 %10, 9
   %16 = trunc nuw nsw i16 %15 to i8
   %17 = and i8 %16, 15
-  %18 = icmp ult i8 %17, 12
+  %18 = icmp samesign ult i8 %17, 12
   %19 = or disjoint i8 %17, 48
   %.0.i117 = select i1 %18, i8 %17, i8 %19
   %20 = load ptr, ptr %5, align 8
@@ -317,11 +317,11 @@ proto_item_set_generated.exit123:                 ; preds = %proto_item_set_gene
   ]
 
 105:                                              ; preds = %100
-  %106 = icmp ult i16 %11, 5
+  %106 = icmp samesign ult i16 %11, 5
   br i1 %106, label %dissect_ehdlc_xid.exit, label %dissect_ehdlc_xid.exit.sink.split
 
 107:                                              ; preds = %100
-  %108 = icmp ult i16 %11, 5
+  %108 = icmp samesign ult i16 %11, 5
   br i1 %108, label %dissect_ehdlc_xid.exit, label %dissect_ehdlc_xid.exit.sink.split
 
 109:                                              ; preds = %89

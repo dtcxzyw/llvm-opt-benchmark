@@ -140,7 +140,7 @@ define void @Min_SopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
 61:                                               ; preds = %58
   %62 = and i32 %60, 1431655765
   %63 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %62)
-  %.not.i.i = icmp ult i32 %63, 2
+  %.not.i.i = icmp samesign ult i32 %63, 2
   br i1 %.not.i.i, label %64, label %Min_CubesDistTwo.exit.i
 
 64:                                               ; preds = %61, %58
@@ -179,7 +179,7 @@ define void @Min_SopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %.346.i.i = phi i32 [ %73, %71 ], [ %.24561.i.i, %76 ], [ %.24561.i.i, %66 ]
   %.3.i.i = phi i32 [ %.262.i.i, %71 ], [ %78, %76 ], [ %.262.i.i, %66 ]
   %80 = add nuw nsw i32 %.04760.i.i, 2
-  %81 = icmp ult i32 %.04760.i.i, 30
+  %81 = icmp samesign ult i32 %.04760.i.i, 30
   br i1 %81, label %66, label %.loopexit.i.i, !llvm.loop !7
 
 .loopexit.i.i:                                    ; preds = %79, %48
@@ -275,7 +275,7 @@ Min_CubesDistTwo.exit.i:                          ; preds = %61, %55, %74, %.thr
 116:                                              ; preds = %113
   %117 = and i32 %115, 1431655765
   %118 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %117)
-  %.not.i280.i = icmp ult i32 %118, 2
+  %.not.i280.i = icmp samesign ult i32 %118, 2
   br i1 %.not.i280.i, label %119, label %Min_CubesDistTwo.exit281.i
 
 119:                                              ; preds = %116, %113
@@ -314,7 +314,7 @@ Min_CubesDistTwo.exit.i:                          ; preds = %61, %55, %74, %.thr
   %.346.i267.i = phi i32 [ %128, %126 ], [ %.24561.i263.i, %131 ], [ %.24561.i263.i, %121 ]
   %.3.i268.i = phi i32 [ %.262.i262.i, %126 ], [ %133, %131 ], [ %.262.i262.i, %121 ]
   %135 = add nuw nsw i32 %.04760.i264.i, 2
-  %136 = icmp ult i32 %.04760.i264.i, 30
+  %136 = icmp samesign ult i32 %.04760.i264.i, 30
   br i1 %136, label %121, label %.loopexit.i269.i, !llvm.loop !7
 
 .loopexit.i269.i:                                 ; preds = %134, %103
@@ -1208,7 +1208,7 @@ Min_CubeIsContained.exit:                         ; preds = %37, %29
   %55 = or i32 %54, %53
   %56 = and i32 %55, 1431655765
   %57 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %56)
-  %.not29.i = icmp ult i32 %57, 2
+  %.not29.i = icmp samesign ult i32 %57, 2
   br i1 %.not29.i, label %.thread.i, label %Min_CubesDistOne.exit
 
 58:                                               ; preds = %45
@@ -1285,7 +1285,7 @@ Min_CubesTransformOr.exit:                        ; preds = %66, %.loopexit131
 
 ._crit_edge168:                                   ; preds = %Min_CubesDistOne.exit, %.preheader
   %80 = and i32 %6, 1023
-  %.not79.not177 = icmp ult i32 %7, %80
+  %.not79.not177 = icmp samesign ult i32 %7, %80
   br i1 %.not79.not177, label %.lr.ph180, label %._crit_edge181
 
 .lr.ph180:                                        ; preds = %._crit_edge168
@@ -1305,7 +1305,7 @@ Min_CubesTransformOr.exit:                        ; preds = %66, %.loopexit131
   %87 = phi i32 [ %.pre, %.loopexit130.loopexit ], [ %91, %90 ]
   %88 = and i32 %87, 1023
   %89 = zext nneg i32 %88 to i64
-  %.not79.not = icmp ult i64 %indvars.iv.next198, %89
+  %.not79.not = icmp samesign ult i64 %indvars.iv.next198, %89
   br i1 %.not79.not, label %90, label %._crit_edge181.loopexit, !llvm.loop !23
 
 90:                                               ; preds = %.lr.ph180, %.loopexit130
@@ -1660,7 +1660,7 @@ define void @Min_SopDist1Merge(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %29 = or i32 %28, %27
   %30 = and i32 %29, 1431655765
   %31 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %30)
-  %.not29.i = icmp ult i32 %31, 2
+  %.not29.i = icmp samesign ult i32 %31, 2
   br i1 %.not29.i, label %.thread.i, label %Min_CubesDistOne.exit
 
 32:                                               ; preds = %19
@@ -1754,7 +1754,7 @@ define void @Min_SopDist1Merge(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %71 = and i32 %70, 1
   %spec.select.i.i = add nsw i32 %71, %.114.i.i
   %72 = add nuw nsw i32 %.01215.i.i, 2
-  %73 = icmp ult i32 %.01215.i.i, 30
+  %73 = icmp samesign ult i32 %.01215.i.i, 30
   br i1 %73, label %69, label %74, !llvm.loop !32
 
 74:                                               ; preds = %69
@@ -1986,7 +1986,7 @@ Vec_IntPush.exit.i:                               ; preds = %86, %Vec_IntGrow.ex
 
 92:                                               ; preds = %Vec_IntPush.exit.i, %59
   %93 = add nuw nsw i32 %.02022.i, 2
-  %94 = icmp ult i32 %.02022.i, 30
+  %94 = icmp samesign ult i32 %.02022.i, 30
   br i1 %94, label %59, label %.loopexit.loopexit.i, !llvm.loop !37
 
 .loopexit.loopexit.i:                             ; preds = %92
@@ -1999,7 +1999,7 @@ Vec_IntPush.exit.i:                               ; preds = %86, %Vec_IntGrow.ex
   %96 = lshr i32 %95, 10
   %97 = and i32 %96, 4095
   %98 = zext nneg i32 %97 to i64
-  %99 = icmp ult i64 %indvars.iv.next.i55, %98
+  %99 = icmp samesign ult i64 %indvars.iv.next.i55, %98
   br i1 %99, label %.lr.ph.i52, label %Min_CoverGetDisjVars.exit, !llvm.loop !38
 
 Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i

@@ -80,7 +80,7 @@ dtls1_max_record_size.exit:                       ; preds = %do.body
   %call2.i = call ptr @SSL_get_wbio(ptr noundef nonnull %ssl) #13
   %call3.i = call i64 @BIO_wpending(ptr noundef %call2.i) #13
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %sub.i, i64 %call3.i)
-  %cmp8 = icmp ult i64 %spec.select.i, 13
+  %cmp8 = icmp samesign ult i64 %spec.select.i, 13
   br i1 %cmp8, label %if.then10, label %if.end17
 
 if.then10:                                        ; preds = %do.body, %dtls1_max_record_size.exit
@@ -108,7 +108,7 @@ dtls1_max_record_size.exit56:                     ; preds = %if.end17
   %call2.i53 = call ptr @SSL_get_wbio(ptr noundef nonnull %ssl) #13
   %call3.i54 = call i64 @BIO_wpending(ptr noundef %call2.i53) #13
   %spec.select.i55 = call i64 @llvm.usub.sat.i64(i64 %sub.i52, i64 %call3.i54)
-  %cmp19 = icmp ult i64 %spec.select.i55, 13
+  %cmp19 = icmp samesign ult i64 %spec.select.i55, 13
   br i1 %cmp19, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end17, %dtls1_max_record_size.exit56
@@ -454,13 +454,13 @@ if.end4.i:                                        ; preds = %if.end.i55
   %or37.i.i = or disjoint i32 %or34.i.i, %conv36.i.i
   %conv.i = zext nneg i32 %or25.i.i to i64
   %conv8.i = zext nneg i32 %or37.i.i to i64
-  %cmp11.i = icmp ugt i32 %or25.i.i, %or6.i.i
+  %cmp11.i = icmp samesign ugt i32 %or25.i.i, %or6.i.i
   br i1 %cmp11.i, label %if.then27.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end4.i
   %conv10.i = zext nneg i32 %or6.i.i to i64
   %add.i = add nuw nsw i64 %conv8.i, %conv.i
-  %cmp17.i = icmp ugt i64 %add.i, %conv10.i
+  %cmp17.i = icmp samesign ugt i64 %add.i, %conv10.i
   br i1 %cmp17.i, label %if.then27.i, label %lor.lhs.false19.i
 
 lor.lhs.false19.i:                                ; preds = %lor.lhs.false.i
@@ -474,7 +474,7 @@ lor.lhs.false23.i:                                ; preds = %lor.lhs.false19.i
   %length.i = getelementptr inbounds i8, ptr %28, i64 122
   %29 = load i16, ptr %length.i, align 2
   %30 = zext i16 %29 to i32
-  %cmp25.i = icmp ugt i32 %or37.i.i, %30
+  %cmp25.i = icmp samesign ugt i32 %or37.i.i, %30
   br i1 %cmp25.i, label %if.then27.i, label %if.end29.i
 
 if.then27.i:                                      ; preds = %lor.lhs.false23.i, %lor.lhs.false19.i, %lor.lhs.false.i, %if.end4.i
@@ -490,7 +490,7 @@ if.end29.i:                                       ; preds = %lor.lhs.false23.i
   %conv31.i = zext i16 %32 to i32
   %conv30.i = zext i16 %or13.i.i to i32
   %add40.i = add nuw nsw i32 %conv31.i, 10
-  %cmp41.i = icmp ult i32 %add40.i, %conv30.i
+  %cmp41.i = icmp samesign ult i32 %add40.i, %conv30.i
   %or.cond.i = select i1 %cmp32.i, i1 true, i1 %cmp41.i
   br i1 %or.cond.i, label %if.then43.i, label %if.end47.i
 
@@ -1444,9 +1444,9 @@ entry:
   %reassembly = getelementptr inbounds i8, ptr %frag, i64 40
   %1 = load ptr, ptr %reassembly, align 8
   %cmp = icmp eq ptr %1, null
-  %cmp3 = icmp ugt i64 %start, %end
-  %or.cond = or i1 %cmp3, %cmp
-  %cmp6 = icmp ugt i64 %end, %conv
+  %cmp3 = icmp samesign ugt i64 %start, %end
+  %or.cond = select i1 %cmp, i1 true, i1 %cmp3
+  %cmp6 = icmp samesign ugt i64 %end, %conv
   %or.cond35 = select i1 %or.cond, i1 true, i1 %cmp6
   br i1 %or.cond35, label %return, label %if.end
 
@@ -1477,7 +1477,7 @@ if.else:                                          ; preds = %if.end
   %or2532 = or i8 %5, %notmask.i
   store i8 %or2532, ptr %arrayidx23, align 1
   %i.051 = add nuw nsw i64 %shr, 1
-  %cmp2952 = icmp ult i64 %i.051, %shr8
+  %cmp2952 = icmp samesign ult i64 %i.051, %shr8
   br i1 %cmp2952, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.else, %for.body

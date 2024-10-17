@@ -1054,7 +1054,7 @@ define internal i32 @acpi_processor_add(ptr noundef %0, ptr nocapture readnone %
   br i1 %101, label %102, label %94, !llvm.loop !6
 
 102:                                              ; preds = %98
-  %103 = icmp ult i64 %96, %93
+  %103 = icmp samesign ult i64 %96, %93
   br i1 %103, label %105, label %.thread
 
 104:                                              ; preds = %83

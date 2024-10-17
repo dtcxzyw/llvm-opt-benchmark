@@ -331,7 +331,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0) local
   %148 = phi i32 [ %132, %129 ], [ %.pre21.i.i, %138 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %149 = zext i16 %146 to i64
-  %150 = icmp ult i64 %indvars.iv.next.i.i, %149
+  %150 = icmp samesign ult i64 %indvars.iv.next.i.i, %149
   br i1 %150, label %129, label %.backedge.i, !llvm.loop !11
 
 .backedge.i:                                      ; preds = %145, %124, %94, %90, %86, %.lr.ph.i
@@ -600,7 +600,7 @@ define dso_local void @resv_port_free(ptr noundef %0) local_unnamed_addr #0 {
   %27 = phi i32 [ %11, %8 ], [ %.pre, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = zext i16 %25 to i64
-  %29 = icmp ult i64 %indvars.iv.next, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %29, label %8, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %24, %.preheader

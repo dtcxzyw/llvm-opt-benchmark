@@ -161,7 +161,7 @@ define dso_local range(i32 -2045022965, 1) i32 @g_verify_token_header(ptr nocapt
   %20 = zext nneg i8 %19 to i32
   %21 = add i32 %3, -3
   %22 = icmp slt i32 %21, %20
-  %23 = icmp ugt i8 %19, 4
+  %23 = icmp samesign ugt i8 %19, 4
   %24 = or i1 %23, %22
   br i1 %24, label %.thread, label %25
 

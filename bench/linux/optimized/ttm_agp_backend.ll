@@ -71,7 +71,7 @@ define dso_local i32 @ttm_agp_bind(ptr nocapture noundef %0, ptr nocapture nound
   %35 = add nuw nsw i64 %25, 1
   %36 = load i32, ptr %13, align 4
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %35, %37
+  %38 = icmp samesign ult i64 %35, %37
   br i1 %38, label %24, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %24, %18

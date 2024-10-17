@@ -1001,7 +1001,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %.lr.p
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %261 = load i24, ptr %253, align 8
   %262 = zext i24 %261 to i64
-  %263 = icmp ult i64 %indvars.iv.next.i, %262
+  %263 = icmp samesign ult i64 %indvars.iv.next.i, %262
   br i1 %263, label %257, label %._crit_edge.i115, !llvm.loop !11
 
 ._crit_edge.i115:                                 ; preds = %257, %252
@@ -6469,7 +6469,7 @@ _ZN12_GLOBAL__N_118ValueTrackerResult9addSourceEN4llvm8RegisterEj.exit.i: ; pred
   %361 = add i64 %360, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %361) #20, !noalias !106
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %362 = icmp ult i64 %indvars.iv.next.i, %342
+  %362 = icmp samesign ult i64 %indvars.iv.next.i, %342
   br i1 %362, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !109
 
 ._crit_edge.i:                                    ; preds = %_ZN12_GLOBAL__N_118ValueTrackerResult9addSourceEN4llvm8RegisterEj.exit.i, %338

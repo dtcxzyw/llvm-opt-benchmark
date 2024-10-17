@@ -612,7 +612,7 @@ define internal i32 @dissect_mac_header_generic_decoder(ptr noundef %0, ptr noun
   br i1 %.not, label %78, label %69
 
 69:                                               ; preds = %15
-  %70 = icmp ugt i16 %34, 9
+  %70 = icmp samesign ugt i16 %34, 9
   %or.cond7 = select i1 %32, i1 %70, i1 false
   %71 = add nsw i32 %35, -10
   %spec.select = select i1 %or.cond7, i32 %71, i32 %68

@@ -114804,7 +114804,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 1991:                                             ; preds = %1984, %2072
   %.0366903 = phi i32 [ 0, %1984 ], [ %2073, %2072 ]
-  %1992 = icmp ugt i32 %.0366903, 1
+  %1992 = icmp samesign ugt i32 %.0366903, 1
   %1993 = and i32 %.0366903, 2147483645
   %or.cond19 = icmp eq i32 %1993, 0
   br i1 %or.cond19, label %1994, label %1995
@@ -116419,7 +116419,7 @@ _ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io7WKTNodeESt14default_deleteI
   br label %454
 
 445:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io7WKTNodeESt14default_deleteIS6_EEED2Ev.exit21
-  %or.cond3 = icmp ult i32 %22, 2
+  %or.cond3 = icmp samesign ult i32 %22, 2
   br i1 %or.cond3, label %446, label %453
 
 446:                                              ; preds = %445
@@ -157961,7 +157961,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %26
   %.0.lcssa.i = phi i32 [ %4, %26 ], [ %31, %.lr.ph.i11 ]
-  %46 = icmp ugt i32 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %._crit_edge.i
@@ -166315,7 +166315,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i6, %23
   %.0.lcssa.i = phi i64 [ %1, %23 ], [ %30, %.lr.ph.i6 ]
-  %43 = icmp ugt i64 %.0.lcssa.i, 9
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %._crit_edge.i

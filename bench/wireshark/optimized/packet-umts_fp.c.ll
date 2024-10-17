@@ -2053,7 +2053,7 @@ fp_conv_resolve_urnti.exit.i:                     ; preds = %119, %.fp_conv_reso
   %274 = getelementptr [64 x i32], ptr %273, i64 0, i64 %272
   %275 = load i32, ptr %274, align 4
   %276 = icmp sgt i32 %275, 0
-  %277 = icmp ult i64 %indvars.iv398.i, 64
+  %277 = icmp samesign ult i64 %indvars.iv398.i, 64
   %278 = and i1 %277, %276
   br i1 %278, label %.lr.ph374.i, label %._crit_edge375.i
 
@@ -4482,7 +4482,7 @@ define internal fastcc void @dissect_hsdsch_type_2_channel_info(ptr noundef %0, 
   %119 = trunc i64 %118 to i32
   %120 = and i32 %119, 65535
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %85, ptr noundef nonnull @.str.571, i32 noundef %114, i32 noundef %117, i32 noundef %120) #9
-  %121 = icmp ult i64 %indvars.iv, %82
+  %121 = icmp samesign ult i64 %indvars.iv, %82
   %or.cond = select i1 %96, i1 %121, i1 false
   %reass.sub = sub i32 %.3, %.0234
   %122 = zext i1 %or.cond to i32
@@ -5509,7 +5509,7 @@ define internal fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noun
   %indvars.iv.next240.i = add nuw nsw i64 %indvars.iv239.i, 1
   %219 = load i8, ptr %153, align 1
   %220 = zext i8 %219 to i64
-  %221 = icmp ult i64 %indvars.iv.next240.i, %220
+  %221 = icmp samesign ult i64 %indvars.iv.next240.i, %220
   br i1 %221, label %163, label %._crit_edge204.i, !llvm.loop !30
 
 ._crit_edge204.i:                                 ; preds = %218, %.lr.ph211.i
@@ -5630,7 +5630,7 @@ define internal fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noun
   %indvars.iv.next251.i = add nuw nsw i64 %indvars.iv250.i, 1
   %269 = load i8, ptr %231, align 1
   %270 = zext i8 %269 to i64
-  %271 = icmp ult i64 %indvars.iv.next251.i, %270
+  %271 = icmp samesign ult i64 %indvars.iv.next251.i, %270
   br i1 %271, label %236, label %._crit_edge224.i, !llvm.loop !33
 
 ._crit_edge224.i:                                 ; preds = %266, %.preheader194.i
@@ -5781,7 +5781,7 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
   %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 1
   %351 = load i8, ptr %306, align 1
   %352 = zext i8 %351 to i64
-  %353 = icmp ult i64 %indvars.iv.next449, %352
+  %353 = icmp samesign ult i64 %indvars.iv.next449, %352
   br i1 %353, label %315, label %._crit_edge.loopexit, !llvm.loop !36
 
 ._crit_edge.loopexit:                             ; preds = %347
@@ -5963,7 +5963,7 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
   br i1 %.not320, label %465, label %437
 
 437:                                              ; preds = %435
-  %438 = icmp ugt i64 %indvars.iv466, 63
+  %438 = icmp samesign ugt i64 %indvars.iv466, 63
   br i1 %438, label %439, label %441
 
 439:                                              ; preds = %437
@@ -7540,7 +7540,7 @@ define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_pch(ptr noundef %0, 
   %50 = and i8 %49, 31
   %51 = icmp ne i8 %50, 0
   %52 = icmp ne i8 %50, 1
-  %or.cond6 = icmp ugt i8 %50, 1
+  %or.cond6 = icmp samesign ugt i8 %50, 1
   br i1 %or.cond6, label %.thread5, label %53
 
 53:                                               ; preds = %48
@@ -8210,7 +8210,7 @@ define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_edch_type_1(ptr noun
 44:                                               ; preds = %.preheader2
   %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.010711) #9
   %46 = and i8 %45, 7
-  %47 = icmp ugt i8 %46, 4
+  %47 = icmp samesign ugt i8 %46, 4
   br i1 %47, label %.thread, label %48
 
 48:                                               ; preds = %44
@@ -8505,7 +8505,7 @@ define internal fastcc range(i32 0, 2) i32 @check_header_crc_for_heur(ptr nounde
 define internal fastcc range(i32 0, 2) i32 @check_payload_crc_for_heur(ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %4 = and i32 %3, 65535
-  %5 = icmp ult i32 %4, 2
+  %5 = icmp samesign ult i32 %4, 2
   br i1 %5, label %24, label %6
 
 6:                                                ; preds = %2

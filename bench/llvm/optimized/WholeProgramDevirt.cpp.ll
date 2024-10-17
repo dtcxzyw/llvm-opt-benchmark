@@ -1679,7 +1679,7 @@ define dso_local noundef i64 @_ZN4llvm18wholeprogramdevirt16findLowestOffsetENS_
   br i1 %.not.us, label %.preheader102, label %.lr.ph.split.us
 
 .preheader102:                                    ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %.1162 = phi i64 [ %storemerge.us, %.lr.ph.split.us ], [ %storemerge, %.lr.ph.split ]
+  %.1161 = phi i64 [ %storemerge.us, %.lr.ph.split.us ], [ %storemerge, %.lr.ph.split ]
   br label %.lr.ph115
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -1716,7 +1716,7 @@ define dso_local noundef i64 @_ZN4llvm18wholeprogramdevirt16findLowestOffsetENS_
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %34 = load i64, ptr %33, align 8
-  %.neg = sub i64 %.1162, %32
+  %.neg = sub i64 %.1161, %32
   %35 = add i64 %.neg, %34
   br label %47
 
@@ -1730,7 +1730,7 @@ define dso_local noundef i64 @_ZN4llvm18wholeprogramdevirt16findLowestOffsetENS_
   %43 = sub i64 %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %45 = load i64, ptr %44, align 8
-  %46 = sub i64 %.1162, %45
+  %46 = sub i64 %.1161, %45
   br label %47
 
 47:                                               ; preds = %36, %23
@@ -1824,7 +1824,7 @@ _ZNSt6vectorIN4llvm8ArrayRefIhEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6v
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4, %._crit_edge.loopexit
-  %.1162164 = phi i64 [ %.1162, %._crit_edge.loopexit ], [ 0, %4 ]
+  %.1161163 = phi i64 [ %.1161, %._crit_edge.loopexit ], [ 0, %4 ]
   %.sroa.12.0.lcssa = phi i64 [ %79, %._crit_edge.loopexit ], [ 0, %4 ]
   %.sroa.6.0.lcssa = phi ptr [ %.sroa.6.1, %._crit_edge.loopexit ], [ null, %4 ]
   %.sroa.077.0.lcssa = phi ptr [ %.sroa.077.1, %._crit_edge.loopexit ], [ null, %4 ]
@@ -1837,146 +1837,146 @@ _ZNSt6vectorIN4llvm8ArrayRefIhEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6v
 
 .preheader100.lr.ph.lr.ph:                        ; preds = %.preheader101
   %81 = lshr i64 %3, 3
-  %.not152 = icmp ult i64 %3, 8
-  br i1 %.not152, label %._crit_edge123, label %.preheader100.lr.ph.us
+  %82 = icmp ugt i64 %3, 7
+  br i1 %82, label %.preheader100.lr.ph.us, label %._crit_edge123
 
-.preheader100.lr.ph.us:                           ; preds = %.preheader100.lr.ph.lr.ph, %96
-  %.050130.us = phi i32 [ %97, %96 ], [ 0, %.preheader100.lr.ph.lr.ph ]
-  %82 = zext i32 %.050130.us to i64
+.preheader100.lr.ph.us:                           ; preds = %.preheader100.lr.ph.lr.ph, %97
+  %.050130.us = phi i32 [ %98, %97 ], [ 0, %.preheader100.lr.ph.lr.ph ]
+  %83 = zext i32 %.050130.us to i64
   br label %.preheader100.us133
 
-83:                                               ; preds = %92
-  %84 = add i32 %.0118.us, 1
-  %85 = add i32 %84, %.050130.us
-  %86 = zext i32 %85 to i64
-  %87 = icmp ugt i64 %99, %86
-  %88 = zext i32 %84 to i64
-  %89 = icmp ugt i64 %81, %88
-  %90 = and i1 %89, %87
-  br i1 %90, label %92, label %._crit_edge120.us, !llvm.loop !12
+84:                                               ; preds = %93
+  %85 = add i32 %.0118.us, 1
+  %86 = add i32 %85, %.050130.us
+  %87 = zext i32 %86 to i64
+  %88 = icmp ugt i64 %100, %87
+  %89 = zext i32 %85 to i64
+  %90 = icmp samesign ugt i64 %81, %89
+  %91 = select i1 %88, i1 %90, i1 false
+  br i1 %91, label %93, label %._crit_edge120.us, !llvm.loop !12
 
-._crit_edge120.us:                                ; preds = %83, %.preheader100.us133
-  %91 = getelementptr inbounds i8, ptr %.sroa.064.0122.us134, i64 16
-  %.not97.us132 = icmp eq ptr %91, %.sroa.6.0.lcssa
-  br i1 %.not97.us132, label %._crit_edge123.loopexit154, label %.preheader100.us133
+._crit_edge120.us:                                ; preds = %84, %.preheader100.us133
+  %92 = getelementptr inbounds i8, ptr %.sroa.064.0122.us134, i64 16
+  %.not97.us132 = icmp eq ptr %92, %.sroa.6.0.lcssa
+  br i1 %.not97.us132, label %._crit_edge123.loopexit152, label %.preheader100.us133
 
-92:                                               ; preds = %.lr.ph119.us, %83
-  %93 = phi i64 [ %82, %.lr.ph119.us ], [ %86, %83 ]
-  %.0118.us = phi i32 [ 0, %.lr.ph119.us ], [ %84, %83 ]
-  %94 = getelementptr inbounds i8, ptr %101, i64 %93
-  %95 = load i8, ptr %94, align 1
-  %.not60.us = icmp eq i8 %95, 0
-  br i1 %.not60.us, label %83, label %96
+93:                                               ; preds = %.lr.ph119.us, %84
+  %94 = phi i64 [ %83, %.lr.ph119.us ], [ %87, %84 ]
+  %.0118.us = phi i32 [ 0, %.lr.ph119.us ], [ %85, %84 ]
+  %95 = getelementptr inbounds i8, ptr %102, i64 %94
+  %96 = load i8, ptr %95, align 1
+  %.not60.us = icmp eq i8 %96, 0
+  br i1 %.not60.us, label %84, label %97
 
-96:                                               ; preds = %92
-  %97 = add i32 %.050130.us, 1
+97:                                               ; preds = %93
+  %98 = add i32 %.050130.us, 1
   br label %.preheader100.lr.ph.us
 
 .preheader100.us133:                              ; preds = %.preheader100.lr.ph.us, %._crit_edge120.us
-  %.sroa.064.0122.us134 = phi ptr [ %.sroa.077.0.lcssa, %.preheader100.lr.ph.us ], [ %91, %._crit_edge120.us ]
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.064.0122.us134, i64 8
-  %99 = load i64, ptr %98, align 8
-  %100 = icmp ugt i64 %99, %82
-  br i1 %100, label %.lr.ph119.us, label %._crit_edge120.us
+  %.sroa.064.0122.us134 = phi ptr [ %.sroa.077.0.lcssa, %.preheader100.lr.ph.us ], [ %92, %._crit_edge120.us ]
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.064.0122.us134, i64 8
+  %100 = load i64, ptr %99, align 8
+  %101 = icmp ugt i64 %100, %83
+  br i1 %101, label %.lr.ph119.us, label %._crit_edge120.us
 
 .lr.ph119.us:                                     ; preds = %.preheader100.us133
-  %101 = load ptr, ptr %.sroa.064.0122.us134, align 8
-  br label %92
+  %102 = load ptr, ptr %.sroa.064.0122.us134, align 8
+  br label %93
 
 .preheader:                                       ; preds = %._crit_edge
   br i1 %.not98141, label %_ZN4llvm11countr_zeroIhEEiT_.exit, label %.lr.ph145
 
 .lr.ph145:                                        ; preds = %.preheader, %._crit_edge146
-  %.052 = phi i32 [ %114, %._crit_edge146 ], [ 0, %.preheader ]
-  %102 = zext i32 %.052 to i64
-  br label %103
+  %.052 = phi i32 [ %115, %._crit_edge146 ], [ 0, %.preheader ]
+  %103 = zext i32 %.052 to i64
+  br label %104
 
-103:                                              ; preds = %.lr.ph145, %112
-  %.053143 = phi i8 [ 0, %.lr.ph145 ], [ %.1, %112 ]
-  %.sroa.068.0142 = phi ptr [ %.sroa.077.0.lcssa, %.lr.ph145 ], [ %113, %112 ]
-  %104 = getelementptr inbounds nuw i8, ptr %.sroa.068.0142, i64 8
-  %105 = load i64, ptr %104, align 8
-  %106 = icmp ugt i64 %105, %102
-  br i1 %106, label %107, label %112
+104:                                              ; preds = %.lr.ph145, %113
+  %.053143 = phi i8 [ 0, %.lr.ph145 ], [ %.1, %113 ]
+  %.sroa.068.0142 = phi ptr [ %.sroa.077.0.lcssa, %.lr.ph145 ], [ %114, %113 ]
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.068.0142, i64 8
+  %106 = load i64, ptr %105, align 8
+  %107 = icmp ugt i64 %106, %103
+  br i1 %107, label %108, label %113
 
-107:                                              ; preds = %103
-  %108 = load ptr, ptr %.sroa.068.0142, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 %102
-  %110 = load i8, ptr %109, align 1
-  %111 = or i8 %110, %.053143
-  br label %112
+108:                                              ; preds = %104
+  %109 = load ptr, ptr %.sroa.068.0142, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 %103
+  %111 = load i8, ptr %110, align 1
+  %112 = or i8 %111, %.053143
+  br label %113
 
-112:                                              ; preds = %103, %107
-  %.1 = phi i8 [ %111, %107 ], [ %.053143, %103 ]
-  %113 = getelementptr inbounds i8, ptr %.sroa.068.0142, i64 16
-  %.not98 = icmp eq ptr %113, %.sroa.6.0.lcssa
-  br i1 %.not98, label %._crit_edge146, label %103
+113:                                              ; preds = %104, %108
+  %.1 = phi i8 [ %112, %108 ], [ %.053143, %104 ]
+  %114 = getelementptr inbounds i8, ptr %.sroa.068.0142, i64 16
+  %.not98 = icmp eq ptr %114, %.sroa.6.0.lcssa
+  br i1 %.not98, label %._crit_edge146, label %104
 
-._crit_edge146:                                   ; preds = %112
+._crit_edge146:                                   ; preds = %113
   %.not61 = icmp eq i8 %.1, -1
-  %114 = add i32 %.052, 1
+  %115 = add i32 %.052, 1
   br i1 %.not61, label %.lr.ph145, label %.split, !llvm.loop !13
 
 .split:                                           ; preds = %._crit_edge146
-  %115 = zext i32 %.052 to i64
-  %116 = add i64 %.1162164, %115
-  %117 = and i8 %.1, 1
-  %.not21.i.i.not = icmp eq i8 %117, 0
+  %116 = zext i32 %.052 to i64
+  %117 = add i64 %.1161163, %116
+  %118 = and i8 %.1, 1
+  %.not21.i.i.not = icmp eq i8 %118, 0
   br i1 %.not21.i.i.not, label %_ZN4llvm11countr_zeroIhEEiT_.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %.split
-  %118 = xor i8 %.1, -1
+  %119 = xor i8 %.1, -1
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
-  %.026.i.i = phi i8 [ %124, %.preheader.i.i ], [ 15, %.preheader.i.i.preheader ]
-  %.01525.i.i = phi i8 [ %123, %.preheader.i.i ], [ 4, %.preheader.i.i.preheader ]
+  %.026.i.i = phi i8 [ %125, %.preheader.i.i ], [ 15, %.preheader.i.i.preheader ]
+  %.01525.i.i = phi i8 [ %124, %.preheader.i.i ], [ 4, %.preheader.i.i.preheader ]
   %.01624.i.i = phi i32 [ %.1.i.i, %.preheader.i.i ], [ 0, %.preheader.i.i.preheader ]
-  %.01723.i.i = phi i8 [ %.118.i.i, %.preheader.i.i ], [ %118, %.preheader.i.i.preheader ]
-  %119 = and i8 %.01723.i.i, %.026.i.i
-  %120 = icmp eq i8 %119, 0
-  %121 = select i1 %120, i8 %.01525.i.i, i8 0
-  %.118.i.i = lshr i8 %.01723.i.i, %121
-  %122 = zext nneg i8 %121 to i32
-  %.1.i.i = or i32 %.01624.i.i, %122
-  %123 = lshr i8 %.01525.i.i, 1
-  %124 = lshr i8 %.026.i.i, %123
-  %.not22.i.i = icmp ult i8 %.01525.i.i, 2
+  %.01723.i.i = phi i8 [ %.118.i.i, %.preheader.i.i ], [ %119, %.preheader.i.i.preheader ]
+  %120 = and i8 %.01723.i.i, %.026.i.i
+  %121 = icmp eq i8 %120, 0
+  %122 = select i1 %121, i8 %.01525.i.i, i8 0
+  %.118.i.i = lshr i8 %.01723.i.i, %122
+  %123 = zext nneg i8 %122 to i32
+  %.1.i.i = or i32 %.01624.i.i, %123
+  %124 = lshr i8 %.01525.i.i, 1
+  %125 = lshr i8 %.026.i.i, %124
+  %.not22.i.i = icmp samesign ult i8 %.01525.i.i, 2
   br i1 %.not22.i.i, label %_ZN4llvm11countr_zeroIhEEiT_.exit.loopexit, label %.preheader.i.i, !llvm.loop !14
 
 _ZN4llvm11countr_zeroIhEEiT_.exit.loopexit:       ; preds = %.preheader.i.i
-  %125 = zext nneg i32 %.1.i.i to i64
+  %126 = zext nneg i32 %.1.i.i to i64
   br label %_ZN4llvm11countr_zeroIhEEiT_.exit
 
 _ZN4llvm11countr_zeroIhEEiT_.exit:                ; preds = %.preheader, %_ZN4llvm11countr_zeroIhEEiT_.exit.loopexit, %.split
-  %.in = phi i64 [ %116, %.split ], [ %116, %_ZN4llvm11countr_zeroIhEEiT_.exit.loopexit ], [ %.1162164, %.preheader ]
-  %.019.i.i = phi i64 [ 0, %.split ], [ %125, %_ZN4llvm11countr_zeroIhEEiT_.exit.loopexit ], [ 0, %.preheader ]
-  %126 = shl i64 %.in, 3
-  %127 = add i64 %126, %.019.i.i
-  br label %131
+  %.in = phi i64 [ %117, %.split ], [ %117, %_ZN4llvm11countr_zeroIhEEiT_.exit.loopexit ], [ %.1161163, %.preheader ]
+  %.019.i.i = phi i64 [ 0, %.split ], [ %126, %_ZN4llvm11countr_zeroIhEEiT_.exit.loopexit ], [ 0, %.preheader ]
+  %127 = shl i64 %.in, 3
+  %128 = add i64 %127, %.019.i.i
+  br label %132
 
-._crit_edge123.loopexit154:                       ; preds = %._crit_edge120.us
-  %128 = zext i32 %.050130.us to i64
+._crit_edge123.loopexit152:                       ; preds = %._crit_edge120.us
+  %129 = zext i32 %.050130.us to i64
   br label %._crit_edge123
 
-._crit_edge123:                                   ; preds = %.preheader100.lr.ph.lr.ph, %._crit_edge123.loopexit154, %.preheader101
-  %.050.lcssa = phi i64 [ 0, %.preheader101 ], [ %128, %._crit_edge123.loopexit154 ], [ 0, %.preheader100.lr.ph.lr.ph ]
-  %129 = add i64 %.1162164, %.050.lcssa
-  %130 = shl i64 %129, 3
-  br label %131
+._crit_edge123:                                   ; preds = %.preheader100.lr.ph.lr.ph, %._crit_edge123.loopexit152, %.preheader101
+  %.050.lcssa = phi i64 [ 0, %.preheader101 ], [ %129, %._crit_edge123.loopexit152 ], [ 0, %.preheader100.lr.ph.lr.ph ]
+  %130 = add i64 %.1161163, %.050.lcssa
+  %131 = shl i64 %130, 3
+  br label %132
 
-131:                                              ; preds = %._crit_edge123, %_ZN4llvm11countr_zeroIhEEiT_.exit
-  %.048 = phi i64 [ %127, %_ZN4llvm11countr_zeroIhEEiT_.exit ], [ %130, %._crit_edge123 ]
+132:                                              ; preds = %._crit_edge123, %_ZN4llvm11countr_zeroIhEEiT_.exit
+  %.048 = phi i64 [ %128, %_ZN4llvm11countr_zeroIhEEiT_.exit ], [ %131, %._crit_edge123 ]
   %.not.i.i.i = icmp eq ptr %.sroa.077.0.lcssa, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm8ArrayRefIhEESaIS2_EED2Ev.exit, label %132
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm8ArrayRefIhEESaIS2_EED2Ev.exit, label %133
 
-132:                                              ; preds = %131
-  %133 = ptrtoint ptr %.sroa.077.0.lcssa to i64
-  %134 = sub i64 %.sroa.12.0.lcssa, %133
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.077.0.lcssa, i64 noundef %134) #23
+133:                                              ; preds = %132
+  %134 = ptrtoint ptr %.sroa.077.0.lcssa to i64
+  %135 = sub i64 %.sroa.12.0.lcssa, %134
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.077.0.lcssa, i64 noundef %135) #23
   br label %_ZNSt6vectorIN4llvm8ArrayRefIhEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN4llvm8ArrayRefIhEESaIS2_EED2Ev.exit: ; preds = %131, %132
+_ZNSt6vectorIN4llvm8ArrayRefIhEESaIS2_EED2Ev.exit: ; preds = %132, %133
   ret i64 %.048
 }
 
@@ -17311,7 +17311,7 @@ _ZN4llvm4yaml2IO11mapOptionalIbEEvPKcRT_.exit:    ; preds = %_ZN4llvm4yaml2IO11m
   br i1 %.not.i.i.i.i, label %_ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !261
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %69 = icmp ugt i64 %.06.i.i.i.i, 288230376151711742
+  %69 = icmp samesign ugt i64 %.06.i.i.i.i, 288230376151711742
   br i1 %69, label %70, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i
 
 70:                                               ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i
@@ -17392,7 +17392,7 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %.not.i.i.i.i28, label %_ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i29, label %.lr.ph.i.i.i.i25, !llvm.loop !261
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i29: ; preds = %.lr.ph.i.i.i.i25
-  %99 = icmp ugt i64 %.06.i.i.i.i26, 288230376151711742
+  %99 = icmp samesign ugt i64 %.06.i.i.i.i26, 288230376151711742
   br i1 %99, label %100, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i30
 
 100:                                              ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i29

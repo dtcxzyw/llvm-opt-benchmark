@@ -26419,7 +26419,7 @@ define linkonce_odr void @_ZSt15__inplace_mergeIN9__gnu_cxx17__normal_iteratorIP
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
   %17 = add nuw nsw i64 %storemerge26.i.i, 1
   %18 = lshr i64 %17, 1
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i, 2
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i, 2
   br i1 %.not10.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !206
 
 .loopexit:                                        ; preds = %select.unfold.i.i, %6

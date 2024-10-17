@@ -997,7 +997,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end15, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %cmp2 = icmp ult i32 %choice, 2
+  %cmp2 = icmp samesign ult i32 %choice, 2
   br i1 %cmp2, label %land.lhs.true, label %land.lhs.true9
 
 land.lhs.true:                                    ; preds = %if.then1
@@ -1042,7 +1042,7 @@ if.then11:                                        ; preds = %land.lhs.true9
   br label %if.end15
 
 if.end15:                                         ; preds = %land.lhs.true9, %if.then11, %if.end
-  %cmp16 = icmp ult i32 %choice, 2
+  %cmp16 = icmp samesign ult i32 %choice, 2
   br i1 %cmp16, label %if.end19, label %if.end15.if.then21_crit_edge
 
 if.end15.if.then21_crit_edge:                     ; preds = %if.end15
@@ -1603,7 +1603,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %arrayidx6 = getelementptr inbounds i8, ptr %charErrorBuffer, i64 %indvars.iv39
   store i8 %4, ptr %arrayidx6, align 1
-  %cmp7 = icmp ult i64 %indvars.iv.next38, %3
+  %cmp7 = icmp samesign ult i64 %indvars.iv.next38, %3
   br i1 %cmp7, label %do.body, label %do.end, !llvm.loop !6
 
 do.end:                                           ; preds = %do.body
@@ -2179,7 +2179,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %arrayidx6 = getelementptr inbounds i16, ptr %UCharErrorBuffer, i64 %indvars.iv40
   store i16 %4, ptr %arrayidx6, align 2
-  %cmp7 = icmp ult i64 %indvars.iv.next39, %3
+  %cmp7 = icmp samesign ult i64 %indvars.iv.next39, %3
   br i1 %cmp7, label %do.body, label %do.end, !llvm.loop !11
 
 do.end:                                           ; preds = %do.body

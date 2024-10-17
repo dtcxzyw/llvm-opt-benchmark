@@ -381,7 +381,7 @@ define internal fastcc void @draw_items_for_severity(ptr nocapture noundef reado
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %25 = load i32, ptr %3, align 8
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next27, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next27, %26
   br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %2

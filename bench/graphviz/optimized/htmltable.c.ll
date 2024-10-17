@@ -2557,7 +2557,7 @@ size_html_cell.exit:                              ; preds = %size_html_cell.exit
   %183 = load i16, ptr %173, align 2
   %184 = zext i16 %183 to i32
   %185 = add nuw nsw i32 %184, %68
-  %186 = icmp ult i32 %182, %185
+  %186 = icmp samesign ult i32 %182, %185
   br i1 %186, label %.lr.ph41.i, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph41.i
@@ -2764,7 +2764,7 @@ processTbl.exit:                                  ; preds = %._crit_edge95, %._c
   %299 = load i16, ptr %248, align 2
   %300 = zext i16 %299 to i64
   %301 = add nuw nsw i64 %300, %298
-  %302 = icmp ult i64 %indvars.iv.next.i.i, %301
+  %302 = icmp samesign ult i64 %indvars.iv.next.i.i, %301
   br i1 %302, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -2795,7 +2795,7 @@ processTbl.exit:                                  ; preds = %._crit_edge95, %._c
   %313 = load i16, ptr %269, align 8
   %314 = zext i16 %313 to i64
   %315 = add nuw nsw i64 %314, %312
-  %316 = icmp ult i64 %indvars.iv.next59.i.i, %315
+  %316 = icmp samesign ult i64 %indvars.iv.next59.i.i, %315
   br i1 %316, label %.lr.ph50.i.i, label %._crit_edge51.i.i
 
 ._crit_edge51.i.i:                                ; preds = %.lr.ph50.i.i, %._crit_edge.i.i

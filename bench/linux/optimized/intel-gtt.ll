@@ -140,7 +140,7 @@ define dso_local noundef zeroext i1 @intel_gmch_enable_gtt() #0 align 16 {
 
 23:                                               ; preds = %22, %0
   %.pre-phi = phi i32 [ %.pre4, %22 ], [ %4, %0 ]
-  %24 = icmp ugt i32 %.pre-phi, 2
+  %24 = icmp samesign ugt i32 %.pre-phi, 2
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %23
@@ -182,7 +182,7 @@ define dso_local noundef zeroext i1 @intel_gmch_enable_gtt() #0 align 16 {
 45:                                               ; preds = %._crit_edge, %28
   %46 = phi i32 [ %.pre3, %._crit_edge ], [ %33, %28 ]
   %47 = and i32 %46, 255
-  %48 = icmp ugt i32 %47, 2
+  %48 = icmp samesign ugt i32 %47, 2
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %45
@@ -897,7 +897,7 @@ thread-pre-split13.thread:                        ; preds = %thread-pre-split11,
   %321 = load ptr, ptr @intel_private, align 8
   %322 = load i32, ptr %321, align 8
   %323 = and i32 %322, 255
-  %324 = icmp ugt i32 %323, 2
+  %324 = icmp samesign ugt i32 %323, 2
   %325 = zext i1 %324 to i8
   %326 = load i8, ptr getelementptr inbounds (i8, ptr @intel_private, i64 172), align 4
   %327 = and i8 %326, -2
@@ -939,7 +939,7 @@ thread-pre-split13.thread:                        ; preds = %thread-pre-split11,
   %349 = load ptr, ptr @intel_private, align 8
   %350 = load i32, ptr %349, align 8
   %351 = and i32 %350, 255
-  %352 = icmp ugt i32 %351, 2
+  %352 = icmp samesign ugt i32 %351, 2
   %353 = select i1 %352, i64 2, i64 0
   %354 = load ptr, ptr getelementptr inbounds (i8, ptr @intel_private, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9

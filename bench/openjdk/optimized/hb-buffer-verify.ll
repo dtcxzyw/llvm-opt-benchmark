@@ -114,7 +114,7 @@ _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %27
   %.083108.i = phi i32 [ %51, %.lr.ph109.i ], [ %.184.i, %112 ]
   %.086105.i = phi i32 [ %51, %.lr.ph109.i ], [ %.187.i, %112 ]
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv115.i, %56
+  %57 = icmp samesign ult i64 %indvars.iv115.i, %56
   br i1 %57, label %58, label %71
 
 58:                                               ; preds = %54
@@ -241,7 +241,7 @@ _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %27
   %indvars.iv.next116.i = add nuw nsw i64 %indvars.iv115.i, 1
   %114 = add i32 %113, 1
   %115 = zext i32 %114 to i64
-  %116 = icmp ult i64 %indvars.iv.next116.i, %115
+  %116 = icmp samesign ult i64 %indvars.iv.next116.i, %115
   br i1 %116, label %54, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %112, %35
@@ -333,7 +333,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   %.093108.i = phi i32 [ %.194.i, %185 ], [ 0, %146 ]
   %.095107.i = phi i32 [ %.196.i, %185 ], [ 0, %146 ]
   %151 = zext i32 %150 to i64
-  %152 = icmp ult i64 %indvars.iv126.i, %151
+  %152 = icmp samesign ult i64 %indvars.iv126.i, %151
   br i1 %152, label %153, label %165
 
 153:                                              ; preds = %.lr.ph112.i
@@ -407,7 +407,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 1
   %187 = add i32 %186, 1
   %188 = zext i32 %187 to i64
-  %189 = icmp ult i64 %indvars.iv.next127.i, %188
+  %189 = icmp samesign ult i64 %indvars.iv.next127.i, %188
   br i1 %189, label %.lr.ph112.i, label %._crit_edge.i26, !llvm.loop !12
 
 ._crit_edge.i26:                                  ; preds = %185, %146

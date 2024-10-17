@@ -14831,7 +14831,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
 139:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
   %140 = trunc i64 %31 to i32
   %141 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %140)
-  %142 = icmp ugt i32 %141, 1
+  %142 = icmp samesign ugt i32 %141, 1
   %.neg.i = zext i1 %142 to i32
   %143 = ashr i32 %140, 1
   %144 = or i32 %143, %140
@@ -17131,7 +17131,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %26
   %.0.lcssa.i = phi i32 [ %4, %26 ], [ %31, %.lr.ph.i11 ]
-  %46 = icmp ugt i32 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %._crit_edge.i

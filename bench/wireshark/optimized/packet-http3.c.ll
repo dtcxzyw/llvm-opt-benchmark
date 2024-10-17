@@ -1158,9 +1158,9 @@ define internal fastcc i32 @dissect_http3_qpack_encoder_stream(ptr noundef %0, p
   %41 = load i8, ptr %.077.i, align 1
   %42 = and i8 %41, 127
   %43 = zext nneg i8 %42 to i64
-  %44 = icmp ugt i64 %.05275.i, 62
+  %44 = icmp samesign ugt i64 %.05275.i, 62
   %45 = lshr i64 4611686018427387903, %.05275.i
-  %46 = icmp ult i64 %45, %43
+  %46 = icmp samesign ult i64 %45, %43
   %or.cond.i = select i1 %44, i1 true, i1 %46
   br i1 %or.cond.i, label %read_qpack_prefixed_integer.exit, label %47
 
@@ -1220,9 +1220,9 @@ read_qpack_prefixed_integer.exit:                 ; preds = %39, %.lr.ph.i, %47,
   %73 = load i8, ptr %.077.i192, align 1
   %74 = and i8 %73, 127
   %75 = zext nneg i8 %74 to i64
-  %76 = icmp ugt i64 %.05275.i194, 62
+  %76 = icmp samesign ugt i64 %.05275.i194, 62
   %77 = lshr i64 4611686018427387903, %.05275.i194
-  %78 = icmp ult i64 %77, %75
+  %78 = icmp samesign ult i64 %77, %75
   %or.cond.i196 = select i1 %76, i1 true, i1 %78
   br i1 %or.cond.i196, label %read_qpack_prefixed_integer.exit200, label %79
 
@@ -1324,9 +1324,9 @@ read_qpack_prefixed_integer.exit200:              ; preds = %71, %.lr.ph.i191, %
   %130 = load i8, ptr %.077.i206, align 1
   %131 = and i8 %130, 127
   %132 = zext nneg i8 %131 to i64
-  %133 = icmp ugt i64 %.05275.i208, 62
+  %133 = icmp samesign ugt i64 %.05275.i208, 62
   %134 = lshr i64 4611686018427387903, %.05275.i208
-  %135 = icmp ult i64 %134, %132
+  %135 = icmp samesign ult i64 %134, %132
   %or.cond.i210 = select i1 %133, i1 true, i1 %135
   br i1 %or.cond.i210, label %read_qpack_prefixed_integer.exit214, label %136
 
@@ -1390,9 +1390,9 @@ read_qpack_prefixed_integer.exit214:              ; preds = %128, %.lr.ph.i205, 
   %166 = load i8, ptr %.077.i220, align 1
   %167 = and i8 %166, 127
   %168 = zext nneg i8 %167 to i64
-  %169 = icmp ugt i64 %.05275.i222, 62
+  %169 = icmp samesign ugt i64 %.05275.i222, 62
   %170 = lshr i64 4611686018427387903, %.05275.i222
-  %171 = icmp ult i64 %170, %168
+  %171 = icmp samesign ult i64 %170, %168
   %or.cond.i224 = select i1 %169, i1 true, i1 %171
   br i1 %or.cond.i224, label %read_qpack_prefixed_integer.exit228, label %172
 
@@ -1514,9 +1514,9 @@ read_qpack_prefixed_integer.exit228:              ; preds = %164, %.lr.ph.i219, 
   %232 = load i8, ptr %.077.i234, align 1
   %233 = and i8 %232, 127
   %234 = zext nneg i8 %233 to i64
-  %235 = icmp ugt i64 %.05275.i236, 62
+  %235 = icmp samesign ugt i64 %.05275.i236, 62
   %236 = lshr i64 4611686018427387903, %.05275.i236
-  %237 = icmp ult i64 %236, %234
+  %237 = icmp samesign ult i64 %236, %234
   %or.cond.i238 = select i1 %235, i1 true, i1 %237
   br i1 %or.cond.i238, label %read_qpack_prefixed_integer.exit242, label %238
 
@@ -1577,9 +1577,9 @@ read_qpack_prefixed_integer.exit242:              ; preds = %230, %.lr.ph.i233, 
   %263 = load i8, ptr %.077.i248, align 1
   %264 = and i8 %263, 127
   %265 = zext nneg i8 %264 to i64
-  %266 = icmp ugt i64 %.05275.i250, 62
+  %266 = icmp samesign ugt i64 %.05275.i250, 62
   %267 = lshr i64 4611686018427387903, %.05275.i250
-  %268 = icmp ult i64 %267, %265
+  %268 = icmp samesign ult i64 %267, %265
   %or.cond.i252 = select i1 %266, i1 true, i1 %268
   br i1 %or.cond.i252, label %read_qpack_prefixed_integer.exit256.thread26, label %269
 

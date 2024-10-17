@@ -514,7 +514,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 220:                                              ; preds = %202
-  %221 = icmp ult i64 %166, %190
+  %221 = icmp samesign ult i64 %166, %190
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %208, i32 %209)
   br i1 %221, label %222, label %._crit_edge.i
 
@@ -1270,7 +1270,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 220:                                              ; preds = %202
-  %221 = icmp ult i64 %166, %190
+  %221 = icmp samesign ult i64 %166, %190
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %208, i32 %209)
   br i1 %221, label %222, label %._crit_edge.i
 
@@ -1994,7 +1994,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 220:                                              ; preds = %202
-  %221 = icmp ult i64 %166, %190
+  %221 = icmp samesign ult i64 %166, %190
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %208, i32 %209)
   br i1 %221, label %222, label %._crit_edge.i
 
@@ -2720,7 +2720,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 220:                                              ; preds = %202
-  %221 = icmp ult i64 %166, %190
+  %221 = icmp samesign ult i64 %166, %190
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %208, i32 %209)
   br i1 %221, label %222, label %._crit_edge.i
 
@@ -3444,7 +3444,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 220:                                              ; preds = %202
-  %221 = icmp ult i64 %166, %190
+  %221 = icmp samesign ult i64 %166, %190
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %208, i32 %209)
   br i1 %221, label %222, label %._crit_edge.i
 
@@ -3656,7 +3656,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit179
   %322 = lshr i64 %1, 15
   %323 = and i64 %322, 31
-  %324 = icmp ugt i64 %323, 15
+  %324 = icmp samesign ugt i64 %323, 15
   %325 = getelementptr inbounds i8, ptr %0, i64 120
   %326 = getelementptr inbounds [32 x i64], ptr %325, i64 0, i64 %323
   br label %327
@@ -4216,7 +4216,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 220:                                              ; preds = %202
-  %221 = icmp ult i64 %166, %190
+  %221 = icmp samesign ult i64 %166, %190
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %208, i32 %209)
   br i1 %221, label %222, label %._crit_edge.i
 
@@ -4428,7 +4428,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit179
   %322 = lshr i64 %1, 15
   %323 = and i64 %322, 31
-  %324 = icmp ugt i64 %323, 15
+  %324 = icmp samesign ugt i64 %323, 15
   %325 = getelementptr inbounds i8, ptr %0, i64 120
   %326 = getelementptr inbounds [32 x i64], ptr %325, i64 0, i64 %323
   br label %327
@@ -4986,7 +4986,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 220:                                              ; preds = %202
-  %221 = icmp ult i64 %166, %190
+  %221 = icmp samesign ult i64 %166, %190
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %208, i32 %209)
   br i1 %221, label %222, label %._crit_edge.i
 
@@ -5198,7 +5198,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit179
   %322 = lshr i64 %1, 15
   %323 = and i64 %322, 31
-  %324 = icmp ugt i64 %323, 15
+  %324 = icmp samesign ugt i64 %323, 15
   %325 = getelementptr inbounds i8, ptr %0, i64 120
   %326 = getelementptr inbounds [32 x i64], ptr %325, i64 0, i64 %323
   br label %327
@@ -5758,7 +5758,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 220:                                              ; preds = %202
-  %221 = icmp ult i64 %166, %190
+  %221 = icmp samesign ult i64 %166, %190
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %208, i32 %209)
   br i1 %221, label %222, label %._crit_edge.i
 
@@ -5970,7 +5970,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit179
   %322 = lshr i64 %1, 15
   %323 = and i64 %322, 31
-  %324 = icmp ugt i64 %323, 15
+  %324 = icmp samesign ugt i64 %323, 15
   %325 = getelementptr inbounds i8, ptr %0, i64 120
   %326 = getelementptr inbounds [32 x i64], ptr %325, i64 0, i64 %323
   br label %327

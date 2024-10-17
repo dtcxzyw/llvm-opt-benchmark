@@ -1086,7 +1086,7 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$14choose_
   br i1 %or.cond4, label %57, label %53
 
 51:                                               ; preds = %.lr.ph
-  %52 = icmp ult i64 %.sroa.7.035, 8192
+  %52 = icmp samesign ult i64 %.sroa.7.035, 8192
   br i1 %52, label %88, label %90, !prof !278
 
 53:                                               ; preds = %46
@@ -1097,17 +1097,17 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$14choose_
   br i1 %or.cond5, label %63, label %59
 
 57:                                               ; preds = %46
-  %58 = icmp ult i64 %.sroa.7.035, 8192
+  %58 = icmp samesign ult i64 %.sroa.7.035, 8192
   br i1 %58, label %81, label %83, !prof !278
 
 59:                                               ; preds = %53
   %60 = fadd float %41, 6.000000e+00
   %61 = fcmp olt float %60, %17
-  %62 = icmp ult i64 %.sroa.7.035, 8192
+  %62 = icmp samesign ult i64 %.sroa.7.035, 8192
   br i1 %61, label %66, label %65
 
 63:                                               ; preds = %53
-  %64 = icmp ult i64 %.sroa.7.035, 8192
+  %64 = icmp samesign ult i64 %.sroa.7.035, 8192
   br i1 %64, label %78, label %80, !prof !278
 
 65:                                               ; preds = %59
@@ -6782,7 +6782,7 @@ thread-pre-split.thread:                          ; preds = %60, %68, %.thread
   %152 = getelementptr inbounds [0 x i8], ptr %121, i64 0, i64 %148
   %153 = load i8, ptr %152, align 1, !noundef !12
   store i8 %153, ptr %144, align 1
-  %154 = icmp ugt i64 %45, 1
+  %154 = icmp samesign ugt i64 %45, 1
   br i1 %154, label %156, label %160
 
 155:                                              ; preds = %133
@@ -7733,7 +7733,7 @@ _ZN6brotli3enc9metablock26BrotliBuildMetaBlockGreedy17h507becdfcd620dddE.exit.i:
   %631 = add nuw nsw i64 %630, %580
   %632 = load i64, ptr %18, align 8, !alias.scope !608, !noalias !633, !noundef !12
   %633 = lshr i64 %632, 3
-  %634 = icmp ult i64 %631, %633
+  %634 = icmp samesign ult i64 %631, %633
   br i1 %634, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i", label %638
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i": ; preds = %629
@@ -8192,7 +8192,7 @@ thread-pre-split.thread:                          ; preds = %60, %68, %.thread
   %152 = getelementptr inbounds [0 x i8], ptr %121, i64 0, i64 %148
   %153 = load i8, ptr %152, align 1, !noundef !12
   store i8 %153, ptr %144, align 1
-  %154 = icmp ugt i64 %45, 1
+  %154 = icmp samesign ugt i64 %45, 1
   br i1 %154, label %156, label %160
 
 155:                                              ; preds = %133
@@ -9143,7 +9143,7 @@ _ZN6brotli3enc9metablock26BrotliBuildMetaBlockGreedy17h507becdfcd620dddE.exit.i:
   %631 = add nuw nsw i64 %630, %580
   %632 = load i64, ptr %18, align 8, !alias.scope !739, !noalias !763, !noundef !12
   %633 = lshr i64 %632, 3
-  %634 = icmp ult i64 %631, %633
+  %634 = icmp samesign ult i64 %631, %633
   br i1 %634, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i", label %638
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i": ; preds = %629
@@ -10480,11 +10480,11 @@ _ZN6brotli3enc7command26CommandRestoreDistanceCode17hf05d26418c1b43c8E.exit: ; p
 
 _ZN6brotli3enc7command19GetInsertLengthCode17ha9109facbbd32153E.exit: ; preds = %82, %86, %99, %101, %107
   %.0.i14 = phi i16 [ %83, %82 ], [ %98, %86 ], [ %106, %101 ], [ %..i, %107 ], [ 21, %99 ]
-  %109 = icmp ult i32 %76, 10
+  %109 = icmp samesign ult i32 %76, 10
   br i1 %109, label %112, label %110
 
 110:                                              ; preds = %_ZN6brotli3enc7command19GetInsertLengthCode17ha9109facbbd32153E.exit
-  %111 = icmp ult i32 %76, 134
+  %111 = icmp samesign ult i32 %76, 134
   br i1 %111, label %117, label %115
 
 112:                                              ; preds = %_ZN6brotli3enc7command19GetInsertLengthCode17ha9109facbbd32153E.exit
@@ -10493,7 +10493,7 @@ _ZN6brotli3enc7command19GetInsertLengthCode17ha9109facbbd32153E.exit: ; preds = 
   br label %_ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit
 
 115:                                              ; preds = %110
-  %116 = icmp ult i32 %76, 2118
+  %116 = icmp samesign ult i32 %76, 2118
   br i1 %116, label %130, label %_ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit
 
 117:                                              ; preds = %110
@@ -10525,7 +10525,7 @@ _ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit: ; preds = %1
   %137 = shl nuw nsw i16 %.0.i14, 3
   %138 = and i16 %137, 56
   %139 = or disjoint i16 %136, %138
-  %140 = icmp ult i16 %.0.i14, 8
+  %140 = icmp samesign ult i16 %.0.i14, 8
   %or.cond.i = and i1 %78, %140
   %141 = icmp ult i16 %.0.i, 16
   %or.cond6.i = and i1 %or.cond.i, %141
@@ -11390,7 +11390,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode23Injec
   %26 = or i32 %25, %22
   %27 = getelementptr inbounds i8, ptr %0, i64 120
   %28 = load i32, ptr %27, align 8, !range !1071, !alias.scope !1068, !noundef !12
-  %switch.i = icmp ult i32 %28, 2
+  %switch.i = icmp samesign ult i32 %28, 2
   br i1 %switch.i, label %29, label %.thread28.i
 
 29:                                               ; preds = %19
@@ -14061,7 +14061,7 @@ _ZN10actix_http8requests4head11RequestHead15connection_type17hca23b247bc6c5018E.
   br label %56
 
 _ZN10actix_http8requests4head11RequestHead15connection_type17hca23b247bc6c5018E.exit: ; preds = %47
-  %50 = icmp ugt i8 %39, 1
+  %50 = icmp samesign ugt i8 %39, 1
   %.1.i = zext i1 %50 to i8
   %51 = getelementptr inbounds i8, ptr %1, i64 56
   store i8 %.1.i, ptr %51, align 8

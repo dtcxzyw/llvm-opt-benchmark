@@ -6223,7 +6223,7 @@ define hidden i64 @rb_fix_to_s(i64 noundef %0) local_unnamed_addr #2 {
   %17 = getelementptr i8, ptr %.022.i, i64 -1
   store i8 %16, ptr %17, align 1
   %18 = udiv i64 %.1.i, 10
-  %.not.i = icmp ult i64 %.1.i, 10
+  %.not.i = icmp samesign ult i64 %.1.i, 10
   br i1 %.not.i, label %19, label %13, !llvm.loop !20
 
 19:                                               ; preds = %13
@@ -6892,7 +6892,7 @@ rb_integer_type_p.exit.thread42:                  ; preds = %16, %16, %6, %18, %
 24:                                               ; preds = %22
   %25 = ashr i64 %.035, 1
   %26 = tail call i64 @llvm.abs.i64(i64 %25, i1 true)
-  %27 = icmp ugt i64 %26, 9007199254740991
+  %27 = icmp samesign ugt i64 %26, 9007199254740991
   %28 = ashr i64 %.036, 1
   br i1 %27, label %29, label %33
 
@@ -8524,7 +8524,7 @@ rb_num2long_inline.exit.i:                        ; preds = %2
 
 15:                                               ; preds = %12
   %16 = sub nsw i64 0, %13
-  %17 = icmp ugt i64 %16, 62
+  %17 = icmp samesign ugt i64 %16, 62
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %15
@@ -8539,7 +8539,7 @@ rb_num2long_inline.exit.i:                        ; preds = %2
   br label %.critedge
 
 23:                                               ; preds = %12
-  %24 = icmp ugt i64 %13, 63
+  %24 = icmp samesign ugt i64 %13, 63
   br i1 %24, label %rb_ulong2num_inline.exit.i.i, label %25
 
 25:                                               ; preds = %23
@@ -10176,7 +10176,7 @@ define internal i64 @rb_int_s_isqrt(i64 %0, i64 noundef %1) #2 {
   %22 = shl nuw nsw i64 1, %21
   %23 = or i64 %19, %22
   %24 = udiv i64 %10, %23
-  %25 = icmp ult i64 %24, %23
+  %25 = icmp samesign ult i64 %24, %23
   br i1 %25, label %.lr.ph.i, label %rb_ulong_isqrt.exit
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
@@ -10185,7 +10185,7 @@ define internal i64 @rb_int_s_isqrt(i64 %0, i64 noundef %1) #2 {
   %27 = add i64 %.017.i, %26
   %28 = lshr i64 %27, 1
   %29 = udiv i64 %10, %28
-  %30 = icmp ult i64 %29, %28
+  %30 = icmp samesign ult i64 %29, %28
   br i1 %30, label %.lr.ph.i, label %rb_ulong_isqrt.exit, !llvm.loop !21
 
 31:                                               ; preds = %9
@@ -11705,7 +11705,7 @@ define internal i64 @rb_int_rshift(i64 noundef %0, i64 noundef %1) #2 {
 
 18:                                               ; preds = %16
   %19 = sub nsw i64 0, %14
-  %20 = icmp ugt i64 %19, 63
+  %20 = icmp samesign ugt i64 %19, 63
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %18
@@ -11720,7 +11720,7 @@ define internal i64 @rb_int_rshift(i64 noundef %0, i64 noundef %1) #2 {
 
 25:                                               ; preds = %18
   %26 = tail call i64 @rb_int2big(i64 noundef %5) #23
-  %27 = icmp ult i64 %19, 4611686018427387904
+  %27 = icmp samesign ult i64 %19, 4611686018427387904
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %25, %.thread.i.i
@@ -11755,7 +11755,7 @@ rb_ulong2num_inline.exit.i.i:                     ; preds = %32, %28
   br label %.critedge
 
 44:                                               ; preds = %16
-  %45 = icmp ugt i64 %14, 62
+  %45 = icmp samesign ugt i64 %14, 62
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %44

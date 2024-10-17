@@ -286,7 +286,7 @@ define noundef nonnull ptr @_ZN3gmx10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS_8Arr
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %46, i32 %51)
   store i32 %.sroa.speculated, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %52 = icmp ult i64 %indvars.iv.next, %44
+  %52 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %52, label %45, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %45, %.lr.ph128

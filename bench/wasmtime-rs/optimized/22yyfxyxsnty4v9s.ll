@@ -3867,7 +3867,7 @@ define hidden void @_ZN14cap_primitives2fs9read_link9read_link17hf16c76e2dbff0c9
   %21 = trunc nuw i8 %20 to i1
   %22 = getelementptr inbounds i8, ptr %7, i64 16
   %23 = load i8, ptr %22, align 8, !range !546, !noalias !542
-  %or.cond.i = icmp ult i8 %23, 5
+  %or.cond.i = icmp samesign ult i8 %23, 5
   %.0.i = select i1 %21, i1 true, i1 %or.cond.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !542
   br i1 %.0.i, label %24, label %15
@@ -16522,7 +16522,7 @@ define hidden noundef ptr @_ZN7cap_std2fs3dir3Dir7symlink17h0eea4570b3265b75E.ll
   %15 = trunc nuw i8 %14 to i1
   %16 = getelementptr inbounds i8, ptr %4, i64 16
   %17 = load i8, ptr %16, align 8, !range !546, !noalias !2248
-  %or.cond.i = icmp ult i8 %17, 5
+  %or.cond.i = icmp samesign ult i8 %17, 5
   %.0.i = select i1 %15, i1 true, i1 %or.cond.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !2248
   br i1 %.0.i, label %20, label %18
@@ -19779,7 +19779,7 @@ define hidden noundef ptr @"_ZN13wasmtime_wasi10filesystem3Dir14spawn_blocking28
   %17 = trunc nuw i8 %16 to i1
   %18 = getelementptr inbounds i8, ptr %2, i64 16
   %19 = load i8, ptr %18, align 8, !range !546, !noalias !3031
-  %or.cond.i.i.i = icmp ult i8 %19, 5
+  %or.cond.i.i.i = icmp samesign ult i8 %19, 5
   %.0.i.i.i = select i1 %17, i1 true, i1 %or.cond.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !3031
   br i1 %.0.i.i.i, label %22, label %20
@@ -24073,7 +24073,7 @@ define hidden noundef ptr @"_ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$
   %14 = trunc nuw i8 %13 to i1
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   %16 = load i8, ptr %15, align 8, !range !546, !noalias !3994
-  %or.cond.i.i = icmp ult i8 %16, 5
+  %or.cond.i.i = icmp samesign ult i8 %16, 5
   %.0.i.i = select i1 %14, i1 true, i1 %or.cond.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !3994
   br i1 %.0.i.i, label %19, label %17

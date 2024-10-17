@@ -4033,7 +4033,7 @@ define internal i32 @_v39_dump_LICENSES(ptr nocapture noundef readonly %0, ptr n
   %.017 = phi i64 [ 0, %.preheader ], [ %27, %find_parser_by_type.exit ]
   %13 = load i32, ptr %6, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %.017, %14
+  %15 = icmp samesign ult i64 %.017, %14
   br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %12
@@ -4811,7 +4811,7 @@ define internal i32 @_v39_dump_JOB_INFO_MSG(ptr nocapture noundef readonly %0, p
   %.020 = phi i64 [ 0, %.preheader ], [ %28, %find_parser_by_type.exit ]
   %14 = load i32, ptr %7, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %.020, %15
+  %16 = icmp samesign ult i64 %.020, %15
   br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %13
@@ -5113,7 +5113,7 @@ define internal noundef i32 @_v39_dump_JOB_ARRAY_RESPONSE_MSG(ptr nocapture read
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %1, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %10, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %10, %4
@@ -5925,7 +5925,7 @@ define internal noundef i32 @_v39_dump_STATS_MSG_RPCS_BY_TYPE(ptr nocapture read
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %7, align 4
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %19, label %.preheader, !llvm.loop !17
 
 36:                                               ; preds = %.lr.ph43, %36
@@ -5963,7 +5963,7 @@ define internal noundef i32 @_v39_dump_STATS_MSG_RPCS_BY_TYPE(ptr nocapture read
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %67 = load i32, ptr %7, align 4
   %68 = zext i32 %67 to i64
-  %69 = icmp ult i64 %indvars.iv.next48, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next48, %68
   br i1 %69, label %36, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %36, %9, %.preheader
@@ -6042,7 +6042,7 @@ define internal noundef i32 @_v39_dump_STATS_MSG_RPCS_BY_USER(ptr nocapture read
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %9, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %21, label %.preheader, !llvm.loop !19
 
 38:                                               ; preds = %.lr.ph49, %77
@@ -6103,7 +6103,7 @@ define internal noundef i32 @_v39_dump_STATS_MSG_RPCS_BY_USER(ptr nocapture read
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %78 = load i32, ptr %9, align 8
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %indvars.iv.next54, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next54, %79
   br i1 %80, label %38, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %77, %11, %.preheader
@@ -6361,7 +6361,7 @@ find_parser_by_type.exit:                         ; preds = %18, %.preheader
   %indvars.iv.be = add nuw nsw i64 %indvars.iv26, 1
   %26 = load i32, ptr %7, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.be, %27
+  %28 = icmp samesign ult i64 %indvars.iv.be, %27
   br i1 %28, label %.lr.ph, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %find_parser_by_type.exit, %.backedge, %.preheader22, %11
@@ -6396,7 +6396,7 @@ define internal noundef i32 @_v39_dump_JOB_INFO_GRES_DETAIL(ptr nocapture readno
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %6, align 8
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %9, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %9, %4
@@ -6570,7 +6570,7 @@ _dump_node_res.exit:                              ; preds = %101, %25, %78
   %105 = add nuw nsw i64 %.02539, 1
   %106 = load i32, ptr %10, align 8
   %107 = zext i32 %106 to i64
-  %108 = icmp ult i64 %105, %107
+  %108 = icmp samesign ult i64 %105, %107
   br i1 %108, label %25, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_dump_node_res.exit, %12
@@ -6617,7 +6617,7 @@ define internal i32 @_v39_dump_STEP_INFO_MSG(ptr nocapture noundef readonly %0, 
   %.020 = phi i64 [ 0, %.preheader ], [ %28, %find_parser_by_type.exit ]
   %14 = load i32, ptr %7, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %.020, %15
+  %16 = icmp samesign ult i64 %.020, %15
   br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %13
@@ -6683,7 +6683,7 @@ define internal i32 @_v39_dump_PARTITION_INFO_MSG(ptr nocapture noundef readonly
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %find_parser_by_type.exit ]
   %14 = load i32, ptr %7, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv, %15
+  %16 = icmp samesign ult i64 %indvars.iv, %15
   br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %13
@@ -6734,7 +6734,7 @@ define internal noundef i32 @_v39_dump_RESERVATION_INFO_MSG(ptr nocapture readno
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %find_parser_by_type.exit ]
   %9 = load i32, ptr %6, align 8
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv, %10
+  %11 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %8
@@ -6784,7 +6784,7 @@ define internal noundef i32 @_v39_dump_RESERVATION_INFO_CORE_SPEC(ptr nocapture 
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %find_parser_by_type.exit ]
   %9 = load i32, ptr %6, align 4
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv, %10
+  %11 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %8
@@ -8055,7 +8055,7 @@ find_parser_by_type.exit:                         ; preds = %65, %66
   %.1 = phi i32 [ %73, %find_parser_by_type.exit ], [ 0, %62 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not45 = icmp eq i32 %.1, 0
-  %75 = icmp ult i64 %indvars.iv.next, %56
+  %75 = icmp samesign ult i64 %indvars.iv.next, %56
   %76 = select i1 %.not45, i1 %75, i1 false
   br i1 %76, label %.lr.ph, label %.loopexit, !llvm.loop !29
 

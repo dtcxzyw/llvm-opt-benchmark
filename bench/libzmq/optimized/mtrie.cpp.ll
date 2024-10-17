@@ -223,7 +223,7 @@ lor.lhs.false:                                    ; preds = %while.body
   %2 = load i16, ptr %_count, align 2
   %conv6 = zext i16 %2 to i32
   %add = add nuw nsw i32 %conv6, %conv2
-  %cmp7.not = icmp ugt i32 %add, %conv
+  %cmp7.not = icmp samesign ugt i32 %add, %conv
   br i1 %cmp7.not, label %if.end155, label %if.then
 
 if.then:                                          ; preds = %while.body.if.then_crit_edge, %lor.lhs.false
@@ -826,7 +826,7 @@ lor.lhs.false:                                    ; preds = %if.end32
   %cmp41 = icmp uge i8 %15, %17
   %conv50 = zext i16 %16 to i32
   %add = add nuw nsw i32 %conv40, %conv50
-  %cmp51.not = icmp ugt i32 %add, %conv38
+  %cmp51.not = icmp samesign ugt i32 %add, %conv38
   %or.cond = select i1 %cmp41, i1 %cmp51.not, i1 false
   br i1 %or.cond, label %if.end53, label %while.cond.outer.backedge
 

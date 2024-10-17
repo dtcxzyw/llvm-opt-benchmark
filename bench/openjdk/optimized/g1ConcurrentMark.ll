@@ -1884,7 +1884,7 @@ _ZN13G1CMMarkStack14ChunkAllocator10get_bucketEm.exit22: ; preds = %_ZN13G1CMMar
   %16 = add nuw nsw i64 %15, 1
   %17 = sub nsw i64 %16, %14
   %18 = and i64 %17, 4294967295
-  %.not39 = icmp ugt i64 %18, %.0.i
+  %.not39 = icmp samesign ugt i64 %18, %.0.i
   br i1 %.not39, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN13G1CMMarkStack14ChunkAllocator10get_bucketEm.exit, %_ZN13G1CMMarkStack14ChunkAllocator10get_bucketEm.exit22
@@ -3002,7 +3002,7 @@ _ZN8G1CMTaskC2EjP16G1ConcurrentMarkP16GenericTaskQueueI16G1TaskQueueEntryL8MEMFL
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %180 = load i32, ptr %40, align 4
   %181 = zext i32 %180 to i64
-  %182 = icmp ult i64 %indvars.iv.next, %181
+  %182 = icmp samesign ult i64 %indvars.iv.next, %181
   br i1 %182, label %_ZN8G1CMTaskC2EjP16G1ConcurrentMarkP16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EEP17G1RegionMarkStats.exit, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %_ZN8G1CMTaskC2EjP16G1ConcurrentMarkP16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EEP17G1RegionMarkStats.exit, %137
@@ -3077,7 +3077,7 @@ define hidden void @_ZN16G1ConcurrentMark5resetEv(ptr noundef nonnull align 8 de
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %3, align 4
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %7, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %7, %1
@@ -3192,7 +3192,7 @@ define hidden void @_ZN16G1ConcurrentMark25reset_marking_for_restartEv(ptr nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %30, align 4
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next, %42
   br i1 %43, label %33, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %33, %.loopexit
@@ -3266,7 +3266,7 @@ _ZN8G1CMTask22clear_mark_stats_cacheEj.exit:      ; preds = %8, %23
   %25 = phi i32 [ %9, %8 ], [ %.pre, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %8, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_ZN8G1CMTask22clear_mark_stats_cacheEj.exit, %2
@@ -3419,7 +3419,7 @@ _ZN8G1CMTask22clear_mark_stats_cacheEj.exit.i.i.i: ; preds = %77, %.lr.ph.i.i.i
   %79 = phi i32 [ %63, %.lr.ph.i.i.i ], [ %.pre.i.i.i, %77 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %80 = zext i32 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next.i.i.i, %80
+  %81 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %80
   br i1 %81, label %.lr.ph.i.i.i, label %"_ZZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionENK3$_0clES1_.exit.i", !llvm.loop !25
 
 "_ZZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionENK3$_0clES1_.exit.i": ; preds = %_ZN8G1CMTask22clear_mark_stats_cacheEj.exit.i.i.i, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i
@@ -3680,7 +3680,7 @@ define hidden void @_ZN24G1PreConcurrentStartTask21ResetMarkingStateTask7do_work
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = load i32, ptr %6, align 4
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next.i, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next.i, %20
   br i1 %21, label %10, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %10, %2
@@ -4562,7 +4562,7 @@ _ZN16G1ConcurrentMark27calc_active_marking_workersEv.exit: ; preds = %8, %11
   %55 = add nuw nsw i64 %.05.i, 1
   %56 = load i32, ptr %31, align 8
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %55, %57
+  %58 = icmp samesign ult i64 %55, %57
   br i1 %58, label %48, label %_ZN16G1ConcurrentMark11print_statsEv.exit, !llvm.loop !30
 
 _ZN16G1ConcurrentMark11print_statsEv.exit:        ; preds = %54, %29, %45
@@ -4625,7 +4625,7 @@ define hidden void @_ZN16G1ConcurrentMark11print_statsEv(ptr nocapture noundef n
   %17 = add nuw nsw i64 %.05, 1
   %18 = load i32, ptr %7, align 8
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %17, %19
+  %20 = icmp samesign ult i64 %17, %19
   br i1 %20, label %10, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %16, %6, %1
@@ -5104,7 +5104,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %137 = load i32, ptr %124, align 4
   %138 = zext i32 %137 to i64
-  %139 = icmp ult i64 %indvars.iv.next.i, %138
+  %139 = icmp samesign ult i64 %indvars.iv.next.i, %138
   br i1 %139, label %127, label %._crit_edge.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %127, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit26
@@ -5746,7 +5746,7 @@ define hidden void @_ZN16G1ConcurrentMark16finalize_markingEv(ptr noundef nonnul
   %68 = add nuw nsw i64 %.05.i, 1
   %69 = load i32, ptr %26, align 8
   %70 = zext i32 %69 to i64
-  %71 = icmp ult i64 %68, %70
+  %71 = icmp samesign ult i64 %68, %70
   br i1 %71, label %61, label %_ZN16G1ConcurrentMark11print_statsEv.exit, !llvm.loop !30
 
 _ZN16G1ConcurrentMark11print_statsEv.exit:        ; preds = %67, %53, %58
@@ -6203,7 +6203,7 @@ define hidden void @_ZN16G1ConcurrentMark21flush_all_task_cachesEv(ptr nocapture
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %2, align 4
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %5, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %5, %1
@@ -6993,7 +6993,7 @@ _ZN16G1ConcurrentMark31root_region_scan_abort_and_waitEv.exit: ; preds = %1, %._
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %23, align 4
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %26, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %26, %22
@@ -9378,7 +9378,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10G1CMBitMap7iterateEP17G1CMBi
   %18 = sub i64 %17, %9
   %19 = lshr i64 %18, 3
   %20 = lshr i64 %19, %14
-  %21 = icmp ult i64 %20, %15
+  %21 = icmp samesign ult i64 %20, %15
   br i1 %21, label %22, label %._crit_edge
 
 22:                                               ; preds = %4
@@ -9404,7 +9404,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10G1CMBitMap7iterateEP17G1CMBi
 35:                                               ; preds = %38, %32
   %.025.i.i = phi i64 [ %23, %32 ], [ %36, %38 ]
   %36 = add nuw nsw i64 %.025.i.i, 1
-  %37 = icmp ult i64 %36, %34
+  %37 = icmp samesign ult i64 %36, %34
   br i1 %37, label %38, label %._crit_edge
 
 38:                                               ; preds = %35
@@ -9551,7 +9551,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %77, %80, %87, %107
 .preheader:                                       ; preds = %125, %129
   %.025.i.i20 = phi i64 [ %127, %129 ], [ %118, %125 ]
   %127 = add nuw nsw i64 %.025.i.i20, 1
-  %128 = icmp ult i64 %127, %48
+  %128 = icmp samesign ult i64 %127, %48
   br i1 %128, label %129, label %._crit_edge
 
 129:                                              ; preds = %.preheader
@@ -11800,7 +11800,7 @@ _ZN8G1CMTask22clear_mark_stats_cacheEj.exit.i:    ; preds = %39, %24
   %41 = phi i32 [ %25, %24 ], [ %.pre.i, %39 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next.i, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next.i, %42
   br i1 %43, label %24, label %_ZN16G1ConcurrentMark16clear_statisticsEP12G1HeapRegion.exit, !llvm.loop !25
 
 _ZN16G1ConcurrentMark16clear_statisticsEP12G1HeapRegion.exit: ; preds = %_ZN8G1CMTask22clear_mark_stats_cacheEj.exit.i, %2
@@ -11900,7 +11900,7 @@ _ZN8G1CMTask22clear_mark_stats_cacheEj.exit.i:    ; preds = %40, %25
   %42 = phi i32 [ %26, %25 ], [ %.pre.i, %40 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next.i, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next.i, %43
   br i1 %44, label %25, label %_ZN16G1ConcurrentMark16clear_statisticsEP12G1HeapRegion.exit, !llvm.loop !25
 
 _ZN16G1ConcurrentMark16clear_statisticsEP12G1HeapRegion.exit: ; preds = %_ZN8G1CMTask22clear_mark_stats_cacheEj.exit.i, %2
@@ -15703,7 +15703,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -15946,7 +15946,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -21170,7 +21170,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %38, %42
   %.025.i.i.i.i = phi i64 [ %40, %42 ], [ %32, %38 ]
   %40 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %41 = icmp ult i64 %40, %28
+  %41 = icmp samesign ult i64 %40, %28
   br i1 %41, label %42, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop23G1RootRegionScanClosureEEEbPT_mm.exit
 
 42:                                               ; preds = %.preheader.i.i
@@ -21405,7 +21405,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %38, %42
   %.025.i.i.i.i = phi i64 [ %40, %42 ], [ %32, %38 ]
   %40 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %41 = icmp ult i64 %40, %28
+  %41 = icmp samesign ult i64 %40, %28
   br i1 %41, label %42, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc23G1RootRegionScanClosureEEEbPT_mm.exit
 
 42:                                               ; preds = %.preheader.i.i
@@ -21946,7 +21946,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI16GenericTaskQu
   %60 = sub i32 %57, %59
   %61 = and i32 %60, 131071
   %62 = icmp ne i32 %61, 131071
-  %63 = icmp ugt i32 %61, %52
+  %63 = icmp samesign ugt i32 %61, %52
   %64 = select i1 %62, i1 %63, i1 false
   br i1 %64, label %65, label %82
 

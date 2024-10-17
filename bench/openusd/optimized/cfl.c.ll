@@ -2317,14 +2317,14 @@ define hidden void @cfl_subsample_lbd_420_8x8_c(ptr nocapture noundef readonly %
   %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %30 = icmp ult i64 %indvars.iv.i, 6
+  %30 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %30, label %7, label %31, !llvm.loop !19
 
 31:                                               ; preds = %7
   %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %34 = add nuw nsw i32 %.02125.i, 2
-  %35 = icmp ult i32 %.02125.i, 6
+  %35 = icmp samesign ult i32 %.02125.i, 6
   br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
@@ -2372,14 +2372,14 @@ define hidden void @cfl_subsample_lbd_420_16x16_c(ptr nocapture noundef readonly
   %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %30 = icmp ult i64 %indvars.iv.i, 14
+  %30 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %30, label %7, label %31, !llvm.loop !19
 
 31:                                               ; preds = %7
   %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %34 = add nuw nsw i32 %.02125.i, 2
-  %35 = icmp ult i32 %.02125.i, 14
+  %35 = icmp samesign ult i32 %.02125.i, 14
   br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
@@ -2427,14 +2427,14 @@ define hidden void @cfl_subsample_lbd_420_32x32_c(ptr nocapture noundef readonly
   %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %30 = icmp ult i64 %indvars.iv.i, 30
+  %30 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %30, label %7, label %31, !llvm.loop !19
 
 31:                                               ; preds = %7
   %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %34 = add nuw nsw i32 %.02125.i, 2
-  %35 = icmp ult i32 %.02125.i, 30
+  %35 = icmp samesign ult i32 %.02125.i, 30
   br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
@@ -2488,7 +2488,7 @@ define hidden void @cfl_subsample_lbd_420_4x8_c(ptr nocapture noundef readonly %
   %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %34 = add nuw nsw i32 %.02125.i, 2
-  %35 = icmp ult i32 %.02125.i, 6
+  %35 = icmp samesign ult i32 %.02125.i, 6
   br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
@@ -2536,7 +2536,7 @@ define hidden void @cfl_subsample_lbd_420_8x4_c(ptr nocapture noundef readonly %
   %30 = getelementptr inbounds i16, ptr %.02224.i, i64 %29
   store i16 %28, ptr %30, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %31 = icmp ult i64 %indvars.iv.i, 6
+  %31 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %31, label %8, label %32, !llvm.loop !19
 
 32:                                               ; preds = %8
@@ -2589,14 +2589,14 @@ define hidden void @cfl_subsample_lbd_420_8x16_c(ptr nocapture noundef readonly 
   %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %30 = icmp ult i64 %indvars.iv.i, 6
+  %30 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %30, label %7, label %31, !llvm.loop !19
 
 31:                                               ; preds = %7
   %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %34 = add nuw nsw i32 %.02125.i, 2
-  %35 = icmp ult i32 %.02125.i, 14
+  %35 = icmp samesign ult i32 %.02125.i, 14
   br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
@@ -2644,14 +2644,14 @@ define hidden void @cfl_subsample_lbd_420_16x8_c(ptr nocapture noundef readonly 
   %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %30 = icmp ult i64 %indvars.iv.i, 14
+  %30 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %30, label %7, label %31, !llvm.loop !19
 
 31:                                               ; preds = %7
   %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %34 = add nuw nsw i32 %.02125.i, 2
-  %35 = icmp ult i32 %.02125.i, 6
+  %35 = icmp samesign ult i32 %.02125.i, 6
   br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
@@ -2699,14 +2699,14 @@ define hidden void @cfl_subsample_lbd_420_16x32_c(ptr nocapture noundef readonly
   %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %30 = icmp ult i64 %indvars.iv.i, 14
+  %30 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %30, label %7, label %31, !llvm.loop !19
 
 31:                                               ; preds = %7
   %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %34 = add nuw nsw i32 %.02125.i, 2
-  %35 = icmp ult i32 %.02125.i, 30
+  %35 = icmp samesign ult i32 %.02125.i, 30
   br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
@@ -2754,14 +2754,14 @@ define hidden void @cfl_subsample_lbd_420_32x16_c(ptr nocapture noundef readonly
   %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %30 = icmp ult i64 %indvars.iv.i, 30
+  %30 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %30, label %7, label %31, !llvm.loop !19
 
 31:                                               ; preds = %7
   %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %34 = add nuw nsw i32 %.02125.i, 2
-  %35 = icmp ult i32 %.02125.i, 14
+  %35 = icmp samesign ult i32 %.02125.i, 14
   br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
@@ -2815,7 +2815,7 @@ define hidden void @cfl_subsample_lbd_420_4x16_c(ptr nocapture noundef readonly 
   %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %34 = add nuw nsw i32 %.02125.i, 2
-  %35 = icmp ult i32 %.02125.i, 14
+  %35 = icmp samesign ult i32 %.02125.i, 14
   br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
@@ -2863,7 +2863,7 @@ define hidden void @cfl_subsample_lbd_420_16x4_c(ptr nocapture noundef readonly 
   %30 = getelementptr inbounds i16, ptr %.02224.i, i64 %29
   store i16 %28, ptr %30, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %31 = icmp ult i64 %indvars.iv.i, 14
+  %31 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %31, label %8, label %32, !llvm.loop !19
 
 32:                                               ; preds = %8
@@ -2916,14 +2916,14 @@ define hidden void @cfl_subsample_lbd_420_8x32_c(ptr nocapture noundef readonly 
   %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %30 = icmp ult i64 %indvars.iv.i, 6
+  %30 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %30, label %7, label %31, !llvm.loop !19
 
 31:                                               ; preds = %7
   %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %34 = add nuw nsw i32 %.02125.i, 2
-  %35 = icmp ult i32 %.02125.i, 30
+  %35 = icmp samesign ult i32 %.02125.i, 30
   br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
@@ -2971,14 +2971,14 @@ define hidden void @cfl_subsample_lbd_420_32x8_c(ptr nocapture noundef readonly 
   %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %30 = icmp ult i64 %indvars.iv.i, 30
+  %30 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %30, label %7, label %31, !llvm.loop !19
 
 31:                                               ; preds = %7
   %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %34 = add nuw nsw i32 %.02125.i, 2
-  %35 = icmp ult i32 %.02125.i, 6
+  %35 = icmp samesign ult i32 %.02125.i, 6
   br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
@@ -3058,7 +3058,7 @@ define hidden void @cfl_subsample_lbd_422_8x8_c(ptr nocapture noundef readonly %
   %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %17 = icmp ult i64 %indvars.iv.i, 6
+  %17 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %17, label %5, label %18, !llvm.loop !21
 
 18:                                               ; preds = %5
@@ -3098,7 +3098,7 @@ define hidden void @cfl_subsample_lbd_422_16x16_c(ptr nocapture noundef readonly
   %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %17 = icmp ult i64 %indvars.iv.i, 14
+  %17 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %17, label %5, label %18, !llvm.loop !21
 
 18:                                               ; preds = %5
@@ -3138,7 +3138,7 @@ define hidden void @cfl_subsample_lbd_422_32x32_c(ptr nocapture noundef readonly
   %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %17 = icmp ult i64 %indvars.iv.i, 30
+  %17 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %17, label %5, label %18, !llvm.loop !21
 
 18:                                               ; preds = %5
@@ -3217,7 +3217,7 @@ define hidden void @cfl_subsample_lbd_422_8x4_c(ptr nocapture noundef readonly %
   %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %17 = icmp ult i64 %indvars.iv.i, 6
+  %17 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %17, label %5, label %18, !llvm.loop !21
 
 18:                                               ; preds = %5
@@ -3257,7 +3257,7 @@ define hidden void @cfl_subsample_lbd_422_8x16_c(ptr nocapture noundef readonly 
   %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %17 = icmp ult i64 %indvars.iv.i, 6
+  %17 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %17, label %5, label %18, !llvm.loop !21
 
 18:                                               ; preds = %5
@@ -3297,7 +3297,7 @@ define hidden void @cfl_subsample_lbd_422_16x8_c(ptr nocapture noundef readonly 
   %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %17 = icmp ult i64 %indvars.iv.i, 14
+  %17 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %17, label %5, label %18, !llvm.loop !21
 
 18:                                               ; preds = %5
@@ -3337,7 +3337,7 @@ define hidden void @cfl_subsample_lbd_422_16x32_c(ptr nocapture noundef readonly
   %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %17 = icmp ult i64 %indvars.iv.i, 14
+  %17 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %17, label %5, label %18, !llvm.loop !21
 
 18:                                               ; preds = %5
@@ -3377,7 +3377,7 @@ define hidden void @cfl_subsample_lbd_422_32x16_c(ptr nocapture noundef readonly
   %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %17 = icmp ult i64 %indvars.iv.i, 30
+  %17 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %17, label %5, label %18, !llvm.loop !21
 
 18:                                               ; preds = %5
@@ -3456,7 +3456,7 @@ define hidden void @cfl_subsample_lbd_422_16x4_c(ptr nocapture noundef readonly 
   %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %17 = icmp ult i64 %indvars.iv.i, 14
+  %17 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %17, label %5, label %18, !llvm.loop !21
 
 18:                                               ; preds = %5
@@ -3496,7 +3496,7 @@ define hidden void @cfl_subsample_lbd_422_8x32_c(ptr nocapture noundef readonly 
   %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %17 = icmp ult i64 %indvars.iv.i, 6
+  %17 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %17, label %5, label %18, !llvm.loop !21
 
 18:                                               ; preds = %5
@@ -3536,7 +3536,7 @@ define hidden void @cfl_subsample_lbd_422_32x8_c(ptr nocapture noundef readonly 
   %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %17 = icmp ult i64 %indvars.iv.i, 30
+  %17 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %17, label %5, label %18, !llvm.loop !21
 
 18:                                               ; preds = %5
@@ -4127,14 +4127,14 @@ define hidden void @cfl_subsample_hbd_420_8x8_c(ptr nocapture noundef readonly %
   %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %26 = icmp ult i64 %indvars.iv.i, 6
+  %26 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %26, label %7, label %27, !llvm.loop !25
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %30 = add nuw nsw i32 %.02125.i, 2
-  %31 = icmp ult i32 %.02125.i, 6
+  %31 = icmp samesign ult i32 %.02125.i, 6
   br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
@@ -4178,14 +4178,14 @@ define hidden void @cfl_subsample_hbd_420_16x16_c(ptr nocapture noundef readonly
   %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %26 = icmp ult i64 %indvars.iv.i, 14
+  %26 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %26, label %7, label %27, !llvm.loop !25
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %30 = add nuw nsw i32 %.02125.i, 2
-  %31 = icmp ult i32 %.02125.i, 14
+  %31 = icmp samesign ult i32 %.02125.i, 14
   br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
@@ -4229,14 +4229,14 @@ define hidden void @cfl_subsample_hbd_420_32x32_c(ptr nocapture noundef readonly
   %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %26 = icmp ult i64 %indvars.iv.i, 30
+  %26 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %26, label %7, label %27, !llvm.loop !25
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %30 = add nuw nsw i32 %.02125.i, 2
-  %31 = icmp ult i32 %.02125.i, 30
+  %31 = icmp samesign ult i32 %.02125.i, 30
   br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
@@ -4286,7 +4286,7 @@ define hidden void @cfl_subsample_hbd_420_4x8_c(ptr nocapture noundef readonly %
   %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %30 = add nuw nsw i32 %.02125.i, 2
-  %31 = icmp ult i32 %.02125.i, 6
+  %31 = icmp samesign ult i32 %.02125.i, 6
   br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
@@ -4330,7 +4330,7 @@ define hidden void @cfl_subsample_hbd_420_8x4_c(ptr nocapture noundef readonly %
   %26 = getelementptr inbounds i16, ptr %.02224.i, i64 %25
   store i16 %24, ptr %26, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %27 = icmp ult i64 %indvars.iv.i, 6
+  %27 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %27, label %8, label %28, !llvm.loop !25
 
 28:                                               ; preds = %8
@@ -4379,14 +4379,14 @@ define hidden void @cfl_subsample_hbd_420_8x16_c(ptr nocapture noundef readonly 
   %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %26 = icmp ult i64 %indvars.iv.i, 6
+  %26 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %26, label %7, label %27, !llvm.loop !25
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %30 = add nuw nsw i32 %.02125.i, 2
-  %31 = icmp ult i32 %.02125.i, 14
+  %31 = icmp samesign ult i32 %.02125.i, 14
   br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
@@ -4430,14 +4430,14 @@ define hidden void @cfl_subsample_hbd_420_16x8_c(ptr nocapture noundef readonly 
   %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %26 = icmp ult i64 %indvars.iv.i, 14
+  %26 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %26, label %7, label %27, !llvm.loop !25
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %30 = add nuw nsw i32 %.02125.i, 2
-  %31 = icmp ult i32 %.02125.i, 6
+  %31 = icmp samesign ult i32 %.02125.i, 6
   br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
@@ -4481,14 +4481,14 @@ define hidden void @cfl_subsample_hbd_420_16x32_c(ptr nocapture noundef readonly
   %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %26 = icmp ult i64 %indvars.iv.i, 14
+  %26 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %26, label %7, label %27, !llvm.loop !25
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %30 = add nuw nsw i32 %.02125.i, 2
-  %31 = icmp ult i32 %.02125.i, 30
+  %31 = icmp samesign ult i32 %.02125.i, 30
   br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
@@ -4532,14 +4532,14 @@ define hidden void @cfl_subsample_hbd_420_32x16_c(ptr nocapture noundef readonly
   %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %26 = icmp ult i64 %indvars.iv.i, 30
+  %26 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %26, label %7, label %27, !llvm.loop !25
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %30 = add nuw nsw i32 %.02125.i, 2
-  %31 = icmp ult i32 %.02125.i, 14
+  %31 = icmp samesign ult i32 %.02125.i, 14
   br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
@@ -4589,7 +4589,7 @@ define hidden void @cfl_subsample_hbd_420_4x16_c(ptr nocapture noundef readonly 
   %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %30 = add nuw nsw i32 %.02125.i, 2
-  %31 = icmp ult i32 %.02125.i, 14
+  %31 = icmp samesign ult i32 %.02125.i, 14
   br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
@@ -4633,7 +4633,7 @@ define hidden void @cfl_subsample_hbd_420_16x4_c(ptr nocapture noundef readonly 
   %26 = getelementptr inbounds i16, ptr %.02224.i, i64 %25
   store i16 %24, ptr %26, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %27 = icmp ult i64 %indvars.iv.i, 14
+  %27 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %27, label %8, label %28, !llvm.loop !25
 
 28:                                               ; preds = %8
@@ -4682,14 +4682,14 @@ define hidden void @cfl_subsample_hbd_420_8x32_c(ptr nocapture noundef readonly 
   %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %26 = icmp ult i64 %indvars.iv.i, 6
+  %26 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %26, label %7, label %27, !llvm.loop !25
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %30 = add nuw nsw i32 %.02125.i, 2
-  %31 = icmp ult i32 %.02125.i, 30
+  %31 = icmp samesign ult i32 %.02125.i, 30
   br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
@@ -4733,14 +4733,14 @@ define hidden void @cfl_subsample_hbd_420_32x8_c(ptr nocapture noundef readonly 
   %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %26 = icmp ult i64 %indvars.iv.i, 30
+  %26 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %26, label %7, label %27, !llvm.loop !25
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
   %30 = add nuw nsw i32 %.02125.i, 2
-  %31 = icmp ult i32 %.02125.i, 6
+  %31 = icmp samesign ult i32 %.02125.i, 6
   br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
@@ -4812,7 +4812,7 @@ define hidden void @cfl_subsample_hbd_422_8x8_c(ptr nocapture noundef readonly %
   %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %15 = icmp ult i64 %indvars.iv.i, 6
+  %15 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %15, label %5, label %16, !llvm.loop !28
 
 16:                                               ; preds = %5
@@ -4850,7 +4850,7 @@ define hidden void @cfl_subsample_hbd_422_16x16_c(ptr nocapture noundef readonly
   %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %15 = icmp ult i64 %indvars.iv.i, 14
+  %15 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %15, label %5, label %16, !llvm.loop !28
 
 16:                                               ; preds = %5
@@ -4888,7 +4888,7 @@ define hidden void @cfl_subsample_hbd_422_32x32_c(ptr nocapture noundef readonly
   %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %15 = icmp ult i64 %indvars.iv.i, 30
+  %15 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %15, label %5, label %16, !llvm.loop !28
 
 16:                                               ; preds = %5
@@ -4959,7 +4959,7 @@ define hidden void @cfl_subsample_hbd_422_8x4_c(ptr nocapture noundef readonly %
   %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %15 = icmp ult i64 %indvars.iv.i, 6
+  %15 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %15, label %5, label %16, !llvm.loop !28
 
 16:                                               ; preds = %5
@@ -4997,7 +4997,7 @@ define hidden void @cfl_subsample_hbd_422_8x16_c(ptr nocapture noundef readonly 
   %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %15 = icmp ult i64 %indvars.iv.i, 6
+  %15 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %15, label %5, label %16, !llvm.loop !28
 
 16:                                               ; preds = %5
@@ -5035,7 +5035,7 @@ define hidden void @cfl_subsample_hbd_422_16x8_c(ptr nocapture noundef readonly 
   %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %15 = icmp ult i64 %indvars.iv.i, 14
+  %15 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %15, label %5, label %16, !llvm.loop !28
 
 16:                                               ; preds = %5
@@ -5073,7 +5073,7 @@ define hidden void @cfl_subsample_hbd_422_16x32_c(ptr nocapture noundef readonly
   %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %15 = icmp ult i64 %indvars.iv.i, 14
+  %15 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %15, label %5, label %16, !llvm.loop !28
 
 16:                                               ; preds = %5
@@ -5111,7 +5111,7 @@ define hidden void @cfl_subsample_hbd_422_32x16_c(ptr nocapture noundef readonly
   %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %15 = icmp ult i64 %indvars.iv.i, 30
+  %15 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %15, label %5, label %16, !llvm.loop !28
 
 16:                                               ; preds = %5
@@ -5182,7 +5182,7 @@ define hidden void @cfl_subsample_hbd_422_16x4_c(ptr nocapture noundef readonly 
   %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %15 = icmp ult i64 %indvars.iv.i, 14
+  %15 = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %15, label %5, label %16, !llvm.loop !28
 
 16:                                               ; preds = %5
@@ -5220,7 +5220,7 @@ define hidden void @cfl_subsample_hbd_422_8x32_c(ptr nocapture noundef readonly 
   %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %15 = icmp ult i64 %indvars.iv.i, 6
+  %15 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %15, label %5, label %16, !llvm.loop !28
 
 16:                                               ; preds = %5
@@ -5258,7 +5258,7 @@ define hidden void @cfl_subsample_hbd_422_32x8_c(ptr nocapture noundef readonly 
   %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %15 = icmp ult i64 %indvars.iv.i, 30
+  %15 = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %15, label %5, label %16, !llvm.loop !28
 
 16:                                               ; preds = %5

@@ -17994,7 +17994,7 @@ switch.early.test:                                ; preds = %14
 
 24:                                               ; preds = %22
   %25 = udiv i32 2147483647, %16
-  %26 = icmp ult i32 %25, %19
+  %26 = icmp samesign ult i32 %25, %19
   br i1 %26, label %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit, label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i: ; preds = %22
@@ -18037,7 +18037,7 @@ switch.early.test83:                              ; preds = %_ZNK32pxrInternal_v
 
 48:                                               ; preds = %46
   %49 = udiv i32 2147483647, %16
-  %50 = icmp ult i32 %49, %19
+  %50 = icmp samesign ult i32 %49, %19
   br i1 %50, label %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit58, label %53
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i56: ; preds = %46
@@ -18308,7 +18308,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 40:                                               ; preds = %35
   %41 = udiv i32 2147483647, %39
   %42 = tail call i32 @llvm.abs.i32(i32 %26, i1 true)
-  %43 = icmp ult i32 %41, %42
+  %43 = icmp samesign ult i32 %41, %42
   br i1 %43, label %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i: ; preds = %35
@@ -18376,7 +18376,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_ma
 79:                                               ; preds = %74
   %80 = udiv i32 2147483647, %78
   %81 = tail call i32 @llvm.abs.i32(i32 %65, i1 true)
-  %82 = icmp ult i32 %80, %81
+  %82 = icmp samesign ult i32 %80, %81
   br i1 %82, label %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit80.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit80
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i78: ; preds = %74
@@ -18565,7 +18565,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 163:                                              ; preds = %158
   %164 = udiv i32 2147483647, %162
   %165 = tail call i32 @llvm.abs.i32(i32 %149, i1 true)
-  %166 = icmp ult i32 %164, %165
+  %166 = icmp samesign ult i32 %164, %165
   br i1 %166, label %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit94, label %171
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i92: ; preds = %158
@@ -19108,7 +19108,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved_
 19:                                               ; preds = %14
   %20 = udiv i32 2147483647, %18
   %21 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
-  %22 = icmp ult i32 %20, %21
+  %22 = icmp samesign ult i32 %20, %21
   br i1 %22, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail16checked_multiplyIiEENSt9enable_ifIXsr3std11is_integralIT_EE5valueEbE4typeERS5_S5_.exit.thread, label %27
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i: ; preds = %14
@@ -22793,7 +22793,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i16, %28
   %.0.lcssa.i = phi i64 [ %4, %28 ], [ %33, %.lr.ph.i16 ]
-  %46 = icmp ugt i64 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %46, label %47, label %55
 
 47:                                               ; preds = %._crit_edge.i
@@ -23081,7 +23081,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -23217,7 +23217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i7, %25
   %.0.lcssa.i = phi i64 [ %1, %25 ], [ %32, %.lr.ph.i7 ]
-  %45 = icmp ugt i64 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %._crit_edge.i
@@ -35802,7 +35802,7 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_C
 29:                                               ; preds = %24
   %30 = udiv i32 2147483647, %28
   %31 = tail call i32 @llvm.abs.i32(i32 %15, i1 true)
-  %32 = icmp ult i32 %30, %31
+  %32 = icmp samesign ult i32 %30, %31
   br i1 %32, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI3App9_validateEvEUlRKSt10unique_ptrINS4_6OptionESt14default_deleteIS7_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.exit.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit.i.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i.i.i.i.i: ; preds = %24
@@ -35887,7 +35887,7 @@ _ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN32pxrInternal_v0_
 78:                                               ; preds = %73
   %79 = udiv i32 2147483647, %77
   %80 = tail call i32 @llvm.abs.i32(i32 %64, i1 true)
-  %81 = icmp ult i32 %79, %80
+  %81 = icmp samesign ult i32 %79, %80
   br i1 %81, label %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit.thread.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit.i.i.i.i48
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i.i.i.i.i46: ; preds = %73
@@ -37975,7 +37975,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option5clearEv.exit: ; preds =
 204:                                              ; preds = %199
   %205 = udiv i32 2147483647, %203
   %206 = call i32 @llvm.abs.i32(i32 %190, i1 true)
-  %207 = icmp ult i32 %205, %206
+  %207 = icmp samesign ult i32 %205, %206
   br i1 %207, label %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i: ; preds = %199
@@ -38025,7 +38025,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_ma
 231:                                              ; preds = %226
   %232 = udiv i32 2147483647, %230
   %233 = call i32 @llvm.abs.i32(i32 %185, i1 true)
-  %234 = icmp ult i32 %232, %233
+  %234 = icmp samesign ult i32 %232, %233
   br i1 %234, label %.thread291, label %239
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i: ; preds = %226

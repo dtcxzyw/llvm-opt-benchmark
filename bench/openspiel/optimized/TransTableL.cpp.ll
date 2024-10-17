@@ -210,7 +210,7 @@ define void @_ZN11TransTableLC2Ev(ptr nocapture noundef nonnull writeonly align 
   %.04445.i = phi i32 [ 1, %3 ], [ %spec.select.i, %4 ]
   %5 = shl i32 %.04445.i, 1
   %6 = zext i32 %5 to i64
-  %.not.i = icmp ult i64 %indvars.iv.i, %6
+  %.not.i = icmp samesign ult i64 %indvars.iv.i, %6
   %spec.select.i = select i1 %.not.i, i32 %.04445.i, i32 %5
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %8 = xor i32 %spec.select.i, %7
@@ -324,7 +324,7 @@ define void @_ZN11TransTableL12SetConstantsEv(ptr nocapture noundef nonnull read
   %.04445 = phi i32 [ 1, %1 ], [ %spec.select, %3 ]
   %4 = shl i32 %.04445, 1
   %5 = zext i32 %4 to i64
-  %.not = icmp ult i64 %indvars.iv, %5
+  %.not = icmp samesign ult i64 %indvars.iv, %5
   %spec.select = select i1 %.not, i32 %.04445, i32 %4
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   %7 = xor i32 %spec.select, %6
@@ -600,7 +600,7 @@ define void @_ZN11TransTableL4InitEPA15_Ki(ptr nocapture noundef nonnull align 8
   %.06167 = phi i32 [ 2, %.preheader ], [ %spec.select, %21 ]
   %4 = shl i32 %.06068, 1
   %5 = zext i32 %4 to i64
-  %.not = icmp uge i64 %indvars.iv72, %5
+  %.not = icmp samesign uge i64 %indvars.iv72, %5
   %6 = zext i1 %.not to i32
   %spec.select = add i32 %.06167, %6
   %spec.select64 = select i1 %.not, i32 %4, i32 %.06068
@@ -3306,7 +3306,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -3826,7 +3826,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i3, %25
   %.0.lcssa.i = phi i32 [ %1, %25 ], [ %32, %.lr.ph.i3 ]
-  %47 = icmp ugt i32 %.0.lcssa.i, 9
+  %47 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %47, label %48, label %58
 
 48:                                               ; preds = %._crit_edge.i
@@ -5907,7 +5907,7 @@ define void @_ZNK11TransTableL15PrintAllEntriesERSt14basic_ofstreamIcSt11char_tr
 
 .preheader:                                       ; preds = %2, %134
   %indvars.iv45 = phi i64 [ 11, %2 ], [ %indvars.iv.next46, %134 ]
-  %16 = icmp ult i64 %indvars.iv45, 10
+  %16 = icmp samesign ult i64 %indvars.iv45, 10
   %17 = trunc nuw nsw i64 %indvars.iv45 to i32
   %18 = icmp ugt i64 %indvars.iv45, 9
   %19 = trunc nuw i64 %indvars.iv45 to i8

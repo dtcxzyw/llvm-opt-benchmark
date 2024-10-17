@@ -406,7 +406,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %num_packs.i = getelementptr inbounds i8, ptr %2, i64 56
   %3 = load i32, ptr %num_packs.i, align 8
   %4 = zext i32 %3 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %4
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %4
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !8
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.cond.i
@@ -1820,7 +1820,7 @@ while.end:                                        ; preds = %while.body, %if.end
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %pending, align 8
   %12 = zext i32 %11 to i64
-  %cmp8 = icmp ult i64 %indvars.iv.next, %12
+  %cmp8 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp8, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %while.end, %for.cond.preheader
@@ -2071,7 +2071,7 @@ for.inc87.i:                                      ; preds = %if.else.i60, %if.th
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %44 = load i32, ptr %boundary.i, align 8
   %45 = zext i32 %44 to i64
-  %cmp70.i = icmp ult i64 %indvars.iv.next.i, %45
+  %cmp70.i = icmp samesign ult i64 %indvars.iv.next.i, %45
   br i1 %cmp70.i, label %for.body71.i, label %for.end88.i, !llvm.loop !18
 
 for.end88.i:                                      ; preds = %for.inc87.i, %if.end41.i
@@ -2228,7 +2228,7 @@ bitmap_num_objects.exit.i:                        ; preds = %if.end.i.i68, %if.t
   %mul.i = shl nuw nsw i64 %spec.select.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %61, i8 0, i64 %mul.i, i1 false)
   %mul3.i = shl nuw nsw i64 %spec.select.i, 6
-  %cmp518.i = icmp ult i64 %mul3.i, %conv.i
+  %cmp518.i = icmp samesign ult i64 %mul3.i, %conv.i
   br i1 %cmp518.i, label %for.body.i67, label %for.cond7.preheader.i
 
 for.cond7.preheader.i:                            ; preds = %for.body.i67, %bitmap_num_objects.exit.i
@@ -2263,7 +2263,7 @@ for.inc16.i:                                      ; preds = %if.then13.i, %for.b
   %inc17.i = add nuw nsw i64 %i.122.i, 1
   %65 = load i32, ptr %count.i, align 8
   %conv8.i = zext i32 %65 to i64
-  %cmp9.i = icmp ult i64 %inc17.i, %conv8.i
+  %cmp9.i = icmp samesign ult i64 %inc17.i, %conv8.i
   br i1 %cmp9.i, label %for.body11.i, label %if.end115, !llvm.loop !20
 
 if.end115:                                        ; preds = %for.inc16.i, %for.cond7.preheader.i, %if.end102
@@ -2677,7 +2677,7 @@ for.inc54.i:                                      ; preds = %if.then52.i, %land.
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = load i32, ptr %count.i, align 8
   %20 = zext i32 %19 to i64
-  %cmp29.i = icmp ult i64 %indvars.iv.next.i, %20
+  %cmp29.i = icmp samesign ult i64 %indvars.iv.next.i, %20
   br i1 %cmp29.i, label %for.body31.i, label %filter_bitmap_blob_limit.exit, !llvm.loop !26
 
 filter_bitmap_blob_limit.exit:                    ; preds = %for.inc54.i, %for.end27.i
@@ -2800,7 +2800,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %num_packs.i = getelementptr inbounds i8, ptr %4, i64 56
   %5 = load i32, ptr %num_packs.i, align 8
   %6 = zext i32 %5 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %6
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %6
   br i1 %cmp.i, label %for.body.i, label %for.cond.preheader, !llvm.loop !8
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.cond.i
@@ -2893,7 +2893,7 @@ for.inc.us:                                       ; preds = %do.end.us, %if.end.
   %num_packs.us = getelementptr inbounds i8, ptr %18, i64 56
   %19 = load i32, ptr %num_packs.us, align 8
   %conv.us = zext i32 %19 to i64
-  %cmp.us = icmp ult i64 %inc40.us, %conv.us
+  %cmp.us = icmp samesign ult i64 %inc40.us, %conv.us
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !28
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2952,7 +2952,7 @@ for.inc:                                          ; preds = %if.end
   %num_packs = getelementptr inbounds i8, ptr %29, i64 56
   %30 = load i32, ptr %num_packs, align 8
   %conv = zext i32 %30 to i64
-  %cmp = icmp ult i64 %inc40, %conv
+  %cmp = icmp samesign ult i64 %inc40, %conv
   br i1 %cmp, label %for.body, label %if.end76, !llvm.loop !28
 
 for.end:                                          ; preds = %for.inc.us
@@ -3643,7 +3643,7 @@ for.inc.i:                                        ; preds = %if.end35.i, %land.l
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = load i32, ptr %count.i, align 8
   %16 = zext i32 %15 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %16
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %16
   br i1 %cmp.i, label %for.body.i, label %show_extended_objects.exit, !llvm.loop !34
 
 show_extended_objects.exit:                       ; preds = %for.inc.i, %if.end14
@@ -3943,7 +3943,7 @@ for.inc:                                          ; preds = %bitmap_num_objects.
   %count.2 = phi i32 [ %count.122, %for.body ], [ %spec.select, %bitmap_num_objects.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = zext i32 %14 to i64
-  %cmp4 = icmp ult i64 %indvars.iv.next, %15
+  %cmp4 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !38
 
 for.end:                                          ; preds = %for.inc, %while.end
@@ -4975,7 +4975,7 @@ for.inc.i:                                        ; preds = %if.end13.i, %bitmap
   %inc.i = add nuw nsw i64 %i.012.i, 1
   %11 = load i32, ptr %count.i, align 8
   %conv.i = zext i32 %11 to i64
-  %cmp.i = icmp ult i64 %inc.i, %conv.i
+  %cmp.i = icmp samesign ult i64 %inc.i, %conv.i
   br i1 %cmp.i, label %for.body.i, label %get_disk_usage_for_extended.exit, !llvm.loop !45
 
 get_disk_usage_for_extended.exit:                 ; preds = %for.inc.i, %if.end20
@@ -6976,7 +6976,7 @@ for.inc31:                                        ; preds = %bitmap_num_objects.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %count, align 8
   %18 = zext i32 %17 to i64
-  %cmp13 = icmp ult i64 %indvars.iv.next, %18
+  %cmp13 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %cmp13, label %for.body15, label %for.end33, !llvm.loop !60
 
 for.end33:                                        ; preds = %for.inc31, %for.end
@@ -7148,7 +7148,7 @@ if.end23:                                         ; preds = %entry
   %bitmaps_nr.2 = add nuw nsw i32 %bitmaps_nr.1, %inc11
   %inc17 = zext i1 %tobool15.not to i32
   %bitmaps_nr.3 = add nuw nsw i32 %bitmaps_nr.2, %inc17
-  %cmp24 = icmp ugt i32 %bitmaps_nr.3, 1
+  %cmp24 = icmp samesign ugt i32 %bitmaps_nr.3, 1
   br i1 %cmp24, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %if.end23

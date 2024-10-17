@@ -304,7 +304,7 @@ watch_list_free.exit.i:                           ; preds = %35, %30
   %36 = phi i32 [ %31, %30 ], [ %.pre.i, %35 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next.i, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next.i, %37
   br i1 %38, label %30, label %vec_wl_free.exit, !llvm.loop !4
 
 vec_wl_free.exit:                                 ; preds = %watch_list_free.exit.i, %vec_uint_free.exit30
@@ -667,7 +667,7 @@ clause_is_satisfied.exit:                         ; preds = %33
   %52 = getelementptr i8, ptr %51, i64 4
   %.val32 = load i32, ptr %52, align 4
   %53 = zext i32 %.val32 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %clause_fetch.exit, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %50, %.preheader
@@ -954,7 +954,7 @@ vec_uint_push_back.exit:                          ; preds = %23, %27, %vec_uint_
   %45 = getelementptr i8, ptr %40, i64 4
   %.val10 = load i32, ptr %45, align 4
   %46 = zext i32 %.val10 to i64
-  %47 = icmp ult i64 %indvars.iv.next, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %39, %vec_uint_alloc.exit
@@ -987,7 +987,7 @@ vec_uint_push_back.exit:                          ; preds = %23, %27, %vec_uint_
   %62 = getelementptr i8, ptr %61, i64 4
   %.val26.i = load i32, ptr %62, align 4
   %63 = zext i32 %.val26.i to i64
-  %64 = icmp ult i64 %indvars.iv.next.i, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next.i, %63
   br i1 %64, label %.lr.ph.i, label %.critedge.i, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %._crit_edge
@@ -1796,7 +1796,7 @@ vec_int_resize.exit:                              ; preds = %7, %9
   %23 = getelementptr i8, ptr %22, i64 4
   %.val25 = load i32, ptr %23, align 4
   %24 = zext i32 %.val25 to i64
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %25, label %.lr.ph, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %.lr.ph, %vec_int_resize.exit, %2
@@ -3158,7 +3158,7 @@ define void @satoko_reset(ptr nocapture noundef %0) local_unnamed_addr #17 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = load i32, ptr %19, align 4
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next.i, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next.i, %28
   br i1 %29, label %22, label %vec_wl_clean.exit, !llvm.loop !32
 
 vec_wl_clean.exit:                                ; preds = %22, %1
@@ -3382,7 +3382,7 @@ clause_fetch.exit94:                              ; preds = %41, %44
   %64 = or i32 %63, 2
   store i32 %64, ptr %56, align 4
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %65 = icmp ult i64 %indvars.iv.next111, %19
+  %65 = icmp samesign ult i64 %indvars.iv.next111, %19
   br i1 %65, label %.critedge2, label %.critedge2._crit_edge.loopexit, !llvm.loop !35
 
 .critedge2._crit_edge.loopexit:                   ; preds = %.critedge2
@@ -3432,7 +3432,7 @@ clause_fetch.exit94:                              ; preds = %41, %44
   %.val91 = load i32, ptr %88, align 4
   %89 = shl i32 %.val91, 1
   %90 = zext i32 %89 to i64
-  %91 = icmp ult i64 %indvars.iv.next114, %90
+  %91 = icmp samesign ult i64 %indvars.iv.next114, %90
   br i1 %91, label %80, label %._crit_edge.loopexit, !llvm.loop !36
 
 ._crit_edge.loopexit:                             ; preds = %80
@@ -3741,7 +3741,7 @@ define void @satoko_write_dimacs(ptr nocapture noundef readonly %0, ptr noundef 
   %61 = getelementptr i8, ptr %60, i64 4
   %.val60 = load i32, ptr %61, align 4
   %62 = zext i32 %.val60 to i64
-  %63 = icmp ult i64 %indvars.iv.next, %62
+  %63 = icmp samesign ult i64 %indvars.iv.next, %62
   br i1 %63, label %.lr.ph.split, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %59, %44, %25
@@ -3799,7 +3799,7 @@ clause_fetch.exit:                                ; preds = %69, %72
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %90 = load i32, ptr %78, align 4
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next.i, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next.i, %91
   br i1 %92, label %81, label %._crit_edge.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %81, %clause_fetch.exit
@@ -3819,7 +3819,7 @@ clause_dump.exit:                                 ; preds = %93, %95
   %97 = getelementptr i8, ptr %96, i64 4
   %.val = load i32, ptr %97, align 4
   %98 = zext i32 %.val to i64
-  %99 = icmp ult i64 %indvars.iv.next97, %98
+  %99 = icmp samesign ult i64 %indvars.iv.next97, %98
   br i1 %99, label %69, label %._crit_edge84, !llvm.loop !41
 
 ._crit_edge84:                                    ; preds = %clause_dump.exit, %._crit_edge
@@ -3879,7 +3879,7 @@ clause_fetch.exit68:                              ; preds = %105, %108
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i71, 1
   %126 = load i32, ptr %114, align 4
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next.i73, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next.i73, %127
   br i1 %128, label %117, label %._crit_edge.i74, !llvm.loop !40
 
 ._crit_edge.i74:                                  ; preds = %117, %clause_fetch.exit68

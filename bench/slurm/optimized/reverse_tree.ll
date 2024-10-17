@@ -34,7 +34,7 @@ define void @reverse_tree_info(i32 noundef %0, i32 noundef %1, i32 noundef %2, p
 .lr.ph.i:                                         ; preds = %12, %int_pow.exit.i
   %.09.i = phi i32 [ %18, %int_pow.exit.i ], [ 0, %12 ]
   %.078.i = phi i32 [ %19, %int_pow.exit.i ], [ 1, %12 ]
-  %15 = icmp ugt i32 %.078.i, 1
+  %15 = icmp samesign ugt i32 %.078.i, 1
   br i1 %15, label %.lr.ph.i.i, label %int_pow.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %.lr.ph.i.i
@@ -169,7 +169,7 @@ define i32 @reverse_tree_direct_children(i32 noundef %0, i32 noundef %1, i32 nou
 .lr.ph.i:                                         ; preds = %7, %int_pow.exit.i
   %.09.i = phi i32 [ %13, %int_pow.exit.i ], [ 0, %7 ]
   %.078.i = phi i32 [ %14, %int_pow.exit.i ], [ 1, %7 ]
-  %10 = icmp ugt i32 %.078.i, 1
+  %10 = icmp samesign ugt i32 %.078.i, 1
   br i1 %10, label %.lr.ph.i.i, label %int_pow.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %.lr.ph.i.i
@@ -249,7 +249,7 @@ geometric_series.exit:                            ; preds = %20, %int_pow.exit.i
   store i32 %.02435, ptr %37, align 4
   %38 = add nsw i32 %.02435, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = icmp ult i64 %indvars.iv.next, %36
+  %39 = icmp samesign ult i64 %indvars.iv.next, %36
   %40 = icmp slt i32 %38, %1
   %41 = select i1 %39, i1 %40, i1 false
   br i1 %41, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !10

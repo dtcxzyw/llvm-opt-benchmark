@@ -4536,7 +4536,7 @@ define dso_local void @rcu_barrier_tasks() #1 align 16 {
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %38, i64 noundef %39) #16
   %43 = add nuw nsw i64 %22, 1
   %44 = and i64 %43, 127
-  %45 = icmp ugt i64 %44, 63
+  %45 = icmp samesign ugt i64 %44, 63
   br i1 %45, label %.thread, label %15, !prof !91, !llvm.loop !92
 
 .thread:                                          ; preds = %15, %42, %25, %21
@@ -4591,7 +4591,7 @@ define dso_local void @show_rcu_tasks_classic_gp_kthread() #1 align 16 {
   %8 = phi i8 [ 0, %0 ], [ %28, %20 ]
   %9 = phi i64 [ 0, %0 ], [ %45, %20 ]
   %10 = and i64 %9, 4294967295
-  %11 = icmp ugt i64 %10, 63
+  %11 = icmp samesign ugt i64 %10, 63
   br i1 %11, label %.thread, label %12, !prof !31
 
 12:                                               ; preds = %5
@@ -4872,7 +4872,7 @@ define internal fastcc void @rcu_spawn_tasks_kthread() unnamed_addr #6 section "
 64:                                               ; preds = %62, %52
   %65 = add nuw nsw i64 %26, 1
   %66 = and i64 %65, 127
-  %67 = icmp ugt i64 %66, 63
+  %67 = icmp samesign ugt i64 %66, 63
   br i1 %67, label %.thread, label %19, !prof !91, !llvm.loop !105
 
 .thread:                                          ; preds = %19, %64, %25
@@ -6755,7 +6755,7 @@ define internal noundef i32 @rcu_tasks_kthread(ptr noundef %0) #14 align 16 {
   store i32 1, ptr %22, align 8
   %23 = add nuw nsw i64 %10, 1
   %24 = and i64 %23, 127
-  %25 = icmp ugt i64 %24, 63
+  %25 = icmp samesign ugt i64 %24, 63
   br i1 %25, label %.thread, label %3, !prof !91, !llvm.loop !143
 
 .thread:                                          ; preds = %3, %13, %9

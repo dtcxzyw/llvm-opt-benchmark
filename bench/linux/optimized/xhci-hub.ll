@@ -700,7 +700,7 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
   %302 = phi i16 [ 0, %.preheader ], [ %301, %.preheader.preheader ]
   %303 = phi i8 [ %304, %.preheader ], [ %296, %.preheader.preheader ]
   %304 = add nuw nsw i8 %303, 1
-  %305 = icmp ult i8 %303, 2
+  %305 = icmp samesign ult i8 %303, 2
   br i1 %305, label %.preheader, label %.loopexit44, !llvm.loop !18
 
 .loopexit44:                                      ; preds = %.preheader, %283
@@ -792,7 +792,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %363 = phi i32 [ %288, %.loopexit44._crit_edge ], [ %358, %353 ]
   %364 = add nuw nsw i64 %285, 1
   %365 = zext i8 %362 to i64
-  %366 = icmp ult i64 %364, %365
+  %366 = icmp samesign ult i64 %364, %365
   br i1 %366, label %283, label %367, !llvm.loop !19
 
 367:                                              ; preds = %361
@@ -1483,7 +1483,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %797 = and i32 %796, 18
   %798 = icmp ne i32 %797, 2
   %799 = and i32 %796, 480
-  %800 = icmp ugt i32 %799, 95
+  %800 = icmp samesign ugt i32 %799, 95
   %801 = or i1 %798, %800
   br i1 %801, label %802, label %807
 
@@ -1595,7 +1595,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   br i1 %867, label %.thread41, label %868
 
 868:                                              ; preds = %865
-  %869 = icmp ugt i16 %763, 96
+  %869 = icmp samesign ugt i16 %763, 96
   br i1 %869, label %870, label %875
 
 870:                                              ; preds = %868
@@ -1627,7 +1627,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   br label %880
 
 880:                                              ; preds = %878, %876
-  %881 = icmp ult i32 %877, 97
+  %881 = icmp samesign ult i32 %877, 97
   br i1 %881, label %882, label %888
 
 882:                                              ; preds = %880
@@ -1647,7 +1647,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   ]
 
 889:                                              ; preds = %888
-  %890 = icmp ugt i32 %877, 96
+  %890 = icmp samesign ugt i32 %877, 96
   br i1 %890, label %1051, label %.thread41
 
 891:                                              ; preds = %888, %888, %888
@@ -2240,7 +2240,7 @@ define internal fastcc i32 @xhci_enter_test_mode(ptr noundef %0, i16 noundef zer
   %27 = load i32, ptr %7, align 8
   %28 = and i32 %27, 255
   %29 = zext nneg i32 %28 to i64
-  %30 = icmp ult i64 %14, %29
+  %30 = icmp samesign ult i64 %14, %29
   br i1 %30, label %13, label %.loopexit4, !llvm.loop !39
 
 .loopexit4:                                       ; preds = %25, %4

@@ -86,7 +86,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %star
   br i1 %cmp2.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %cmp6 = icmp ult i32 %bf.clear.i, %bf.clear.i147
+  %cmp6 = icmp samesign ult i32 %bf.clear.i, %bf.clear.i147
   br label %return
 
 if.end7:                                          ; preds = %if.end
@@ -991,7 +991,7 @@ if.end377:                                        ; preds = %sw.bb365
   br i1 %cmp382.not, label %if.end389, label %if.then383
 
 if.then383:                                       ; preds = %if.end377
-  %cmp388 = icmp ult i32 %bf.clear.i768, %bf.clear.i776
+  %cmp388 = icmp samesign ult i32 %bf.clear.i768, %bf.clear.i776
   br label %return
 
 if.end389:                                        ; preds = %if.end377

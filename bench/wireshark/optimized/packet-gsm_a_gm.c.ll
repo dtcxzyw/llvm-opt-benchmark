@@ -2667,7 +2667,7 @@ define zeroext i16 @de_gmm_ms_radio_acc_cap(ptr noundef %0, ptr noundef %1, ptr 
   %.339674344 = phi i32 [ %128, %127 ], [ %110, %.preheader ]
   %..33967 = call i32 @llvm.umin.i32(i32 %.339674344, i32 8)
   %112 = zext i8 %.937944345 to i32
-  %113 = icmp ugt i32 %..33967, %112
+  %113 = icmp samesign ugt i32 %..33967, %112
   br i1 %113, label %114, label %127
 
 114:                                              ; preds = %.lr.ph4350
@@ -7194,7 +7194,7 @@ switch.lookup4405:                                ; preds = %255
   %.2339874335 = phi i32 [ %2653, %2652 ], [ %2635, %2631 ]
   %..233987 = call i32 @llvm.umin.i32(i32 %.2339874335, i32 8)
   %2637 = zext i8 %.13539204336 to i32
-  %2638 = icmp ugt i32 %..233987, %2637
+  %2638 = icmp samesign ugt i32 %..233987, %2637
   br i1 %2638, label %2639, label %2652
 
 2639:                                             ; preds = %.lr.ph
@@ -9238,7 +9238,7 @@ define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef 
   %18 = add i32 %4, -1
   %19 = icmp eq i8 %9, 2
   %spec.select = select i1 %19, i8 %10, i8 0
-  %20 = icmp ult i8 %spec.select, %10
+  %20 = icmp samesign ult i8 %spec.select, %10
   br i1 %20, label %.lr.ph374, label %._crit_edge
 
 .lr.ph374:                                        ; preds = %7
@@ -9275,7 +9275,7 @@ define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef 
   %40 = add i32 %.0331372.us, -1
   %indvars.iv.next414 = add nuw nsw i32 %indvars.iv413, 1
   tail call void @proto_item_set_len(ptr noundef %27, i32 noundef 1) #5
-  %41 = icmp ult i32 %indvars.iv.next414, %24
+  %41 = icmp samesign ult i32 %indvars.iv.next414, %24
   br i1 %41, label %25, label %._crit_edge, !llvm.loop !10
 
 .lr.ph374.split:                                  ; preds = %.lr.ph374.split.preheader, %.loopexit348
@@ -9512,7 +9512,7 @@ define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef 
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %173 = sub i32 %.2.lcssa, %.0330373
   tail call void @proto_item_set_len(ptr noundef %43, i32 noundef %173) #5
-  %174 = icmp ult i32 %indvars.iv.next, %23
+  %174 = icmp samesign ult i32 %indvars.iv.next, %23
   br i1 %174, label %.lr.ph374.split, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit348, %25, %7

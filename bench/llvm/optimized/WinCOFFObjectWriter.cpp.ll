@@ -4838,7 +4838,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEPN12_GLOBAL__N_111COFFSectio
 299:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %295
   %.019.i = phi i64 [ %298, %295 ], [ %300, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
   %300 = lshr i64 %.019.i, 7
-  %.not.i210 = icmp ugt i64 %.019.i, 127
+  %.not.i210 = icmp samesign ugt i64 %.019.i, 127
   %301 = trunc i64 %.019.i to i8
   %302 = or i8 %301, -128
   %.0.i = select i1 %.not.i210, i8 %302, i8 %301

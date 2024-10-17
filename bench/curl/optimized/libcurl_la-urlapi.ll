@@ -2464,7 +2464,7 @@ while.cond.i:                                     ; preds = %land.lhs.true.i, %w
   %p.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
   %30 = load i8, ptr %p.0.i, align 1
   %cmp197.i = icmp eq i8 %30, 47
-  %cmp199.i = icmp ult i32 %i.0.i, 4
+  %cmp199.i = icmp samesign ult i32 %i.0.i, 4
   %31 = select i1 %cmp197.i, i1 %cmp199.i, i1 false
   %inc.i = add nuw nsw i32 %i.0.i, 1
   br i1 %31, label %while.cond.i, label %while.end.i, !llvm.loop !13
@@ -3133,7 +3133,7 @@ land.lhs.true20:                                  ; preds = %land.lhs.true20.pre
   %7 = phi i8 [ %8, %while.body ], [ %.ph, %land.lhs.true20.preheader ]
   %h.140 = phi ptr [ %incdec.ptr26, %while.body ], [ %h.140.ph, %land.lhs.true20.preheader ]
   %cmp22 = icmp ne i8 %7, 93
-  %cmp24 = icmp ult i64 %indvars.iv, 15
+  %cmp24 = icmp samesign ult i64 %indvars.iv, 15
   %or.cond = select i1 %cmp22, i1 %cmp24, i1 false
   br i1 %or.cond, label %while.body, label %while.end
 

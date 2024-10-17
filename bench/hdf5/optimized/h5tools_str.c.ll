@@ -457,7 +457,7 @@ h5tools_str_reset.exit:                           ; preds = %6, %10
   %32 = add nuw nsw i64 %.036, 1
   %33 = load i32, ptr %15, align 4
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %32, %34
+  %35 = icmp samesign ult i64 %32, %34
   br i1 %35, label %23, label %.loopexit
 
 36:                                               ; preds = %h5tools_str_reset.exit
@@ -548,7 +548,7 @@ h5tools_str_reset.exit:                           ; preds = %7, %11
   %40 = add nuw nsw i64 %.040, 1
   %41 = load i32, ptr %16, align 4
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %40, %42
+  %43 = icmp samesign ult i64 %40, %42
   br i1 %43, label %25, label %.loopexit
 
 44:                                               ; preds = %h5tools_str_reset.exit

@@ -330,7 +330,7 @@ _ZNK4llvm17MachineBasicBlock4sizeEv.exit:         ; preds = %.lr.ph.i.i.i.i, %_Z
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %0, align 8
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next, %56
   br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK4llvm17MachineBasicBlock4sizeEv.exit
@@ -2093,7 +2093,7 @@ _ZN4llvm22AggressiveAntiDepState6IsLiveEj.exit.thread: ; preds = %123, %_ZN4llvm
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 2
   %167 = load i16, ptr %166, align 2
   %168 = zext i16 %167 to i64
-  %169 = icmp ult i64 %indvars.iv, %168
+  %169 = icmp samesign ult i64 %indvars.iv, %168
   br i1 %169, label %170, label %179
 
 170:                                              ; preds = %._crit_edge157
@@ -2493,7 +2493,7 @@ _ZN4llvm22AggressiveAntiDepState11UnionGroupsEjj.exit: ; preds = %_ZN4llvm22Aggr
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 2
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %97 to i64
-  %99 = icmp ult i64 %indvars.iv, %98
+  %99 = icmp samesign ult i64 %indvars.iv, %98
   br i1 %99, label %100, label %109
 
 100:                                              ; preds = %94

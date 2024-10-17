@@ -1223,7 +1223,7 @@ stream_write_bit.exit60.i:                        ; preds = %61, %.lr.ph99.i
 63:                                               ; preds = %stream_write_bit.exit60.i
   %indvars.iv.next153.i = add nuw nsw i64 %indvars.iv152.i, 1
   %64 = icmp ne i32 %52, 0
-  %65 = icmp ult i64 %indvars.iv152.i, 254
+  %65 = icmp samesign ult i64 %indvars.iv152.i, 254
   %66 = and i1 %65, %64
   br i1 %66, label %.lr.ph99.i, label %stream_write_bit.exit60._crit_edge.loopexit.i
 
@@ -1275,7 +1275,7 @@ encode_many_ints_uint64.exit:                     ; preds = %.lr.ph136.i, %strea
   %.sroa.19.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.19.0.copyload.i = load ptr, ptr %.sroa.19.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
   %73 = tail call i32 @llvm.usub.sat.i32(i32 64, i32 %2)
-  %74 = icmp ult i32 %73, 64
+  %74 = icmp samesign ult i32 %73, 64
   br i1 %74, label %.preheader81.preheader.i, label %encode_many_ints_prec_uint64.exit
 
 .preheader81.preheader.i:                         ; preds = %72
@@ -1421,7 +1421,7 @@ stream_write_bit.exit44.i:                        ; preds = %116, %.lr.ph96.i
 .critedge2.i:                                     ; preds = %stream_write_bit.exit44.i
   %120 = trunc nuw nsw i64 %indvars.iv131.i to i32
   %121 = add nuw i32 %120, 1
-  %122 = icmp ult i64 %indvars.iv131.i, 255
+  %122 = icmp samesign ult i64 %indvars.iv131.i, 255
   br i1 %122, label %.lr.ph110.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge2.i, %stream_write_bit.exit43.i, %118, %.critedge2.thread.i.loopexit53, %.preheader80.i

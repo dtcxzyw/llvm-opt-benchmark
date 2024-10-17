@@ -2523,7 +2523,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %18, %36, %49, %_ZNS
   br label %84
 
 .preheader:                                       ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
-  %80 = icmp ult i32 %.048, 3
+  %80 = icmp samesign ult i32 %.048, 3
   br i1 %80, label %.lr.ph50, label %._crit_edge
 
 .lr.ph50:                                         ; preds = %.noexc, %.preheader
@@ -4163,7 +4163,7 @@ _ZNK10open_spiel5maedn10MaednState16PlayerToPositionEi.exit: ; preds = %.thread5
   %92 = load i32, ptr %81, align 4
   %93 = trunc nuw nsw i64 %indvars.iv to i32
   %94 = add nsw i32 %92, %93
-  %95 = icmp ult i64 %indvars.iv, 40
+  %95 = icmp samesign ult i64 %indvars.iv, 40
   %96 = trunc i64 %indvars.iv to i32
   br i1 %95, label %97, label %100
 
@@ -5260,7 +5260,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i

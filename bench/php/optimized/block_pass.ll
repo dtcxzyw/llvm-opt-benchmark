@@ -626,7 +626,7 @@ define hidden void @zend_optimize_cfg(ptr noundef %0, ptr noundef %1) local_unna
   %.1.i = phi i8 [ %.0204250.i, %.lr.ph253.i ], [ 1, %.sink.split298.i ]
   %indvars.iv.next280.i = add nuw nsw i64 %indvars.iv279.i, 1
   %316 = zext i32 %315 to i64
-  %317 = icmp ult i64 %indvars.iv.next280.i, %316
+  %317 = icmp samesign ult i64 %indvars.iv.next280.i, %316
   br i1 %317, label %.lr.ph253.i, label %._crit_edge254.i
 
 ._crit_edge254.i:                                 ; preds = %314
@@ -3872,7 +3872,7 @@ zend_optimizer_is_loop_var_free.exit.thread:      ; preds = %.lr.ph546, %2029, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2044 = add i32 %2042, %2043
   %2045 = zext i32 %2044 to i64
-  %2046 = icmp ult i64 %indvars.iv.next, %2045
+  %2046 = icmp samesign ult i64 %indvars.iv.next, %2045
   br i1 %2046, label %.lr.ph546, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %2041
@@ -3975,7 +3975,7 @@ strip_leading_nops.exit.i367:                     ; preds = %2065, %2053
   %indvars.iv.next.i374 = add nuw nsw i64 %indvars.iv.i370, 1
   %2091 = add i32 %2090, %2089
   %2092 = zext i32 %2091 to i64
-  %2093 = icmp ult i64 %indvars.iv.next.i374, %2092
+  %2093 = icmp samesign ult i64 %indvars.iv.next.i374, %2092
   br i1 %2093, label %.lr.ph.i369, label %._crit_edge.i375
 
 ._crit_edge.i375:                                 ; preds = %2088

@@ -2391,7 +2391,7 @@ _ZNSt6vectorI18ForceHelperBuffersSaIS0_EE12emplace_backIJRbEEERS0_DpOT_.exit: ; 
   %511 = sdiv exact i64 %510, 12
   %512 = icmp ult i64 %511, 768614336404564651
   call void @llvm.assume(i1 %512)
-  %.not28.i.i = icmp ult i64 %511, 45
+  %.not28.i.i = icmp samesign ult i64 %511, 45
   br i1 %.not28.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i, label %513
 
 513:                                              ; preds = %505

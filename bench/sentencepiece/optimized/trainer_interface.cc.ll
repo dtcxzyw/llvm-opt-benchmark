@@ -8809,7 +8809,7 @@ define linkonce_odr void @_ZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS1_I
   br i1 %.not.i.i.i.i, label %_ZSt8distanceINSt8__detail20_Node_const_iteratorISt4pairIKjS2_IblEELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !98
 
 _ZSt8distanceINSt8__detail20_Node_const_iteratorISt4pairIKjS2_IblEELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %7 = icmp ugt i64 %.06.i.i.i.i, 384307168202282324
+  %7 = icmp samesign ugt i64 %.06.i.i.i.i, 384307168202282324
   br i1 %7, label %.noexc.i, label %_ZNSt12_Vector_baseISt4pairIjS0_IblEESaIS2_EE11_M_allocateEm.exit.i.i
 
 .noexc.i:                                         ; preds = %_ZSt8distanceINSt8__detail20_Node_const_iteratorISt4pairIKjS2_IblEELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i
@@ -16383,7 +16383,7 @@ define linkonce_odr void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjS
   %16 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i, i64 -16
   %17 = load i8, ptr %16, align 8
   %18 = and i8 %17, 1
-  %19 = icmp ult i8 %18, %14
+  %19 = icmp samesign ult i8 %18, %14
   br i1 %19, label %._ZN9__gnu_cxx5__ops14_Val_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclISE_NS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEEEEbRS7_S8_.exit.thread_crit_edge.i.i.i, label %20
 
 ._ZN9__gnu_cxx5__ops14_Val_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclISE_NS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEEEEbRS7_S8_.exit.thread_crit_edge.i.i.i: ; preds = %15
@@ -16392,7 +16392,7 @@ define linkonce_odr void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjS
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclISE_NS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEEEEbRS7_S8_.exit.thread.i.i.i
 
 20:                                               ; preds = %15
-  %21 = icmp uge i8 %14, %18
+  %21 = icmp samesign uge i8 %14, %18
   %.phi.trans.insert7.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i, i64 -8
   %.pre8.i.i.i.i.i = load i64, ptr %.phi.trans.insert7.i.i.i.i.i, align 8
   %22 = icmp slt i64 %.pre8.i.i.i.i.i, %.sroa.57.0.copyload.i.i.i
@@ -16538,11 +16538,11 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
   %16 = and i8 %15, 1
   %17 = load i8, ptr %13, align 8
   %18 = and i8 %17, 1
-  %19 = icmp ult i8 %16, %18
+  %19 = icmp samesign ult i8 %16, %18
   br i1 %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit.thread, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = icmp ult i8 %18, %16
+  %21 = icmp samesign ult i8 %18, %16
   br i1 %21, label %._ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6_crit_edge.i.i, label %_ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.i.i
 
 ._ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6_crit_edge.i.i: ; preds = %20
@@ -16645,7 +16645,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   %69 = getelementptr inbounds i8, ptr %68, i64 8
   %70 = load i8, ptr %69, align 8
   %71 = and i8 %70, 1
-  %72 = icmp ult i8 %67, %71
+  %72 = icmp samesign ult i8 %67, %71
   br i1 %72, label %._ZN9__gnu_cxx5__ops14_Iter_comp_valIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESE_EEbS7_RS8_.exit.thread_crit_edge.i, label %73
 
 ._ZN9__gnu_cxx5__ops14_Iter_comp_valIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESE_EEbS7_RS8_.exit.thread_crit_edge.i: ; preds = %.lr.ph.i
@@ -16654,7 +16654,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESE_EEbS7_RS8_.exit.thread.i
 
 73:                                               ; preds = %.lr.ph.i
-  %74 = icmp uge i8 %71, %67
+  %74 = icmp samesign uge i8 %71, %67
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %68, i64 16
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8
   %75 = icmp slt i64 %.sroa.537.0.copyload, %.pre.i.i.i
@@ -16705,11 +16705,11 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %8 = and i8 %7, 1
   %9 = load i8, ptr %5, align 8
   %10 = and i8 %9, 1
-  %11 = icmp ult i8 %8, %10
+  %11 = icmp samesign ult i8 %8, %10
   br i1 %11, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit.thread, label %12
 
 12:                                               ; preds = %4
-  %13 = icmp ult i8 %10, %8
+  %13 = icmp samesign ult i8 %10, %8
   br i1 %13, label %._ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6_crit_edge.i.i, label %_ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.i.i
 
 ._ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6_crit_edge.i.i: ; preds = %12
@@ -16747,11 +16747,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   %27 = getelementptr inbounds i8, ptr %3, i64 8
   %28 = load i8, ptr %27, align 8
   %29 = and i8 %28, 1
-  %30 = icmp ult i8 %29, %8
+  %30 = icmp samesign ult i8 %29, %8
   br i1 %30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit33.thread, label %31
 
 31:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit.thread
-  %32 = icmp ult i8 %8, %29
+  %32 = icmp samesign ult i8 %8, %29
   br i1 %32, label %._ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6_crit_edge.i.i28, label %_ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.i.i26
 
 ._ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6_crit_edge.i.i28: ; preds = %31
@@ -16800,11 +16800,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   br label %128
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit33.thread59: ; preds = %_ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6.i.i27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit33
-  %54 = icmp ult i8 %29, %10
+  %54 = icmp samesign ult i8 %29, %10
   br i1 %54, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit41.thread, label %55
 
 55:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit33.thread59
-  %56 = icmp uge i8 %10, %29
+  %56 = icmp samesign uge i8 %10, %29
   %.phi.trans.insert.i.i37 = getelementptr inbounds i8, ptr %1, i64 16
   %.pre.i.i38 = load i64, ptr %.phi.trans.insert.i.i37, align 8
   %57 = icmp slt i64 %.pre8.i.i40, %.pre.i.i38
@@ -16861,11 +16861,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   %80 = getelementptr inbounds i8, ptr %3, i64 8
   %81 = load i8, ptr %80, align 8
   %82 = and i8 %81, 1
-  %83 = icmp ult i8 %82, %10
+  %83 = icmp samesign ult i8 %82, %10
   br i1 %83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit49.thread, label %84
 
 84:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit.thread58
-  %85 = icmp uge i8 %10, %82
+  %85 = icmp samesign uge i8 %10, %82
   %.phi.trans.insert7.i.i47 = getelementptr inbounds i8, ptr %3, i64 16
   %.pre8.i.i48 = load i64, ptr %.phi.trans.insert7.i.i47, align 8
   %86 = icmp slt i64 %.pre8.i.i48, %.pre.i.i46
@@ -16901,11 +16901,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   br label %128
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit49.thread61: ; preds = %_ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6.i.i43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit49
-  %102 = icmp ult i8 %82, %8
+  %102 = icmp samesign ult i8 %82, %8
   br i1 %102, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit57.thread, label %103
 
 103:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit49.thread61
-  %104 = icmp uge i8 %8, %82
+  %104 = icmp samesign uge i8 %8, %82
   %105 = icmp slt i64 %.pre8.i.i48, %.pre.i.i54
   %or.cond65 = select i1 %104, i1 %105, i1 false
   br i1 %or.cond65, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit57.thread, label %_ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6.i.i51
@@ -16985,11 +16985,11 @@ define linkonce_odr ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_itera
   %10 = getelementptr inbounds i8, ptr %.sroa.018.1, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, 1
-  %13 = icmp ult i8 %8, %12
+  %13 = icmp samesign ult i8 %8, %12
   br i1 %13, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit.thread, label %14
 
 14:                                               ; preds = %9
-  %15 = icmp ult i8 %12, %8
+  %15 = icmp samesign ult i8 %12, %8
   br i1 %15, label %._ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6_crit_edge.i.i, label %_ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.i.i
 
 ._ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6_crit_edge.i.i: ; preds = %14
@@ -17035,11 +17035,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   %31 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -16
   %32 = load i8, ptr %31, align 8
   %33 = and i8 %32, 1
-  %34 = icmp ult i8 %33, %8
+  %34 = icmp samesign ult i8 %33, %8
   br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit15.thread.backedge, label %35
 
 35:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit15.thread
-  %36 = icmp uge i8 %8, %33
+  %36 = icmp samesign uge i8 %8, %33
   %.phi.trans.insert7.i.i13 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -8
   %.pre8.i.i14 = load i64, ptr %.phi.trans.insert7.i.i13, align 8
   %37 = icmp slt i64 %.pre8.i.i14, %.pre.i.i12
@@ -17119,7 +17119,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   %10 = and i8 %9, 1
   %11 = load i8, ptr %8, align 8
   %12 = and i8 %11, 1
-  %13 = icmp ult i8 %10, %12
+  %13 = icmp samesign ult i8 %10, %12
   br i1 %13, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit.thread_crit_edge, label %14
 
 ._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit.thread_crit_edge: ; preds = %7
@@ -17128,7 +17128,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit.thread
 
 14:                                               ; preds = %7
-  %15 = icmp ult i8 %12, %10
+  %15 = icmp samesign ult i8 %12, %10
   br i1 %15, label %._ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6_crit_edge.i.i, label %_ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.i.i
 
 ._ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6_crit_edge.i.i: ; preds = %14
@@ -17209,7 +17209,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   %45 = getelementptr inbounds i8, ptr %.sroa.010.0.i, i64 -16
   %46 = load i8, ptr %45, align 8
   %47 = and i8 %46, 1
-  %48 = icmp ult i8 %47, %12
+  %48 = icmp samesign ult i8 %47, %12
   br i1 %48, label %._ZN9__gnu_cxx5__ops14_Val_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclISE_NS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEEEEbRS7_S8_.exit.thread_crit_edge.i, label %49
 
 ._ZN9__gnu_cxx5__ops14_Val_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclISE_NS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEEEEbRS7_S8_.exit.thread_crit_edge.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit.thread19
@@ -17218,7 +17218,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclISE_NS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEEEEbRS7_S8_.exit.thread.i
 
 49:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit.thread19
-  %50 = icmp uge i8 %12, %47
+  %50 = icmp samesign uge i8 %12, %47
   %.phi.trans.insert7.i.i.i = getelementptr inbounds i8, ptr %.sroa.010.0.i, i64 -8
   %.pre8.i.i.i = load i64, ptr %.phi.trans.insert7.i.i.i, align 8
   %51 = icmp slt i64 %.pre8.i.i.i, %.sroa.57.0.copyload.i
@@ -17877,7 +17877,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br i1 %.not.i.i, label %_ZSt8distanceINSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElELb0ELb1EEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit, label %.lr.ph.i.i, !llvm.loop !261
 
 _ZSt8distanceINSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElELb0ELb1EEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit: ; preds = %.lr.ph.i.i
-  %7 = icmp ugt i64 %.06.i.i, 230584300921369394
+  %7 = icmp samesign ugt i64 %.06.i.i, 230584300921369394
   br i1 %7, label %8, label %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EE11_M_allocateEm.exit
 
 8:                                                ; preds = %_ZSt8distanceINSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElELb0ELb1EEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit

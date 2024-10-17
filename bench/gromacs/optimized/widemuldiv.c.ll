@@ -26,7 +26,7 @@ define void @Ptngc_largeint_add(i32 noundef %0, ptr nocapture noundef %1, i32 no
   %14 = icmp eq i32 %12, -1
   store i32 %13, ptr %11, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %15 = icmp ult i64 %indvars.iv.next.i, %10
+  %15 = icmp samesign ult i64 %indvars.iv.next.i, %10
   %16 = select i1 %15, i1 %14, i1 false
   br i1 %16, label %.lr.ph.i, label %largeint_add_gen.exit, !llvm.loop !4
 

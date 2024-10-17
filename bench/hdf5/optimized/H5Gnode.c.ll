@@ -984,7 +984,7 @@ define internal range(i32 -1, 6) i32 @H5G__node_remove(ptr noundef %0, i64 nound
   %197 = phi i32 [ %.pre165, %._crit_edge164 ], [ %182, %181 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %198 = zext i32 %197 to i64
-  %199 = icmp ult i64 %indvars.iv.next, %198
+  %199 = icmp samesign ult i64 %indvars.iv.next, %198
   br i1 %199, label %181, label %._crit_edge158
 
 ._crit_edge158:                                   ; preds = %196, %176
@@ -1278,7 +1278,7 @@ define i32 @H5G__node_iterate(ptr noundef %0, ptr nocapture noundef readnone %1,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %15, align 8
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next, %51
   %53 = icmp eq i32 %.2, 0
   %54 = select i1 %52, i1 %53, i1 false
   br i1 %54, label %21, label %._crit_edge
@@ -1727,7 +1727,7 @@ define range(i32 -1, 1) i32 @H5G__node_copy(ptr noundef %0, ptr nocapture nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %159 = load i32, ptr %22, align 8
   %160 = zext i32 %159 to i64
-  %161 = icmp ult i64 %indvars.iv.next, %160
+  %161 = icmp samesign ult i64 %indvars.iv.next, %160
   br i1 %161, label %42, label %.loopexit
 
 162:                                              ; preds = %5
@@ -1828,7 +1828,7 @@ define range(i32 -1, 1) i32 @H5G__node_build_table(ptr noundef %0, ptr nocapture
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load i32, ptr %12, align 8
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next, %37
   br i1 %38, label %39, label %.loopexit
 
 39:                                               ; preds = %.lr.ph, %35
@@ -1983,7 +1983,7 @@ define range(i32 -1, 1) i32 @H5G_node_debug(ptr noundef %0, i64 noundef %1, ptr 
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %56 = load i32, ptr %40, align 8
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %indvars.iv.next93, %57
+  %58 = icmp samesign ult i64 %indvars.iv.next93, %57
   br i1 %58, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %67
@@ -2008,7 +2008,7 @@ define range(i32 -1, 1) i32 @H5G_node_debug(ptr noundef %0, i64 noundef %1, ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %71 = load i32, ptr %40, align 8
   %72 = zext i32 %71 to i64
-  %73 = icmp ult i64 %indvars.iv.next, %72
+  %73 = icmp samesign ult i64 %indvars.iv.next, %72
   br i1 %73, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %67, %.lr.ph.split.us, %29

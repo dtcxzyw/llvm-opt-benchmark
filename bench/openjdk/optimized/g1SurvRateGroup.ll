@@ -71,7 +71,7 @@ define hidden void @_ZN15G1SurvRateGroup5resetEv(ptr nocapture noundef nonnull a
   %14 = phi i32 [ %7, %6 ], [ %.pre, %12 ]
   %15 = add nuw nsw i64 %.04, 1
   %16 = zext i32 %14 to i64
-  %17 = icmp ult i64 %15, %16
+  %17 = icmp samesign ult i64 %15, %16
   br i1 %17, label %6, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %13, %1
@@ -168,7 +168,7 @@ define hidden void @_ZN15G1SurvRateGroup19stop_adding_regionsEv(ptr nocapture no
   %44 = add nuw nsw i64 %.011, 1
   %45 = load i32, ptr %2, align 4
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %44, %46
+  %47 = icmp samesign ult i64 %44, %46
   br i1 %47, label %23, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %39, %6
@@ -251,7 +251,7 @@ define hidden void @_ZN15G1SurvRateGroup28all_surviving_words_recordedERK13G1Pre
   %28 = add nuw nsw i64 %.05.i, 1
   %29 = load i32, ptr %0, align 8
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %28, %30
+  %31 = icmp samesign ult i64 %28, %30
   br i1 %31, label %.lr.ph.i, label %_ZN15G1SurvRateGroup23fill_in_last_surv_ratesEv.exit, !llvm.loop !9
 
 _ZN15G1SurvRateGroup23fill_in_last_surv_ratesEv.exitthread-pre-split: ; preds = %3, %4
@@ -306,7 +306,7 @@ _ZNK13G1Predictions24predict_in_unit_intervalEPK12TruncatedSeq.exit.i: ; preds =
   %61 = add nuw nsw i64 %.012.i, 1
   %62 = load i32, ptr %0, align 8
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %61, %63
+  %64 = icmp samesign ult i64 %61, %63
   br i1 %64, label %35, label %_ZN15G1SurvRateGroup20finalize_predictionsERK13G1Predictions.exit, !llvm.loop !10
 
 _ZN15G1SurvRateGroup20finalize_predictionsERK13G1Predictions.exit: ; preds = %_ZNK13G1Predictions24predict_in_unit_intervalEPK12TruncatedSeq.exit.i, %_ZN15G1SurvRateGroup23fill_in_last_surv_ratesEv.exit
@@ -355,7 +355,7 @@ define hidden void @_ZN15G1SurvRateGroup23fill_in_last_surv_ratesEv(ptr nocaptur
   %25 = add nuw nsw i64 %.05, 1
   %26 = load i32, ptr %0, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %25, %27
+  %28 = icmp samesign ult i64 %25, %27
   br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %1
@@ -411,7 +411,7 @@ _ZNK13G1Predictions24predict_in_unit_intervalEPK12TruncatedSeq.exit: ; preds = %
   %32 = add nuw nsw i64 %.012, 1
   %33 = load i32, ptr %0, align 8
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %32, %34
+  %35 = icmp samesign ult i64 %32, %34
   br i1 %35, label %6, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %_ZNK13G1Predictions24predict_in_unit_intervalEPK12TruncatedSeq.exit, %2

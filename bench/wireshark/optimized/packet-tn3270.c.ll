@@ -6994,7 +6994,7 @@ dissect_query_reply_text_partitions.exit:         ; preds = %._crit_edge.i633, %
   %1691 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1690, ptr noundef %1, i32 noundef %1689, i32 noundef 1, i32 noundef 0) #6
   %1692 = add nuw nsw i32 %.02527.i, 2
   %.0.i640 = add i32 %.0.in28.i, 3
-  %1693 = icmp ult i32 %1692, %1684
+  %1693 = icmp samesign ult i32 %1692, %1684
   br i1 %1693, label %.lr.ph.i639, label %._crit_edge.i641, !llvm.loop !32
 
 ._crit_edge.i641:                                 ; preds = %.lr.ph.i639, %1682

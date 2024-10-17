@@ -288,7 +288,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_auipcP11processor_t6insn_tm(ptr nocapture noundef writeonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 7
   %5 = and i64 %4, 31
-  %6 = icmp ugt i64 %5, 15
+  %6 = icmp samesign ugt i64 %5, 15
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
@@ -340,7 +340,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 define noundef i64 @_Z16fast_rv64e_auipcP11processor_t6insn_tm(ptr nocapture noundef writeonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 7
   %5 = and i64 %4, 31
-  %6 = icmp ugt i64 %5, 15
+  %6 = icmp samesign ugt i64 %5, 15
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
@@ -439,7 +439,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %7, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %35 = icmp ugt i64 %10, 15
+  %35 = icmp samesign ugt i64 %10, 15
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -536,7 +536,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %7, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %35 = icmp ugt i64 %10, 15
+  %35 = icmp samesign ugt i64 %10, 15
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

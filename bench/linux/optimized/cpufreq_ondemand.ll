@@ -137,7 +137,7 @@ define internal fastcc void @od_set_powersave_bias(i32 noundef %0) unnamed_addr 
 38:                                               ; preds = %29, %25, %21, %18, %13
   %39 = add nuw nsw i64 %10, 1
   %40 = and i64 %39, 127
-  %41 = icmp ugt i64 %40, 63
+  %41 = icmp samesign ugt i64 %40, 63
   br i1 %41, label %.thread, label %3, !prof !8, !llvm.loop !9
 
 .thread:                                          ; preds = %3, %38, %9

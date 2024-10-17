@@ -336,7 +336,7 @@ define void @H5_term_library() #0 {
   %.0.lcssa = phi i32 [ %.1, %48 ], [ 1, %24 ]
   %51 = icmp ne i32 %.0.lcssa, 0
   %52 = add nuw nsw i32 %.034, 1
-  %53 = icmp ult i32 %.034, 100
+  %53 = icmp samesign ult i32 %.034, 100
   %or.cond54 = select i1 %51, i1 %53, i1 false
   br i1 %or.cond54, label %17, label %.critedge
 

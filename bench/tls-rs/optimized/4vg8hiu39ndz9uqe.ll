@@ -4623,7 +4623,7 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6re
   %72 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %68, i1 false)
   %73 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %71, i1 false)
   %narrow.i.i.i.i.i = add nuw nsw i16 %73, %72
-  %74 = icmp ugt i16 %narrow.i.i.i.i.i, 15
+  %74 = icmp samesign ugt i16 %narrow.i.i.i.i.i, 15
   br i1 %74, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17hc9d6d461f8dec936E.exit", label %75
 
 75:                                               ; preds = %.loopexit.i.i
@@ -13670,7 +13670,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
   %336 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %332, i1 false)
   %337 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %335, i1 false)
   %narrow.i.i.i.i.i.i.i = add nuw nsw i16 %337, %336
-  %338 = icmp ugt i16 %narrow.i.i.i.i.i.i.i, 15
+  %338 = icmp samesign ugt i16 %narrow.i.i.i.i.i.i.i, 15
   br i1 %338, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h0997b38699e320c4E.exit.i.i", label %339
 
 339:                                              ; preds = %325
@@ -14392,7 +14392,7 @@ common.resume:                                    ; preds = %.body, %32
   %105 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %101, i1 false)
   %106 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %104, i1 false)
   %narrow.i.i.i.i.i.i.i = add nuw nsw i16 %106, %105
-  %107 = icmp ugt i16 %narrow.i.i.i.i.i.i.i, 15
+  %107 = icmp samesign ugt i16 %narrow.i.i.i.i.i.i.i, 15
   br i1 %107, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17hf388285ef8308d95E.exit.i.i", label %108
 
 108:                                              ; preds = %94

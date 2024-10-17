@@ -888,7 +888,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$5steal17h7ac07
 
 .lr.ph:                                           ; preds = %2, %.thread.i
   %.034 = phi i32 [ %spec.select27, %.thread.i ], [ 0, %2 ]
-  %12 = icmp ult i32 %.034, 7
+  %12 = icmp samesign ult i32 %.034, 7
   br i1 %12, label %.preheader.i, label %13
 
 13:                                               ; preds = %.lr.ph
@@ -896,7 +896,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$5steal17h7ac07
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.preheader.i, %13
-  %14 = icmp ult i32 %.034, 11
+  %14 = icmp samesign ult i32 %.034, 11
   %15 = zext i1 %14 to i32
   %spec.select27 = add nuw nsw i32 %.034, %15
   %16 = load atomic i64, ptr %1 acquire, align 128
@@ -946,7 +946,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$5steal17h7ac07
 
 .lr.ph.i:                                         ; preds = %35, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %35 ]
-  %38 = icmp ult i32 %.02.i, 7
+  %38 = icmp samesign ult i32 %.02.i, 7
   br i1 %38, label %.preheader.i.i, label %39
 
 39:                                               ; preds = %.lr.ph.i
@@ -954,7 +954,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$5steal17h7ac07
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %39
-  %40 = icmp ult i32 %.02.i, 11
+  %40 = icmp samesign ult i32 %.02.i, 11
   %41 = zext i1 %40 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %41
   %42 = load atomic i64, ptr %.0.i.le acquire, align 8
@@ -993,7 +993,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$5steal17h7ac07
 
 .lr.ph.i17:                                       ; preds = %51, %.thread.i.i19
   %.02.i18 = phi i32 [ %spec.select.i20, %.thread.i.i19 ], [ 0, %51 ]
-  %58 = icmp ult i32 %.02.i18, 7
+  %58 = icmp samesign ult i32 %.02.i18, 7
   br i1 %58, label %.preheader.i.i21, label %59
 
 59:                                               ; preds = %.lr.ph.i17
@@ -1001,7 +1001,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$5steal17h7ac07
   br label %.thread.i.i19
 
 .thread.i.i19:                                    ; preds = %.preheader.i.i21, %59
-  %60 = icmp ult i32 %.02.i18, 11
+  %60 = icmp samesign ult i32 %.02.i18, 11
   %61 = zext i1 %60 to i32
   %spec.select.i20 = add nuw nsw i32 %.02.i18, %61
   %62 = load atomic i64, ptr %54 acquire, align 8

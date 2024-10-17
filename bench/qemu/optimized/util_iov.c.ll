@@ -83,7 +83,7 @@ for.inc:                                          ; preds = %if.then, %if.else
   %tobool.not = icmp ne i64 %offset.addr.1, 0
   %cmp = icmp ult i64 %done.1, %bytes
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp
-  %cmp1 = icmp ult i64 %indvars.iv.next, %1
+  %cmp1 = icmp samesign ult i64 %indvars.iv.next, %1
   %or.cond22 = select i1 %or.cond, i1 %cmp1, i1 false
   br i1 %or.cond22, label %for.body, label %for.end, !llvm.loop !5
 
@@ -152,7 +152,7 @@ for.inc:                                          ; preds = %if.then, %if.else
   %tobool.not = icmp ne i64 %offset.addr.1, 0
   %cmp = icmp ult i64 %done.1, %bytes
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp
-  %cmp1 = icmp ult i64 %indvars.iv.next, %1
+  %cmp1 = icmp samesign ult i64 %indvars.iv.next, %1
   %or.cond22 = select i1 %or.cond, i1 %cmp1, i1 false
   br i1 %or.cond22, label %for.body, label %for.end, !llvm.loop !7
 
@@ -215,7 +215,7 @@ for.inc:                                          ; preds = %if.then, %if.else
   %tobool.not = icmp ne i64 %offset.addr.1, 0
   %cmp = icmp ult i64 %done.1, %bytes
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp
-  %cmp1 = icmp ult i64 %indvars.iv.next, %2
+  %cmp1 = icmp samesign ult i64 %indvars.iv.next, %2
   %or.cond21 = select i1 %or.cond, i1 %cmp1, i1 false
   br i1 %or.cond21, label %for.body, label %for.end, !llvm.loop !8
 
@@ -315,7 +315,7 @@ for.inc.i:                                        ; preds = %if.end.i, %if.then.
   %bytes.addr.1.i = phi i64 [ %bytes.addr.033.i, %if.then.i ], [ %sub20.i, %if.end.i ]
   %offset.addr.1.i = phi i64 [ %sub.i, %if.then.i ], [ 0, %if.end.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %conv
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %conv
   %cmp1.i = icmp ult i32 %j.1.i, %iov_cnt
   %or.cond.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %or.cond.i, label %land.rhs.i, label %for.end.i, !llvm.loop !10
@@ -622,7 +622,7 @@ for.inc:                                          ; preds = %if.end, %if.then
   %bytes.addr.1 = phi i64 [ %bytes.addr.033, %if.then ], [ %sub20, %if.end ]
   %offset.addr.1 = phi i64 [ %sub, %if.then ], [ 0, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv.next, %0
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %0
   %cmp1 = icmp ult i32 %j.1, %dst_iov_cnt
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %or.cond, label %land.rhs, label %for.end, !llvm.loop !10
@@ -699,7 +699,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i, %if.t
   %done.1.i.i = phi i64 [ %add.i.i, %if.then.i.i ], [ %done.029.i.i, %for.body.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.i.i = icmp ult i64 %done.1.i.i, %cond
-  %cmp1.i.i = icmp ult i64 %indvars.iv.next.i.i, %1
+  %cmp1.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %1
   %or.cond22.i.i = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
   br i1 %or.cond22.i.i, label %for.body.i.i, label %iov_to_buf.exit, !llvm.loop !7
 
@@ -1358,7 +1358,7 @@ for.inc.i.i:                                      ; preds = %if.else.i.i, %if.th
   %tobool.not.i.i = icmp ne i64 %offset.addr.1.i.i, 0
   %cmp.i.i = icmp ult i64 %done.1.i.i, %bytes
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.i.i
-  %cmp1.i.i = icmp ult i64 %indvars.iv.next.i.i, %3
+  %cmp1.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %3
   %or.cond22.i.i = select i1 %or.cond.i.i, i1 %cmp1.i.i, i1 false
   br i1 %or.cond22.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !7
 
@@ -1424,7 +1424,7 @@ for.inc.i.i:                                      ; preds = %if.else.i.i, %if.th
   %tobool.not.i.i = icmp ne i64 %offset.addr.1.i.i, 0
   %cmp.i.i = icmp ult i64 %done.1.i.i, %bytes
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.i.i
-  %cmp1.i.i = icmp ult i64 %indvars.iv.next.i.i, %3
+  %cmp1.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %3
   %or.cond22.i.i = select i1 %or.cond.i.i, i1 %cmp1.i.i, i1 false
   br i1 %or.cond22.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !5
 
@@ -1490,7 +1490,7 @@ for.inc.i:                                        ; preds = %if.else.i, %if.then
   %tobool.not.i = icmp ne i64 %offset.addr.1.i, 0
   %cmp.i = icmp ult i64 %done.1.i, %bytes
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.i
-  %cmp1.i = icmp ult i64 %indvars.iv.next.i, %4
+  %cmp1.i = icmp samesign ult i64 %indvars.iv.next.i, %4
   %or.cond21.i = select i1 %or.cond.i, i1 %cmp1.i, i1 false
   br i1 %or.cond21.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 

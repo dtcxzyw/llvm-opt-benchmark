@@ -1635,8 +1635,8 @@ define internal fastcc i32 @internal_dfa_match(ptr noundef nonnull %0, ptr nound
   %204 = getelementptr inbounds i8, ptr %0, i64 48
   %205 = getelementptr inbounds i8, ptr %21, i64 %3
   %206 = getelementptr inbounds i8, ptr %0, i64 72
-  %207 = icmp ugt i32 %5, 1
-  %208 = icmp ugt i32 %43, 2
+  %207 = icmp samesign ugt i32 %5, 1
+  %208 = icmp samesign ugt i32 %43, 2
   %209 = getelementptr inbounds i8, ptr %4, i64 16
   %210 = sub i64 %186, %188
   %211 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2341,8 +2341,8 @@ define internal fastcc i32 @internal_dfa_match(ptr noundef nonnull %0, ptr nound
 518:                                              ; preds = %517
   %519 = add nuw nsw i32 %.126883363, 1
   %520 = shl nuw nsw i32 %519, 1
-  %521 = icmp ule i32 %520, %43
-  %brmerge = or i1 %521, %208
+  %521 = icmp samesign ule i32 %520, %43
+  %brmerge = select i1 %521, i1 true, i1 %208
   %.mux = call i32 @llvm.umin.i32(i32 %520, i32 %43)
   %.mux3531 = select i1 %521, i32 %519, i32 0
   br i1 %brmerge, label %.thread3114, label %.thread3118

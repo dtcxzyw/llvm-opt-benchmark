@@ -1001,7 +1001,7 @@ get_data_bit_pin_prefix.exit.split.i.i.i:         ; preds = %get_data_bit_pin_pr
   %278 = getelementptr [8 x ptr], ptr @get_data_bit_pin_prefix.low_byte_signal_names, i64 0, i64 %indvars.iv12.i.i.i
   %279 = load ptr, ptr %278, align 8
   %280 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %258, i32 noundef %277, ptr noundef %0, i32 noundef %51, i32 noundef 1, i32 noundef %272, ptr noundef nonnull @.str.120, ptr noundef %279) #6
-  %281 = icmp ult i64 %indvars.iv12.i.i.i, %.03.i.i.i
+  %281 = icmp samesign ult i64 %indvars.iv12.i.i.i, %.03.i.i.i
   br i1 %281, label %282, label %283
 
 282:                                              ; preds = %get_data_bit_pin_prefix.exit.split.i.i.i
@@ -1084,7 +1084,7 @@ get_data_bit_pin_prefix.exit53.split.i.i.i:       ; preds = %get_data_bit_pin_pr
   %316 = getelementptr [8 x ptr], ptr @get_data_bit_pin_prefix.high_byte_signal_names, i64 0, i64 %indvars.iv20.i.i.i
   %317 = load ptr, ptr %316, align 8
   %318 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %296, i32 noundef %315, ptr noundef %0, i32 noundef %284, i32 noundef 1, i32 noundef %310, ptr noundef nonnull @.str.120, ptr noundef %317) #6
-  %319 = icmp ult i64 %indvars.iv20.i.i.i, %.14.i.i.i
+  %319 = icmp samesign ult i64 %indvars.iv20.i.i.i, %.14.i.i.i
   br i1 %319, label %320, label %321
 
 320:                                              ; preds = %get_data_bit_pin_prefix.exit53.split.i.i.i
@@ -2385,7 +2385,7 @@ define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, pt
   %40 = getelementptr ptr, ptr %3, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %15, i32 noundef %39, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef %34, ptr noundef nonnull @.str.120, ptr noundef %41) #6
-  %43 = icmp ult i64 %indvars.iv, %16
+  %43 = icmp samesign ult i64 %indvars.iv, %16
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %.split
@@ -2440,7 +2440,7 @@ define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, pt
   %68 = getelementptr ptr, ptr %3, i64 %indvars.iv15
   %69 = load ptr, ptr %68, align 8
   %70 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %47, i32 noundef %67, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef %62, ptr noundef nonnull @.str.120, ptr noundef %69) #6
-  %71 = icmp ult i64 %indvars.iv15, %48
+  %71 = icmp samesign ult i64 %indvars.iv15, %48
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %.split5
@@ -2518,7 +2518,7 @@ define internal fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr
   %32 = getelementptr ptr, ptr %3, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %11, i32 noundef %31, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef %26, ptr noundef nonnull @.str.120, ptr noundef %33) #6
-  %35 = icmp ult i64 %indvars.iv, %12
+  %35 = icmp samesign ult i64 %indvars.iv, %12
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %.split

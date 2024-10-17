@@ -233,7 +233,7 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %115 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv
   store i32 %114, ptr %115, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %116 = icmp ult i64 %indvars.iv.next, %108
+  %116 = icmp samesign ult i64 %indvars.iv.next, %108
   br i1 %116, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %104

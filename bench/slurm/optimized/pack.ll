@@ -297,7 +297,7 @@ define dso_local void @grow_buf(ptr noundef %0, i32 noundef %1) #0 {
   unreachable
 
 17:                                               ; preds = %12
-  %18 = icmp ugt i64 %7, 4294901760
+  %18 = icmp samesign ugt i64 %7, 4294901760
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %17
@@ -1353,7 +1353,7 @@ define dso_local range(i32 -1, 1) i32 @unpack16_array(ptr noundef %0, ptr nocapt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %1, align 4
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %41, label %25, label %.loopexit, !llvm.loop !9
 
 unpack32.exit:                                    ; preds = %25, %3, %20
@@ -1564,7 +1564,7 @@ define dso_local range(i32 -1, 1) i32 @unpack32_array(ptr noundef %0, ptr nocapt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %1, align 4
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %41, label %25, label %.loopexit, !llvm.loop !11
 
 unpack32.exit:                                    ; preds = %25, %3, %20
@@ -1613,7 +1613,7 @@ define dso_local void @packmem(ptr nocapture noundef readonly %0, i32 noundef %1
   br i1 %27, label %try_grow_buf_remaining.exit.thread, label %28
 
 28:                                               ; preds = %24
-  %29 = icmp ugt i64 %20, 4294901760
+  %29 = icmp samesign ugt i64 %20, 4294901760
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
@@ -2124,7 +2124,7 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_array(ptr noundef %0, ptr nocap
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load i32, ptr %1, align 4
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.preheader, %27
@@ -2184,7 +2184,7 @@ define dso_local void @packmem_array(ptr nocapture noundef readonly %0, i32 noun
   br i1 %20, label %try_grow_buf_remaining.exit.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ugt i64 %13, 4294901760
+  %22 = icmp samesign ugt i64 %13, 4294901760
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
@@ -2298,7 +2298,7 @@ define dso_local range(i32 0, 9206) i32 @try_grow_buf(ptr noundef %0, i32 nounde
   br i1 %14, label %24, label %15
 
 15:                                               ; preds = %11
-  %16 = icmp ugt i64 %7, 4294901760
+  %16 = icmp samesign ugt i64 %7, 4294901760
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
@@ -2347,7 +2347,7 @@ define dso_local range(i32 0, 9206) i32 @try_grow_buf_remaining(ptr noundef %0, 
   br i1 %19, label %try_grow_buf.exit, label %20
 
 20:                                               ; preds = %16
-  %21 = icmp ugt i64 %12, 4294901760
+  %21 = icmp samesign ugt i64 %12, 4294901760
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
@@ -2689,7 +2689,7 @@ define dso_local range(i32 -1, 1) i32 @unpack64_array(ptr noundef %0, ptr nocapt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %1, align 4
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %41, label %25, label %.loopexit, !llvm.loop !16
 
 unpack32.exit:                                    ; preds = %25, %3, %20
@@ -2899,7 +2899,7 @@ define dso_local range(i32 -1, 1) i32 @unpackdouble_array(ptr noundef %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %1, align 4
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 unpack32.exit:                                    ; preds = %.lr.ph, %3, %20
@@ -3100,7 +3100,7 @@ unpacklongdouble.exit.thread:                     ; preds = %unpackmem_ptr.exit.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = load i32, ptr %1, align 4
   %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next, %54
   br i1 %55, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 unpack32.exit:                                    ; preds = %unpacklongdouble.exit.thread, %3, %21
@@ -3150,7 +3150,7 @@ define dso_local void @packbuf(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %22, label %try_grow_buf_remaining.exit.thread, label %23
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i64 %15, 4294901760
+  %24 = icmp samesign ugt i64 %15, 4294901760
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23

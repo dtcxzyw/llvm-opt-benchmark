@@ -432,7 +432,7 @@ define hidden void @_ZNK8rawspeed14ThreefrDecoder18DecodeUncompressedEPKNS_7Tiff
   %45 = getelementptr inbounds i8, ptr %0, i64 40
   %46 = load i32, ptr %45, align 8, !tbaa !22
   %47 = zext i32 %46 to i64
-  %48 = icmp ugt i64 %44, %47
+  %48 = icmp samesign ugt i64 %44, %47
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %37
@@ -445,7 +445,7 @@ define hidden void @_ZNK8rawspeed14ThreefrDecoder18DecodeUncompressedEPKNS_7Tiff
   %53 = icmp sgt i32 %46, -1
   tail call void @llvm.assume(i1 %53)
   %54 = add nuw nsw i32 %41, %39
-  %55 = icmp ule i32 %54, %46
+  %55 = icmp samesign ule i32 %54, %46
   tail call void @llvm.assume(i1 %55)
   %56 = icmp sgt i32 %39, -1
   tail call void @llvm.assume(i1 %56)

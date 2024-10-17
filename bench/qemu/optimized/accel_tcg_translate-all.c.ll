@@ -336,7 +336,7 @@ decode_sleb128.exit35.i:                          ; preds = %do.body.i17.i
   br i1 %cmp17.i, label %if.then19.i, label %for.inc22.i
 
 if.then19.i:                                      ; preds = %decode_sleb128.exit35.i
-  %13 = icmp ule i32 %i.044.i, %conv.i
+  %13 = icmp samesign ule i32 %i.044.i, %conv.i
   br label %return
 
 for.inc22.i:                                      ; preds = %decode_sleb128.exit35.i
@@ -835,7 +835,7 @@ if.end152:                                        ; preds = %if.then142, %while.
   %chunk_start.1 = phi i64 [ %conv139, %if.then142 ], [ %chunk_start.0156, %while.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = zext i16 %62 to i64
-  %cmp134 = icmp ult i64 %indvars.iv.next, %63
+  %cmp134 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %cmp134, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end152, %if.end125

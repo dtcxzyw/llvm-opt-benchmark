@@ -293,7 +293,7 @@ define void @PHP_SHA1Final(ptr nocapture noundef writeonly %0, ptr noundef %1) l
   store i8 %28, ptr %3, align 1
   %29 = lshr i32 %5, 3
   %30 = and i32 %29, 63
-  %31 = icmp ult i32 %30, 56
+  %31 = icmp samesign ult i32 %30, 56
   %.v = select i1 %31, i32 56, i32 120
   %32 = sub nsw i32 %.v, %30
   %33 = zext i32 %32 to i64
@@ -318,7 +318,7 @@ define void @PHP_SHA1Final(ptr nocapture noundef writeonly %0, ptr noundef %1) l
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull readonly align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
   tail call fastcc void @SHA1Transform(ptr noundef nonnull %1, ptr noundef nonnull %44)
   %47 = add nuw nsw i64 %43, 63
-  %48 = icmp ult i64 %47, %33
+  %48 = icmp samesign ult i64 %47, %33
   br i1 %48, label %.lr.ph.i, label %PHP_SHA1Update.exit
 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
@@ -327,7 +327,7 @@ define void @PHP_SHA1Final(ptr nocapture noundef writeonly %0, ptr noundef %1) l
   tail call fastcc void @SHA1Transform(ptr noundef %1, ptr noundef nonnull readonly %49)
   %50 = add nuw nsw i64 %.031.i, 64
   %51 = add nuw nsw i64 %.031.i, 127
-  %52 = icmp ult i64 %51, %33
+  %52 = icmp samesign ult i64 %51, %33
   br i1 %52, label %.lr.ph.i, label %PHP_SHA1Update.exit
 
 53:                                               ; preds = %2
@@ -352,7 +352,7 @@ PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %42, %53
   %65 = zext i1 %63 to i32
   %66 = add i32 %64, %65
   store i32 %66, ptr %17, align 4
-  %.not.i17 = icmp ult i32 %61, 56
+  %.not.i17 = icmp samesign ult i32 %61, 56
   br i1 %.not.i17, label %72, label %67
 
 67:                                               ; preds = %PHP_SHA1Update.exit

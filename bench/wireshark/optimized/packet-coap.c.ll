@@ -1944,7 +1944,7 @@ coap_frame_length.exit:                           ; preds = %39, %46, %53
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %80, ptr noundef nonnull @.str.333, ptr noundef %105, ptr noundef %106, i32 noundef %99) #9
   %107 = zext i16 %98 to i64
   %108 = inttoptr i64 %107 to ptr
-  %109 = icmp ult i8 %90, 2
+  %109 = icmp samesign ult i8 %90, 2
   br label %127
 
 110:                                              ; preds = %74

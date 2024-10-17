@@ -1148,7 +1148,7 @@ invoke.cont91:                                    ; preds = %call3.i.i.noexc, %f
   %sub.i = phi i32 [ 0, %for.cond90 ], [ %44, %call3.i.i.noexc ]
   %cond.i = add i32 %sub.i, %41
   %45 = zext i32 %cond.i to i64
-  %cmp93 = icmp ult i64 %indvars.iv, %45
+  %cmp93 = icmp samesign ult i64 %indvars.iv, %45
   br i1 %cmp93, label %for.body94, label %for.end107
 
 for.body94:                                       ; preds = %invoke.cont91
@@ -1313,7 +1313,7 @@ invoke.cont114:                                   ; preds = %call3.i.i.noexc202,
   %sub.i200 = phi i32 [ 0, %for.cond113 ], [ %61, %call3.i.i.noexc202 ]
   %cond.i201 = add i32 %sub.i200, %58
   %62 = zext i32 %cond.i201 to i64
-  %cmp116 = icmp ult i64 %indvars.iv1322, %62
+  %cmp116 = icmp samesign ult i64 %indvars.iv1322, %62
   br i1 %cmp116, label %for.body117, label %for.end151
 
 for.body117:                                      ; preds = %invoke.cont114
@@ -2103,7 +2103,7 @@ invoke.cont170:                                   ; preds = %call3.i.i.noexc286,
   %sub.i284 = phi i32 [ 0, %for.cond169 ], [ %139, %call3.i.i.noexc286 ]
   %cond.i285 = add i32 %sub.i284, %136
   %140 = zext i32 %cond.i285 to i64
-  %cmp172 = icmp ult i64 %indvars.iv1324, %140
+  %cmp172 = icmp samesign ult i64 %indvars.iv1324, %140
   br i1 %cmp172, label %for.body173, label %if.end210
 
 for.body173:                                      ; preds = %invoke.cont170
@@ -2742,7 +2742,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont274, %if
   %m_num_args.i = getelementptr inbounds i8, ptr %226, i64 24
   %227 = load i32, ptr %m_num_args.i, align 8
   %228 = zext i32 %227 to i64
-  %cmp262 = icmp ult i64 %indvars.iv.next1336, %228
+  %cmp262 = icmp samesign ult i64 %indvars.iv.next1336, %228
   br i1 %cmp262, label %for.body263, label %if.end278, !llvm.loop !22
 
 lpad269:                                          ; preds = %if.then2.i.i.i.i, %if.then.i488, %for.body263, %invoke.cont270
@@ -4439,7 +4439,7 @@ invoke.cont15:                                    ; preds = %call3.i.i.noexc, %f
   %sub.i = phi i32 [ 0, %for.cond ], [ %13, %call3.i.i.noexc ]
   %cond.i = add i32 %sub.i, %10
   %14 = zext i32 %cond.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %14
+  %cmp = icmp samesign ult i64 %indvars.iv, %14
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont15

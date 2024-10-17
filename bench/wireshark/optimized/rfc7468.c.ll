@@ -43,7 +43,7 @@ define hidden range(i32 -1, 2) i32 @rfc7468_open(ptr nocapture noundef %0, ptr n
   %18 = ptrtoint ptr %17 to i64
   %19 = sub i64 %14, %18
   %20 = and i64 %19, 4294967295
-  %21 = icmp ult i64 %20, 11
+  %21 = icmp samesign ult i64 %20, 11
   br i1 %21, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %16

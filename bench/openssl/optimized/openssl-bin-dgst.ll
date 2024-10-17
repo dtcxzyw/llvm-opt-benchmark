@@ -455,7 +455,7 @@ if.end140:                                        ; preds = %if.end129
   %lnot.ext147 = zext i1 %cmp145 to i32
   %add = add nuw nsw i32 %lnot.ext, %lnot.ext147
   %add148 = add nuw nsw i32 %add, %.
-  %cmp149 = icmp ugt i32 %add148, 1
+  %cmp149 = icmp samesign ugt i32 %add148, 1
   br i1 %cmp149, label %if.then150, label %if.end152
 
 if.then150:                                       ; preds = %if.end140

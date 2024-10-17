@@ -5622,7 +5622,7 @@ _ZNSt16allocator_traitsISaI9mem_cfg_tEE8allocateERS1_m.exit.i.i.i.i.i.i.i.i: ; p
           to label %.noexc56.i.i.i.i unwind label %258, !noalias !20
 
 .noexc56.i.i.i.i:                                 ; preds = %95
-  %101 = icmp ugt i64 %.08.i.i.i.i.i.idx.i.i.i.i, 240
+  %101 = icmp samesign ugt i64 %.08.i.i.i.i.i.idx.i.i.i.i, 240
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %92, i64 16
   br i1 %101, label %.lr.ph.i.i.i.i.i.i.i, label %142
 
@@ -11275,7 +11275,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_46E9_M_invokeERK
   %7 = add i64 %6, -16
   %or.cond.i.i.i = icmp ult i64 %7, 4081
   %8 = tail call range(i64 1, 14) i64 @llvm.ctpop.i64(i64 %6)
-  %.not.i.i.i = icmp ult i64 %8, 2
+  %.not.i.i.i = icmp samesign ult i64 %8, 2
   %or.cond2.i.i.i = select i1 %or.cond.i.i.i, i1 %.not.i.i.i, i1 false
   br i1 %or.cond2.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_46JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %9
 

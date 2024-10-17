@@ -1002,7 +1002,7 @@ define internal fastcc range(i32 -19, 1) i32 @acpi_battery_get_info(ptr noundef 
   %50 = phi i64 [ 0, %46 ], [ %89, %88 ]
   %51 = load i32, ptr %47, align 4
   %52 = zext i32 %51 to i64
-  %53 = icmp ult i64 %50, %52
+  %53 = icmp samesign ult i64 %50, %52
   br i1 %53, label %54, label %extract_package.exit
 
 54:                                               ; preds = %49
@@ -1083,7 +1083,7 @@ define internal fastcc range(i32 -19, 1) i32 @acpi_battery_get_info(ptr noundef 
   %97 = phi i64 [ 0, %93 ], [ %136, %135 ]
   %98 = load i32, ptr %94, align 4
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %97, %99
+  %100 = icmp samesign ult i64 %97, %99
   br i1 %100, label %101, label %extract_package.exit
 
 101:                                              ; preds = %96
@@ -1161,7 +1161,7 @@ define internal fastcc range(i32 -19, 1) i32 @acpi_battery_get_info(ptr noundef 
   %143 = phi i64 [ 0, %139 ], [ %182, %181 ]
   %144 = load i32, ptr %140, align 4
   %145 = zext i32 %144 to i64
-  %146 = icmp ult i64 %143, %145
+  %146 = icmp samesign ult i64 %143, %145
   br i1 %146, label %147, label %extract_package.exit
 
 147:                                              ; preds = %142
@@ -1428,7 +1428,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_battery_get_state(ptr
   %40 = phi i64 [ 0, %36 ], [ %58, %56 ]
   %41 = load i32, ptr %37, align 4
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %40, %42
+  %43 = icmp samesign ult i64 %40, %42
   br i1 %43, label %44, label %extract_package.exit
 
 44:                                               ; preds = %39

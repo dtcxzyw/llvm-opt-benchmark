@@ -3403,7 +3403,7 @@ default.unreachable1352:                          ; preds = %196
   %1650 = getelementptr inbounds i8, ptr %1649, i64 56
   %1651 = load i32, ptr %1650, align 8
   %1652 = zext i32 %1651 to i64
-  %1653 = icmp ult i64 %indvars.iv.next, %1652
+  %1653 = icmp samesign ult i64 %indvars.iv.next, %1652
   br i1 %1653, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge1305
@@ -4371,7 +4371,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %325, %331, %337, %3
   %380 = getelementptr inbounds i8, ptr %379, i64 52
   %381 = load i32, ptr %380, align 4
   %382 = zext i32 %381 to i64
-  %383 = icmp ult i64 %indvars.iv.next398, %382
+  %383 = icmp samesign ult i64 %indvars.iv.next398, %382
   br i1 %383, label %384, label %.loopexit346
 
 384:                                              ; preds = %.lr.ph379, %378
@@ -4690,7 +4690,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %325, %331, %337, %3
   %564 = getelementptr inbounds i8, ptr %563, i64 52
   %565 = load i32, ptr %564, align 4
   %566 = zext i32 %565 to i64
-  %567 = icmp ult i64 %indvars.iv.next394, %566
+  %567 = icmp samesign ult i64 %indvars.iv.next394, %566
   br i1 %567, label %.lr.ph364, label %._crit_edge365.loopexit
 
 ._crit_edge365.loopexit:                          ; preds = %562
@@ -4848,7 +4848,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %325, %331, %337, %3
   %670 = getelementptr inbounds i8, ptr %669, i64 56
   %671 = load i32, ptr %670, align 8
   %672 = zext i32 %671 to i64
-  %673 = icmp ult i64 %indvars.iv.next, %672
+  %673 = icmp samesign ult i64 %indvars.iv.next, %672
   br i1 %673, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -5333,7 +5333,7 @@ switch.lookup:                                    ; preds = %4
   %60 = getelementptr inbounds i8, ptr %59, i64 52
   %61 = load i32, ptr %60, align 4
   %62 = zext i32 %61 to i64
-  %63 = icmp ult i64 %indvars.iv.next23, %62
+  %63 = icmp samesign ult i64 %indvars.iv.next23, %62
   br i1 %63, label %39, label %.loopexit
 
 64:                                               ; preds = %14
@@ -5406,7 +5406,7 @@ switch.lookup:                                    ; preds = %4
   %115 = getelementptr inbounds i8, ptr %114, i64 52
   %116 = load i32, ptr %115, align 4
   %117 = zext i32 %116 to i64
-  %118 = icmp ult i64 %indvars.iv.next20, %117
+  %118 = icmp samesign ult i64 %indvars.iv.next20, %117
   br i1 %118, label %.lr.ph9, label %.loopexit
 
 119:                                              ; preds = %14
@@ -5641,7 +5641,7 @@ switch.lookup:                                    ; preds = %4
   %203 = getelementptr inbounds i8, ptr %202, i64 56
   %204 = load i32, ptr %203, align 8
   %205 = zext i32 %204 to i64
-  %206 = icmp ult i64 %indvars.iv.next, %205
+  %206 = icmp samesign ult i64 %indvars.iv.next, %205
   br i1 %206, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %187

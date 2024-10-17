@@ -2412,7 +2412,7 @@ Gia_ObjIsXor.exit:                                ; preds = %92
   %97 = lshr i64 %.val174, 32
   %98 = trunc nuw i64 %97 to i32
   %99 = and i32 %98, 536870911
-  %.not = icmp ult i32 %96, %99
+  %.not = icmp samesign ult i32 %96, %99
   br i1 %.not, label %100, label %Gia_ObjIsXor.exit.thread
 
 100:                                              ; preds = %Gia_ObjIsXor.exit
@@ -2467,7 +2467,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %92, %Gia_ObjIsXor.e
   %137 = lshr i64 %.val169, 32
   %138 = trunc nuw i64 %137 to i32
   %139 = and i32 %138, 536870911
-  %140 = icmp ult i32 %136, %139
+  %140 = icmp samesign ult i32 %136, %139
   %141 = zext i1 %140 to i32
   br label %Gia_ObjIsXor.exit180
 
@@ -2493,7 +2493,7 @@ Gia_ObjIsXor.exit180:                             ; preds = %119, %135
   %151 = lshr i64 %.val176, 32
   %152 = trunc nuw i64 %151 to i32
   %153 = and i32 %152, 536870911
-  %154 = icmp ult i32 %150, %153
+  %154 = icmp samesign ult i32 %150, %153
   %155 = zext i1 %154 to i64
   br label %Gia_ObjIsXor.exit183
 
@@ -4282,7 +4282,7 @@ Gia_ObjIsXor.exit:                                ; preds = %30
   %40 = lshr i64 %.val39, 32
   %41 = trunc nuw i64 %40 to i32
   %42 = and i32 %41, 536870911
-  %.not61 = icmp ult i32 %39, %42
+  %.not61 = icmp samesign ult i32 %39, %42
   br i1 %.not61, label %43, label %Gia_ObjIsXor.exit.thread
 
 43:                                               ; preds = %Gia_ObjIsXor.exit
@@ -4748,7 +4748,7 @@ Gia_ObjIsXor.exit:                                ; preds = %18
   %31 = lshr i64 %.val30, 32
   %32 = trunc nuw i64 %31 to i32
   %33 = and i32 %32, 536870911
-  %.not32 = icmp ult i32 %30, %33
+  %.not32 = icmp samesign ult i32 %30, %33
   br i1 %.not32, label %34, label %Gia_ObjIsXor.exit.thread
 
 34:                                               ; preds = %Gia_ObjIsXor.exit
@@ -5549,7 +5549,7 @@ Gia_ObjIsXor.exit:                                ; preds = %36
   %60 = lshr i64 %.val37, 32
   %61 = trunc nuw i64 %60 to i32
   %62 = and i32 %61, 536870911
-  %63 = icmp uge i32 %59, %62
+  %63 = icmp samesign uge i32 %59, %62
   %64 = xor i32 %53, %44
   %65 = and i32 %53, %44
   %cond.fr = freeze i1 %63
@@ -5687,7 +5687,7 @@ Gia_ObjIsXor.exit:                                ; preds = %39
   %63 = lshr i64 %.val32, 32
   %64 = trunc nuw i64 %63 to i32
   %65 = and i32 %64, 536870911
-  %66 = icmp uge i32 %62, %65
+  %66 = icmp samesign uge i32 %62, %65
   %67 = xor i32 %56, %47
   %68 = and i32 %56, %47
   %cond.fr = freeze i1 %66
@@ -6372,7 +6372,7 @@ Gia_ObjIsXor.exit:                                ; preds = %84
   %95 = and i32 %94, 536870911
   %96 = trunc nuw i64 %88 to i32
   %97 = and i32 %96, 536870911
-  %.not243 = icmp ult i32 %95, %97
+  %.not243 = icmp samesign ult i32 %95, %97
   br i1 %.not243, label %98, label %Gia_ObjIsXor.exit.thread
 
 98:                                               ; preds = %Gia_ObjIsXor.exit
@@ -10280,7 +10280,7 @@ Gia_ObjIsXor.exit:                                ; preds = %219
   %226 = and i32 %225, 536870911
   %227 = trunc nuw i64 %.pre397 to i32
   %228 = and i32 %227, 536870911
-  %.not358 = icmp ult i32 %226, %228
+  %.not358 = icmp samesign ult i32 %226, %228
   %.pre393 = load ptr, ptr %202, align 8
   br i1 %.not358, label %229, label %Gia_ObjIsXor.exit.thread
 
@@ -11474,7 +11474,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %.137 = phi i32 [ %.03653, %31 ], [ %.03653, %45 ], [ %.03653, %50 ], [ %53, %52 ], [ %.03653, %26 ]
   %.1 = phi i32 [ %.03554, %31 ], [ %.03554, %45 ], [ %51, %50 ], [ %.03554, %52 ], [ %.03554, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = icmp ult i64 %indvars.iv.next, %23
+  %55 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %55, label %24, label %.critedge, !llvm.loop !82
 
 .critedge:                                        ; preds = %54, %24, %Vec_IntStartFull.exit

@@ -1475,7 +1475,7 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   %indvars.iv.next3565 = add nuw nsw i64 %indvars.iv3564, 1
   %840 = load i8, ptr %804, align 1
   %841 = zext i8 %840 to i64
-  %842 = icmp ult i64 %indvars.iv.next3565, %841
+  %842 = icmp samesign ult i64 %indvars.iv.next3565, %841
   br i1 %842, label %814, label %._crit_edge3476, !llvm.loop !5
 
 ._crit_edge3476:                                  ; preds = %839, %787
@@ -7987,7 +7987,7 @@ thread-pre-split:                                 ; preds = %426, %421, %430, %4
   %indvars.iv.next3756 = add nuw nsw i64 %indvars.iv3755, 1
   %951 = load i8, ptr %915, align 1
   %952 = zext i8 %951 to i64
-  %953 = icmp ult i64 %indvars.iv.next3756, %952
+  %953 = icmp samesign ult i64 %indvars.iv.next3756, %952
   br i1 %953, label %925, label %._crit_edge3665, !llvm.loop !21
 
 ._crit_edge3665:                                  ; preds = %950, %898

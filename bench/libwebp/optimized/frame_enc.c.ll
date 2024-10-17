@@ -385,7 +385,7 @@ CalcSkipProba.exit.i.i.i:                         ; preds = %195
   %205 = trunc i64 %204 to i8
   store i8 %205, ptr %114, align 1
   %206 = and i64 %204, 254
-  %207 = icmp ult i64 %206, 250
+  %207 = icmp samesign ult i64 %206, 250
   %208 = zext i1 %207 to i32
   store i32 %208, ptr %115, align 4
   br i1 %207, label %209, label %FinalizeSkipProba.exit.i.i
@@ -529,7 +529,7 @@ CalcSkipProba.exit.i.i:                           ; preds = %273
   %283 = udiv i64 %282, %279
   %284 = trunc i64 %283 to i8
   %285 = and i64 %283, 254
-  %286 = icmp ult i64 %285, 250
+  %286 = icmp samesign ult i64 %285, 250
   %287 = zext i1 %286 to i32
   br label %FinalizeSkipProba.exit.i
 
@@ -2137,7 +2137,7 @@ define internal fastcc range(i32 0, 2) i32 @PutCoeffs(ptr noundef %0, i32 nounde
   %134 = zext i8 %133 to i32
   %135 = tail call i32 @VP8PutBit(ptr noundef %0, i32 noundef %131, i32 noundef %134) #7
   %136 = lshr i32 %.184103, 1
-  %.not100 = icmp ult i32 %.184103, 2
+  %.not100 = icmp samesign ult i32 %.184103, 2
   br i1 %.not100, label %.loopexit, label %128, !llvm.loop !37
 
 .loopexit:                                        ; preds = %128, %59, %52, %80, %84, %38

@@ -80,7 +80,7 @@ entry:
 if.end:                                           ; preds = %entry
   %headerBuffer.val = load i32, ptr %headerBuffer, align 1
   %and = and i32 %headerBuffer.val, 15
-  %cmp1 = icmp ugt i32 %and, 10
+  %cmp1 = icmp samesign ugt i32 %and, 10
   br i1 %cmp1, label %return, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end
@@ -471,7 +471,7 @@ for.end74:                                        ; preds = %if.end62
 if.end78:                                         ; preds = %for.end74
   %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add71, i1 true)
   %xor.i = xor i32 %14, 31
-  %cmp81 = icmp ugt i32 %xor.i, 15
+  %cmp81 = icmp samesign ugt i32 %xor.i, 15
   br i1 %cmp81, label %return, label %if.end84
 
 if.end84:                                         ; preds = %if.end78
@@ -3158,7 +3158,7 @@ entry:
   %dtd.sroa.5.0.extract.trunc = trunc nuw i32 %dtd.sroa.5.0.extract.shift to i8
   %conv = and i32 %DTable.val, 255
   %add.ptr2 = getelementptr inbounds i8, ptr %DTable, i64 4
-  %cmp = icmp ugt i32 %conv, 16
+  %cmp = icmp samesign ugt i32 %conv, 16
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -5519,7 +5519,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp.i = icmp ult i64 %srcSize, 3
+  %cmp.i = icmp samesign ult i64 %srcSize, 3
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
@@ -5534,7 +5534,7 @@ if.end.i:                                         ; preds = %if.end
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %cmp4.i = icmp ult i64 %srcSize, 5
+  %cmp4.i = icmp samesign ult i64 %srcSize, 5
   br i1 %cmp4.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %sw.bb.i
@@ -5571,9 +5571,9 @@ sw.epilog.i:                                      ; preds = %if.end7.i
   %add74.i = or disjoint i32 %add71.i, %conv73.i
   %litSize.0.i = zext nneg i32 %add62.i to i64
   %litCSize.0.i = zext nneg i32 %add74.i to i64
-  %cmp76.i = icmp ugt i32 %add62.i, 131072
+  %cmp76.i = icmp samesign ugt i32 %add62.i, 131072
   %add81127.i = add nuw nsw i64 %litCSize.0.i, 5
-  %cmp82128.i = icmp ugt i64 %add81127.i, %srcSize
+  %cmp82128.i = icmp samesign ugt i64 %add81127.i, %srcSize
   %or.cond.i = select i1 %cmp76.i, i1 true, i1 %cmp82128.i
   br i1 %or.cond.i, label %return, label %cond.false.i
 
@@ -5591,7 +5591,7 @@ if.end79.i:                                       ; preds = %if.end7.i
   %litSize.0116.i = zext nneg i32 %add.i to i64
   %litCSize.0117.i = zext nneg i32 %add26.i to i64
   %add81.i = add nuw nsw i64 %litCSize.0117.i, 3
-  %cmp82.i = icmp ugt i64 %add81.i, %srcSize
+  %cmp82.i = icmp samesign ugt i64 %add81.i, %srcSize
   br i1 %cmp82.i, label %return, label %if.end85.i
 
 if.end79.thread.i:                                ; preds = %if.end7.i
@@ -5613,7 +5613,7 @@ if.end79.thread.i:                                ; preds = %if.end7.i
   %litSize.0116160.i = zext nneg i32 %add40.i to i64
   %litCSize.0117161.i = zext nneg i32 %add48.i to i64
   %add81162.i = add nuw nsw i64 %litCSize.0117161.i, 4
-  %cmp82163.i = icmp ugt i64 %add81162.i, %srcSize
+  %cmp82163.i = icmp samesign ugt i64 %add81162.i, %srcSize
   br i1 %cmp82163.i, label %return, label %cond.false.i
 
 if.end85.i:                                       ; preds = %if.end79.i
@@ -5688,7 +5688,7 @@ if.end123.i:                                      ; preds = %if.end118.i
   %add139.i = or disjoint i32 %shl136.i, %conv138.i
   %conv140.i = zext nneg i32 %add139.i to i64
   %add142.i = add nuw nsw i64 %conv140.i, 3
-  %cmp143.i = icmp ugt i64 %add142.i, %srcSize
+  %cmp143.i = icmp samesign ugt i64 %add142.i, %srcSize
   br i1 %cmp143.i, label %return, label %if.end146.i
 
 if.end146.i:                                      ; preds = %if.end123.i
@@ -5755,11 +5755,11 @@ sw.epilog203.i:                                   ; preds = %sw.bb190.i, %sw.bb1
   %litSize169.0.i = zext nneg i32 %litSize169.0.in.i to i64
   %add205.i = add nuw nsw i64 %lhSize170.0.i, %litSize169.0.i
   %add206.i = add nuw nsw i64 %add205.i, 8
-  %cmp207.i = icmp ugt i64 %add206.i, %srcSize
+  %cmp207.i = icmp samesign ugt i64 %add206.i, %srcSize
   br i1 %cmp207.i, label %if.then209.i, label %if.end230.i
 
 if.then209.i:                                     ; preds = %sw.epilog203.i
-  %cmp212.i = icmp ugt i64 %add205.i, %srcSize
+  %cmp212.i = icmp samesign ugt i64 %add205.i, %srcSize
   br i1 %cmp212.i, label %return, label %if.end215.i
 
 if.end215.i:                                      ; preds = %if.then209.i
@@ -5816,7 +5816,7 @@ sw.bb259.i:                                       ; preds = %sw.bb237.i
   %conv269.i = zext i8 %19 to i32
   %add270.i = or disjoint i32 %add267.i, %conv269.i
   %cmp272.i = icmp eq i64 %srcSize, 3
-  %cmp277.i = icmp ugt i32 %add270.i, 131072
+  %cmp277.i = icmp samesign ugt i32 %add270.i, 131072
   %or.cond154.i = select i1 %cmp272.i, i1 true, i1 %cmp277.i
   br i1 %or.cond154.i, label %return, label %if.end280.i
 

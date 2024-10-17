@@ -374,7 +374,7 @@ define hidden void @_ZNK8rawspeed10RawDecoder18decodeUncompressedEPKNS_7TiffIFDE
   %87 = add nuw nsw i64 %86, %85
   %88 = load i32, ptr %60, align 8, !tbaa !109
   %89 = zext i32 %88 to i64
-  %90 = icmp ugt i64 %87, %89
+  %90 = icmp samesign ugt i64 %87, %89
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %80
@@ -549,7 +549,7 @@ define hidden void @_ZNK8rawspeed10RawDecoder18decodeUncompressedEPKNS_7TiffIFDE
   %186 = add nuw nsw i64 %185, %169
   %187 = load i32, ptr %60, align 8, !tbaa !109
   %188 = zext i32 %187 to i64
-  %189 = icmp ugt i64 %186, %188
+  %189 = icmp samesign ugt i64 %186, %188
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %182
@@ -564,7 +564,7 @@ define hidden void @_ZNK8rawspeed10RawDecoder18decodeUncompressedEPKNS_7TiffIFDE
   %194 = icmp sgt i32 %187, -1
   call void @llvm.assume(i1 %194)
   %195 = add nuw nsw i32 %184, %168
-  %196 = icmp ule i32 %195, %187
+  %196 = icmp samesign ule i32 %195, %187
   call void @llvm.assume(i1 %196)
   %197 = icmp sgt i32 %184, -1
   call void @llvm.assume(i1 %197)
@@ -1290,7 +1290,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
   tail call void @llvm.assume(i1 %191)
   %192 = icmp sgt i32 %190, -1
   tail call void @llvm.assume(i1 %192)
-  %193 = icmp uge i32 %190, %184
+  %193 = icmp samesign uge i32 %190, %184
   tail call void @llvm.assume(i1 %193)
   %194 = icmp eq i32 %184, 0
   %195 = icmp ne i32 %187, 0
@@ -1435,7 +1435,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
   %282 = phi i64 [ %288, %.preheader30 ], [ 0, %277 ]
   %283 = getelementptr inbounds i32, ptr %206, i64 %281
   %284 = load i32, ptr %283, align 4, !tbaa !31
-  %285 = icmp ult i64 %281, %207
+  %285 = icmp samesign ult i64 %281, %207
   tail call void @llvm.assume(i1 %285)
   %286 = getelementptr inbounds i32, ptr %179, i64 %281
   store i32 %284, ptr %286, align 4, !tbaa !31
@@ -1555,7 +1555,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
   tail call void @llvm.assume(i1 %366)
   %367 = icmp sgt i32 %365, -1
   tail call void @llvm.assume(i1 %367)
-  %368 = icmp uge i32 %365, %359
+  %368 = icmp samesign uge i32 %365, %359
   tail call void @llvm.assume(i1 %368)
   %369 = icmp eq i32 %359, 0
   %370 = icmp ne i32 %362, 0
@@ -1583,14 +1583,14 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
   %385 = phi i64 [ 0, %380 ], [ %390, %384 ]
   %386 = getelementptr inbounds i32, ptr %382, i64 %385
   %387 = load i32, ptr %386, align 4, !tbaa !31
-  %388 = icmp ult i64 %385, %383
+  %388 = icmp samesign ult i64 %385, %383
   tail call void @llvm.assume(i1 %388)
   %389 = getelementptr inbounds i32, ptr %354, i64 %385
   store i32 %387, ptr %389, align 4, !tbaa !31
   %390 = add nuw nsw i64 %385, 1
   %391 = load i32, ptr %377, align 8, !tbaa !180
   %392 = zext i32 %391 to i64
-  %393 = icmp ult i64 %390, %392
+  %393 = icmp samesign ult i64 %390, %392
   br i1 %393, label %384, label %.loopexit, !llvm.loop !184
 
 .loopexit:                                        ; preds = %.preheader28, %384, %344, %328, %.loopexit31, %275, %169, %155, %137, %122, %115
@@ -1835,7 +1835,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
   call void @llvm.assume(i1 %516)
   %517 = icmp sgt i32 %515, -1
   call void @llvm.assume(i1 %517)
-  %518 = icmp uge i32 %515, %509
+  %518 = icmp samesign uge i32 %515, %509
   call void @llvm.assume(i1 %518)
   %519 = icmp eq i32 %509, 0
   %520 = icmp ne i32 %512, 0
@@ -1943,7 +1943,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
 575:                                              ; preds = %574, %572
   %576 = trunc i64 %563 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
-  %577 = icmp ugt i32 %527, 1
+  %577 = icmp samesign ugt i32 %527, 1
   call void @llvm.assume(i1 %577)
   %578 = getelementptr inbounds i8, ptr %504, i64 4
   store i32 %576, ptr %578, align 4, !tbaa !31
@@ -1977,7 +1977,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
 595:                                              ; preds = %594, %592
   %596 = trunc i64 %583 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
-  %597 = icmp ugt i32 %527, 2
+  %597 = icmp samesign ugt i32 %527, 2
   call void @llvm.assume(i1 %597)
   %598 = getelementptr inbounds i8, ptr %504, i64 8
   store i32 %596, ptr %598, align 4, !tbaa !31
@@ -2011,7 +2011,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
 615:                                              ; preds = %614, %612
   %616 = trunc i64 %603 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
-  %617 = icmp ugt i32 %527, 3
+  %617 = icmp samesign ugt i32 %527, 3
   call void @llvm.assume(i1 %617)
   %618 = getelementptr inbounds i8, ptr %504, i64 12
   store i32 %616, ptr %618, align 4, !tbaa !31
@@ -2621,7 +2621,7 @@ define hidden void @_ZN8rawspeed10RawDecoder9decodeRawEv(ptr dead_on_unwind noal
   %27 = ashr i32 %20, 1
   %28 = icmp sgt i32 %27, -1
   tail call void @llvm.assume(i1 %28)
-  %29 = icmp uge i32 %27, %16
+  %29 = icmp samesign uge i32 %27, %16
   tail call void @llvm.assume(i1 %29)
   tail call void @llvm.assume(i1 %25)
   %30 = shl nuw i32 %18, 1
@@ -2639,7 +2639,7 @@ define hidden void @_ZN8rawspeed10RawDecoder9decodeRawEv(ptr dead_on_unwind noal
   %38 = ashr i32 %20, 2
   %39 = icmp sgt i32 %38, -1
   tail call void @llvm.assume(i1 %39)
-  %40 = icmp uge i32 %38, %16
+  %40 = icmp samesign uge i32 %38, %16
   tail call void @llvm.assume(i1 %40)
   tail call void @llvm.assume(i1 %25)
   %41 = shl i32 %18, 2
@@ -2665,7 +2665,7 @@ define hidden void @_ZN8rawspeed10RawDecoder9decodeRawEv(ptr dead_on_unwind noal
   tail call void @llvm.assume(i1 %54)
   %55 = icmp sgt i32 %50, -1
   tail call void @llvm.assume(i1 %55)
-  %56 = icmp uge i32 %50, %52
+  %56 = icmp samesign uge i32 %50, %52
   tail call void @llvm.assume(i1 %56)
   %57 = icmp eq i32 %52, 0
   %58 = xor i1 %24, %57
@@ -2755,7 +2755,7 @@ define hidden void @_ZN8rawspeed10RawDecoder9decodeRawEv(ptr dead_on_unwind noal
   %107 = ashr i32 %100, 1
   %108 = icmp sgt i32 %107, -1
   call void @llvm.assume(i1 %108)
-  %109 = icmp uge i32 %107, %96
+  %109 = icmp samesign uge i32 %107, %96
   call void @llvm.assume(i1 %109)
   call void @llvm.assume(i1 %105)
   %110 = shl nuw i32 %98, 1
@@ -2773,7 +2773,7 @@ define hidden void @_ZN8rawspeed10RawDecoder9decodeRawEv(ptr dead_on_unwind noal
   %118 = ashr i32 %100, 2
   %119 = icmp sgt i32 %118, -1
   call void @llvm.assume(i1 %119)
-  %120 = icmp uge i32 %118, %96
+  %120 = icmp samesign uge i32 %118, %96
   call void @llvm.assume(i1 %120)
   call void @llvm.assume(i1 %105)
   %121 = shl i32 %98, 2
@@ -2799,7 +2799,7 @@ define hidden void @_ZN8rawspeed10RawDecoder9decodeRawEv(ptr dead_on_unwind noal
   call void @llvm.assume(i1 %134)
   %135 = icmp sgt i32 %130, -1
   call void @llvm.assume(i1 %135)
-  %136 = icmp uge i32 %130, %132
+  %136 = icmp samesign uge i32 %130, %132
   call void @llvm.assume(i1 %136)
   %137 = icmp eq i32 %132, 0
   %138 = xor i1 %104, %137

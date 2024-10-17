@@ -425,7 +425,7 @@ define hidden noundef i64 @_ZN11MonitorList15unlink_deflatedEmP13GrowableArrayIP
   %26 = add nsw i32 %22, 1
   %27 = icmp sgt i32 %22, -1
   %28 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %26)
-  %29 = icmp ult i32 %28, 2
+  %29 = icmp samesign ult i32 %28, 2
   %or.cond.i.i.i.i = select i1 %27, i1 %29, i1 false
   %30 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %26, i1 true)
   %31 = sub nuw nsw i32 32, %30
@@ -2613,7 +2613,7 @@ define internal fastcc i64 @_ZL16read_stable_markP7oopDesc(ptr noundef %0) unnam
 13:                                               ; preds = %.lr.ph20, %39
   %.01019 = phi i32 [ 0, %.lr.ph20 ], [ %14, %39 ]
   %14 = add nuw nsw i32 %.01019, 1
-  %15 = icmp ult i32 %.01019, 10000
+  %15 = icmp samesign ult i32 %.01019, 10000
   %16 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %17 = icmp ne i32 %16, 1
   %or.cond = select i1 %15, i1 %17, i1 false
@@ -2638,7 +2638,7 @@ define internal fastcc i64 @_ZL16read_stable_markP7oopDesc(ptr noundef %0) unnam
 .lr.ph:                                           ; preds = %21, %33
   %.018 = phi i32 [ %25, %33 ], [ 0, %21 ]
   %25 = add nuw nsw i32 %.018, 1
-  %26 = icmp ugt i32 %.018, 15
+  %26 = icmp samesign ugt i32 %.018, 15
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %.lr.ph
@@ -6244,7 +6244,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25

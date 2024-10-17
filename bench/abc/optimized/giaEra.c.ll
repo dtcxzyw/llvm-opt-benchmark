@@ -153,7 +153,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
   %indvars.iv74.i = phi i64 [ 0, %.lr.ph33.split.us.split.us.preheader.i ], [ %indvars.iv.next75.i, %..loopexit27_crit_edge.us.us.i ]
   %63 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv74.i
   %64 = load ptr, ptr %63, align 8
-  %65 = icmp ult i64 %indvars.iv74.i, 5
+  %65 = icmp samesign ult i64 %indvars.iv74.i, 5
   br i1 %65, label %.preheader.us.us.i, label %.preheader26.us.us.i
 
 66:                                               ; preds = %.preheader26.us.us.i, %66
@@ -1346,8 +1346,8 @@ Gia_ManOutputAsserted.exit.thread.us:             ; preds = %31, %Gia_ManOutputA
   %116 = load i32, ptr %gep, align 4
   %117 = and i32 %116, %106
   %118 = icmp ne i32 %117, 0
-  %119 = icmp ult i64 %indvars.iv213, 32
-  %or.cond = and i1 %119, %118
+  %119 = icmp samesign ult i64 %indvars.iv213, 32
+  %or.cond = select i1 %118, i1 %119, i1 false
   %120 = trunc nuw nsw i64 %indvars.iv213 to i32
   %121 = shl nuw i32 1, %120
   %122 = select i1 %or.cond, i32 %121, i32 0

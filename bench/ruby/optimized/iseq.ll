@@ -1131,7 +1131,7 @@ cc_is_active.exit:                                ; preds = %180, %171, %168, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %193 = load i32, ptr %148, align 4
   %194 = zext i32 %193 to i64
-  %195 = icmp ult i64 %indvars.iv.next, %194
+  %195 = icmp samesign ult i64 %indvars.iv.next, %194
   br i1 %195, label %.lr.ph, label %.loopexit130, !llvm.loop !16
 
 .loopexit130:                                     ; preds = %192, %.preheader129, %145
@@ -1221,7 +1221,7 @@ ISEQ_COMPILE_DATA.exit.thread:                    ; preds = %199, %ISEQ_COMPILE_
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %235 = load i32, ptr %221, align 1
   %236 = zext i32 %235 to i64
-  %237 = icmp ult i64 %indvars.iv.next149, %236
+  %237 = icmp samesign ult i64 %indvars.iv.next149, %236
   br i1 %237, label %224, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %234, %.preheader, %.loopexit128
@@ -1987,7 +1987,7 @@ define dso_local void @rb_iseq_trace_set(ptr nocapture noundef %0, i32 noundef %
   %53 = getelementptr [0 x %struct.succ_dict_block], ptr %51, i64 0, i64 %52
   %54 = and i32 %49, 511
   %55 = lshr i32 %54, 6
-  %56 = icmp ult i32 %54, 64
+  %56 = icmp samesign ult i32 %54, 64
   br i1 %56, label %66, label %57
 
 57:                                               ; preds = %48
@@ -4340,7 +4340,7 @@ define dso_local i32 @rb_iseq_line_no(ptr nocapture noundef readonly %0, i64 nou
   %29 = getelementptr [0 x %struct.succ_dict_block], ptr %27, i64 0, i64 %28
   %30 = and i32 %25, 511
   %31 = lshr i32 %30, 6
-  %32 = icmp ult i32 %30, 64
+  %32 = icmp samesign ult i32 %30, 64
   br i1 %32, label %42, label %33
 
 33:                                               ; preds = %24
@@ -4433,7 +4433,7 @@ define dso_local i32 @rb_iseq_node_id(ptr nocapture noundef readonly %0, i64 nou
   %29 = getelementptr [0 x %struct.succ_dict_block], ptr %27, i64 0, i64 %28
   %30 = and i32 %25, 511
   %31 = lshr i32 %30, 6
-  %32 = icmp ult i32 %30, 64
+  %32 = icmp samesign ult i32 %30, 64
   br i1 %32, label %42, label %33
 
 33:                                               ; preds = %24
@@ -4527,7 +4527,7 @@ define hidden i32 @rb_iseq_event_flags(ptr nocapture noundef readonly %0, i64 no
   %29 = getelementptr [0 x %struct.succ_dict_block], ptr %27, i64 0, i64 %28
   %30 = and i32 %25, 511
   %31 = lshr i32 %30, 6
-  %32 = icmp ult i32 %30, 64
+  %32 = icmp samesign ult i32 %30, 64
   br i1 %32, label %42, label %33
 
 33:                                               ; preds = %24
@@ -4622,7 +4622,7 @@ define hidden void @rb_iseq_clear_event_flags(ptr nocapture noundef readonly %0,
   %31 = getelementptr [0 x %struct.succ_dict_block], ptr %29, i64 0, i64 %30
   %32 = and i32 %27, 511
   %33 = lshr i32 %32, 6
-  %34 = icmp ult i32 %32, 64
+  %34 = icmp samesign ult i32 %32, 64
   br i1 %34, label %44, label %35
 
 35:                                               ; preds = %26
@@ -5718,7 +5718,7 @@ define dso_local range(i32 0, 256) i32 @rb_iseq_disasm_insn(i64 noundef %0, ptr 
   %61 = getelementptr [0 x %struct.succ_dict_block], ptr %59, i64 0, i64 %60
   %62 = and i32 %57, 511
   %63 = lshr i32 %62, 6
-  %64 = icmp ult i32 %62, 64
+  %64 = icmp samesign ult i32 %62, 64
   br i1 %64, label %74, label %65
 
 65:                                               ; preds = %56
@@ -5805,7 +5805,7 @@ rb_iseq_line_no.exit:                             ; preds = %._crit_edge, %get_i
   %118 = getelementptr [0 x %struct.succ_dict_block], ptr %116, i64 0, i64 %117
   %119 = and i32 %114, 511
   %120 = lshr i32 %119, 6
-  %121 = icmp ult i32 %119, 64
+  %121 = icmp samesign ult i32 %119, 64
   br i1 %121, label %131, label %122
 
 122:                                              ; preds = %113
@@ -5913,7 +5913,7 @@ rb_iseq_line_no.exit94:                           ; preds = %149, %get_insn_info
   %185 = getelementptr [0 x %struct.succ_dict_block], ptr %183, i64 0, i64 %184
   %186 = and i32 %181, 511
   %187 = lshr i32 %186, 6
-  %188 = icmp ult i32 %186, 64
+  %188 = icmp samesign ult i32 %186, 64
   br i1 %188, label %198, label %189
 
 189:                                              ; preds = %180
@@ -6362,7 +6362,7 @@ RSTRING_PTR.exit212:                              ; preds = %133, %127, %switch.
   %134 = load ptr, ptr %83, align 8
   %135 = load i32, ptr %134, align 1
   %136 = zext i32 %135 to i64
-  %137 = icmp ult i64 %indvars.iv.next, %136
+  %137 = icmp samesign ult i64 %indvars.iv.next, %136
   br i1 %137, label %.lr.ph, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %RSTRING_PTR.exit212, %RSTRING_PTR.exit207
@@ -6676,7 +6676,7 @@ right_strip.exit:                                 ; preds = %287, %290
   %303 = call i32 @rb_iseq_disasm_insn(i64 noundef %9, ptr noundef %298, i64 noundef %.0163244, ptr noundef %0, i64 noundef %10)
   %304 = zext nneg i32 %303 to i64
   %305 = add nuw nsw i64 %.0163244, %304
-  %306 = icmp ult i64 %305, %299
+  %306 = icmp samesign ult i64 %305, %299
   br i1 %306, label %.lr.ph246, label %.preheader, !llvm.loop !60
 
 307:                                              ; preds = %.preheader, %RSTRING_PTR.exit224
@@ -6761,7 +6761,7 @@ define dso_local i32 @rb_estimate_iv_count(i64 noundef %0, ptr nocapture noundef
   %17 = getelementptr inbounds i8, ptr %16, i64 244
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %15, %2
@@ -7559,7 +7559,7 @@ define internal void @iseq_add_local_tracepoint_i(ptr noundef %0, ptr noundef %1
   %44 = getelementptr [0 x %struct.succ_dict_block], ptr %42, i64 0, i64 %43
   %45 = and i32 %40, 511
   %46 = lshr i32 %45, 6
-  %47 = icmp ult i32 %45, 64
+  %47 = icmp samesign ult i32 %45, 64
   br i1 %47, label %57, label %48
 
 48:                                               ; preds = %39
@@ -7781,7 +7781,7 @@ define internal void @iseq_remove_local_tracepoint_i(ptr noundef %0, ptr noundef
   %48 = getelementptr [0 x %struct.succ_dict_block], ptr %46, i64 0, i64 %47
   %49 = and i32 %44, 511
   %50 = lshr i32 %49, 6
-  %51 = icmp ult i32 %49, 64
+  %51 = icmp samesign ult i32 %49, 64
   br i1 %51, label %61, label %52
 
 52:                                               ; preds = %43
@@ -8993,7 +8993,7 @@ push_event_info.exit:                             ; preds = %rbimpl_intern_const
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %113 = load i32, ptr %15, align 8
   %114 = zext i32 %113 to i64
-  %115 = icmp ult i64 %indvars.iv.next, %114
+  %115 = icmp samesign ult i64 %indvars.iv.next, %114
   br i1 %115, label %18, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %push_event_info.exit, %iseqw_check.exit
@@ -9102,7 +9102,7 @@ yield_each_children.exit9:                        ; preds = %29, %rb_obj_write.e
   %45 = load ptr, ptr %18, align 8
   %46 = load i32, ptr %45, align 1
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next.i, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next.i, %47
   br i1 %48, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !78
 
 .loopexit.i:                                      ; preds = %44, %.preheader.i, %iseqw_check.exit
@@ -10966,7 +10966,7 @@ define internal fastcc void @iseq_iterate_children(ptr noundef %0, ptr nocapture
   %23 = load ptr, ptr %9, align 8
   %24 = load i32, ptr %23, align 1
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !78
 
 .loopexit:                                        ; preds = %22, %.preheader, %3
@@ -11145,7 +11145,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %45
   %indvars.iv.next793 = add nuw nsw i64 %indvars.iv792, 1
   %50 = load i32, ptr %27, align 8
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next793, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next793, %51
   br i1 %52, label %30, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %48, %.loopexit653
@@ -12181,7 +12181,7 @@ exception_type2symbol.exit:                       ; preds = %.lr.ph.i30.i, %.lr.
   %522 = load ptr, ptr %465, align 8
   %523 = load i32, ptr %522, align 1
   %524 = zext i32 %523 to i64
-  %525 = icmp ult i64 %indvars.iv.next814, %524
+  %525 = icmp samesign ult i64 %indvars.iv.next814, %524
   br i1 %525, label %.lr.ph735, label %.loopexit, !llvm.loop !100
 
 .loopexit:                                        ; preds = %492, %.preheader, %._crit_edge733
@@ -12277,7 +12277,7 @@ RARRAY_AREF.exit:                                 ; preds = %.thread645, %540
   %576 = getelementptr [0 x %struct.succ_dict_block], ptr %574, i64 0, i64 %575
   %577 = and i32 %572, 511
   %578 = lshr i32 %577, 6
-  %579 = icmp ult i32 %577, 64
+  %579 = icmp samesign ult i32 %577, 64
   br i1 %579, label %589, label %580
 
 580:                                              ; preds = %571

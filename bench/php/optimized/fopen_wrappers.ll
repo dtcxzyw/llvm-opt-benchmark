@@ -1747,7 +1747,7 @@ define noundef ptr @php_strip_url_passwd(ptr noundef %0) local_unnamed_addr #10 
 
 .preheader34:                                     ; preds = %17
   %.126.ptr.le = getelementptr inbounds i8, ptr %.025, i64 %.126.idx
-  %19 = icmp ugt i64 %.126.idx, 3
+  %19 = icmp samesign ugt i64 %.126.idx, 3
   br i1 %19, label %.preheader, label %.lr.ph44.preheader
 
 .preheader:                                       ; preds = %.preheader34

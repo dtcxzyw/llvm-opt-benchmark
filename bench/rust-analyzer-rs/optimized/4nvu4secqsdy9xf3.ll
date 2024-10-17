@@ -155,7 +155,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i: ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %26 = zext nneg i16 %25 to i64
   %27 = lshr i64 %26, 6
-  %28 = icmp ult i16 %25, 192
+  %28 = icmp samesign ult i16 %25, 192
   br i1 %28, label %_ZN6parser6parser6Parser5at_ts17hf08b800e2db90132E.exit, label %29, !prof !31
 
 29:                                               ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i
@@ -2592,7 +2592,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i: ; preds = %139
   %153 = load i16, ptr %152, align 2, !range !26, !noalias !425, !noundef !5
   %154 = zext nneg i16 %153 to i64
   %155 = lshr i64 %154, 6
-  %156 = icmp ult i16 %153, 192
+  %156 = icmp samesign ult i16 %153, 192
   br i1 %156, label %159, label %157, !prof !31
 
 157:                                              ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i
@@ -4196,7 +4196,7 @@ _ZN6parser7grammar10attributes11outer_attrs17h4fccd505c4aa4f69E.exit.i: ; preds 
   %74 = load i16, ptr %73, align 2, !range !26, !alias.scope !771, !noalias !776, !noundef !5
   %75 = zext nneg i16 %74 to i64
   %76 = lshr i64 %75, 6
-  %77 = icmp ult i16 %74, 192
+  %77 = icmp samesign ult i16 %74, 192
   br i1 %77, label %78, label %85, !prof !777
 
 78:                                               ; preds = %.lr.ph.i19.i
@@ -5195,7 +5195,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i: ; preds = %39
   %54 = load i16, ptr %53, align 2, !range !26, !noalias !994, !noundef !5
   %55 = zext nneg i16 %54 to i64
   %56 = lshr i64 %55, 6
-  %57 = icmp ult i16 %54, 192
+  %57 = icmp samesign ult i16 %54, 192
   br i1 %57, label %59, label %58, !prof !31
 
 58:                                               ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i
@@ -5518,7 +5518,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i: ; preds = %39
   %54 = load i16, ptr %53, align 2, !range !26, !noalias !1072, !noundef !5
   %55 = zext nneg i16 %54 to i64
   %56 = lshr i64 %55, 6
-  %57 = icmp ult i16 %54, 192
+  %57 = icmp samesign ult i16 %54, 192
   br i1 %57, label %59, label %58, !prof !31
 
 58:                                               ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i
@@ -5798,7 +5798,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i: ; preds = %71
   %81 = load i16, ptr %80, align 2, !range !26, !noalias !1134, !noundef !5
   %82 = zext nneg i16 %81 to i64
   %83 = lshr i64 %82, 6
-  %84 = icmp ult i16 %81, 192
+  %84 = icmp samesign ult i16 %81, 192
   br i1 %84, label %86, label %85, !prof !31
 
 85:                                               ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i
@@ -6132,7 +6132,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i: ; preds = %43
   %58 = load i16, ptr %57, align 2, !range !26, !noalias !1209, !noundef !5
   %59 = zext nneg i16 %58 to i64
   %60 = lshr i64 %59, 6
-  %61 = icmp ult i16 %58, 192
+  %61 = icmp samesign ult i16 %58, 192
   br i1 %61, label %63, label %62, !prof !31
 
 62:                                               ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i

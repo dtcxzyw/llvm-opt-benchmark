@@ -1504,7 +1504,7 @@ define internal fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr nocap
 
 20:                                               ; preds = %3
   %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
-  %22 = icmp ult i32 %21, 2
+  %22 = icmp samesign ult i32 %21, 2
   br i1 %22, label %23, label %32
 
 23:                                               ; preds = %20

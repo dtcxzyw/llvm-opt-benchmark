@@ -1285,7 +1285,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
   %784 = load i32, ptr %628, align 8
   %785 = zext i32 %784 to i64
-  %786 = icmp ult i64 %indvars.iv.next580, %785
+  %786 = icmp samesign ult i64 %indvars.iv.next580, %785
   br i1 %786, label %698, label %._crit_edge547
 
 ._crit_edge547:                                   ; preds = %782
@@ -1439,7 +1439,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %indvars.iv.next583 = add nuw nsw i64 %indvars.iv582, 1
   %881 = load i32, ptr %792, align 4
   %882 = zext i32 %881 to i64
-  %883 = icmp ult i64 %indvars.iv.next583, %882
+  %883 = icmp samesign ult i64 %indvars.iv.next583, %882
   br i1 %883, label %795, label %._crit_edge550
 
 ._crit_edge550:                                   ; preds = %879
@@ -1939,7 +1939,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %1190 = getelementptr inbounds i8, ptr %1189, i64 16
   %1191 = load i32, ptr %1190, align 8
   %1192 = zext i32 %1191 to i64
-  %1193 = icmp ult i64 %indvars.iv.next586, %1192
+  %1193 = icmp samesign ult i64 %indvars.iv.next586, %1192
   br i1 %1193, label %.lr.ph559, label %._crit_edge560.loopexit
 
 ._crit_edge560.loopexit:                          ; preds = %1185
@@ -2622,7 +2622,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %190 = load i32, ptr %60, align 4
   %191 = zext i32 %190 to i64
-  %192 = icmp ult i64 %indvars.iv.next, %191
+  %192 = icmp samesign ult i64 %indvars.iv.next, %191
   br i1 %192, label %148, label %.loopexit
 
 .loopexit:                                        ; preds = %188, %145, %.lr.ph89
@@ -4063,7 +4063,7 @@ zend_persist_op_array_calc.exit:                  ; preds = %374, %381
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %386 = load i32, ptr %363, align 4
   %387 = zext i32 %386 to i64
-  %388 = icmp ult i64 %indvars.iv.next227, %387
+  %388 = icmp samesign ult i64 %indvars.iv.next227, %387
   br i1 %388, label %374, label %.sink.split
 
 .sink.split:                                      ; preds = %zend_persist_op_array_calc.exit, %.loopexit206, %365, %49
@@ -4145,7 +4145,7 @@ define internal fastcc void @zend_persist_ast_calc(ptr nocapture noundef %0) unn
   %32 = phi i32 [ %27, %26 ], [ %.pre, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %34, label %26, label %.loopexit
 
 35:                                               ; preds = %11

@@ -2436,7 +2436,7 @@ if.end.i.i41:                                     ; preds = %if.then.i.i40
   %shl.i.i = and i32 %and9.i.i, 1984
   %and10.i.i = and i32 %conv372.i.i, 63
   %or.i.i = or disjoint i32 %and10.i.i, %shl.i.i
-  %cmp11.i.i = icmp ult i32 %shl.i.i, 128
+  %cmp11.i.i = icmp samesign ult i32 %shl.i.i, 128
   %spec.select.i.i = select i1 %cmp11.i.i, i32 65533, i32 %or.i.i
   br label %"_ZN6hermes10decodeUTF8ILb1EZNS_18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEE3$_0EEjRPKcT0_.exit"
 
@@ -2468,7 +2468,7 @@ if.end44.i.i:                                     ; preds = %if.end31.i.i
   %and48.i.i = shl nsw i32 %conv22.i.i, 6
   %shl49.i.i = and i32 %and48.i.i, 4032
   %or50.i.i = or disjoint i32 %shl49.i.i, %shl47.i.i
-  %cmp53.i.i = icmp ult i32 %or50.i.i, 2048
+  %cmp53.i.i = icmp samesign ult i32 %or50.i.i, 2048
   br i1 %cmp53.i.i, label %"_ZN6hermes10decodeUTF8ILb1EZNS_18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEE3$_0EEjRPKcT0_.exit", label %if.end57.i.i
 
 if.end57.i.i:                                     ; preds = %if.end44.i.i
@@ -2512,7 +2512,7 @@ if.end112.i.i:                                    ; preds = %if.end99.i.i
   %and116.i.i = shl nsw i32 %conv74.i.i, 12
   %shl117.i.i = and i32 %and116.i.i, 258048
   %or118.i.i = or disjoint i32 %shl117.i.i, %shl115.i.i
-  %cmp124.i.i = icmp ult i32 %or118.i.i, 65536
+  %cmp124.i.i = icmp samesign ult i32 %or118.i.i, 65536
   br i1 %cmp124.i.i, label %"_ZN6hermes10decodeUTF8ILb1EZNS_18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEE3$_0EEjRPKcT0_.exit", label %if.end128.i.i
 
 if.end128.i.i:                                    ; preds = %if.end112.i.i
@@ -2521,7 +2521,7 @@ if.end128.i.i:                                    ; preds = %if.end112.i.i
   %and122.i.i = and i32 %conv10174.i.i, 63
   %15 = or disjoint i32 %shl120.i.i, %and122.i.i
   %or123.i.i = or disjoint i32 %15, %or118.i.i
-  %cmp129.i.i = icmp ugt i32 %or118.i.i, 1114111
+  %cmp129.i.i = icmp samesign ugt i32 %or118.i.i, 1114111
   %spec.select = select i1 %cmp129.i.i, i32 65533, i32 %or123.i.i
   br label %"_ZN6hermes10decodeUTF8ILb1EZNS_18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEE3$_0EEjRPKcT0_.exit"
 

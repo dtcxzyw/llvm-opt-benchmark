@@ -2462,7 +2462,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false.i.i
 _ZN8facebook4yoga13inexactEqualsENS0_12CompactValueES1_.exit: ; preds = %if.end.i21.i, %lor.lhs.false.i.i, %if.end7.i.i
   %retval.0.i.i = phi i1 [ %cmp10.i.i, %if.end7.i.i ], [ true, %if.end.i21.i ], [ true, %lor.lhs.false.i.i ]
   %inc = add nuw nsw i64 %i.06, 1
-  %cmp = icmp ult i64 %i.06, 8
+  %cmp = icmp samesign ult i64 %i.06, 8
   %9 = and i1 %cmp, %retval.0.i.i
   br i1 %9, label %for.body, label %for.end, !llvm.loop !4
 
@@ -2566,7 +2566,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false.i.i
 _ZN8facebook4yoga13inexactEqualsENS0_12CompactValueES1_.exit: ; preds = %if.end.i21.i, %lor.lhs.false.i.i, %if.end7.i.i
   %retval.0.i.i = phi i1 [ %cmp10.i.i, %if.end7.i.i ], [ true, %if.end.i21.i ], [ true, %lor.lhs.false.i.i ]
   %inc = add nuw nsw i64 %i.06, 1
-  %cmp = icmp ult i64 %i.06, 2
+  %cmp = icmp samesign ult i64 %i.06, 2
   %9 = and i1 %cmp, %retval.0.i.i
   br i1 %9, label %for.body, label %for.end, !llvm.loop !6
 

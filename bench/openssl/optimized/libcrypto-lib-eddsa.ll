@@ -86,7 +86,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %c.02 = phi i32 [ 1, %if.end ], [ %shl, %for.body ]
   call void @ossl_curve448_scalar_halve(ptr noundef nonnull %secret_scalar, ptr noundef nonnull %secret_scalar) #4
   %shl = shl nuw nsw i32 %c.02, 1
-  %cmp = icmp ult i32 %c.02, 2
+  %cmp = icmp samesign ult i32 %c.02, 2
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body

@@ -138,7 +138,7 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr nocapture noundef %0, ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %1, align 4
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %indvars.iv.next, %61
+  %62 = icmp samesign ult i64 %indvars.iv.next, %61
   br i1 %62, label %.lr.ph95, label %._crit_edge96
 
 ._crit_edge96:                                    ; preds = %.lr.ph95, %.preheader81

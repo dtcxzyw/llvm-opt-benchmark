@@ -1817,7 +1817,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @seccomp_attach_fi
   br label %86
 
 86:                                               ; preds = %84, %.thread13
-  %87 = icmp ult i32 %0, 32
+  %87 = icmp samesign ult i32 %0, 32
   br i1 %87, label %90, label %88
 
 88:                                               ; preds = %86

@@ -5749,9 +5749,9 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3.not, label %if.else13, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %if.else
-  %cmp7 = icmp ult i32 %and, 17
+  %cmp7 = icmp samesign ult i32 %and, 17
   %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
-  %cmp11.not = icmp ult i32 %2, 2
+  %cmp11.not = icmp samesign ult i32 %2, 2
   %or.cond = select i1 %cmp7, i1 %cmp11.not, i1 false
   br i1 %or.cond, label %if.else13, label %if.then12
 

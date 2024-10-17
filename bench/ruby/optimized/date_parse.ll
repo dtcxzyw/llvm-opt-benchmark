@@ -775,7 +775,7 @@ hash.exit.i:                                      ; preds = %188, %162
   %201 = load i16, ptr %200, align 2
   %202 = zext i16 %201 to i32
   %203 = add nuw nsw i32 %.3.i.i, %202
-  %204 = icmp ult i32 %203, 620
+  %204 = icmp samesign ult i32 %203, 620
   br i1 %204, label %205, label %239
 
 205:                                              ; preds = %hash.exit.i

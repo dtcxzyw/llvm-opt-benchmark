@@ -2089,7 +2089,7 @@ while.body.i.i.i.i.i:                             ; preds = %for.cond.cleanup.i,
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZSt8distanceISt23_Rb_tree_const_iteratorISt6vectorImSaImEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !70
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorISt6vectorImSaImEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i.i: ; preds = %while.body.i.i.i.i.i
-  %cmp.i.i.i.i = icmp ugt i64 %__n.05.i.i.i.i.i, 384307168202282324
+  %cmp.i.i.i.i = icmp samesign ugt i64 %__n.05.i.i.i.i.i, 384307168202282324
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i20.i, label %_ZNSt16allocator_traitsISaISt6vectorImSaImEEEE8allocateERS3_m.exit.i.i.i.i
 
 if.then.i.i.i20.i:                                ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorISt6vectorImSaImEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i.i

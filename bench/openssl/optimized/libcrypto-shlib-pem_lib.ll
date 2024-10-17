@@ -1466,8 +1466,8 @@ if.end4.i.preheader:                              ; preds = %do.body.preheader.i
 if.end4.i.us:                                     ; preds = %if.end4.i.preheader, %do.body.backedge.i.us
   %call133.i.us = phi i32 [ %call1.i.us, %do.body.backedge.i.us ], [ %call130.i, %if.end4.i.preheader ]
   %tobool.not.i59.us = phi i1 [ false, %do.body.backedge.i.us ], [ true, %if.end4.i.preheader ]
-  %cmp.i60.us = icmp ugt i32 %call133.i.us, 3
-  %or.cond.i61.us = and i1 %cmp.i60.us, %tobool.not.i59.us
+  %cmp.i60.us = icmp samesign ugt i32 %call133.i.us, 3
+  %or.cond.i61.us = select i1 %tobool.not.i59.us, i1 %cmp.i60.us, i1 false
   br i1 %or.cond.i61.us, label %land.lhs.true.i.us, label %if.end5.i.us
 
 land.lhs.true.i.us:                               ; preds = %if.end4.i.us
@@ -1546,8 +1546,8 @@ do.body.backedge.i.us:                            ; preds = %lor.rhs.i.us, %sani
 if.end4.i:                                        ; preds = %if.end4.i.preheader, %do.body.backedge.i
   %call133.i = phi i32 [ %call1.i, %do.body.backedge.i ], [ %call130.i, %if.end4.i.preheader ]
   %tobool.not.i59 = phi i1 [ false, %do.body.backedge.i ], [ true, %if.end4.i.preheader ]
-  %cmp.i60 = icmp ugt i32 %call133.i, 3
-  %or.cond.i61 = and i1 %cmp.i60, %tobool.not.i59
+  %cmp.i60 = icmp samesign ugt i32 %call133.i, 3
+  %or.cond.i61 = select i1 %tobool.not.i59, i1 %cmp.i60, i1 false
   br i1 %or.cond.i61, label %land.lhs.true.i, label %land.rhs.i63.preheader
 
 land.lhs.true.i:                                  ; preds = %if.end4.i

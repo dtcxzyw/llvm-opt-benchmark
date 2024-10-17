@@ -340,7 +340,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %60, align 8
   store ptr null, ptr %61, align 8
   store i32 0, ptr %62, align 8
-  %or.cond.i199 = icmp ult i32 %.0193251, 32
+  %or.cond.i199 = icmp samesign ult i32 %.0193251, 32
   %spec.select.i200 = select i1 %or.cond.i199, i32 %.0193251, i32 -1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull align 8 dereferenceable(21) %12, i64 21, i1 false)
@@ -421,7 +421,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %98, align 8
   store ptr null, ptr %99, align 8
   store i32 0, ptr %100, align 8
-  %or.cond.i203 = icmp ult i32 %.0196245, 32
+  %or.cond.i203 = icmp samesign ult i32 %.0196245, 32
   %spec.select.i204 = select i1 %or.cond.i203, i32 %.0196245, i32 -1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull align 8 dereferenceable(21) %14, i64 21, i1 false)
@@ -558,7 +558,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
 .lr.ph263:                                        ; preds = %148, %.lr.ph263
   %indvars.iv292 = phi i64 [ %indvars.iv.next293, %.lr.ph263 ], [ 416, %148 ]
   %.0187262 = phi i32 [ %159, %.lr.ph263 ], [ 16, %148 ]
-  %or.cond.i211 = icmp ult i32 %.0187262, 32
+  %or.cond.i211 = icmp samesign ult i32 %.0187262, 32
   %spec.select.i212 = select i1 %or.cond.i211, i32 %.0187262, i32 -1
   %151 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv292
   %152 = sext i32 %spec.select.i212 to i64
@@ -685,7 +685,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
 .lr.ph276:                                        ; preds = %188, %.lr.ph276
   %indvars.iv321 = phi i64 [ %indvars.iv.next322, %.lr.ph276 ], [ 417, %188 ]
   %.0275 = phi i32 [ %199, %.lr.ph276 ], [ 16, %188 ]
-  %or.cond.i219 = icmp ult i32 %.0275, 32
+  %or.cond.i219 = icmp samesign ult i32 %.0275, 32
   %spec.select.i220 = select i1 %or.cond.i219, i32 %.0275, i32 -1
   %191 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv321
   %192 = sext i32 %spec.select.i220 to i64
@@ -877,7 +877,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegister7Address.exit: ; preds = %37,
 73:                                               ; preds = %.lr.ph107, %73
   %.069106 = phi i32 [ 0, %.lr.ph107 ], [ %74, %73 ]
   %.072105 = phi i32 [ 16, %.lr.ph107 ], [ %77, %73 ]
-  %or.cond.i80 = icmp ult i32 %.072105, 32
+  %or.cond.i80 = icmp samesign ult i32 %.072105, 32
   %spec.select.i81 = select i1 %or.cond.i80, i32 %.072105, i32 -1
   %74 = add nuw nsw i32 %.069106, 1
   %75 = shl nsw i32 %.069106, 6
@@ -958,7 +958,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegister7Address.exit: ; preds = %37,
 108:                                              ; preds = %.lr.ph, %108
   %.075100 = phi i32 [ 0, %.lr.ph ], [ %109, %108 ]
   %.07799 = phi i32 [ 16, %.lr.ph ], [ %112, %108 ]
-  %or.cond.i84 = icmp ult i32 %.07799, 32
+  %or.cond.i84 = icmp samesign ult i32 %.07799, 32
   %spec.select.i85 = select i1 %or.cond.i84, i32 %.07799, i32 -1
   %109 = add nuw nsw i32 %.075100, 1
   %110 = shl nsw i32 %.075100, 6
@@ -4091,7 +4091,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit: ; preds = %.
 .lr.ph.i603.preheader:                            ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit
   %504 = trunc nuw nsw i64 %503 to i32
   %505 = call range(i32 1, 31) i32 @llvm.ctpop.i32(i32 %504)
-  %506 = icmp ult i32 %505, 2
+  %506 = icmp samesign ult i32 %505, 2
   %507 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %504, i1 true)
   %508 = sub nuw nsw i32 32, %507
   %509 = shl nuw i32 1, %508
@@ -4223,7 +4223,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584: ; preds =
 
 556:                                              ; preds = %534, %540, %544, %548, %552, %.lr.ph680
   %indvars.iv.next699 = add nuw nsw i64 %indvars.iv698, 2
-  %557 = icmp ult i64 %indvars.iv.next699, %478
+  %557 = icmp samesign ult i64 %indvars.iv.next699, %478
   br i1 %557, label %.lr.ph680, label %._crit_edge681, !llvm.loop !35
 
 ._crit_edge681:                                   ; preds = %556, %454
@@ -5309,7 +5309,7 @@ define internal fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr nou
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.Address, align 8
-  %8 = icmp ult i32 %2, %1
+  %8 = icmp samesign ult i32 %2, %1
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -5407,7 +5407,7 @@ define internal fastcc void @_ZL12restore_argsP14MacroAssembleriiP9VMRegPair(ptr
   %7 = alloca %class.Address, align 8
   %8 = alloca %class.Address, align 8
   %9 = alloca %class.Address, align 8
-  %.not.not20 = icmp ugt i32 %1, %2
+  %.not.not20 = icmp samesign ugt i32 %1, %2
   br i1 %.not.not20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -8044,7 +8044,7 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %.0111.lcssa202.i = phi i64 [ %.0111.lcssa201.i, %._crit_edge.thread.i ], [ %umax, %._crit_edge.i ]
   %.2103.i = phi i64 [ %64, %._crit_edge.thread.i ], [ %56, %._crit_edge.i ]
   %.2.i = phi i64 [ %63, %._crit_edge.thread.i ], [ %55, %._crit_edge.i ]
-  %65 = icmp ult i64 %.0111.lcssa202.i, %indvars.iv179.i
+  %65 = icmp samesign ult i64 %.0111.lcssa202.i, %indvars.iv179.i
   br i1 %65, label %.lr.ph126.i, label %._crit_edge127.i
 
 .lr.ph126.i:                                      ; preds = %._crit_edge._crit_edge.i, %.lr.ph126.i

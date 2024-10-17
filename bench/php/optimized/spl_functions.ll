@@ -127,7 +127,7 @@ spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.u
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %35 = load i32, ptr %6, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next14, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next14, %36
   br i1 %37, label %.lr.ph.split.us, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %spl_add_class_name.exit
@@ -180,7 +180,7 @@ spl_add_class_name.exit:                          ; preds = %.lr.ph.split, %45, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i32, ptr %6, align 8
   %64 = zext i32 %63 to i64
-  %65 = icmp ult i64 %indvars.iv.next, %64
+  %65 = icmp samesign ult i64 %indvars.iv.next, %64
   br i1 %65, label %.lr.ph.split, label %.loopexit
 
 .loopexit:                                        ; preds = %spl_add_class_name.exit, %spl_add_class_name.exit.us, %4
@@ -252,7 +252,7 @@ spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.u
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %35 = load i32, ptr %6, align 4
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next15, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next15, %36
   br i1 %37, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %spl_add_class_name.exit
@@ -310,7 +310,7 @@ spl_add_class_name.exit:                          ; preds = %.lr.ph.split, %49, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = load i32, ptr %6, align 4
   %68 = zext i32 %67 to i64
-  %69 = icmp ult i64 %indvars.iv.next, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next, %68
   br i1 %69, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %spl_add_class_name.exit, %spl_add_class_name.exit.us, %4

@@ -1858,7 +1858,7 @@ bary_mul_karatsuba_start.exit283:                 ; preds = %ruby_nonempty_memcp
   br i1 %exitcond.not.i.i286, label %bary_add.exit, label %.lr.ph.i.i285, !llvm.loop !20
 
 bary_add.exit:                                    ; preds = %.lr.ph.i.i285
-  %198 = icmp ugt i64 %194, 4294967295
+  %198 = icmp samesign ugt i64 %194, 4294967295
   %199 = zext i1 %198 to i64
   br label %.lr.ph.i295
 
@@ -1881,7 +1881,7 @@ bary_add.exit:                                    ; preds = %.lr.ph.i.i285
   br i1 %exitcond.not.i296, label %bary_addc.exit, label %.lr.ph.i295, !llvm.loop !20
 
 bary_addc.exit:                                   ; preds = %.lr.ph.i295
-  %211 = icmp ugt i64 %207, 4294967295
+  %211 = icmp samesign ugt i64 %207, 4294967295
   br label %.lr.ph.i.i298
 
 .lr.ph.i.i298:                                    ; preds = %bary_addc.exit, %.lr.ph.i.i298
@@ -1904,7 +1904,7 @@ bary_addc.exit:                                   ; preds = %.lr.ph.i295
 
 rbimpl_size_mul_or_raise.exit311:                 ; preds = %.lr.ph.i.i298
   %223 = zext i1 %211 to i32
-  %224 = icmp ult i64 %219, 4294967296
+  %224 = icmp samesign ult i64 %219, 4294967296
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0192, ptr readonly align 1 %60, i64 %175, i1 false)
   br label %ruby_nonempty_memcpy.exit313
 
@@ -1966,7 +1966,7 @@ bary_mul_karatsuba_start.exit315:                 ; preds = %ruby_nonempty_memcp
   br i1 %exitcond.not.i.i320, label %bary_add.exit329.loopexit, label %.lr.ph.i.i317, !llvm.loop !20
 
 bary_add.exit329.loopexit:                        ; preds = %.lr.ph.i.i317
-  %246 = icmp ugt i64 %242, 4294967295
+  %246 = icmp samesign ugt i64 %242, 4294967295
   %247 = zext i1 %246 to i64
   br label %bary_add.exit329
 
@@ -3016,7 +3016,7 @@ bary_add.exit:                                    ; preds = %91, %.preheader70.i
   %132 = getelementptr i32, ptr %39, i64 %.023.i
   %133 = sub i32 0, %128
   store i32 %133, ptr %132, align 4
-  %.not2040.not = icmp ult i64 %.023.i, %14
+  %.not2040.not = icmp samesign ult i64 %.023.i, %14
   br i1 %.not2040.not, label %.lr.ph26.i, label %bary_2comp.exit
 
 .lr.ph26.i:                                       ; preds = %131, %.lr.ph26.i
@@ -3035,7 +3035,7 @@ bary_2comp.exit:                                  ; preds = %129, %.lr.ph26.i, %
   br i1 %.not97.i.i, label %bary_add.exit648, label %.lr.ph.i.i616
 
 .preheader72.i.i620:                              ; preds = %.lr.ph.i.i616
-  %137 = icmp ult i64 %145, 4294967296
+  %137 = icmp samesign ult i64 %145, 4294967296
   br i1 %137, label %bary_add.exit648, label %149
 
 .lr.ph.i.i616:                                    ; preds = %bary_2comp.exit, %.lr.ph.i.i616
@@ -3302,7 +3302,7 @@ bary_add.exit648:                                 ; preds = %bary_2comp.exit, %1
   %238 = getelementptr i32, ptr %40, i64 %.023.i718
   %239 = sub i32 0, %234
   store i32 %239, ptr %238, align 4
-  %.not2043.not = icmp ult i64 %.023.i718, %14
+  %.not2043.not = icmp samesign ult i64 %.023.i718, %14
   br i1 %.not2043.not, label %.lr.ph26.i722, label %bary_2comp.exit727.preheader
 
 .lr.ph26.i722:                                    ; preds = %237, %.lr.ph26.i722
@@ -3336,7 +3336,7 @@ bary_small_lshift.exit:                           ; preds = %bary_2comp.exit727
   br i1 %.not97.i.i, label %bary_add.exit768, label %.lr.ph.i.i736
 
 .preheader72.i.i740:                              ; preds = %.lr.ph.i.i736
-  %249 = icmp ult i64 %257, 4294967296
+  %249 = icmp samesign ult i64 %257, 4294967296
   br i1 %249, label %bary_add.exit768, label %261
 
 .lr.ph.i.i736:                                    ; preds = %bary_small_lshift.exit, %.lr.ph.i.i736
@@ -3441,7 +3441,7 @@ bary_small_lshift.exit776:                        ; preds = %.critedge597
   %297 = getelementptr i32, ptr %40, i64 %.023.i814
   %298 = sub i32 0, %293
   store i32 %298, ptr %297, align 4
-  %.not2048.not = icmp ult i64 %.023.i814, %14
+  %.not2048.not = icmp samesign ult i64 %.023.i814, %14
   br i1 %.not2048.not, label %.lr.ph26.i818, label %bary_add.exit768
 
 .lr.ph26.i818:                                    ; preds = %296, %.lr.ph26.i818
@@ -3637,7 +3637,7 @@ bary_add.exit861:                                 ; preds = %330, %.preheader70.
   %371 = getelementptr i32, ptr %42, i64 %.023.i899
   %372 = sub i32 0, %367
   store i32 %372, ptr %371, align 4
-  %.not2051.not = icmp ult i64 %.023.i899, %14
+  %.not2051.not = icmp samesign ult i64 %.023.i899, %14
   br i1 %.not2051.not, label %.lr.ph26.i903, label %bary_2comp.exit908
 
 .lr.ph26.i903:                                    ; preds = %370, %.lr.ph26.i903
@@ -3656,7 +3656,7 @@ bary_2comp.exit908:                               ; preds = %368, %.lr.ph26.i903
   br i1 %.not97.i.i, label %bary_add.exit946, label %.lr.ph.i.i914
 
 .preheader72.i.i918:                              ; preds = %.lr.ph.i.i914
-  %376 = icmp ult i64 %384, 4294967296
+  %376 = icmp samesign ult i64 %384, 4294967296
   br i1 %376, label %bary_add.exit946, label %388
 
 .lr.ph.i.i914:                                    ; preds = %bary_2comp.exit908, %.lr.ph.i.i914
@@ -3923,7 +3923,7 @@ bary_add.exit946:                                 ; preds = %bary_2comp.exit908,
   %477 = getelementptr i32, ptr %43, i64 %.023.i1022
   %478 = sub i32 0, %473
   store i32 %478, ptr %477, align 4
-  %.not2054.not = icmp ult i64 %.023.i1022, %14
+  %.not2054.not = icmp samesign ult i64 %.023.i1022, %14
   br i1 %.not2054.not, label %.lr.ph26.i1026, label %bary_2comp.exit1031.preheader
 
 .lr.ph26.i1026:                                   ; preds = %476, %.lr.ph26.i1026
@@ -3957,7 +3957,7 @@ bary_small_lshift.exit1039:                       ; preds = %bary_2comp.exit1031
   br i1 %.not97.i.i, label %bary_add.exit1077, label %.lr.ph.i.i1045
 
 .preheader72.i.i1049:                             ; preds = %.lr.ph.i.i1045
-  %488 = icmp ult i64 %496, 4294967296
+  %488 = icmp samesign ult i64 %496, 4294967296
   br i1 %488, label %bary_add.exit1077, label %500
 
 .lr.ph.i.i1045:                                   ; preds = %bary_small_lshift.exit1039, %.lr.ph.i.i1045
@@ -4062,7 +4062,7 @@ bary_small_lshift.exit1085:                       ; preds = %.critedge599
   %536 = getelementptr i32, ptr %43, i64 %.023.i1123
   %537 = sub i32 0, %532
   store i32 %537, ptr %536, align 4
-  %.not2059.not = icmp ult i64 %.023.i1123, %14
+  %.not2059.not = icmp samesign ult i64 %.023.i1123, %14
   br i1 %.not2059.not, label %.lr.ph26.i1127, label %bary_add.exit1077
 
 .lr.ph26.i1127:                                   ; preds = %535, %.lr.ph26.i1127
@@ -4370,7 +4370,7 @@ bary_small_rshift.exit:                           ; preds = %624
   br i1 %.not97.i.i, label %.loopexit71.i.i1379, label %.lr.ph.i.i1362
 
 .preheader72.i.i1366:                             ; preds = %.lr.ph.i.i1362
-  %671 = icmp ult i64 %679, 4294967296
+  %671 = icmp samesign ult i64 %679, 4294967296
   br i1 %671, label %.loopexit71.i.i1379, label %bary_2comp.exit1356.thr_comm.loopexit2299
 
 .lr.ph.i.i1362:                                   ; preds = %670, %.lr.ph.i.i1362
@@ -4534,7 +4534,7 @@ bary_small_rshift.exit1486:                       ; preds = %728
   br i1 %.not97.i.i, label %bary_2comp.exit1504, label %.lr.ph.i1487
 
 .preheader.i:                                     ; preds = %748
-  %738 = icmp ult i64 %752, 4294967296
+  %738 = icmp samesign ult i64 %752, 4294967296
   br i1 %738, label %bary_2comp.exit1504, label %.lr.ph41.i.preheader
 
 .lr.ph41.i.preheader:                             ; preds = %.preheader.i
@@ -4808,7 +4808,7 @@ bary_sub.exit1578.thread:                         ; preds = %.lr.ph.i.i1510, %._
   br i1 %.not97.i.i, label %bary_2comp.exit1636, label %.lr.ph.i.i1642
 
 .preheader72.i.i1646:                             ; preds = %.lr.ph.i.i1642
-  %858 = icmp ult i64 %866, 4294967296
+  %858 = icmp samesign ult i64 %866, 4294967296
   br i1 %858, label %bary_2comp.exit1636, label %870
 
 .lr.ph.i.i1642:                                   ; preds = %857, %.lr.ph.i.i1642
@@ -8408,7 +8408,7 @@ integer_unpack_num_bdigits.exit.thread:           ; preds = %5
   %31 = shl i64 %28, 3
   %32 = and i64 %31, 248
   %33 = mul nuw nsw i64 %27, %25
-  %.not.i.i = icmp ult i64 %32, %33
+  %.not.i.i = icmp samesign ult i64 %32, %33
   %34 = sub nsw i64 %33, %32
   br i1 %.not.i.i, label %40, label %35
 
@@ -8439,7 +8439,7 @@ integer_unpack_num_bdigits.exit:                  ; preds = %35, %40
 46:                                               ; preds = %integer_unpack_num_bdigits.exit.thread, %integer_unpack_num_bdigits.exit
   %.0.i102 = phi i64 [ %18, %integer_unpack_num_bdigits.exit.thread ], [ %.0.i.i, %integer_unpack_num_bdigits.exit ]
   %storemerge.i101 = phi i32 [ %21, %integer_unpack_num_bdigits.exit.thread ], [ %storemerge.i.i, %integer_unpack_num_bdigits.exit ]
-  %47 = icmp ult i64 %.0.i102, 3
+  %47 = icmp samesign ult i64 %.0.i102, 3
   %48 = and i32 %4, 256
   %.not = icmp eq i32 %48, 0
   %or.cond65 = and i1 %.not, %47
@@ -8456,7 +8456,7 @@ integer_unpack_num_bdigits.exit:                  ; preds = %35, %40
   %55 = load i64, ptr %54, align 8
   %56 = and i64 %55, -8193
   store i64 %56, ptr %54, align 8
-  %57 = icmp ult i64 %.0.i102, 7
+  %57 = icmp samesign ult i64 %.0.i102, 7
   br i1 %57, label %58, label %71
 
 58:                                               ; preds = %49
@@ -9251,7 +9251,7 @@ rb_absint_size.exit:                              ; preds = %.critedge.i
   %78 = add nuw nsw i64 %75, %77
   %79 = trunc i64 %78 to i32
   store i32 %79, ptr %69, align 4
-  %80 = icmp ult i64 %78, 4294967296
+  %80 = icmp samesign ult i64 %78, 4294967296
   br i1 %80, label %bary_muladd_1xN.exit.i.i.i, label %.lr.ph41.i.i.i.i
 
 .lr.ph41.i.i.i.i:                                 ; preds = %.lr.ph.i.preheader.i.i.i, %.lr.ph41.i.i.i.i
@@ -9265,8 +9265,8 @@ rb_absint_size.exit:                              ; preds = %.critedge.i
   %85 = trunc i64 %84 to i32
   store i32 %85, ptr %81, align 4
   %86 = add nuw nsw i64 %.140.i.i.i.i, 1
-  %87 = icmp uge i64 %86, %70
-  %88 = icmp ult i64 %84, 4294967296
+  %87 = icmp samesign uge i64 %86, %70
+  %88 = icmp samesign ult i64 %84, 4294967296
   %or.cond.i.i.i.i = select i1 %87, i1 true, i1 %88
   br i1 %or.cond.i.i.i.i, label %bary_muladd_1xN.exit.i.i.i, label %.lr.ph41.i.i.i.i, !llvm.loop !10
 
@@ -9397,7 +9397,7 @@ rbimpl_size_mul_or_raise.exit126.i.i:             ; preds = %122
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.preheader.i.i, %rbimpl_size_mul_or_raise.exit126.i.i
   %128 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %103)
-  %129 = icmp ult i32 %128, 2
+  %129 = icmp samesign ult i32 %128, 2
   br i1 %129, label %.lr.ph.i.i.i.i.i, label %.lr.ph.i.i.i8.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge.i.i
@@ -9662,7 +9662,7 @@ BIGNUM_LEN.exit:                                  ; preds = %17, %22
 40:                                               ; preds = %.critedge2
   %41 = load i32, ptr %.135.lcssa, align 4
   %42 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %41)
-  %43 = icmp ult i32 %42, 2
+  %43 = icmp samesign ult i32 %42, 2
   %44 = zext i1 %43 to i32
   br label %45
 
@@ -10473,7 +10473,7 @@ integer_pack_fill_dd.exit371:                     ; preds = %321, %324
 352:                                              ; preds = %.critedge15
   %353 = load i32, ptr %storemerge.lcssa, align 4
   %354 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %353)
-  %355 = icmp ult i32 %354, 2
+  %355 = icmp samesign ult i32 %354, 2
   br i1 %355, label %357, label %356
 
 356:                                              ; preds = %352, %.critedge15
@@ -12016,7 +12016,7 @@ str2big_scan_digits.exit:                         ; preds = %.thread9.i, %228
 276:                                              ; preds = %273, %272
   %277 = getelementptr i8, ptr %.5, i64 %.4254
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.0164260)
-  %279 = icmp ult i32 %278, 2
+  %279 = icmp samesign ult i32 %278, 2
   br i1 %279, label %280, label %285
 
 280:                                              ; preds = %276
@@ -13213,7 +13213,7 @@ define dso_local i64 @rb_str2big_poweroftwo(i64 noundef %0, i32 noundef %1, i32 
   %6 = add i32 %1, -2
   %7 = icmp ult i32 %6, 35
   %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
-  %9 = icmp ult i32 %8, 2
+  %9 = icmp samesign ult i32 %8, 2
   %or.cond = select i1 %7, i1 %9, i1 false
   br i1 %or.cond, label %11, label %10
 
@@ -15422,7 +15422,7 @@ BIGNUM_LEN.exit.i:                                ; preds = %45, %40
 
 61:                                               ; preds = %57
   %62 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %1)
-  %63 = icmp ult i32 %62, 2
+  %63 = icmp samesign ult i32 %62, 2
   br i1 %63, label %64, label %131
 
 64:                                               ; preds = %61
@@ -20978,7 +20978,7 @@ bignew_1.exit:                                    ; preds = %117, %130
 BIGNUM_DIGITS.exit131:                            ; preds = %136, %138
   %.0.i130 = phi ptr [ %137, %136 ], [ %140, %138 ]
   %141 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %103)
-  %142 = icmp ult i32 %141, 2
+  %142 = icmp samesign ult i32 %141, 2
   br i1 %142, label %143, label %161
 
 143:                                              ; preds = %BIGNUM_DIGITS.exit131
@@ -22550,7 +22550,7 @@ BIGNUM_LEN.exit19.i:                              ; preds = %172, %169
 bigtrunc.exit:                                    ; preds = %.thread136, %176, %BIGNUM_LEN.exit19.i, %BIGNUM_DIGITS.exit.i, %149, %145
   %.2 = phi i64 [ %146, %145 ], [ %0, %149 ], [ %151, %BIGNUM_DIGITS.exit.i ], [ %151, %BIGNUM_LEN.exit19.i ], [ %151, %176 ], [ %spec.select, %.thread136 ]
   %177 = lshr i64 %.066157, 1
-  %.not = icmp ult i64 %.066157, 2
+  %.not = icmp samesign ult i64 %.066157, 2
   br i1 %.not, label %178, label %.preheader, !llvm.loop !175
 
 178:                                              ; preds = %bigtrunc.exit
@@ -24061,7 +24061,7 @@ BIGNUM_DIGITS.exit68.i:                           ; preds = %77, %75
   br i1 %.not.i39, label %.preheader81.i, label %106
 
 .preheader81.i:                                   ; preds = %._crit_edge.i
-  %90 = icmp ult i64 %.057.lcssa.i, %spec.store.select.i
+  %90 = icmp samesign ult i64 %.057.lcssa.i, %spec.store.select.i
   br i1 %90, label %.lr.ph100.i, label %.loopexit.i
 
 .lr.ph100.i:                                      ; preds = %.preheader81.i, %92
@@ -24864,7 +24864,7 @@ BIGNUM_DIGITS.exit46.i:                           ; preds = %73, %71
   br label %.lr.ph68.i
 
 .preheader55.i:                                   ; preds = %.lr.ph.i
-  %77 = icmp ult i64 %29, %spec.store.select.i
+  %77 = icmp samesign ult i64 %29, %spec.store.select.i
   br i1 %77, label %.lr.ph68.i.preheader, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %BIGNUM_DIGITS.exit46.i, %.lr.ph.i
@@ -24898,7 +24898,7 @@ BIGNUM_DIGITS.exit46.i:                           ; preds = %73, %71
   br i1 %exitcond85.not.i, label %.preheader54.i, label %.lr.ph68.i, !llvm.loop !196
 
 .preheader.i:                                     ; preds = %.lr.ph71.i, %.preheader55.i
-  %91 = icmp ult i64 %29, %spec.store.select.i
+  %91 = icmp samesign ult i64 %29, %spec.store.select.i
   br i1 %91, label %.lr.ph74.i, label %._crit_edge.i
 
 .lr.ph74.i:                                       ; preds = %.preheader.i
@@ -26432,7 +26432,7 @@ bary_pack.exit:                                   ; preds = %ruby_nonempty_memcp
   %77 = lshr i32 %.0247.i, 31
   %.022 = xor i32 %77, %1
   %.not26 = icmp eq i32 %1, %77
-  %78 = icmp ugt i32 %.023, 1
+  %78 = icmp samesign ugt i32 %.023, 1
   %79 = getelementptr inbounds i8, ptr %7, i64 8
   %80 = load i64, ptr %79, align 8
   %81 = icmp ugt i64 %80, 7
@@ -26989,7 +26989,7 @@ BIGNUM_LEN.exit95:                                ; preds = %125
 BIGNUM_LEN.exit95.thread:                         ; preds = %125
   %135 = lshr i64 %131, 15
   %136 = and i64 %135, 7
-  %.not66114 = icmp ult i64 %126, %136
+  %.not66114 = icmp samesign ult i64 %126, %136
   br i1 %.not66114, label %.thread115, label %137
 
 137:                                              ; preds = %BIGNUM_LEN.exit95.thread, %BIGNUM_LEN.exit95
@@ -27504,7 +27504,7 @@ rb_absint_singlebit_p.exit.thread:                ; preds = %.critedge2.i
 rb_absint_singlebit_p.exit:                       ; preds = %.critedge2.i
   %91 = load i32, ptr %.135.lcssa.i, align 4
   %92 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %91)
-  %93 = icmp ugt i32 %92, 1
+  %93 = icmp samesign ugt i32 %92, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br i1 %93, label %99, label %94
 
@@ -27564,7 +27564,7 @@ rb_ull2inum.exit.i:                               ; preds = %101
   %120 = add nuw nsw i64 %117, %119
   %121 = trunc i64 %120 to i32
   store i32 %121, ptr %111, align 4
-  %122 = icmp ult i64 %120, 4294967296
+  %122 = icmp samesign ult i64 %120, 4294967296
   br i1 %122, label %bary_muladd_1xN.exit.i.i, label %.lr.ph41.i.i.i
 
 .lr.ph41.i.i.i:                                   ; preds = %.lr.ph.i.preheader.i.i, %.lr.ph41.i.i.i
@@ -27578,8 +27578,8 @@ rb_ull2inum.exit.i:                               ; preds = %101
   %127 = trunc i64 %126 to i32
   store i32 %127, ptr %123, align 4
   %128 = add nuw nsw i64 %.140.i.i.i, 1
-  %129 = icmp uge i64 %128, %112
-  %130 = icmp ult i64 %126, 4294967296
+  %129 = icmp samesign uge i64 %128, %112
+  %130 = icmp samesign ult i64 %126, 4294967296
   %or.cond.i.i.i = select i1 %129, i1 true, i1 %130
   br i1 %or.cond.i.i.i, label %bary_muladd_1xN.exit.i.i, label %.lr.ph41.i.i.i, !llvm.loop !10
 
@@ -27838,7 +27838,7 @@ BIGNUM_DIGITS.exit.i:                             ; preds = %63, %61
   %68 = sub nuw nsw i32 64, %35
   %69 = and i32 %68, 126
   %70 = add nsw i32 %69, -52
-  %71 = icmp ugt i32 %69, 52
+  %71 = icmp samesign ugt i32 %69, 52
   br i1 %71, label %72, label %80
 
 72:                                               ; preds = %BIGNUM_DIGITS.exit.i
@@ -29428,7 +29428,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
 
 56:                                               ; preds = %45
   %57 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %46)
-  %58 = icmp ult i32 %57, 2
+  %58 = icmp samesign ult i32 %57, 2
   br i1 %58, label %59, label %80
 
 59:                                               ; preds = %56
@@ -29608,7 +29608,7 @@ define internal fastcc void @bary_mul_karatsuba_branch(ptr noundef %0, i64 nound
   %.not11.i = icmp eq i32 %17, 0
   %18 = select i1 %.not.i, i64 2, i64 1
   %.1.i = select i1 %.not11.i, i64 %spec.select.i, i64 %18
-  %19 = icmp ult i64 %.1.i, 2
+  %19 = icmp samesign ult i64 %.1.i, 2
   br i1 %19, label %20, label %bary_sparse_p.exit.thread
 
 20:                                               ; preds = %10
@@ -29634,7 +29634,7 @@ bary_sparse_p.exit.thread:                        ; preds = %20, %10
   %.not11.i46 = icmp eq i32 %31, 0
   %32 = select i1 %.not.i44, i64 2, i64 1
   %.1.i47 = select i1 %.not11.i46, i64 %spec.select.i45, i64 %32
-  %33 = icmp ult i64 %.1.i47, 2
+  %33 = icmp samesign ult i64 %.1.i47, 2
   br i1 %33, label %34, label %bary_sparse_p.exit50.thread
 
 34:                                               ; preds = %bary_sparse_p.exit.thread
@@ -29906,7 +29906,7 @@ define internal fastcc void @bigdivrem_restoring(ptr noundef %0, i64 noundef %1,
   %17 = getelementptr i8, ptr %16, i64 -4
   %18 = load i32, ptr %17, align 4
   %19 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %8)
-  %20 = icmp ult i32 %19, 2
+  %20 = icmp samesign ult i32 %19, 2
   br i1 %20, label %21, label %40
 
 21:                                               ; preds = %12
@@ -30203,7 +30203,7 @@ bary_add.exit.us:                                 ; preds = %bigdivrem_mulsub.ex
 
 bary_add.exit.loopexit:                           ; preds = %.lr.ph.i.i
   %101 = add i32 %.262, -1
-  %.not56 = icmp ugt i64 %97, 4294967295
+  %.not56 = icmp samesign ugt i64 %97, 4294967295
   br i1 %.not56, label %.loopexit, label %.lr.ph.i.i.preheader, !llvm.loop !221
 
 .loopexit:                                        ; preds = %bary_add.exit.loopexit, %bigdivrem_mulsub.exit, %56

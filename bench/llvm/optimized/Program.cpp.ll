@@ -503,7 +503,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit95:          ; preds = %149, %150
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #21
   %154 = icmp eq i32 %153, 4
   %155 = add nuw nsw i32 %.069, 1
-  %156 = icmp ult i32 %.069, 7
+  %156 = icmp samesign ult i32 %.069, 7
   %or.cond = select i1 %154, i1 %156, i1 false
   br i1 %or.cond, label %148, label %.critedge, !llvm.loop !18
 

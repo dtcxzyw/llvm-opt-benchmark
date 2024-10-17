@@ -1132,7 +1132,7 @@ define hidden void @checkStatus(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 .thread:                                          ; preds = %7, %16, %11
   %24 = and i32 %2, 16777215
-  %.not.i = icmp ult i32 %24, 65536
+  %.not.i = icmp samesign ult i32 %24, 65536
   br i1 %.not.i, label %25, label %getJavaErrorCode.exit
 
 25:                                               ; preds = %.thread

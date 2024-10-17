@@ -898,7 +898,7 @@ free_elements.exit.i.i:                           ; preds = %.lr.ph.i.i.i, %134
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %281 = load i32, ptr %268, align 8
   %282 = zext i32 %281 to i64
-  %283 = icmp ult i64 %indvars.iv.next.i.i.i, %282
+  %283 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %282
   br i1 %283, label %.lr.ph.i176.i.i, label %fully_qualified_name.exit.i.i, !llvm.loop !14
 
 fully_qualified_name.exit.i.i:                    ; preds = %.lr.ph.i176.i.i, %269
@@ -1850,7 +1850,7 @@ define internal fastcc ptr @make_xml_hier(ptr noundef %0, ptr nocapture noundef 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = load i32, ptr %17, align 8
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next.i, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next.i, %35
   br i1 %36, label %.lr.ph.i, label %fully_qualified_name.exit, !llvm.loop !14
 
 fully_qualified_name.exit:                        ; preds = %.lr.ph.i, %._crit_edge.thread
@@ -2044,7 +2044,7 @@ define internal fastcc noalias ptr @duplicate_element(ptr nocapture noundef read
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1

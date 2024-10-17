@@ -1337,7 +1337,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit373: ;
 
 .critedge319:                                     ; preds = %.lr.ph684, %329, %.critedge284, %.thread461, %._crit_edge685
   %indvars.iv.next815 = add nuw nsw i64 %indvars.iv814, 1
-  %.not997 = icmp ult i64 %indvars.iv.next815, %138
+  %.not997 = icmp samesign ult i64 %indvars.iv.next815, %138
   br i1 %.not997, label %139, label %._crit_edge691, !llvm.loop !9
 
 ._crit_edge691:                                   ; preds = %.critedge319, %132

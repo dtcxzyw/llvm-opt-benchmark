@@ -900,7 +900,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit67:      ; preds = %280, %285
   %300 = sub i64 %298, %299
   %301 = sdiv exact i64 %300, 12
   %302 = and i64 %301, 4294967295
-  %303 = icmp ult i64 %indvars.iv.next88, %302
+  %303 = icmp samesign ult i64 %indvars.iv.next88, %302
   br i1 %303, label %118, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit67, %98

@@ -1236,7 +1236,7 @@ define internal range(i32 -30, 1) i32 @iso9660_write_header(ptr noundef %0, ptr 
   %24 = getelementptr inbounds i8, ptr %5, i64 66416
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 114688
-  %27 = icmp ult i32 %26, 49152
+  %27 = icmp samesign ult i32 %26, 49152
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %23
@@ -1979,7 +1979,7 @@ zisofs_rewind_boot_file.exit.thread243:           ; preds = %54
   br i1 %.not.i.i.i, label %145, label %160
 
 145:                                              ; preds = %142
-  %146 = icmp ult i64 %114, 16
+  %146 = icmp samesign ult i64 %114, 16
   br i1 %146, label %147, label %148
 
 147:                                              ; preds = %145
@@ -4739,7 +4739,7 @@ define internal fastcc range(i32 -30, 1) i32 @get_num_opt(ptr noundef %0, ptr no
   %17 = zext nneg i8 %14 to i32
   %18 = mul nuw nsw i32 %.02846, 10
   %19 = add nuw nsw i32 %18, %17
-  %20 = icmp ugt i32 %19, 65583
+  %20 = icmp samesign ugt i32 %19, 65583
   br i1 %20, label %22, label %23
 
 21:                                               ; preds = %.lr.ph
@@ -4751,7 +4751,7 @@ define internal fastcc range(i32 -30, 1) i32 @get_num_opt(ptr noundef %0, ptr no
   br label %27
 
 23:                                               ; preds = %16
-  %24 = icmp ult i32 %19, 49
+  %24 = icmp samesign ult i32 %19, 49
   br i1 %24, label %25, label %10
 
 25:                                               ; preds = %23
@@ -8777,7 +8777,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @write_file_descriptors(ptr
   %.0.add.i = add nuw nsw i64 %.0.idx46.i, 2
   %.0.ptr.val.i = load i16, ptr %.0.ptr.i, align 1
   %31 = add i16 %.0.ptr.val.i, %.04245.i
-  %32 = icmp ult i64 %.0.idx46.i, 30
+  %32 = icmp samesign ult i64 %.0.idx46.i, 30
   br i1 %32, label %30, label %33, !llvm.loop !69
 
 33:                                               ; preds = %30
@@ -9510,7 +9510,7 @@ idr_start.exit:                                   ; preds = %8, %26
   %69 = shl nuw nsw i32 %68, 8
   %70 = zext i8 %67 to i32
   %71 = or disjoint i32 %69, %70
-  %72 = icmp ult i32 %71, 32
+  %72 = icmp samesign ult i32 %71, 32
   br i1 %72, label %74, label %73
 
 73:                                               ; preds = %.lr.ph137
@@ -9828,7 +9828,7 @@ define internal range(i32 -30, 1) i32 @isoent_gen_iso9660_identifier(ptr noundef
   %.fr255 = freeze i32 %13
   %14 = lshr i32 %.fr255, 14
   %15 = and i32 %14, 7
-  %16 = icmp ult i32 %15, 4
+  %16 = icmp samesign ult i32 %15, 4
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %8
@@ -14465,7 +14465,7 @@ define internal fastcc range(i32 -30, 1) i32 @set_str_utf16be(ptr noundef %0, pt
   %36 = shl nuw nsw i32 %35, 8
   %37 = zext i8 %34 to i32
   %38 = or disjoint i32 %36, %37
-  %39 = icmp ult i32 %38, 32
+  %39 = icmp samesign ult i32 %38, 32
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %.lr.ph65

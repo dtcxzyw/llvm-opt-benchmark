@@ -743,7 +743,7 @@ lpad20.loopexit.split-lp:                         ; preds = %for.body
 
 for.body.i12:                                     ; preds = %for.inc.i, %for.inc.i17
   %i.08.i13 = phi i64 [ %inc.i18, %for.inc.i17 ], [ 0, %for.inc.i ]
-  %7 = icmp ult i64 %i.08.i13, 18
+  %7 = icmp samesign ult i64 %i.08.i13, 18
   br i1 %7, label %switch.lookup, label %_ZN4cvc58internal8toStringENS0_8ResourceE.exit.i
 
 switch.lookup:                                    ; preds = %for.body.i12

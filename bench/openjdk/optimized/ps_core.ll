@@ -465,7 +465,7 @@ core_handle_note.exit:                            ; preds = %core_handle_prstatu
   %134 = add nuw nsw i32 %.01931, 1
   %135 = load i16, ptr %8, align 8
   %136 = zext i16 %135 to i32
-  %137 = icmp ult i32 %134, %136
+  %137 = icmp samesign ult i32 %134, %136
   br i1 %137, label %.lr.ph, label %.sink.split, !llvm.loop !9
 
 .sink.split:                                      ; preds = %121, %132, %39, %18, %117, %.thread.i, %.preheader
@@ -603,7 +603,7 @@ define internal fastcc i64 @read_exec_segments(ptr noundef nonnull %0, ptr nound
   %74 = add nuw nsw i32 %.03748, 1
   %75 = load i16, ptr %10, align 8
   %76 = zext i16 %75 to i32
-  %77 = icmp ult i32 %74, %76
+  %77 = icmp samesign ult i32 %74, %76
   br i1 %77, label %14, label %.sink.split, !llvm.loop !10
 
 .loopexit.sink.split:                             ; preds = %45, %37
@@ -1286,7 +1286,7 @@ define internal fastcc range(i32 0, 2) i32 @read_lib_segments(ptr noundef nonnul
   %71 = add nuw nsw i32 %.05577, 1
   %72 = load i16, ptr %8, align 8
   %73 = zext i16 %72 to i32
-  %74 = icmp ult i32 %71, %73
+  %74 = icmp samesign ult i32 %71, %73
   br i1 %74, label %12, label %.sink.split, !llvm.loop !18
 
 .sink.split:                                      ; preds = %28, %70, %54, %.preheader

@@ -3862,11 +3862,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f8_Jacobi3EPNS_7Gf
   br i1 %27, label %159, label %28
 
 28:                                               ; preds = %26
-  %29 = icmp ult i32 %.0179213, 3
+  %29 = icmp samesign ult i32 %.0179213, 3
   %30 = fmul double %25, 2.000000e-01
   %31 = fdiv double %30, 9.000000e+00
   %32 = select i1 %29, double %31, double 0.000000e+00
-  %33 = icmp ugt i32 %.0179213, 3
+  %33 = icmp samesign ugt i32 %.0179213, 3
   br label %34
 
 .loopexit193:                                     ; preds = %.loopexit, %34
@@ -3878,7 +3878,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f8_Jacobi3EPNS_7Gf
   %indvars.iv237 = phi i64 [ 0, %28 ], [ %indvars.iv.next238, %.loopexit193 ]
   %indvars.iv223 = phi i64 [ 1, %28 ], [ %indvars.iv.next224, %.loopexit193 ]
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
-  %35 = icmp ult i64 %indvars.iv237, 2
+  %35 = icmp samesign ult i64 %indvars.iv237, 2
   br i1 %35, label %.lr.ph210, label %.loopexit193
 
 .lr.ph210:                                        ; preds = %34
@@ -3997,7 +3997,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f8_Jacobi3EPNS_7Gf
 
 .preheader192:                                    ; preds = %.preheader192.loopexit, %82
   %invariant.gep = getelementptr inbounds float, ptr %4, i64 %indvars.iv233
-  %108 = icmp ult i64 %indvars.iv.next238, %indvars.iv233
+  %108 = icmp samesign ult i64 %indvars.iv.next238, %indvars.iv233
   br i1 %108, label %.lr.ph204, label %.preheader191
 
 .lr.ph204:                                        ; preds = %.preheader192
@@ -4005,7 +4005,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f8_Jacobi3EPNS_7Gf
   br label %127
 
 .preheader191:                                    ; preds = %127, %.preheader192
-  %110 = icmp ult i64 %indvars.iv233, 2
+  %110 = icmp samesign ult i64 %indvars.iv233, 2
   br i1 %110, label %.lr.ph206, label %.preheader191..preheader_crit_edge
 
 .preheader191..preheader_crit_edge:               ; preds = %.preheader191

@@ -214,7 +214,7 @@ define void @dlalsd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .loopexit19:                                      ; preds = %112, %.split
   %124 = add nuw nsw i64 %105, 1
-  %125 = icmp ult i64 %105, %104
+  %125 = icmp samesign ult i64 %105, %104
   br i1 %125, label %.split, label %.loopexit20.loopexit, !llvm.loop !14
 
 .loopexit20.loopexit:                             ; preds = %.loopexit19
@@ -293,7 +293,7 @@ define void @dlalsd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 165:                                              ; preds = %162, %161
   %166 = add nuw nsw i64 %157, 1
-  %167 = icmp ult i64 %157, %155
+  %167 = icmp samesign ult i64 %157, %155
   br i1 %167, label %156, label %.loopexit18, !llvm.loop !16
 
 .loopexit18:                                      ; preds = %165, %142
@@ -575,7 +575,7 @@ define void @dlalsd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %372 = phi i32 [ %287, %368 ], [ %234, %231 ]
   %373 = phi i32 [ %370, %368 ], [ %233, %231 ]
   %374 = add nuw nsw i64 %232, 1
-  %375 = icmp ult i64 %232, %230
+  %375 = icmp samesign ult i64 %232, %230
   br i1 %375, label %231, label %.loopexit16, !llvm.loop !18
 
 .loopexit16:                                      ; preds = %371, %.loopexit17
@@ -629,7 +629,7 @@ define void @dlalsd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %410 = select i1 %408, double %407, double %409
   store double %410, ptr %394, align 8, !tbaa !7
   %411 = add nuw nsw i64 %393, 1
-  %412 = icmp ult i64 %393, %391
+  %412 = icmp samesign ult i64 %393, %391
   br i1 %412, label %392, label %.loopexit14, !llvm.loop !19
 
 .loopexit14:                                      ; preds = %406, %.loopexit16
@@ -737,7 +737,7 @@ define void @dlalsd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 496:                                              ; preds = %450, %441, %432
   %497 = add nuw nsw i64 %421, 1
-  %498 = icmp ult i64 %421, %419
+  %498 = icmp samesign ult i64 %421, %419
   br i1 %498, label %420, label %.loopexit13, !llvm.loop !20
 
 .loopexit13:                                      ; preds = %496, %.loopexit14

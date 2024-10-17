@@ -1732,7 +1732,7 @@ cond.true82.i:                                    ; preds = %inet_getport.exit.i
 
 cond.end86.i:                                     ; preds = %cond.true82.i, %inet_getport.exit.i
   %cond87.i = phi i32 [ %conv83.i, %cond.true82.i ], [ %retval.0.shrunk.i.i, %inet_getport.exit.i ]
-  %cmp89.not98.i = icmp ugt i32 %retval.0.shrunk.i.i, %cond87.i
+  %cmp89.not98.i = icmp samesign ugt i32 %retval.0.shrunk.i.i, %cond87.i
   br i1 %cmp89.not98.i, label %for.inc125.i, label %for.body91.lr.ph.i
 
 for.body91.lr.ph.i:                               ; preds = %cond.end86.i

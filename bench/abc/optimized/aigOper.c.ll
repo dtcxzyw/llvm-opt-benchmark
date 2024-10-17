@@ -1166,8 +1166,8 @@ Aig_IthVar.exit:                                  ; preds = %.lr.ph.i, %9
   %28 = tail call i32 @rand() #7
   %29 = srem i32 %28, 3
   %30 = icmp eq i32 %29, 0
-  %31 = icmp ult i32 %.1101, 20
-  %or.cond = or i1 %31, %30
+  %31 = icmp samesign ult i32 %.1101, 20
+  %or.cond = select i1 %30, i1 true, i1 %31
   %32 = tail call i32 @rand() #7
   br i1 %or.cond, label %33, label %41
 
@@ -1236,8 +1236,8 @@ Aig_IthVar.exit82:                                ; preds = %.lr.ph.i77, %33
   %66 = tail call i32 @rand() #7
   %67 = srem i32 %66, 3
   %68 = icmp eq i32 %67, 0
-  %69 = icmp ult i32 %.1101, 20
-  %or.cond59 = or i1 %69, %68
+  %69 = icmp samesign ult i32 %.1101, 20
+  %or.cond59 = select i1 %68, i1 true, i1 %69
   %70 = tail call i32 @rand() #7
   br i1 %or.cond59, label %71, label %79
 
@@ -1306,8 +1306,8 @@ Aig_IthVar.exit90:                                ; preds = %.lr.ph.i85, %71
   %104 = tail call i32 @rand() #7
   %105 = srem i32 %104, 3
   %106 = icmp eq i32 %105, 0
-  %107 = icmp ult i32 %.1101, 20
-  %or.cond60 = or i1 %107, %106
+  %107 = icmp samesign ult i32 %.1101, 20
+  %or.cond60 = select i1 %106, i1 true, i1 %107
   %108 = tail call i32 @rand() #7
   br i1 %or.cond60, label %109, label %117
 

@@ -294,7 +294,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end
   %v.addr.i.0 = phi i64 [ %conv, %if.end ], [ %shr.i, %do.body.i ]
   %inc.i = add nuw nsw i64 %ret.i.0, 1
   %shr.i = lshr i64 %v.addr.i.0, 7
-  %cmp.i.not = icmp ult i64 %v.addr.i.0, 128
+  %cmp.i.not = icmp samesign ult i64 %v.addr.i.0, 128
   br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
@@ -2728,7 +2728,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   %v.addr.i.0 = phi i64 [ %conv, %if.then ], [ %shr.i, %do.body.i ]
   %inc.i = add nuw nsw i64 %ret.i.0, 1
   %shr.i = lshr i64 %v.addr.i.0, 7
-  %cmp.i.not = icmp ult i64 %v.addr.i.0, 128
+  %cmp.i.not = icmp samesign ult i64 %v.addr.i.0, 128
   br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
@@ -2764,7 +2764,7 @@ while.body.i:                                     ; preds = %_ZN9struct_pb8inter
   %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %pos.121
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i64 %v.addr.i.022, 7
-  %cmp.i = icmp ugt i64 %v.addr.i.022, 16383
+  %cmp.i = icmp samesign ugt i64 %v.addr.i.022, 16383
   br i1 %cmp.i, label %while.body.i, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, !llvm.loop !10
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit17

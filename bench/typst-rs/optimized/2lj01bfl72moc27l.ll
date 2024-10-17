@@ -430,7 +430,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
 194:                                              ; preds = %206, %189
   %.sroa.014.0.i = phi i64 [ %199, %206 ], [ %182, %189 ]
   %.sroa.416.0.i = phi i64 [ %209, %206 ], [ %193, %189 ]
-  %.not25.i = icmp uge i64 %.sroa.014.0.i, %.sroa.416.0.i
+  %.not25.i = icmp samesign uge i64 %.sroa.014.0.i, %.sroa.416.0.i
   %195 = icmp ugt i64 %.sroa.416.0.i, %3
   %or.cond225 = or i1 %.not25.i, %195
   br i1 %or.cond225, label %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread, label %_ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit
@@ -577,7 +577,7 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %194
   %270 = add nuw nsw i64 %267, 131070
   %271 = and i64 %270, 131070
   %272 = add nuw nsw i64 %271, 2
-  %273 = icmp ugt i64 %272, %267
+  %273 = icmp samesign ugt i64 %272, %267
   br i1 %273, label %338, label %274
 
 274:                                              ; preds = %269
@@ -718,7 +718,7 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %194
   %352 = zext i16 %344 to i64
   %353 = shl nuw nsw i64 %352, 1
   %354 = add nuw nsw i64 %353, 2
-  %355 = icmp ugt i64 %354, %.val12.i.i
+  %355 = icmp samesign ugt i64 %354, %.val12.i.i
   br i1 %355, label %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17h8eb91d008ec77e10E.exit.thread.i.i", label %358
 
 356:                                              ; preds = %339
@@ -737,7 +737,7 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %194
   %364 = zext i16 %361 to i64
   %365 = shl nuw nsw i64 %364, 1
   %366 = add nuw nsw i64 %365, 2
-  %367 = icmp ugt i64 %366, %.val12.i.i
+  %367 = icmp samesign ugt i64 %366, %.val12.i.i
   br i1 %367, label %370, label %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17h8eb91d008ec77e10E.exit17.i.i"
 
 "_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17h8eb91d008ec77e10E.exit17.i.i": ; preds = %363
@@ -2204,7 +2204,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %23
 
 44:                                               ; preds = %.critedge.i
   %45 = and i8 %42, 127
-  %46 = icmp ugt i8 %45, 14
+  %46 = icmp samesign ugt i8 %45, 14
   br i1 %46, label %63, label %_ZN4ecow7dynamic9InlineVec4push17h92a252e53362ebd2E.exit.i.i
 
 _ZN4ecow7dynamic9InlineVec4push17h92a252e53362ebd2E.exit.i.i: ; preds = %44
@@ -6950,7 +6950,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 251:                                              ; preds = %265, %246
   %.sroa.014.0.i.i.i.i.i = phi i64 [ %258, %265 ], [ %239, %246 ]
   %.sroa.416.0.i.i.i.i.i = phi i64 [ %268, %265 ], [ %250, %246 ]
-  %.not25.i.i.i.i.i = icmp uge i64 %.sroa.014.0.i.i.i.i.i, %.sroa.416.0.i.i.i.i.i
+  %.not25.i.i.i.i.i = icmp samesign uge i64 %.sroa.014.0.i.i.i.i.i, %.sroa.416.0.i.i.i.i.i
   %252 = getelementptr inbounds i8, ptr %182, i64 32
   %253 = load i64, ptr %252, align 8, !alias.scope !1473, !noalias !1474
   %254 = icmp ugt i64 %.sroa.416.0.i.i.i.i.i, %253
@@ -7511,7 +7511,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.1.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -7524,7 +7524,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
   %.017.i11 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %.0.i12 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.017.i11, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81

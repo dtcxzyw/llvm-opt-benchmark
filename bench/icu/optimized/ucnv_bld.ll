@@ -244,7 +244,7 @@ if.end5:                                          ; preds = %if.end
 if.end.i:                                         ; preds = %if.end5
   %conv2.i = sext i8 %4 to i32
   %conv3.i = and i32 %conv2.i, 65534
-  %cmp.i10 = icmp ugt i32 %conv3.i, 33
+  %cmp.i10 = icmp samesign ugt i32 %conv3.i, 33
   br i1 %cmp.i10, label %if.then9.sink.split, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
@@ -918,7 +918,7 @@ if.else52:                                        ; preds = %if.then45
   %conv47 = sext i8 %4 to i32
   %sub = add nsw i32 %conv47, -48
   %conv55 = and i32 %sub, 254
-  %cmp56 = icmp ult i32 %conv55, 10
+  %cmp56 = icmp samesign ult i32 %conv55, 10
   br i1 %cmp56, label %if.then57, label %while.cond13.backedge
 
 while.cond13.backedge:                            ; preds = %while.cond76, %if.else52, %if.then57, %if.then70, %while.end42

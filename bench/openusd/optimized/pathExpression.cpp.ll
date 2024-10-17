@@ -20542,7 +20542,7 @@ define linkonce_odr i64 @_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf89peek_impl
 20:                                               ; preds = %14
   %21 = shl i32 %1, 6
   %22 = and i32 %21, 1984
-  %23 = icmp ugt i32 %22, 127
+  %23 = icmp samesign ugt i32 %22, 127
   br i1 %23, label %24, label %103
 
 24:                                               ; preds = %20
@@ -20585,16 +20585,16 @@ define linkonce_odr i64 @_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf89peek_impl
   %52 = and i32 %51, 960
   %53 = and i32 %42, 63
   %54 = or disjoint i32 %53, %52
-  %55 = icmp ugt i32 %54, 31
+  %55 = icmp samesign ugt i32 %54, 31
   br i1 %55, label %56, label %103
 
 56:                                               ; preds = %50
   %57 = shl nuw nsw i32 %54, 6
   %58 = and i32 %45, 63
   %59 = or disjoint i32 %57, %58
-  %60 = icmp ugt i32 %54, 863
-  %61 = icmp ult i32 %52, 896
-  %or.cond = and i1 %61, %60
+  %60 = icmp samesign ugt i32 %54, 863
+  %61 = icmp samesign ult i32 %52, 896
+  %or.cond = select i1 %60, i1 %61, i1 false
   br i1 %or.cond, label %103, label %104
 
 62:                                               ; preds = %27

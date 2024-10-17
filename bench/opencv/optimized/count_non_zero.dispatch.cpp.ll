@@ -525,7 +525,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc, %28
 .lr.ph170:                                        ; preds = %_ZN2cv10AutoBufferIiLm264EEC2Em.exit
   %45 = getelementptr inbounds i8, ptr %3, i64 16
   %46 = getelementptr inbounds i8, ptr %3, i64 72
-  %or.cond4 = icmp ult i32 %29, 2
+  %or.cond4 = icmp samesign ult i32 %29, 2
   %47 = and i32 %14, 6
   %or.cond6 = icmp eq i32 %47, 2
   %48 = icmp sgt i32 %33, 0
@@ -733,7 +733,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv6Point_IiEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i
   br label %.lr.ph164
 
 117:                                              ; preds = %109
-  %118 = icmp ult i64 %114, %106
+  %118 = icmp samesign ult i64 %114, %106
   br i1 %118, label %119, label %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 119:                                              ; preds = %117

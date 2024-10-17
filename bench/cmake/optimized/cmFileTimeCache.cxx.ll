@@ -222,7 +222,7 @@ define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache7DifferSERKNSt7__cxx111
   %27 = load i64, ptr %4, align 8
   %28 = sub nsw i64 %27, %26
   %spec.select.i = call i64 @llvm.abs.i64(i64 %28, i1 true)
-  %29 = icmp ugt i64 %spec.select.i, 999999999
+  %29 = icmp samesign ugt i64 %spec.select.i, 999999999
   br label %_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit
 
 _ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit: ; preds = %20, %10, %25

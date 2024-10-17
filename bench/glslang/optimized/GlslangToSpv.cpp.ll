@@ -16017,11 +16017,11 @@ _ZNK7glslang10TSourceLoc11getFilenameEv.exit350:  ; preds = %.thread540, %548
   br label %735
 
 711:                                              ; preds = %653, %653
-  %712 = icmp ugt i64 %indvars.iv597, 1
+  %712 = icmp samesign ugt i64 %indvars.iv597, 1
   br label %735
 
 713:                                              ; preds = %653, %653
-  %or.cond = icmp ult i64 %indvars.iv597, 2
+  %or.cond = icmp samesign ult i64 %indvars.iv597, 2
   br label %735
 
 714:                                              ; preds = %653, %653
@@ -30387,7 +30387,7 @@ _ZNK7glslang5TType15isArrayOfArraysEv.exit.i.thread: ; preds = %757, %_ZN12_GLOB
   %785 = load i64, ptr %784, align 8
   %786 = trunc i64 %785 to i32
   %787 = and i32 %786, 127
-  %788 = icmp ult i32 %787, 28
+  %788 = icmp samesign ult i32 %787, 28
   br i1 %788, label %switch.lookup1117, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit.i
 
 789:                                              ; preds = %775
@@ -30400,7 +30400,7 @@ _ZNK7glslang5TType15isArrayOfArraysEv.exit.i.thread: ; preds = %757, %_ZN12_GLOB
 793:                                              ; preds = %789
   %794 = trunc i64 %791 to i32
   %795 = and i32 %794, 127
-  %796 = icmp ult i32 %795, 31
+  %796 = icmp samesign ult i32 %795, 31
   br i1 %796, label %switch.lookup1118, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit.i
 
 797:                                              ; preds = %775
@@ -30413,7 +30413,7 @@ _ZNK7glslang5TType15isArrayOfArraysEv.exit.i.thread: ; preds = %757, %_ZN12_GLOB
 801:                                              ; preds = %797
   %802 = trunc i64 %799 to i32
   %803 = and i32 %802, 127
-  %804 = icmp ult i32 %803, 28
+  %804 = icmp samesign ult i32 %803, 28
   br i1 %804, label %switch.lookup1123, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit.i
 
 805:                                              ; preds = %775
@@ -30426,7 +30426,7 @@ _ZNK7glslang5TType15isArrayOfArraysEv.exit.i.thread: ; preds = %757, %_ZN12_GLOB
 809:                                              ; preds = %805
   %810 = trunc i64 %807 to i32
   %811 = and i32 %810, 127
-  %812 = icmp ult i32 %811, 28
+  %812 = icmp samesign ult i32 %811, 28
   br i1 %812, label %switch.lookup1128, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit.i
 
 813:                                              ; preds = %775
@@ -30439,7 +30439,7 @@ _ZNK7glslang5TType15isArrayOfArraysEv.exit.i.thread: ; preds = %757, %_ZN12_GLOB
 817:                                              ; preds = %813
   %818 = trunc i64 %815 to i32
   %819 = and i32 %818, 127
-  %820 = icmp ult i32 %819, 31
+  %820 = icmp samesign ult i32 %819, 31
   br i1 %820, label %switch.lookup1133, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit.i
 
 switch.lookup1117:                                ; preds = %783
@@ -44143,7 +44143,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTrave
   %24 = load i64, ptr %23, align 8
   %25 = trunc i64 %24 to i32
   %26 = and i32 %25, 127
-  %27 = icmp ult i32 %26, 20
+  %27 = icmp samesign ult i32 %26, 20
   br i1 %27, label %switch.lookup, label %28
 
 switch.lookup:                                    ; preds = %14

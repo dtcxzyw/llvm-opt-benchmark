@@ -15838,7 +15838,7 @@ if.then5258:                                      ; preds = %for.body
   %inc5264 = add nuw nsw i32 %oct_digits.012004, 1
   %s.0 = getelementptr inbounds i8, ptr %s.012005, i64 1
   %cmp5251 = icmp ult ptr %s.0, %te.412027
-  %cmp5252 = icmp ult i32 %oct_digits.012004, 2
+  %cmp5252 = icmp samesign ult i32 %oct_digits.012004, 2
   %1661 = select i1 %cmp5251, i1 %cmp5252, i1 false
   br i1 %1661, label %for.body, label %for.end.thread18357, !llvm.loop !223
 
@@ -16575,7 +16575,7 @@ entry:
   %mul = shl nuw nsw i64 %conv1, 3
   %conv2 = and i64 %sub, 4294967295
   %add = add nuw nsw i64 %mul, %conv2
-  %cmp = icmp ugt i64 %add, 2147483647
+  %cmp = icmp samesign ugt i64 %add, 2147483647
   br i1 %cmp, label %if.then, label %_ZN3ue210verify_u32IyEEjT_.exit
 
 if.then:                                          ; preds = %entry
@@ -16636,7 +16636,7 @@ entry:
   %mul = mul nuw nsw i64 %conv1, 10
   %conv2 = and i64 %sub, 4294967295
   %add = add nuw nsw i64 %mul, %conv2
-  %cmp = icmp ugt i64 %add, 2147483647
+  %cmp = icmp samesign ugt i64 %add, 2147483647
   br i1 %cmp, label %if.then, label %_ZN3ue210verify_u32IyEEjT_.exit
 
 if.then:                                          ; preds = %entry

@@ -1119,7 +1119,7 @@ define internal i32 @calipso_opt_getattr(ptr noundef %0, ptr noundef %1) #0 alig
   %8 = zext i8 %7 to i32
   %9 = shl nuw nsw i32 %8, 2
   %10 = add nuw nsw i32 %9, 8
-  %11 = icmp ugt i32 %10, %5
+  %11 = icmp samesign ugt i32 %10, %5
   br i1 %11, label %153, label %12
 
 12:                                               ; preds = %2
@@ -1591,7 +1591,7 @@ thread-pre-split:                                 ; preds = %16, %16
   %129 = zext i32 %128 to i64
   %130 = getelementptr i8, ptr %99, i64 %129
   store i8 %127, ptr %130, align 1
-  %131 = icmp ugt i32 %30, 2
+  %131 = icmp samesign ugt i32 %30, 2
   br i1 %131, label %132, label %135
 
 132:                                              ; preds = %123
@@ -1732,7 +1732,7 @@ define internal range(i32 -2147483648, 1) i32 @calipso_skbuff_delattr(ptr nounde
   %79 = zext i32 %78 to i64
   %80 = getelementptr i8, ptr %42, i64 %79
   store i8 %77, ptr %80, align 1
-  %81 = icmp ugt i32 %67, 2
+  %81 = icmp samesign ugt i32 %67, 2
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %73
@@ -2093,7 +2093,7 @@ thread-pre-split:                                 ; preds = %7, %7
   %51 = zext i32 %50 to i64
   %52 = getelementptr i8, ptr %25, i64 %51
   store i8 %49, ptr %52, align 1
-  %53 = icmp ugt i32 %41, 2
+  %53 = icmp samesign ugt i32 %41, 2
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %45
@@ -2629,7 +2629,7 @@ define internal fastcc range(i32 -22, 1) i32 @calipso_opt_del(ptr nocapture noun
   %41 = zext i32 %40 to i64
   %42 = getelementptr i8, ptr %24, i64 %41
   store i8 %39, ptr %42, align 1
-  %43 = icmp ugt i32 %33, 2
+  %43 = icmp samesign ugt i32 %33, 2
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %36
@@ -2662,7 +2662,7 @@ define internal fastcc range(i32 -22, 1) i32 @calipso_opt_del(ptr nocapture noun
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
 define internal fastcc i32 @calipso_map_cache_hash(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #11 align 16 {
   %3 = add nuw nsw i32 %1, -559038737
-  %4 = icmp ugt i32 %1, 12
+  %4 = icmp samesign ugt i32 %1, 12
   br i1 %4, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2, %.preheader

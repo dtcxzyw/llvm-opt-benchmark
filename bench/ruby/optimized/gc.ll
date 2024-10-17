@@ -11264,7 +11264,7 @@ RCLASS_IV_COUNT.exit:                             ; preds = %rb_vm_lock_enter.ex
   %.0.i = phi i32 [ %81, %75 ], [ %72, %rb_vm_lock_enter.exit.i ], [ %72, %74 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %82 = zext i32 %.0.i to i64
-  %83 = icmp ult i64 %indvars.iv300, %82
+  %83 = icmp samesign ult i64 %indvars.iv300, %82
   br i1 %83, label %84, label %mark_tbl_no_pin.exit
 
 84:                                               ; preds = %RCLASS_IV_COUNT.exit
@@ -14777,7 +14777,7 @@ define hidden void @Init_GC() local_unnamed_addr #0 {
 
 6:                                                ; preds = %1
   %7 = add nuw nsw i64 %.0910.i, 8
-  %8 = icmp ult i64 %.0910.i, 9
+  %8 = icmp samesign ult i64 %.0910.i, 9
   br i1 %8, label %1, label %gc_compute_malloc_offset.exit, !llvm.loop !89
 
 gc_compute_malloc_offset.exit:                    ; preds = %1, %6
@@ -18035,7 +18035,7 @@ RCLASS_IV_COUNT.exit.i.i.i.i:                     ; preds = %385, %384, %rb_vm_l
   %.0.i225.i.i.i.i = phi i32 [ %391, %385 ], [ %382, %rb_vm_lock_enter.exit.i.i.i.i.i ], [ %382, %384 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %392 = zext i32 %.0.i225.i.i.i.i to i64
-  %393 = icmp ult i64 %indvars.iv.i.i.i.i, %392
+  %393 = icmp samesign ult i64 %indvars.iv.i.i.i.i, %392
   br i1 %393, label %394, label %gc_ref_update_table_values_only.exit.i.i.i.i
 
 394:                                              ; preds = %RCLASS_IV_COUNT.exit.i.i.i.i
@@ -18785,7 +18785,7 @@ ruby_xfree.exit.i.i.i.i.i:                        ; preds = %.preheader.i.i.i.i.
 ROBJECT_IV_COUNT.exit31.i.i.i.i.i:                ; preds = %753, %749
   %.0.i30.i.i.i.i.i = phi i32 [ %752, %749 ], [ %759, %753 ]
   %760 = zext i32 %.0.i30.i.i.i.i.i to i64
-  %761 = icmp ult i64 %indvars.iv.i.i.i.i.i, %760
+  %761 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i, %760
   br i1 %761, label %762, label %update_cc_tbl.exit258.i.i.i.i
 
 762:                                              ; preds = %ROBJECT_IV_COUNT.exit31.i.i.i.i.i

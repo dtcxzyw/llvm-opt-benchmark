@@ -1667,7 +1667,7 @@ for.inc:                                          ; preds = %if.end48, %_ZNSt6ve
   %isAtWhiteSide.1 = phi i1 [ %frombool51, %if.end48 ], [ true, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backERKS1_.exit237 ], [ false, %if.else52 ]
   %101 = load i32, ptr %iit.sroa.0.0390, align 4
   %102 = zext i32 %101 to i64
-  %cmp33 = icmp ult i64 %indvars.iv.next, %102
+  %cmp33 = icmp samesign ult i64 %indvars.iv.next, %102
   br i1 %cmp33, label %for.body34, label %for.end, !llvm.loop !51
 
 for.end:                                          ; preds = %for.inc
@@ -2493,7 +2493,7 @@ _ZNSt6vectorISt4pairIm10aiVector3tIdEESaIS3_EED2Ev.exit: ; preds = %invoke.cont1
   %sub.ptr.div.i4855 = lshr i64 %sub.ptr.sub.i47, 5
   %rem21 = and i64 %sub.ptr.div.i4855, 1
   %add22 = add nuw nsw i64 %add13, %rem21
-  %cmp = icmp ugt i64 %add22, 1
+  %cmp = icmp samesign ugt i64 %add22, 1
   ret i1 %cmp
 
 lpad:                                             ; preds = %invoke.cont9, %invoke.cont3, %invoke.cont2

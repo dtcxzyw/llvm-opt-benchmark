@@ -2897,7 +2897,7 @@ define dso_local i32 @ip6_fragment(ptr noundef %0, ptr noundef %1, ptr noundef %
   %235 = ptrtoint ptr %233 to i64
   %236 = sub i64 %234, %235
   %237 = and i64 %236, 4294967295
-  %238 = icmp ugt i64 %216, %237
+  %238 = icmp samesign ugt i64 %216, %237
   br i1 %238, label %374, label %239
 
 239:                                              ; preds = %229

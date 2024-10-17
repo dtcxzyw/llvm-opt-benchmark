@@ -126,8 +126,8 @@ define noundef ptr @Pgrab(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_
 
 .critedge.loopexit.i.i:                           ; preds = %.lr.ph.i.i
   %37 = icmp ne i8 %46, 0
-  %38 = icmp ult i64 %indvars.iv.i.i, 6
-  %39 = and i1 %38, %37
+  %38 = icmp samesign ult i64 %indvars.iv.i.i, 6
+  %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %.lr.ph49.i.i, label %split_n_str.exit.i, !llvm.loop !6
 
 .lr.ph49.i.i:                                     ; preds = %.preheader.i.i, %.critedge.loopexit.i.i
@@ -159,7 +159,7 @@ define noundef ptr @Pgrab(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_
   br i1 %cond43.i.i, label %.lr.ph.i.i, label %.critedge.loopexit.i.i, !llvm.loop !9
 
 split_n_str.exit.i:                               ; preds = %.critedge.loopexit.i.i, %41
-  %47 = icmp ult i64 %indvars.iv.i.i, 5
+  %47 = icmp samesign ult i64 %indvars.iv.i.i, 5
   br i1 %47, label %.backedge.i, label %48
 
 48:                                               ; preds = %split_n_str.exit.i

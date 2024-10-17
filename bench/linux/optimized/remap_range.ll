@@ -1193,7 +1193,7 @@ define dso_local range(i32 -2147483648, 1) i32 @vfs_dedupe_file_range(ptr nounde
   %106 = phi i1 [ true, %94 ], [ %104, %100 ]
   %107 = add nuw nsw i32 %61, 1
   %108 = getelementptr i8, ptr %60, i64 32
-  %109 = icmp ult i32 %107, %48
+  %109 = icmp samesign ult i32 %107, %48
   %110 = select i1 %106, i1 %109, i1 false
   br i1 %110, label %.preheader, label %.thread, !llvm.loop !35
 

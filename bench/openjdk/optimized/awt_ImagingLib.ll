@@ -121,7 +121,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_convolveBI(ptr noundef
 52:                                               ; preds = %49
   %53 = udiv i32 2147483647, %.0144
   %54 = udiv i32 %53, %.0143
-  %55 = icmp ugt i32 %54, 8
+  %55 = icmp samesign ugt i32 %54, 8
   br i1 %55, label %56, label %.thread
 
 56:                                               ; preds = %52
@@ -2728,7 +2728,7 @@ define i32 @Java_sun_awt_image_ImagingLib_convolveRaster(ptr noundef %0, ptr noc
 49:                                               ; preds = %46
   %50 = udiv i32 2147483647, %.0178
   %51 = udiv i32 %50, %.0177
-  %52 = icmp ugt i32 %51, 8
+  %52 = icmp samesign ugt i32 %51, 8
   br i1 %52, label %53, label %.thread
 
 53:                                               ; preds = %49
@@ -3237,7 +3237,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
 36:                                               ; preds = %31
   %37 = udiv i32 2147483647, %33
   %38 = udiv i32 %37, %11
-  %39 = icmp ugt i32 %38, 4
+  %39 = icmp samesign ugt i32 %38, 4
   br i1 %39, label %40, label %375
 
 40:                                               ; preds = %36
@@ -3293,7 +3293,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
 75:                                               ; preds = %73
   %76 = udiv i32 2147483647, %9
   %77 = udiv i32 %76, %13
-  %78 = icmp ugt i32 %77, 1
+  %78 = icmp samesign ugt i32 %77, 1
   br i1 %78, label %79, label %375
 
 79:                                               ; preds = %75
@@ -3307,7 +3307,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
 84:                                               ; preds = %79
   %85 = udiv i32 2147483647, %81
   %86 = udiv i32 %85, %11
-  %87 = icmp ugt i32 %86, 1
+  %87 = icmp samesign ugt i32 %86, 1
   br i1 %87, label %88, label %375
 
 88:                                               ; preds = %84
@@ -3384,7 +3384,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
 135:                                              ; preds = %134, %131
   %136 = udiv i32 2147483647, %9
   %137 = udiv i32 %136, %13
-  %138 = icmp ugt i32 %137, 2
+  %138 = icmp samesign ugt i32 %137, 2
   br i1 %138, label %139, label %375
 
 139:                                              ; preds = %135
@@ -3398,7 +3398,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
 144:                                              ; preds = %139
   %145 = udiv i32 2147483647, %141
   %146 = udiv i32 %145, %11
-  %147 = icmp ugt i32 %146, 2
+  %147 = icmp samesign ugt i32 %146, 2
   br i1 %147, label %148, label %375
 
 148:                                              ; preds = %144

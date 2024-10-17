@@ -36,7 +36,7 @@ define internal fastcc ptr @_process_util_by_report(ptr noundef %0, ptr noundef 
   store i16 1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 66
   store i16 1, ptr %11, align 2
-  %or.cond = icmp ult i32 %3, 2
+  %or.cond = icmp samesign ult i32 %3, 2
   %.sink175.in.v = select i1 %or.cond, i64 80, i64 48
   %.sink175.in = getelementptr inbounds i8, ptr %2, i64 %.sink175.in.v
   %.sink174.in.v = select i1 %or.cond, i64 72, i64 40

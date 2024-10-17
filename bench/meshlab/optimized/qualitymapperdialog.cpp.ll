@@ -6064,7 +6064,7 @@ switch.lookup:                                    ; preds = %109
   %126 = sitofp i32 %125 to float
   %127 = call float @llvm.fmuladd.f32(float %126, float 2.000000e+00, float 1.000000e+00)
   %128 = fptosi float %127 to i32
-  %129 = icmp ult i64 %indvars.iv133, 3
+  %129 = icmp samesign ult i64 %indvars.iv133, 3
   %switch.offset163 = add nsw i32 %117, 7
   %.sink.i = select i1 %129, i32 %switch.offset163, i32 2
   br label %130

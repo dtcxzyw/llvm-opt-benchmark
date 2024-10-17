@@ -422,7 +422,7 @@ Abc_Tt6SupportAndSize.exit.i.i:                   ; preds = %.lr.ph.i.i.i, %202
   %indvars.iv.next.i65.i = add nuw nsw i64 %indvars.iv.i63.i, 1
   %257 = lshr i32 %.val28.i.i, 27
   %258 = zext nneg i32 %257 to i64
-  %259 = icmp ult i64 %indvars.iv.next.i65.i, %258
+  %259 = icmp samesign ult i64 %indvars.iv.next.i65.i, %258
   br i1 %259, label %242, label %._crit_edge.i.i, !llvm.loop !7
 
 ._crit_edge.i.i:                                  ; preds = %256, %235
@@ -1007,7 +1007,7 @@ Abc_TtHasVar.exit.us.i.i.i:                       ; preds = %Abc_TtHasVar.exit.u
   %555 = phi i32 [ %586, %Abc_TtHasVar.exit.thread.i.i.i ], [ 0, %.lr.ph.i.i.i25 ]
   %indvars.iv.i.i.i26 = phi i64 [ %indvars.iv.next.i.i.i28, %Abc_TtHasVar.exit.thread.i.i.i ], [ 0, %.lr.ph.i.i.i25 ]
   %.022.i.i.i = phi i32 [ %.1.i.i.i27, %Abc_TtHasVar.exit.thread.i.i.i ], [ 0, %.lr.ph.i.i.i25 ]
-  %556 = icmp ult i64 %indvars.iv.i.i.i26, 6
+  %556 = icmp samesign ult i64 %indvars.iv.i.i.i26, 6
   %557 = trunc i64 %indvars.iv.i.i.i26 to i32
   br i1 %556, label %.lr.ph.i.i.i.i, label %.preheader.lr.ph.i.i.i.i
 
@@ -1161,7 +1161,7 @@ Abc_TtCopy.exit.i.i:                              ; preds = %.lr.ph18.i.i.i, %58
   %indvars.iv.next.i146.i = add nuw nsw i64 %indvars.iv.i143.i, 1
   %615 = lshr i32 %.val32.i.i, 27
   %616 = zext nneg i32 %615 to i64
-  %617 = icmp ult i64 %indvars.iv.next.i146.i, %616
+  %617 = icmp samesign ult i64 %indvars.iv.next.i146.i, %616
   br i1 %617, label %600, label %._crit_edge.i.i31, !llvm.loop !18
 
 ._crit_edge.i.i31:                                ; preds = %614, %Abc_TtCopy.exit.i.i
@@ -1918,7 +1918,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef %0, i32 noundef %1, i32 
 
 109:                                              ; preds = %102
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, %97
-  %110 = icmp ult i64 %indvars.iv.next138, %99
+  %110 = icmp samesign ult i64 %indvars.iv.next138, %99
   br i1 %110, label %.preheader119, label %111, !llvm.loop !30
 
 111:                                              ; preds = %109

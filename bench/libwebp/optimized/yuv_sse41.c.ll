@@ -615,7 +615,7 @@ define internal void @YuvToRgbRow_SSE41(ptr nocapture noundef readonly %0, ptr n
   %187 = add nsw i32 %186, -14234
   %188 = icmp ult i32 %187, 16384
   %189 = lshr i32 %187, 6
-  %190 = icmp ult i32 %186, 14234
+  %190 = icmp samesign ult i32 %186, 14234
   %191 = select i1 %190, i32 0, i32 255
   %192 = select i1 %188, i32 %189, i32 %191
   %193 = trunc i32 %192 to i8
@@ -641,7 +641,7 @@ define internal void @YuvToRgbRow_SSE41(ptr nocapture noundef readonly %0, ptr n
   %211 = add nsw i32 %210, -17685
   %212 = icmp ult i32 %211, 16384
   %213 = lshr i32 %211, 6
-  %214 = icmp ult i32 %210, 17685
+  %214 = icmp samesign ult i32 %210, 17685
   %215 = select i1 %214, i32 0, i32 255
   %216 = select i1 %212, i32 %213, i32 %215
   %217 = trunc i32 %216 to i8
@@ -897,7 +897,7 @@ define internal void @YuvToBgrRow_SSE41(ptr nocapture noundef readonly %0, ptr n
   %187 = add nsw i32 %186, -17685
   %188 = icmp ult i32 %187, 16384
   %189 = lshr i32 %187, 6
-  %190 = icmp ult i32 %186, 17685
+  %190 = icmp samesign ult i32 %186, 17685
   %191 = select i1 %190, i32 0, i32 255
   %192 = select i1 %188, i32 %189, i32 %191
   %193 = trunc i32 %192 to i8
@@ -923,7 +923,7 @@ define internal void @YuvToBgrRow_SSE41(ptr nocapture noundef readonly %0, ptr n
   %211 = add nsw i32 %210, -14234
   %212 = icmp ult i32 %211, 16384
   %213 = lshr i32 %211, 6
-  %214 = icmp ult i32 %210, 14234
+  %214 = icmp samesign ult i32 %210, 14234
   %215 = select i1 %214, i32 0, i32 255
   %216 = select i1 %212, i32 %213, i32 %215
   %217 = trunc i32 %216 to i8
@@ -1057,7 +1057,7 @@ define internal void @ConvertARGBToY_SSE41(ptr nocapture noundef readonly %0, pt
   %85 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %64, <8 x i16> %83)
   store <16 x i8> %85, ptr %84, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
-  %86 = icmp ult i64 %indvars.iv.next, %6
+  %86 = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %86, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !9
 
 .lr.ph36:                                         ; preds = %.lr.ph36.preheader, %.lr.ph36
@@ -1276,7 +1276,7 @@ define internal void @ConvertARGBToUV_SSE41(ptr noundef %0, ptr noundef %1, ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %173 = getelementptr inbounds i8, ptr %.0101, i64 16
   %174 = getelementptr inbounds i8, ptr %.039100, i64 16
-  %175 = icmp ult i64 %indvars.iv.next, %8
+  %175 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %175, label %9, label %._crit_edge.loopexit, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %172

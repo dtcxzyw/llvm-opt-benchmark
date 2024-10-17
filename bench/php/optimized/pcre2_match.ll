@@ -593,13 +593,13 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %spec.store.select = call i64 @llvm.umax.i64(i64 %291, i64 20480)
   %292 = lshr i64 %spec.store.select, 10
   %293 = zext i32 %.912 to i64
-  %294 = icmp ugt i64 %292, %293
+  %294 = icmp samesign ugt i64 %292, %293
   br i1 %294, label %295, label %299
 
 295:                                              ; preds = %267
   %296 = shl i32 %.912, 10
   %297 = zext i32 %296 to i64
-  %298 = icmp ugt i64 %273, %297
+  %298 = icmp samesign ugt i64 %273, %297
   br i1 %298, label %.loopexit1005, label %299
 
 299:                                              ; preds = %295, %267
@@ -670,7 +670,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %335 = zext nneg i32 %.mask to i64
   %336 = getelementptr inbounds i8, ptr %323, i64 %335
   %337 = load i8, ptr %336, align 1
-  %338 = icmp ugt i32 %.mask, 127
+  %338 = icmp samesign ugt i32 %.mask, 127
   %or.cond21 = select i1 %338, i1 %50, i1 false
   %or.cond21.not = xor i1 %or.cond21, true
   %or.cond23 = select i1 %or.cond21.not, i1 true, i1 %46
@@ -724,7 +724,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %367 = zext nneg i32 %.mask873 to i64
   %368 = getelementptr inbounds i8, ptr %323, i64 %367
   %369 = load i8, ptr %368, align 1
-  %370 = icmp ugt i32 %.mask873, 127
+  %370 = icmp samesign ugt i32 %.mask873, 127
   %or.cond25 = select i1 %370, i1 %50, i1 false
   %or.cond25.not = xor i1 %or.cond25, true
   %or.cond27 = select i1 %or.cond25.not, i1 true, i1 %46
@@ -1794,12 +1794,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %84 = lshr i64 %.07853, 10
   %85 = load i32, ptr %66, align 8
   %86 = zext i32 %85 to i64
-  %.not9279 = icmp ult i64 %84, %86
+  %.not9279 = icmp samesign ult i64 %84, %86
   br i1 %.not9279, label %97, label %87
 
 87:                                               ; preds = %83
   %88 = lshr i64 %77, 10
-  %.not9280 = icmp ult i64 %88, %86
+  %.not9280 = icmp samesign ult i64 %88, %86
   br i1 %.not9280, label %89, label %.loopexit
 
 89:                                               ; preds = %87
@@ -4017,7 +4017,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %1454
 
 1347:                                             ; preds = %1342
-  %1348 = icmp ugt i32 %.sink14186, 127
+  %1348 = icmp samesign ugt i32 %.sink14186, 127
   %or.cond14188 = select i1 %or.cond.not, i1 %1348, i1 false
   br i1 %or.cond14188, label %1349, label %1365
 
@@ -26015,11 +26015,11 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %14910 = tail call i64 @llvm.smax.i64(i64 %14909, i64 0)
   %14911 = tail call i64 @llvm.umin.i64(i64 %14910, i64 65535)
   %14912 = trunc nuw nsw i64 %14911 to i32
-  %14913 = icmp ugt i32 %14878, %14912
+  %14913 = icmp samesign ugt i32 %14878, %14912
   br i1 %14913, label %.preheader9566.preheader, label %14914
 
 14914:                                            ; preds = %14905
-  %14915 = icmp ugt i32 %14887, %14912
+  %14915 = icmp samesign ugt i32 %14887, %14912
   br i1 %14915, label %14916, label %14918
 
 14916:                                            ; preds = %14914

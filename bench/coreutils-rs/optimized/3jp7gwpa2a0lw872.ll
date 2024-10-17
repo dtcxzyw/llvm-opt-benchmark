@@ -1041,15 +1041,15 @@ _ZN4core3str11validations15next_code_point17h9effab5486a5d2aaE.exit.thread.i.i.i
   br i1 %156, label %_ZN4core4iter6traits8iterator8Iterator4fold17h0423f45a19fe98edE.exit, label %157
 
 157:                                              ; preds = %155
-  %158 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 128
+  %158 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 128
   br i1 %158, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i", label %159
 
 159:                                              ; preds = %157
-  %160 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 2048
+  %160 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 2048
   br i1 %160, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i", label %161
 
 161:                                              ; preds = %159
-  %162 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 65536
+  %162 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 65536
   %..i.i.i.i.i = select i1 %162, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i"
 

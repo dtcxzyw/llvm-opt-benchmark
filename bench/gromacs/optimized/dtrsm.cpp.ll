@@ -898,7 +898,7 @@ define void @dtrsm_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .loopexit462:                                     ; preds = %307, %298
   %indvars.iv.next658 = add nuw nsw i64 %indvars.iv657, 1
-  %310 = icmp ult i64 %indvars.iv.next658, %265
+  %310 = icmp samesign ult i64 %indvars.iv.next658, %265
   br i1 %310, label %.lr.ph470, label %._crit_edge
 
 .loopexit462.thread:                              ; preds = %299

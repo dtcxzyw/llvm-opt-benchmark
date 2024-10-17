@@ -2816,7 +2816,7 @@ define internal fastcc i32 @dissect_wassp_mu(ptr noundef nonnull %0, ptr noundef
   %118 = add i32 %.08387.i, 46
   %119 = add i16 %.088.i, 1
   %120 = zext i16 %119 to i32
-  %.not85.i = icmp ult i32 %74, %120
+  %.not85.i = icmp samesign ult i32 %74, %120
   br i1 %.not85.i, label %dissect_mu_netflow.exit, label %.lr.ph.i, !llvm.loop !4
 
 121:                                              ; preds = %53
@@ -3918,7 +3918,7 @@ declare ptr @tfs_get_string(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -4, 65532) %3, i32 noundef range(i32 0, 65536) %4, i32 noundef %5) unnamed_addr #0 {
-  %7 = icmp ugt i32 %4, 84
+  %7 = icmp samesign ugt i32 %4, 84
   br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %6
@@ -4335,9 +4335,9 @@ define internal fastcc void @decode_filter_rule_octext_string(ptr noundef %0, pt
   %15 = icmp eq i32 %14, 0
   %16 = or disjoint i32 %.1, 2
   %.2 = select i1 %15, i32 %16, i32 %.1
-  %.not = icmp ugt i32 %.2, 3
-  %17 = icmp ugt i32 %3, 39
-  %or.cond = and i1 %.not, %17
+  %.not = icmp samesign ugt i32 %.2, 3
+  %17 = icmp samesign ugt i32 %3, 39
+  %or.cond = select i1 %.not, i1 %17, i1 false
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit170
 
 .lr.ph.preheader:                                 ; preds = %4
@@ -4404,8 +4404,8 @@ define internal fastcc void @decode_filter_rule_octext_string(ptr noundef %0, pt
 .loopexit170:                                     ; preds = %.lr.ph, %4
   %68 = and i32 %.2, 1
   %.not167 = icmp ne i32 %68, 0
-  %69 = icmp ugt i32 %3, 23
-  %or.cond183 = and i1 %.not167, %69
+  %69 = icmp samesign ugt i32 %3, 23
+  %or.cond183 = select i1 %.not167, i1 %69, i1 false
   br i1 %or.cond183, label %.lr.ph175.preheader, label %.loopexit169
 
 .lr.ph175.preheader:                              ; preds = %.loopexit170
@@ -4458,8 +4458,8 @@ define internal fastcc void @decode_filter_rule_octext_string(ptr noundef %0, pt
 .loopexit169:                                     ; preds = %.lr.ph175, %.loopexit170
   %107 = and i32 %.2, 2
   %.not168 = icmp ne i32 %107, 0
-  %108 = icmp ugt i32 %3, 19
-  %or.cond184 = and i1 %.not168, %108
+  %108 = icmp samesign ugt i32 %3, 19
+  %or.cond184 = select i1 %.not168, i1 %108, i1 false
   br i1 %or.cond184, label %.lr.ph178.preheader, label %.loopexit
 
 .lr.ph178.preheader:                              ; preds = %.loopexit169

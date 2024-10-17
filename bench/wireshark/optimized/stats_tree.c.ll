@@ -2955,7 +2955,7 @@ stats_tree_get_column_name.exit:                  ; preds = %.lr.ph76, %20, %24,
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.069 = phi i32 [ %40, %.lr.ph ], [ %7, %.preheader ]
   %.168 = phi i32 [ %41, %.lr.ph ], [ 1, %.preheader ]
-  %38 = icmp ult i32 %.168, 9
+  %38 = icmp samesign ult i32 %.168, 9
   %39 = select i1 %38, i32 14, i32 2
   %40 = add i32 %39, %.069
   %41 = add nuw nsw i32 %.168, 1
@@ -2990,7 +2990,7 @@ stats_tree_get_column_name.exit:                  ; preds = %.lr.ph76, %20, %24,
 
 .lr.ph72:                                         ; preds = %._crit_edge, %stats_tree_get_column_name.exit67
   %.270 = phi i32 [ %71, %stats_tree_get_column_name.exit67 ], [ 1, %._crit_edge ]
-  %58 = icmp ult i32 %.270, 9
+  %58 = icmp samesign ult i32 %.270, 9
   %59 = select i1 %58, i32 13, i32 1
   %60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @.str.34, i32 noundef %59) #19
   switch i32 %.270, label %70 [
@@ -3340,7 +3340,7 @@ clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %94 = icmp ult i64 %indvars.iv, 9
+  %94 = icmp samesign ult i64 %indvars.iv, 9
   %95 = select i1 %94, i32 13, i32 1
   %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 16, ptr noundef nonnull @.str.34, i32 noundef %95) #19
   %97 = getelementptr ptr, ptr %16, i64 %indvars.iv

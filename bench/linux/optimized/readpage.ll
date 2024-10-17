@@ -323,7 +323,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef %
 
 190:                                              ; preds = %186
   %191 = load volatile i64, ptr %85, align 8
-  %192 = icmp ugt i64 %169, 19
+  %192 = icmp samesign ugt i64 %169, 19
   br i1 %192, label %195, label %194
 
 193:                                              ; preds = %186
@@ -353,7 +353,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef %
 
 205:                                              ; preds = %202, %197
   %206 = phi i64 [ %204, %202 ], [ 1, %197 ]
-  %207 = icmp ugt i64 %206, %198
+  %207 = icmp samesign ugt i64 %206, %198
   %208 = add nuw nsw i64 %198, 1
   br i1 %207, label %197, label %209, !llvm.loop !16
 
@@ -514,7 +514,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef %
 
 306:                                              ; preds = %303, %298
   %307 = phi i64 [ %305, %303 ], [ 1, %298 ]
-  %308 = icmp ugt i64 %307, %299
+  %308 = icmp samesign ugt i64 %307, %299
   %309 = add nuw nsw i64 %299, 1
   br i1 %308, label %298, label %310, !llvm.loop !16
 

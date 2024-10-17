@@ -3391,7 +3391,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %53 = fdiv double %.01828.i, 1.000000e+308
   %54 = add nsw i32 %.029.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %54, i1 true)
-  %55 = icmp ugt i32 %.017.i, 308
+  %55 = icmp samesign ugt i32 %.017.i, 308
   br i1 %55, label %.lr.ph.i, label %._crit_edge.i
 
 56:                                               ; preds = %50
@@ -3800,7 +3800,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %126 = fdiv double %.01810.i, 1.000000e+308
   %127 = add nsw i32 %.011.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %127, i1 true)
-  %128 = icmp ugt i32 %.017.i, 308
+  %128 = icmp samesign ugt i32 %.017.i, 308
   br i1 %128, label %.lr.ph.i, label %._crit_edge.i
 
 129:                                              ; preds = %123
@@ -5550,7 +5550,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %61 = fdiv double %.01828.i, 1.000000e+308
   %62 = add nsw i32 %.029.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %62, i1 true)
-  %63 = icmp ugt i32 %.017.i, 308
+  %63 = icmp samesign ugt i32 %.017.i, 308
   br i1 %63, label %.lr.ph.i, label %._crit_edge.i
 
 64:                                               ; preds = %58
@@ -5993,7 +5993,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %152 = fdiv double %.01810.i, 1.000000e+308
   %153 = add nsw i32 %.011.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %153, i1 true)
-  %154 = icmp ugt i32 %.017.i, 308
+  %154 = icmp samesign ugt i32 %.017.i, 308
   br i1 %154, label %.lr.ph.i, label %._crit_edge.i
 
 155:                                              ; preds = %149
@@ -7187,7 +7187,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   %31 = fdiv double %.01828.i, 1.000000e+308
   %32 = add nsw i32 %.029.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %33 = icmp ugt i32 %.017.i, 308
+  %33 = icmp samesign ugt i32 %.017.i, 308
   br i1 %33, label %.lr.ph.i, label %._crit_edge.i
 
 34:                                               ; preds = %28
@@ -7394,7 +7394,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   %61 = fdiv double %.01810.i, 1.000000e+308
   %62 = add nsw i32 %.011.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %62, i1 true)
-  %63 = icmp ugt i32 %.017.i, 308
+  %63 = icmp samesign ugt i32 %.017.i, 308
   br i1 %63, label %.lr.ph.i, label %._crit_edge.i
 
 64:                                               ; preds = %58
@@ -7877,7 +7877,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   %91 = fdiv double %.01810.i, 1.000000e+308
   %92 = add nsw i32 %.011.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %92, i1 true)
-  %93 = icmp ugt i32 %.017.i, 308
+  %93 = icmp samesign ugt i32 %.017.i, 308
   br i1 %93, label %.lr.ph.i, label %._crit_edge.i
 
 94:                                               ; preds = %88
@@ -7996,7 +7996,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   %30 = fdiv double %.01828.i, 1.000000e+308
   %31 = add nsw i32 %.029.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %31, i1 true)
-  %32 = icmp ugt i32 %.017.i, 308
+  %32 = icmp samesign ugt i32 %.017.i, 308
   br i1 %32, label %.lr.ph.i, label %._crit_edge.i
 
 33:                                               ; preds = %27
@@ -27891,7 +27891,7 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
 169:                                              ; preds = %166
   %170 = zext i16 %165 to i32
   %171 = xor i32 %170, -1058816
-  %172 = icmp ult i32 %171, -1112064
+  %172 = icmp samesign ult i32 %171, -1112064
   br i1 %172, label %175, label %176
 
 173:                                              ; preds = %166
@@ -28898,15 +28898,15 @@ _ZN4core3str11validations15next_code_point17ha5afdba8b28ac17aE.exit.thread: ; pr
   br label %90
 
 80:                                               ; preds = %75
-  %81 = icmp ult i32 %.sroa.4.0.i.ph, 128
+  %81 = icmp samesign ult i32 %.sroa.4.0.i.ph, 128
   br i1 %81, label %86, label %82
 
 82:                                               ; preds = %80
-  %83 = icmp ult i32 %.sroa.4.0.i.ph, 2048
+  %83 = icmp samesign ult i32 %.sroa.4.0.i.ph, 2048
   br i1 %83, label %86, label %84
 
 84:                                               ; preds = %82
-  %85 = icmp ult i32 %.sroa.4.0.i.ph, 65536
+  %85 = icmp samesign ult i32 %.sroa.4.0.i.ph, 65536
   %. = select i1 %85, i64 3, i64 4
   br label %86
 
@@ -45418,7 +45418,7 @@ define hidden void @"_ZN15tree_sitter_cli4test18parse_test_content28_$u7b$$u7b$c
   ]
 
 260:                                              ; preds = %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17heee96c2ed761dd27E.llvm.11948190557966450743.exit.i.i.i.i"
-  %261 = icmp ugt i32 %.sroa.4.1.i.ph10.i9.i.i.i.i, 127
+  %261 = icmp samesign ugt i32 %.sroa.4.1.i.ph10.i9.i.i.i.i, 127
   br i1 %261, label %262, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h7572174f0f423d6dE.exit.i.i"
 
 262:                                              ; preds = %260

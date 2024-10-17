@@ -410,7 +410,7 @@ define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(p
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !15
   %13 = zext i32 %12 to i64
-  %14 = icmp ugt i64 %10, %13
+  %14 = icmp samesign ugt i64 %10, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
@@ -425,7 +425,7 @@ define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(p
   %19 = icmp sgt i32 %12, -1
   tail call void @llvm.assume(i1 %19)
   %20 = add nuw nsw i32 %8, 4
-  %21 = icmp ule i32 %20, %12
+  %21 = icmp samesign ule i32 %20, %12
   tail call void @llvm.assume(i1 %21)
   %22 = icmp sgt i32 %8, -1
   tail call void @llvm.assume(i1 %22)
@@ -458,7 +458,7 @@ define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(p
   %37 = phi i32 [ %70, %69 ], [ %20, %29 ]
   %38 = zext nneg i32 %37 to i64
   %39 = add nuw nsw i64 %38, 4
-  %40 = icmp ugt i64 %39, %13
+  %40 = icmp samesign ugt i64 %39, %13
   br i1 %40, label %49, label %41
 
 41:                                               ; preds = %35
@@ -484,7 +484,7 @@ define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(p
 51:                                               ; preds = %46
   %52 = zext nneg i32 %47 to i64
   %53 = add nuw nsw i64 %52, 4
-  %54 = icmp ugt i64 %53, %13
+  %54 = icmp samesign ugt i64 %53, %13
   br i1 %54, label %65, label %55
 
 55:                                               ; preds = %51
@@ -497,7 +497,7 @@ define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(p
   %61 = zext nneg i32 %56 to i64
   %62 = zext i32 %60 to i64
   %63 = add nuw nsw i64 %62, %61
-  %64 = icmp ugt i64 %63, %13
+  %64 = icmp samesign ugt i64 %63, %13
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %55, %51
@@ -579,7 +579,7 @@ define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(p
   tail call void @llvm.assume(i1 %106)
   %107 = icmp sgt i32 %103, -1
   tail call void @llvm.assume(i1 %107)
-  %108 = icmp uge i32 %103, %98
+  %108 = icmp samesign uge i32 %103, %98
   tail call void @llvm.assume(i1 %108)
   %109 = icmp eq i32 %98, 0
   %110 = icmp ne i32 %100, 0
@@ -604,10 +604,10 @@ define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(p
   %125 = icmp sgt i32 %121, -1
   tail call void @llvm.assume(i1 %125)
   %126 = add nuw nsw i32 %119, %114
-  %127 = icmp ule i32 %126, %98
+  %127 = icmp samesign ule i32 %126, %98
   tail call void @llvm.assume(i1 %127)
   %128 = add nuw nsw i32 %121, %116
-  %129 = icmp ule i32 %128, %100
+  %129 = icmp samesign ule i32 %128, %100
   tail call void @llvm.assume(i1 %129)
   %130 = icmp eq i32 %119, 0
   %131 = icmp ne i32 %121, 0
@@ -655,7 +655,7 @@ define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(p
   %159 = phi i32 [ %20, %152 ], [ %203, %362 ]
   %160 = zext nneg i32 %159 to i64
   %161 = add nuw nsw i64 %160, 4
-  %162 = icmp ugt i64 %161, %13
+  %162 = icmp samesign ugt i64 %161, %13
   br i1 %162, label %171, label %163
 
 163:                                              ; preds = %157
@@ -681,7 +681,7 @@ define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(p
 175:                                              ; preds = %163
   %176 = zext nneg i32 %169 to i64
   %177 = add nuw nsw i64 %176, 4
-  %178 = icmp ugt i64 %177, %13
+  %178 = icmp samesign ugt i64 %177, %13
   br i1 %178, label %179, label %181
 
 179:                                              ; preds = %175
@@ -698,7 +698,7 @@ define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(p
   %184 = getelementptr inbounds i8, ptr %18, i64 %176
   %185 = load i32, ptr %184, align 1
   %186 = zext nneg i32 %182 to i64
-  %187 = icmp ult i64 %invariant.op, %186
+  %187 = icmp samesign ult i64 %invariant.op, %186
   br i1 %187, label %188, label %190
 
 188:                                              ; preds = %181
@@ -719,7 +719,7 @@ define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(p
   %196 = zext nneg i32 %191 to i64
   %197 = zext i32 %195 to i64
   %198 = add nuw nsw i64 %197, %196
-  %199 = icmp ugt i64 %198, %13
+  %199 = icmp samesign ugt i64 %198, %13
   br i1 %199, label %200, label %202
 
 200:                                              ; preds = %190
@@ -1046,7 +1046,7 @@ define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(p
 353:                                              ; preds = %345, %326
   %354 = phi i32 [ 0, %345 ], [ %328, %326 ]
   %355 = phi i32 [ %195, %345 ], [ %327, %326 ]
-  %356 = icmp uge i32 %355, %354
+  %356 = icmp samesign uge i32 %355, %354
   call void @llvm.assume(i1 %356)
   %357 = icmp sgt i32 %355, -1
   call void @llvm.assume(i1 %357)
@@ -1268,7 +1268,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11constructorINS0_20Fix
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !15, !noalias !124
   %12 = zext i32 %11 to i64
-  %13 = icmp ugt i64 %9, %12
+  %13 = icmp samesign ugt i64 %9, %12
   br i1 %13, label %30, label %14
 
 14:                                               ; preds = %4
@@ -1279,7 +1279,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11constructorINS0_20Fix
   %19 = icmp sgt i32 %11, -1
   tail call void @llvm.assume(i1 %19)
   %20 = add nuw nsw i32 %7, 4
-  %21 = icmp ule i32 %20, %11
+  %21 = icmp samesign ule i32 %20, %11
   tail call void @llvm.assume(i1 %21)
   %22 = icmp sgt i32 %7, -1
   tail call void @llvm.assume(i1 %22)
@@ -1566,7 +1566,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes20FixBadPixelsConstant5
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %20)
-  %21 = icmp uge i32 %15, %10
+  %21 = icmp samesign uge i32 %15, %10
   tail call void @llvm.assume(i1 %21)
   %22 = icmp eq i32 %10, 0
   %23 = icmp ne i32 %12, 0
@@ -1591,10 +1591,10 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes20FixBadPixelsConstant5
   %38 = icmp sgt i32 %34, -1
   tail call void @llvm.assume(i1 %38)
   %39 = add nuw nsw i32 %32, %27
-  %40 = icmp ule i32 %39, %10
+  %40 = icmp samesign ule i32 %39, %10
   tail call void @llvm.assume(i1 %40)
   %41 = add nuw nsw i32 %34, %29
-  %42 = icmp ule i32 %41, %12
+  %42 = icmp samesign ule i32 %41, %12
   tail call void @llvm.assume(i1 %42)
   %43 = icmp eq i32 %32, 0
   %44 = icmp ne i32 %34, 0
@@ -1628,7 +1628,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes20FixBadPixelsConstant5
 64:                                               ; preds = %129, %56
   %65 = phi i64 [ %130, %129 ], [ 0, %56 ]
   %66 = add nuw nsw i64 %65, %59
-  %67 = icmp ult i64 %66, %60
+  %67 = icmp samesign ult i64 %66, %60
   tail call void @llvm.assume(i1 %67)
   %68 = mul nuw nsw i64 %66, %61
   %69 = trunc i64 %68 to i32
@@ -1643,7 +1643,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes20FixBadPixelsConstant5
 75:                                               ; preds = %126, %64
   %76 = phi i64 [ 0, %64 ], [ %127, %126 ]
   %77 = add nuw nsw i64 %76, %57
-  %78 = icmp ule i64 %77, %58
+  %78 = icmp samesign ule i64 %77, %58
   tail call void @llvm.assume(i1 %78)
   %79 = getelementptr inbounds i16, ptr %72, i64 %77
   %80 = load i16, ptr %79, align 2, !tbaa !194
@@ -2196,7 +2196,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp uge i32 %16, %11
+  %22 = icmp samesign uge i32 %16, %11
   tail call void @llvm.assume(i1 %22)
   %23 = icmp eq i32 %11, 0
   %24 = icmp ne i32 %13, 0
@@ -2221,10 +2221,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %39 = icmp sgt i32 %35, -1
   tail call void @llvm.assume(i1 %39)
   %40 = add nuw nsw i32 %33, %28
-  %41 = icmp ule i32 %40, %11
+  %41 = icmp samesign ule i32 %40, %11
   tail call void @llvm.assume(i1 %41)
   %42 = add nuw nsw i32 %35, %30
-  %43 = icmp ule i32 %42, %13
+  %43 = icmp samesign ule i32 %42, %13
   tail call void @llvm.assume(i1 %43)
   %44 = icmp eq i32 %33, 0
   %45 = icmp ne i32 %35, 0
@@ -2299,12 +2299,12 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %96 = load i32, ptr %79, align 8
   %97 = load i32, ptr %47, align 8
   %98 = icmp sgt i32 %95, -1
-  %99 = icmp ugt i32 %35, %95
+  %99 = icmp samesign ugt i32 %35, %95
   %100 = add nuw nsw i32 %95, %30
-  %101 = icmp ugt i32 %13, %100
+  %101 = icmp samesign ugt i32 %13, %100
   %102 = mul nuw nsw i32 %100, %16
   %103 = add nuw nsw i32 %102, %11
-  %104 = icmp ule i32 %103, %17
+  %104 = icmp samesign ule i32 %103, %17
   %105 = zext nneg i32 %102 to i64
   %106 = getelementptr inbounds i16, ptr %6, i64 %105
   tail call void @llvm.assume(i1 %98)
@@ -2327,10 +2327,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %115 = add i32 %111, %114
   %116 = icmp sgt i32 %115, -1
   tail call void @llvm.assume(i1 %116)
-  %117 = icmp ugt i32 %33, %115
+  %117 = icmp samesign ugt i32 %33, %115
   tail call void @llvm.assume(i1 %117)
   %118 = add nuw nsw i32 %115, %28
-  %119 = icmp uge i32 %11, %118
+  %119 = icmp samesign uge i32 %11, %118
   tail call void @llvm.assume(i1 %119)
   %120 = zext nneg i32 %118 to i64
   %121 = getelementptr inbounds i16, ptr %106, i64 %120
@@ -2361,12 +2361,12 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %136 = load i32, ptr %79, align 8
   %137 = load i32, ptr %47, align 8
   %138 = icmp sgt i32 %135, -1
-  %139 = icmp ugt i32 %35, %135
+  %139 = icmp samesign ugt i32 %35, %135
   %140 = add nuw nsw i32 %135, %30
-  %141 = icmp ugt i32 %13, %140
+  %141 = icmp samesign ugt i32 %13, %140
   %142 = mul nuw nsw i32 %140, %16
   %143 = add nuw nsw i32 %142, %11
-  %144 = icmp ule i32 %143, %17
+  %144 = icmp samesign ule i32 %143, %17
   %145 = zext nneg i32 %142 to i64
   %146 = getelementptr inbounds i16, ptr %6, i64 %145
   tail call void @llvm.assume(i1 %138)
@@ -2395,10 +2395,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %161 = add i32 %154, %160
   %162 = icmp sgt i32 %161, -1
   tail call void @llvm.assume(i1 %162)
-  %163 = icmp ugt i32 %33, %161
+  %163 = icmp samesign ugt i32 %33, %161
   tail call void @llvm.assume(i1 %163)
   %164 = add nuw nsw i32 %161, %28
-  %165 = icmp uge i32 %11, %164
+  %165 = icmp samesign uge i32 %11, %164
   tail call void @llvm.assume(i1 %165)
   %166 = zext nneg i32 %164 to i64
   %167 = getelementptr inbounds i16, ptr %146, i64 %166
@@ -2410,10 +2410,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %172 = add i32 %155, %160
   %173 = icmp sgt i32 %172, -1
   tail call void @llvm.assume(i1 %173)
-  %174 = icmp ugt i32 %33, %172
+  %174 = icmp samesign ugt i32 %33, %172
   tail call void @llvm.assume(i1 %174)
   %175 = add nuw nsw i32 %172, %28
-  %176 = icmp uge i32 %11, %175
+  %176 = icmp samesign uge i32 %11, %175
   tail call void @llvm.assume(i1 %176)
   %177 = zext nneg i32 %175 to i64
   %178 = getelementptr inbounds i16, ptr %146, i64 %177
@@ -2425,10 +2425,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %183 = add i32 %156, %160
   %184 = icmp sgt i32 %183, -1
   tail call void @llvm.assume(i1 %184)
-  %185 = icmp ugt i32 %33, %183
+  %185 = icmp samesign ugt i32 %33, %183
   tail call void @llvm.assume(i1 %185)
   %186 = add nuw nsw i32 %183, %28
-  %187 = icmp uge i32 %11, %186
+  %187 = icmp samesign uge i32 %11, %186
   tail call void @llvm.assume(i1 %187)
   %188 = zext nneg i32 %186 to i64
   %189 = getelementptr inbounds i16, ptr %146, i64 %188
@@ -2440,10 +2440,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %194 = add i32 %157, %160
   %195 = icmp sgt i32 %194, -1
   tail call void @llvm.assume(i1 %195)
-  %196 = icmp ugt i32 %33, %194
+  %196 = icmp samesign ugt i32 %33, %194
   tail call void @llvm.assume(i1 %196)
   %197 = add nuw nsw i32 %194, %28
-  %198 = icmp uge i32 %11, %197
+  %198 = icmp samesign uge i32 %11, %197
   tail call void @llvm.assume(i1 %198)
   %199 = zext nneg i32 %197 to i64
   %200 = getelementptr inbounds i16, ptr %146, i64 %199
@@ -2466,10 +2466,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %210 = add i32 %154, %209
   %211 = icmp sgt i32 %210, -1
   tail call void @llvm.assume(i1 %211)
-  %212 = icmp ugt i32 %33, %210
+  %212 = icmp samesign ugt i32 %33, %210
   tail call void @llvm.assume(i1 %212)
   %213 = add nuw nsw i32 %210, %28
-  %214 = icmp uge i32 %11, %213
+  %214 = icmp samesign uge i32 %11, %213
   tail call void @llvm.assume(i1 %214)
   %215 = zext nneg i32 %213 to i64
   %216 = getelementptr inbounds i16, ptr %146, i64 %215
@@ -2526,7 +2526,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
   %14 = getelementptr inbounds i8, ptr %2, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !15
   %16 = zext i32 %15 to i64
-  %17 = icmp ugt i64 %13, %16
+  %17 = icmp samesign ugt i64 %13, %16
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %4
@@ -2544,14 +2544,14 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
   %25 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %25)
   %26 = add nuw nsw i32 %11, 4
-  %27 = icmp ule i32 %26, %15
+  %27 = icmp samesign ule i32 %26, %15
   tail call void @llvm.assume(i1 %27)
   %28 = icmp sgt i32 %11, -1
   tail call void @llvm.assume(i1 %28)
   store i32 %26, ptr %10, align 8, !tbaa !6
   %29 = zext nneg i32 %26 to i64
   %30 = add nuw nsw i64 %29, 4
-  %31 = icmp ugt i64 %30, %16
+  %31 = icmp samesign ugt i64 %30, %16
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %20
@@ -2563,7 +2563,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
 
 34:                                               ; preds = %20
   %35 = add nuw nsw i32 %11, 8
-  %36 = icmp ule i32 %35, %15
+  %36 = icmp samesign ule i32 %35, %15
   tail call void @llvm.assume(i1 %36)
   %37 = getelementptr inbounds i8, ptr %24, i64 %29
   %38 = load i32, ptr %37, align 1
@@ -2572,7 +2572,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
   store i32 %35, ptr %10, align 8, !tbaa !6
   %41 = zext nneg i32 %35 to i64
   %42 = add nuw nsw i64 %41, 4
-  %43 = icmp ugt i64 %42, %16
+  %43 = icmp samesign ugt i64 %42, %16
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
@@ -2584,7 +2584,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
 
 46:                                               ; preds = %34
   %47 = add nuw nsw i32 %11, 12
-  %48 = icmp ule i32 %47, %15
+  %48 = icmp samesign ule i32 %47, %15
   tail call void @llvm.assume(i1 %48)
   %49 = getelementptr inbounds i8, ptr %24, i64 %41
   %50 = load i32, ptr %49, align 1
@@ -2599,12 +2599,12 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
   %56 = zext nneg i32 %47 to i64
   %57 = zext i32 %55 to i64
   %58 = add nuw nsw i64 %57, %56
-  %59 = icmp ugt i64 %58, %16
+  %59 = icmp samesign ugt i64 %58, %16
   br i1 %59, label %71, label %60
 
 60:                                               ; preds = %54
   %61 = add nuw nsw i32 %55, %47
-  %62 = icmp ule i32 %61, %15
+  %62 = icmp samesign ule i32 %61, %15
   tail call void @llvm.assume(i1 %62)
   %63 = icmp sgt i32 %55, -1
   tail call void @llvm.assume(i1 %63)
@@ -2617,7 +2617,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
   %67 = zext nneg i32 %61 to i64
   %68 = zext i32 %66 to i64
   %69 = add nuw nsw i64 %68, %67
-  %70 = icmp ugt i64 %69, %16
+  %70 = icmp samesign ugt i64 %69, %16
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %65, %60, %54, %46
@@ -2631,7 +2631,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
 
 75:                                               ; preds = %65
   %76 = add nuw nsw i32 %66, %61
-  %77 = icmp ule i32 %76, %15
+  %77 = icmp samesign ule i32 %76, %15
   tail call void @llvm.assume(i1 %77)
   %78 = icmp sgt i32 %66, -1
   tail call void @llvm.assume(i1 %78)
@@ -2699,7 +2699,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
   %113 = add nuw nsw i64 %112, 4
   %114 = load i32, ptr %14, align 8, !tbaa !15
   %115 = zext i32 %114 to i64
-  %116 = icmp ugt i64 %113, %115
+  %116 = icmp samesign ugt i64 %113, %115
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %106
@@ -2716,7 +2716,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
   %123 = icmp sgt i32 %114, -1
   tail call void @llvm.assume(i1 %123)
   %124 = add nuw nsw i32 %111, 4
-  %125 = icmp ule i32 %124, %114
+  %125 = icmp samesign ule i32 %124, %114
   tail call void @llvm.assume(i1 %125)
   %126 = icmp sgt i32 %111, -1
   tail call void @llvm.assume(i1 %126)
@@ -2727,7 +2727,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
   store i32 %124, ptr %10, align 8, !tbaa !6
   %131 = zext nneg i32 %124 to i64
   %132 = add nuw nsw i64 %131, 4
-  %133 = icmp ugt i64 %132, %115
+  %133 = icmp samesign ugt i64 %132, %115
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %119
@@ -2739,7 +2739,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
 
 136:                                              ; preds = %119
   %137 = add nuw nsw i32 %111, 8
-  %138 = icmp ule i32 %137, %114
+  %138 = icmp samesign ule i32 %137, %114
   tail call void @llvm.assume(i1 %138)
   %139 = getelementptr inbounds i8, ptr %122, i64 %131
   %140 = load i32, ptr %139, align 1
@@ -3111,7 +3111,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes9ROIOpcodeC2ERKNS_8RawI
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !15
   %14 = zext i32 %13 to i64
-  %15 = icmp ugt i64 %11, %14
+  %15 = icmp samesign ugt i64 %11, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %4
@@ -3129,7 +3129,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes9ROIOpcodeC2ERKNS_8RawI
   %23 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %23)
   %24 = add nuw nsw i32 %9, 4
-  %25 = icmp ule i32 %24, %13
+  %25 = icmp samesign ule i32 %24, %13
   tail call void @llvm.assume(i1 %25)
   %26 = icmp sgt i32 %9, -1
   tail call void @llvm.assume(i1 %26)
@@ -3140,7 +3140,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes9ROIOpcodeC2ERKNS_8RawI
   store i32 %24, ptr %8, align 8, !tbaa !6
   %31 = zext nneg i32 %24 to i64
   %32 = add nuw nsw i64 %31, 4
-  %33 = icmp ugt i64 %32, %14
+  %33 = icmp samesign ugt i64 %32, %14
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %18
@@ -3152,7 +3152,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes9ROIOpcodeC2ERKNS_8RawI
 
 36:                                               ; preds = %18
   %37 = add nuw nsw i32 %9, 8
-  %38 = icmp ule i32 %37, %13
+  %38 = icmp samesign ule i32 %37, %13
   tail call void @llvm.assume(i1 %38)
   %39 = getelementptr inbounds i8, ptr %22, i64 %31
   %40 = load i32, ptr %39, align 1
@@ -3161,7 +3161,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes9ROIOpcodeC2ERKNS_8RawI
   store i32 %37, ptr %8, align 8, !tbaa !6
   %43 = zext nneg i32 %37 to i64
   %44 = add nuw nsw i64 %43, 4
-  %45 = icmp ugt i64 %44, %14
+  %45 = icmp samesign ugt i64 %44, %14
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %36
@@ -3173,7 +3173,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes9ROIOpcodeC2ERKNS_8RawI
 
 48:                                               ; preds = %36
   %49 = add nuw nsw i32 %9, 12
-  %50 = icmp ule i32 %49, %13
+  %50 = icmp samesign ule i32 %49, %13
   tail call void @llvm.assume(i1 %50)
   %51 = getelementptr inbounds i8, ptr %22, i64 %43
   %52 = load i32, ptr %51, align 1
@@ -3182,7 +3182,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes9ROIOpcodeC2ERKNS_8RawI
   store i32 %49, ptr %8, align 8, !tbaa !6
   %55 = zext nneg i32 %49 to i64
   %56 = add nuw nsw i64 %55, 4
-  %57 = icmp ugt i64 %56, %14
+  %57 = icmp samesign ugt i64 %56, %14
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %48
@@ -3194,7 +3194,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes9ROIOpcodeC2ERKNS_8RawI
 
 60:                                               ; preds = %48
   %61 = add nuw nsw i32 %9, 16
-  %62 = icmp ule i32 %61, %13
+  %62 = icmp samesign ule i32 %61, %13
   tail call void @llvm.assume(i1 %62)
   %63 = getelementptr inbounds i8, ptr %22, i64 %55
   %64 = load i32, ptr %63, align 1
@@ -3330,7 +3330,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawIm
   %19 = getelementptr inbounds i8, ptr %2, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !15
   %21 = zext i32 %20 to i64
-  %22 = icmp ugt i64 %18, %21
+  %22 = icmp samesign ugt i64 %18, %21
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %11
@@ -3349,7 +3349,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawIm
   %31 = icmp sgt i32 %20, -1
   tail call void @llvm.assume(i1 %31)
   %32 = add nuw nsw i32 %16, 4
-  %33 = icmp ule i32 %32, %20
+  %33 = icmp samesign ule i32 %32, %20
   tail call void @llvm.assume(i1 %33)
   %34 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %34)
@@ -3373,7 +3373,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawIm
   %47 = add nsw i64 %46, -1
   %48 = tail call i64 @llvm.umin.i64(i64 %44, i64 %47)
   %49 = add nuw i64 %48, 1
-  %50 = icmp ult i64 %48, 32
+  %50 = icmp samesign ult i64 %48, 32
   br i1 %50, label %.preheader33, label %56
 
 .preheader33:                                     ; preds = %56, %51, %45
@@ -3456,7 +3456,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawIm
   %110 = add nsw i64 %109, -1
   %111 = tail call i64 @llvm.umin.i64(i64 %44, i64 %110)
   %112 = add nuw i64 %111, 1
-  %113 = icmp ult i64 %111, 32
+  %113 = icmp samesign ult i64 %111, 32
   br i1 %113, label %.preheader30, label %114
 
 114:                                              ; preds = %108
@@ -3562,7 +3562,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawIm
 
 .loopexit17:                                      ; preds = %191, %172
   %183 = phi i64 [ %109, %172 ], [ %46, %191 ]
-  %184 = icmp ult i64 %183, 65536
+  %184 = icmp samesign ult i64 %183, 65536
   br i1 %184, label %201, label %.loopexit
 
 185:                                              ; preds = %.preheader33, %191
@@ -3601,11 +3601,11 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawIm
   %203 = getelementptr i8, ptr %202, i64 -2
   %204 = load i16, ptr %203, align 2, !tbaa !194
   %205 = sub nuw nsw i64 65536, %183
-  %206 = icmp ugt i64 %183, 65528
+  %206 = icmp samesign ugt i64 %183, 65528
   br i1 %206, label %.preheader, label %207
 
 207:                                              ; preds = %201
-  %208 = icmp ugt i64 %183, 65472
+  %208 = icmp samesign ugt i64 %183, 65472
   br i1 %208, label %229, label %209
 
 209:                                              ; preds = %207
@@ -3699,7 +3699,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11PixelOpcodeC2ERKNS_8R
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !15
   %11 = zext i32 %10 to i64
-  %12 = icmp ugt i64 %8, %11
+  %12 = icmp samesign ugt i64 %8, %11
   br i1 %12, label %68, label %13
 
 13:                                               ; preds = %4
@@ -3711,7 +3711,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11PixelOpcodeC2ERKNS_8R
   %19 = icmp sgt i32 %10, -1
   tail call void @llvm.assume(i1 %19)
   %20 = add nuw nsw i32 %6, 4
-  %21 = icmp ule i32 %20, %10
+  %21 = icmp samesign ule i32 %20, %10
   tail call void @llvm.assume(i1 %21)
   %22 = icmp sgt i32 %6, -1
   tail call void @llvm.assume(i1 %22)
@@ -3723,13 +3723,13 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11PixelOpcodeC2ERKNS_8R
   store i32 %26, ptr %14, align 8, !tbaa !250
   %27 = zext nneg i32 %20 to i64
   %28 = add nuw nsw i64 %27, 4
-  %29 = icmp ugt i64 %28, %11
+  %29 = icmp samesign ugt i64 %28, %11
   br i1 %29, label %68, label %30
 
 30:                                               ; preds = %13
   %31 = getelementptr inbounds i8, ptr %0, i64 28
   %32 = add nuw nsw i32 %6, 8
-  %33 = icmp ule i32 %32, %10
+  %33 = icmp samesign ule i32 %32, %10
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds i8, ptr %18, i64 %27
   %35 = load i32, ptr %34, align 1
@@ -3767,12 +3767,12 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11PixelOpcodeC2ERKNS_8R
 53:                                               ; preds = %42
   %54 = zext nneg i32 %32 to i64
   %55 = add nuw nsw i64 %54, 4
-  %56 = icmp ugt i64 %55, %11
+  %56 = icmp samesign ugt i64 %55, %11
   br i1 %56, label %68, label %57
 
 57:                                               ; preds = %53
   %58 = add nuw nsw i32 %6, 12
-  %59 = icmp ule i32 %58, %10
+  %59 = icmp samesign ule i32 %58, %10
   tail call void @llvm.assume(i1 %59)
   %60 = getelementptr inbounds i8, ptr %18, i64 %54
   %61 = load i32, ptr %60, align 1
@@ -3783,7 +3783,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11PixelOpcodeC2ERKNS_8R
   store i32 %63, ptr %64, align 8, !tbaa !215
   %65 = zext nneg i32 %58 to i64
   %66 = add nuw nsw i64 %65, 4
-  %67 = icmp ugt i64 %66, %11
+  %67 = icmp samesign ugt i64 %66, %11
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %57, %53, %13, %4
@@ -3795,7 +3795,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11PixelOpcodeC2ERKNS_8R
 
 70:                                               ; preds = %57
   %71 = add nuw nsw i32 %6, 16
-  %72 = icmp ule i32 %71, %10
+  %72 = icmp samesign ule i32 %71, %10
   tail call void @llvm.assume(i1 %72)
   %73 = getelementptr inbounds i8, ptr %18, i64 %65
   %74 = load i32, ptr %73, align 1
@@ -3879,7 +3879,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13PolynomialMapC2ERKNS_
   %20 = getelementptr inbounds i8, ptr %2, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !15
   %22 = zext i32 %21 to i64
-  %23 = icmp ugt i64 %19, %22
+  %23 = icmp samesign ugt i64 %19, %22
   br i1 %23, label %44, label %24
 
 24:                                               ; preds = %12
@@ -3890,7 +3890,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13PolynomialMapC2ERKNS_
   %29 = icmp sgt i32 %21, -1
   tail call void @llvm.assume(i1 %29)
   %30 = add nuw nsw i32 %17, 4
-  %31 = icmp ule i32 %30, %21
+  %31 = icmp samesign ule i32 %30, %21
   tail call void @llvm.assume(i1 %31)
   %32 = icmp sgt i32 %17, -1
   tail call void @llvm.assume(i1 %32)
@@ -3905,7 +3905,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13PolynomialMapC2ERKNS_
   %40 = zext nneg i32 %30 to i64
   %41 = and i64 %39, 4294967288
   %42 = add nuw nsw i64 %41, %40
-  %43 = icmp ugt i64 %42, %22
+  %43 = icmp samesign ugt i64 %42, %22
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %24, %12
@@ -4117,7 +4117,7 @@ define linkonce_odr hidden ptr @_ZSt10generate_nISt20back_insert_iteratorISt6vec
   %15 = add nuw nsw i64 %14, 8
   %16 = load i32, ptr %7, align 8, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = icmp ugt i64 %15, %17
+  %18 = icmp samesign ugt i64 %15, %17
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %11
@@ -4131,7 +4131,7 @@ define linkonce_odr hidden ptr @_ZSt10generate_nISt20back_insert_iteratorISt6vec
   %24 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %24)
   %25 = add nuw nsw i32 %13, 8
-  %26 = icmp ule i32 %25, %16
+  %26 = icmp samesign ule i32 %25, %16
   tail call void @llvm.assume(i1 %26)
   %27 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %27)
@@ -4337,7 +4337,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17D
   %13 = getelementptr inbounds i8, ptr %2, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !15
   %15 = zext i32 %14 to i64
-  %16 = icmp ugt i64 %12, %15
+  %16 = icmp samesign ugt i64 %12, %15
   br i1 %16, label %37, label %17
 
 17:                                               ; preds = %5
@@ -4348,7 +4348,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17D
   %22 = icmp sgt i32 %14, -1
   tail call void @llvm.assume(i1 %22)
   %23 = add nuw nsw i32 %10, 4
-  %24 = icmp ule i32 %23, %14
+  %24 = icmp samesign ule i32 %23, %14
   tail call void @llvm.assume(i1 %24)
   %25 = icmp sgt i32 %10, -1
   tail call void @llvm.assume(i1 %25)
@@ -4365,7 +4365,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17D
   %33 = zext nneg i32 %23 to i64
   %34 = zext i32 %32 to i64
   %35 = add nuw nsw i64 %34, %33
-  %36 = icmp ugt i64 %35, %15
+  %36 = icmp samesign ugt i64 %35, %15
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %31, %17, %5
@@ -4379,7 +4379,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17D
 
 41:                                               ; preds = %31
   %42 = add nuw nsw i32 %32, %23
-  %43 = icmp ule i32 %42, %14
+  %43 = icmp samesign ule i32 %42, %14
   tail call void @llvm.assume(i1 %43)
   %44 = icmp sgt i32 %32, -1
   tail call void @llvm.assume(i1 %44)
@@ -4717,7 +4717,7 @@ define linkonce_odr hidden ptr @_ZSt10generate_nISt20back_insert_iteratorISt6vec
   %15 = add nuw nsw i64 %14, 4
   %16 = load i32, ptr %7, align 8, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = icmp ugt i64 %15, %17
+  %18 = icmp samesign ugt i64 %15, %17
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %11
@@ -4731,7 +4731,7 @@ define linkonce_odr hidden ptr @_ZSt10generate_nISt20back_insert_iteratorISt6vec
   %24 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %24)
   %25 = add nuw nsw i32 %13, 4
-  %26 = icmp ule i32 %25, %16
+  %26 = icmp samesign ule i32 %25, %16
   tail call void @llvm.assume(i1 %26)
   %27 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %27)
@@ -4854,7 +4854,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp uge i32 %16, %11
+  %22 = icmp samesign uge i32 %16, %11
   tail call void @llvm.assume(i1 %22)
   %23 = icmp eq i32 %11, 0
   %24 = icmp ne i32 %13, 0
@@ -4879,10 +4879,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %39 = icmp sgt i32 %35, -1
   tail call void @llvm.assume(i1 %39)
   %40 = add nuw nsw i32 %33, %28
-  %41 = icmp ule i32 %40, %11
+  %41 = icmp samesign ule i32 %40, %11
   tail call void @llvm.assume(i1 %41)
   %42 = add nuw nsw i32 %35, %30
-  %43 = icmp ule i32 %42, %13
+  %43 = icmp samesign ule i32 %42, %13
   tail call void @llvm.assume(i1 %43)
   %44 = icmp eq i32 %33, 0
   %45 = icmp ne i32 %35, 0
@@ -4975,12 +4975,12 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %118 = load i32, ptr %80, align 8
   %119 = load i32, ptr %47, align 8
   %120 = icmp sgt i32 %117, -1
-  %121 = icmp ugt i32 %35, %117
+  %121 = icmp samesign ugt i32 %35, %117
   %122 = add nuw nsw i32 %117, %30
-  %123 = icmp ugt i32 %13, %122
+  %123 = icmp samesign ugt i32 %13, %122
   %124 = mul nuw nsw i32 %122, %16
   %125 = add nuw nsw i32 %124, %11
-  %126 = icmp ule i32 %125, %17
+  %126 = icmp samesign ule i32 %125, %17
   %127 = zext nneg i32 %124 to i64
   %128 = getelementptr inbounds i16, ptr %6, i64 %127
   tail call void @llvm.assume(i1 %120)
@@ -5246,10 +5246,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %280 = add i32 %275, %279
   %281 = icmp sgt i32 %280, -1
   tail call void @llvm.assume(i1 %281)
-  %282 = icmp ugt i32 %33, %280
+  %282 = icmp samesign ugt i32 %33, %280
   tail call void @llvm.assume(i1 %282)
   %283 = add nuw nsw i32 %280, %28
-  %284 = icmp uge i32 %11, %283
+  %284 = icmp samesign uge i32 %11, %283
   tail call void @llvm.assume(i1 %284)
   %285 = zext nneg i32 %283 to i64
   %286 = getelementptr inbounds i16, ptr %128, i64 %285
@@ -5284,10 +5284,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %306 = add i32 %299, %305
   %307 = icmp sgt i32 %306, -1
   tail call void @llvm.assume(i1 %307)
-  %308 = icmp ugt i32 %33, %306
+  %308 = icmp samesign ugt i32 %33, %306
   tail call void @llvm.assume(i1 %308)
   %309 = add nuw nsw i32 %306, %28
-  %310 = icmp uge i32 %11, %309
+  %310 = icmp samesign uge i32 %11, %309
   tail call void @llvm.assume(i1 %310)
   %311 = zext nneg i32 %309 to i64
   %312 = getelementptr inbounds i16, ptr %128, i64 %311
@@ -5301,10 +5301,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %319 = add i32 %300, %305
   %320 = icmp sgt i32 %319, -1
   tail call void @llvm.assume(i1 %320)
-  %321 = icmp ugt i32 %33, %319
+  %321 = icmp samesign ugt i32 %33, %319
   tail call void @llvm.assume(i1 %321)
   %322 = add nuw nsw i32 %319, %28
-  %323 = icmp uge i32 %11, %322
+  %323 = icmp samesign uge i32 %11, %322
   tail call void @llvm.assume(i1 %323)
   %324 = zext nneg i32 %322 to i64
   %325 = getelementptr inbounds i16, ptr %128, i64 %324
@@ -5318,10 +5318,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %332 = add i32 %301, %305
   %333 = icmp sgt i32 %332, -1
   tail call void @llvm.assume(i1 %333)
-  %334 = icmp ugt i32 %33, %332
+  %334 = icmp samesign ugt i32 %33, %332
   tail call void @llvm.assume(i1 %334)
   %335 = add nuw nsw i32 %332, %28
-  %336 = icmp uge i32 %11, %335
+  %336 = icmp samesign uge i32 %11, %335
   tail call void @llvm.assume(i1 %336)
   %337 = zext nneg i32 %335 to i64
   %338 = getelementptr inbounds i16, ptr %128, i64 %337
@@ -5335,10 +5335,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %345 = add i32 %302, %305
   %346 = icmp sgt i32 %345, -1
   tail call void @llvm.assume(i1 %346)
-  %347 = icmp ugt i32 %33, %345
+  %347 = icmp samesign ugt i32 %33, %345
   tail call void @llvm.assume(i1 %347)
   %348 = add nuw nsw i32 %345, %28
-  %349 = icmp uge i32 %11, %348
+  %349 = icmp samesign uge i32 %11, %348
   tail call void @llvm.assume(i1 %349)
   %350 = zext nneg i32 %348 to i64
   %351 = getelementptr inbounds i16, ptr %128, i64 %350
@@ -5391,7 +5391,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp uge i32 %16, %11
+  %22 = icmp samesign uge i32 %16, %11
   tail call void @llvm.assume(i1 %22)
   %23 = icmp eq i32 %11, 0
   %24 = icmp ne i32 %13, 0
@@ -5416,10 +5416,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %39 = icmp sgt i32 %35, -1
   tail call void @llvm.assume(i1 %39)
   %40 = add nuw nsw i32 %33, %28
-  %41 = icmp ule i32 %40, %11
+  %41 = icmp samesign ule i32 %40, %11
   tail call void @llvm.assume(i1 %41)
   %42 = add nuw nsw i32 %35, %30
-  %43 = icmp ule i32 %42, %13
+  %43 = icmp samesign ule i32 %42, %13
   tail call void @llvm.assume(i1 %43)
   %44 = icmp eq i32 %33, 0
   %45 = icmp ne i32 %35, 0
@@ -5508,12 +5508,12 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %114 = load i32, ptr %80, align 8
   %115 = load i32, ptr %47, align 8
   %116 = icmp sgt i32 %113, -1
-  %117 = icmp ugt i32 %35, %113
+  %117 = icmp samesign ugt i32 %35, %113
   %118 = add nuw nsw i32 %113, %30
-  %119 = icmp ugt i32 %13, %118
+  %119 = icmp samesign ugt i32 %13, %118
   %120 = mul nuw nsw i32 %118, %16
   %121 = add nuw nsw i32 %120, %11
-  %122 = icmp ule i32 %121, %17
+  %122 = icmp samesign ule i32 %121, %17
   %123 = zext nneg i32 %120 to i64
   %124 = getelementptr inbounds float, ptr %6, i64 %123
   tail call void @llvm.assume(i1 %116)
@@ -5826,10 +5826,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %307 = add i32 %302, %306
   %308 = icmp sgt i32 %307, -1
   tail call void @llvm.assume(i1 %308)
-  %309 = icmp ugt i32 %33, %307
+  %309 = icmp samesign ugt i32 %33, %307
   tail call void @llvm.assume(i1 %309)
   %310 = add nuw nsw i32 %307, %28
-  %311 = icmp uge i32 %11, %310
+  %311 = icmp samesign uge i32 %11, %310
   tail call void @llvm.assume(i1 %311)
   %312 = zext nneg i32 %310 to i64
   %313 = getelementptr inbounds float, ptr %124, i64 %312
@@ -5861,10 +5861,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %330 = add i32 %323, %329
   %331 = icmp sgt i32 %330, -1
   tail call void @llvm.assume(i1 %331)
-  %332 = icmp ugt i32 %33, %330
+  %332 = icmp samesign ugt i32 %33, %330
   tail call void @llvm.assume(i1 %332)
   %333 = add nuw nsw i32 %330, %28
-  %334 = icmp uge i32 %11, %333
+  %334 = icmp samesign uge i32 %11, %333
   tail call void @llvm.assume(i1 %334)
   %335 = zext nneg i32 %333 to i64
   %336 = getelementptr inbounds float, ptr %124, i64 %335
@@ -5875,10 +5875,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %340 = add i32 %324, %329
   %341 = icmp sgt i32 %340, -1
   tail call void @llvm.assume(i1 %341)
-  %342 = icmp ugt i32 %33, %340
+  %342 = icmp samesign ugt i32 %33, %340
   tail call void @llvm.assume(i1 %342)
   %343 = add nuw nsw i32 %340, %28
-  %344 = icmp uge i32 %11, %343
+  %344 = icmp samesign uge i32 %11, %343
   tail call void @llvm.assume(i1 %344)
   %345 = zext nneg i32 %343 to i64
   %346 = getelementptr inbounds float, ptr %124, i64 %345
@@ -5889,10 +5889,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %350 = add i32 %325, %329
   %351 = icmp sgt i32 %350, -1
   tail call void @llvm.assume(i1 %351)
-  %352 = icmp ugt i32 %33, %350
+  %352 = icmp samesign ugt i32 %33, %350
   tail call void @llvm.assume(i1 %352)
   %353 = add nuw nsw i32 %350, %28
-  %354 = icmp uge i32 %11, %353
+  %354 = icmp samesign uge i32 %11, %353
   tail call void @llvm.assume(i1 %354)
   %355 = zext nneg i32 %353 to i64
   %356 = getelementptr inbounds float, ptr %124, i64 %355
@@ -5903,10 +5903,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %360 = add i32 %326, %329
   %361 = icmp sgt i32 %360, -1
   tail call void @llvm.assume(i1 %361)
-  %362 = icmp ugt i32 %33, %360
+  %362 = icmp samesign ugt i32 %33, %360
   tail call void @llvm.assume(i1 %362)
   %363 = add nuw nsw i32 %360, %28
-  %364 = icmp uge i32 %11, %363
+  %364 = icmp samesign uge i32 %11, %363
   tail call void @llvm.assume(i1 %364)
   %365 = zext nneg i32 %363 to i64
   %366 = getelementptr inbounds float, ptr %124, i64 %365
@@ -5951,7 +5951,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17D
   %13 = getelementptr inbounds i8, ptr %2, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !15
   %15 = zext i32 %14 to i64
-  %16 = icmp ugt i64 %12, %15
+  %16 = icmp samesign ugt i64 %12, %15
   br i1 %16, label %37, label %17
 
 17:                                               ; preds = %5
@@ -5962,7 +5962,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17D
   %22 = icmp sgt i32 %14, -1
   tail call void @llvm.assume(i1 %22)
   %23 = add nuw nsw i32 %10, 4
-  %24 = icmp ule i32 %23, %14
+  %24 = icmp samesign ule i32 %23, %14
   tail call void @llvm.assume(i1 %24)
   %25 = icmp sgt i32 %10, -1
   tail call void @llvm.assume(i1 %25)
@@ -5979,7 +5979,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17D
   %33 = zext nneg i32 %23 to i64
   %34 = zext i32 %32 to i64
   %35 = add nuw nsw i64 %34, %33
-  %36 = icmp ugt i64 %35, %15
+  %36 = icmp samesign ugt i64 %35, %15
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %31, %17, %5
@@ -5993,7 +5993,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17D
 
 41:                                               ; preds = %31
   %42 = add nuw nsw i32 %32, %23
-  %43 = icmp ule i32 %42, %14
+  %43 = icmp samesign ule i32 %42, %14
   tail call void @llvm.assume(i1 %43)
   %44 = icmp sgt i32 %32, -1
   tail call void @llvm.assume(i1 %44)
@@ -6331,7 +6331,7 @@ define linkonce_odr hidden ptr @_ZSt10generate_nISt20back_insert_iteratorISt6vec
   %15 = add nuw nsw i64 %14, 4
   %16 = load i32, ptr %7, align 8, !tbaa !15
   %17 = zext i32 %16 to i64
-  %18 = icmp ugt i64 %15, %17
+  %18 = icmp samesign ugt i64 %15, %17
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %11
@@ -6345,7 +6345,7 @@ define linkonce_odr hidden ptr @_ZSt10generate_nISt20back_insert_iteratorISt6vec
   %24 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %24)
   %25 = add nuw nsw i32 %13, 4
-  %26 = icmp ule i32 %25, %16
+  %26 = icmp samesign ule i32 %25, %16
   tail call void @llvm.assume(i1 %26)
   %27 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %27)
@@ -6468,7 +6468,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp uge i32 %16, %11
+  %22 = icmp samesign uge i32 %16, %11
   tail call void @llvm.assume(i1 %22)
   %23 = icmp eq i32 %11, 0
   %24 = icmp ne i32 %13, 0
@@ -6493,10 +6493,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %39 = icmp sgt i32 %35, -1
   tail call void @llvm.assume(i1 %39)
   %40 = add nuw nsw i32 %33, %28
-  %41 = icmp ule i32 %40, %11
+  %41 = icmp samesign ule i32 %40, %11
   tail call void @llvm.assume(i1 %41)
   %42 = add nuw nsw i32 %35, %30
-  %43 = icmp ule i32 %42, %13
+  %43 = icmp samesign ule i32 %42, %13
   tail call void @llvm.assume(i1 %43)
   %44 = icmp eq i32 %33, 0
   %45 = icmp ne i32 %35, 0
@@ -6587,12 +6587,12 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %116 = load i32, ptr %79, align 8
   %117 = load i32, ptr %47, align 8
   %118 = icmp sgt i32 %115, -1
-  %119 = icmp ugt i32 %35, %115
+  %119 = icmp samesign ugt i32 %35, %115
   %120 = add nuw nsw i32 %115, %30
-  %121 = icmp ugt i32 %13, %120
+  %121 = icmp samesign ugt i32 %13, %120
   %122 = mul nuw nsw i32 %120, %16
   %123 = add nuw nsw i32 %122, %11
-  %124 = icmp ule i32 %123, %17
+  %124 = icmp samesign ule i32 %123, %17
   %125 = zext nneg i32 %122 to i64
   %126 = getelementptr inbounds i16, ptr %6, i64 %125
   tail call void @llvm.assume(i1 %118)
@@ -6864,10 +6864,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %281 = add i32 %276, %280
   %282 = icmp sgt i32 %281, -1
   tail call void @llvm.assume(i1 %282)
-  %283 = icmp ugt i32 %33, %281
+  %283 = icmp samesign ugt i32 %33, %281
   tail call void @llvm.assume(i1 %283)
   %284 = add nuw nsw i32 %281, %28
-  %285 = icmp uge i32 %11, %284
+  %285 = icmp samesign uge i32 %11, %284
   tail call void @llvm.assume(i1 %285)
   %286 = zext nneg i32 %284 to i64
   %287 = getelementptr inbounds i16, ptr %126, i64 %286
@@ -6902,10 +6902,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %307 = add i32 %300, %306
   %308 = icmp sgt i32 %307, -1
   tail call void @llvm.assume(i1 %308)
-  %309 = icmp ugt i32 %33, %307
+  %309 = icmp samesign ugt i32 %33, %307
   tail call void @llvm.assume(i1 %309)
   %310 = add nuw nsw i32 %307, %28
-  %311 = icmp uge i32 %11, %310
+  %311 = icmp samesign uge i32 %11, %310
   tail call void @llvm.assume(i1 %311)
   %312 = zext nneg i32 %310 to i64
   %313 = getelementptr inbounds i16, ptr %126, i64 %312
@@ -6919,10 +6919,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %320 = add i32 %301, %306
   %321 = icmp sgt i32 %320, -1
   tail call void @llvm.assume(i1 %321)
-  %322 = icmp ugt i32 %33, %320
+  %322 = icmp samesign ugt i32 %33, %320
   tail call void @llvm.assume(i1 %322)
   %323 = add nuw nsw i32 %320, %28
-  %324 = icmp uge i32 %11, %323
+  %324 = icmp samesign uge i32 %11, %323
   tail call void @llvm.assume(i1 %324)
   %325 = zext nneg i32 %323 to i64
   %326 = getelementptr inbounds i16, ptr %126, i64 %325
@@ -6936,10 +6936,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %333 = add i32 %302, %306
   %334 = icmp sgt i32 %333, -1
   tail call void @llvm.assume(i1 %334)
-  %335 = icmp ugt i32 %33, %333
+  %335 = icmp samesign ugt i32 %33, %333
   tail call void @llvm.assume(i1 %335)
   %336 = add nuw nsw i32 %333, %28
-  %337 = icmp uge i32 %11, %336
+  %337 = icmp samesign uge i32 %11, %336
   tail call void @llvm.assume(i1 %337)
   %338 = zext nneg i32 %336 to i64
   %339 = getelementptr inbounds i16, ptr %126, i64 %338
@@ -6953,10 +6953,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %346 = add i32 %303, %306
   %347 = icmp sgt i32 %346, -1
   tail call void @llvm.assume(i1 %347)
-  %348 = icmp ugt i32 %33, %346
+  %348 = icmp samesign ugt i32 %33, %346
   tail call void @llvm.assume(i1 %348)
   %349 = add nuw nsw i32 %346, %28
-  %350 = icmp uge i32 %11, %349
+  %350 = icmp samesign uge i32 %11, %349
   tail call void @llvm.assume(i1 %350)
   %351 = zext nneg i32 %349 to i64
   %352 = getelementptr inbounds i16, ptr %126, i64 %351
@@ -7009,7 +7009,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp uge i32 %16, %11
+  %22 = icmp samesign uge i32 %16, %11
   tail call void @llvm.assume(i1 %22)
   %23 = icmp eq i32 %11, 0
   %24 = icmp ne i32 %13, 0
@@ -7034,10 +7034,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %39 = icmp sgt i32 %35, -1
   tail call void @llvm.assume(i1 %39)
   %40 = add nuw nsw i32 %33, %28
-  %41 = icmp ule i32 %40, %11
+  %41 = icmp samesign ule i32 %40, %11
   tail call void @llvm.assume(i1 %41)
   %42 = add nuw nsw i32 %35, %30
-  %43 = icmp ule i32 %42, %13
+  %43 = icmp samesign ule i32 %42, %13
   tail call void @llvm.assume(i1 %43)
   %44 = icmp eq i32 %33, 0
   %45 = icmp ne i32 %35, 0
@@ -7121,12 +7121,12 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %109 = load i32, ptr %79, align 8
   %110 = load i32, ptr %47, align 8
   %111 = icmp sgt i32 %108, -1
-  %112 = icmp ugt i32 %35, %108
+  %112 = icmp samesign ugt i32 %35, %108
   %113 = add nuw nsw i32 %108, %30
-  %114 = icmp ugt i32 %13, %113
+  %114 = icmp samesign ugt i32 %13, %113
   %115 = mul nuw nsw i32 %113, %16
   %116 = add nuw nsw i32 %115, %11
-  %117 = icmp ule i32 %116, %17
+  %117 = icmp samesign ule i32 %116, %17
   %118 = zext nneg i32 %115 to i64
   %119 = getelementptr inbounds float, ptr %6, i64 %118
   tail call void @llvm.assume(i1 %111)
@@ -7439,10 +7439,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %303 = add i32 %298, %302
   %304 = icmp sgt i32 %303, -1
   tail call void @llvm.assume(i1 %304)
-  %305 = icmp ugt i32 %33, %303
+  %305 = icmp samesign ugt i32 %33, %303
   tail call void @llvm.assume(i1 %305)
   %306 = add nuw nsw i32 %303, %28
-  %307 = icmp uge i32 %11, %306
+  %307 = icmp samesign uge i32 %11, %306
   tail call void @llvm.assume(i1 %307)
   %308 = zext nneg i32 %306 to i64
   %309 = getelementptr inbounds float, ptr %119, i64 %308
@@ -7474,10 +7474,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %326 = add i32 %319, %325
   %327 = icmp sgt i32 %326, -1
   tail call void @llvm.assume(i1 %327)
-  %328 = icmp ugt i32 %33, %326
+  %328 = icmp samesign ugt i32 %33, %326
   tail call void @llvm.assume(i1 %328)
   %329 = add nuw nsw i32 %326, %28
-  %330 = icmp uge i32 %11, %329
+  %330 = icmp samesign uge i32 %11, %329
   tail call void @llvm.assume(i1 %330)
   %331 = zext nneg i32 %329 to i64
   %332 = getelementptr inbounds float, ptr %119, i64 %331
@@ -7488,10 +7488,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %336 = add i32 %320, %325
   %337 = icmp sgt i32 %336, -1
   tail call void @llvm.assume(i1 %337)
-  %338 = icmp ugt i32 %33, %336
+  %338 = icmp samesign ugt i32 %33, %336
   tail call void @llvm.assume(i1 %338)
   %339 = add nuw nsw i32 %336, %28
-  %340 = icmp uge i32 %11, %339
+  %340 = icmp samesign uge i32 %11, %339
   tail call void @llvm.assume(i1 %340)
   %341 = zext nneg i32 %339 to i64
   %342 = getelementptr inbounds float, ptr %119, i64 %341
@@ -7502,10 +7502,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %346 = add i32 %321, %325
   %347 = icmp sgt i32 %346, -1
   tail call void @llvm.assume(i1 %347)
-  %348 = icmp ugt i32 %33, %346
+  %348 = icmp samesign ugt i32 %33, %346
   tail call void @llvm.assume(i1 %348)
   %349 = add nuw nsw i32 %346, %28
-  %350 = icmp uge i32 %11, %349
+  %350 = icmp samesign uge i32 %11, %349
   tail call void @llvm.assume(i1 %350)
   %351 = zext nneg i32 %349 to i64
   %352 = getelementptr inbounds float, ptr %119, i64 %351
@@ -7516,10 +7516,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %356 = add i32 %322, %325
   %357 = icmp sgt i32 %356, -1
   tail call void @llvm.assume(i1 %357)
-  %358 = icmp ugt i32 %33, %356
+  %358 = icmp samesign ugt i32 %33, %356
   tail call void @llvm.assume(i1 %358)
   %359 = add nuw nsw i32 %356, %28
-  %360 = icmp uge i32 %11, %359
+  %360 = icmp samesign uge i32 %11, %359
   tail call void @llvm.assume(i1 %360)
   %361 = zext nneg i32 %359 to i64
   %362 = getelementptr inbounds float, ptr %119, i64 %361
@@ -7654,7 +7654,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp uge i32 %16, %11
+  %22 = icmp samesign uge i32 %16, %11
   tail call void @llvm.assume(i1 %22)
   %23 = icmp eq i32 %11, 0
   %24 = icmp ne i32 %13, 0
@@ -7679,10 +7679,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %39 = icmp sgt i32 %35, -1
   tail call void @llvm.assume(i1 %39)
   %40 = add nuw nsw i32 %33, %28
-  %41 = icmp ule i32 %40, %11
+  %41 = icmp samesign ule i32 %40, %11
   tail call void @llvm.assume(i1 %41)
   %42 = add nuw nsw i32 %35, %30
-  %43 = icmp ule i32 %42, %13
+  %43 = icmp samesign ule i32 %42, %13
   tail call void @llvm.assume(i1 %43)
   %44 = icmp eq i32 %33, 0
   %45 = icmp ne i32 %35, 0
@@ -7776,12 +7776,12 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %119 = load i32, ptr %80, align 8
   %120 = load i32, ptr %47, align 8
   %121 = icmp sgt i32 %118, -1
-  %122 = icmp ugt i32 %35, %118
+  %122 = icmp samesign ugt i32 %35, %118
   %123 = add nuw nsw i32 %118, %30
-  %124 = icmp ugt i32 %13, %123
+  %124 = icmp samesign ugt i32 %13, %123
   %125 = mul nuw nsw i32 %123, %16
   %126 = add nuw nsw i32 %125, %11
-  %127 = icmp ule i32 %126, %17
+  %127 = icmp samesign ule i32 %126, %17
   %128 = zext nneg i32 %125 to i64
   %129 = getelementptr inbounds i16, ptr %6, i64 %128
   tail call void @llvm.assume(i1 %121)
@@ -8045,10 +8045,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %282 = add i32 %281, %280
   %283 = icmp sgt i32 %282, -1
   tail call void @llvm.assume(i1 %283)
-  %284 = icmp ugt i32 %33, %282
+  %284 = icmp samesign ugt i32 %33, %282
   tail call void @llvm.assume(i1 %284)
   %285 = add nuw nsw i32 %282, %28
-  %286 = icmp uge i32 %11, %285
+  %286 = icmp samesign uge i32 %11, %285
   tail call void @llvm.assume(i1 %286)
   %287 = zext nneg i32 %285 to i64
   %288 = getelementptr inbounds i16, ptr %129, i64 %287
@@ -8080,10 +8080,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %306 = add i32 %301, %305
   %307 = icmp sgt i32 %306, -1
   tail call void @llvm.assume(i1 %307)
-  %308 = icmp ugt i32 %33, %306
+  %308 = icmp samesign ugt i32 %33, %306
   tail call void @llvm.assume(i1 %308)
   %309 = add nuw nsw i32 %306, %28
-  %310 = icmp uge i32 %11, %309
+  %310 = icmp samesign uge i32 %11, %309
   tail call void @llvm.assume(i1 %310)
   %311 = zext nneg i32 %309 to i64
   %312 = getelementptr inbounds i16, ptr %129, i64 %311
@@ -8099,10 +8099,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %321 = add i32 %302, %305
   %322 = icmp sgt i32 %321, -1
   tail call void @llvm.assume(i1 %322)
-  %323 = icmp ugt i32 %33, %321
+  %323 = icmp samesign ugt i32 %33, %321
   tail call void @llvm.assume(i1 %323)
   %324 = add nuw nsw i32 %321, %28
-  %325 = icmp uge i32 %11, %324
+  %325 = icmp samesign uge i32 %11, %324
   tail call void @llvm.assume(i1 %325)
   %326 = zext nneg i32 %324 to i64
   %327 = getelementptr inbounds i16, ptr %129, i64 %326
@@ -8157,7 +8157,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp uge i32 %16, %11
+  %22 = icmp samesign uge i32 %16, %11
   tail call void @llvm.assume(i1 %22)
   %23 = icmp eq i32 %11, 0
   %24 = icmp ne i32 %13, 0
@@ -8182,10 +8182,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %39 = icmp sgt i32 %35, -1
   tail call void @llvm.assume(i1 %39)
   %40 = add nuw nsw i32 %33, %28
-  %41 = icmp ule i32 %40, %11
+  %41 = icmp samesign ule i32 %40, %11
   tail call void @llvm.assume(i1 %41)
   %42 = add nuw nsw i32 %35, %30
-  %43 = icmp ule i32 %42, %13
+  %43 = icmp samesign ule i32 %42, %13
   tail call void @llvm.assume(i1 %43)
   %44 = icmp eq i32 %33, 0
   %45 = icmp ne i32 %35, 0
@@ -8274,12 +8274,12 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %114 = load i32, ptr %80, align 8
   %115 = load i32, ptr %47, align 8
   %116 = icmp sgt i32 %113, -1
-  %117 = icmp ugt i32 %35, %113
+  %117 = icmp samesign ugt i32 %35, %113
   %118 = add nuw nsw i32 %113, %30
-  %119 = icmp ugt i32 %13, %118
+  %119 = icmp samesign ugt i32 %13, %118
   %120 = mul nuw nsw i32 %118, %16
   %121 = add nuw nsw i32 %120, %11
-  %122 = icmp ule i32 %121, %17
+  %122 = icmp samesign ule i32 %121, %17
   %123 = zext nneg i32 %120 to i64
   %124 = getelementptr inbounds float, ptr %6, i64 %123
   tail call void @llvm.assume(i1 %116)
@@ -8592,10 +8592,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %307 = add i32 %302, %306
   %308 = icmp sgt i32 %307, -1
   tail call void @llvm.assume(i1 %308)
-  %309 = icmp ugt i32 %33, %307
+  %309 = icmp samesign ugt i32 %33, %307
   tail call void @llvm.assume(i1 %309)
   %310 = add nuw nsw i32 %307, %28
-  %311 = icmp uge i32 %11, %310
+  %311 = icmp samesign uge i32 %11, %310
   tail call void @llvm.assume(i1 %311)
   %312 = zext nneg i32 %310 to i64
   %313 = getelementptr inbounds float, ptr %124, i64 %312
@@ -8627,10 +8627,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %330 = add i32 %323, %329
   %331 = icmp sgt i32 %330, -1
   tail call void @llvm.assume(i1 %331)
-  %332 = icmp ugt i32 %33, %330
+  %332 = icmp samesign ugt i32 %33, %330
   tail call void @llvm.assume(i1 %332)
   %333 = add nuw nsw i32 %330, %28
-  %334 = icmp uge i32 %11, %333
+  %334 = icmp samesign uge i32 %11, %333
   tail call void @llvm.assume(i1 %334)
   %335 = zext nneg i32 %333 to i64
   %336 = getelementptr inbounds float, ptr %124, i64 %335
@@ -8641,10 +8641,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %340 = add i32 %324, %329
   %341 = icmp sgt i32 %340, -1
   tail call void @llvm.assume(i1 %341)
-  %342 = icmp ugt i32 %33, %340
+  %342 = icmp samesign ugt i32 %33, %340
   tail call void @llvm.assume(i1 %342)
   %343 = add nuw nsw i32 %340, %28
-  %344 = icmp uge i32 %11, %343
+  %344 = icmp samesign uge i32 %11, %343
   tail call void @llvm.assume(i1 %344)
   %345 = zext nneg i32 %343 to i64
   %346 = getelementptr inbounds float, ptr %124, i64 %345
@@ -8655,10 +8655,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %350 = add i32 %325, %329
   %351 = icmp sgt i32 %350, -1
   tail call void @llvm.assume(i1 %351)
-  %352 = icmp ugt i32 %33, %350
+  %352 = icmp samesign ugt i32 %33, %350
   tail call void @llvm.assume(i1 %352)
   %353 = add nuw nsw i32 %350, %28
-  %354 = icmp uge i32 %11, %353
+  %354 = icmp samesign uge i32 %11, %353
   tail call void @llvm.assume(i1 %354)
   %355 = zext nneg i32 %353 to i64
   %356 = getelementptr inbounds float, ptr %124, i64 %355
@@ -8669,10 +8669,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %360 = add i32 %326, %329
   %361 = icmp sgt i32 %360, -1
   tail call void @llvm.assume(i1 %361)
-  %362 = icmp ugt i32 %33, %360
+  %362 = icmp samesign ugt i32 %33, %360
   tail call void @llvm.assume(i1 %362)
   %363 = add nuw nsw i32 %360, %28
-  %364 = icmp uge i32 %11, %363
+  %364 = icmp samesign uge i32 %11, %363
   tail call void @llvm.assume(i1 %364)
   %365 = zext nneg i32 %363 to i64
   %366 = getelementptr inbounds float, ptr %124, i64 %365
@@ -8807,7 +8807,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp uge i32 %16, %11
+  %22 = icmp samesign uge i32 %16, %11
   tail call void @llvm.assume(i1 %22)
   %23 = icmp eq i32 %11, 0
   %24 = icmp ne i32 %13, 0
@@ -8832,10 +8832,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %39 = icmp sgt i32 %35, -1
   tail call void @llvm.assume(i1 %39)
   %40 = add nuw nsw i32 %33, %28
-  %41 = icmp ule i32 %40, %11
+  %41 = icmp samesign ule i32 %40, %11
   tail call void @llvm.assume(i1 %41)
   %42 = add nuw nsw i32 %35, %30
-  %43 = icmp ule i32 %42, %13
+  %43 = icmp samesign ule i32 %42, %13
   tail call void @llvm.assume(i1 %43)
   %44 = icmp eq i32 %33, 0
   %45 = icmp ne i32 %35, 0
@@ -8927,12 +8927,12 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %117 = load i32, ptr %79, align 8
   %118 = load i32, ptr %47, align 8
   %119 = icmp sgt i32 %116, -1
-  %120 = icmp ugt i32 %35, %116
+  %120 = icmp samesign ugt i32 %35, %116
   %121 = add nuw nsw i32 %116, %30
-  %122 = icmp ugt i32 %13, %121
+  %122 = icmp samesign ugt i32 %13, %121
   %123 = mul nuw nsw i32 %121, %16
   %124 = add nuw nsw i32 %123, %11
-  %125 = icmp ule i32 %124, %17
+  %125 = icmp samesign ule i32 %124, %17
   %126 = zext nneg i32 %123 to i64
   %127 = getelementptr inbounds i16, ptr %6, i64 %126
   tail call void @llvm.assume(i1 %119)
@@ -9202,10 +9202,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %283 = add i32 %282, %281
   %284 = icmp sgt i32 %283, -1
   tail call void @llvm.assume(i1 %284)
-  %285 = icmp ugt i32 %33, %283
+  %285 = icmp samesign ugt i32 %33, %283
   tail call void @llvm.assume(i1 %285)
   %286 = add nuw nsw i32 %283, %28
-  %287 = icmp uge i32 %11, %286
+  %287 = icmp samesign uge i32 %11, %286
   tail call void @llvm.assume(i1 %287)
   %288 = zext nneg i32 %286 to i64
   %289 = getelementptr inbounds i16, ptr %127, i64 %288
@@ -9237,10 +9237,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %307 = add i32 %302, %306
   %308 = icmp sgt i32 %307, -1
   tail call void @llvm.assume(i1 %308)
-  %309 = icmp ugt i32 %33, %307
+  %309 = icmp samesign ugt i32 %33, %307
   tail call void @llvm.assume(i1 %309)
   %310 = add nuw nsw i32 %307, %28
-  %311 = icmp uge i32 %11, %310
+  %311 = icmp samesign uge i32 %11, %310
   tail call void @llvm.assume(i1 %311)
   %312 = zext nneg i32 %310 to i64
   %313 = getelementptr inbounds i16, ptr %127, i64 %312
@@ -9256,10 +9256,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %322 = add i32 %303, %306
   %323 = icmp sgt i32 %322, -1
   tail call void @llvm.assume(i1 %323)
-  %324 = icmp ugt i32 %33, %322
+  %324 = icmp samesign ugt i32 %33, %322
   tail call void @llvm.assume(i1 %324)
   %325 = add nuw nsw i32 %322, %28
-  %326 = icmp uge i32 %11, %325
+  %326 = icmp samesign uge i32 %11, %325
   tail call void @llvm.assume(i1 %326)
   %327 = zext nneg i32 %325 to i64
   %328 = getelementptr inbounds i16, ptr %127, i64 %327
@@ -9314,7 +9314,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp uge i32 %16, %11
+  %22 = icmp samesign uge i32 %16, %11
   tail call void @llvm.assume(i1 %22)
   %23 = icmp eq i32 %11, 0
   %24 = icmp ne i32 %13, 0
@@ -9339,10 +9339,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %39 = icmp sgt i32 %35, -1
   tail call void @llvm.assume(i1 %39)
   %40 = add nuw nsw i32 %33, %28
-  %41 = icmp ule i32 %40, %11
+  %41 = icmp samesign ule i32 %40, %11
   tail call void @llvm.assume(i1 %41)
   %42 = add nuw nsw i32 %35, %30
-  %43 = icmp ule i32 %42, %13
+  %43 = icmp samesign ule i32 %42, %13
   tail call void @llvm.assume(i1 %43)
   %44 = icmp eq i32 %33, 0
   %45 = icmp ne i32 %35, 0
@@ -9426,12 +9426,12 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %109 = load i32, ptr %79, align 8
   %110 = load i32, ptr %47, align 8
   %111 = icmp sgt i32 %108, -1
-  %112 = icmp ugt i32 %35, %108
+  %112 = icmp samesign ugt i32 %35, %108
   %113 = add nuw nsw i32 %108, %30
-  %114 = icmp ugt i32 %13, %113
+  %114 = icmp samesign ugt i32 %13, %113
   %115 = mul nuw nsw i32 %113, %16
   %116 = add nuw nsw i32 %115, %11
-  %117 = icmp ule i32 %116, %17
+  %117 = icmp samesign ule i32 %116, %17
   %118 = zext nneg i32 %115 to i64
   %119 = getelementptr inbounds float, ptr %6, i64 %118
   tail call void @llvm.assume(i1 %111)
@@ -9744,10 +9744,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %303 = add i32 %298, %302
   %304 = icmp sgt i32 %303, -1
   tail call void @llvm.assume(i1 %304)
-  %305 = icmp ugt i32 %33, %303
+  %305 = icmp samesign ugt i32 %33, %303
   tail call void @llvm.assume(i1 %305)
   %306 = add nuw nsw i32 %303, %28
-  %307 = icmp uge i32 %11, %306
+  %307 = icmp samesign uge i32 %11, %306
   tail call void @llvm.assume(i1 %307)
   %308 = zext nneg i32 %306 to i64
   %309 = getelementptr inbounds float, ptr %119, i64 %308
@@ -9779,10 +9779,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %326 = add i32 %319, %325
   %327 = icmp sgt i32 %326, -1
   tail call void @llvm.assume(i1 %327)
-  %328 = icmp ugt i32 %33, %326
+  %328 = icmp samesign ugt i32 %33, %326
   tail call void @llvm.assume(i1 %328)
   %329 = add nuw nsw i32 %326, %28
-  %330 = icmp uge i32 %11, %329
+  %330 = icmp samesign uge i32 %11, %329
   tail call void @llvm.assume(i1 %330)
   %331 = zext nneg i32 %329 to i64
   %332 = getelementptr inbounds float, ptr %119, i64 %331
@@ -9793,10 +9793,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %336 = add i32 %320, %325
   %337 = icmp sgt i32 %336, -1
   tail call void @llvm.assume(i1 %337)
-  %338 = icmp ugt i32 %33, %336
+  %338 = icmp samesign ugt i32 %33, %336
   tail call void @llvm.assume(i1 %338)
   %339 = add nuw nsw i32 %336, %28
-  %340 = icmp uge i32 %11, %339
+  %340 = icmp samesign uge i32 %11, %339
   tail call void @llvm.assume(i1 %340)
   %341 = zext nneg i32 %339 to i64
   %342 = getelementptr inbounds float, ptr %119, i64 %341
@@ -9807,10 +9807,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %346 = add i32 %321, %325
   %347 = icmp sgt i32 %346, -1
   tail call void @llvm.assume(i1 %347)
-  %348 = icmp ugt i32 %33, %346
+  %348 = icmp samesign ugt i32 %33, %346
   tail call void @llvm.assume(i1 %348)
   %349 = add nuw nsw i32 %346, %28
-  %350 = icmp uge i32 %11, %349
+  %350 = icmp samesign uge i32 %11, %349
   tail call void @llvm.assume(i1 %350)
   %351 = zext nneg i32 %349 to i64
   %352 = getelementptr inbounds float, ptr %119, i64 %351
@@ -9821,10 +9821,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %356 = add i32 %322, %325
   %357 = icmp sgt i32 %356, -1
   tail call void @llvm.assume(i1 %357)
-  %358 = icmp ugt i32 %33, %356
+  %358 = icmp samesign ugt i32 %33, %356
   tail call void @llvm.assume(i1 %358)
   %359 = add nuw nsw i32 %356, %28
-  %360 = icmp uge i32 %11, %359
+  %360 = icmp samesign uge i32 %11, %359
   tail call void @llvm.assume(i1 %360)
   %361 = zext nneg i32 %359 to i64
   %362 = getelementptr inbounds float, ptr %119, i64 %361

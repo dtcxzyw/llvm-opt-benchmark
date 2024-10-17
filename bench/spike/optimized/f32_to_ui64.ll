@@ -12,7 +12,7 @@ define i64 @f32_to_ui64(i32 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) lo
   %8 = and i64 %4, 8388607
   %.neg = add nuw nsw i64 %6, 2
   %9 = sub nsw i64 190, %7
-  %10 = icmp ugt i64 %7, 190
+  %10 = icmp samesign ugt i64 %7, 190
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %3
@@ -34,7 +34,7 @@ define i64 @f32_to_ui64(i32 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) lo
   br i1 %.not29, label %softfloat_shiftRightJam64Extra.exit, label %19
 
 19:                                               ; preds = %15
-  %20 = icmp ult i64 %9, 64
+  %20 = icmp samesign ult i64 %9, 64
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %19

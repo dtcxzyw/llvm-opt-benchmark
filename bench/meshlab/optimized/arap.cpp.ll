@@ -13560,7 +13560,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN5Eigen8internal6ColamdL14
   store i32 %75, ptr %76, align 4
   %77 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 -1, ptr %77, align 4
-  %78 = icmp ugt i32 %0, 1
+  %78 = icmp samesign ugt i32 %0, 1
   br i1 %78, label %.lr.ph222.preheader, label %._crit_edge223
 
 .lr.ph222.preheader:                              ; preds = %._crit_edge219
@@ -13710,7 +13710,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN5Eigen8internal6ColamdL14
 141:                                              ; preds = %._crit_edge237
   store i32 0, ptr %3, align 4
   store i32 0, ptr %5, align 4
-  %142 = icmp ugt i32 %1, 1
+  %142 = icmp samesign ugt i32 %1, 1
   br i1 %142, label %.lr.ph240, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph240, %141
@@ -20458,7 +20458,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4EL
 
 ._crit_edge.us.i300.us:                           ; preds = %151
   %161 = add nuw nsw i64 %.07992.us.i.us, 4
-  %162 = icmp ult i64 %161, %145
+  %162 = icmp samesign ult i64 %161, %145
   br i1 %162, label %.preheader88.us.i.us, label %.preheader87.i.us, !llvm.loop !390
 
 .preheader87.i.us:                                ; preds = %._crit_edge.us.i300.us, %140
@@ -20682,7 +20682,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 ._crit_edge.us.i335:                              ; preds = %235
   %245 = add nuw nsw i64 %.07992.us.i330, 4
-  %246 = icmp ult i64 %245, %229
+  %246 = icmp samesign ult i64 %245, %229
   br i1 %246, label %.preheader88.us.i329, label %.preheader87.i302, !llvm.loop !390
 
 .preheader87.i302:                                ; preds = %._crit_edge.us.i335, %228
@@ -21154,7 +21154,7 @@ define linkonce_odr void @_ZN5Eigen8internal15queryCacheSizesERiS1_S1_(ptr nound
 38:                                               ; preds = %.sink.split.i.i, %20, %15
   %39 = add nuw nsw i32 %.0.i.i, 1
   %40 = icmp ne i32 %18, 0
-  %41 = icmp ult i32 %.0.i.i, 15
+  %41 = icmp samesign ult i32 %.0.i.i, 15
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %15, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !403
 
@@ -21268,7 +21268,7 @@ _ZN5Eigen8internal15cpuid_is_vendorEPiPKi.exit11.thread: ; preds = %3, %9, %47, 
 95:                                               ; preds = %.sink.split.i.i14, %77, %72
   %96 = add nuw nsw i32 %.0.i.i12, 1
   %97 = icmp ne i32 %75, 0
-  %98 = icmp ult i32 %.0.i.i12, 15
+  %98 = icmp samesign ult i32 %.0.i.i12, 15
   %99 = select i1 %97, i1 %98, i1 false
   br i1 %99, label %72, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !403
 

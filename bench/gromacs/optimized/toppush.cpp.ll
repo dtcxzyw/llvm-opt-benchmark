@@ -8772,7 +8772,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %75, %78
 
 127:                                              ; preds = %112
   %indvars.iv.next549 = add nuw nsw i64 %indvars.iv548, 1
-  %128 = icmp ult i64 %indvars.iv.next549, %107
+  %128 = icmp samesign ult i64 %indvars.iv.next549, %107
   br i1 %128, label %.lr.ph481, label %._crit_edge482
 
 .lr.ph481:                                        ; preds = %127
@@ -11749,7 +11749,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %37, %40
 
 68:                                               ; preds = %53
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %69 = icmp ult i64 %indvars.iv.next148, %49
+  %69 = icmp samesign ult i64 %indvars.iv.next148, %49
   br i1 %69, label %.lr.ph, label %.loopexit117
 
 .lr.ph:                                           ; preds = %68, %82
@@ -12656,7 +12656,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %15, %18
   br label %53
 
 33:                                               ; preds = %._crit_edge
-  %34 = icmp ugt i32 %.132, 1
+  %34 = icmp samesign ugt i32 %.132, 1
   br i1 %34, label %35, label %43
 
 35:                                               ; preds = %33
@@ -13378,7 +13378,7 @@ _ZL23convert_pairs_to_pairsQN3gmx8ArrayRefI18InteractionsOfTypeEEfP7t_atoms.exit
   %indvars.iv178.i = phi i64 [ %indvars.iv.next179.i, %.loopexit.us.i ], [ 0, %.lr.ph141.i ]
   %indvars.iv171.i = phi i64 [ %indvars.iv.next172.i, %.loopexit.us.i ], [ 1, %.lr.ph141.i ]
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
-  %121 = icmp ult i64 %indvars.iv.next179.i, %120
+  %121 = icmp samesign ult i64 %indvars.iv.next179.i, %120
   br i1 %121, label %.lr.ph112.us.i, label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %189, %.lr.ph141.split.us.i
@@ -13579,7 +13579,7 @@ _ZNSt12_Vector_baseIfSaIfEED2Ev.exit.i.split.us.split.us.i: ; preds = %171
 .lr.ph141.split.i:                                ; preds = %.lr.ph141.i, %.loopexit.i15
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i15 ], [ 0, %.lr.ph141.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %195 = icmp ult i64 %indvars.iv.next.i, %120
+  %195 = icmp samesign ult i64 %indvars.iv.next.i, %120
   br i1 %195, label %.lr.ph112.i, label %.loopexit.i15
 
 .lr.ph112.i:                                      ; preds = %.lr.ph141.split.i

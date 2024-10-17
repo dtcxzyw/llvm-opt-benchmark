@@ -11496,7 +11496,7 @@ define void @_ZN15context_servers4init17hbd9c18f56e6d301fE(ptr noalias noundef a
   %6 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %7 = icmp ult i64 %6, 6
   tail call void @llvm.assume(i1 %7)
-  %switch = icmp ult i64 %6, 3
+  %switch = icmp samesign ult i64 %6, 3
   br i1 %switch, label %18, label %8
 
 8:                                                ; preds = %1

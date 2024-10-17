@@ -5257,7 +5257,7 @@ check_purpose.exit.i:                             ; preds = %cond.false.i.i.i, %
   br i1 %tobool336.not.i, label %return, label %if.end338.i
 
 if.end338.i:                                      ; preds = %check_purpose.exit.i, %sw.default9.i.i, %sw.default.i.i, %if.end.i423.i, %if.end331.i
-  %cmp339.i = icmp ugt i32 %i.0471.i, 1
+  %cmp339.i = icmp samesign ugt i32 %i.0471.i, 1
   br i1 %cmp339.i, label %land.lhs.true341.i, label %if.end357.i
 
 land.lhs.true341.i:                               ; preds = %if.end338.i

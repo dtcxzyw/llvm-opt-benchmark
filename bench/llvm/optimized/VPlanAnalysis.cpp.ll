@@ -8810,7 +8810,7 @@ _ZN4llvm9GraphDiffIPNS_11VPBlockBaseELb0EE14DeletesInsertsC2ERKS4_.exit: ; preds
   %73 = load i32, ptr %11, align 8
   %74 = select i1 %.not.i.i, i32 %73, i32 4
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %72, %75
+  %76 = icmp samesign ult i64 %72, %75
   br i1 %76, label %15, label %._crit_edge, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %_ZN4llvm9GraphDiffIPNS_11VPBlockBaseELb0EE14DeletesInsertsC2ERKS4_.exit, %2

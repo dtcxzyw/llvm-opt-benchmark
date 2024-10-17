@@ -1573,7 +1573,7 @@ sh_addentry.exit:                                 ; preds = %sh_getentry.exit.i,
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %127 = load i32, ptr %10, align 4
   %128 = zext i32 %127 to i64
-  %129 = icmp ult i64 %indvars.iv.next173, %128
+  %129 = icmp samesign ult i64 %indvars.iv.next173, %128
   br i1 %129, label %24, label %.preheader.loopexit, !llvm.loop !12
 
 130:                                              ; preds = %.lr.ph159, %.loopexit
@@ -1697,7 +1697,7 @@ sh_getentry.exit116:                              ; preds = %.critedge
   %181 = getelementptr inbounds i8, ptr %180, i64 164
   %182 = load i32, ptr %181, align 4
   %183 = zext i32 %182 to i64
-  %184 = icmp ult i64 %indvars.iv.next181, %183
+  %184 = icmp samesign ult i64 %indvars.iv.next181, %183
   br i1 %184, label %130, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
@@ -2231,7 +2231,7 @@ multi_timeout.exit:                               ; preds = %._crit_edge, %29, %
   %80 = add nuw nsw i64 %.0115176, 1
   %81 = load i32, ptr %62, align 4
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %80, %82
+  %83 = icmp samesign ult i64 %80, %82
   br i1 %83, label %.lr.ph178, label %._crit_edge179, !llvm.loop !18
 
 ._crit_edge179:                                   ; preds = %79, %64

@@ -213,9 +213,9 @@ if.end13:                                         ; preds = %if.then10, %for.bod
 if.end19:                                         ; preds = %if.end13
   %fInputLen = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %dsti.1, ptr %fInputLen, align 8
-  %cmp20 = icmp ult i32 %openTags.2, 5
+  %cmp20 = icmp samesign ult i32 %openTags.2, 5
   %div = udiv i32 %openTags.2, 5
-  %cmp21 = icmp ult i32 %div, %badTags.2
+  %cmp21 = icmp samesign ult i32 %div, %badTags.2
   %or.cond = select i1 %cmp20, i1 true, i1 %cmp21
   br i1 %or.cond, label %if.then27, label %lor.lhs.false22
 

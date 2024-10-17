@@ -1252,20 +1252,20 @@ _ZN4llvm3vfs18directory_iteratorD2Ev.exit11:      ; preds = %_ZN4llvm3vfs18direc
   br i1 %109, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread30, label %110
 
 110:                                              ; preds = %108
-  %111 = icmp ult i32 %90, %100
+  %111 = icmp samesign ult i32 %90, %100
   br i1 %111, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %112
 
 112:                                              ; preds = %110
-  %113 = icmp ult i32 %100, %90
+  %113 = icmp samesign ult i32 %100, %90
   br i1 %113, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread30, label %114
 
 114:                                              ; preds = %112
-  %115 = icmp ult i32 %92, %103
+  %115 = icmp samesign ult i32 %92, %103
   br i1 %115, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
 
 _ZN4llvmgtERKNS_12VersionTupleES2_.exit:          ; preds = %114
-  %116 = icmp uge i32 %103, %92
-  %117 = icmp ult i32 %95, %106
+  %116 = icmp samesign uge i32 %103, %92
+  %117 = icmp samesign ult i32 %95, %106
   %spec.select.i.i = select i1 %116, i1 %117, i1 false
   br i1 %spec.select.i.i, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread30
 

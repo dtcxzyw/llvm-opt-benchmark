@@ -951,7 +951,7 @@ for.inc:                                          ; preds = %if.then.i.i, %if.el
   %inc = add nuw nsw i64 %i.09, 1
   %12 = load i32, ptr %num_entries_, align 4
   %conv4 = zext i32 %12 to i64
-  %cmp5 = icmp ult i64 %inc, %conv4
+  %cmp5 = icmp samesign ult i64 %inc, %conv4
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !4
 
 lpad.loopexit:                                    ; preds = %if.else.i.i

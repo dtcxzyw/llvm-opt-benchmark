@@ -89,7 +89,7 @@ Aig_ManObj.exit:                                  ; preds = %21, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = lshr i32 %23, 29
   %58 = zext nneg i32 %57 to i64
-  %59 = icmp ult i64 %indvars.iv.next, %58
+  %59 = icmp samesign ult i64 %indvars.iv.next, %58
   br i1 %59, label %21, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %55, %3
@@ -299,7 +299,7 @@ Aig_ManObj.exit.i:                                ; preds = %54, %49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %85 = lshr i32 %51, 29
   %86 = zext nneg i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next.i, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next.i, %86
   br i1 %87, label %49, label %Cnf_CutAssignAreaFlow.exit, !llvm.loop !4
 
 Cnf_CutAssignAreaFlow.exit:                       ; preds = %83, %34
@@ -324,7 +324,7 @@ Cnf_CutAssignAreaFlow.exit:                       ; preds = %83, %34
   %100 = and i32 %99, 2047
   %101 = lshr i32 %88, 16
   %102 = and i32 %101, 2047
-  %103 = icmp ult i32 %100, %102
+  %103 = icmp samesign ult i32 %100, %102
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %96, %91, %Cnf_CutAssignAreaFlow.exit
@@ -337,7 +337,7 @@ Cnf_CutAssignAreaFlow.exit:                       ; preds = %83, %34
   %108 = load i64, ptr %20, align 8
   %109 = lshr i64 %108, 56
   %110 = trunc nuw nsw i64 %109 to i32
-  %111 = icmp ult i32 %106, %110
+  %111 = icmp samesign ult i32 %106, %110
   br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %105

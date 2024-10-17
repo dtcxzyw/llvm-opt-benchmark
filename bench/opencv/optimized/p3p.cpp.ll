@@ -3115,11 +3115,11 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nocapture non
   br i1 %41, label %156, label %42
 
 42:                                               ; preds = %23
-  %43 = icmp ult i32 %.0187215, 3
+  %43 = icmp samesign ult i32 %.0187215, 3
   %44 = fmul double %40, 2.000000e-01
   %45 = fmul double %44, 6.250000e-02
   %46 = select i1 %43, double %45, double 0.000000e+00
-  %47 = icmp ugt i32 %.0187215, 3
+  %47 = icmp samesign ugt i32 %.0187215, 3
   br label %.lr.ph212
 
 .loopexit199:                                     ; preds = %.loopexit
@@ -3230,7 +3230,7 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nocapture non
   br label %106
 
 .preheader198:                                    ; preds = %106, %89
-  %.not.not195203 = icmp ult i64 %indvars.iv.next237, %indvars.iv224
+  %.not.not195203 = icmp samesign ult i64 %indvars.iv.next237, %indvars.iv224
   br i1 %.not.not195203, label %.lr.ph205, label %.preheader197
 
 .lr.ph205:                                        ; preds = %.preheader198
@@ -3259,7 +3259,7 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nocapture non
   br i1 %exitcond.not, label %.preheader198, label %106, !llvm.loop !31
 
 .preheader197:                                    ; preds = %121, %.preheader198
-  %119 = icmp ult i64 %indvars.iv224, 3
+  %119 = icmp samesign ult i64 %indvars.iv224, 3
   %120 = fneg double %101
   br i1 %119, label %.lr.ph207, label %.preheader.preheader
 

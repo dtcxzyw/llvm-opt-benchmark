@@ -1253,7 +1253,7 @@ if.end12:                                         ; preds = %if.then10.if.end12_
   %shr.i.i.i.i = sext i16 %15 to i32
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %13, i32 %shr.i.i.i.i
   %16 = zext i32 %cond.i.i.i to i64
-  %cmp.i.i29 = icmp ult i64 %indvars.iv, %16
+  %cmp.i.i29 = icmp samesign ult i64 %indvars.iv, %16
   br i1 %cmp.i.i29, label %if.then.i.i, label %invoke.cont14
 
 if.then.i.i:                                      ; preds = %if.end12

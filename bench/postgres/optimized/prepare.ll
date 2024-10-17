@@ -718,7 +718,7 @@ HashStmt.exit.i:                                  ; preds = %HashStmt.exit.i.pre
   br i1 %exitcond.not.i, label %SearchStmtCache.exit.thread, label %HashStmt.exit.i, !llvm.loop !10
 
 37:                                               ; preds = %30
-  %38 = icmp ugt i32 %.012.i, 7
+  %38 = icmp samesign ugt i32 %.012.i, 7
   br i1 %38, label %SearchStmtCache.exit.thread, label %39
 
 39:                                               ; preds = %37
@@ -843,7 +843,7 @@ HashStmt.exit.i33:                                ; preds = %._crit_edge.loopexi
 
 95:                                               ; preds = %82
   %96 = trunc nsw i64 %indvars.iv to i32
-  %97 = icmp ugt i32 %.03240.i, 7
+  %97 = icmp samesign ugt i32 %.03240.i, 7
   %spec.select55.i = select i1 %97, i32 %.02941.i, i32 %96
   br label %.thread.i37
 

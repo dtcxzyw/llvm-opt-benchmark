@@ -233,8 +233,8 @@ for.body:                                         ; preds = %for.cond.preheader,
   %incdec.ptr = getelementptr inbounds i8, ptr %p.049, i64 40
   %1 = load ptr, ptr %incdec.ptr, align 8
   %cmp4 = icmp ne ptr %1, null
-  %cmp5 = icmp ult i64 %list1_sz.150, 127
-  %2 = and i1 %cmp4, %cmp5
+  %cmp5 = icmp samesign ult i64 %list1_sz.150, 127
+  %2 = select i1 %cmp4, i1 %cmp5, i1 false
   br i1 %2, label %for.body, label %if.end6, !llvm.loop !6
 
 if.end6:                                          ; preds = %for.body, %for.cond.preheader, %if.end
@@ -257,8 +257,8 @@ for.body16:                                       ; preds = %for.cond10.preheade
   %incdec.ptr20 = getelementptr inbounds i8, ptr %p.152, i64 40
   %4 = load ptr, ptr %incdec.ptr20, align 8
   %cmp12 = icmp ne ptr %4, null
-  %cmp14 = icmp ult i64 %list2_sz.153, 127
-  %5 = and i1 %cmp12, %cmp14
+  %cmp14 = icmp samesign ult i64 %list2_sz.153, 127
+  %5 = select i1 %cmp12, i1 %cmp14, i1 false
   br i1 %5, label %for.body16, label %if.end22, !llvm.loop !7
 
 if.end22:                                         ; preds = %for.body16, %for.cond10.preheader, %if.end6

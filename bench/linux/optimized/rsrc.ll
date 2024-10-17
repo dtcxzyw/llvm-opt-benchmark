@@ -192,7 +192,7 @@ define dso_local void @io_rsrc_node_ref_zero(ptr nocapture noundef readonly %0) 
   %52 = add nuw nsw i64 %49, 1
   %53 = load i32, ptr %43, align 8
   %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %52, %54
+  %55 = icmp samesign ult i64 %52, %54
   br i1 %55, label %48, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %48, %42
@@ -1318,7 +1318,7 @@ define dso_local noundef i32 @io_files_update(ptr noundef %0, i32 noundef %1) lo
   %44 = add nuw nsw i64 %25, 1
   %45 = load i32, ptr %22, align 8
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %44, %46
+  %47 = icmp samesign ult i64 %44, %46
   br i1 %47, label %.preheader, label %..loopexit.loopexit_crit_edge, !llvm.loop !39
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %43
@@ -1915,7 +1915,7 @@ define dso_local void @__io_sqe_buffers_unregister(ptr nocapture noundef %0) loc
   %25 = add nuw nsw i64 %22, 1
   %26 = load i32, ptr %16, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %25, %27
+  %28 = icmp samesign ult i64 %25, %27
   br i1 %28, label %21, label %.loopexit7, !llvm.loop !14
 
 .loopexit7:                                       ; preds = %21, %15
@@ -1953,7 +1953,7 @@ define dso_local void @__io_sqe_buffers_unregister(ptr nocapture noundef %0) loc
   %44 = add nuw nsw i64 %10, 1
   %45 = load i32, ptr %2, align 4
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %44, %46
+  %47 = icmp samesign ult i64 %44, %46
   br i1 %47, label %9, label %.loopexit8, !llvm.loop !47
 
 .loopexit8:                                       ; preds = %43, %1
@@ -2025,7 +2025,7 @@ define internal fastcc void @io_buffer_unmap(ptr nocapture noundef readonly %0, 
   %15 = add nuw nsw i64 %12, 1
   %16 = load i32, ptr %6, align 8
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %15, %17
+  %18 = icmp samesign ult i64 %15, %17
   br i1 %18, label %11, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %11, %5

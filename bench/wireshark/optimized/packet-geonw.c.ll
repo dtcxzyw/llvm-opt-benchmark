@@ -2295,7 +2295,7 @@ dissect_secured_message.exit:                     ; preds = %.lr.ph20.i, %112, %
 
 446:                                              ; preds = %442
   %447 = and i32 %444, 15
-  %448 = icmp ult i32 %447, 3
+  %448 = icmp samesign ult i32 %447, 3
   br i1 %448, label %449, label %459
 
 449:                                              ; preds = %446
@@ -2304,13 +2304,13 @@ dissect_secured_message.exit:                     ; preds = %.lr.ph20.i, %112, %
 
 451:                                              ; preds = %449
   %452 = and i32 %444, 240
-  %453 = icmp ugt i32 %452, 48
+  %453 = icmp samesign ugt i32 %452, 48
   br i1 %453, label %454, label %459
 
 454:                                              ; preds = %451
   %455 = icmp eq i32 %447, 1
-  %456 = icmp ult i32 %452, 67
-  %or.cond564 = or i1 %455, %456
+  %456 = icmp samesign ult i32 %452, 67
+  %or.cond564 = select i1 %455, i1 true, i1 %456
   br i1 %or.cond564, label %457, label %459
 
 457:                                              ; preds = %454, %449

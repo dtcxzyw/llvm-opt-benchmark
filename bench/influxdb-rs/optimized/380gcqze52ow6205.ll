@@ -10528,7 +10528,7 @@ define void @"_ZN110_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, ptr } @"_ZN81_$LT$influxdb3_server..http..AuthorizationError$u20$as$u20$core..error..Error$GT$6source17h9081ee28b90a18cbE"(ptr noalias noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1, !range !292, !noundef !4
-  %switch = icmp ult i8 %2, 2
+  %switch = icmp samesign ult i8 %2, 2
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %spec.select = select i1 %switch, ptr null, ptr %3
   %4 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0

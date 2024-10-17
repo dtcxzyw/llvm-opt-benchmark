@@ -4188,7 +4188,7 @@ Vec_IntFillExtra.exit:                            ; preds = %Vec_IntStart.exit, 
 
 73:                                               ; preds = %59, %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %74 = icmp ult i64 %indvars.iv.next, %58
+  %74 = icmp samesign ult i64 %indvars.iv.next, %58
   br i1 %74, label %59, label %.critedge, !llvm.loop !54
 
 .critedge:                                        ; preds = %73, %Vec_IntFillExtra.exit
@@ -6154,13 +6154,13 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit, 
   %45 = getelementptr i8, ptr %0, i64 16
   %.val95113 = load i32, ptr %45, align 8
   %46 = icmp sgt i32 %.val95113, 0
-  %47 = icmp ugt i32 %38, 1
+  %47 = icmp samesign ugt i32 %38, 1
   %48 = select i1 %46, i1 %47, i1 false
   br i1 %48, label %.lr.ph.split, label %._crit_edge
 
 .critedge.thread:                                 ; preds = %Vec_IntAlloc.exit
   %49 = icmp sgt i32 %.val95113117, 0
-  %50 = icmp ugt i32 %38, 1
+  %50 = icmp samesign ugt i32 %38, 1
   %51 = select i1 %49, i1 %50, i1 false
   br i1 %51, label %.lr.ph.split.us, label %.critedge92.thread
 

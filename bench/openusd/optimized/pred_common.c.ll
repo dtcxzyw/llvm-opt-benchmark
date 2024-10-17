@@ -725,7 +725,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p(ptr nocap
   %26 = zext i8 %25 to i32
   %27 = add nuw nsw i32 %23, %26
   %28 = icmp eq i32 %16, %27
-  %29 = icmp ult i32 %16, %27
+  %29 = icmp samesign ult i32 %16, %27
   %30 = select i1 %29, i32 0, i32 2
   %31 = select i1 %28, i32 1, i32 %30
   ret i32 %31
@@ -744,7 +744,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p1(ptr noca
   %10 = zext i8 %9 to i32
   %11 = add nuw nsw i32 %10, %7
   %12 = icmp eq i32 %11, %4
-  %13 = icmp ugt i32 %11, %4
+  %13 = icmp samesign ugt i32 %11, %4
   %14 = select i1 %13, i32 0, i32 2
   %15 = select i1 %12, i32 1, i32 %14
   ret i32 %15
@@ -780,7 +780,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_ref_p(ptr nocapture
   %14 = zext i8 %13 to i32
   %15 = add nuw nsw i32 %14, %11
   %16 = icmp eq i32 %8, %15
-  %17 = icmp ult i32 %8, %15
+  %17 = icmp samesign ult i32 %8, %15
   %18 = select i1 %17, i32 0, i32 2
   %19 = select i1 %16, i32 1, i32 %18
   ret i32 %19
@@ -825,7 +825,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_bwdref_p(ptr nocapt
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = icmp eq i32 %8, %11
-  %13 = icmp ult i32 %8, %11
+  %13 = icmp samesign ult i32 %8, %11
   %14 = select i1 %13, i32 0, i32 2
   %15 = select i1 %12, i32 1, i32 %14
   ret i32 %15
@@ -873,7 +873,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p1(ptr nocapt
   %26 = zext i8 %25 to i32
   %27 = add nuw nsw i32 %23, %26
   %28 = icmp eq i32 %16, %27
-  %29 = icmp ult i32 %16, %27
+  %29 = icmp samesign ult i32 %16, %27
   %30 = select i1 %29, i32 0, i32 2
   %31 = select i1 %28, i32 1, i32 %30
   ret i32 %31
@@ -892,7 +892,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p2(ptr nocapt
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = icmp eq i32 %8, %11
-  %13 = icmp ult i32 %8, %11
+  %13 = icmp samesign ult i32 %8, %11
   %14 = select i1 %13, i32 0, i32 2
   %15 = select i1 %12, i32 1, i32 %14
   ret i32 %15
@@ -915,7 +915,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p3(ptr nocapt
   %14 = zext i8 %13 to i32
   %15 = add nuw nsw i32 %14, %11
   %16 = icmp eq i32 %8, %15
-  %17 = icmp ult i32 %8, %15
+  %17 = icmp samesign ult i32 %8, %15
   %18 = select i1 %17, i32 0, i32 2
   %19 = select i1 %16, i32 1, i32 %18
   ret i32 %19

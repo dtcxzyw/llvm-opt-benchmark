@@ -3551,7 +3551,7 @@ rb_array_len.exit:                                ; preds = %14
 rb_array_len.exit.thread:                         ; preds = %14
   %19 = lshr i64 %15, 15
   %20 = and i64 %19, 127
-  %21 = icmp ult i64 %.0, %20
+  %21 = icmp samesign ult i64 %.0, %20
   br i1 %21, label %RARRAY_AREF.exit, label %30
 
 22:                                               ; preds = %rb_array_len.exit

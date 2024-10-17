@@ -5818,7 +5818,7 @@ define dso_local i64 @_ZN5clang4Sema25PerformImplicitConversionEPNS_4ExprENS_8Qu
 14:                                               ; preds = %5
   %15 = load i32, ptr %12, align 16
   %16 = and i32 %15, 267911168
-  %17 = icmp ult i32 %16, 256901121
+  %17 = icmp samesign ult i32 %16, 256901121
   %18 = icmp eq i32 %16, 257425408
   %or.cond = or i1 %17, %18
   br i1 %or.cond, label %25, label %19
@@ -5904,7 +5904,7 @@ define internal fastcc noundef zeroext i1 @_ZL27checkPlaceholderForOverloadRN5cl
 11:                                               ; preds = %3
   %12 = load i32, ptr %9, align 16
   %13 = and i32 %12, 267911168
-  %14 = icmp ugt i32 %13, 256901120
+  %14 = icmp samesign ugt i32 %13, 256901120
   br i1 %14, label %_ZNK5clang4Type20getAsPlaceholderTypeEv.exit, label %_ZNK5clang4Type20getAsPlaceholderTypeEv.exit.thread
 
 _ZNK5clang4Type20getAsPlaceholderTypeEv.exit:     ; preds = %11
@@ -15348,7 +15348,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang17OverloadCandidateELb1EE9push_backES3
   br i1 %.not.i.i.i.i.i22, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPN5clang17OverloadCandidateES2_EC2ES3_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !47
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %301
@@ -21203,7 +21203,7 @@ define dso_local i64 @_ZN5clang4Sema32PerformContextuallyConvertToBoolEPNS_4Expr
 13:                                               ; preds = %2
   %14 = load i32, ptr %11, align 16
   %15 = and i32 %14, 267911168
-  %16 = icmp ult i32 %15, 256901121
+  %16 = icmp samesign ult i32 %15, 256901121
   %17 = icmp eq i32 %15, 257425408
   %or.cond = or i1 %16, %17
   br i1 %or.cond, label %24, label %18
@@ -21397,7 +21397,7 @@ define internal fastcc i64 @_ZL32BuildConvertedConstantExpressionRN5clang4SemaEP
 36:                                               ; preds = %6
   %37 = load i32, ptr %34, align 16
   %38 = and i32 %37, 267911168
-  %39 = icmp ult i32 %38, 256901121
+  %39 = icmp samesign ult i32 %38, 256901121
   %40 = icmp eq i32 %38, 257425408
   %or.cond97 = or i1 %39, %40
   br i1 %or.cond97, label %47, label %41
@@ -22421,7 +22421,7 @@ define dso_local i64 @_ZN5clang4Sema39PerformContextuallyConvertToObjCPointerEPN
 10:                                               ; preds = %2
   %11 = load i32, ptr %8, align 16
   %12 = and i32 %11, 267911168
-  %13 = icmp ult i32 %12, 256901121
+  %13 = icmp samesign ult i32 %12, 256901121
   %14 = icmp eq i32 %12, 257425408
   %or.cond = or i1 %13, %14
   br i1 %or.cond, label %21, label %15
@@ -22767,7 +22767,7 @@ define dso_local i64 @_ZN5clang4Sema35PerformContextualImplicitConversionENS_14S
   %.not.i.i = icmp eq i8 %26, 13
   %27 = load i32, ptr %25, align 16
   %28 = and i32 %27, 267911168
-  %29 = icmp ugt i32 %28, 256901120
+  %29 = icmp samesign ugt i32 %28, 256901120
   %.0.i.i = select i1 %.not.i.i, i1 %29, i1 false
   br i1 %.0.i.i, label %30, label %36
 
@@ -28389,7 +28389,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_14DiagnoseIfAttrEN4llvm11SmallVectorI
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i17.i.i.i
   %128 = add nuw nsw i64 %storemerge26.i.i.i.i.i, 1
   %129 = lshr i64 %128, 1
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.i.i.i, 2
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.i.i.i, 2
   br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPKN5clang14DiagnoseIfAttrES3_EC2ES4_l.exit.i.i.i, label %.lr.ph.i.i17.i.i.i, !llvm.loop !133
 
 _ZNSt17_Temporary_bufferIPPKN5clang14DiagnoseIfAttrES3_EC2ES4_l.exit.i.i.i: ; preds = %select.unfold.i.i.i.i.i, %.lr.ph.i.i17.i.i.i, %121
@@ -29255,7 +29255,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_14DiagnoseIfAttrEN4llvm11SmallVectorI
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i17.i.i.i
   %125 = add nuw nsw i64 %storemerge26.i.i.i.i.i, 1
   %126 = lshr i64 %125, 1
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.i.i.i, 2
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.i.i.i, 2
   br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPKN5clang14DiagnoseIfAttrES3_EC2ES4_l.exit.i.i.i, label %.lr.ph.i.i17.i.i.i, !llvm.loop !133
 
 _ZNSt17_Temporary_bufferIPPKN5clang14DiagnoseIfAttrES3_EC2ES4_l.exit.i.i.i: ; preds = %select.unfold.i.i.i.i.i, %.lr.ph.i.i17.i.i.i, %118
@@ -34643,7 +34643,7 @@ _ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilderC2ERN5clang4SemaEN4llvm8ArrayRe
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %880 = load i32, ptr %713, align 4
   %881 = zext i32 %880 to i64
-  %882 = icmp ult i64 %indvars.iv.next.i, %881
+  %882 = icmp samesign ult i64 %indvars.iv.next.i, %881
   br i1 %882, label %875, label %._crit_edge.i, !llvm.loop !181
 
 ._crit_edge.i:                                    ; preds = %875, %870
@@ -35015,7 +35015,7 @@ _ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder36addBinaryPlusOrMinusPointerOv
   %1038 = phi i32 [ %1022, %.lr.ph.split.us.i ], [ %.pre21.i, %1031 ]
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %1039 = zext i32 %1038 to i64
-  %1040 = icmp ult i64 %indvars.iv.next16.i, %1039
+  %1040 = icmp samesign ult i64 %indvars.iv.next16.i, %1039
   br i1 %1040, label %.lr.ph.split.us.i, label %_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder40addPlusPlusMinusMinusArithmeticOverloadsEN5clang22OverloadedOperatorKindE.exit, !llvm.loop !186
 
 .lr.ph.split.us9.i:                               ; preds = %.lr.ph.i72, %1061
@@ -35054,7 +35054,7 @@ _ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder36addBinaryPlusOrMinusPointerOv
   %1062 = phi i32 [ %.pre.i74, %1055 ], [ %1041, %1050 ]
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i73, 1
   %1063 = zext i32 %1062 to i64
-  %1064 = icmp ult i64 %indvars.iv.next.i75, %1063
+  %1064 = icmp samesign ult i64 %indvars.iv.next.i75, %1063
   br i1 %1064, label %.lr.ph.split.us9.i, label %_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder40addPlusPlusMinusMinusArithmeticOverloadsEN5clang22OverloadedOperatorKindE.exit, !llvm.loop !186
 
 _ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder40addPlusPlusMinusMinusArithmeticOverloadsEN5clang22OverloadedOperatorKindE.exit: ; preds = %1061, %1037, %1018, %.preheader.i
@@ -35398,14 +35398,14 @@ _ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder54addEqualEqualOrNotEqualMember
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i108, 1
   %1203 = load i32, ptr %710, align 4
   %1204 = zext i32 %1203 to i64
-  %1205 = icmp ult i64 %indvars.iv.next.i112, %1204
+  %1205 = icmp samesign ult i64 %indvars.iv.next.i112, %1204
   br i1 %1205, label %1197, label %._crit_edge.i106, !llvm.loop !194
 
 ._crit_edge.i106:                                 ; preds = %1197, %.lr.ph11.split.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i105, %.lr.ph11.split.._crit_edge_crit_edge.i ], [ %1204, %1197 ]
   %1206 = phi i32 [ %1193, %.lr.ph11.split.._crit_edge_crit_edge.i ], [ %1203, %1197 ]
   %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
-  %1207 = icmp ult i64 %indvars.iv.next15.i, %.pre-phi.i
+  %1207 = icmp samesign ult i64 %indvars.iv.next15.i, %.pre-phi.i
   br i1 %1207, label %.lr.ph11.split.i, label %_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder35addBinaryBitwiseArithmeticOverloadsEv.exit, !llvm.loop !195
 
 _ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder35addBinaryBitwiseArithmeticOverloadsEv.exit: ; preds = %._crit_edge.i106, %1184, %1187
@@ -35451,7 +35451,7 @@ _ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder35addBinaryBitwiseArithmeticOve
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i125, 1
   %1224 = load i32, ptr %710, align 4
   %1225 = zext i32 %1224 to i64
-  %1226 = icmp ult i64 %indvars.iv.next.i129, %1225
+  %1226 = icmp samesign ult i64 %indvars.iv.next.i129, %1225
   br i1 %1226, label %1219, label %._crit_edge.i114, !llvm.loop !197
 
 ._crit_edge.i114:                                 ; preds = %1219, %1214
@@ -36277,7 +36277,7 @@ _ZL39AdjustAddressSpaceForBuiltinOperandTypeRN5clang4SemaENS_8QualTypeEPNS_4Expr
   %indvars.iv.next.i184 = add nuw nsw i64 %indvars.iv.i180, 1
   %1608 = load i32, ptr %713, align 4
   %1609 = zext i32 %1608 to i64
-  %1610 = icmp ult i64 %indvars.iv.next.i184, %1609
+  %1610 = icmp samesign ult i64 %indvars.iv.next.i184, %1609
   br i1 %1610, label %.preheader.i179, label %._crit_edge.loopexit.i, !llvm.loop !211
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZL39AdjustAddressSpaceForBuiltinOperandTypeRN5clang4SemaENS_8QualTypeEPNS_4ExprE.exit.i
@@ -36289,7 +36289,7 @@ _ZL39AdjustAddressSpaceForBuiltinOperandTypeRN5clang4SemaENS_8QualTypeEPNS_4Expr
   %1612 = phi i32 [ %1608, %._crit_edge.loopexit.i ], [ %1585, %.lr.ph.split.i177 ]
   %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
   %1613 = zext i32 %1611 to i64
-  %1614 = icmp ult i64 %indvars.iv.next73.i, %1613
+  %1614 = icmp samesign ult i64 %indvars.iv.next73.i, %1613
   br i1 %1614, label %.lr.ph.split.i177, label %._crit_edge57.i, !llvm.loop !212
 
 ._crit_edge57.i:                                  ; preds = %._crit_edge.i178, %.lr.ph.i170, %.preheader54.i
@@ -36462,7 +36462,7 @@ _ZL39AdjustAddressSpaceForBuiltinOperandTypeRN5clang4SemaENS_8QualTypeEPNS_4Expr
   %indvars.iv.next.i203 = add nuw nsw i64 %indvars.iv.i193, 1
   %1690 = load i32, ptr %710, align 4
   %1691 = zext i32 %1690 to i64
-  %1692 = icmp ult i64 %indvars.iv.next.i203, %1691
+  %1692 = icmp samesign ult i64 %indvars.iv.next.i203, %1691
   br i1 %1692, label %.preheader.i192, label %._crit_edge.loopexit.i204, !llvm.loop !213
 
 ._crit_edge.loopexit.i204:                        ; preds = %_ZL39AdjustAddressSpaceForBuiltinOperandTypeRN5clang4SemaENS_8QualTypeEPNS_4ExprE.exit.i199
@@ -36474,7 +36474,7 @@ _ZL39AdjustAddressSpaceForBuiltinOperandTypeRN5clang4SemaENS_8QualTypeEPNS_4Expr
   %1694 = phi i32 [ %1690, %._crit_edge.loopexit.i204 ], [ %1667, %.lr.ph.split.i189 ]
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %1695 = zext i32 %1693 to i64
-  %1696 = icmp ult i64 %indvars.iv.next18.i, %1695
+  %1696 = icmp samesign ult i64 %indvars.iv.next18.i, %1695
   br i1 %1696, label %.lr.ph.split.i189, label %_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder30addAssignmentIntegralOverloadsEv.exit, !llvm.loop !214
 
 _ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder30addAssignmentIntegralOverloadsEv.exit: ; preds = %._crit_edge.i190, %1651, %1654, %.lr.ph.i187
@@ -37482,7 +37482,7 @@ _ZNK5clang4Type6castAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i: ; preds = %214
   %238 = or i32 %230, %237
   %239 = zext i32 %238 to i64
   %.not30.us.us.i = icmp eq i64 %indvars.iv88.i, %239
-  %.not31.us.us.i = icmp ult i32 %.027.in60.us.us.i, 3
+  %.not31.us.us.i = icmp samesign ult i32 %.027.in60.us.us.i, 3
   %brmerge.us.us.i = or i1 %233, %.not31.us.us.i
   %or.cond.us.us.i = and i1 %brmerge.us.us.i, %.not30.us.us.i
   %240 = and i32 %237, 2
@@ -37511,7 +37511,7 @@ _ZNK5clang10ASTContext19getCVRQualifiedTypeENS_8QualTypeEj.exit.us.us.i: ; preds
   %247 = or i32 %230, %246
   %248 = zext i32 %247 to i64
   %.not30.us.i = icmp eq i64 %indvars.iv84.i, %248
-  %.not31.us.i = icmp ult i32 %.027.in60.us.i, 3
+  %.not31.us.i = icmp samesign ult i32 %.027.in60.us.i, 3
   %brmerge.us.i = or i1 %233, %.not31.us.i
   %or.cond.us.i = and i1 %brmerge.us.i, %.not30.us.i
   br i1 %or.cond.us.i, label %249, label %263
@@ -37561,7 +37561,7 @@ _ZNK5clang10ASTContext19getCVRQualifiedTypeENS_8QualTypeEj.exit.us.i: ; preds = 
   %265 = or i32 %230, %264
   %266 = zext i32 %265 to i64
   %.not30.us64.i = icmp eq i64 %indvars.iv80.i, %266
-  %.not31.us65.i = icmp ult i32 %.027.in60.us63.i, 3
+  %.not31.us65.i = icmp samesign ult i32 %.027.in60.us63.i, 3
   %brmerge.us66.i = or i1 %233, %.not31.us65.i
   %or.cond.us67.i = and i1 %brmerge.us66.i, %.not30.us64.i
   %267 = and i32 %264, 2
@@ -37590,7 +37590,7 @@ _ZNK5clang10ASTContext19getCVRQualifiedTypeENS_8QualTypeEj.exit.us69.i: ; preds 
   %274 = or i32 %230, %273
   %275 = zext i32 %274 to i64
   %.not30.i = icmp eq i64 %indvars.iv.i, %275
-  %.not31.i = icmp ult i32 %.027.in60.i, 3
+  %.not31.i = icmp samesign ult i32 %.027.in60.i, 3
   %brmerge.i = or i1 %233, %.not31.i
   %or.cond.i = and i1 %brmerge.i, %.not30.i
   br i1 %or.cond.i, label %276, label %290
@@ -37880,14 +37880,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load i32, ptr %10, align 4
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %22, label %._crit_edge, !llvm.loop !226
 
 ._crit_edge:                                      ; preds = %22, %.lr.ph37.split.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.lr.ph37.split.._crit_edge_crit_edge ], [ %29, %22 ]
   %31 = phi i32 [ %18, %.lr.ph37.split.._crit_edge_crit_edge ], [ %28, %22 ]
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %32 = icmp ult i64 %indvars.iv.next51, %.pre-phi
+  %32 = icmp samesign ult i64 %indvars.iv.next51, %.pre-phi
   br i1 %32, label %.lr.ph37.split, label %._crit_edge38, !llvm.loop !227
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %7
@@ -38853,14 +38853,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %9, align 4
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %29, label %21, label %._crit_edge, !llvm.loop !194
 
 ._crit_edge:                                      ; preds = %21, %.lr.ph11.split.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.lr.ph11.split.._crit_edge_crit_edge ], [ %28, %21 ]
   %30 = phi i32 [ %17, %.lr.ph11.split.._crit_edge_crit_edge ], [ %27, %21 ]
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
-  %31 = icmp ult i64 %indvars.iv.next15, %.pre-phi
+  %31 = icmp samesign ult i64 %indvars.iv.next15, %.pre-phi
   br i1 %31, label %.lr.ph11.split, label %.loopexit, !llvm.loop !195
 
 .loopexit:                                        ; preds = %._crit_edge, %6, %1
@@ -39841,7 +39841,7 @@ _ZN5clang4Decl14getDeclContextEv.exit323:         ; preds = %_ZN5clang4Decl14get
   br i1 %.not256, label %309, label %307
 
 307:                                              ; preds = %.thread354
-  %308 = icmp ult i8 %304, %306
+  %308 = icmp samesign ult i8 %304, %306
   br label %_ZN4llvm16dyn_cast_or_nullIN5clang18CXXConstructorDeclENS1_12FunctionDeclEEEDaPT0_.exit336.thread
 
 309:                                              ; preds = %.thread354
@@ -40155,7 +40155,7 @@ switch.lookup:                                    ; preds = %._crit_edge, %_ZL45
   %44 = zext nneg i32 %43 to i64
   %switch.gep128 = getelementptr inbounds [6 x i32], ptr @switch.table._ZL34CompareImplicitConversionSequencesRN5clang4SemaENS_14SourceLocationERKNS_26ImplicitConversionSequenceES5_.133, i64 0, i64 %44
   %switch.load129 = load i32, ptr %switch.gep128, align 4
-  %45 = icmp ult i32 %switch.load, %switch.load129
+  %45 = icmp samesign ult i32 %switch.load, %switch.load129
   br i1 %45, label %_ZN4llvm5APIntD2Ev.exit112, label %switch.lookup124
 
 switch.lookup124:                                 ; preds = %switch.lookup
@@ -40165,7 +40165,7 @@ switch.lookup124:                                 ; preds = %switch.lookup
   %47 = zext nneg i32 %40 to i64
   %switch.gep131 = getelementptr inbounds [6 x i32], ptr @switch.table._ZL34CompareImplicitConversionSequencesRN5clang4SemaENS_14SourceLocationERKNS_26ImplicitConversionSequenceES5_.133, i64 0, i64 %47
   %switch.load132 = load i32, ptr %switch.gep131, align 4
-  %48 = icmp ult i32 %switch.load126, %switch.load132
+  %48 = icmp samesign ult i32 %switch.load126, %switch.load132
   br i1 %48, label %_ZN4llvm5APIntD2Ev.exit112, label %49
 
 49:                                               ; preds = %switch.lookup124
@@ -43527,7 +43527,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %167
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %167
-  %192 = icmp ult i64 %181, %186
+  %192 = icmp samesign ult i64 %181, %186
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 _ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %191, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i
@@ -47603,7 +47603,7 @@ switch.lookup:                                    ; preds = %47
   %54 = ashr exact i64 %sext46, 56
   %switch.gep44 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %54
   %switch.load45 = load i32, ptr %switch.gep44, align 4
-  %55 = icmp ult i32 %switch.load, %switch.load45
+  %55 = icmp samesign ult i32 %switch.load, %switch.load45
   br i1 %55, label %.lr.ph.i.backedge.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_.exit.i.i.i.i.i.i
 
 .lr.ph.i.backedge.i.i.i.i.i.i:                    ; preds = %..lr.ph.i.backedge_crit_edge.i.i.i.i.i.i, %63, %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.thread.i.i.i.i.i.i.i, %switch.lookup
@@ -53879,7 +53879,7 @@ define dso_local i64 @_ZN5clang4Sema23CreateOverloadedUnaryOpENS_14SourceLocatio
 49:                                               ; preds = %6
   %50 = load i32, ptr %47, align 16
   %51 = and i32 %50, 267911168
-  %52 = icmp ult i32 %51, 256901121
+  %52 = icmp samesign ult i32 %51, 256901121
   %53 = icmp eq i32 %51, 257425408
   %or.cond259 = or i1 %52, %53
   br i1 %or.cond259, label %60, label %54
@@ -55290,7 +55290,7 @@ _ZN5clang4Sema21CurFPFeatureOverridesEv.exit268:  ; preds = %138, %151
 175:                                              ; preds = %168
   %176 = load i32, ptr %173, align 16
   %177 = and i32 %176, 267911168
-  %178 = icmp ult i32 %177, 256901121
+  %178 = icmp samesign ult i32 %177, 256901121
   %179 = icmp eq i32 %177, 257425408
   %or.cond518 = or i1 %178, %179
   br i1 %or.cond518, label %186, label %180
@@ -55321,7 +55321,7 @@ _ZN5clang4Sema21CurFPFeatureOverridesEv.exit268:  ; preds = %138, %151
 194:                                              ; preds = %186
   %195 = load i32, ptr %192, align 16
   %196 = and i32 %195, 267911168
-  %197 = icmp ult i32 %196, 256901121
+  %197 = icmp samesign ult i32 %196, 256901121
   %198 = icmp eq i32 %196, 257425408
   %or.cond520 = or i1 %197, %198
   br i1 %or.cond520, label %205, label %199
@@ -61613,7 +61613,7 @@ define dso_local i64 @_ZN5clang4Sema28BuildCallToObjectOfClassTypeEPNS_5ScopeEPN
 53:                                               ; preds = %7
   %54 = load i32, ptr %51, align 16
   %55 = and i32 %54, 267911168
-  %56 = icmp ult i32 %55, 256901121
+  %56 = icmp samesign ult i32 %55, 256901121
   %57 = icmp eq i32 %55, 257425408
   %or.cond339 = or i1 %56, %57
   br i1 %or.cond339, label %64, label %58
@@ -63078,7 +63078,7 @@ define dso_local i64 @_ZN5clang4Sema24BuildOverloadedArrowExprEPNS_5ScopeEPNS_4E
 47:                                               ; preds = %5
   %48 = load i32, ptr %45, align 16
   %49 = and i32 %48, 267911168
-  %50 = icmp ult i32 %49, 256901121
+  %50 = icmp samesign ult i32 %49, 256901121
   %51 = icmp eq i32 %49, 257425408
   %or.cond = or i1 %50, %51
   br i1 %or.cond, label %58, label %52
@@ -65466,7 +65466,7 @@ define internal fastcc noundef zeroext i1 @_ZL19FunctionsCorrespondRN5clang10AST
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #26
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %16, label %._crit_edge, !llvm.loop !335
 
 16:                                               ; preds = %.lr.ph, %12
@@ -71287,7 +71287,7 @@ _ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11Failure
   %244 = load i64, ptr %243, align 8, !noalias !361
   %245 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %242, ptr %245, align 8, !alias.scope !361
-  %246 = icmp ult i32 %242, 65
+  %246 = icmp samesign ult i32 %242, 65
   br i1 %246, label %247, label %255
 
 247:                                              ; preds = %240
@@ -71405,7 +71405,7 @@ _ZN4llvm5APIntD2Ev.exit.thread:                   ; preds = %.thread321, %.threa
   %297 = load i64, ptr %296, align 8, !noalias !364
   %298 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %295, ptr %298, align 8, !alias.scope !364
-  %299 = icmp ult i32 %295, 65
+  %299 = icmp samesign ult i32 %295, 65
   br i1 %299, label %300, label %308
 
 300:                                              ; preds = %293
@@ -72916,7 +72916,7 @@ define linkonce_odr hidden void @_ZNK5clang17ConstantArrayType7getSizeEv(ptr dea
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %18, ptr %21, align 8
-  %22 = icmp ult i32 %18, 65
+  %22 = icmp samesign ult i32 %18, 65
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %16
@@ -85181,7 +85181,7 @@ _ZNK12_GLOBAL__N_135CompareOverloadCandidatesForDisplay20EffectiveFailureKindEPK
   br label %.thread119
 
 82:                                               ; preds = %60
-  %83 = icmp ult i32 %66, %71
+  %83 = icmp samesign ult i32 %66, %71
   br label %.thread119
 
 84:                                               ; preds = %_ZNK12_GLOBAL__N_135CompareOverloadCandidatesForDisplay20EffectiveFailureKindEPKN5clang17OverloadCandidateE.exit98
@@ -85251,7 +85251,7 @@ _ZNK12_GLOBAL__N_135CompareOverloadCandidatesForDisplay20EffectiveFailureKindEPK
   br i1 %.not85, label %.thread, label %118
 
 118:                                              ; preds = %115
-  %119 = icmp ult i32 %116, %117
+  %119 = icmp samesign ult i32 %116, %117
   br label %.thread119
 
 120:                                              ; preds = %105
@@ -86738,7 +86738,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPPN5clang21TemplateSpecCandi
   %18 = load ptr, ptr %17, align 8
   %19 = add nsw i64 %14, -1
   %20 = lshr i64 %19, 1
-  %21 = icmp ult i64 %16, %20
+  %21 = icmp samesign ult i64 %16, %20
   br i1 %21, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
@@ -86812,11 +86812,11 @@ _ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Ite
   br label %.split15.i.i.i
 
 .split15.i.i.i:                                   ; preds = %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i, %.split15.lr.ph.i.i.i
-  %.066.i.i.i = phi i64 [ %16, %.split15.lr.ph.i.i.i ], [ %55, %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i ]
-  %55 = add nsw i64 %.066.i.i.i, -1
+  %.067.i.i.i = phi i64 [ %16, %.split15.lr.ph.i.i.i ], [ %55, %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i ]
+  %55 = add nsw i64 %.067.i.i.i, -1
   %56 = getelementptr inbounds ptr, ptr %0, i64 %55
   %57 = load ptr, ptr %56, align 8
-  %.not.i.i.i = icmp sgt i64 %.066.i.i.i, %20
+  %.not.i.i.i = icmp sgt i64 %.067.i.i.i, %20
   br i1 %.not.i.i.i, label %._crit_edge.i18.i.i.i, label %.lr.ph.i27.i.i.i
 
 .lr.ph.i27.i.i.i:                                 ; preds = %.split15.i.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread.i.i.i
@@ -86854,7 +86854,7 @@ switch.lookup:                                    ; preds = %64
   %72 = ashr exact i64 %sext134, 56
   %switch.gep108 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %72
   %switch.load109 = load i32, ptr %switch.gep108, align 4
-  %73 = icmp ult i32 %switch.load, %switch.load109
+  %73 = icmp samesign ult i32 %switch.load, %switch.load109
   br i1 %73, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread53.i.i.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread.i.i.i
 
 74:                                               ; preds = %64
@@ -86888,8 +86888,8 @@ _ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i47.i.i.i: 
   br i1 %84, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread53.i.i.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread.i.i.i
 
 _ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.i.i.i: ; preds = %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit.i43.i.i.i
-  %.not62.i.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i.i44.fr.i.i.i, 0
-  br i1 %.not62.i.i.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread.i.i.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread53.i.i.i
+  %.not63.i.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i.i44.fr.i.i.i, 0
+  br i1 %.not63.i.i.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread.i.i.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread53.i.i.i
 
 _ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread53.i.i.i: ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.i.i.i, %82, %80, %switch.lookup
   br label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread.i.i.i
@@ -86906,8 +86906,8 @@ _ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21Template
 ._crit_edge.i18.i.i.i:                            ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread.i.i.i, %.split15.i.i.i
   %.0.lcssa.i19.i.i.i = phi i64 [ %55, %.split15.i.i.i ], [ %85, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread.i.i.i ]
   %90 = icmp eq i64 %.0.lcssa.i19.i.i.i, %34
-  %or.cond61.i.i.i = select i1 %33, i1 %90, i1 false
-  br i1 %or.cond61.i.i.i, label %91, label %93
+  %or.cond62.i.i.i = select i1 %33, i1 %90, i1 false
+  br i1 %or.cond62.i.i.i, label %91, label %93
 
 91:                                               ; preds = %._crit_edge.i18.i.i.i
   %92 = load ptr, ptr %53, align 8
@@ -86916,16 +86916,16 @@ _ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21Template
 
 93:                                               ; preds = %91, %._crit_edge.i18.i.i.i
   %.128.i20.i.i.i = phi i64 [ %52, %91 ], [ %.0.lcssa.i19.i.i.i, %._crit_edge.i18.i.i.i ]
-  %.not63.i.i.i = icmp slt i64 %.128.i20.i.i.i, %.066.i.i.i
-  br i1 %.not63.i.i.i, label %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i, label %.lr.ph.i.i22.preheader.i.i.i
+  %.not64.i.i.i = icmp slt i64 %.128.i20.i.i.i, %.067.i.i.i
+  br i1 %.not64.i.i.i, label %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i, label %.lr.ph.i.i22.preheader.i.i.i
 
 .lr.ph.i.i22.preheader.i.i.i:                     ; preds = %93
   %94 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %95 = getelementptr i8, ptr %57, i64 8
   br label %.lr.ph.i.i22.i.i.i
 
-.lr.ph.i.i22.i.i.i:                               ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread57.i.i.i, %.lr.ph.i.i22.preheader.i.i.i
-  %.0133.i.i23.i.i.i = phi i64 [ %.04.i.i25.i.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread57.i.i.i ], [ %.128.i20.i.i.i, %.lr.ph.i.i22.preheader.i.i.i ]
+.lr.ph.i.i22.i.i.i:                               ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58.i.i.i, %.lr.ph.i.i22.preheader.i.i.i
+  %.0133.i.i23.i.i.i = phi i64 [ %.04.i.i25.i.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58.i.i.i ], [ %.128.i20.i.i.i, %.lr.ph.i.i22.preheader.i.i.i ]
   %.04.in.i.i24.i.i.i = add nsw i64 %.0133.i.i23.i.i.i, -1
   %.04.i.i25.i.i.i = sdiv i64 %.04.in.i.i24.i.i.i, 2
   %96 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i25.i.i.i
@@ -86955,8 +86955,8 @@ switch.lookup86:                                  ; preds = %98
   %105 = ashr exact i64 %sext136, 56
   %switch.gep112 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %105
   %switch.load113 = load i32, ptr %switch.gep112, align 4
-  %106 = icmp ult i32 %switch.load89, %switch.load113
-  br i1 %106, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread57.i.i.i, label %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i
+  %106 = icmp samesign ult i32 %switch.load89, %switch.load113
+  br i1 %106, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58.i.i.i, label %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i
 
 107:                                              ; preds = %98
   %108 = getelementptr i8, ptr %.val14.i.i26.i.i.i, i64 8
@@ -86979,30 +86979,30 @@ _ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i.i.i.i: ; 
 
 112:                                              ; preds = %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i.i.i.i
   %113 = icmp eq i32 %.sroa.0.0.copyload.i.i20.i.i.i.i, 0
-  br i1 %113, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread57.i.i.i, label %114
+  br i1 %113, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58.i.i.i, label %114
 
 114:                                              ; preds = %112
   %115 = load ptr, ptr %10, align 8
   %116 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %115, i32 %.sroa.0.0.copyload.i.i.i.i.i.i, i32 %.sroa.0.0.copyload.i.i20.i.i.i.i) #26
-  br i1 %116, label %._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread57_crit_edge.i.i.i, label %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i
+  br i1 %116, label %._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58_crit_edge.i.i.i, label %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i
 
-._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread57_crit_edge.i.i.i: ; preds = %114
+._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58_crit_edge.i.i.i: ; preds = %114
   %.pre.i.i.i = load ptr, ptr %96, align 8
-  br label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread57.i.i.i
+  br label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58.i.i.i
 
 _ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i.i.i: ; preds = %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit.i.i.i.i
-  %.not64.i.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i.i.i, 0
-  br i1 %.not64.i.i.i, label %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread57.i.i.i
+  %.not65.i.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i.i.i, 0
+  br i1 %.not65.i.i.i, label %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58.i.i.i
 
-_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread57.i.i.i: ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i.i.i, %._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread57_crit_edge.i.i.i, %112, %switch.lookup86
-  %117 = phi ptr [ %.pre.i.i.i, %._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread57_crit_edge.i.i.i ], [ %.val14.i.i26.i.i.i, %112 ], [ %.val14.i.i26.i.i.i, %switch.lookup86 ], [ %.val14.i.i26.i.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i.i.i ]
+_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58.i.i.i: ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i.i.i, %._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58_crit_edge.i.i.i, %112, %switch.lookup86
+  %117 = phi ptr [ %.pre.i.i.i, %._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58_crit_edge.i.i.i ], [ %.val14.i.i26.i.i.i, %112 ], [ %.val14.i.i26.i.i.i, %switch.lookup86 ], [ %.val14.i.i26.i.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i.i.i ]
   %118 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i23.i.i.i
   store ptr %117, ptr %118, align 8
-  %.not65.i.i.i = icmp slt i64 %.04.i.i25.i.i.i, %.066.i.i.i
-  br i1 %.not65.i.i.i, label %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i, label %.lr.ph.i.i22.i.i.i, !llvm.loop !478
+  %.not66.i.i.i = icmp slt i64 %.04.i.i25.i.i.i, %.067.i.i.i
+  br i1 %.not66.i.i.i, label %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i, label %.lr.ph.i.i22.i.i.i, !llvm.loop !478
 
-_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i: ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread57.i.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i.i.i, %114, %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i.i.i.i, %107, %switch.lookup86, %.lr.ph.i.i22.i.i.i, %93
-  %.013.lcssa.i.i21.i.i.i = phi i64 [ %.128.i20.i.i.i, %93 ], [ %.0133.i.i23.i.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i.i.i ], [ %.04.i.i25.i.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread57.i.i.i ], [ %.0133.i.i23.i.i.i, %switch.lookup86 ], [ %.0133.i.i23.i.i.i, %114 ], [ %.0133.i.i23.i.i.i, %.lr.ph.i.i22.i.i.i ], [ %.0133.i.i23.i.i.i, %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i.i.i.i ], [ %.0133.i.i23.i.i.i, %107 ]
+_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i: ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58.i.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i.i.i, %114, %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i.i.i.i, %107, %switch.lookup86, %.lr.ph.i.i22.i.i.i, %93
+  %.013.lcssa.i.i21.i.i.i = phi i64 [ %.128.i20.i.i.i, %93 ], [ %.0133.i.i23.i.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i.i.i ], [ %.04.i.i25.i.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58.i.i.i ], [ %.0133.i.i23.i.i.i, %switch.lookup86 ], [ %.0133.i.i23.i.i.i, %114 ], [ %.0133.i.i23.i.i.i, %.lr.ph.i.i22.i.i.i ], [ %.0133.i.i23.i.i.i, %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i.i.i.i ], [ %.0133.i.i23.i.i.i, %107 ]
   %119 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i21.i.i.i
   store ptr %57, ptr %119, align 8
   %120 = icmp eq i64 %55, 0
@@ -87012,8 +87012,8 @@ _ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Ite
   br label %.lr.ph.i5.i
 
 .lr.ph.i5.i:                                      ; preds = %.lr.ph.i5.i.preheader, %_ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_SA_RT0_.exit.i9.i
-  %.010.i.i = phi ptr [ %121, %_ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_SA_RT0_.exit.i9.i ], [ %.040, %.lr.ph.i5.i.preheader ]
-  %121 = getelementptr inbounds i8, ptr %.010.i.i, i64 -8
+  %.011.i.i = phi ptr [ %121, %_ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_SA_RT0_.exit.i9.i ], [ %.040, %.lr.ph.i5.i.preheader ]
+  %121 = getelementptr inbounds i8, ptr %.011.i.i, i64 -8
   %122 = load ptr, ptr %121, align 8
   %123 = load ptr, ptr %0, align 8
   store ptr %123, ptr %121, align 8
@@ -87060,7 +87060,7 @@ switch.lookup90:                                  ; preds = %136
   %144 = ashr exact i64 %sext138, 56
   %switch.gep116 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %144
   %switch.load117 = load i32, ptr %switch.gep116, align 4
-  %145 = icmp ult i32 %switch.load93, %switch.load117
+  %145 = icmp samesign ult i32 %switch.load93, %switch.load117
   br i1 %145, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit25.thread3.i.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit25.thread.i.i
 
 146:                                              ; preds = %136
@@ -87140,8 +87140,8 @@ _ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21Template
   %177 = getelementptr i8, ptr %122, i64 8
   br label %.lr.ph.i.i.i.i11.i
 
-.lr.ph.i.i.i.i11.i:                               ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread7.i.i, %.lr.ph.i.i.i.preheader.i.i
-  %.0133.i.i.i.i12.i = phi i64 [ %.04.i.i89.i.i14.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread7.i.i ], [ %.128.i.i.i8.i, %.lr.ph.i.i.i.preheader.i.i ]
+.lr.ph.i.i.i.i11.i:                               ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread8.i.i, %.lr.ph.i.i.i.preheader.i.i
+  %.0133.i.i.i.i12.i = phi i64 [ %.04.i.i89.i.i14.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread8.i.i ], [ %.128.i.i.i8.i, %.lr.ph.i.i.i.preheader.i.i ]
   %.04.in.i.i.i.i13.i = add nsw i64 %.0133.i.i.i.i12.i, -1
   %.04.i.i89.i.i14.i = lshr i64 %.04.in.i.i.i.i13.i, 1
   %178 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i89.i.i14.i
@@ -87171,8 +87171,8 @@ switch.lookup94:                                  ; preds = %180
   %187 = ashr exact i64 %sext140, 56
   %switch.gep120 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %187
   %switch.load121 = load i32, ptr %switch.gep120, align 4
-  %188 = icmp ult i32 %switch.load97, %switch.load121
-  br i1 %188, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread7.i.i, label %_ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_SA_RT0_.exit.i9.i
+  %188 = icmp samesign ult i32 %switch.load97, %switch.load121
+  br i1 %188, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread8.i.i, label %_ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_SA_RT0_.exit.i9.i
 
 189:                                              ; preds = %180
   %190 = getelementptr i8, ptr %.val14.i.i.i.i15.i, i64 8
@@ -87195,30 +87195,30 @@ _ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i.i29.i: ; 
 
 194:                                              ; preds = %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i.i29.i
   %195 = icmp eq i32 %.sroa.0.0.copyload.i.i20.i.i30.i, 0
-  br i1 %195, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread7.i.i, label %196
+  br i1 %195, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread8.i.i, label %196
 
 196:                                              ; preds = %194
   %197 = load ptr, ptr %10, align 8
   %198 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %197, i32 %.sroa.0.0.copyload.i.i.i.i26.i, i32 %.sroa.0.0.copyload.i.i20.i.i30.i) #26
-  br i1 %198, label %._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread7_crit_edge.i.i, label %_ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_SA_RT0_.exit.i9.i
+  br i1 %198, label %._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread8_crit_edge.i.i, label %_ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_SA_RT0_.exit.i9.i
 
-._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread7_crit_edge.i.i: ; preds = %196
+._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread8_crit_edge.i.i: ; preds = %196
   %.pre.i31.i = load ptr, ptr %178, align 8
-  br label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread7.i.i
+  br label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread8.i.i
 
 _ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i32.i: ; preds = %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit.i.i25.i
-  %.not9.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i26.i, 0
-  br i1 %.not9.i.i, label %_ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_SA_RT0_.exit.i9.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread7.i.i
+  %.not10.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i26.i, 0
+  br i1 %.not10.i.i, label %_ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_SA_RT0_.exit.i9.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread8.i.i
 
-_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread7.i.i: ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i32.i, %._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread7_crit_edge.i.i, %194, %switch.lookup94
-  %199 = phi ptr [ %.pre.i31.i, %._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread7_crit_edge.i.i ], [ %.val14.i.i.i.i15.i, %194 ], [ %.val14.i.i.i.i15.i, %switch.lookup94 ], [ %.val14.i.i.i.i15.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i32.i ]
+_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread8.i.i: ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i32.i, %._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread8_crit_edge.i.i, %194, %switch.lookup94
+  %199 = phi ptr [ %.pre.i31.i, %._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread8_crit_edge.i.i ], [ %.val14.i.i.i.i15.i, %194 ], [ %.val14.i.i.i.i15.i, %switch.lookup94 ], [ %.val14.i.i.i.i15.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i32.i ]
   %200 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i.i12.i
   store ptr %199, ptr %200, align 8
   %.not.i.i22.i = icmp ult i64 %.04.in.i.i.i.i13.i, 2
   br i1 %.not.i.i22.i, label %_ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_SA_RT0_.exit.i9.i, label %.lr.ph.i.i.i.i11.i, !llvm.loop !478
 
-_ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_SA_RT0_.exit.i9.i: ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread7.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i32.i, %196, %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i.i29.i, %189, %switch.lookup94, %.lr.ph.i.i.i.i11.i, %174
-  %.013.lcssa.i.i.i.i10.i = phi i64 [ %.128.i.i.i8.i, %174 ], [ %.0133.i.i.i.i12.i, %189 ], [ %.0133.i.i.i.i12.i, %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i.i29.i ], [ %.0133.i.i.i.i12.i, %.lr.ph.i.i.i.i11.i ], [ %.0133.i.i.i.i12.i, %196 ], [ %.0133.i.i.i.i12.i, %switch.lookup94 ], [ %.0133.i.i.i.i12.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i32.i ], [ 0, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread7.i.i ]
+_ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_SA_RT0_.exit.i9.i: ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread8.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i32.i, %196, %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i.i29.i, %189, %switch.lookup94, %.lr.ph.i.i.i.i11.i, %174
+  %.013.lcssa.i.i.i.i10.i = phi i64 [ %.128.i.i.i8.i, %174 ], [ %.0133.i.i.i.i12.i, %189 ], [ %.0133.i.i.i.i12.i, %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i.i29.i ], [ %.0133.i.i.i.i12.i, %.lr.ph.i.i.i.i11.i ], [ %.0133.i.i.i.i12.i, %196 ], [ %.0133.i.i.i.i12.i, %switch.lookup94 ], [ %.0133.i.i.i.i12.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i32.i ], [ 0, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread8.i.i ]
   %201 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i10.i
   store ptr %122, ptr %201, align 8
   %202 = icmp sgt i64 %125, 8
@@ -87334,7 +87334,7 @@ switch.lookup98:                                  ; preds = %.lr.ph.i.i
   %241 = ashr exact i64 %sext130, 56
   %switch.gep124 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %241
   %switch.load125 = load i32, ptr %switch.gep124, align 4
-  %242 = icmp ult i32 %switch.load101, %switch.load125
+  %242 = icmp samesign ult i32 %switch.load101, %switch.load125
   br i1 %242, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread.i.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit35.preheader.i.i
 
 243:                                              ; preds = %.lr.ph.i.i
@@ -87412,7 +87412,7 @@ switch.lookup102:                                 ; preds = %.lr.ph61.i.i
   %264 = ashr exact i64 %sext132, 56
   %switch.gep128 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %264
   %switch.load129 = load i32, ptr %switch.gep128, align 4
-  %265 = icmp ult i32 %switch.load105, %switch.load129
+  %265 = icmp samesign ult i32 %switch.load105, %switch.load129
   br i1 %265, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit35.backedge.i.i, label %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit35.thread.i.i
 
 _ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit35.backedge.i.i: ; preds = %._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit35.backedge_crit_edge.i.i, %273, %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.thread.i34.i.i, %switch.lookup102
@@ -87511,7 +87511,7 @@ switch.lookup:                                    ; preds = %4
   %12 = ashr exact i64 %sext22, 56
   %switch.gep20 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %12
   %switch.load21 = load i32, ptr %switch.gep20, align 4
-  %13 = icmp ult i32 %switch.load, %switch.load21
+  %13 = icmp samesign ult i32 %switch.load, %switch.load21
   br label %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.thread.thread
 
 14:                                               ; preds = %4
@@ -87630,7 +87630,7 @@ switch.lookup:                                    ; preds = %22
   %29 = ashr exact i64 %sext45, 56
   %switch.gep43 = getelementptr inbounds [17 x i32], ptr @switch.table._ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_.147, i64 0, i64 %29
   %switch.load44 = load i32, ptr %switch.gep43, align 4
-  %30 = icmp ult i32 %switch.load, %switch.load44
+  %30 = icmp samesign ult i32 %switch.load, %switch.load44
   br i1 %30, label %.lr.ph.i.backedge, label %_ZSt25__unguarded_linear_insertIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_.exit
 
 .lr.ph.i.backedge:                                ; preds = %..lr.ph.i.backedge_crit_edge, %switch.lookup, %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.thread.i, %38

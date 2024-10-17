@@ -603,11 +603,11 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i.
   %22 = load i8, ptr %arrayidx3.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i = zext i8 %22 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %conv4.i.i.i.i.i.i
-  %cmp.i.i.i = icmp ult i32 %add.i.i.i.i.i.i, 1240
+  %cmp.i.i.i = icmp samesign ult i32 %add.i.i.i.i.i.i, 1240
   br i1 %cmp.i.i.i, label %_ZN3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE4initEPKS5_.exit.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i.i
-  %cmp2.i.i.i = icmp ult i32 %add.i.i.i.i.i.i, 33900
+  %cmp2.i.i.i = icmp samesign ult i32 %add.i.i.i.i.i.i, 33900
   %..i.i.i = select i1 %cmp2.i.i.i, i32 1131, i32 32768
   br label %_ZN3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE4initEPKS5_.exit.i.i
 
@@ -627,11 +627,11 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i4.i
   %24 = load i8, ptr %arrayidx3.i.i.i.i7.i.i, align 1
   %conv4.i.i.i.i8.i.i = zext i8 %24 to i32
   %add.i.i.i.i9.i.i = or disjoint i32 %shl.i.i.i.i6.i.i, %conv4.i.i.i.i8.i.i
-  %cmp.i10.i.i = icmp ult i32 %add.i.i.i.i9.i.i, 1240
+  %cmp.i10.i.i = icmp samesign ult i32 %add.i.i.i.i9.i.i, 1240
   br i1 %cmp.i10.i.i, label %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit, label %if.else.i11.i.i
 
 if.else.i11.i.i:                                  ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i4.i.i
-  %cmp2.i12.i.i = icmp ult i32 %add.i.i.i.i9.i.i, 33900
+  %cmp2.i12.i.i = icmp samesign ult i32 %add.i.i.i.i9.i.i, 33900
   %..i13.i.i = select i1 %cmp2.i12.i.i, i32 1131, i32 32768
   br label %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit
 
@@ -1155,11 +1155,11 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i.
   %22 = load i8, ptr %arrayidx3.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i = zext i8 %22 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %conv4.i.i.i.i.i.i
-  %cmp.i.i.i = icmp ult i32 %add.i.i.i.i.i.i, 1240
+  %cmp.i.i.i = icmp samesign ult i32 %add.i.i.i.i.i.i, 1240
   br i1 %cmp.i.i.i, label %_ZN3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE4initEPKS5_.exit.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i.i
-  %cmp2.i.i.i = icmp ult i32 %add.i.i.i.i.i.i, 33900
+  %cmp2.i.i.i = icmp samesign ult i32 %add.i.i.i.i.i.i, 33900
   %..i.i.i = select i1 %cmp2.i.i.i, i32 1131, i32 32768
   br label %_ZN3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE4initEPKS5_.exit.i.i
 
@@ -1179,11 +1179,11 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i4.i
   %24 = load i8, ptr %arrayidx3.i.i.i.i7.i.i, align 1
   %conv4.i.i.i.i8.i.i = zext i8 %24 to i32
   %add.i.i.i.i9.i.i = or disjoint i32 %shl.i.i.i.i6.i.i, %conv4.i.i.i.i8.i.i
-  %cmp.i10.i.i = icmp ult i32 %add.i.i.i.i9.i.i, 1240
+  %cmp.i10.i.i = icmp samesign ult i32 %add.i.i.i.i9.i.i, 1240
   br i1 %cmp.i10.i.i, label %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit, label %if.else.i11.i.i
 
 if.else.i11.i.i:                                  ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i4.i.i
-  %cmp2.i12.i.i = icmp ult i32 %add.i.i.i.i9.i.i, 33900
+  %cmp2.i12.i.i = icmp samesign ult i32 %add.i.i.i.i9.i.i, 33900
   %..i13.i.i = select i1 %cmp2.i12.i.i, i32 1131, i32 32768
   br label %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit
 
@@ -1600,11 +1600,11 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i.
   %21 = load i8, ptr %arrayidx3.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i = zext i8 %21 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %conv4.i.i.i.i.i.i
-  %cmp.i.i.i = icmp ult i32 %add.i.i.i.i.i.i, 1240
+  %cmp.i.i.i = icmp samesign ult i32 %add.i.i.i.i.i.i, 1240
   br i1 %cmp.i.i.i, label %_ZN3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE4initEPKS5_.exit.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i.i
-  %cmp2.i.i.i = icmp ult i32 %add.i.i.i.i.i.i, 33900
+  %cmp2.i.i.i = icmp samesign ult i32 %add.i.i.i.i.i.i, 33900
   %..i.i.i = select i1 %cmp2.i.i.i, i32 1131, i32 32768
   br label %_ZN3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE4initEPKS5_.exit.i.i
 
@@ -1624,11 +1624,11 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i4.i
   %23 = load i8, ptr %arrayidx3.i.i.i.i7.i.i, align 1
   %conv4.i.i.i.i8.i.i = zext i8 %23 to i32
   %add.i.i.i.i9.i.i = or disjoint i32 %shl.i.i.i.i6.i.i, %conv4.i.i.i.i8.i.i
-  %cmp.i10.i.i = icmp ult i32 %add.i.i.i.i9.i.i, 1240
+  %cmp.i10.i.i = icmp samesign ult i32 %add.i.i.i.i9.i.i, 1240
   br i1 %cmp.i10.i.i, label %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_tIKhERT_jPKij.exit, label %if.else.i11.i.i
 
 if.else.i11.i.i:                                  ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i4.i.i
-  %cmp2.i12.i.i = icmp ult i32 %add.i.i.i.i9.i.i, 33900
+  %cmp2.i12.i.i = icmp samesign ult i32 %add.i.i.i.i9.i.i, 33900
   %..i13.i.i = select i1 %cmp2.i12.i.i, i32 1131, i32 32768
   br label %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_tIKhERT_jPKij.exit
 
@@ -6800,7 +6800,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %for.cond.prehea
   %d.sroa.0.0162 = phi double [ 0.000000e+00, %for.cond.preheader ], [ %add.i.i.i, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32 ]
   %arrayidx.i.i = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %elements.i.i, i64 0, i64 %indvars.iv
   %3 = or disjoint i64 %indvars.iv, 1
-  %cmp.not.i.i24 = icmp ult i64 %3, 11
+  %cmp.not.i.i24 = icmp samesign ult i64 %3, 11
   br i1 %cmp.not.i.i24, label %if.end.i.i28, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
@@ -6819,7 +6819,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32: ; preds = %if.then.i.i25
   %add.i.i.i = fadd double %d.sroa.0.0162, %5
   %add.i.i1.i = fadd double %d.sroa.4.0163, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp1 = icmp ult i64 %indvars.iv, 8
+  %cmp1 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %cmp1, label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit, label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit134, !llvm.loop !27
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit134: ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32
@@ -9343,7 +9343,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pt1, ptr noundef nonnull align 8 dereferenceable(16) %pt.i, i64 16, i1 false)
   %4 = load i32, ptr %count.i, align 4
   %5 = zext i32 %4 to i64
-  %cmp.not.i.i = icmp ult i64 %indvars.iv110, %5
+  %cmp.not.i.i = icmp samesign ult i64 %indvars.iv110, %5
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body
@@ -9358,7 +9358,7 @@ if.end.i.i:                                       ; preds = %for.body
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ @_hb_CrapPool, %if.then.i.i ], [ %arrayidx.i.i, %if.end.i.i ]
   %6 = or disjoint i64 %indvars.iv110, 1
-  %cmp.not.i.i25 = icmp ult i64 %6, %5
+  %cmp.not.i.i25 = icmp samesign ult i64 %6, %5
   br i1 %cmp.not.i.i25, label %if.end.i.i29, label %if.then.i.i26
 
 if.then.i.i26:                                    ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
@@ -11101,7 +11101,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %for.cond.prehea
   %d.sroa.0.0162 = phi double [ 0.000000e+00, %for.cond.preheader ], [ %add.i.i.i, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32 ]
   %arrayidx.i.i = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %elements.i.i, i64 0, i64 %indvars.iv
   %3 = or disjoint i64 %indvars.iv, 1
-  %cmp.not.i.i24 = icmp ult i64 %3, 11
+  %cmp.not.i.i24 = icmp samesign ult i64 %3, 11
   br i1 %cmp.not.i.i24, label %if.end.i.i28, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
@@ -11120,7 +11120,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32: ; preds = %if.then.i.i25
   %add.i.i.i = fadd double %d.sroa.0.0162, %5
   %add.i.i1.i = fadd double %d.sroa.4.0163, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp1 = icmp ult i64 %indvars.iv, 8
+  %cmp1 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %cmp1, label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit, label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit134, !llvm.loop !40
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit134: ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32

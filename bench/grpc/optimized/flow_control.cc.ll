@@ -2005,7 +2005,7 @@ if.then:                                          ; preds = %_ZNK9grpc_core6chtt
   %9 = lshr i64 %8, 1
   %div = and i64 %9, 2147483647
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %div, i64 8192)
-  %cmp6 = icmp ult i64 %.sroa.speculated, %6
+  %cmp6 = icmp samesign ult i64 %.sroa.speculated, %6
   %spec.select = select i1 %cmp6, i8 1, i8 2
   %cmp8 = icmp sgt i64 %0, 0
   br i1 %cmp8, label %if.then9, label %if.end17

@@ -586,7 +586,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13runOnFunctionEPNS0_
 
 .loopexit9:                                       ; preds = %75, %55
   %80 = phi ptr [ %49, %55 ], [ %77, %75 ]
-  %81 = icmp ult i64 %57, 3
+  %81 = icmp samesign ult i64 %57, 3
   br i1 %81, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit9, %144
@@ -2967,7 +2967,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
 
 989:                                              ; preds = %.preheader80
   %990 = add nuw nsw i64 %984, 64
-  %991 = icmp ult i64 %990, %980
+  %991 = icmp samesign ult i64 %990, %980
   br i1 %991, label %.preheader80, label %.thread, !llvm.loop !232
 
 .thread:                                          ; preds = %989, %1054, %964
@@ -4906,7 +4906,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass21initSharedAssignmen
   %16 = and i64 %15, 2305843009213693951
   %17 = add nuw nsw i64 %16, 1
   %18 = and i64 %17, 3
-  %19 = icmp ult i64 %16, 3
+  %19 = icmp samesign ult i64 %16, 3
   br i1 %19, label %.loopexit13, label %20
 
 20:                                               ; preds = %12
@@ -5816,7 +5816,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass14_dumpLiveSpansERNS0
   %66 = add nuw nsw i64 %57, 1
   %67 = load i32, ptr %51, align 8, !tbaa !3
   %68 = zext i32 %67 to i64
-  %69 = icmp ult i64 %66, %68
+  %69 = icmp samesign ult i64 %66, %68
   br i1 %69, label %.preheader, label %.loopexit, !llvm.loop !316
 }
 
@@ -6750,7 +6750,7 @@ split:                                            ; preds = %125, %._crit_edge
 
 502:                                              ; preds = %496
   %503 = add nuw nsw i64 %497, 64
-  %504 = icmp ult i64 %503, %491
+  %504 = icmp samesign ult i64 %503, %491
   br i1 %504, label %496, label %.loopexit137, !llvm.loop !232
 
 .preheader135:                                    ; preds = %496, %552
@@ -7669,7 +7669,7 @@ split:                                            ; preds = %125, %._crit_edge
   %1132 = add nuw nsw i64 %1122, 1
   %1133 = load i32, ptr %1103, align 8, !tbaa !3
   %1134 = zext i32 %1133 to i64
-  %1135 = icmp ult i64 %1132, %1134
+  %1135 = icmp samesign ult i64 %1132, %1134
   br i1 %1135, label %.preheader112, label %.loopexit113, !llvm.loop !351
 
 .loopexit113:                                     ; preds = %.preheader112, %1112, %1106
@@ -7739,7 +7739,7 @@ split:                                            ; preds = %125, %._crit_edge
 
 .loopexit111:                                     ; preds = %.preheader110, %1160
   %1181 = phi ptr [ %1165, %1160 ], [ %1178, %.preheader110 ]
-  %1182 = icmp ult i64 %1169, 7
+  %1182 = icmp samesign ult i64 %1169, 7
   br i1 %1182, label %.loopexit109, label %.preheader108
 
 .loopexit109:                                     ; preds = %.preheader108, %.loopexit111
@@ -7968,7 +7968,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass23setBlockEntryAssign
   %65 = phi ptr [ %74, %69 ], [ %61, %52 ]
   %66 = phi i64 [ %67, %69 ], [ 0, %52 ]
   %67 = add nuw nsw i64 %66, 64
-  %68 = icmp ult i64 %67, %50
+  %68 = icmp samesign ult i64 %67, %50
   br i1 %68, label %69, label %.loopexit14
 
 69:                                               ; preds = %.preheader15

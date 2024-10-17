@@ -7086,7 +7086,7 @@ _ZNSt8optionalIN4llvm12ValueAndVRegEED2Ev.exit:   ; preds = %_ZNSt8optionalIN4ll
   %118 = zext i24 %117 to i64
   %119 = add nuw nsw i64 %118, 4294967295
   %120 = and i64 %119, 4294967295
-  %.not = icmp ult i64 %indvars.iv.next, %120
+  %.not = icmp samesign ult i64 %indvars.iv.next, %120
   br i1 %.not, label %56, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %_ZNSt8optionalIN4llvm12ValueAndVRegEED2Ev.exit, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit

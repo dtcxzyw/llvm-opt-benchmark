@@ -1539,15 +1539,15 @@ _ZN4core3str11validations15next_code_point17h494834bade81522eE.exit.thread.i: ; 
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7"
 
 69:                                               ; preds = %67
-  %70 = icmp ult i32 %.sroa.4.0.i.ph.i, 128
+  %70 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 128
   br i1 %70, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit", label %71
 
 71:                                               ; preds = %69
-  %72 = icmp ult i32 %.sroa.4.0.i.ph.i, 2048
+  %72 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 2048
   br i1 %72, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit", label %73
 
 73:                                               ; preds = %71
-  %74 = icmp ult i32 %.sroa.4.0.i.ph.i, 65536
+  %74 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 65536
   %..i = select i1 %74, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit"
 
@@ -4231,7 +4231,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %291
   %914 = load i8, ptr %892, align 8, !range !142, !alias.scope !579, !noalias !582
   %915 = add nsw i8 %914, -24
   %narrow.i.i.i.i = call i8 @llvm.umin.i8(i8 %915, i8 2)
-  %916 = icmp ult i8 %914, 24
+  %916 = icmp samesign ult i8 %914, 24
   %917 = zext nneg i8 %914 to i64
   %918 = load ptr, ptr %894, align 8, !alias.scope !579, !noalias !582, !nonnull !5
   %919 = load i64, ptr %895, align 8, !alias.scope !579, !noalias !582
@@ -9506,7 +9506,7 @@ default.unreachable:                              ; preds = %87, %41, %10, %2
   br label %117
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7c224b08b8cc1856E.exit.i": ; preds = %87
-  %103 = icmp ult i8 %.sroa.02.0.i7.i, 24
+  %103 = icmp samesign ult i8 %.sroa.02.0.i7.i, 24
   tail call void @llvm.assume(i1 %103)
   %104 = zext nneg i8 %.sroa.02.0.i7.i to i64
   br label %117

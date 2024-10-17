@@ -1238,7 +1238,7 @@ define dso_local range(i32 -1, 1) i32 @parse_scron_line(ptr noundef %0, i32 noun
 
 get_argument.exit.thread:                         ; preds = %.critedge2.i, %7
   %.040 = trunc i64 %indvars.iv to i32
-  %21 = icmp ugt i32 %.040, 1
+  %21 = icmp samesign ugt i32 %.040, 1
   br i1 %21, label %22, label %._crit_edge35
 
 22:                                               ; preds = %get_argument.exit.thread

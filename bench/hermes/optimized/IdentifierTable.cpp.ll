@@ -1523,7 +1523,7 @@ for.inc:                                          ; preds = %for.body, %_ZNKSt8f
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 4
   %11 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp = icmp ult i64 %indvars.iv.next, %11
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -2433,7 +2433,7 @@ for.body.i8:                                      ; preds = %_ZN4llvh9BitVectoro
   %sub.i.i10 = add i32 %10, 63
   %div1.i.i11 = lshr i32 %sub.i.i10, 6
   %11 = zext nneg i32 %div1.i.i11 to i64
-  %cmp.i12 = icmp ult i64 %indvars.iv.next.i, %11
+  %cmp.i12 = icmp samesign ult i64 %indvars.iv.next.i, %11
   br i1 %cmp.i12, label %for.body.i8, label %for.end.i.loopexit, !llvm.loop !12
 
 for.end.i.loopexit:                               ; preds = %for.body.i8
@@ -2597,7 +2597,7 @@ if.end.i.i.i.i:                                   ; preds = %for.inc
   %div15.i.i.i.i = lshr i32 %add.i.i.i, 6
   %sub.i.i.i.i = add i32 %38, -1
   %div216.i.i.i.i = lshr i32 %sub.i.i.i.i, 6
-  %cmp3.not19.i.i.i.i = icmp ugt i32 %div15.i.i.i.i, %div216.i.i.i.i
+  %cmp3.not19.i.i.i.i = icmp samesign ugt i32 %div15.i.i.i.i, %div216.i.i.i.i
   br i1 %cmp3.not19.i.i.i.i, label %for.end, label %for.body.lr.ph.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i.i.i.i

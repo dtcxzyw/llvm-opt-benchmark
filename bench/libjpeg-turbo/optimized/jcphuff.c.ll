@@ -534,7 +534,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr nocapture n
   %60 = getelementptr inbounds i8, ptr %58, i64 128
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i32
-  %63 = icmp ugt i64 %55, 15
+  %63 = icmp samesign ugt i64 %55, 15
   br i1 %63, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %54, %emit_symbol.exit

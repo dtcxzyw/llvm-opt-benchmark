@@ -3856,7 +3856,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %32, %35
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %32 ], [ %37, %35 ]
   %.idx36 = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %41 = getelementptr inbounds i8, ptr %40, i64 %.idx36
-  %.not35 = icmp ult i64 %.pre-phi2.i.i, 4
+  %.not35 = icmp samesign ult i64 %.pre-phi2.i.i, 4
   br i1 %.not35, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm4User8operandsEv.exit
@@ -4633,7 +4633,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_11SmallVectorINS_6CHIArg
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %37
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN4llvm6CHIArgES1_EC2ES2_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !102
 
 37:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -5978,7 +5978,7 @@ _ZN4llvm9MemoryPhi15incoming_valuesEv.exit:       ; preds = %56, %59
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %56 ], [ %61, %59 ]
   %.idx35 = shl nuw nsw i64 %.pre-phi2.i.i.i, 5
   %65 = getelementptr inbounds i8, ptr %64, i64 %.idx35
-  %.not34 = icmp ult i64 %.pre-phi2.i.i.i, 4
+  %.not34 = icmp samesign ult i64 %.pre-phi2.i.i.i, 4
   br i1 %.not34, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN4llvm9MemoryPhi15incoming_valuesEv.exit

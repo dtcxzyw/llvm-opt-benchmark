@@ -1439,7 +1439,7 @@ if.end46:                                         ; preds = %if.end39
   %.lobit9.i = and i16 %41, 1
   %conv11.i = zext nneg i16 %.lobit9.i to i32
   %add12.i = add nuw nsw i32 %add5.i, %conv11.i
-  %cmp13.i64 = icmp ugt i32 %add12.i, 1
+  %cmp13.i64 = icmp samesign ugt i32 %add12.i, 1
   br i1 %cmp13.i64, label %if.then.i69, label %if.end.i65
 
 if.then.i69:                                      ; preds = %if.end46
@@ -8075,7 +8075,7 @@ while.body.lr.ph:                                 ; preds = %entry
   %tobool.not = icmp eq ptr %end, null
   %and.i = and i32 %terminate, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
-  %tobool4.not.i = icmp ult i32 %terminate, 2
+  %tobool4.not.i = icmp samesign ult i32 %terminate, 2
   br i1 %tobool.not, label %while.body.us, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %while.body.lr.ph
@@ -8100,10 +8100,10 @@ if.then4.us:                                      ; preds = %while.body.us
 
 if.end9.us:                                       ; preds = %if.then4.us
   %cmp.i.us = icmp eq i8 %1, 32
-  %or.cond.not.i.not151.us = and i1 %tobool.not.i, %cmp.i.us
+  %or.cond.not.i.not150.us = and i1 %tobool.not.i, %cmp.i.us
   %cmp1.i.us = icmp eq i8 %1, 9
-  %or.cond3.not.i.not150.us = and i1 %tobool4.not.i, %cmp1.i.us
-  %narrow.i.not.us = or i1 %or.cond3.not.i.not150.us, %or.cond.not.i.not151.us
+  %or.cond3.not.i.not151.us = select i1 %cmp1.i.us, i1 %tobool4.not.i, i1 false
+  %narrow.i.not.us = select i1 %or.cond.not.i.not150.us, i1 true, i1 %or.cond3.not.i.not151.us
   br i1 %narrow.i.not.us, label %if.end14.us, label %while.end
 
 if.end14.us:                                      ; preds = %if.end9.us, %while.body.us

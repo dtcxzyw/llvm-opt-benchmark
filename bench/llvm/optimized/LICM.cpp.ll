@@ -8144,7 +8144,7 @@ _ZN12_GLOBAL__N_118ControlFlowHoister11canHoistPHIEPN4llvm7PHINodeE.exit: ; pred
   %745 = load i32, ptr %727, align 4
   %746 = and i32 %745, 134217727
   %747 = zext nneg i32 %746 to i64
-  %748 = icmp ult i64 %indvars.iv.next, %747
+  %748 = icmp samesign ult i64 %indvars.iv.next, %747
   br i1 %748, label %732, label %._crit_edge, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %732, %.preheader

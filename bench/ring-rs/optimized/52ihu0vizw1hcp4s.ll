@@ -1776,7 +1776,7 @@ define hidden { ptr, i64 } @_ZN4ring3rsa10public_key5Inner12exponentiate17hcd4c5
   store i64 %38, ptr %39, align 8, !noalias !437
   %40 = add nuw nsw i64 %2, 7
   %41 = and i64 %40, 9223372036854775800
-  %42 = icmp ugt i64 %41, 1024
+  %42 = icmp samesign ugt i64 %41, 1024
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %36
@@ -1797,7 +1797,7 @@ define hidden { ptr, i64 } @_ZN4ring3rsa10public_key5Inner12exponentiate17hcd4c5
           to label %47 unwind label %44
 
 47:                                               ; preds = %46
-  %.not.i = icmp ugt i64 %2, %41
+  %.not.i = icmp samesign ugt i64 %2, %41
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h2303a783267c09e5E.exit.invoke.i", label %48
 
 48:                                               ; preds = %47

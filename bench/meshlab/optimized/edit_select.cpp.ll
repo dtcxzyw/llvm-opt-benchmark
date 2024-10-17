@@ -2733,7 +2733,7 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorI7QPoi
 274:                                              ; preds = %.preheader110, %253, %256, %260, %264, %272
   %.174 = phi i1 [ %273, %272 ], [ false, %264 ], [ false, %260 ], [ false, %256 ], [ false, %253 ], [ false, %.preheader110 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %275 = icmp ugt i64 %indvars.iv, 1
+  %275 = icmp samesign ugt i64 %indvars.iv, 1
   %.not85 = or i1 %.174, %275
   br i1 %.not85, label %276, label %.preheader110, !llvm.loop !31
 

@@ -3241,7 +3241,7 @@ define internal i32 @k12text_dump(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %52 = load i32, ptr %6, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next73, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next73, %53
   %55 = icmp ugt i64 %51, 2
   %56 = and i1 %54, %55
   br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !14

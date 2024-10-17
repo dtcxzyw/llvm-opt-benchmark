@@ -3482,7 +3482,7 @@ invoke.cont3.loopexit192:                         ; preds = %tailrecurse.i.i, %t
 
 invoke.cont3:                                     ; preds = %tailrecurse.i.i, %invoke.cont3.loopexit192, %invoke.cont3.loopexit
   %retval.0.i.i = phi i64 [ 1, %invoke.cont3.loopexit ], [ 3, %invoke.cont3.loopexit192 ], [ 2, %tailrecurse.i.i ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont3

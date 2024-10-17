@@ -58,7 +58,7 @@ define range(i64 0, 4294967296) i64 @crc32(i64 noundef %0, ptr noundef %1, i32 n
   %.177.lcssa.i = phi i32 [ %.076.lcssa.i, %.preheader85.i ], [ %229, %.lr.ph94.i ]
   %.175.lcssa.i = phi i32 [ %.074.lcssa.i, %.preheader85.i ], [ %228, %.lr.ph94.i ]
   %.0.lcssa.i = phi ptr [ %.080.lcssa.i, %.preheader85.i ], [ %204, %.lr.ph94.i ]
-  %28 = icmp ugt i32 %.177.lcssa.i, 3
+  %28 = icmp samesign ugt i32 %.177.lcssa.i, 3
   br i1 %28, label %.lr.ph101.i, label %._crit_edge.i
 
 .lr.ph94.i:                                       ; preds = %.preheader85.i, %.lr.ph94.i

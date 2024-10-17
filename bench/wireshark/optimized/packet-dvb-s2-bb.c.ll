@@ -1032,7 +1032,7 @@ define internal i32 @dissect_dvb_s2_modeadapt(ptr noundef %0, ptr noundef %1, pt
   %42 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef %37, ptr noundef nonnull @.str.647, i32 noundef %.074) #9
   %43 = sext i32 %.075 to i64
   %44 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %43)
-  %45 = icmp ugt i64 %44, 1
+  %45 = icmp samesign ugt i64 %44, 1
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %34
@@ -1961,7 +1961,7 @@ dissect_dvb_s2_gse.exit.i:                        ; preds = %502, %501, %303
 528:                                              ; preds = %525, %524
   %.not438.i = icmp eq i16 %157, -1
   %529 = and i32 %.0372.in.i, 65535
-  %.not439.i = icmp ult i32 %160, %529
+  %.not439.i = icmp samesign ult i32 %160, %529
   %or.cond467.i = select i1 %.not438.i, i1 true, i1 %.not439.i
   br i1 %or.cond467.i, label %532, label %530
 

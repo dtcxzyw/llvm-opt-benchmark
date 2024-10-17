@@ -78,7 +78,7 @@ define hidden void @ir_print_proto(ptr noundef %0, i32 noundef %1, ptr nocapture
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i8, ptr %6, align 1
   %23 = zext i8 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8

@@ -1055,7 +1055,7 @@ define hidden void @_ZN11CompileTask8log_taskEP9xmlStream(ptr nocapture noundef 
   %17 = add nsw i32 %12, 1
   %18 = icmp sgt i32 %12, -1
   %19 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
-  %20 = icmp ult i32 %19, 2
+  %20 = icmp samesign ult i32 %19, 2
   %or.cond.i.i.i.i.i.i = select i1 %18, i1 %20, i1 false
   %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %22 = sub nuw nsw i32 32, %21
@@ -1295,7 +1295,7 @@ define hidden void @_ZN11CompileTask13log_task_doneEP10CompileLog(ptr nocapture 
   %17 = add nsw i32 %12, 1
   %18 = icmp sgt i32 %12, -1
   %19 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
-  %20 = icmp ult i32 %19, 2
+  %20 = icmp samesign ult i32 %19, 2
   %or.cond.i.i.i.i.i.i = select i1 %18, i1 %20, i1 false
   %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %22 = sub nuw nsw i32 32, %21

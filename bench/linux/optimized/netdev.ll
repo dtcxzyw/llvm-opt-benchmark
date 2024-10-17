@@ -1092,7 +1092,7 @@ define internal fastcc void @e1000_clean_tx_ring(ptr nocapture noundef %0) unnam
   %29 = add nuw nsw i64 %9, 1
   %30 = load i32, ptr %3, align 4
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %29, %31
+  %32 = icmp samesign ult i64 %29, %31
   br i1 %32, label %8, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %27, %1
@@ -1380,7 +1380,7 @@ define internal fastcc void @e1000_clean_rx_ring(ptr nocapture noundef %0) unnam
   %122 = add nuw nsw i64 %15, 1
   %123 = load i32, ptr %3, align 4
   %124 = zext i32 %123 to i64
-  %125 = icmp ult i64 %122, %124
+  %125 = icmp samesign ult i64 %122, %124
   br i1 %125, label %14, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %121, %1
@@ -1737,12 +1737,12 @@ define dso_local void @e1000e_reset(ptr noundef %0) local_unnamed_addr #1 align 
   %44 = lshr i32 %43, 10
   %45 = add i32 %41, 1023
   %46 = lshr i32 %45, 10
-  %47 = icmp ult i32 %39, %44
+  %47 = icmp samesign ult i32 %39, %44
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %35
   %49 = sub nuw nsw i32 %44, %39
-  %50 = icmp ult i32 %49, %40
+  %50 = icmp samesign ult i32 %49, %40
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %48
@@ -8510,7 +8510,7 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq_ps(ptr noundef %0, ptr no
   %99 = add nuw nsw i32 %93, %85
   %100 = load i16, ptr %24, align 8
   %101 = zext i16 %100 to i32
-  %102 = icmp ugt i32 %99, %101
+  %102 = icmp samesign ugt i32 %99, %101
   br i1 %102, label %136, label %103
 
 103:                                              ; preds = %98
@@ -9922,7 +9922,7 @@ define internal fastcc void @e1000_init_manageability_pt(ptr nocapture noundef r
   br i1 %60, label %61, label %.preheader9, !llvm.loop !59
 
 61:                                               ; preds = %54
-  %62 = icmp ugt i64 %51, 6
+  %62 = icmp samesign ugt i64 %51, 6
   br label %63
 
 63:                                               ; preds = %61, %46
@@ -10199,7 +10199,7 @@ define internal fastcc void @e1000_setup_rctl(ptr noundef %0) unnamed_addr #1 al
   %111 = icmp ne i32 %110, 0
   %112 = zext i1 %111 to i32
   %113 = add nuw nsw i32 %109, %112
-  %114 = icmp ugt i32 %113, 3
+  %114 = icmp samesign ugt i32 %113, 3
   %115 = and i32 %79, 32
   %116 = icmp eq i32 %115, 0
   %117 = select i1 %114, i1 true, i1 %116
@@ -10436,7 +10436,7 @@ define internal void @e1000_alloc_rx_buffers_ps(ptr nocapture noundef %0, i32 no
   %38 = getelementptr %struct.e1000_ps_page, ptr %37, i64 %36
   %39 = load i32, ptr %19, align 4
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %36, %40
+  %41 = icmp samesign ult i64 %36, %40
   br i1 %41, label %42, label %62
 
 42:                                               ; preds = %35
@@ -17948,7 +17948,7 @@ define internal fastcc i32 @__e1000_shutdown(ptr noundef %0, i1 noundef zeroext 
   %184 = add nuw nsw i64 %162, 1
   %185 = load i16, ptr %156, align 2
   %186 = zext i16 %185 to i64
-  %187 = icmp ult i64 %184, %186
+  %187 = icmp samesign ult i64 %184, %186
   br i1 %187, label %161, label %.loopexit26, !llvm.loop !123
 
 .loopexit26:                                      ; preds = %161, %155
@@ -19867,7 +19867,7 @@ define internal i32 @e1000e_pm_resume(ptr noundef %0) #1 align 16 {
 .preheader35:                                     ; preds = %.loopexit37, %109
   %101 = phi i32 [ %110, %109 ], [ 0, %.loopexit37 ]
   %102 = phi i8 [ %107, %109 ], [ 0, %.loopexit37 ]
-  %103 = icmp ugt i32 %101, 100
+  %103 = icmp samesign ugt i32 %101, 100
   %104 = and i8 %102, 1
   %105 = icmp eq i8 %104, 0
   %106 = select i1 %103, i1 %105, i1 false

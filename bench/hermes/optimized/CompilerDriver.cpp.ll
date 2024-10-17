@@ -23620,7 +23620,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -25872,7 +25872,7 @@ entry:
   %add.i = add nuw nsw i64 %or10.i, 1
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %MinSize)
   %conv4 = and i64 %.sroa.speculated, 4294967295
-  %cmp.not = icmp ule i64 %conv4, %conv.i
+  %cmp.not = icmp samesign ule i64 %conv4, %conv.i
   %cmp6 = icmp ult i64 %conv4, %MinSize
   %or.cond = or i1 %cmp.not, %cmp6
   br i1 %or.cond, label %if.then, label %if.end
@@ -25957,7 +25957,7 @@ entry:
   %add.i = add nuw nsw i64 %or10.i, 1
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %MinSize)
   %conv4 = and i64 %.sroa.speculated, 4294967295
-  %cmp.not = icmp ule i64 %conv4, %conv.i
+  %cmp.not = icmp samesign ule i64 %conv4, %conv.i
   %cmp6 = icmp ult i64 %conv4, %MinSize
   %or.cond = or i1 %cmp.not, %cmp6
   br i1 %or.cond, label %if.then, label %if.end
@@ -26037,7 +26037,7 @@ entry:
   %add.i = add nuw nsw i64 %or10.i, 1
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %MinSize)
   %conv4 = and i64 %.sroa.speculated, 4294967295
-  %cmp.not = icmp ule i64 %conv4, %conv.i
+  %cmp.not = icmp samesign ule i64 %conv4, %conv.i
   %cmp6 = icmp ult i64 %conv4, %MinSize
   %or.cond = or i1 %cmp.not, %cmp6
   br i1 %or.cond, label %if.then, label %if.end
@@ -26265,7 +26265,7 @@ entry:
   %add.i = add nuw nsw i64 %or10.i, 1
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %MinSize)
   %conv4 = and i64 %.sroa.speculated, 4294967295
-  %cmp.not = icmp ule i64 %conv4, %conv.i
+  %cmp.not = icmp samesign ule i64 %conv4, %conv.i
   %cmp6 = icmp ult i64 %conv4, %MinSize
   %or.cond = or i1 %cmp.not, %cmp6
   br i1 %or.cond, label %if.then, label %if.end
@@ -26378,7 +26378,7 @@ entry:
   %add.i = add nuw nsw i64 %or10.i, 1
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %MinSize)
   %conv4 = and i64 %.sroa.speculated, 4294967295
-  %cmp.not = icmp ule i64 %conv4, %conv.i
+  %cmp.not = icmp samesign ule i64 %conv4, %conv.i
   %cmp6 = icmp ult i64 %conv4, %MinSize
   %or.cond = or i1 %cmp.not, %cmp6
   br i1 %or.cond, label %if.then, label %if.end
@@ -26549,7 +26549,7 @@ entry:
   %add.i = add nuw nsw i64 %or10.i, 1
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %MinSize)
   %conv4 = and i64 %.sroa.speculated, 4294967295
-  %cmp.not = icmp ule i64 %conv4, %conv.i
+  %cmp.not = icmp samesign ule i64 %conv4, %conv.i
   %cmp6 = icmp ult i64 %conv4, %MinSize
   %or.cond = or i1 %cmp.not, %cmp6
   br i1 %or.cond, label %if.then, label %if.end
@@ -26805,7 +26805,7 @@ entry:
   %add.i = add nuw nsw i64 %or10.i, 1
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %MinSize)
   %conv4 = and i64 %.sroa.speculated, 4294967295
-  %cmp.not = icmp ule i64 %conv4, %conv.i
+  %cmp.not = icmp samesign ule i64 %conv4, %conv.i
   %cmp6 = icmp ult i64 %conv4, %MinSize
   %or.cond = or i1 %cmp.not, %cmp6
   br i1 %or.cond, label %if.then, label %if.end

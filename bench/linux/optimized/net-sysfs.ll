@@ -1245,7 +1245,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @netdev_rx_queue_set_rps_ma
   store i16 %26, ptr %29, align 2
   %30 = add nuw nsw i64 %22, 1
   %31 = and i64 %30, 127
-  %32 = icmp ugt i64 %31, 63
+  %32 = icmp samesign ugt i64 %31, 63
   br i1 %32, label %.thread, label %16, !prof !30, !llvm.loop !31
 
 .thread:                                          ; preds = %16, %25, %21

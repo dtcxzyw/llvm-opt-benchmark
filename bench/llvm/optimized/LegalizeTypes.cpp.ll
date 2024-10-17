@@ -1028,7 +1028,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjv
 
 445:                                              ; preds = %416
   %446 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.053)
-  %.not67 = icmp ult i32 %446, 2
+  %.not67 = icmp samesign ult i32 %446, 2
   br i1 %.not67, label %500, label %.critedge
 
 .critedge:                                        ; preds = %445, %414, %397, %400

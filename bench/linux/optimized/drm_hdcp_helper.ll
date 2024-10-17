@@ -157,7 +157,7 @@ define dso_local i32 @drm_hdcp_check_ksvs_revoked(ptr nocapture noundef readonly
   %71 = add nuw nsw i32 %70, 5
   %72 = zext nneg i32 %71 to i64
   %73 = icmp ult i64 %32, %72
-  %74 = icmp ult i32 %70, 43
+  %74 = icmp samesign ult i32 %70, 43
   %75 = or i1 %74, %73
   br i1 %75, label %76, label %77
 
@@ -280,7 +280,7 @@ define dso_local i32 @drm_hdcp_check_ksvs_revoked(ptr nocapture noundef readonly
   %155 = add nuw nsw i32 %154, 5
   %156 = zext nneg i32 %155 to i64
   %157 = icmp ult i64 %32, %156
-  %158 = icmp ult i32 %154, 387
+  %158 = icmp samesign ult i32 %154, 387
   %159 = or i1 %158, %157
   br i1 %159, label %160, label %161
 

@@ -251,7 +251,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
   %62 = getelementptr inbounds double, ptr %58, i64 %.011.i.i.i.i.i.i.i53
   store <2 x double> <double -5.000000e+00, double -5.000000e+00>, ptr %62, align 16
   %63 = add nuw nsw i64 %.011.i.i.i.i.i.i.i53, 2
-  %64 = icmp ult i64 %.011.i.i.i.i.i.i.i53, 118
+  %64 = icmp samesign ult i64 %.011.i.i.i.i.i.i.i53, 118
   br i1 %64, label %.lr.ph.i.i.i.i.i.i.i52, label %67, !llvm.loop !11
 
 65:                                               ; preds = %60
@@ -278,7 +278,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
   %72 = getelementptr inbounds double, ptr %68, i64 %.011.i.i.i.i.i.i.i59
   store <2 x double> <double 5.000000e+00, double 5.000000e+00>, ptr %72, align 16
   %73 = add nuw nsw i64 %.011.i.i.i.i.i.i.i59, 2
-  %74 = icmp ult i64 %.011.i.i.i.i.i.i.i59, 118
+  %74 = icmp samesign ult i64 %.011.i.i.i.i.i.i.i59, 118
   br i1 %74, label %.lr.ph.i.i.i.i.i.i.i58, label %77, !llvm.loop !11
 
 75:                                               ; preds = %70
@@ -305,7 +305,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
   %82 = getelementptr inbounds double, ptr %78, i64 %.011.i.i.i.i.i.i.i66
   store <2 x double> <double -5.000000e-01, double -5.000000e-01>, ptr %82, align 16
   %83 = add nuw nsw i64 %.011.i.i.i.i.i.i.i66, 2
-  %84 = icmp ult i64 %.011.i.i.i.i.i.i.i66, 34
+  %84 = icmp samesign ult i64 %.011.i.i.i.i.i.i.i66, 34
   br i1 %84, label %.lr.ph.i.i.i.i.i.i.i65, label %87, !llvm.loop !12
 
 85:                                               ; preds = %80
@@ -332,7 +332,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
   %92 = getelementptr inbounds double, ptr %88, i64 %.011.i.i.i.i.i.i.i72
   store <2 x double> <double 5.000000e-01, double 5.000000e-01>, ptr %92, align 16
   %93 = add nuw nsw i64 %.011.i.i.i.i.i.i.i72, 2
-  %94 = icmp ult i64 %.011.i.i.i.i.i.i.i72, 34
+  %94 = icmp samesign ult i64 %.011.i.i.i.i.i.i.i72, 34
   br i1 %94, label %.lr.ph.i.i.i.i.i.i.i71, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEENS0_IdLi4ELi9ELi0ELi4ELi9EEEEEEERKNS_9EigenBaseIT_EE.exit76, !llvm.loop !12
 
 95:                                               ; preds = %90

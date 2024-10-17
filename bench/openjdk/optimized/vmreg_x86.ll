@@ -39,7 +39,7 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
   %12 = add nsw i32 %11, 1
   %or.cond.i.i = icmp ult i32 %12, 32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %12, i32 -1
-  %13 = icmp ult i64 %indvars.iv, 62
+  %13 = icmp samesign ult i64 %indvars.iv, 62
   br i1 %13, label %1, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
@@ -61,7 +61,7 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
   %24 = add nsw i32 %23, 1
   %or.cond.i.i25 = icmp ult i32 %24, 8
   %spec.select.i.i26 = select i1 %or.cond.i.i25, i32 %24, i32 -1
-  %25 = icmp ult i64 %indvars.iv64, 78
+  %25 = icmp samesign ult i64 %indvars.iv64, 78
   br i1 %25, label %.lr.ph, label %.preheader42, !llvm.loop !8
 
 .preheader42:                                     ; preds = %.lr.ph, %34
@@ -107,7 +107,7 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
 
 .preheader:                                       ; preds = %48, %.preheader41
   %.4.lcssa = phi i32 [ %29, %.preheader41 ], [ %49, %48 ]
-  %43 = icmp ult i32 %.4.lcssa, 609
+  %43 = icmp samesign ult i32 %.4.lcssa, 609
   br i1 %43, label %.lr.ph59, label %._crit_edge
 
 .lr.ph59:                                         ; preds = %.preheader

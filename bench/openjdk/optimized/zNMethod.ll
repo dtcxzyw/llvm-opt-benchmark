@@ -384,7 +384,7 @@ _ZN13RelocIterator13barrier_relocEv.exit:         ; preds = %35, %38, %40
   %54 = add nsw i32 %50, 1
   %55 = icmp sgt i32 %50, -1
   %56 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %54)
-  %57 = icmp ult i32 %56, 2
+  %57 = icmp samesign ult i32 %56, 2
   %or.cond.i.i.i.i = select i1 %55, i1 %57, i1 false
   %58 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %54, i1 true)
   %59 = sub nuw nsw i32 32, %58
@@ -419,7 +419,7 @@ _ZN13RelocIterator13barrier_relocEv.exit:         ; preds = %35, %38, %40
   %68 = getelementptr inbounds %struct.ZNMethodDataBarrier, ptr %.pre47, i64 %indvars.iv.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %69 = icmp ult i64 %indvars.iv.next.i.i.i, %63
+  %69 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %63
   br i1 %69, label %.lr.ph.i.i.i, label %.preheader15.loopexit.i.i.i, !llvm.loop !10
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph18.i.i.i, %.preheader15.i.i.i
@@ -504,7 +504,7 @@ _ZN13RelocIterator9oop_relocEv.exit:              ; preds = %78, %81, %83
   %97 = add nsw i32 %93, 1
   %98 = icmp sgt i32 %93, -1
   %99 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %97)
-  %100 = icmp ult i32 %99, 2
+  %100 = icmp samesign ult i32 %99, 2
   %or.cond.i.i.i.i26 = select i1 %98, i1 %100, i1 false
   %101 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %97, i1 true)
   %102 = sub nuw nsw i32 32, %101
@@ -540,7 +540,7 @@ _ZN13RelocIterator9oop_relocEv.exit:              ; preds = %78, %81, %83
   %112 = load ptr, ptr %111, align 8
   store ptr %112, ptr %110, align 8
   %indvars.iv.next.i.i.i39 = add nuw nsw i64 %indvars.iv.i.i.i38, 1
-  %113 = icmp ult i64 %indvars.iv.next.i.i.i39, %106
+  %113 = icmp samesign ult i64 %indvars.iv.next.i.i.i39, %106
   br i1 %113, label %.lr.ph.i.i.i37, label %.preheader15.loopexit.i.i.i40, !llvm.loop !16
 
 .preheader.i.i.i30:                               ; preds = %.lr.ph18.i.i.i34, %.preheader15.i.i.i28

@@ -943,7 +943,7 @@ if.end30:                                         ; preds = %if.then29, %if.end2
   %tobool38 = icmp ne ptr %11, null
   %lnot.ext42 = zext i1 %tobool38 to i32
   %add43 = add nuw nsw i32 %add, %lnot.ext42
-  %cmp44 = icmp ugt i32 %add43, 1
+  %cmp44 = icmp samesign ugt i32 %add43, 1
   br i1 %cmp44, label %if.then45, label %if.end49
 
 if.then45:                                        ; preds = %if.end30
@@ -1221,7 +1221,7 @@ for.end.i:                                        ; preds = %land.lhs.true.tail.
   ]
 
 if.else19.i:                                      ; preds = %for.end.i
-  %cmp20.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp20.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp20.i, label %if.then21.i, label %if.end25.i
 
 if.then21.i:                                      ; preds = %if.else19.i
@@ -1552,7 +1552,7 @@ if.then249:                                       ; preds = %if.end244
   %tobool263 = icmp ne i32 %95, 0
   %lnot.ext267 = zext i1 %tobool263 to i32
   %add268 = add nuw nsw i32 %add261, %lnot.ext267
-  %cmp269 = icmp ugt i32 %add268, 1
+  %cmp269 = icmp samesign ugt i32 %add268, 1
   br i1 %cmp269, label %if.then271, label %if.end285
 
 if.then271:                                       ; preds = %if.then249
@@ -1986,7 +1986,7 @@ for.inc.i147:                                     ; preds = %for.inc.sink.split.
   %indvars.iv.next.i148 = add nuw nsw i64 %indvars.iv.i146, 1
   %151 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %152 = zext i32 %151 to i64
-  %cmp141.i = icmp ult i64 %indvars.iv.next.i148, %152
+  %cmp141.i = icmp samesign ult i64 %indvars.iv.next.i148, %152
   br i1 %cmp141.i, label %for.body.i145, label %for.end.loopexit.i, !llvm.loop !8
 
 for.end.loopexit.i:                               ; preds = %for.inc.i147
@@ -3830,7 +3830,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %if.then17.i.i.i
 while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i207, %while.body.lr.ph.i.i.i.i
   %call57.i.i.i.i = phi ptr [ %call54.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %call.i.i41.i.i, %if.end.i.i.i.i207 ]
   %lost.056.i.i.i.i = phi i32 [ 0, %while.body.lr.ph.i.i.i.i ], [ %inc.i.i.i.i, %if.end.i.i.i.i207 ]
-  %cmp1.i.i.i.i206 = icmp ult i32 %lost.056.i.i.i.i, 4
+  %cmp1.i.i.i.i206 = icmp samesign ult i32 %lost.056.i.i.i.i, 4
   br i1 %cmp1.i.i.i.i206, label %if.then.i.i.i.i, label %if.end.i.i.i.i207
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
@@ -3911,7 +3911,7 @@ if.end.i.i.i.i207:                                ; preds = %describe_one_orphan
   br i1 %cmp.not.i.i.i.i, label %while.end.i.i.i.i, label %while.body.i.i.i.i, !llvm.loop !16
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i207
-  %cmp2.i.i.i.i = icmp ugt i32 %lost.056.i.i.i.i, 3
+  %cmp2.i.i.i.i = icmp samesign ugt i32 %lost.056.i.i.i.i, 3
   br i1 %cmp2.i.i.i.i, label %if.then3.i.i.i.i, label %if.end8.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %while.end.i.i.i.i

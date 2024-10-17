@@ -173,21 +173,21 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr nocapture noundef
   %43 = icmp eq i32 %42, 9216
   %44 = lshr i32 %3, 16
   %45 = and i32 %44, 63
-  %46 = icmp ugt i32 %45, 16
+  %46 = icmp samesign ugt i32 %45, 16
   br i1 %43, label %47, label %.thread
 
 47:                                               ; preds = %37
   %.not58 = icmp eq i32 %13, 88080640
   %.not59 = icmp eq i32 %13, 88080896
   %spec.select = or i1 %.not58, %.not59
-  %48 = and i1 %spec.select, %46
+  %48 = select i1 %spec.select, i1 %46, i1 false
   br i1 %48, label %62, label %53
 
 .thread:                                          ; preds = %37
   %49 = icmp eq i16 %38, 8196
   %.not57 = icmp eq i32 %13, 83887360
   %50 = and i1 %.not57, %49
-  %51 = and i1 %46, %50
+  %51 = select i1 %50, i1 %46, i1 false
   br i1 %51, label %62, label %.thread66
 
 .thread66:                                        ; preds = %.thread

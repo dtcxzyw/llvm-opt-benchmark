@@ -702,7 +702,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc50,
 
 188:                                              ; preds = %180
   %189 = getelementptr inbounds i8, ptr %175, i64 %186
-  %or.cond.i.i = icmp ult i8 %177, 9
+  %or.cond.i.i = icmp samesign ult i8 %177, 9
   br i1 %or.cond.i.i, label %190, label %.invoke548
 
 190:                                              ; preds = %188
@@ -850,7 +850,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc50,
 256:                                              ; preds = %251
   %257 = load ptr, ptr %15, align 8, !alias.scope !77, !nonnull !8, !align !16, !noundef !8
   %258 = getelementptr inbounds i8, ptr %257, i64 %254
-  %or.cond.i.i117 = icmp ult i8 %249, 9
+  %or.cond.i.i117 = icmp samesign ult i8 %249, 9
   br i1 %or.cond.i.i117, label %259, label %.invoke548
 
 259:                                              ; preds = %256
@@ -1670,7 +1670,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc54,
 
 190:                                              ; preds = %182
   %191 = getelementptr inbounds i8, ptr %177, i64 %188
-  %or.cond.i.i = icmp ult i8 %179, 9
+  %or.cond.i.i = icmp samesign ult i8 %179, 9
   br i1 %or.cond.i.i, label %192, label %.invoke633
 
 192:                                              ; preds = %190
@@ -1818,7 +1818,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc54,
 258:                                              ; preds = %253
   %259 = load ptr, ptr %15, align 8, !alias.scope !182, !nonnull !8, !align !16, !noundef !8
   %260 = getelementptr inbounds i8, ptr %259, i64 %256
-  %or.cond.i.i121 = icmp ult i8 %251, 9
+  %or.cond.i.i121 = icmp samesign ult i8 %251, 9
   br i1 %or.cond.i.i121, label %261, label %.invoke633
 
 261:                                              ; preds = %258
@@ -2407,7 +2407,7 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_ed
 66:                                               ; preds = %58
   %67 = getelementptr inbounds i8, ptr %.sroa.0.sroa.8.0.copyload, i64 %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
-  %or.cond.i.i = icmp ult i8 %55, 9
+  %or.cond.i.i = icmp samesign ult i8 %55, 9
   br i1 %or.cond.i.i, label %69, label %68
 
 68:                                               ; preds = %66
@@ -2596,7 +2596,7 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit: ; preds = %125, 
   tail call void @llvm.assume(i1 %144)
   %145 = getelementptr inbounds i8, ptr %.sroa.0.sroa.8.0.copyload, i64 %141
   tail call void @llvm.experimental.noalias.scope.decl(metadata !282)
-  %or.cond.i.i58 = icmp ult i8 %136, 9
+  %or.cond.i.i58 = icmp samesign ult i8 %136, 9
   br i1 %or.cond.i.i58, label %147, label %146
 
 146:                                              ; preds = %143
@@ -3071,7 +3071,7 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_ed
 72:                                               ; preds = %64
   %73 = getelementptr inbounds i8, ptr %.sroa.0.sroa.9.0.copyload, i64 %70
   tail call void @llvm.experimental.noalias.scope.decl(metadata !338)
-  %or.cond.i.i = icmp ult i8 %61, 9
+  %or.cond.i.i = icmp samesign ult i8 %61, 9
   br i1 %or.cond.i.i, label %75, label %74
 
 74:                                               ; preds = %72
@@ -3260,7 +3260,7 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit: ; preds = %131, 
   tail call void @llvm.assume(i1 %150)
   %151 = getelementptr inbounds i8, ptr %.sroa.0.sroa.9.0.copyload, i64 %147
   tail call void @llvm.experimental.noalias.scope.decl(metadata !368)
-  %or.cond.i.i61 = icmp ult i8 %142, 9
+  %or.cond.i.i61 = icmp samesign ult i8 %142, 9
   br i1 %or.cond.i.i61, label %153, label %152
 
 152:                                              ; preds = %149
@@ -3722,7 +3722,7 @@ _ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE.exit: ; preds = %.lr.ph.i, %2
   %28 = load ptr, ptr %0, align 8, !nonnull !8, !align !16, !noundef !8
   %29 = sub nuw i64 %25, %23
   %30 = getelementptr inbounds i8, ptr %28, i64 %23
-  %or.cond.i = icmp ult i8 %5, 9
+  %or.cond.i = icmp samesign ult i8 %5, 9
   br i1 %or.cond.i, label %32, label %31
 
 31:                                               ; preds = %27
@@ -3878,7 +3878,7 @@ _ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE.exit: ; preds = %.lr.ph.i, %1
   %19 = load ptr, ptr %0, align 8, !nonnull !8, !align !16, !noundef !8
   %20 = sub nuw i64 %16, %14
   %21 = getelementptr inbounds i8, ptr %19, i64 %14
-  %or.cond.i = icmp ult i8 %4, 9
+  %or.cond.i = icmp samesign ult i8 %4, 9
   br i1 %or.cond.i, label %23, label %22
 
 22:                                               ; preds = %18
@@ -4396,7 +4396,7 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit: ; preds = %17
   %53 = sub nuw i64 %33, %50
   %54 = getelementptr inbounds i8, ptr %36, i64 %50
   tail call void @llvm.experimental.noalias.scope.decl(metadata !487)
-  %or.cond.i.i = icmp ult i8 %41, 9
+  %or.cond.i.i = icmp samesign ult i8 %41, 9
   br i1 %or.cond.i.i, label %56, label %55
 
 55:                                               ; preds = %52
@@ -4558,7 +4558,7 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit._ZN3fst3raw4node1
   %130 = sub nuw i64 %126, %124
   %131 = getelementptr inbounds i8, ptr %129, i64 %124
   tail call void @llvm.experimental.noalias.scope.decl(metadata !507)
-  %or.cond.i.i16 = icmp ult i8 %115, 9
+  %or.cond.i.i16 = icmp samesign ult i8 %115, 9
   br i1 %or.cond.i.i16, label %133, label %132
 
 132:                                              ; preds = %128

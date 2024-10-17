@@ -3287,7 +3287,7 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17h6f9
   %19 = icmp slt i8 %.sroa.04.0.extract.trunc.i, 26
   tail call void @llvm.assume(i1 %19)
   %.sroa.0243.0.i = tail call i8 @llvm.abs.i8(i8 %.sroa.04.0.extract.trunc.i, i1 true)
-  %20 = icmp ugt i8 %.sroa.0243.0.i, 23
+  %20 = icmp samesign ugt i8 %.sroa.0243.0.i, 23
   br i1 %20, label %201, label %21
 
 21:                                               ; preds = %17
