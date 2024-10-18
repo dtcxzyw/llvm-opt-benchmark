@@ -107824,19 +107824,19 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %222 = load ptr, ptr %.sroa.5279.0.copyload, align 8, !nonnull !12, !noundef !12
   %223 = getelementptr inbounds i8, ptr %.sroa.5279.0.copyload, i64 8
   %224 = load ptr, ptr %223, align 8, !nonnull !12, !align !48, !noundef !12
-  %225 = getelementptr inbounds i8, ptr %224, i64 16
-  %226 = load i64, ptr %225, align 8, !range !1706, !invariant.load !12
-  %227 = load ptr, ptr %55, align 8, !nonnull !12, !noundef !12
-  %228 = load ptr, ptr %56, align 8, !nonnull !12, !align !48, !noundef !12
+  %225 = load ptr, ptr %55, align 8, !nonnull !12, !noundef !12
+  %226 = load ptr, ptr %56, align 8, !nonnull !12, !align !48, !noundef !12
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
-  %229 = add i64 %226, -1
+  %227 = getelementptr inbounds i8, ptr %224, i64 16
+  %228 = load i64, ptr %227, align 8, !range !1706, !invariant.load !12
+  %229 = add i64 %228, -1
   %230 = and i64 %229, -16
   %231 = getelementptr i8, ptr %222, i64 %230
   %232 = getelementptr i8, ptr %231, i64 16
   %233 = getelementptr inbounds i8, ptr %224, i64 24
   %234 = load ptr, ptr %233, align 8, !invariant.load !12, !nonnull !12
-  invoke void %234(ptr noalias nocapture noundef nonnull sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %0, ptr noundef align 1 %232, ptr noundef nonnull %227, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %34)
+  invoke void %234(ptr noalias nocapture noundef nonnull sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %0, ptr noundef align 1 %232, ptr noundef nonnull %225, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %226, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %34)
           to label %237 unwind label %235
 
 235:                                              ; preds = %221
@@ -110964,19 +110964,19 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %661 = load ptr, ptr %.sroa.5278.0.copyload.i.i, align 8, !noalias !26778, !nonnull !12, !noundef !12
   %662 = getelementptr inbounds i8, ptr %.sroa.5278.0.copyload.i.i, i64 8
   %663 = load ptr, ptr %662, align 8, !noalias !26778, !nonnull !12, !align !48, !noundef !12
-  %664 = getelementptr inbounds i8, ptr %663, i64 16
-  %665 = load i64, ptr %664, align 8, !range !1706, !invariant.load !12, !noalias !26778
-  %666 = load ptr, ptr %128, align 8, !noalias !26762, !nonnull !12, !noundef !12
-  %667 = load ptr, ptr %495, align 8, !noalias !26762, !nonnull !12, !align !48, !noundef !12
+  %664 = load ptr, ptr %128, align 8, !noalias !26762, !nonnull !12, !noundef !12
+  %665 = load ptr, ptr %495, align 8, !noalias !26762, !nonnull !12, !align !48, !noundef !12
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %107), !noalias !26762
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %107, ptr noundef nonnull align 8 dereferenceable(48) %137, i64 48, i1 false), !noalias !26856
-  %668 = add i64 %665, -1
+  %666 = getelementptr inbounds i8, ptr %663, i64 16
+  %667 = load i64, ptr %666, align 8, !range !1706, !invariant.load !12, !noalias !26778
+  %668 = add i64 %667, -1
   %669 = and i64 %668, -16
   %670 = getelementptr i8, ptr %661, i64 %669
   %671 = getelementptr i8, ptr %670, i64 16
   %672 = getelementptr inbounds i8, ptr %663, i64 24
   %673 = load ptr, ptr %672, align 8, !invariant.load !12, !noalias !26778, !nonnull !12
-  invoke void %673(ptr noalias nocapture noundef nonnull sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %237, ptr noundef align 1 %671, ptr noundef nonnull %666, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %667, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %138, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %107)
+  invoke void %673(ptr noalias nocapture noundef nonnull sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %237, ptr noundef align 1 %671, ptr noundef nonnull %664, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %665, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %138, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %107)
           to label %676 unwind label %674, !noalias !26760
 
 674:                                              ; preds = %660

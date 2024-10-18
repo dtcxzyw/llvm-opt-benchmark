@@ -29719,7 +29719,7 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit: ; preds = %126
   call void @__rust_dealloc(ptr noundef nonnull %.val106, i64 noundef 24, i64 noundef 8) #51, !noalias !5691
   br label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$languages..tailwind..TailwindLspAdapter$GT$$GT$17hba77b8757a774acdE.exit"
 
-162:                                              ; preds = %914, %904, %330, %175, %912, %750, %911, %823, %885, %858, %806, %803, %.body162, %214, %311, %278, %86, %.body148, %134, %131
+162:                                              ; preds = %914, %904, %330, %175, %912, %750, %911, %821, %885, %858, %806, %803, %.body162, %214, %311, %278, %86, %.body148, %134, %131
   %163 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -31475,7 +31475,7 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit184: ; preds = %798
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %38)
   br label %717
 
-810:                                              ; preds = %825
+810:                                              ; preds = %823
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
   %811 = load i64, ptr %41, align 8, !range !1218, !noundef !11
@@ -31494,8 +31494,8 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit184: ; preds = %798
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %38)
   br label %.body174
 
-815:                                              ; preds = %832, %823
-  %.pn70.pn = phi { ptr, i32 } [ %824, %823 ], [ %833, %832 ]
+815:                                              ; preds = %832, %821
+  %.pn70.pn = phi { ptr, i32 } [ %822, %821 ], [ %833, %832 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
   %816 = load i64, ptr %41, align 8, !range !1218, !noundef !11
   %.not = icmp eq i64 %816, -9223372036854775808
@@ -31506,8 +31506,6 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit184: ; preds = %798
   %.val125 = load ptr, ptr %818, align 8, !nonnull !11, !noundef !11
   %819 = getelementptr i8, ptr %1, i64 104
   %.val126 = load ptr, ptr %819, align 8, !nonnull !11, !align !43, !noundef !11
-  %820 = getelementptr inbounds i8, ptr %.val126, i64 16
-  %821 = load i64, ptr %820, align 8, !range !232, !invariant.load !11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32)
   store i64 0, ptr %32, align 8, !alias.scope !6065
   %.sroa.42.0..sroa_idx.i185 = getelementptr inbounds i8, ptr %32, i64 8
@@ -31516,8 +31514,8 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit184: ; preds = %798
   store i64 27, ptr %.sroa.53.0..sroa_idx.i186, align 8, !alias.scope !6065
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
-  %822 = getelementptr inbounds i8, ptr %1, i64 144
-  store ptr %822, ptr %29, align 8
+  %820 = getelementptr inbounds i8, ptr %1, i64 144
+  store ptr %820, ptr %29, align 8
   %.sroa.5249.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h295ad7bd07f839f7E", ptr %.sroa.5249.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !6068
@@ -31531,18 +31529,20 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit184: ; preds = %798
   %.sroa.11246.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
   store ptr null, ptr %.sroa.11246.0..sroa_idx, align 8, !noalias !6079
   invoke void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %30, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
-          to label %825 unwind label %823
+          to label %823 unwind label %821
 
-823:                                              ; preds = %817
-  %824 = landingpad { ptr, i32 }
+821:                                              ; preds = %817
+  %822 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   invoke void @"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hdd164e00af1581a5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #52
           to label %815 unwind label %162
 
-825:                                              ; preds = %817
-  %826 = add i64 %821, -1
+823:                                              ; preds = %817
+  %824 = getelementptr inbounds i8, ptr %.val126, i64 16
+  %825 = load i64, ptr %824, align 8, !range !232, !invariant.load !11
+  %826 = add i64 %825, -1
   %827 = and i64 %826, -16
   %828 = getelementptr i8, ptr %.val125, i64 %827
   %829 = getelementptr i8, ptr %828, i64 16
@@ -31554,7 +31554,7 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit184: ; preds = %798
   invoke void %831(ptr noundef align 1 %829, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %32, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %31)
           to label %810 unwind label %832
 
-832:                                              ; preds = %825
+832:                                              ; preds = %823
   %833 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)

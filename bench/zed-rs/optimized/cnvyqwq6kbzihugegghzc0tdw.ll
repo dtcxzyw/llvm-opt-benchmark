@@ -114125,31 +114125,31 @@ default.unreachable38:                            ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store ptr %.sroa.1128.0.copyload, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11)
-  %22 = getelementptr inbounds i8, ptr %.sroa.1027.0.copyload, i64 16
-  %23 = load i64, ptr %22, align 8, !range !1072, !invariant.load !4
-  %24 = invoke noundef align 8 dereferenceable(24) ptr @"_ZN69_$LT$git..repository..RepoPath$u20$as$u20$core..ops..deref..Deref$GT$5deref17h158a8847de1e0e93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
-          to label %25 unwind label %82
+  %22 = invoke noundef align 8 dereferenceable(24) ptr @"_ZN69_$LT$git..repository..RepoPath$u20$as$u20$core..ops..deref..Deref$GT$5deref17h158a8847de1e0e93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
+          to label %23 unwind label %82
 
-25:                                               ; preds = %19
-  %26 = add i64 %23, -1
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %.sroa.1027.0.copyload, i64 16
+  %25 = load i64, ptr %24, align 8, !range !1072, !invariant.load !4
+  %26 = add i64 %25, -1
   %27 = and i64 %26, -16
   %28 = getelementptr i8, ptr %.sroa.9.0.copyload, i64 %27
   %29 = getelementptr i8, ptr %28, i64 16
-  %30 = getelementptr inbounds i8, ptr %24, i64 8
+  %30 = getelementptr inbounds i8, ptr %22, i64 8
   %.val12 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  %31 = getelementptr inbounds i8, ptr %24, i64 16
+  %31 = getelementptr inbounds i8, ptr %22, i64 16
   %.val13 = load i64, ptr %31, align 8, !noundef !4
   %32 = getelementptr inbounds i8, ptr %.sroa.1027.0.copyload, i64 96
   %33 = load ptr, ptr %32, align 8, !invariant.load !4, !nonnull !4
   invoke void %33(ptr noalias nocapture noundef nonnull sret([112 x i8]) align 8 dereferenceable(112) %11, ptr noundef align 1 %29, ptr noalias noundef nonnull readonly align 1 %.val12, i64 noundef %.val13, ptr noundef nonnull %.sroa.1128.0.copyload)
           to label %36 unwind label %34
 
-34:                                               ; preds = %25
+34:                                               ; preds = %23
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-36:                                               ; preds = %25
+36:                                               ; preds = %23
   call void @llvm.experimental.noalias.scope.decl(metadata !32559)
   call void @llvm.experimental.noalias.scope.decl(metadata !32562)
   %37 = load i64, ptr %11, align 8, !range !793, !alias.scope !32564, !noalias !32565, !noundef !4

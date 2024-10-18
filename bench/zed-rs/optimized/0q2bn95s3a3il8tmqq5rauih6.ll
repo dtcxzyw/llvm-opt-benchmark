@@ -112839,30 +112839,28 @@ define hidden void @_ZN9assistant14prompt_library13PromptLibrary13inline_assist1
 38:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
-          to label %47 unwind label %45
+          to label %45 unwind label %43
 
-39:                                               ; preds = %33, %47
-  %40 = phi ptr [ %.pre91, %47 ], [ %34, %33 ]
-  %41 = phi ptr [ %.pre, %47 ], [ %31, %33 ]
-  %.sroa.12.0 = phi i64 [ %.sroa.12.0.copyload, %47 ], [ undef, %33 ]
-  %.sroa.9.0 = phi ptr [ %.sroa.9.0.copyload, %47 ], [ undef, %33 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %47 ], [ -9223372036854775808, %33 ]
-  %42 = getelementptr inbounds i8, ptr %40, i64 16
-  %43 = load i64, ptr %42, align 8, !range !5461, !invariant.load !12
-  %44 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
-          to label %49 unwind label %.thread71
+39:                                               ; preds = %33, %45
+  %40 = phi ptr [ %.pre91, %45 ], [ %34, %33 ]
+  %41 = phi ptr [ %.pre, %45 ], [ %31, %33 ]
+  %.sroa.12.0 = phi i64 [ %.sroa.12.0.copyload, %45 ], [ undef, %33 ]
+  %.sroa.9.0 = phi ptr [ %.sroa.9.0.copyload, %45 ], [ undef, %33 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %45 ], [ -9223372036854775808, %33 ]
+  %42 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+          to label %47 unwind label %.thread71
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2546f6b250219fd6E.exit42": ; preds = %.thread, %.thread, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i.i41", %48, %45
-  %.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %48 ], [ %46, %45 ], [ %.pn70, %.thread ], [ %.pn70, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i.i41" ], [ %.pn70, %.thread ]
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2546f6b250219fd6E.exit42": ; preds = %.thread, %.thread, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i.i41", %46, %43
+  %.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %46 ], [ %44, %43 ], [ %.pn70, %.thread ], [ %.pn70, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i.i41" ], [ %.pn70, %.thread ]
   invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$language_model..LanguageModelProvider$GT$$GT$17h784b7555e6c3efdfE"(ptr noalias noundef align 8 dereferenceable(16) %14) #82
           to label %130 unwind label %125
 
-45:                                               ; preds = %38
-  %46 = landingpad { ptr, i32 }
+43:                                               ; preds = %38
+  %44 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2546f6b250219fd6E.exit42"
 
-47:                                               ; preds = %38
+45:                                               ; preds = %38
   %.sroa.0.0.copyload = load i64, ptr %8, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   %.sroa.9.0.copyload = load ptr, ptr %.sroa.9.0..sroa_idx, align 8
@@ -112873,27 +112871,29 @@ define hidden void @_ZN9assistant14prompt_library13PromptLibrary13inline_assist1
   %.pre91 = load ptr, ptr %35, align 8
   br label %39
 
-.thread71:                                        ; preds = %62, %58, %49, %39, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h041f1b664753bbaeE.exit.thread", %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$assistant..assistant_panel..AssistantPanel$GT$$GT$$GT$17hc62b8810a625808eE.exit"
+.thread71:                                        ; preds = %62, %58, %47, %39, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h041f1b664753bbaeE.exit.thread", %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$assistant..assistant_panel..AssistantPanel$GT$$GT$$GT$17hc62b8810a625808eE.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
-48:                                               ; preds = %60
+46:                                               ; preds = %60
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2546f6b250219fd6E.exit42"
 
-49:                                               ; preds = %39
-  %50 = add i64 %43, -1
+47:                                               ; preds = %39
+  %48 = getelementptr inbounds i8, ptr %40, i64 16
+  %49 = load i64, ptr %48, align 8, !range !5461, !invariant.load !12
+  %50 = add i64 %49, -1
   %51 = and i64 %50, -16
   %52 = getelementptr i8, ptr %41, i64 %51
   %53 = getelementptr i8, ptr %52, i64 16
   %54 = getelementptr inbounds i8, ptr %40, i64 64
   %55 = load ptr, ptr %54, align 8, !invariant.load !12, !nonnull !12
-  %56 = invoke noundef zeroext i1 %55(ptr noundef align 1 %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %44)
+  %56 = invoke noundef zeroext i1 %55(ptr noundef align 1 %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %42)
           to label %57 unwind label %.thread71
 
-57:                                               ; preds = %49
+57:                                               ; preds = %47
   br i1 %56, label %60, label %58
 
 58:                                               ; preds = %57
@@ -112911,7 +112911,7 @@ define hidden void @_ZN9assistant14prompt_library13PromptLibrary13inline_assist1
   %.sroa.12.0..sroa_idx50 = getelementptr inbounds i8, ptr %13, i64 16
   store i64 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx50, align 8
   invoke void @"_ZN44_$LT$C$u20$as$u20$gpui..BorrowAppContext$GT$13update_global17hd0605637dd7093d1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %13)
-          to label %127 unwind label %48
+          to label %127 unwind label %46
 
 62:                                               ; preds = %58
   invoke void @_ZN4gpui3app10AppContext7windows17h7a1bc98b6a43da95E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %59)

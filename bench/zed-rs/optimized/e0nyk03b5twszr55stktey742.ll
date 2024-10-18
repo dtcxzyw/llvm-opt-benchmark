@@ -19143,23 +19143,23 @@ default.unreachable103:                           ; preds = %3
   %.val = load ptr, ptr %21, align 8, !nonnull !9, !noundef !9
   %22 = getelementptr i8, ptr %21, i64 8
   %.val27 = load ptr, ptr %22, align 8, !nonnull !9, !align !10, !noundef !9
-  %23 = getelementptr inbounds i8, ptr %.val27, i64 16
-  %24 = load i64, ptr %23, align 8, !range !126, !invariant.load !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store i8 0, ptr %19, align 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   invoke void @"_ZN103_$LT$http_client..async_body..AsyncBody$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h41acb3051b9c551bE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %10)
-          to label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hea02cb10d3cf844eE.exit" unwind label %25
+          to label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hea02cb10d3cf844eE.exit" unwind label %23
 
-25:                                               ; preds = %17
-  %26 = landingpad { ptr, i32 }
+23:                                               ; preds = %17
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %34
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hea02cb10d3cf844eE.exit": ; preds = %17
-  %27 = add i64 %24, -1
+  %25 = getelementptr inbounds i8, ptr %.val27, i64 16
+  %26 = load i64, ptr %25, align 8, !range !126, !invariant.load !9
+  %27 = add i64 %26, -1
   %28 = and i64 %27, -16
   %29 = getelementptr i8, ptr %.val, i64 %28
   %30 = getelementptr i8, ptr %29, i64 16
@@ -19169,8 +19169,8 @@ default.unreachable103:                           ; preds = %3
   %33 = invoke { ptr, ptr } %32(ptr noundef align 1 %30, ptr noalias noundef nonnull readonly align 1 @anon.f24e25776748db1809fff5cb888f2b66.223, i64 noundef 37, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %11)
           to label %37 unwind label %35
 
-34:                                               ; preds = %35, %25
-  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %26, %25 ]
+34:                                               ; preds = %35, %23
+  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %24, %23 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   br label %.body
 

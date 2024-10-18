@@ -41199,27 +41199,27 @@ common.ret:                                       ; preds = %549, %546, %108
   %.val.i.i.i = load ptr, ptr %427, align 8, !nonnull !10, !noundef !10
   %428 = getelementptr i8, ptr %426, i64 32
   %.val31.i.i.i = load ptr, ptr %428, align 8, !nonnull !10, !align !274, !noundef !10
-  %429 = getelementptr inbounds i8, ptr %.val31.i.i.i, i64 16
-  %430 = load i64, ptr %429, align 8, !range !275, !invariant.load !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !5274
   %.val32.i.i.i = load ptr, ptr %426, align 8, !alias.scope !5285, !noalias !5288, !nonnull !10, !noundef !10
-  %431 = getelementptr i8, ptr %426, i64 16
-  %.val33.i.i.i = load i64, ptr %431, align 8, !alias.scope !5285, !noalias !5288, !noundef !10
-  %432 = invoke { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1aefc7dd7e7d668dE"(i64 noundef %.val33.i.i.i, i1 noundef zeroext false)
-          to label %435 unwind label %433
+  %429 = getelementptr i8, ptr %426, i64 16
+  %.val33.i.i.i = load i64, ptr %429, align 8, !alias.scope !5285, !noalias !5288, !noundef !10
+  %430 = invoke { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1aefc7dd7e7d668dE"(i64 noundef %.val33.i.i.i, i1 noundef zeroext false)
+          to label %433 unwind label %431
 
-433:                                              ; preds = %425
-  %434 = landingpad { ptr, i32 }
+431:                                              ; preds = %425
+  %432 = landingpad { ptr, i32 }
           cleanup
   br label %446
 
-435:                                              ; preds = %425
-  %436 = add i64 %430, -1
+433:                                              ; preds = %425
+  %434 = getelementptr inbounds i8, ptr %.val31.i.i.i, i64 16
+  %435 = load i64, ptr %434, align 8, !range !275, !invariant.load !10
+  %436 = add i64 %435, -1
   %437 = and i64 %436, -16
   %438 = getelementptr i8, ptr %.val.i.i.i, i64 %437
   %439 = getelementptr i8, ptr %438, i64 16
-  %440 = extractvalue { ptr, i64 } %432, 0
-  %441 = extractvalue { ptr, i64 } %432, 1
+  %440 = extractvalue { ptr, i64 } %430, 0
+  %441 = extractvalue { ptr, i64 } %430, 1
   %442 = icmp ne ptr %440, null
   call void @llvm.assume(i1 %442)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %440, ptr nonnull readonly align 1 %.val32.i.i.i, i64 %.val33.i.i.i, i1 false)
@@ -41233,17 +41233,17 @@ common.ret:                                       ; preds = %549, %546, %108
   %445 = invoke { ptr, ptr } %444(ptr noundef align 1 %439, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
           to label %449 unwind label %447
 
-446:                                              ; preds = %447, %433
-  %.pn.i.i.i = phi { ptr, i32 } [ %448, %447 ], [ %434, %433 ]
+446:                                              ; preds = %447, %431
+  %.pn.i.i.i = phi { ptr, i32 } [ %448, %447 ], [ %432, %431 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !5274
   br label %.body.i.i.i
 
-447:                                              ; preds = %435
+447:                                              ; preds = %433
   %448 = landingpad { ptr, i32 }
           cleanup
   br label %446
 
-449:                                              ; preds = %435
+449:                                              ; preds = %433
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !5274
   %450 = extractvalue { ptr, ptr } %445, 0
   %451 = extractvalue { ptr, ptr } %445, 1

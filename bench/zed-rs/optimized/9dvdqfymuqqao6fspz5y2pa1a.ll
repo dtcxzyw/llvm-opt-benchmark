@@ -18038,32 +18038,32 @@ default.unreachable10:                            ; preds = %3
   %.val5 = load ptr, ptr %9, align 8, !nonnull !9, !noundef !9
   %10 = getelementptr i8, ptr %1, i64 32
   %.val6 = load ptr, ptr %10, align 8, !nonnull !9, !align !10, !noundef !9
-  %11 = getelementptr inbounds i8, ptr %.val6, i64 16
-  %12 = load i64, ptr %11, align 8, !range !152, !invariant.load !9
-  %13 = invoke noundef align 8 dereferenceable(24) ptr @"_ZN69_$LT$git..repository..RepoPath$u20$as$u20$core..ops..deref..Deref$GT$5deref17h158a8847de1e0e93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
-          to label %16 unwind label %14
+  %11 = invoke noundef align 8 dereferenceable(24) ptr @"_ZN69_$LT$git..repository..RepoPath$u20$as$u20$core..ops..deref..Deref$GT$5deref17h158a8847de1e0e93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+          to label %14 unwind label %12
 
-14:                                               ; preds = %8
-  %15 = landingpad { ptr, i32 }
+12:                                               ; preds = %8
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %25
 
-16:                                               ; preds = %8
-  %17 = add i64 %12, -1
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds i8, ptr %.val6, i64 16
+  %16 = load i64, ptr %15, align 8, !range !152, !invariant.load !9
+  %17 = add i64 %16, -1
   %18 = and i64 %17, -16
   %19 = getelementptr i8, ptr %.val5, i64 %18
   %20 = getelementptr i8, ptr %19, i64 16
-  %21 = getelementptr inbounds i8, ptr %13, i64 8
+  %21 = getelementptr inbounds i8, ptr %11, i64 8
   %.val = load ptr, ptr %21, align 8, !nonnull !9, !noundef !9
-  %22 = getelementptr inbounds i8, ptr %13, i64 16
+  %22 = getelementptr inbounds i8, ptr %11, i64 16
   %.val4 = load i64, ptr %22, align 8, !noundef !9
   %23 = getelementptr inbounds i8, ptr %.val6, i64 32
   %24 = load ptr, ptr %23, align 8, !invariant.load !9, !nonnull !9
   invoke void %24(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noundef align 1 %20, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val4)
           to label %32 unwind label %30
 
-25:                                               ; preds = %30, %14
-  %.pn = phi { ptr, i32 } [ %31, %30 ], [ %15, %14 ]
+25:                                               ; preds = %30, %12
+  %.pn = phi { ptr, i32 } [ %31, %30 ], [ %13, %12 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3325)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3328)
   %26 = load ptr, ptr %9, align 8, !alias.scope !3331, !nonnull !9, !noundef !9
@@ -18076,12 +18076,12 @@ default.unreachable10:                            ; preds = %3
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h694b7c06d07400c5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
           to label %"_ZN4core3ptr83drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$git..repository..GitRepository$GT$$GT$17hdfd1a44c0b1a6e1dE.exit" unwind label %52
 
-30:                                               ; preds = %16
+30:                                               ; preds = %14
   %31 = landingpad { ptr, i32 }
           cleanup
   br label %25
 
-32:                                               ; preds = %16
+32:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3332)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3335)
   %33 = load ptr, ptr %9, align 8, !alias.scope !3338, !nonnull !9, !noundef !9
@@ -29518,22 +29518,22 @@ _ZN3log13__private_api3log17h8283b0c56fbdbfabE.exit586: ; preds = %1160
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %93)
   %.val387 = load ptr, ptr %96, align 8, !nonnull !9, !noundef !9
   %.val388 = load ptr, ptr %1204, align 8, !nonnull !9, !align !10, !noundef !9
-  %1217 = getelementptr inbounds i8, ptr %.val388, i64 16
-  %1218 = load i64, ptr %1217, align 8, !range !152, !invariant.load !9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %92)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %91)
   invoke void @_ZN3std3sys6os_str5bytes5Slice8to_owned17he7326b2b60fbbdf5E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %91, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
-          to label %"_ZN71_$LT$std..path..PathBuf$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17h591a6a35fad3369dE.exit" unwind label %1219
+          to label %"_ZN71_$LT$std..path..PathBuf$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17h591a6a35fad3369dE.exit" unwind label %1217
 
-1219:                                             ; preds = %1213
-  %1220 = landingpad { ptr, i32 }
+1217:                                             ; preds = %1213
+  %1218 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %91)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %93)
   br label %1326
 
 "_ZN71_$LT$std..path..PathBuf$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17h591a6a35fad3369dE.exit": ; preds = %1213
-  %1221 = add i64 %1218, -1
+  %1219 = getelementptr inbounds i8, ptr %.val388, i64 16
+  %1220 = load i64, ptr %1219, align 8, !range !152, !invariant.load !9
+  %1221 = add i64 %1220, -1
   %1222 = and i64 %1221, -16
   %1223 = getelementptr i8, ptr %.val387, i64 %1222
   %1224 = getelementptr i8, ptr %1223, i64 16
@@ -29853,8 +29853,8 @@ _ZN3log13__private_api3log17h8283b0c56fbdbfabE.exit607: ; preds = %1304
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h891fbf8df3227b6bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %94)
           to label %"_ZN4core3ptr43drop_in_place$LT$git..status..GitStatus$GT$17h7eabaef484d69774E.exit" unwind label %294
 
-1326:                                             ; preds = %1244, %1219
-  %.pn134.pn = phi { ptr, i32 } [ %.pn134, %1244 ], [ %1220, %1219 ]
+1326:                                             ; preds = %1244, %1217
+  %.pn134.pn = phi { ptr, i32 } [ %.pn134, %1244 ], [ %1218, %1217 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %92)
   br label %"_ZN4core3ptr43drop_in_place$LT$git..status..GitStatus$GT$17h7eabaef484d69774E.exit"
 

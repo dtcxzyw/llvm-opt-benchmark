@@ -36920,28 +36920,28 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
   %.val58.i.i.i = load ptr, ptr %224, align 8, !nonnull !5, !noundef !5
   %225 = getelementptr i8, ptr %223, i64 24
   %.val59.i.i.i = load ptr, ptr %225, align 8, !nonnull !5, !align !14, !noundef !5
-  %226 = getelementptr inbounds i8, ptr %.val59.i.i.i, i64 16
-  %227 = load i64, ptr %226, align 8, !range !15, !invariant.load !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !4797
-  %228 = getelementptr inbounds i8, ptr %223, i64 32
-  %.val60.i.i.i = load ptr, ptr %228, align 8, !alias.scope !4816, !noalias !4819, !nonnull !5, !noundef !5
-  %229 = getelementptr i8, ptr %223, i64 48
-  %.val61.i.i.i = load i64, ptr %229, align 8, !alias.scope !4816, !noalias !4819, !noundef !5
-  %230 = invoke { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1aefc7dd7e7d668dE"(i64 noundef %.val61.i.i.i, i1 noundef zeroext false)
-          to label %233 unwind label %231
+  %226 = getelementptr inbounds i8, ptr %223, i64 32
+  %.val60.i.i.i = load ptr, ptr %226, align 8, !alias.scope !4816, !noalias !4819, !nonnull !5, !noundef !5
+  %227 = getelementptr i8, ptr %223, i64 48
+  %.val61.i.i.i = load i64, ptr %227, align 8, !alias.scope !4816, !noalias !4819, !noundef !5
+  %228 = invoke { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1aefc7dd7e7d668dE"(i64 noundef %.val61.i.i.i, i1 noundef zeroext false)
+          to label %231 unwind label %229
 
-231:                                              ; preds = %220
-  %232 = landingpad { ptr, i32 }
+229:                                              ; preds = %220
+  %230 = landingpad { ptr, i32 }
           cleanup
   br label %244
 
-233:                                              ; preds = %220
-  %234 = add i64 %227, -1
+231:                                              ; preds = %220
+  %232 = getelementptr inbounds i8, ptr %.val59.i.i.i, i64 16
+  %233 = load i64, ptr %232, align 8, !range !15, !invariant.load !5
+  %234 = add i64 %233, -1
   %235 = and i64 %234, -16
   %236 = getelementptr i8, ptr %.val58.i.i.i, i64 %235
   %237 = getelementptr i8, ptr %236, i64 16
-  %238 = extractvalue { ptr, i64 } %230, 0
-  %239 = extractvalue { ptr, i64 } %230, 1
+  %238 = extractvalue { ptr, i64 } %228, 0
+  %239 = extractvalue { ptr, i64 } %228, 1
   %240 = icmp ne ptr %238, null
   call void @llvm.assume(i1 %240)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %238, ptr nonnull readonly align 1 %.val60.i.i.i, i64 %.val61.i.i.i, i1 false)
@@ -36955,17 +36955,17 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
   %243 = invoke { ptr, ptr } %242(ptr noundef align 1 %237, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %8)
           to label %247 unwind label %245
 
-244:                                              ; preds = %245, %231
-  %.pn.i.i.i = phi { ptr, i32 } [ %246, %245 ], [ %232, %231 ]
+244:                                              ; preds = %245, %229
+  %.pn.i.i.i = phi { ptr, i32 } [ %246, %245 ], [ %230, %229 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !4797
   br label %.body.i.i.i
 
-245:                                              ; preds = %233
+245:                                              ; preds = %231
   %246 = landingpad { ptr, i32 }
           cleanup
   br label %244
 
-247:                                              ; preds = %233
+247:                                              ; preds = %231
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !4797
   %248 = extractvalue { ptr, ptr } %243, 0
   %249 = extractvalue { ptr, ptr } %243, 1

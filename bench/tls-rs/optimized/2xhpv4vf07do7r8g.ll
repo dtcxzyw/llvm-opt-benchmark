@@ -6958,13 +6958,13 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %261 = load ptr, ptr %260, align 8, !noalias !1776, !nonnull !14, !noundef !14
   %262 = getelementptr inbounds i8, ptr %259, i64 72
   %263 = load ptr, ptr %262, align 8, !noalias !1776, !nonnull !14, !align !28, !noundef !14
-  %264 = getelementptr inbounds i8, ptr %263, i64 16
-  %265 = load i64, ptr %264, align 8, !range !382, !invariant.load !14, !noalias !1776
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %67), !noalias !1776
   invoke void @_ZN6rustls4msgs5codec5Codec12get_encoding17hbdaefbe5eaeadab0E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %252)
           to label %.noexc.i unwind label %287, !noalias !1780
 
 .noexc.i:                                         ; preds = %258
+  %264 = getelementptr inbounds i8, ptr %263, i64 16
+  %265 = load i64, ptr %264, align 8, !range !382, !invariant.load !14, !noalias !1776
   %266 = add i64 %265, -1
   %267 = and i64 %266, -16
   %268 = getelementptr i8, ptr %261, i64 %267

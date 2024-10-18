@@ -19155,23 +19155,23 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.th
   store ptr %215, ptr %24, align 8
   store ptr %217, ptr %.fca.1.gep4, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !3354)
-  %218 = getelementptr inbounds i8, ptr %217, i64 16
-  %219 = load i64, ptr %218, align 8, !range !619, !invariant.load !4, !noalias !3357
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11), !noalias !3357
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..0..sroa_idx.i, align 8, !alias.scope !3354, !noalias !3359
   store i64 3, ptr %.sroa.4.0..0..sroa_idx.i, align 8, !alias.scope !3354, !noalias !3359
-  %220 = icmp eq i64 %.sroa.4.0.copyload.i, 3
-  br i1 %220, label %221, label %222
+  %218 = icmp eq i64 %.sroa.4.0.copyload.i, 3
+  br i1 %218, label %219, label %220
 
-221:                                              ; preds = %201
+219:                                              ; preds = %201
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.994a7b37319c006e8cb030761fb03132.73.llvm.7022646624147239703, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.994a7b37319c006e8cb030761fb03132.76) #39
           to label %.noexc95 unwind label %267
 
-.noexc95:                                         ; preds = %221
+.noexc95:                                         ; preds = %219
   unreachable
 
-222:                                              ; preds = %201
-  %223 = call i64 @llvm.umax.i64(i64 %219, i64 8)
+220:                                              ; preds = %201
+  %221 = getelementptr inbounds i8, ptr %217, i64 16
+  %222 = load i64, ptr %221, align 8, !range !619, !invariant.load !4, !noalias !3357
+  %223 = call i64 @llvm.umax.i64(i64 %222, i64 8)
   %224 = add i64 %223, -1
   %225 = and i64 %224, -16
   %226 = getelementptr i8, ptr %215, i64 %225
@@ -19182,7 +19182,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.th
   %228 = invoke fastcc { ptr, i8 } @"_ZN5flume17Hook$LT$T$C$S$GT$4lock17h5f9088c0311ed015E"(ptr noundef nonnull align 8 %227)
           to label %229 unwind label %265, !noalias !3360
 
-229:                                              ; preds = %222
+229:                                              ; preds = %220
   %.fca.1.extract.i.i = extractvalue { ptr, i8 } %228, 1
   %230 = icmp eq i8 %.fca.1.extract.i.i, 2
   br i1 %230, label %266, label %231
@@ -19259,7 +19259,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.th
 
 .thread198:                                       ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.thread.i.i.i.i, %254
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !3360
-  %255 = add i64 %219, -1
+  %255 = add i64 %222, -1
   %256 = and i64 %255, -112
   %257 = getelementptr i8, ptr %227, i64 %256
   %258 = getelementptr i8, ptr %257, i64 112
@@ -19277,7 +19277,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.th
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #38, !noalias !3365
   unreachable
 
-265:                                              ; preds = %222
+265:                                              ; preds = %220
   %lpad.thr_comm.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$17h51cdba438ebf7de4E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %11) #37
@@ -19288,7 +19288,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.th
   %cond = icmp eq i64 %.sroa.4.0.copyload.i, 4
   br i1 %cond, label %.loopexit, label %347
 
-267:                                              ; preds = %254, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.i.i.i.i, %221
+267:                                              ; preds = %254, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.i.i.i.i, %219
   %268 = landingpad { ptr, i32 }
           cleanup
   br label %.body98
@@ -19484,7 +19484,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.th
           to label %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17hd4d962486d69308dE.llvm.7022646624147239703.exit116" unwind label %284
 
 347:                                              ; preds = %266
-  %348 = add i64 %219, -1
+  %348 = add i64 %222, -1
   %349 = and i64 %348, -112
   %350 = getelementptr i8, ptr %227, i64 %349
   %351 = getelementptr i8, ptr %350, i64 112

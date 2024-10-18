@@ -58061,19 +58061,19 @@ _ZN9workspace4dock4Dock8set_open17h5b410fc119891ad1E.exit.thread.i: ; preds = %.
   %105 = load ptr, ptr %.sroa.0.0.i1922.i, align 8, !noalias !14019, !nonnull !7, !noundef !7
   %106 = getelementptr inbounds i8, ptr %.sroa.0.0.i1922.i, i64 8
   %107 = load ptr, ptr %106, align 8, !noalias !14019, !nonnull !7, !align !12, !noundef !7
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
-  %109 = load i64, ptr %108, align 8, !range !153, !invariant.load !7, !noalias !14019
-  %110 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  %108 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %.noexc10 unwind label %40
 
 .noexc10:                                         ; preds = %.thread.i
-  %111 = add i64 %109, -1
+  %109 = getelementptr inbounds i8, ptr %107, i64 16
+  %110 = load i64, ptr %109, align 8, !range !153, !invariant.load !7, !noalias !14019
+  %111 = add i64 %110, -1
   %112 = and i64 %111, -16
   %113 = getelementptr i8, ptr %105, i64 %112
   %114 = getelementptr i8, ptr %113, i64 16
   %115 = getelementptr inbounds i8, ptr %107, i64 152
   %116 = load ptr, ptr %115, align 8, !invariant.load !7, !noalias !14019, !nonnull !7
-  invoke void %116(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %4, ptr noundef align 1 %114, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %110)
+  invoke void %116(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %4, ptr noundef align 1 %114, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %108)
           to label %.noexc11 unwind label %40
 
 .noexc11:                                         ; preds = %.noexc10
@@ -58085,19 +58085,19 @@ _ZN9workspace4dock4Dock8set_open17h5b410fc119891ad1E.exit.thread.i: ; preds = %.
   %118 = load ptr, ptr %96, align 8, !noalias !14019, !nonnull !7, !noundef !7
   %119 = getelementptr inbounds i8, ptr %96, i64 8
   %120 = load ptr, ptr %119, align 8, !noalias !14019, !nonnull !7, !align !12, !noundef !7
-  %121 = getelementptr inbounds i8, ptr %120, i64 16
-  %122 = load i64, ptr %121, align 8, !range !153, !invariant.load !7, !noalias !14019
-  %123 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  %121 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %.noexc12 unwind label %40
 
 .noexc12:                                         ; preds = %117
-  %124 = add i64 %122, -1
+  %122 = getelementptr inbounds i8, ptr %120, i64 16
+  %123 = load i64, ptr %122, align 8, !range !153, !invariant.load !7, !noalias !14019
+  %124 = add i64 %123, -1
   %125 = and i64 %124, -16
   %126 = getelementptr i8, ptr %118, i64 %125
   %127 = getelementptr i8, ptr %126, i64 16
   %128 = getelementptr inbounds i8, ptr %120, i64 152
   %129 = load ptr, ptr %128, align 8, !invariant.load !7, !noalias !14019, !nonnull !7
-  invoke void %129(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %5, ptr noundef align 1 %127, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %123)
+  invoke void %129(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %5, ptr noundef align 1 %127, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %121)
           to label %.noexc13 unwind label %40
 
 .noexc13:                                         ; preds = %.noexc12
@@ -95353,19 +95353,19 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h252d70496eb42db3E.exit: ; preds = %3
   %92 = load ptr, ptr %91, align 8, !noalias !21062, !nonnull !7, !noundef !7
   %93 = getelementptr inbounds i8, ptr %91, i64 8
   %94 = load ptr, ptr %93, align 8, !noalias !21062, !nonnull !7, !align !12, !noundef !7
-  %95 = getelementptr inbounds i8, ptr %94, i64 16
-  %96 = load i64, ptr %95, align 8, !range !153, !invariant.load !7, !noalias !21062
-  %97 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  %95 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %.noexc9 unwind label %39
 
 .noexc9:                                          ; preds = %88
-  %98 = add i64 %96, -1
+  %96 = getelementptr inbounds i8, ptr %94, i64 16
+  %97 = load i64, ptr %96, align 8, !range !153, !invariant.load !7, !noalias !21062
+  %98 = add i64 %97, -1
   %99 = and i64 %98, -16
   %100 = getelementptr i8, ptr %92, i64 %99
   %101 = getelementptr i8, ptr %100, i64 16
   %102 = getelementptr inbounds i8, ptr %94, i64 152
   %103 = load ptr, ptr %102, align 8, !invariant.load !7, !noalias !21059, !nonnull !7
-  invoke void %103(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %4, ptr noundef align 1 %101, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %97)
+  invoke void %103(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %4, ptr noundef align 1 %101, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %95)
           to label %.noexc10 unwind label %39
 
 .noexc10:                                         ; preds = %.noexc9

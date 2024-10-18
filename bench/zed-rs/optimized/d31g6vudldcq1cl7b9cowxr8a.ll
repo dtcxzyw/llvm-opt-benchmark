@@ -5219,8 +5219,8 @@ default.unreachable:                              ; preds = %103
   %111 = invoke noundef align 8 dereferenceable(16) ptr @_ZN8worktree20LocalRepositoryEntry4repo17h771e31a746bd02f4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %110)
           to label %119 unwind label %117, !noalias !838
 
-112:                                              ; preds = %124, %117
-  %.pn.i = phi { ptr, i32 } [ %118, %117 ], [ %125, %124 ]
+112:                                              ; preds = %122, %117
+  %.pn.i = phi { ptr, i32 } [ %118, %117 ], [ %123, %122 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !841)
   call void @llvm.experimental.noalias.scope.decl(metadata !844)
   call void @llvm.experimental.noalias.scope.decl(metadata !847)
@@ -5238,7 +5238,7 @@ default.unreachable:                              ; preds = %103
   call void @__rust_dealloc(ptr noundef nonnull %116, i64 noundef %113, i64 noundef 1) #42, !noalias !867
   br label %"_ZN4core3ptr46drop_in_place$LT$git..repository..RepoPath$GT$17h97d3736cc13c0e42E.exit.i"
 
-117:                                              ; preds = %126, %108
+117:                                              ; preds = %124, %108
   %118 = landingpad { ptr, i32 }
           cleanup
   br label %112
@@ -5247,31 +5247,31 @@ default.unreachable:                              ; preds = %103
   %.val.i = load ptr, ptr %111, align 8, !noalias !838, !nonnull !13, !noundef !13
   %120 = getelementptr inbounds i8, ptr %111, i64 8
   %.val4.i = load ptr, ptr %120, align 8, !noalias !838, !nonnull !13, !align !550, !noundef !13
-  %121 = getelementptr inbounds i8, ptr %.val4.i, i64 16
-  %122 = load i64, ptr %121, align 8, !range !868, !invariant.load !13, !noalias !838
-  %123 = invoke noundef align 8 dereferenceable(24) ptr @"_ZN69_$LT$git..repository..RepoPath$u20$as$u20$core..ops..deref..Deref$GT$5deref17h158a8847de1e0e93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %73)
-          to label %126 unwind label %124, !noalias !838
+  %121 = invoke noundef align 8 dereferenceable(24) ptr @"_ZN69_$LT$git..repository..RepoPath$u20$as$u20$core..ops..deref..Deref$GT$5deref17h158a8847de1e0e93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %73)
+          to label %124 unwind label %122, !noalias !838
 
-124:                                              ; preds = %119
-  %125 = landingpad { ptr, i32 }
+122:                                              ; preds = %119
+  %123 = landingpad { ptr, i32 }
           cleanup
   br label %112
 
-126:                                              ; preds = %119
-  %127 = add i64 %122, -1
+124:                                              ; preds = %119
+  %125 = getelementptr inbounds i8, ptr %.val4.i, i64 16
+  %126 = load i64, ptr %125, align 8, !range !868, !invariant.load !13, !noalias !838
+  %127 = add i64 %126, -1
   %128 = and i64 %127, -16
   %129 = getelementptr i8, ptr %.val.i, i64 %128
   %130 = getelementptr i8, ptr %129, i64 16
-  %131 = getelementptr inbounds i8, ptr %123, i64 8
+  %131 = getelementptr inbounds i8, ptr %121, i64 8
   %.val5.i = load ptr, ptr %131, align 8, !alias.scope !869, !noalias !838, !nonnull !13, !noundef !13
-  %132 = getelementptr inbounds i8, ptr %123, i64 16
+  %132 = getelementptr inbounds i8, ptr %121, i64 16
   %.val6.i = load i64, ptr %132, align 8, !alias.scope !869, !noalias !838, !noundef !13
   %133 = getelementptr inbounds i8, ptr %.val4.i, i64 32
   %134 = load ptr, ptr %133, align 8, !invariant.load !13, !noalias !838, !nonnull !13
   invoke void %134(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noundef align 1 %130, ptr noalias noundef nonnull readonly align 1 %.val5.i, i64 noundef %.val6.i)
           to label %135 unwind label %117, !noalias !838
 
-135:                                              ; preds = %126
+135:                                              ; preds = %124
   %136 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.054, ptr noundef nonnull align 8 dereferenceable(32) %136, i64 32, i1 false)
   %.sroa.455.32.copyload = load i64, ptr %4, align 8, !noalias !838

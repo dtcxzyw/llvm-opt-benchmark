@@ -25627,22 +25627,22 @@ define hidden void @"_ZN4core3ptr104drop_in_place$LT$async_lock..rwlock..RwLock$
           to label %"_ZN4core3ptr100drop_in_place$LT$core..cell..UnsafeCell$LT$dyn$u20$zbus..object_server..interface..Interface$GT$$GT$17hca8626a65c6dc123E.llvm.16563453502491001324.exit" unwind label %22
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = load i64, ptr %14, align 8, !range !9265, !invariant.load !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9359)
-  %16 = load ptr, ptr %1, align 8, !invariant.load !4, !alias.scope !9359
-  %.not.i1 = icmp eq ptr %16, null
-  br i1 %.not.i1, label %"_ZN4core3ptr100drop_in_place$LT$core..cell..UnsafeCell$LT$dyn$u20$zbus..object_server..interface..Interface$GT$$GT$17hca8626a65c6dc123E.llvm.16563453502491001324.exit2", label %17
+  %14 = load ptr, ptr %1, align 8, !invariant.load !4, !alias.scope !9359
+  %.not.i1 = icmp eq ptr %14, null
+  br i1 %.not.i1, label %"_ZN4core3ptr100drop_in_place$LT$core..cell..UnsafeCell$LT$dyn$u20$zbus..object_server..interface..Interface$GT$$GT$17hca8626a65c6dc123E.llvm.16563453502491001324.exit2", label %15
 
-17:                                               ; preds = %13
-  %18 = add i64 %15, -1
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = load i64, ptr %16, align 8, !range !9265, !invariant.load !4
+  %18 = add i64 %17, -1
   %19 = and i64 %18, -40
   %20 = getelementptr i8, ptr %0, i64 %19
   %21 = getelementptr i8, ptr %20, i64 40
-  tail call void %16(ptr noundef nonnull align 1 %21), !noalias !9359
+  tail call void %14(ptr noundef nonnull align 1 %21), !noalias !9359
   br label %"_ZN4core3ptr100drop_in_place$LT$core..cell..UnsafeCell$LT$dyn$u20$zbus..object_server..interface..Interface$GT$$GT$17hca8626a65c6dc123E.llvm.16563453502491001324.exit2"
 
-"_ZN4core3ptr100drop_in_place$LT$core..cell..UnsafeCell$LT$dyn$u20$zbus..object_server..interface..Interface$GT$$GT$17hca8626a65c6dc123E.llvm.16563453502491001324.exit2": ; preds = %13, %17
+"_ZN4core3ptr100drop_in_place$LT$core..cell..UnsafeCell$LT$dyn$u20$zbus..object_server..interface..Interface$GT$$GT$17hca8626a65c6dc123E.llvm.16563453502491001324.exit2": ; preds = %13, %15
   ret void
 
 22:                                               ; preds = %6

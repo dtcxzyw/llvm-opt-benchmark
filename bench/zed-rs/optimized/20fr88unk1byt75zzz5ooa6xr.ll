@@ -51182,7 +51182,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17ha0a99f1230801e83E.exit.i161: ; preds =
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..dock..Dock$GT$$GT$17h6ed211af2908439bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #61
           to label %common.resume unwind label %177
 
-417:                                              ; preds = %.invoke222, %.invoke220, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i179", %.noexc181, %490, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i", %.noexc173, %419, %515, %506, %488, %461, %451, %441, %389
+417:                                              ; preds = %.invoke222, %.invoke220, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i179", %.noexc181, %490, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i", %.noexc173, %419, %515, %506, %488, %461, %449, %441, %389
   %418 = landingpad { ptr, i32 }
           cleanup
   br label %416
@@ -51236,22 +51236,22 @@ _ZN4gpui3app10entity_map9EntityMap4read17ha0a99f1230801e83E.exit.i161: ; preds =
   %445 = load ptr, ptr %444, align 8, !nonnull !5, !noundef !5
   %446 = getelementptr inbounds i8, ptr %444, i64 8
   %447 = load ptr, ptr %446, align 8, !nonnull !5, !align !36, !noundef !5
-  %448 = getelementptr inbounds i8, ptr %447, i64 16
-  %449 = load i64, ptr %448, align 8, !range !1099, !invariant.load !5
-  %450 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
-          to label %451 unwind label %417
+  %448 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+          to label %449 unwind label %417
 
-451:                                              ; preds = %441
-  %452 = add i64 %449, -1
+449:                                              ; preds = %441
+  %450 = getelementptr inbounds i8, ptr %447, i64 16
+  %451 = load i64, ptr %450, align 8, !range !1099, !invariant.load !5
+  %452 = add i64 %451, -1
   %453 = and i64 %452, -16
   %454 = getelementptr i8, ptr %445, i64 %453
   %455 = getelementptr i8, ptr %454, i64 16
   %456 = getelementptr inbounds i8, ptr %447, i64 152
   %457 = load ptr, ptr %456, align 8, !invariant.load !5, !nonnull !5
-  invoke void %457(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %9, ptr noundef align 1 %455, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %450)
+  invoke void %457(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %9, ptr noundef align 1 %455, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %448)
           to label %458 unwind label %417
 
-458:                                              ; preds = %451
+458:                                              ; preds = %449
   invoke void @_ZN4gpui6window11FocusHandle5focus17hbeda032ce6c02831E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %461 unwind label %459
 

@@ -12183,30 +12183,30 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
   store ptr %2725, ptr %2753, align 8, !noalias !1760
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !1760
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %18), !noalias !1760
-  %2754 = getelementptr inbounds i8, ptr %2725, i64 16
-  %2755 = load i64, ptr %2754, align 8, !range !214, !invariant.load !4
-  %2756 = invoke { ptr, i64 } @_ZN17datafusion_common16schema_reference15SchemaReference11schema_name17h582f004f4e2b2cd9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %23)
-          to label %2759 unwind label %2757, !noalias !1760
+  %2754 = invoke { ptr, i64 } @_ZN17datafusion_common16schema_reference15SchemaReference11schema_name17h582f004f4e2b2cd9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %23)
+          to label %2757 unwind label %2755, !noalias !1760
 
-2757:                                             ; preds = %2752
-  %2758 = landingpad { ptr, i32 }
+2755:                                             ; preds = %2752
+  %2756 = landingpad { ptr, i32 }
           cleanup
   br label %2768
 
-2759:                                             ; preds = %2752
-  %2760 = add i64 %2755, -1
+2757:                                             ; preds = %2752
+  %2758 = getelementptr inbounds i8, ptr %2725, i64 16
+  %2759 = load i64, ptr %2758, align 8, !range !214, !invariant.load !4
+  %2760 = add i64 %2759, -1
   %2761 = and i64 %2760, -16
   %2762 = getelementptr i8, ptr %2724, i64 %2761
   %2763 = getelementptr i8, ptr %2762, i64 16
-  %2764 = extractvalue { ptr, i64 } %2756, 0
-  %2765 = extractvalue { ptr, i64 } %2756, 1
+  %2764 = extractvalue { ptr, i64 } %2754, 0
+  %2765 = extractvalue { ptr, i64 } %2754, 1
   %2766 = getelementptr inbounds i8, ptr %2725, i64 56
   %2767 = load ptr, ptr %2766, align 8, !invariant.load !4, !nonnull !4
   invoke void %2767(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %18, ptr noundef align 1 %2763, ptr noalias noundef nonnull readonly align 1 %2764, i64 noundef %2765, i1 noundef zeroext %2673)
           to label %2774 unwind label %2772
 
-2768:                                             ; preds = %2772, %2757
-  %.pn23.i219 = phi { ptr, i32 } [ %2773, %2772 ], [ %2758, %2757 ]
+2768:                                             ; preds = %2772, %2755
+  %.pn23.i219 = phi { ptr, i32 } [ %2773, %2772 ], [ %2756, %2755 ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %18), !noalias !1760
   call void @llvm.experimental.noalias.scope.decl(metadata !1778)
   call void @llvm.experimental.noalias.scope.decl(metadata !1781)
@@ -12215,12 +12215,12 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
   %2771 = icmp eq i64 %2770, 1
   br i1 %2771, label %2839, label %.sink.split.i
 
-2772:                                             ; preds = %2759
+2772:                                             ; preds = %2757
   %2773 = landingpad { ptr, i32 }
           cleanup
   br label %2768
 
-2774:                                             ; preds = %2759
+2774:                                             ; preds = %2757
   %2775 = load i64, ptr %18, align 8, !range !65, !alias.scope !1786, !noalias !1760, !noundef !4
   %2776 = icmp eq i64 %2775, -9223372036854775790
   %2777 = getelementptr inbounds i8, ptr %18, i64 8

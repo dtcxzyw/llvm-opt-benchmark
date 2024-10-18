@@ -172489,7 +172489,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hce5af486008e3847E.exit: ; preds = %.no
   invoke void @"_ZN4core3ptr53drop_in_place$LT$language..buffer..BufferSnapshot$GT$17h63f2395504ec645aE"(ptr noalias noundef nonnull align 8 dereferenceable(360) %18) #50
           to label %57 unwind label %159
 
-81:                                               ; preds = %.invoke, %114, %105, %100, %92, %85, %79
+81:                                               ; preds = %.invoke, %114, %105, %100, %90, %85, %79
   %82 = landingpad { ptr, i32 }
           cleanup
   br label %.thread38
@@ -172502,22 +172502,22 @@ _ZN4gpui3app10entity_map9EntityMap4read17hce5af486008e3847E.exit: ; preds = %.no
   %86 = load ptr, ptr %80, align 8, !nonnull !9, !noundef !9
   %87 = getelementptr inbounds i8, ptr %80, i64 8
   %88 = load ptr, ptr %87, align 8, !nonnull !9, !align !77, !noundef !9
-  %89 = getelementptr inbounds i8, ptr %88, i64 16
-  %90 = load i64, ptr %89, align 8, !range !55, !invariant.load !9
-  %91 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
-          to label %92 unwind label %81
+  %89 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+          to label %90 unwind label %81
 
-92:                                               ; preds = %85
-  %93 = add i64 %90, -1
+90:                                               ; preds = %85
+  %91 = getelementptr inbounds i8, ptr %88, i64 16
+  %92 = load i64, ptr %91, align 8, !range !55, !invariant.load !9
+  %93 = add i64 %92, -1
   %94 = and i64 %93, -16
   %95 = getelementptr i8, ptr %86, i64 %94
   %96 = getelementptr i8, ptr %95, i64 16
   %97 = getelementptr inbounds i8, ptr %88, i64 64
   %98 = load ptr, ptr %97, align 8, !invariant.load !9, !nonnull !9
-  %99 = invoke { ptr, i64 } %98(ptr noundef align 1 %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %91)
+  %99 = invoke { ptr, i64 } %98(ptr noundef align 1 %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %89)
           to label %100 unwind label %81
 
-100:                                              ; preds = %92
+100:                                              ; preds = %90
   %101 = extractvalue { ptr, i64 } %99, 0
   %102 = extractvalue { ptr, i64 } %99, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)

@@ -142991,15 +142991,15 @@ define noundef ptr @_ZN4gpui6window13WindowContext11paint_image17h7e793087f5b1ac
   %31 = load ptr, ptr %30, align 8, !nonnull !9, !noundef !9
   %32 = getelementptr inbounds i8, ptr %14, i64 2520
   %33 = load ptr, ptr %32, align 8, !nonnull !9, !align !899, !noundef !9
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = load i64, ptr %34, align 8, !range !1904, !invariant.load !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  %36 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %29, ptr %36, align 8, !alias.scope !27470
-  %37 = getelementptr inbounds i8, ptr %9, i64 16
-  store i64 %4, ptr %37, align 8, !alias.scope !27470
+  %34 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %29, ptr %34, align 8, !alias.scope !27470
+  %35 = getelementptr inbounds i8, ptr %9, i64 16
+  store i64 %4, ptr %35, align 8, !alias.scope !27470
   store i64 4, ptr %9, align 8, !alias.scope !27470
-  %38 = add i64 %35, -1
+  %36 = getelementptr inbounds i8, ptr %33, i64 16
+  %37 = load i64, ptr %36, align 8, !range !1904, !invariant.load !9
+  %38 = add i64 %37, -1
   %39 = and i64 %38, -16
   %40 = getelementptr i8, ptr %31, i64 %39
   %41 = getelementptr i8, ptr %40, i64 16
@@ -151121,19 +151121,19 @@ define hidden void @_ZN4gpui6window13WindowContext23dispatch_action_on_node17h5d
   %64 = load ptr, ptr %.sroa.0120.0, align 8, !nonnull !9, !noundef !9
   %65 = getelementptr inbounds i8, ptr %.sroa.0120.0, i64 8
   %66 = load ptr, ptr %65, align 8, !nonnull !9, !align !899, !noundef !9
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
-  %68 = load i64, ptr %67, align 8, !range !1904, !invariant.load !9
-  %69 = invoke { ptr, ptr } %37(ptr noundef nonnull align 1 %2)
-          to label %70 unwind label %.loopexit234
+  %67 = invoke { ptr, ptr } %37(ptr noundef nonnull align 1 %2)
+          to label %68 unwind label %.loopexit234
 
-70:                                               ; preds = %63
-  %71 = add i64 %68, -1
+68:                                               ; preds = %63
+  %69 = getelementptr inbounds i8, ptr %66, i64 16
+  %70 = load i64, ptr %69, align 8, !range !1904, !invariant.load !9
+  %71 = add i64 %70, -1
   %72 = and i64 %71, -16
   %73 = getelementptr i8, ptr %64, i64 %72
   %74 = getelementptr i8, ptr %73, i64 16
   %75 = load ptr, ptr %0, align 8, !alias.scope !30012, !nonnull !9, !align !899, !noundef !9
-  %76 = extractvalue { ptr, ptr } %69, 1
-  %77 = extractvalue { ptr, ptr } %69, 0
+  %76 = extractvalue { ptr, ptr } %67, 1
+  %77 = extractvalue { ptr, ptr } %67, 0
   %78 = getelementptr inbounds i8, ptr %66, i64 40
   %79 = load ptr, ptr %78, align 8, !invariant.load !9, !nonnull !9
   %80 = icmp ne ptr %77, null
@@ -151143,7 +151143,7 @@ define hidden void @_ZN4gpui6window13WindowContext23dispatch_action_on_node17h5d
   invoke void %79(ptr noundef align 1 %74, ptr noundef nonnull align 1 %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %76, i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(1176) %75)
           to label %82 unwind label %.loopexit234
 
-82:                                               ; preds = %70
+82:                                               ; preds = %68
   %83 = load ptr, ptr %0, align 8, !alias.scope !30015, !nonnull !9, !align !899, !noundef !9
   %84 = getelementptr inbounds i8, ptr %83, i64 1169
   %85 = load i8, ptr %84, align 1, !range !246, !noundef !9
@@ -151310,7 +151310,7 @@ define hidden void @_ZN4gpui6window13WindowContext23dispatch_action_on_node17h5d
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h7424eb20342ff741E.exit.thread"
 
-.loopexit234:                                     ; preds = %63, %70
+.loopexit234:                                     ; preds = %63, %68
   %lpad.loopexit236 = landingpad { ptr, i32 }
           cleanup
   br label %148
@@ -151522,19 +151522,19 @@ define hidden void @_ZN4gpui6window13WindowContext23dispatch_action_on_node17h5d
   %232 = load ptr, ptr %230, align 8, !nonnull !9, !noundef !9
   %233 = getelementptr inbounds i8, ptr %.sroa.4150.0, i64 -8
   %234 = load ptr, ptr %233, align 8, !nonnull !9, !align !899, !noundef !9
-  %235 = getelementptr inbounds i8, ptr %234, i64 16
-  %236 = load i64, ptr %235, align 8, !range !1904, !invariant.load !9
-  %237 = invoke { ptr, ptr } %37(ptr noundef nonnull align 1 %2)
-          to label %238 unwind label %.loopexit
+  %235 = invoke { ptr, ptr } %37(ptr noundef nonnull align 1 %2)
+          to label %236 unwind label %.loopexit
 
-238:                                              ; preds = %229
-  %239 = add i64 %236, -1
+236:                                              ; preds = %229
+  %237 = getelementptr inbounds i8, ptr %234, i64 16
+  %238 = load i64, ptr %237, align 8, !range !1904, !invariant.load !9
+  %239 = add i64 %238, -1
   %240 = and i64 %239, -16
   %241 = getelementptr i8, ptr %232, i64 %240
   %242 = getelementptr i8, ptr %241, i64 16
   %243 = load ptr, ptr %0, align 8, !alias.scope !30091, !nonnull !9, !align !899, !noundef !9
-  %244 = extractvalue { ptr, ptr } %237, 1
-  %245 = extractvalue { ptr, ptr } %237, 0
+  %244 = extractvalue { ptr, ptr } %235, 1
+  %245 = extractvalue { ptr, ptr } %235, 0
   %246 = getelementptr inbounds i8, ptr %234, i64 40
   %247 = load ptr, ptr %246, align 8, !invariant.load !9, !nonnull !9
   %248 = icmp ne ptr %245, null
@@ -151544,7 +151544,7 @@ define hidden void @_ZN4gpui6window13WindowContext23dispatch_action_on_node17h5d
   invoke void %247(ptr noundef align 1 %242, ptr noundef nonnull align 1 %245, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %244, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(1176) %243)
           to label %250 unwind label %.loopexit
 
-250:                                              ; preds = %238
+250:                                              ; preds = %236
   %251 = load ptr, ptr %0, align 8, !nonnull !9, !align !899, !noundef !9
   %252 = getelementptr inbounds i8, ptr %251, i64 1169
   %253 = load i8, ptr %252, align 1, !range !246, !noundef !9
@@ -151644,7 +151644,7 @@ define hidden void @_ZN4gpui6window13WindowContext23dispatch_action_on_node17h5d
   invoke void @"_ZN4core3ptr103drop_in_place$LT$smallvec..SmallVec$LT$$u5b$gpui..key_dispatch..DispatchNodeId$u3b$$u20$32$u5d$$GT$$GT$17heaab744d085c8055E"(ptr noalias noundef nonnull align 8 dereferenceable(264) %30) #57
           to label %.thread191 unwind label %149
 
-.loopexit:                                        ; preds = %229, %238
+.loopexit:                                        ; preds = %229, %236
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %293

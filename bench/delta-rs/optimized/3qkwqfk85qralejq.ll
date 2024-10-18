@@ -2120,12 +2120,12 @@ _ZN10datafusion9execution7context12SessionState17resolve_table_ref17h02a3ce0f11b
   %57 = load ptr, ptr %56, align 8, !nonnull !9, !noundef !9
   %58 = getelementptr inbounds i8, ptr %1, i64 744
   %59 = load ptr, ptr %58, align 8, !nonnull !9, !align !354, !noundef !9
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
-  %61 = load i64, ptr %60, align 8, !range !443, !invariant.load !9
   %.sroa.0.0.in.i52 = getelementptr inbounds i8, ptr %24, i64 8
-  %.sroa.0.0.i53 = load ptr, ptr %.sroa.0.0.in.i52, align 8, !alias.scope !444, !nonnull !9, !noundef !9
+  %.sroa.0.0.i53 = load ptr, ptr %.sroa.0.0.in.i52, align 8, !alias.scope !443, !nonnull !9, !noundef !9
   %.sroa.5.0.in.i54 = getelementptr inbounds i8, ptr %24, i64 16
-  %.sroa.5.0.i55 = load i64, ptr %.sroa.5.0.in.i54, align 8, !alias.scope !444, !noundef !9
+  %.sroa.5.0.i55 = load i64, ptr %.sroa.5.0.in.i54, align 8, !alias.scope !443, !noundef !9
+  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %61 = load i64, ptr %60, align 8, !range !446, !invariant.load !9
   %62 = add i64 %61, -1
   %63 = and i64 %62, -16
   %64 = getelementptr i8, ptr %57, i64 %63
@@ -2308,14 +2308,14 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit23.i: ; preds = %.noexc
   store ptr %70, ptr %23, align 8
   %110 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %108, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %108, i64 16
-  %112 = load i64, ptr %111, align 8, !range !443, !invariant.load !9
-  %113 = getelementptr inbounds i8, ptr %24, i64 24
+  %111 = getelementptr inbounds i8, ptr %24, i64 24
   %.sroa.0.0.in.i61 = getelementptr inbounds i8, ptr %24, i64 32
   %.sroa.0.0.i62 = load ptr, ptr %.sroa.0.0.in.i61, align 8, !alias.scope !494, !nonnull !9, !noundef !9
   %.sroa.5.0.in.i63 = getelementptr inbounds i8, ptr %24, i64 40
   %.sroa.5.0.i64 = load i64, ptr %.sroa.5.0.in.i63, align 8, !alias.scope !494, !noundef !9
-  %114 = add i64 %112, -1
+  %112 = getelementptr inbounds i8, ptr %108, i64 16
+  %113 = load i64, ptr %112, align 8, !range !446, !invariant.load !9
+  %114 = add i64 %113, -1
   %115 = and i64 %114, -16
   %116 = getelementptr i8, ptr %70, i64 %115
   %117 = getelementptr i8, ptr %116, i64 16
@@ -2335,7 +2335,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit23.i: ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !497
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !497
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !497
-  store ptr %113, ptr %9, align 8, !noalias !497
+  store ptr %111, ptr %9, align 8, !noalias !497
   %125 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h1c454fbfb78f203bE", ptr %125, align 8, !noalias !497
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !501
@@ -2719,12 +2719,12 @@ _ZN10datafusion9execution7context12SessionState17resolve_table_ref17h5a6b9a7acf7
   %59 = load ptr, ptr %58, align 8, !nonnull !9, !noundef !9
   %60 = getelementptr inbounds i8, ptr %1, i64 744
   %61 = load ptr, ptr %60, align 8, !nonnull !9, !align !354, !noundef !9
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
-  %63 = load i64, ptr %62, align 8, !range !443, !invariant.load !9
   %.sroa.0.0.in.i52 = getelementptr inbounds i8, ptr %24, i64 8
   %.sroa.0.0.i53 = load ptr, ptr %.sroa.0.0.in.i52, align 8, !alias.scope !586, !nonnull !9, !noundef !9
   %.sroa.5.0.in.i54 = getelementptr inbounds i8, ptr %24, i64 16
   %.sroa.5.0.i55 = load i64, ptr %.sroa.5.0.in.i54, align 8, !alias.scope !586, !noundef !9
+  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %63 = load i64, ptr %62, align 8, !range !446, !invariant.load !9
   %64 = add i64 %63, -1
   %65 = and i64 %64, -16
   %66 = getelementptr i8, ptr %59, i64 %65
@@ -2907,14 +2907,14 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit23.i: ; preds = %.noexc
   store ptr %72, ptr %23, align 8
   %112 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %110, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %110, i64 16
-  %114 = load i64, ptr %113, align 8, !range !443, !invariant.load !9
-  %115 = getelementptr inbounds i8, ptr %24, i64 24
+  %113 = getelementptr inbounds i8, ptr %24, i64 24
   %.sroa.0.0.in.i59 = getelementptr inbounds i8, ptr %24, i64 32
   %.sroa.0.0.i60 = load ptr, ptr %.sroa.0.0.in.i59, align 8, !alias.scope !636, !nonnull !9, !noundef !9
   %.sroa.5.0.in.i61 = getelementptr inbounds i8, ptr %24, i64 40
   %.sroa.5.0.i62 = load i64, ptr %.sroa.5.0.in.i61, align 8, !alias.scope !636, !noundef !9
-  %116 = add i64 %114, -1
+  %114 = getelementptr inbounds i8, ptr %110, i64 16
+  %115 = load i64, ptr %114, align 8, !range !446, !invariant.load !9
+  %116 = add i64 %115, -1
   %117 = and i64 %116, -16
   %118 = getelementptr i8, ptr %72, i64 %117
   %119 = getelementptr i8, ptr %118, i64 16
@@ -2934,7 +2934,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit23.i: ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !639
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !639
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !639
-  store ptr %115, ptr %9, align 8, !noalias !639
+  store ptr %113, ptr %9, align 8, !noalias !639
   %127 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h1c454fbfb78f203bE", ptr %127, align 8, !noalias !639
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !643
@@ -3441,7 +3441,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
   %53 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %51, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 16
-  %55 = load i64, ptr %54, align 8, !range !443, !invariant.load !9
+  %55 = load i64, ptr %54, align 8, !range !446, !invariant.load !9
   %56 = add i64 %55, -1
   %57 = and i64 %56, -16
   %58 = getelementptr i8, ptr %49, i64 %57
@@ -3741,7 +3741,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
   %53 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %.sroa.518.0.copyload, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %.sroa.518.0.copyload, i64 16
-  %55 = load i64, ptr %54, align 8, !range !443, !invariant.load !9
+  %55 = load i64, ptr %54, align 8, !range !446, !invariant.load !9
   %56 = add i64 %55, -1
   %57 = and i64 %56, -16
   %58 = getelementptr i8, ptr %.sroa.417.0.copyload, i64 %57
@@ -4037,7 +4037,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
   %53 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %.sroa.518.0.copyload, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %.sroa.518.0.copyload, i64 16
-  %55 = load i64, ptr %54, align 8, !range !443, !invariant.load !9
+  %55 = load i64, ptr %54, align 8, !range !446, !invariant.load !9
   %56 = add i64 %55, -1
   %57 = and i64 %56, -16
   %58 = getelementptr i8, ptr %.sroa.417.0.copyload, i64 %57
@@ -4318,7 +4318,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
   %53 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %51, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 16
-  %55 = load i64, ptr %54, align 8, !range !443, !invariant.load !9
+  %55 = load i64, ptr %54, align 8, !range !446, !invariant.load !9
   %56 = add i64 %55, -1
   %57 = and i64 %56, -16
   %58 = getelementptr i8, ptr %49, i64 %57
@@ -4599,7 +4599,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
   %53 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %51, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 16
-  %55 = load i64, ptr %54, align 8, !range !443, !invariant.load !9
+  %55 = load i64, ptr %54, align 8, !range !446, !invariant.load !9
   %56 = add i64 %55, -1
   %57 = and i64 %56, -16
   %58 = getelementptr i8, ptr %49, i64 %57
@@ -22192,7 +22192,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h781da75954cec776E(ptr noalia
   %13 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i, i64 8
   %14 = load i64, ptr %13, align 8, !range !2774, !invariant.load !9, !noalias !2773
   %15 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i, i64 16
-  %16 = load i64, ptr %15, align 8, !range !443, !invariant.load !9, !noalias !2773
+  %16 = load i64, ptr %15, align 8, !range !446, !invariant.load !9, !noalias !2773
   %17 = icmp ult i64 %16, -9223372036854775807
   tail call void @llvm.assume(i1 %17)
   %18 = icmp eq i64 %14, 0
@@ -22206,7 +22206,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h781da75954cec776E(ptr noalia
   %20 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i, i64 8
   %21 = load i64, ptr %20, align 8, !range !2774, !invariant.load !9, !noalias !2773
   %22 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i, i64 16
-  %23 = load i64, ptr %22, align 8, !range !443, !invariant.load !9, !noalias !2773
+  %23 = load i64, ptr %22, align 8, !range !446, !invariant.load !9, !noalias !2773
   %24 = icmp ult i64 %23, -9223372036854775807
   tail call void @llvm.assume(i1 %24)
   %25 = icmp eq i64 %21, 0
@@ -27609,7 +27609,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h80ce63e16bfb8ab6E.llvm.51275
   %14 = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 8
   %15 = load i64, ptr %14, align 8, !range !2774, !invariant.load !9, !noalias !3534
   %16 = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 16
-  %17 = load i64, ptr %16, align 8, !range !443, !invariant.load !9, !noalias !3534
+  %17 = load i64, ptr %16, align 8, !range !446, !invariant.load !9, !noalias !3534
   %18 = icmp ult i64 %17, -9223372036854775807
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i64 %15, 0
@@ -27623,7 +27623,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h80ce63e16bfb8ab6E.llvm.51275
   %21 = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 8
   %22 = load i64, ptr %21, align 8, !range !2774, !invariant.load !9, !noalias !3534
   %23 = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 16
-  %24 = load i64, ptr %23, align 8, !range !443, !invariant.load !9, !noalias !3534
+  %24 = load i64, ptr %23, align 8, !range !446, !invariant.load !9, !noalias !3534
   %25 = icmp ult i64 %24, -9223372036854775807
   tail call void @llvm.assume(i1 %25)
   %26 = icmp eq i64 %22, 0
@@ -30950,7 +30950,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$
   %6 = getelementptr inbounds i8, ptr %.8.val, i64 8
   %7 = load i64, ptr %6, align 8, !range !2774, !invariant.load !9
   %8 = getelementptr inbounds i8, ptr %.8.val, i64 16
-  %9 = load i64, ptr %8, align 8, !range !443, !invariant.load !9
+  %9 = load i64, ptr %8, align 8, !range !446, !invariant.load !9
   %10 = icmp ult i64 %9, -9223372036854775807
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i64 %7, 0
@@ -30966,7 +30966,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$
   %14 = getelementptr inbounds i8, ptr %.8.val, i64 8
   %15 = load i64, ptr %14, align 8, !range !2774, !invariant.load !9
   %16 = getelementptr inbounds i8, ptr %.8.val, i64 16
-  %17 = load i64, ptr %16, align 8, !range !443, !invariant.load !9
+  %17 = load i64, ptr %16, align 8, !range !446, !invariant.load !9
   %18 = icmp ult i64 %17, -9223372036854775807
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i64 %15, 0
@@ -33531,7 +33531,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error
   %36 = getelementptr inbounds i8, ptr %.val20, i64 8
   %37 = load i64, ptr %36, align 8, !range !2774, !invariant.load !9
   %38 = getelementptr inbounds i8, ptr %.val20, i64 16
-  %39 = load i64, ptr %38, align 8, !range !443, !invariant.load !9
+  %39 = load i64, ptr %38, align 8, !range !446, !invariant.load !9
   %40 = icmp ult i64 %39, -9223372036854775807
   tail call void @llvm.assume(i1 %40)
   %41 = icmp eq i64 %37, 0
@@ -33547,7 +33547,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error
   %44 = getelementptr inbounds i8, ptr %.val20, i64 8
   %45 = load i64, ptr %44, align 8, !range !2774, !invariant.load !9
   %46 = getelementptr inbounds i8, ptr %.val20, i64 16
-  %47 = load i64, ptr %46, align 8, !range !443, !invariant.load !9
+  %47 = load i64, ptr %46, align 8, !range !446, !invariant.load !9
   %48 = icmp ult i64 %47, -9223372036854775807
   tail call void @llvm.assume(i1 %48)
   %49 = icmp eq i64 %45, 0
@@ -33865,7 +33865,7 @@ common.resume:                                    ; preds = %298, %"_ZN63_$LT$al
   %169 = getelementptr inbounds i8, ptr %.val18, i64 8
   %170 = load i64, ptr %169, align 8, !range !2774, !invariant.load !9
   %171 = getelementptr inbounds i8, ptr %.val18, i64 16
-  %172 = load i64, ptr %171, align 8, !range !443, !invariant.load !9
+  %172 = load i64, ptr %171, align 8, !range !446, !invariant.load !9
   %173 = icmp ult i64 %172, -9223372036854775807
   tail call void @llvm.assume(i1 %173)
   %174 = icmp eq i64 %170, 0
@@ -33881,7 +33881,7 @@ common.resume:                                    ; preds = %298, %"_ZN63_$LT$al
   %177 = getelementptr inbounds i8, ptr %.val18, i64 8
   %178 = load i64, ptr %177, align 8, !range !2774, !invariant.load !9
   %179 = getelementptr inbounds i8, ptr %.val18, i64 16
-  %180 = load i64, ptr %179, align 8, !range !443, !invariant.load !9
+  %180 = load i64, ptr %179, align 8, !range !446, !invariant.load !9
   %181 = icmp ult i64 %180, -9223372036854775807
   tail call void @llvm.assume(i1 %181)
   %182 = icmp eq i64 %178, 0
@@ -33991,7 +33991,7 @@ common.resume:                                    ; preds = %298, %"_ZN63_$LT$al
   %224 = getelementptr inbounds i8, ptr %.val14, i64 8
   %225 = load i64, ptr %224, align 8, !range !2774, !invariant.load !9
   %226 = getelementptr inbounds i8, ptr %.val14, i64 16
-  %227 = load i64, ptr %226, align 8, !range !443, !invariant.load !9
+  %227 = load i64, ptr %226, align 8, !range !446, !invariant.load !9
   %228 = icmp ult i64 %227, -9223372036854775807
   tail call void @llvm.assume(i1 %228)
   %229 = icmp eq i64 %225, 0
@@ -34007,7 +34007,7 @@ common.resume:                                    ; preds = %298, %"_ZN63_$LT$al
   %232 = getelementptr inbounds i8, ptr %.val14, i64 8
   %233 = load i64, ptr %232, align 8, !range !2774, !invariant.load !9
   %234 = getelementptr inbounds i8, ptr %.val14, i64 16
-  %235 = load i64, ptr %234, align 8, !range !443, !invariant.load !9
+  %235 = load i64, ptr %234, align 8, !range !446, !invariant.load !9
   %236 = icmp ult i64 %235, -9223372036854775807
   tail call void @llvm.assume(i1 %236)
   %237 = icmp eq i64 %233, 0
@@ -34051,7 +34051,7 @@ common.resume:                                    ; preds = %298, %"_ZN63_$LT$al
   %251 = getelementptr inbounds i8, ptr %.val10, i64 8
   %252 = load i64, ptr %251, align 8, !range !2774, !invariant.load !9
   %253 = getelementptr inbounds i8, ptr %.val10, i64 16
-  %254 = load i64, ptr %253, align 8, !range !443, !invariant.load !9
+  %254 = load i64, ptr %253, align 8, !range !446, !invariant.load !9
   %255 = icmp ult i64 %254, -9223372036854775807
   tail call void @llvm.assume(i1 %255)
   %256 = icmp eq i64 %252, 0
@@ -34067,7 +34067,7 @@ common.resume:                                    ; preds = %298, %"_ZN63_$LT$al
   %259 = getelementptr inbounds i8, ptr %.val10, i64 8
   %260 = load i64, ptr %259, align 8, !range !2774, !invariant.load !9
   %261 = getelementptr inbounds i8, ptr %.val10, i64 16
-  %262 = load i64, ptr %261, align 8, !range !443, !invariant.load !9
+  %262 = load i64, ptr %261, align 8, !range !446, !invariant.load !9
   %263 = icmp ult i64 %262, -9223372036854775807
   tail call void @llvm.assume(i1 %263)
   %264 = icmp eq i64 %260, 0
@@ -34105,7 +34105,7 @@ common.resume:                                    ; preds = %298, %"_ZN63_$LT$al
   %276 = getelementptr inbounds i8, ptr %.val6, i64 8
   %277 = load i64, ptr %276, align 8, !range !2774, !invariant.load !9
   %278 = getelementptr inbounds i8, ptr %.val6, i64 16
-  %279 = load i64, ptr %278, align 8, !range !443, !invariant.load !9
+  %279 = load i64, ptr %278, align 8, !range !446, !invariant.load !9
   %280 = icmp ult i64 %279, -9223372036854775807
   tail call void @llvm.assume(i1 %280)
   %281 = icmp eq i64 %277, 0
@@ -34121,7 +34121,7 @@ common.resume:                                    ; preds = %298, %"_ZN63_$LT$al
   %284 = getelementptr inbounds i8, ptr %.val6, i64 8
   %285 = load i64, ptr %284, align 8, !range !2774, !invariant.load !9
   %286 = getelementptr inbounds i8, ptr %.val6, i64 16
-  %287 = load i64, ptr %286, align 8, !range !443, !invariant.load !9
+  %287 = load i64, ptr %286, align 8, !range !446, !invariant.load !9
   %288 = icmp ult i64 %287, -9223372036854775807
   tail call void @llvm.assume(i1 %288)
   %289 = icmp eq i64 %285, 0
@@ -34159,7 +34159,7 @@ common.resume:                                    ; preds = %298, %"_ZN63_$LT$al
   %301 = getelementptr inbounds i8, ptr %.val2, i64 8
   %302 = load i64, ptr %301, align 8, !range !2774, !invariant.load !9
   %303 = getelementptr inbounds i8, ptr %.val2, i64 16
-  %304 = load i64, ptr %303, align 8, !range !443, !invariant.load !9
+  %304 = load i64, ptr %303, align 8, !range !446, !invariant.load !9
   %305 = icmp ult i64 %304, -9223372036854775807
   tail call void @llvm.assume(i1 %305)
   %306 = icmp eq i64 %302, 0
@@ -34175,7 +34175,7 @@ common.resume:                                    ; preds = %298, %"_ZN63_$LT$al
   %309 = getelementptr inbounds i8, ptr %.val2, i64 8
   %310 = load i64, ptr %309, align 8, !range !2774, !invariant.load !9
   %311 = getelementptr inbounds i8, ptr %.val2, i64 16
-  %312 = load i64, ptr %311, align 8, !range !443, !invariant.load !9
+  %312 = load i64, ptr %311, align 8, !range !446, !invariant.load !9
   %313 = icmp ult i64 %312, -9223372036854775807
   tail call void @llvm.assume(i1 %313)
   %314 = icmp eq i64 %310, 0
@@ -34316,7 +34316,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$parquet..errors..Pa
   %14 = getelementptr inbounds i8, ptr %.val1, i64 8
   %15 = load i64, ptr %14, align 8, !range !2774, !invariant.load !9
   %16 = getelementptr inbounds i8, ptr %.val1, i64 16
-  %17 = load i64, ptr %16, align 8, !range !443, !invariant.load !9
+  %17 = load i64, ptr %16, align 8, !range !446, !invariant.load !9
   %18 = icmp ult i64 %17, -9223372036854775807
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i64 %15, 0
@@ -34332,7 +34332,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$parquet..errors..Pa
   %22 = getelementptr inbounds i8, ptr %.val1, i64 8
   %23 = load i64, ptr %22, align 8, !range !2774, !invariant.load !9
   %24 = getelementptr inbounds i8, ptr %.val1, i64 16
-  %25 = load i64, ptr %24, align 8, !range !443, !invariant.load !9
+  %25 = load i64, ptr %24, align 8, !range !446, !invariant.load !9
   %26 = icmp ult i64 %25, -9223372036854775807
   tail call void @llvm.assume(i1 %26)
   %27 = icmp eq i64 %23, 0
@@ -34588,7 +34588,7 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$arrow_schema..error..Arrow
   %37 = getelementptr inbounds i8, ptr %.val1, i64 8
   %38 = load i64, ptr %37, align 8, !range !2774, !invariant.load !9
   %39 = getelementptr inbounds i8, ptr %.val1, i64 16
-  %40 = load i64, ptr %39, align 8, !range !443, !invariant.load !9
+  %40 = load i64, ptr %39, align 8, !range !446, !invariant.load !9
   %41 = icmp ult i64 %40, -9223372036854775807
   tail call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
@@ -34604,7 +34604,7 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$arrow_schema..error..Arrow
   %45 = getelementptr inbounds i8, ptr %.val1, i64 8
   %46 = load i64, ptr %45, align 8, !range !2774, !invariant.load !9
   %47 = getelementptr inbounds i8, ptr %.val1, i64 16
-  %48 = load i64, ptr %47, align 8, !range !443, !invariant.load !9
+  %48 = load i64, ptr %47, align 8, !range !446, !invariant.load !9
   %49 = icmp ult i64 %48, -9223372036854775807
   tail call void @llvm.assume(i1 %49)
   %50 = icmp eq i64 %46, 0
@@ -35057,7 +35057,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$deltalake_core..ker
   %47 = getelementptr inbounds i8, ptr %.val2, i64 8
   %48 = load i64, ptr %47, align 8, !range !2774, !invariant.load !9
   %49 = getelementptr inbounds i8, ptr %.val2, i64 16
-  %50 = load i64, ptr %49, align 8, !range !443, !invariant.load !9
+  %50 = load i64, ptr %49, align 8, !range !446, !invariant.load !9
   %51 = icmp ult i64 %50, -9223372036854775807
   tail call void @llvm.assume(i1 %51)
   %52 = icmp eq i64 %48, 0
@@ -35073,7 +35073,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$deltalake_core..ker
   %55 = getelementptr inbounds i8, ptr %.val2, i64 8
   %56 = load i64, ptr %55, align 8, !range !2774, !invariant.load !9
   %57 = getelementptr inbounds i8, ptr %.val2, i64 16
-  %58 = load i64, ptr %57, align 8, !range !443, !invariant.load !9
+  %58 = load i64, ptr %57, align 8, !range !446, !invariant.load !9
   %59 = icmp ult i64 %58, -9223372036854775807
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i64 %56, 0
@@ -36365,7 +36365,7 @@ common.resume:                                    ; preds = %.body, %.body10, %4
   %262 = getelementptr inbounds i8, ptr %.val3.i.i, i64 8
   %263 = load i64, ptr %262, align 8, !range !2774, !invariant.load !9, !noalias !5327
   %264 = getelementptr inbounds i8, ptr %.val3.i.i, i64 16
-  %265 = load i64, ptr %264, align 8, !range !443, !invariant.load !9, !noalias !5327
+  %265 = load i64, ptr %264, align 8, !range !446, !invariant.load !9, !noalias !5327
   %266 = icmp ult i64 %265, -9223372036854775807
   tail call void @llvm.assume(i1 %266)
   %267 = icmp eq i64 %263, 0
@@ -36381,7 +36381,7 @@ common.resume:                                    ; preds = %.body, %.body10, %4
   %270 = getelementptr inbounds i8, ptr %.val3.i.i, i64 8
   %271 = load i64, ptr %270, align 8, !range !2774, !invariant.load !9, !noalias !5327
   %272 = getelementptr inbounds i8, ptr %.val3.i.i, i64 16
-  %273 = load i64, ptr %272, align 8, !range !443, !invariant.load !9, !noalias !5327
+  %273 = load i64, ptr %272, align 8, !range !446, !invariant.load !9, !noalias !5327
   %274 = icmp ult i64 %273, -9223372036854775807
   tail call void @llvm.assume(i1 %274)
   %275 = icmp eq i64 %271, 0
@@ -36408,7 +36408,7 @@ common.resume:                                    ; preds = %.body, %.body10, %4
   %283 = getelementptr inbounds i8, ptr %.val1.i.i, i64 8
   %284 = load i64, ptr %283, align 8, !range !2774, !invariant.load !9, !noalias !5327
   %285 = getelementptr inbounds i8, ptr %.val1.i.i, i64 16
-  %286 = load i64, ptr %285, align 8, !range !443, !invariant.load !9, !noalias !5327
+  %286 = load i64, ptr %285, align 8, !range !446, !invariant.load !9, !noalias !5327
   %287 = icmp ult i64 %286, -9223372036854775807
   tail call void @llvm.assume(i1 %287)
   %288 = icmp eq i64 %284, 0
@@ -36424,7 +36424,7 @@ common.resume:                                    ; preds = %.body, %.body10, %4
   %291 = getelementptr inbounds i8, ptr %.val1.i.i, i64 8
   %292 = load i64, ptr %291, align 8, !range !2774, !invariant.load !9, !noalias !5327
   %293 = getelementptr inbounds i8, ptr %.val1.i.i, i64 16
-  %294 = load i64, ptr %293, align 8, !range !443, !invariant.load !9, !noalias !5327
+  %294 = load i64, ptr %293, align 8, !range !446, !invariant.load !9, !noalias !5327
   %295 = icmp ult i64 %294, -9223372036854775807
   tail call void @llvm.assume(i1 %295)
   %296 = icmp eq i64 %292, 0
@@ -36532,7 +36532,7 @@ common.resume:                                    ; preds = %.body, %.body10, %4
   %336 = getelementptr inbounds i8, ptr %.val1.i, i64 8
   %337 = load i64, ptr %336, align 8, !range !2774, !invariant.load !9
   %338 = getelementptr inbounds i8, ptr %.val1.i, i64 16
-  %339 = load i64, ptr %338, align 8, !range !443, !invariant.load !9
+  %339 = load i64, ptr %338, align 8, !range !446, !invariant.load !9
   %340 = icmp ult i64 %339, -9223372036854775807
   tail call void @llvm.assume(i1 %340)
   %341 = icmp eq i64 %337, 0
@@ -36548,7 +36548,7 @@ common.resume:                                    ; preds = %.body, %.body10, %4
   %344 = getelementptr inbounds i8, ptr %.val1.i, i64 8
   %345 = load i64, ptr %344, align 8, !range !2774, !invariant.load !9
   %346 = getelementptr inbounds i8, ptr %.val1.i, i64 16
-  %347 = load i64, ptr %346, align 8, !range !443, !invariant.load !9
+  %347 = load i64, ptr %346, align 8, !range !446, !invariant.load !9
   %348 = icmp ult i64 %347, -9223372036854775807
   tail call void @llvm.assume(i1 %348)
   %349 = icmp eq i64 %345, 0
@@ -36757,7 +36757,7 @@ common.resume:                                    ; preds = %.body, %.body10, %4
   %417 = getelementptr inbounds i8, ptr %.val2, i64 8
   %418 = load i64, ptr %417, align 8, !range !2774, !invariant.load !9
   %419 = getelementptr inbounds i8, ptr %.val2, i64 16
-  %420 = load i64, ptr %419, align 8, !range !443, !invariant.load !9
+  %420 = load i64, ptr %419, align 8, !range !446, !invariant.load !9
   %421 = icmp ult i64 %420, -9223372036854775807
   tail call void @llvm.assume(i1 %421)
   %422 = icmp eq i64 %418, 0
@@ -36773,7 +36773,7 @@ common.resume:                                    ; preds = %.body, %.body10, %4
   %425 = getelementptr inbounds i8, ptr %.val2, i64 8
   %426 = load i64, ptr %425, align 8, !range !2774, !invariant.load !9
   %427 = getelementptr inbounds i8, ptr %.val2, i64 16
-  %428 = load i64, ptr %427, align 8, !range !443, !invariant.load !9
+  %428 = load i64, ptr %427, align 8, !range !446, !invariant.load !9
   %429 = icmp ult i64 %428, -9223372036854775807
   tail call void @llvm.assume(i1 %429)
   %430 = icmp eq i64 %426, 0
@@ -37226,7 +37226,7 @@ define internal void @"_ZN4core3ptr62drop_in_place$LT$datafusion_common..error..
   %133 = getelementptr inbounds i8, ptr %.val2, i64 8
   %134 = load i64, ptr %133, align 8, !range !2774, !invariant.load !9
   %135 = getelementptr inbounds i8, ptr %.val2, i64 16
-  %136 = load i64, ptr %135, align 8, !range !443, !invariant.load !9
+  %136 = load i64, ptr %135, align 8, !range !446, !invariant.load !9
   %137 = icmp ult i64 %136, -9223372036854775807
   tail call void @llvm.assume(i1 %137)
   %138 = icmp eq i64 %134, 0
@@ -37242,7 +37242,7 @@ define internal void @"_ZN4core3ptr62drop_in_place$LT$datafusion_common..error..
   %141 = getelementptr inbounds i8, ptr %.val2, i64 8
   %142 = load i64, ptr %141, align 8, !range !2774, !invariant.load !9
   %143 = getelementptr inbounds i8, ptr %.val2, i64 16
-  %144 = load i64, ptr %143, align 8, !range !443, !invariant.load !9
+  %144 = load i64, ptr %143, align 8, !range !446, !invariant.load !9
   %145 = icmp ult i64 %144, -9223372036854775807
   tail call void @llvm.assume(i1 %145)
   %146 = icmp eq i64 %142, 0
@@ -37994,7 +37994,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..sto
   %66 = getelementptr inbounds i8, ptr %.val10, i64 8
   %67 = load i64, ptr %66, align 8, !range !2774, !invariant.load !9
   %68 = getelementptr inbounds i8, ptr %.val10, i64 16
-  %69 = load i64, ptr %68, align 8, !range !443, !invariant.load !9
+  %69 = load i64, ptr %68, align 8, !range !446, !invariant.load !9
   %70 = icmp ult i64 %69, -9223372036854775807
   tail call void @llvm.assume(i1 %70)
   %71 = icmp eq i64 %67, 0
@@ -38010,7 +38010,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..sto
   %74 = getelementptr inbounds i8, ptr %.val10, i64 8
   %75 = load i64, ptr %74, align 8, !range !2774, !invariant.load !9
   %76 = getelementptr inbounds i8, ptr %.val10, i64 16
-  %77 = load i64, ptr %76, align 8, !range !443, !invariant.load !9
+  %77 = load i64, ptr %76, align 8, !range !446, !invariant.load !9
   %78 = icmp ult i64 %77, -9223372036854775807
   tail call void @llvm.assume(i1 %78)
   %79 = icmp eq i64 %75, 0
@@ -38052,7 +38052,7 @@ common.resume:                                    ; preds = %156, %115, %"_ZN63_
   %91 = getelementptr inbounds i8, ptr %.val6, i64 8
   %92 = load i64, ptr %91, align 8, !range !2774, !invariant.load !9
   %93 = getelementptr inbounds i8, ptr %.val6, i64 16
-  %94 = load i64, ptr %93, align 8, !range !443, !invariant.load !9
+  %94 = load i64, ptr %93, align 8, !range !446, !invariant.load !9
   %95 = icmp ult i64 %94, -9223372036854775807
   tail call void @llvm.assume(i1 %95)
   %96 = icmp eq i64 %92, 0
@@ -38068,7 +38068,7 @@ common.resume:                                    ; preds = %156, %115, %"_ZN63_
   %99 = getelementptr inbounds i8, ptr %.val6, i64 8
   %100 = load i64, ptr %99, align 8, !range !2774, !invariant.load !9
   %101 = getelementptr inbounds i8, ptr %.val6, i64 16
-  %102 = load i64, ptr %101, align 8, !range !443, !invariant.load !9
+  %102 = load i64, ptr %101, align 8, !range !446, !invariant.load !9
   %103 = icmp ult i64 %102, -9223372036854775807
   tail call void @llvm.assume(i1 %103)
   %104 = icmp eq i64 %100, 0
@@ -38115,7 +38115,7 @@ common.resume:                                    ; preds = %156, %115, %"_ZN63_
   %118 = getelementptr inbounds i8, ptr %.val2, i64 8
   %119 = load i64, ptr %118, align 8, !range !2774, !invariant.load !9
   %120 = getelementptr inbounds i8, ptr %.val2, i64 16
-  %121 = load i64, ptr %120, align 8, !range !443, !invariant.load !9
+  %121 = load i64, ptr %120, align 8, !range !446, !invariant.load !9
   %122 = icmp ult i64 %121, -9223372036854775807
   tail call void @llvm.assume(i1 %122)
   %123 = icmp eq i64 %119, 0
@@ -38131,7 +38131,7 @@ common.resume:                                    ; preds = %156, %115, %"_ZN63_
   %126 = getelementptr inbounds i8, ptr %.val2, i64 8
   %127 = load i64, ptr %126, align 8, !range !2774, !invariant.load !9
   %128 = getelementptr inbounds i8, ptr %.val2, i64 16
-  %129 = load i64, ptr %128, align 8, !range !443, !invariant.load !9
+  %129 = load i64, ptr %128, align 8, !range !446, !invariant.load !9
   %130 = icmp ult i64 %129, -9223372036854775807
   tail call void @llvm.assume(i1 %130)
   %131 = icmp eq i64 %127, 0
@@ -96053,10 +96053,10 @@ attributes #43 = { "function-inline-cost-multiplier"="2" }
 !440 = distinct !{!440, !441, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE: argument 0"}
 !441 = distinct !{!441, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE"}
 !442 = distinct !{!442, !441, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE: argument 1"}
-!443 = !{i64 1, i64 0}
-!444 = !{!445}
-!445 = distinct !{!445, !446, !"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf458aecdc4585247E: argument 0"}
-!446 = distinct !{!446, !"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf458aecdc4585247E"}
+!443 = !{!444}
+!444 = distinct !{!444, !445, !"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf458aecdc4585247E: argument 0"}
+!445 = distinct !{!445, !"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf458aecdc4585247E"}
+!446 = !{i64 1, i64 0}
 !447 = !{!448, !450}
 !448 = distinct !{!448, !449, !"_ZN10datafusion9execution7context12SessionState14schema_for_ref28_$u7b$$u7b$closure$u7d$$u7d$17h8316bbf11bafd292E: argument 0"}
 !449 = distinct !{!449, !"_ZN10datafusion9execution7context12SessionState14schema_for_ref28_$u7b$$u7b$closure$u7d$$u7d$17h8316bbf11bafd292E"}

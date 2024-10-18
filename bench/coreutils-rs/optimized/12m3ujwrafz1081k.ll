@@ -3215,32 +3215,32 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !635
   %706 = load ptr, ptr %643, align 8, !noalias !622, !nonnull !5, !noundef !5
   %707 = load ptr, ptr %646, align 8, !noalias !622, !nonnull !5, !align !477, !noundef !5
-  %708 = getelementptr inbounds i8, ptr %707, i64 16
-  %709 = load i64, ptr %708, align 8, !range !84, !invariant.load !5, !noalias !626
   call void @llvm.experimental.noalias.scope.decl(metadata !647)
-  %710 = load i64, ptr %14, align 8, !range !351, !noalias !635, !noundef !5
-  %trunc.i8.i.i.i = trunc nuw i64 %710 to i1
-  br i1 %trunc.i8.i.i.i, label %713, label %711
+  %708 = load i64, ptr %14, align 8, !range !351, !noalias !635, !noundef !5
+  %trunc.i8.i.i.i = trunc nuw i64 %708 to i1
+  br i1 %trunc.i8.i.i.i, label %711, label %709
 
-711:                                              ; preds = %"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3get17h82cf2781299a517cE.exit.i.i.i"
-  %712 = load ptr, ptr %178, align 8, !alias.scope !647, !noalias !635, !nonnull !5, !align !477, !noundef !5
+709:                                              ; preds = %"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3get17h82cf2781299a517cE.exit.i.i.i"
+  %710 = load ptr, ptr %178, align 8, !alias.scope !647, !noalias !635, !nonnull !5, !align !477, !noundef !5
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17hc1fceed553c59c0dE.exit.i.i.i"
 
-713:                                              ; preds = %"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3get17h82cf2781299a517cE.exit.i.i.i"
-  %714 = load ptr, ptr %179, align 8, !alias.scope !647, !noalias !635, !nonnull !5, !align !477, !noundef !5
-  %715 = getelementptr inbounds i8, ptr %714, i64 48
-  %716 = load i64, ptr %715, align 8, !range !650, !noalias !651, !noundef !5
-  %717 = icmp ne i64 %716, 3
-  call void @llvm.assume(i1 %717)
+711:                                              ; preds = %"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3get17h82cf2781299a517cE.exit.i.i.i"
+  %712 = load ptr, ptr %179, align 8, !alias.scope !647, !noalias !635, !nonnull !5, !align !477, !noundef !5
+  %713 = getelementptr inbounds i8, ptr %712, i64 48
+  %714 = load i64, ptr %713, align 8, !range !650, !noalias !651, !noundef !5
+  %715 = icmp ne i64 %714, 3
+  call void @llvm.assume(i1 %715)
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17hc1fceed553c59c0dE.exit.i.i.i"
 
 _ZN14regex_automata4meta5regex5Regex6search17h648c121a5c95efe5E.exit.thread.i.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.i.i.i, %680, %674
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19), !noalias !621
   br label %.thread78.i
 
-"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17hc1fceed553c59c0dE.exit.i.i.i": ; preds = %713, %711
-  %.0.i9.i.i.i = phi ptr [ %715, %713 ], [ %712, %711 ]
-  %718 = add i64 %709, -1
+"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17hc1fceed553c59c0dE.exit.i.i.i": ; preds = %711, %709
+  %.0.i9.i.i.i = phi ptr [ %713, %711 ], [ %710, %709 ]
+  %716 = getelementptr inbounds i8, ptr %707, i64 16
+  %717 = load i64, ptr %716, align 8, !range !84, !invariant.load !5, !noalias !626
+  %718 = add i64 %717, -1
   %719 = and i64 %718, -16
   %720 = getelementptr i8, ptr %706, i64 %719
   %721 = getelementptr i8, ptr %720, i64 16
@@ -3252,7 +3252,7 @@ _ZN14regex_automata4meta5regex5Regex6search17h648c121a5c95efe5E.exit.thread.i.i:
 724:                                              ; preds = %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17hc1fceed553c59c0dE.exit.i.i.i"
   %.sroa.0.sroa.4.0.copyload.i.i.i = load i64, ptr %178, align 8, !noalias !635
   %.sroa.0.sroa.5.0.copyload.i.i.i = load ptr, ptr %179, align 8, !noalias !635
-  %switch.i4.i.i.i = icmp eq i64 %710, 0
+  %switch.i4.i.i.i = icmp eq i64 %708, 0
   br i1 %switch.i4.i.i.i, label %725, label %728
 
 725:                                              ; preds = %724

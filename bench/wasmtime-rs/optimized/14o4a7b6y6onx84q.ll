@@ -14799,8 +14799,6 @@ define hidden void @_ZN18wasmtime_cranelift8compiler8Compiler21store_values_to_a
   %20 = getelementptr inbounds { i32, [2 x i32] }, ptr %2, i64 %.sroa.14.027
   %21 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
   %22 = load ptr, ptr %16, align 8, !nonnull !4, !align !27, !noundef !4
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
-  %24 = load i64, ptr %23, align 8, !range !215, !invariant.load !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   call void @_ZN18cranelift_frontend8frontend15FunctionBuilder6cursor17hd21d1e4b4748c137E(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32] }, ptr, i32, [1 x i32] }) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
@@ -14809,6 +14807,8 @@ define hidden void @_ZN18wasmtime_cranelift8compiler8Compiler21store_values_to_a
   br i1 %exitcond, label %.split, label %.split6
 
 .split6:                                          ; preds = %17
+  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = load i64, ptr %23, align 8, !range !215, !invariant.load !4
   %25 = add i64 %24, -1
   %26 = and i64 %25, -16
   %27 = getelementptr i8, ptr %21, i64 %26
